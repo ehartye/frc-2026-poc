@@ -87,7 +87,7 @@
     "cad/build_original_fixture.py": "a224f67dca4b817a68098f6a4fd80aac156f5ece3102d1a1d33a452e055dd91c",
     "cad/2026-original-fixture.step": "f94736a56ddae861744429d7dc70a519f48f17049dcb8b501f6fd8f625c9b48f",
     "cad/2026-original-fixture.json": "3109253bb05d339a357638a4a0839bdff5ba8c619c53065c474d748c653876b4",
-    "config.json": "058ee72d4c989a114a904232378067f1a8beb18ec10b536c71b908ba464e9889"
+    "config.json": "2190a7b9b3378867b4a5d376b0edfefe3655062a012b4b686126d6087b3d8150"
   },
   "adaptations": {
     "shared/scripts/powered-target-link.py": "Removed unused legacy receipt from PINS; fresh season execution receipt remains mandatory."
