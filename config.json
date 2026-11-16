@@ -1,0 +1,16 @@
+{
+  "season": 2026,
+  "game": "REBUILT",
+  "piece": "FUEL",
+  "guideAngleDeg": 60,
+  "rollerInertiaKgM2": 0.0005,
+  "duty": 0.6,
+  "guideLengthM": 0.3,
+  "targetExitXM": -2,
+  "targetExitYM": 0,
+  "massKg": [
+    0.215
+  ],
+  "summary": "Fixed-angle HUB approach and launch",
+  "result": "12 V gives about 252 mm whole-sphere thin-plane margin; 9 V fails."
+}

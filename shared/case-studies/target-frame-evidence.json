@@ -1,0 +1,77 @@
+{
+  "schema": "frc-target-frame-evidence/v1",
+  "source": {
+    "url": "https://firstfrc.blob.core.windows.net/frc2026/FieldAssets/2026-field-dimension-dwgs.pdf",
+    "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82",
+    "bytes": 29824139
+  },
+  "hub": {
+    "controlledHeightInch": 72,
+    "controlledHeightToleranceInch": 0.5,
+    "outsideAcrossFlatsInch": 41.932,
+    "outsideAcrossFlatsToleranceInch": 0.5,
+    "controlledLocator": "PDF p25, GE-26300 sheet4 of4, drawing10/26/2025, revision field blank",
+    "innerReferenceAcrossFlatsInch": 41.73,
+    "innerLocator": "PDF p4 FE-2026 RevB sheet4 of11, parenthesized reference no tolerance",
+    "warning": "Outside dimension tolerance is not an inner-aperture tolerance"
+  },
+  "localFrame": {
+    "origin": "Hypothetical floor point below opening center; not registered to actual field",
+    "axes": "X horizontal direction of approach, Y lateral, Z up; hex orientation assumed",
+    "worldTransform": null,
+    "certified": false
+  },
+  "exitState": {
+    "basis": "prescribed-hypothesis",
+    "speedCalibration": null,
+    "sourceMechanismContinuity": false
+  },
+  "engineeringAcceptance": "blocked",
+  "speaker": {
+    "url": "https://firstfrc.blob.core.windows.net/frc2024/FieldAssets/2024FieldDrawings.pdf",
+    "sha256": "6bbe47cbbe95001984b18b67e674b639f59c06ff9324e6bfece1980e018aec03",
+    "locator": "PDF p120 GE-24300 RevA sheet2of6, drawn12/19/2023; RevA2/21/2024",
+    "widthInch": 41.38,
+    "lowEdgeAboveAssemblyBottomInch": 78.13,
+    "highEdgeAboveAssemblyBottomInch": 82.9,
+    "horizontalReachInch": 18.11,
+    "defaultToleranceInch": 0.5,
+    "scope": "Visually reviewed side-profile scalar dimensions; illustrative local aperture plane, no certified corner or field registration",
+    "manualAngleDegrees": 14,
+    "warning": "Derived endpoint angle and manual14deg not reconciled; no as-built calibration"
+  },
+  "coralFloor": {
+    "url": "https://firstfrc.blob.core.windows.net/frc2025/FieldAssets/2025FieldDrawings.pdf",
+    "sha256": "85659c846ec94909d399ed0b29c9ea0a2fbb57dd8e21f77eaf613fcdd5401015",
+    "locator": "PDF p182 GE-25313 RevA, drawn10/1/2024 revised11/8/2024",
+    "verticesInch": [
+      [
+        0,
+        0
+      ],
+      [
+        18.38,
+        0
+      ],
+      [
+        13.15,
+        9.38
+      ],
+      [
+        0,
+        9.38
+      ]
+    ],
+    "thicknessInch": 0.25,
+    "cornerRadiusInch": 0.13,
+    "defaultToleranceInch": 0.01,
+    "scope": "Part-local unrounded patch, +u left/+v up on drawing, neither holes nor radii represented",
+    "installedTransform": null,
+    "frontLip": {
+      "heightAboveAssemblyBottomInch": 17.88,
+      "locator": "PDF p162 GE-25300 sheet2",
+      "manualHeightAboveCarpetInch": 18,
+      "warning": "Different nominal datum statements, not reconciled"
+    }
+  }
+}

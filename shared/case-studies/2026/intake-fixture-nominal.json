@@ -1,0 +1,170 @@
+{
+  "schema": "frc-fuel-intake-fixture/v1",
+  "id": "fuel-intake-nominal",
+  "variant": "nominal",
+  "basis": "original-unvalidated-fixed-planar-fixture",
+  "parentCadConfigPin": {
+    "path": "case-studies/2026/roller-mechanism.json",
+    "sha256": "140e9b97e5fe4404bf391b697a560a10bf5ef7d23d86098cf625d8bddf5de0c9"
+  },
+  "graphPins": {
+    "strategy-brief": {
+      "id": "2026-fuel-feeder.strategy",
+      "revision": 1,
+      "sha256": "58aab2996ca2a5ca5b9f0725555d3809b2c753839c0df97c5fc5c64aea458b22"
+    },
+    "robot-envelope": {
+      "id": "2026-fuel-feeder.envelope",
+      "revision": 1,
+      "sha256": "1a9e70e4b412746102f6697c852e611eb877c823698b1e737b5db82c6e552069"
+    },
+    "capability-contract": {
+      "id": "2026-fuel-feeder.contract",
+      "revision": 1,
+      "sha256": "97340a4b8f91e8130073e966fdf9931d753725db48af2116f38248faf727d2d9"
+    },
+    "subsystem-spec": {
+      "id": "2026-fuel-feeder.subsystem",
+      "revision": 1,
+      "sha256": "87acee0c6ca0b32ebec71d078431b144d0737fc51a4e0723ac4292863c624ae2"
+    }
+  },
+  "frame": {
+    "unit": "mm",
+    "origin": "floor-top-at-roller-X-and-centerline-Y",
+    "axes": "+X feed, +Y shaft, +Z up; right-handed",
+    "fieldRegistration": "none"
+  },
+  "roller": {
+    "id": "driven-sleeve",
+    "axisOriginMm": [
+      0.0,
+      0.0,
+      188.1
+    ],
+    "axisUnitVector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "outerRadiusMm": 38.1,
+    "boreRadiusMm": 6.35,
+    "lengthMm": 200.0,
+    "densityKgM3": 1200.0,
+    "densityBasis": "assumed-uniform-not-material-identification",
+    "gearRatio": 10.0,
+    "motorCount": 1,
+    "gearingBasis": "hypothetical-not-manufacturer-verified"
+  },
+  "supports": [
+    {
+      "id": "floor",
+      "role": "fixed-support-no-mass-model",
+      "minMm": [
+        -400.0,
+        -150.0,
+        -20.0
+      ],
+      "maxMm": [
+        90.0,
+        150.0,
+        0.0
+      ]
+    },
+    {
+      "id": "backstop",
+      "role": "fixed-support-no-mass-model",
+      "minMm": [
+        90.0,
+        -150.0,
+        0.0
+      ],
+      "maxMm": [
+        110.0,
+        150.0,
+        300.0
+      ]
+    }
+  ],
+  "contactFaces": [
+    {
+      "id": "floor-top",
+      "supportId": "floor",
+      "pointMm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "domainMm": {
+        "x": [
+          -400.0,
+          90.0
+        ],
+        "y": [
+          -150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "backstop-inner",
+      "supportId": "backstop",
+      "pointMm": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "domainMm": {
+        "y": [
+          -150.0,
+          150.0
+        ],
+        "z": [
+          0.0,
+          300.0
+        ]
+      }
+    }
+  ],
+  "pieceSource": {
+    "type": "FUEL",
+    "source": {
+      "url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/2026GameManual.pdf",
+      "sha256": "5c67300fc412a1eed8ca9dc37fb6644aee05795a2befed1f69736643cbf95139",
+      "revision": "TU22",
+      "locator": "pp32-33 section5.10.1"
+    },
+    "orientation": "sphere-no-preferred-axis",
+    "geometryMm": {
+      "diameter": 150.0
+    },
+    "massMinKg": 0.20320938176,
+    "massMaxKg": 0.226796185,
+    "massBasis": "manual-range-not-measured-specimen",
+    "roundingNote": "Uses displayed 15.0 cm metric nominal; 5.91 inch converts to 150.114 mm. Neither is a measured tolerance."
+  },
+  "modelDimension": "planar-XZ-at-Y0-only",
+  "contactCoefficients": null,
+  "assemblyComplete": false,
+  "totalAssemblyMassKg": null,
+  "captureEstablished": false,
+  "engineeringAcceptance": "blocked",
+  "omissions": [
+    "No shaft, motor rotor, gearbox, bearings, guards or support strength model",
+    "Fixed supports are original fixture geometry, not robot mass or official field geometry",
+    "Planar centerline constraint is external; no side guides, end-face or corner collision claim",
+    "Contact stiffness, damping and friction are unknown until separately declared experiment assumptions",
+    "Native mass/inertia describes the ideal sleeve under assumed density, not measured material or assembly",
+    "Any imposed overlap is a compliant experiment design; no rigid interpenetration validity or capture outcome"
+  ]
+}

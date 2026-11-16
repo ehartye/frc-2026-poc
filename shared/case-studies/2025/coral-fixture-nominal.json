@@ -1,0 +1,176 @@
+{
+  "schema": "frc-coral-intake-fixture/v1",
+  "id": "coral-intake-nominal",
+  "variant": "nominal",
+  "basis": "original-unvalidated-constrained-coral-fixture",
+  "parentCadConfigPin": {
+    "path": "case-studies/2025/roller-mechanism.json",
+    "sha256": "5e22bc468521cef3933d9aea82fc015c5b2c88c8d9f024a2888f2431c80ff9a8"
+  },
+  "graphPins": {
+    "strategy-brief": {
+      "id": "2025-coral-l1.strategy",
+      "revision": 1,
+      "sha256": "baf7eb94298c97ba8e47bf98c4d082b161b9e75472e63e7003231e2ad11b9727"
+    },
+    "robot-envelope": {
+      "id": "2025-coral-l1.envelope",
+      "revision": 1,
+      "sha256": "2a162ba53be6255e75ad022e958df75da1a9b8a4fe2040e8db83948f7c674c39"
+    },
+    "capability-contract": {
+      "id": "2025-coral-l1.contract",
+      "revision": 1,
+      "sha256": "d9ab86c447644012ca0d6272cb5a75086a62751f19506a5bf5f69ce7a1b35cc9"
+    },
+    "subsystem-spec": {
+      "id": "2025-coral-l1.subsystem",
+      "revision": 1,
+      "sha256": "c576d0669142fa1070f8571c9a53d921bac93f27abb5a8e114ca8fee4a98bde0"
+    }
+  },
+  "frame": {
+    "unit": "mm",
+    "origin": "floor-top-at-roller-X-and-centerline-Y",
+    "axes": "+X tube/feed, +Y shaft, +Z up; right-handed",
+    "fieldRegistration": "none"
+  },
+  "roller": {
+    "id": "driven-sleeve",
+    "axisOriginMm": [
+      0.0,
+      0.0,
+      139.7
+    ],
+    "axisUnitVector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "outerRadiusMm": 25.4,
+    "boreRadiusMm": 6.35,
+    "lengthMm": 152.4,
+    "densityKgM3": 1200.0,
+    "densityBasis": "assumed-uniform-not-material-identification",
+    "gearRatio": 10.0,
+    "motorCount": 1,
+    "gearingBasis": "hypothetical-not-manufacturer-verified"
+  },
+  "supports": [
+    {
+      "id": "floor",
+      "role": "fixed-support-no-mass-model",
+      "minMm": [
+        -600.0,
+        -150.0,
+        -20.0
+      ],
+      "maxMm": [
+        600.0,
+        150.0,
+        0.0
+      ]
+    }
+  ],
+  "tubeProxy": {
+    "id": "coral-hollow-proxy",
+    "role": "source-sized-hollow-geometry-only",
+    "centerMm": [
+      -160.0,
+      0.0,
+      57.15
+    ],
+    "axisUnitVector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "lengthMm": 301.625,
+    "outerRadiusMm": 57.15,
+    "innerRadiusMm": 50.8,
+    "densityKgM3": null,
+    "nativeMassKg": null,
+    "basis": "ideal-annular-tube-from-source-nominals-not-vendor-CAD"
+  },
+  "contactFaces": [
+    {
+      "id": "floor-top",
+      "supportId": "floor",
+      "pointMm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "domainMm": {
+        "x": [
+          -600.0,
+          600.0
+        ],
+        "y": [
+          -150.0,
+          150.0
+        ]
+      }
+    }
+  ],
+  "contactScope": {
+    "tubeAxis": "fixed-X-orientation-external-zero-angular-work-constraint",
+    "centerlineYmm": 0.0,
+    "supported": "external-upper-surface-and-top-end-edge-only",
+    "upperSegmentRelativeMm": {
+      "x": [
+        -150.8125,
+        150.8125
+      ],
+      "z": 57.15
+    },
+    "lowerExteriorRelativeZmm": -57.15,
+    "rollerAxisMustRemainAboveTubeTop": true,
+    "unsupported": [
+      "bore contact",
+      "generic annular end-face contact",
+      "lateral or roller-end contact",
+      "bending or free tube rotation"
+    ],
+    "proxyReferencePoseIsInitialStateOnly": true
+  },
+  "pieceSource": {
+    "type": "CORAL",
+    "source": {
+      "url": "https://firstfrc.blob.core.windows.net/frc2025/Manual/2025GameManual.pdf",
+      "sha256": "dc6aa9ddbeba25c679c58bae746bde14dba2af79a61a65d8c5f575ca6cdfd523",
+      "revision": "section 5 V4",
+      "locator": "p33 section5.7.1"
+    },
+    "orientation": "tube-axis-X-axial",
+    "geometryMm": {
+      "outerDiameter": 114.3,
+      "innerDiameter": 101.6,
+      "length": 301.625
+    },
+    "massMinKg": 0.4989516070000001,
+    "massMaxKg": 0.816466266,
+    "massBasis": "manual-range-not-measured-specimen"
+  },
+  "modelDimension": "planar-XZ-constrained-axis-X-at-Y0-only",
+  "contactCoefficients": null,
+  "assemblyComplete": false,
+  "totalAssemblyMassKg": null,
+  "captureEstablished": false,
+  "engineeringAcceptance": "blocked",
+  "omissions": [
+    "No shaft, motor rotor, gearbox, bearings, guards or support strength model",
+    "Fixed floor is original fixture geometry, not robot mass or official field geometry",
+    "Tube is genuinely hollow native geometry; reduced exterior contact is not generic 3D shell contact",
+    "Orientation and centerline constraints are external; no physical guide or free angular dynamics verified",
+    "Contact stiffness, damping and friction require separate uncalibrated experiment assumptions",
+    "Native mass/inertia describes only the ideal sleeve under assumed density; source piece mass is independent",
+    "Tube-sleeve overlap is an intentional compliant hypothesis, not rigid assembly fit or demonstrated transport",
+    "No scoring, retention, powerless recovery, material damage or engineering acceptance"
+  ]
+}

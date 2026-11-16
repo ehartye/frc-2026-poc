@@ -1,0 +1,29 @@
+{
+  "season": 2026,
+  "units": "mm",
+  "partsInOrder": [
+    "floor",
+    "gate",
+    "bumper",
+    "guide-1",
+    "rollerEnvelope-1",
+    "guide1",
+    "rollerEnvelope1",
+    "piece"
+  ],
+  "parameters": {
+    "halfX": 75,
+    "halfY": 75,
+    "height": 150,
+    "rollerRadius": 38.1,
+    "rollerEnvelopeWidth": 25.4
+  },
+  "limitations": [
+    "Original guide fixture, not complete robot",
+    "Rollers are simplified cylindrical envelopes, not vendor CAD",
+    "FUEL roller width25.4mm is provisional",
+    "Guide slots do not establish support structure or strength",
+    "Nominal1mm radial piece interference is not contact calibration",
+    "No chassis, motors, rails, opposite supports, fasteners or transmission"
+  ]
+}

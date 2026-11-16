@@ -1,0 +1,81 @@
+{
+  "schema": "frc-direct-drive-inertia-inputs/v1",
+  "sources": {
+    "wheels": {
+      "url": "https://www.revrobotics.com/ION-Compliant-Wheels/",
+      "sha256": "77036a00f226b630e78cdecb0752972e28e8c429b188600860129b4179f34a3f",
+      "bytes": 304507
+    },
+    "hubs": {
+      "url": "https://www.revrobotics.com/MAXHubs/",
+      "sha256": "38f09117f41debd3469bbeda65c1dd95e177f7cd856da1503c8d159ffbc241f4",
+      "bytes": 266880
+    },
+    "collars": {
+      "url": "https://www.revrobotics.com/Shaft-Collars-0.5in-Hex-Bore/",
+      "sha256": "6e14ab836c16ed20bc0a51ba33a2144bfbc4dfa7c14dc777e4e22459468b0837",
+      "bytes": 301673
+    },
+    "shafts": {
+      "url": "https://www.revrobotics.com/.5in-Rounded-Hex-Shafts/",
+      "sha256": "18d104b82b8adebae6e34b8be4d3c84789697dc1de37376ef6d8fdb908332351",
+      "bytes": 301609
+    },
+    "neo-v1.1": {
+      "url": "https://www.revrobotics.com/rev-21-1650/",
+      "sha256": "93f510092f58d15ac34ee3dae2f7a6ae46369a5f09be7f290cb304d9663f04a5",
+      "bytes": 297970
+    }
+  },
+  "wheels": {
+    "2024": {
+      "massKg": 0.128,
+      "radiusM": 0.0508,
+      "diskHypothesisKgM2": 0.00016516096,
+      "ringEnvelopeKgM2": 0.00033032192
+    },
+    "2025": {
+      "massKg": 0.018,
+      "radiusM": 0.0254,
+      "diskHypothesisKgM2": 5.806439999999999e-06,
+      "ringEnvelopeKgM2": 1.1612879999999999e-05
+    },
+    "2026": {
+      "massKg": 0.084,
+      "radiusM": 0.0381,
+      "diskHypothesisKgM2": 6.096762000000001e-05,
+      "ringEnvelopeKgM2": 0.00012193524000000002
+    }
+  },
+  "motor": {
+    "part": "REV-21-1650",
+    "completeMassKg": 0.425,
+    "casingRadiusM": 0.03,
+    "rotorEnvelopeKgM2": 0.0003825,
+    "assumption": "All complete motor mass placed at casing radius; rotor contained inside casing, not measured rotor inertia"
+  },
+  "gearRatioMotorToWheel": 1,
+  "accessoryHypotheses": {
+    "twoHubRingKgM2": 6.708655937499998e-06,
+    "twoCollarRingKgM2": 2.3352300000000005e-06,
+    "sixInchSolidShaftCylinderKgM2": 1.5028027252044029e-06,
+    "shaftDensityKgM3": 2810,
+    "shaftEnvelopeDiameterM": 0.01375
+  },
+  "noteConditionalSubtotalKgM2": 0.0007233686086627043,
+  "unallocatedAllowanceTo001KgM2": 0.00027663139133729574,
+  "sensitivityInertiaEachKgM2": [
+    0.0003,
+    0.0005,
+    0.001
+  ],
+  "heavyControlKgM2": 0.004,
+  "limitations": [
+    "Disk is a distribution hypothesis, not lower bound; ring is conditional nominal mass/radius envelope",
+    "Direct drive only; other gearing reflects motor inertia by ratio squared",
+    "Unknown inner bearing/fastener/spacer/coupling inertia must fit declared allowance before treating .001 as conservative total",
+    "Listed wheel family masses are nominal, not measured assembly data; material distribution and tolerance remain uncertain",
+    "Do not include stationary rail/plate/bearing-outer mass as spinning inertia"
+  ],
+  "calibration": null
+}

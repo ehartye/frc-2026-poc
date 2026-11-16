@@ -1,0 +1,5 @@
+* text eol=lf
+*.jar binary
+shared/** -text
+cad/** -text
+config.json -text

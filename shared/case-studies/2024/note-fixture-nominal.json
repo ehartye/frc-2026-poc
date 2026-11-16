@@ -1,0 +1,178 @@
+{
+  "schema": "frc-note-intake-fixture/v1",
+  "id": "note-intake-nominal",
+  "variant": "nominal",
+  "basis": "original-unvalidated-constrained-note-fixture",
+  "parentCadConfigPin": {
+    "path": "case-studies/2024/roller-mechanism.json",
+    "sha256": "f144f3bfddf81175d2ff2d8f7376af79c3a73c6c00238fd92f10bd9a71350fd8"
+  },
+  "graphPins": {
+    "strategy-brief": {
+      "id": "2024-fixed-speaker.strategy",
+      "revision": 1,
+      "sha256": "3ece698abcb35a505ec37d29babe402ad43b83258985d96c730e126b060b8b6a"
+    },
+    "robot-envelope": {
+      "id": "2024-fixed-speaker.envelope",
+      "revision": 1,
+      "sha256": "6e63ba90d5125305d33fb7624fed18bee357f3db3bf815c1a1c87f225caa5617"
+    },
+    "capability-contract": {
+      "id": "2024-fixed-speaker.contract",
+      "revision": 1,
+      "sha256": "5e2cda81713a95b838f457075d2c258ef5f38aede793d453bb525e14ad4b30cc"
+    },
+    "subsystem-spec": {
+      "id": "2024-fixed-speaker.subsystem",
+      "revision": 1,
+      "sha256": "175779635082e86201e727091ee3c842e1ee14627a689333afee65e9cc925f31"
+    }
+  },
+  "frame": {
+    "unit": "mm",
+    "origin": "floor-top-at-roller-X-and-centerline-Y",
+    "axes": "+X feed, +Y shaft, +Z up; right-handed",
+    "fieldRegistration": "none"
+  },
+  "roller": {
+    "id": "driven-sleeve",
+    "axisOriginMm": [
+      0.0,
+      0.0,
+      101.6
+    ],
+    "axisUnitVector": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "outerRadiusMm": 50.8,
+    "boreRadiusMm": 6.35,
+    "lengthMm": 400.0,
+    "densityKgM3": 1200.0,
+    "densityBasis": "assumed-uniform-not-material-identification",
+    "gearRatio": 10.0,
+    "motorCount": 1,
+    "gearingBasis": "hypothetical-not-manufacturer-verified"
+  },
+  "supports": [
+    {
+      "id": "floor",
+      "role": "fixed-support-no-mass-model",
+      "minMm": [
+        -700.0,
+        -250.0,
+        -20.0
+      ],
+      "maxMm": [
+        700.0,
+        250.0,
+        0.0
+      ]
+    }
+  ],
+  "noteProxy": {
+    "id": "note-torus-proxy",
+    "role": "source-sized-ideal-torus-geometry-only",
+    "centerMm": [
+      -220.0,
+      0.0,
+      25.4
+    ],
+    "axisUnitVector": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "majorRadiusMm": 152.4,
+    "minorRadiusMm": 25.4,
+    "densityKgM3": null,
+    "nativeMassKg": null,
+    "basis": "circular-section-idealization-not-measured-foam-profile"
+  },
+  "contactFaces": [
+    {
+      "id": "floor-top",
+      "supportId": "floor",
+      "pointMm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "domainMm": {
+        "x": [
+          -700.0,
+          700.0
+        ],
+        "y": [
+          -250.0,
+          250.0
+        ]
+      }
+    }
+  ],
+  "contactScope": {
+    "orientation": "flat-axis-Z-external-zero-angular-work-constraint",
+    "centerlineYmm": 0.0,
+    "supported": "upper-exterior-full-span-transverse-roller-only",
+    "ringProjectionRelativeMm": {
+      "x": [
+        -152.4,
+        152.4
+      ],
+      "z": 0.0
+    },
+    "offsetRadiusMm": 25.4,
+    "patchTopology": "two-symmetric-rim-loci-merge-at-projection-endpoints",
+    "loadLaw": "separately-declared-aggregate-effective-law-not-per-patch-doubling",
+    "rollerAxisMustRemainAboveNoteTop": true,
+    "rollerSpanMustCoverWholeNote": true,
+    "unsupported": [
+      "tilt or free rotation",
+      "lateral displacement",
+      "roller-end contact",
+      "foam deformation profile or individual patch pressure"
+    ],
+    "proxyReferencePoseIsInitialStateOnly": true
+  },
+  "pieceSource": {
+    "type": "NOTE",
+    "source": {
+      "url": "https://firstfrc.blob.core.windows.net/frc2024/Manual/2024GameManual.pdf",
+      "sha256": "1b7e1dc3fe1b1bd64d97a482d7e78eb419ec77d611a15226a16b0c7011069b94",
+      "revision": "section 5 V8",
+      "locator": "p34 section5.7"
+    },
+    "orientation": "torus-axis-Z-flat",
+    "geometryMm": {
+      "outerDiameter": 355.6,
+      "innerDiameter": 254.0,
+      "thickness": 50.8
+    },
+    "massMinKg": 0.2296311373125,
+    "massMaxKg": 0.2409709465625,
+    "massBasis": "manual-range-not-measured-specimen"
+  },
+  "modelDimension": "planar-XZ-flat-torus-at-Y0-only",
+  "contactCoefficients": null,
+  "assemblyComplete": false,
+  "totalAssemblyMassKg": null,
+  "captureEstablished": false,
+  "engineeringAcceptance": "blocked",
+  "omissions": [
+    "No shaft, motor rotor, gearbox, bearings, guards or support strength model",
+    "Fixed floor is original fixture geometry, not robot mass or official field geometry",
+    "Genuine native torus preserves hole; circular tube profile is an extra idealization",
+    "Orientation and centerline constraints are external; no physical guide or free angular dynamics verified",
+    "Two rim loci do not imply doubled stiffness or measured load sharing; aggregate law is separate",
+    "Native sleeve mass/inertia uses assumed density; source NOTE mass stays independent of proxy volume",
+    "Any later compliant overlap is not rigid fit, material damage acceptance or demonstrated transport",
+    "No scoring, retention, powerless recovery or engineering acceptance"
+  ]
+}
