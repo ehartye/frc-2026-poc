@@ -1,0 +1,136 @@
+{
+  "schema": "frc-abstract-inventory-comparison/v1",
+  "season": 2026,
+  "fieldPackageSha256": "508c080dc1244f8636901343aa7865a9d617ccd0bf77fd90b091baa42a375837",
+  "basis": "hypothetical-unmeasured",
+  "assumptionStatement": "Original synthetic scheduling benchmark. Capacities, rates, stock counts, probabilities, cooldowns and windows are deliberate comparison assumptions, not measured robot values, official match setup or official phase timings. Location IDs only refer to the shared 2026 semantic package. No actual team hardware or geometry assumed.",
+  "ticks": 40,
+  "tickSeconds": 1,
+  "seeds": [
+    7,
+    11,
+    23,
+    37,
+    53,
+    71,
+    89,
+    101
+  ],
+  "concepts": [
+    {
+      "id": "small-buffer",
+      "basis": "hypothetical-unmeasured",
+      "capacity": 2,
+      "acquirePerOpportunity": 1,
+      "releasePerOpportunity": 1,
+      "acquireCooldownTicks": 0,
+      "releaseCooldownTicks": 0
+    },
+    {
+      "id": "large-buffer",
+      "basis": "hypothetical-unmeasured",
+      "capacity": 8,
+      "acquirePerOpportunity": 3,
+      "releasePerOpportunity": 2,
+      "acquireCooldownTicks": 1,
+      "releaseCooldownTicks": 1
+    },
+    {
+      "id": "modest-buffer",
+      "basis": "hypothetical-unmeasured",
+      "capacity": 4,
+      "acquirePerOpportunity": 2,
+      "releasePerOpportunity": 1,
+      "acquireCooldownTicks": 0,
+      "releaseCooldownTicks": 1
+    }
+  ],
+  "policies": [
+    {
+      "id": "release-eagerly",
+      "kind": "threshold-release-when-open",
+      "releaseThresholdFraction": 0.01
+    },
+    {
+      "id": "wait-full-batch",
+      "kind": "threshold-release-when-open",
+      "releaseThresholdFraction": 1
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "steady-opportunities",
+      "basis": "hypothetical-unmeasured",
+      "retrievalLocationId": "depot",
+      "releaseTargetId": "hub",
+      "initialAvailable": 20,
+      "initialReserve": 10,
+      "replenishments": [
+        {
+          "tick": 20,
+          "count": 10
+        }
+      ],
+      "releaseOpportunityWindows": [
+        [
+          0,
+          40
+        ]
+      ],
+      "acquireSuccessProbability": 0.9,
+      "releaseSuccessProbability": 0.9
+    },
+    {
+      "id": "intermittent-opportunities",
+      "basis": "hypothetical-unmeasured",
+      "retrievalLocationId": "neutral-zone-fuel",
+      "releaseTargetId": "hub",
+      "initialAvailable": 20,
+      "initialReserve": 10,
+      "replenishments": [
+        {
+          "tick": 20,
+          "count": 10
+        }
+      ],
+      "releaseOpportunityWindows": [
+        [
+          8,
+          15
+        ],
+        [
+          25,
+          35
+        ]
+      ],
+      "acquireSuccessProbability": 0.9,
+      "releaseSuccessProbability": 0.9
+    },
+    {
+      "id": "scarce-unreliable",
+      "basis": "hypothetical-unmeasured",
+      "retrievalLocationId": "depot",
+      "releaseTargetId": "hub",
+      "initialAvailable": 7,
+      "initialReserve": 3,
+      "replenishments": [
+        {
+          "tick": 20,
+          "count": 3
+        }
+      ],
+      "releaseOpportunityWindows": [
+        [
+          5,
+          18
+        ],
+        [
+          25,
+          35
+        ]
+      ],
+      "acquireSuccessProbability": 0.5,
+      "releaseSuccessProbability": 0.65
+    }
+  ]
+}

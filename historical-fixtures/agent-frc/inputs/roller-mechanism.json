@@ -1,0 +1,122 @@
+{
+  "schema": "frc-roller-mechanism-input/v1",
+  "season": 2026,
+  "candidateId": "2026-fuel-feeder",
+  "basis": "original-unvalidated-concept",
+  "graphPins": {
+    "strategy-brief": {
+      "id": "2026-fuel-feeder.strategy",
+      "revision": 1,
+      "sha256": "58aab2996ca2a5ca5b9f0725555d3809b2c753839c0df97c5fc5c64aea458b22"
+    },
+    "robot-envelope": {
+      "id": "2026-fuel-feeder.envelope",
+      "revision": 1,
+      "sha256": "1a9e70e4b412746102f6697c852e611eb877c823698b1e737b5db82c6e552069"
+    },
+    "capability-contract": {
+      "id": "2026-fuel-feeder.contract",
+      "revision": 1,
+      "sha256": "97340a4b8f91e8130073e966fdf9931d753725db48af2116f38248faf727d2d9"
+    },
+    "subsystem-spec": {
+      "id": "2026-fuel-feeder.subsystem",
+      "revision": 1,
+      "sha256": "87acee0c6ca0b32ebec71d078431b144d0737fc51a4e0723ac4292863c624ae2"
+    }
+  },
+  "frame": {
+    "unit": "mm",
+    "origin": "midpoint-between-roller-axes",
+    "axes": "+X transport, +Y shafts, +Z up; right-handed"
+  },
+  "rollers": [
+    {
+      "id": "upper",
+      "axisOriginMm": [
+        0.0,
+        0.0,
+        113.1
+      ],
+      "axisUnitVector": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "outerRadiusMm": 38.1,
+      "boreRadiusMm": 6.35,
+      "lengthMm": 200.0,
+      "densityKgM3": 1200.0,
+      "densityBasis": "assumed-uniform-not-material-identification",
+      "gearRatio": 1.0,
+      "motorCount": 1,
+      "contactVelocitySign": -1
+    },
+    {
+      "id": "lower",
+      "axisOriginMm": [
+        0.0,
+        0.0,
+        -113.1
+      ],
+      "axisUnitVector": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "outerRadiusMm": 38.1,
+      "boreRadiusMm": 6.35,
+      "lengthMm": 200.0,
+      "densityKgM3": 1200.0,
+      "densityBasis": "assumed-uniform-not-material-identification",
+      "gearRatio": 1.0,
+      "motorCount": 1,
+      "contactVelocitySign": 1
+    }
+  ],
+  "piece": {
+    "type": "FUEL",
+    "source": {
+      "url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/2026GameManual.pdf",
+      "sha256": "5c67300fc412a1eed8ca9dc37fb6644aee05795a2befed1f69736643cbf95139",
+      "revision": "TU22",
+      "locator": "pp32-33 section5.10.1"
+    },
+    "orientation": "sphere-no-preferred-axis",
+    "geometryMm": {
+      "diameter": 150.0
+    },
+    "massMinKg": 0.20320938176,
+    "massMaxKg": 0.226796185,
+    "massBasis": "manual-range-not-measured-specimen",
+    "roundingNote": "Uses displayed 15.0 cm metric nominal; 5.91 inch converts to 150.114 mm. Neither is a measured tolerance."
+  },
+  "transport": {
+    "axisUnitVector": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "entryPlaneXmm": -350.0,
+    "exitPlaneXmm": 350.0,
+    "sensorPlanesXmm": [
+      -175.0,
+      0.0,
+      175.0
+    ],
+    "planeBasis": "hypothetical-fixture-datums-not-field-targets"
+  },
+  "contact": {
+    "frictionCoefficient": null,
+    "normalForcePerRollerN": null,
+    "basis": "unresolved-not-derived-from-nominal-tangency"
+  },
+  "omissions": [
+    "No shaft, bearings, couplers, motor rotor or gearbox inertia",
+    "No compliant tread or game-piece deformation model",
+    "No supports, guards, mounting, structural or installation validation",
+    "No field target, scoring, mass-budget or team inventory evidence",
+    "FUEL sphere deformation, changing contact patch and foam behavior are not modeled; nominal tangency supplies no prescribed preload"
+  ],
+  "engineeringAcceptance": "blocked"
+}

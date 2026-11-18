@@ -1,0 +1,45 @@
+{
+  "schema": "frc-segmented-fuel-contact-geometry/v1",
+  "units": "mm",
+  "basis": "original ideal finite cylinders using pinned native full wheel bounds; not exact tread contact",
+  "wheelCentersY": [
+    -87.3125,
+    -52.3875,
+    -17.4625,
+    17.4625,
+    52.3875,
+    87.3125
+  ],
+  "wheelHalfWidth": 12.00625,
+  "pieceRadius": 75,
+  "nominalWheelZ": 188.1,
+  "compressedWheelZ": 183.1,
+  "nominalSignedGaps": [
+    31.28278924201463,
+    10.180076024634417,
+    0.19820918121986608,
+    0.19820918121986608,
+    10.180076024634417,
+    31.28278924201463
+  ],
+  "compressedSignedGaps": [
+    27.81552066231295,
+    5.812408400953501,
+    -4.787674414939801,
+    -4.787674414939801,
+    5.812408400953501,
+    27.81552066231295
+  ],
+  "priorInfiniteSleeveNominalGap": 0,
+  "forceLaw": null,
+  "material": null,
+  "friction": null,
+  "calibrated": false,
+  "engineeringAcceptance": "blocked",
+  "limitations": [
+    "Geometric gaps only; negative gap is an imposed compliant-overlap hypothesis",
+    "Full-bound cylinder envelope overfills actual tread grooves and may overpredict contact",
+    "No summing six copies of previous aggregate sleeve stiffness",
+    "Lateral dynamics, spinning sphere, floor, motor and thermal coupling absent"
+  ]
+}

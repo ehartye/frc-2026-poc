@@ -1,0 +1,134 @@
+{
+  "context": {
+    "ruleSnapshot": {
+      "season": 2026,
+      "url": "https://firstfrc.blob.core.windows.net/frc2026/Manual/2026GameManual.pdf",
+      "revision": "TU22; 166 pages",
+      "sha256": "5c67300fc412a1eed8ca9dc37fb6644aee05795a2befed1f69736643cbf95139"
+    },
+    "clockBasis": "nominal-scenario",
+    "eventApplicability": "unverified-archive",
+    "firstInactiveAlliance": "RED"
+  },
+  "events": [
+    {
+      "passageId": "example-1",
+      "pieceId": "synthetic-fuel-1",
+      "hubAlliance": "RED",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 11000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 12000
+      }
+    },
+    {
+      "passageId": "example-2",
+      "pieceId": "synthetic-fuel-2",
+      "hubAlliance": "BLUE",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 11000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 12000
+      }
+    },
+    {
+      "passageId": "example-3",
+      "pieceId": "synthetic-fuel-3",
+      "hubAlliance": "RED",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 14000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 15000
+      }
+    },
+    {
+      "passageId": "example-4",
+      "pieceId": "synthetic-fuel-4",
+      "hubAlliance": "RED",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 36000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 37000
+      }
+    },
+    {
+      "passageId": "example-5",
+      "pieceId": "synthetic-fuel-5",
+      "hubAlliance": "BLUE",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 36000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 37000
+      }
+    },
+    {
+      "passageId": "example-6",
+      "pieceId": "synthetic-fuel-6",
+      "hubAlliance": "BLUE",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 39000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 40000
+      }
+    },
+    {
+      "passageId": "example-7",
+      "pieceId": "synthetic-fuel-7",
+      "hubAlliance": "BLUE",
+      "basis": "hypothetical-external-event",
+      "evidenceRefs": [
+        "independent-hand-calculated-review-vectors"
+      ],
+      "topEntry": {
+        "period": "TELEOP",
+        "elapsedMs": 9000
+      },
+      "sensorPassage": {
+        "period": "TELEOP",
+        "elapsedMs": 11000
+      }
+    }
+  ]
+}

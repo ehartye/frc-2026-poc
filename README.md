@@ -1,5 +1,7 @@
 # 2026 REBUILT proof of concept
 
+The [historical case input manifest](historical-fixtures/agent-frc/manifest.json) identifies source-pinned simulation parameters, original geometry and prior analysis from the earlier plugin case. Inputs labeled as excerpts have a new schema and retain their source hash. The manifest records identical existing files and the original revision of the shared producers.
+
 ![Interim mechanism layout, not a complete robot](cad/interim-layout.svg)
 
 **Interim subsystem concept, not a complete assembled robot.** The top image shows a nominal mechanism fixture. It is not a picture of a complete robot. Chassis, motors, rails, supports and transmission are not assembled.
