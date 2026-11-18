@@ -1,0 +1,24 @@
+{
+  "schema": "frc-static-envelope-input/v1",
+  "id": "hypothetical-square-envelope",
+  "basis": "hypothetical-design-assumption",
+  "configuration": "stowed-static-upright",
+  "alignment": "width-across-aperture",
+  "footprintReference": "complete-robot-including-bumpers",
+  "dimensionsMm": {
+    "length": 845.8199999999999,
+    "width": 850.8999999999999,
+    "height": 508
+  },
+  "uncertaintyMm": {
+    "length": 6.35,
+    "width": 6.35,
+    "height": 6.35
+  },
+  "assumptionStatement": "Hypothetical square AM14U6-based packaging target. Add 3.5 inches per side to bare frame for assumed bumper-inclusive box; assume complete stowed height 20 inches and 0.25 inch positive dimensional uncertainty per full dimension. These are design targets/reserves, not measured bounds, certified bumper construction, verified mechanism fit or team-owned hardware. No mass/power/performance claim.",
+  "sourceArtifactPin": {
+    "id": "hypothetical-square-envelope",
+    "revision": 1,
+    "sha256": "332768638cf0f26da750fe8fe94619a88d66d1905df35ab768b365b1f009611b"
+  }
+}

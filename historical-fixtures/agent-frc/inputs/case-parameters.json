@@ -1,0 +1,42 @@
+{
+  "schema": "historical-case-input-excerpt/v1",
+  "originalSourceSha256": "599a121f2485ecccf727c19d84f24d9d8564bb0a6ae18bf9f121b2e2a03f5732",
+  "inputs": {
+    "season": 2026,
+    "cad": {
+      "lengthMm": 480,
+      "heightMm": 260,
+      "gapMm": 300,
+      "thicknessMm": 6.35,
+      "axles": [
+        [
+          90,
+          65
+        ],
+        [
+          350,
+          65
+        ]
+      ],
+      "rollerRadiusMm": 30
+    },
+    "model": {
+      "kind": "flywheel",
+      "target": 2800,
+      "rollerMassKg": 0.6,
+      "gearing": 1,
+      "carriageMassKg": 3,
+      "maxHeightM": 0.6,
+      "inertiaKgM2": 0.00027
+    },
+    "autoSeconds": 20,
+    "simulationInterface": {
+      "feedback": "direct plant state; no encoder object",
+      "vendorAdapter": null,
+      "vendorLibraryVersion": null,
+      "firmwareVerified": false,
+      "physicalParameters": "synthetic assumptions; unmeasured",
+      "readbackTested": false
+    }
+  }
+}

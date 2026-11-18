@@ -1,0 +1,385 @@
+{
+  "schema": "historical-case-input-excerpt/v1",
+  "originalSourceSha256": "78da7126f1a41f3d509c56542cf6623af29e9dc2bcc12ad5d691434755e97022",
+  "inputs": {
+    "schema": "frc-configured-chassis-ledger/v1",
+    "season": 2026,
+    "basis": "configured-variant-proposal-not-as-built",
+    "variant": {
+      "manufacturer": "AndyMark",
+      "model": "AM14U6",
+      "configuration": "long",
+      "sourceRefs": [
+        "andymark-am14u6-guide-2026"
+      ]
+    },
+    "frames": [],
+    "components": [
+      {
+        "id": "higrip-wheels",
+        "description": "Guide p5 lists six 6-inch HiGrip wheels; material stack and mass distribution are not modeled.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-0940b",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 6,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "center-hex-hubs",
+        "description": "Guide p5 lists two half-inch hex hubs; no installed transforms established.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-2568",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "gearbox-assemblies",
+        "description": "Guide p3 describes two unassembled ToughBox Mini S gearboxes; p6 per-gearbox quantities must not be mistaken for complete chassis totals.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "TB2C8XUX",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "end-plates",
+        "description": "Guide p7 frame listing; configuration-dependent cuts and final as-built mass remain unknown.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-3920",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "outer-plates",
+        "description": "Guide p7 frame listing; configuration-dependent cuts and final as-built mass remain unknown.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-3921b",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "inner-plates",
+        "description": "Guide p7 frame listing; configuration-dependent cuts and final as-built mass remain unknown.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-3922b",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "churro-stock",
+        "description": "Guide p7 lists 24-inch churro stock; selected cuts/offcuts are not measured assembly geometry.",
+        "variantApplicability": [
+          "square",
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-3101-2",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 2,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      },
+      {
+        "id": "drive-belts",
+        "description": "Long selection: four 160-tooth belts, not all supplied alternative belt sets.",
+        "variantApplicability": [
+          "long"
+        ],
+        "identity": {
+          "manufacturer": "AndyMark",
+          "partNumber": "am-2266",
+          "revision": null,
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "quantity": {
+          "value": 4,
+          "basis": "source-listed",
+          "sourceRefs": [
+            "andymark-am14u6-guide-2026"
+          ]
+        },
+        "mass": {
+          "value": null,
+          "unit": "kg",
+          "basis": "unknown",
+          "scope": "unknown",
+          "uncertaintyKg": null,
+          "sourceRefs": []
+        },
+        "placement": {
+          "basis": "unknown",
+          "frameId": null,
+          "transform": null,
+          "uncertaintyMm": null,
+          "sourceRefs": []
+        },
+        "inventoryState": "not-linked",
+        "assemblyState": "not-verified"
+      }
+    ],
+    "omissions": [
+      {
+        "id": "remaining-drive-hardware",
+        "description": "Remaining axles, bearings, fasteners and gearbox internals",
+        "reason": "This is a selected subset, not a full configured/installed BOM; avoid double-counting assembly internals.",
+        "quantity": null
+      },
+      {
+        "id": "drive-motors",
+        "description": "Drive motors and any adapters",
+        "reason": "Exact selected motor/controller pairing and installed quantities are unresolved.",
+        "quantity": null
+      },
+      {
+        "id": "battery-electronics",
+        "description": "Battery, power distribution, control, wiring and connectors",
+        "reason": "No assembly-selected inventory, masses or placements verified.",
+        "quantity": null
+      },
+      {
+        "id": "bumpers",
+        "description": "Complete bumpers and mounting hardware",
+        "reason": "Candidate bumper box is an assumption, not assembled mass/placement evidence.",
+        "quantity": null
+      },
+      {
+        "id": "upper-mechanisms",
+        "description": "Intake, storage, release, sensing and other mechanisms",
+        "reason": "No configured mechanism BOM or mass/placement evidence.",
+        "quantity": null
+      },
+      {
+        "id": "cutting-assembly-state",
+        "description": "Cuts, offcuts, welds, mounting adaptations and retained stock",
+        "reason": "Kit-supplied quantities may differ from the eventual installed configuration; no as-built audit.",
+        "quantity": null
+      }
+    ],
+    "unknownAdditionalItems": true,
+    "limitations": [
+      "Source facts identify selected guide/BOM rows only; no actual school stock or assembled robot is established.",
+      "Component masses and placements are unknown; no origin, zero mass or homogeneous density substitutes are used.",
+      "Gearbox internals are not separately enumerated and must not be double-counted against the assembly.",
+      "The advertised nominal 31 lb product mass is not ingested as a numeric input: its weighed variant/scope is unresolved and it is not a complete robot mass.",
+      "Wheel material/durometer does not establish traction or friction. No aggregate mass, CoM or inertia is calculated."
+    ]
+  }
+}

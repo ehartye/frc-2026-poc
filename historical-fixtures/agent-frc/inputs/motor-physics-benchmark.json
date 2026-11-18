@@ -1,0 +1,8 @@
+{
+ "schema":"frc-motor-physics-benchmark/v1",
+ "basis":"synthetic-unvalidated",
+ "assumptionStatement":"Synthetic motor/rotor parameter pair for numerical development only. All values hypothetical. Subject hashes label synthetic fixtures, not actual robot code or CAD. Candidate doubles inertia; neither model is calibrated.",
+ "baseline":{"subject":{"codeSha256":"0000000000000000000000000000000000000000000000000000000000000000","cadSha256":"1111111111111111111111111111111111111111111111111111111111111111"},"parameters":{"resistanceOhm":0.2,"torqueConstantNmPerAmp":0.02,"inertiaKgM2":0.01,"viscousFrictionNmPerRadPerSec":0.001,"thermalCapacityJPerK":100,"coolingWPerK":1,"resistanceTempCoeffPerK":0.004}},
+ "candidate":{"subject":{"codeSha256":"0000000000000000000000000000000000000000000000000000000000000000","cadSha256":"2222222222222222222222222222222222222222222222222222222222222222"},"parameters":{"resistanceOhm":0.2,"torqueConstantNmPerAmp":0.02,"inertiaKgM2":0.02,"viscousFrictionNmPerRadPerSec":0.001,"thermalCapacityJPerK":100,"coolingWPerK":1,"resistanceTempCoeffPerK":0.004}},
+ "scenario":{"steps":1000,"dtSeconds":0.001,"openCircuitVolts":12,"batteryResistanceOhm":0.02,"ambientC":25}
+}

@@ -1,0 +1,1006 @@
+{
+  "schema": "historical-case-input-excerpt/v1",
+  "originalSourceSha256": "21a1e46d50ad2759a8438545881cc8ae657d8f15234afef20d66fac5b46c0bcc",
+  "inputs": {
+    "season": 2026,
+    "eventApplicability": "unresolved",
+    "fieldModel": {
+      "frames": [],
+      "locations": [
+        {
+          "id": "hub",
+          "purpose": "scoring",
+          "reachability": "not-assessed",
+          "geometry": {
+            "status": "unknown",
+            "reason": "Assets ingested; scoring/retrieval world transform and usable geometry not yet verified"
+          },
+          "semantics": {
+            "phases": [
+              "AUTO",
+              "TRANSITION",
+              "SHIFT1",
+              "SHIFT2",
+              "SHIFT3",
+              "SHIFT4",
+              "ENDGAME"
+            ],
+            "conditions": "FUEL through top opening and sensor array; only active HUB earns points, with processing grace; bumper overlap own ALLIANCE ZONE required to launch.",
+            "possession": "No numerical in-match cap encoded; preload at most 8 is not an in-match capacity limit",
+            "replenishment": "Processed FUEL exits into neutral zone"
+          },
+          "semanticSourceRefs": [
+            "2026-manual.pdf"
+          ],
+          "ruleLocator": "5.4 p23;6.4.1 pp44-45;6.5.1 p46;G407 p65"
+        },
+        {
+          "id": "depot",
+          "purpose": "retrieval",
+          "reachability": "not-assessed",
+          "geometry": {
+            "status": "unknown",
+            "reason": "Assets ingested; scoring/retrieval world transform and usable geometry not yet verified"
+          },
+          "semantics": {
+            "phases": [
+              "AUTO",
+              "TELEOP"
+            ],
+            "conditions": "Initial FUEL reservoir, dynamic depletion.",
+            "possession": "Not encoded",
+            "replenishment": "24 FUEL initially each depot, not uniform positions"
+          },
+          "semanticSourceRefs": [
+            "2026-manual.pdf"
+          ],
+          "ruleLocator": "5.7 p26;6.3.4 p43"
+        },
+        {
+          "id": "outpost",
+          "purpose": "retrieval",
+          "reachability": "not-assessed",
+          "geometry": {
+            "status": "unknown",
+            "reason": "Assets ingested; scoring/retrieval world transform and usable geometry not yet verified"
+          },
+          "semantics": {
+            "phases": null,
+            "conditions": "CHUTE feed and floor exchange are distinct interactions; HP rules not fully encoded.",
+            "possession": "Not encoded",
+            "replenishment": "24 FUEL initially each chute; subsequent inventory dynamic"
+          },
+          "semanticSourceRefs": [
+            "2026-manual.pdf"
+          ],
+          "ruleLocator": "6.3.4 p43"
+        },
+        {
+          "id": "neutral-zone-fuel",
+          "purpose": "retrieval",
+          "reachability": "not-assessed",
+          "geometry": {
+            "status": "unknown",
+            "reason": "Assets ingested; scoring/retrieval world transform and usable geometry not yet verified"
+          },
+          "semantics": {
+            "phases": [
+              "AUTO",
+              "TELEOP"
+            ],
+            "conditions": "Dynamic floor pickup; HUB-exit fuel must first contact something besides collecting robot or its controlled fuel, per G408.",
+            "possession": "Not encoded",
+            "replenishment": "360-408 initially plus stochastic tolerance; event quantity may increase to 600 total; HUB returns"
+          },
+          "semanticSourceRefs": [
+            "2026-manual.pdf"
+          ],
+          "ruleLocator": "5.4 p23;6.3.4 p43;G408 pp65-66"
+        }
+      ],
+      "zones": [],
+      "obstacles": [],
+      "referenceGeometry": {
+        "schema": "frc-nominal-field-references/v1",
+        "season": 2026,
+        "revision": 1,
+        "status": "reference-only",
+        "frames": [
+          {
+            "id": "2026-welded-drawing",
+            "variant": "welded",
+            "unit": "mm",
+            "dimensions": 3,
+            "origin": "Blue alliance diamond-plate plane / scoring-table-side guardrail polycarbonate plane / carpet surface intersection",
+            "axes": "+X toward red alliance; +Y away from scoring table; +Z up",
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 Rev B sheet 11, PDF p11",
+            "certifiedCadTransform": null
+          },
+          {
+            "id": "2026-andymark-drawing",
+            "variant": "andymark",
+            "unit": "mm",
+            "dimensions": 3,
+            "origin": "Blue alliance extrusion-frame plane / scoring-table-side extrusion-frame plane / carpet surface intersection",
+            "axes": "+X toward red alliance; +Y away from scoring table; +Z up",
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 Rev B sheet 11, PDF p11",
+            "certifiedCadTransform": null
+          }
+        ],
+        "features": [
+          {
+            "id": "blue-hub-opening-center-welded",
+            "role": "hub-opening-center-reference",
+            "shape": "point",
+            "variant": "welded",
+            "alliance": "blue",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                4625.594,
+                4034.536,
+                1828.8
+              ]
+            ],
+            "originalInches": [
+              182.11,
+              158.84,
+              72
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet3; GE-26300 sheet4 PDFp25; manual5.4 p23",
+            "derivation": "X hub center from alliance wall; red X=fieldLength-blueX; Y field midline; Z=72in controlled opening height (+/-0.5in in assembly drawing). XY reference tolerance unknown.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-hub-opening-center-welded",
+            "role": "hub-opening-center-reference",
+            "shape": "point",
+            "variant": "welded",
+            "alliance": "red",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                11915.394,
+                4034.536,
+                1828.8
+              ]
+            ],
+            "originalInches": [
+              469.11,
+              158.84,
+              72
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet3; GE-26300 sheet4 PDFp25; manual5.4 p23",
+            "derivation": "X hub center from alliance wall; red X=fieldLength-blueX; Y field midline; Z=72in controlled opening height (+/-0.5in in assembly drawing). XY reference tolerance unknown.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-depot-interior-centroid-welded",
+            "role": "depot-reservoir-centroid-reference",
+            "shape": "point",
+            "variant": "welded",
+            "alliance": "blue",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                304.8,
+                5965.19,
+                0
+              ]
+            ],
+            "originalInches": [
+              12,
+              234.85,
+              0
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet3; GE-26600 sheet1 PDFp29; manual5.7 p26 and6.3.4 p43",
+            "derivation": "Interior depth24in and width36in from GE-26600; centroid12in from alliance wall. Lateral center82.84in welded/82.32in AndyMark from nearest guardrail; blueY=width-offset. Rounding of chained references may differ0.01in.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-depot-interior-centroid-welded",
+            "role": "depot-reservoir-centroid-reference",
+            "shape": "point",
+            "variant": "welded",
+            "alliance": "red",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                16236.188,
+                2104.136,
+                0
+              ]
+            ],
+            "originalInches": [
+              639.22,
+              82.84,
+              0
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet3; GE-26600 sheet1 PDFp29; manual5.7 p26 and6.3.4 p43",
+            "derivation": "Interior depth24in and width36in from GE-26600; centroid12in from alliance wall. Lateral center82.84in welded/82.32in AndyMark from nearest guardrail; blueY=width-offset. Rounding of chained references may differ0.01in.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-hub-opening-center-andymark",
+            "role": "hub-opening-center-reference",
+            "shape": "point",
+            "variant": "andymark",
+            "alliance": "blue",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                4611.624,
+                4021.328,
+                1828.8
+              ]
+            ],
+            "originalInches": [
+              181.56,
+              158.32,
+              72
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet5; GE-26300 sheet4 PDFp25; manual5.4 p23",
+            "derivation": "X hub center from alliance wall; red X=fieldLength-blueX; Y field midline; Z=72in controlled opening height (+/-0.5in in assembly drawing). XY reference tolerance unknown.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-hub-opening-center-andymark",
+            "role": "hub-opening-center-reference",
+            "shape": "point",
+            "variant": "andymark",
+            "alliance": "red",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                11901.424,
+                4021.328,
+                1828.8
+              ]
+            ],
+            "originalInches": [
+              468.56,
+              158.32,
+              72
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet5; GE-26300 sheet4 PDFp25; manual5.4 p23",
+            "derivation": "X hub center from alliance wall; red X=fieldLength-blueX; Y field midline; Z=72in controlled opening height (+/-0.5in in assembly drawing). XY reference tolerance unknown.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-depot-interior-centroid-andymark",
+            "role": "depot-reservoir-centroid-reference",
+            "shape": "point",
+            "variant": "andymark",
+            "alliance": "blue",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                304.8,
+                5951.728,
+                0
+              ]
+            ],
+            "originalInches": [
+              12,
+              234.32,
+              0
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet5; GE-26600 sheet1 PDFp29; manual5.7 p26 and6.3.4 p43",
+            "derivation": "Interior depth24in and width36in from GE-26600; centroid12in from alliance wall. Lateral center82.84in welded/82.32in AndyMark from nearest guardrail; blueY=width-offset. Rounding of chained references may differ0.01in.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-depot-interior-centroid-andymark",
+            "role": "depot-reservoir-centroid-reference",
+            "shape": "point",
+            "variant": "andymark",
+            "alliance": "red",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                16208.248,
+                2090.928,
+                0
+              ]
+            ],
+            "originalInches": [
+              638.12,
+              82.32,
+              0
+            ],
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheet5; GE-26600 sheet1 PDFp29; manual5.7 p26 and6.3.4 p43",
+            "derivation": "Interior depth24in and width36in from GE-26600; centroid12in from alliance wall. Lateral center82.84in welded/82.32in AndyMark from nearest guardrail; blueY=width-offset. Rounding of chained references may differ0.01in.",
+            "status": "nominal-reference",
+            "confidence": "drawing-derived-nominal",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-scoring-table-bump-crossing-reference-welded",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "welded",
+            "alliance": "blue",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                4061.714,
+                2510.536,
+                0
+              ],
+              [
+                5189.474,
+                2510.536,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets3 and8; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-audience-bump-crossing-reference-welded",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "welded",
+            "alliance": "blue",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                4061.714,
+                5558.536,
+                0
+              ],
+              [
+                5189.474,
+                5558.536,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets3 and8; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-scoring-table-bump-crossing-reference-welded",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "welded",
+            "alliance": "red",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                11351.514,
+                2510.536,
+                0
+              ],
+              [
+                12479.274,
+                2510.536,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets3 and8; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-audience-bump-crossing-reference-welded",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "welded",
+            "alliance": "red",
+            "frame": "2026-welded-drawing",
+            "coordinatesMm": [
+              [
+                11351.514,
+                5558.536,
+                0
+              ],
+              [
+                12479.274,
+                5558.536,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets3 and8; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-scoring-table-bump-crossing-reference-andymark",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "andymark",
+            "alliance": "blue",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                4047.744,
+                2497.328,
+                0
+              ],
+              [
+                5175.504,
+                2497.328,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets5 and10; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "blue-audience-bump-crossing-reference-andymark",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "andymark",
+            "alliance": "blue",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                4047.744,
+                5545.328,
+                0
+              ],
+              [
+                5175.504,
+                5545.328,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets5 and10; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-scoring-table-bump-crossing-reference-andymark",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "andymark",
+            "alliance": "red",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                11337.544,
+                2497.328,
+                0
+              ],
+              [
+                12465.304,
+                2497.328,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets5 and10; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          },
+          {
+            "id": "red-audience-bump-crossing-reference-andymark",
+            "role": "bump-crossing-reference",
+            "shape": "line",
+            "variant": "andymark",
+            "alliance": "red",
+            "frame": "2026-andymark-drawing",
+            "coordinatesMm": [
+              [
+                11337.544,
+                5545.328,
+                0
+              ],
+              [
+                12465.304,
+                5545.328,
+                0
+              ]
+            ],
+            "originalInches": null,
+            "sourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "locator": "FE-2026 RevB sheets5 and10; GE-26100 sheet2 PDFp20; manual5.5 p25",
+            "derivation": "X crossing centerline from HUB axis +/- half44.40in nominal BUMP depth. Lateral center=field midline +/- (half47in HUB body + half73in ramp width). Ground projection only, not drivable path. This is a nominal crossing reference, not a measured physical ramp centerline. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+            "status": "nominal-reference",
+            "confidence": "nominal-layout-inference",
+            "uncertaintyMm": null,
+            "reachability": "not-assessed",
+            "allowedUses": [
+              "visualization",
+              "preliminary-strategy-reference"
+            ],
+            "forbiddenUses": [
+              "robot-goal",
+              "approach-pose",
+              "collision",
+              "path-planning",
+              "path-execution",
+              "drivetrain-feasibility",
+              "scoring-success",
+              "pickup-availability",
+              "certified-transform"
+            ]
+          }
+        ],
+        "cadCandidates": [
+          {
+            "id": "welded-cad-frame-candidate",
+            "variant": "welded",
+            "targetFrame": "2026-welded-drawing",
+            "sourcePin": {
+              "id": "2026-field.step",
+              "revision": "STEP export 2026-01-07T21:47:03Z (predates FE-2026 Rev A/B)",
+              "sha256": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671"
+            },
+            "targetSourcePin": {
+              "id": "2026-dimensions.pdf",
+              "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+              "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82"
+            },
+            "inputUnit": "mm",
+            "outputUnit": "mm",
+            "matrix": [
+              [
+                -1,
+                0,
+                0,
+                8270.494
+              ],
+              [
+                0,
+                -1,
+                0,
+                4034.536
+              ],
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "status": "candidate-not-certified",
+            "allowedUses": [
+              "inspection-only"
+            ],
+            "certified": false,
+            "reason": "Candidate mapping from parser working millimetres to drawing frame. Vinyl component origins are not certified front-face centers; two candidate surfaces exist. STEP export predates drawing corrections. No transform execution authorized."
+          }
+        ],
+        "coverage": "Eight nominal feature points and eight nominal ground-projected crossing references only; no complete obstacle, corridor, aperture, pickup-state or robot-approach geometry.",
+        "auditLimitations": [
+          "Hub and Depot references are not robot goals, approach poses, scoring predicates or guaranteed pickup points.",
+          "BUMP references are not measured ramp centerlines or traversable paths. In the separately inspected welded STEP, nominal-versus-part midpoint differs by approximately 1.7935 mm laterally; no AndyMark CAD comparison was performed. No silent correction or physical path claim.",
+          "Welded and AndyMark frame origins are distinct; no automatic mirroring, variant substitution or frame transform.",
+          "The candidate welded CAD transform is not certified; no AndyMark CAD transform is inferred.",
+          "Source hashes establish attribution/consistency, not field acceptance, physical authenticity or robot reachability."
+        ]
+      }
+    },
+    "dimensions": [
+      {
+        "id": "trench-welded-clearance",
+        "season": 2026,
+        "originalUnit": "inch",
+        "values": {
+          "height": 22.25,
+          "width": 50.34
+        },
+        "valuesMm": {
+          "height": 565.15,
+          "width": 1278.636
+        },
+        "drawingLocator": "2026-dimensions.pdf PDF p8 FE-2026 RevB sheet8",
+        "manualLocator": "2026-manual.pdf section5.6 p25",
+        "crossCheck": "Visual dimension arrows checked; agrees manual nominal. Hinged arm closed/locked.",
+        "toleranceInch": {
+          "height": 0.25,
+          "width": 2
+        },
+        "reachability": "not-assessed",
+        "sourceRef": {
+          "id": "2026-dimensions.pdf",
+          "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82",
+          "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+          "locator": "2026-dimensions.pdf PDF p8 FE-2026 RevB sheet8"
+        }
+      },
+      {
+        "id": "trench-andymark-clearance",
+        "season": 2026,
+        "originalUnit": "inch",
+        "values": {
+          "height": 22.25,
+          "width": 49.82
+        },
+        "valuesMm": {
+          "height": 565.15,
+          "width": 1265.428
+        },
+        "drawingLocator": "2026-dimensions.pdf PDF p10 FE-2026 RevB sheet10",
+        "manualLocator": "2026-manual.pdf section5.6 p25",
+        "crossCheck": "Both variant dimension sheets visually reviewed; AndyMark width differs from welded nominal. This scalar dimension does not establish a world-space corridor.",
+        "toleranceInch": {
+          "height": 0.25,
+          "width": 2
+        },
+        "reachability": "not-assessed",
+        "sourceRef": {
+          "id": "2026-dimensions.pdf",
+          "sha256": "3e2c1a0c35424a66821186584dda4f6709221ac8eb88036e09091452b8235f82",
+          "revision": "FE-2026 Rev B 2026-02-26; GE-26500 Rev A; mixed other sheets",
+          "locator": "2026-dimensions.pdf PDF p10 FE-2026 RevB sheet10"
+        }
+      }
+    ],
+    "sourceReference": "https://github.com/ehartye/agent-frc/blob/f6ab64ace84f8aca7168375364a9fd36b4eed224/case-studies/2026/field-package.json",
+    "basis": "Historical geometry fixture; consult the pinned source for rule applicability and review limits."
+  }
+}

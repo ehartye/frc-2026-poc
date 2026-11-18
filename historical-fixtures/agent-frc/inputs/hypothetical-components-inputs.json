@@ -1,0 +1,70 @@
+{
+  "schema": "historical-case-input-excerpt/v1",
+  "originalSourceSha256": "84405fdc659a7642f5fda98568f5c17797c931c57945f8022ec19c5f54c11842",
+  "inputs": [
+    {
+      "schema": "frc-hypothetical-component-assumptions/v1",
+      "basis": "hypothetical-not-owned",
+      "frame": {
+        "configuration": "square",
+        "lengthInch": 26.3,
+        "widthInch": 26.5,
+        "lengthMm": 668.02,
+        "widthMm": 673.0999999999999,
+        "scope": "bare-frame"
+      },
+      "assumptions": {
+        "bumperProjectionPerSideMm": 88.9,
+        "completeHeightMm": 508,
+        "uncertaintyMm": {
+          "length": 6.35,
+          "width": 6.35,
+          "height": 6.35
+        },
+        "statement": "Hypothetical square AM14U6-based packaging target. Add 3.5 inches per side to bare frame for assumed bumper-inclusive box; assume complete stowed height 20 inches and 0.25 inch positive dimensional uncertainty per full dimension. These are design targets/reserves, not measured bounds, certified bumper construction, verified mechanism fit or team-owned hardware. No mass/power/performance claim."
+      },
+      "unknowns": [
+        "Actual team ownership, availability, fabrication capability and budget",
+        "Whole-robot packing and mechanism stowage within assumed bounding box",
+        "Bumper construction, support, coverage and rule compliance",
+        "Mass, center of mass, battery current, power and thermal budgets",
+        "Motor selection and drivetrain performance calibration",
+        "Field/event applicability and complete robot legality",
+        "Swept envelope, pitch/roll, deflection, approach and traversal",
+        "Intake, storage, release and scoring physics; no full match prediction"
+      ]
+    },
+    {
+      "schema": "frc-hypothetical-component-assumptions/v1",
+      "basis": "hypothetical-not-owned",
+      "frame": {
+        "configuration": "long",
+        "lengthInch": 32.3,
+        "widthInch": 22.5,
+        "lengthMm": 820.4199999999998,
+        "widthMm": 571.5,
+        "scope": "bare-frame"
+      },
+      "assumptions": {
+        "bumperProjectionPerSideMm": 88.9,
+        "completeHeightMm": 609.5999999999999,
+        "uncertaintyMm": {
+          "length": 6.35,
+          "width": 6.35,
+          "height": 6.35
+        },
+        "statement": "Hypothetical long AM14U6-based packaging target. Add 3.5 inches per side to bare frame for assumed bumper-inclusive box; assume complete stowed height 24 inches and 0.25 inch positive dimensional uncertainty per full dimension. These are design targets/reserves, not measured bounds, certified bumper construction, verified mechanism fit or team-owned hardware. No mass/power/performance claim."
+      },
+      "unknowns": [
+        "Actual team ownership, availability, fabrication capability and budget",
+        "Whole-robot packing and mechanism stowage within assumed bounding box",
+        "Bumper construction, support, coverage and rule compliance",
+        "Mass, center of mass, battery current, power and thermal budgets",
+        "Motor selection and drivetrain performance calibration",
+        "Field/event applicability and complete robot legality",
+        "Swept envelope, pitch/roll, deflection, approach and traversal",
+        "Intake, storage, release and scoring physics; no full match prediction"
+      ]
+    }
+  ]
+}
