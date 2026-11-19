@@ -1,3 +1,4 @@
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const read = async path => JSON.parse(await readFile(new URL(path,import.meta.url),'utf8'));
@@ -44,3 +45,44 @@ for (const name of ['pair-fine','pair-coarse']) {
 assert.equal(loading.trials['pair-locked'].retainedSourceIds.length,0);
 assert.ok(loading.clocks.every(c=>c.stillOnboard+c.autoPreloadsSpent===8 && c.sourcePiecesNeeded+c.stillOnboard===24));
 console.log('Two registered DEPOT IDs plus eight independent preloads retained in both refinements; locked gates retain zero new stock.');
+
+const sustained=await read('../experiments/sustained-loading/results.json');
+for (const run of Object.values(sustained)) {
+  assert.equal(run.onboardByCollectionSecond[0],8);
+  assert.equal(run.onboardByCollectionSecond[5],10);
+  assert.deepEqual(run.initialConflictsAbove1mm,[]);
+}
+for (const name of ['timed-125us','timed-250us']) {
+  const run=sustained[name];
+  const url=new URL('../experiments/sustained-loading/'+run.checkpoint,import.meta.url);
+  const bytes=await readFile(url);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),run.checkpointSha256);
+  const boundary=JSON.parse(bytes);
+  const carried=new Set(boundary.payload.map(piece=>piece.id));
+  assert.equal(carried.size,24);
+  const fromGround=new Set(run.admissions.flatMap(row=>row.sourceIds));
+  assert.equal(fromGround.size,16);
+  assert.deepEqual(fromGround,new Set(boundary.sourceIds));
+  for (const id of fromGround) assert.ok(groundIds.has(id) && carried.has(id));
+  assert.equal(boundary.remainingField.length,8);
+  assert.deepEqual(new Set([...fromGround,...boundary.remainingField.map(p=>p.id)]),groundIds);
+  for (let n=1;n<=8;n++) assert.ok(carried.has('blue-unspent-preload-'+n));
+  assert.equal(boundary.timeS,run.gateClosedS);
+  assert.ok(boundary.timeS<30 && boundary.timeS>29);
+  assert.ok(run.closestTire.gapM > .085);
+  assert.ok(boundary.minimumTrailingFaceMarginM > .012);
+  assert.deepEqual(boundary.storageGateOpenFractions.flat(),Array(8).fill(0));
+  for (const p of [...boundary.payload,...boundary.remainingField]) {
+    assert.equal(p.timeS,boundary.timeS);
+    for (const key of ['positionM','velocityMps','spinRadS']) {
+      assert.equal(p[key].length,3);
+      assert.ok(p[key].every(Number.isFinite));
+    }
+  }
+}
+assert.ok(sustained['previous-gate'].gateClosedS>30);
+assert.equal(sustained['coarse-timed'].gateClosedS,null);
+assert.equal(sustained['coarse-timed'].onboardByCollectionSecond[30],22);
+assert.equal(sustained['combined-adverse'].rail.stableS,null);
+assert.equal(sustained['combined-adverse'].onboardByCollectionSecond[30],20);
+console.log('Two intact 24-piece checkpoints under 30 s; late, incomplete-pair and stalled controls retained.');
