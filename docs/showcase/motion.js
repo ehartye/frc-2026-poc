@@ -1,5 +1,6 @@
 import {attachChapterControls} from './chapter-controls.js';
 const robot = document.querySelector('#robot');
+if(matchMedia('(max-width: 34rem)').matches) robot.cameraOrbit = '38deg 68deg 2.35m';
 const clips = [...document.querySelectorAll('[data-clip]')];
 const stow = document.querySelector('#stow');
 const pause = document.querySelector('#pause');
