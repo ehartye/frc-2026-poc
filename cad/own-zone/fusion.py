@@ -89,7 +89,7 @@ def run(context):
         progress.write_text(json.dumps(receipt,indent=2),encoding="utf8")
     try:
         own=app.documents.add(core.DocumentTypes.FusionDesignDocumentType)
-        own.name="REBUILT own-zone R1"
+        own.name=job.get("title","REBUILT own-zone R1")
         design=fusion.Design.cast(own.products.itemByProductType("DesignProductType"))
         if hasattr(design,"designIntent") and hasattr(fusion,"DesignIntentTypes"):
             design.designIntent=fusion.DesignIntentTypes.HybridDesignIntentType
@@ -125,6 +125,20 @@ def run(context):
             else:
                 occurrence=root.occurrences.addExistingComponent(supplier,m)
             occurrence.attributes.add("FRC","site",site["name"])
+        for assembly in job.get("extraSources",[]):
+            component=None
+            for item in assembly["placements"]:
+                m=transform([list(col) for col in zip(*item["rotation"])],item["translation"])
+                if component is None:
+                    oc=root.occurrences.addNewComponent(m)
+                    component=oc.component
+                    component.name=assembly["source"]+" exact supplier geometry"
+                    if not app.importManager.importToTarget(app.importManager.createSTEPImportOptions(assembly["file"]),component):
+                        raise RuntimeError("Motor supplier import failed")
+                    component.attributes.add("FRC","sourceSHA256",assembly["sha256"])
+                else:
+                    oc=root.occurrences.addExistingComponent(component,m)
+                oc.attributes.add("FRC","extraSourceSite",item["name"])
         save("private export")
         archive("own-zone-supplier.f3d")
         # A newly created unsaved document has already been archived.
@@ -140,6 +154,12 @@ def run(context):
             if corner:
                 bounds=oc.preciseBoundingBox
                 receipt["supplierSites"][corner.value]={"definition":oc.component.name,"descendants":oc.component.allOccurrences.count,"boundsMm":[round(v*10,4) for p in (bounds.minPoint,bounds.maxPoint) for v in p.asArray()],"transform":oc.transform2.asArray()}
+        receipt["extraSupplierSites"]={}
+        for oc in r.occurrences:
+            site=oc.attributes.itemByName("FRC","extraSourceSite")
+            if site:
+                bb=oc.preciseBoundingBox
+                receipt["extraSupplierSites"][site.value]={"definition":oc.component.name,"boundMm":[round(v*10,4) for p in (bb.minPoint,bb.maxPoint) for v in p.asArray()]}
         receipt["projectParts"]={c.name:{"bodies":c.bRepBodies.count,"extrusions":c.features.extrudeFeatures.count} for c in reopened.allComponents if c.attributes.itemByName("FRC","source")}
         if len(receipt["projectParts"])!=len(job["items"]) or len(receipt["supplierSites"])!=4:
             raise RuntimeError("Reopen inventory mismatch")

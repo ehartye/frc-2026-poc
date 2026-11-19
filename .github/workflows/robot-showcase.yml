@@ -20,14 +20,14 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: 266805cd793fa5be4dbc68700e7b275bf782a60e # v0.31.1
+          ref: 336f10e25f9c35d5bc4b347a74d89fcc6be48038 # v0.32.0
           path: builder
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
       - name: Verify the manifest and build the public files
-        run: node project/scripts/check-strategy.mjs && node project/scripts/check-match-series.mjs && node project/scripts/build-showcase.mjs builder "$RUNNER_TEMP/showcase"
+        run: node project/scripts/check-robot-motion.mjs && node project/scripts/check-strategy.mjs && node project/scripts/check-match-series.mjs && node project/scripts/build-showcase.mjs builder "$RUNNER_TEMP/showcase"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:

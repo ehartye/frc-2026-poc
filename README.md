@@ -1,12 +1,12 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![R1 own-zone swerve chassis](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/)
+[![R2C own-zone robot](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/)
 
-**Project CAD · R1 own-zone swerve chassis.** Four-module 2026 packaging layout with blue bumpers, a 300 mm pickup opening and project-drawn supplier representations. Upper mechanisms are pending. [Source STEP · 5c76902ac3](cad/own-zone/own-zone-public.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/)
+**Project CAD · R2C own-zone robot.** Stowed 117-solid Fusion assembly with four swerve modules, blue bumpers, intake, guided lift and scoring wheels. Purchased parts use project-drawn representations in the public model. [Source STEP · d4ed979565](cad/own-zone-upper/own-zone-public.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/)
 <!-- /cad-still -->
 
-[Project workflow and student-owned outputs](docs/workflow.md) · [Current Fusion handoff](cad/own-zone/design.md)
+[Project workflow and student-owned outputs](docs/workflow.md) · [Current R2C Fusion handoff](cad/own-zone-upper/design.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
 
 ## Kickoff field lab
 
@@ -42,7 +42,7 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
-- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. The exact supplier archive stays project-local.
+- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. R2C adds the intake, lift, hopper and scoring upper. The exact supplier archive stays project-local.
 - `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.

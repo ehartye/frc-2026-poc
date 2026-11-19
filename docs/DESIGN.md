@@ -1,5 +1,9 @@
 # 2026 design and limits
 
+The [selected R2C Fusion assembly and contact study](../cad/own-zone-upper/design.md) supersede the historical subsystem below.
+
+## Historical fixture
+
 Fixed-angle HUB approach and launch. 12 V gives about 252 mm whole-sphere thin-plane margin; 9 V fails.
 
 The proof of concept starts preloaded. It links an ideal differential-drive approach to stationary virtual retention, guide closure, powered release and finite-body target analysis. Target-relative chassis pose and generated exit speed are carried through without substituting a perfect dock or invented score.
@@ -14,4 +18,4 @@ Straight rigid guide; prescribed contact normal force 15 N and friction coeffici
 
 ## Remaining integration
 
-Empty-robot acquisition, field/chassis/bumper collision envelope, mechanical packaging, compliant contacts, real sensors, drive traction and energy, simultaneous drive/mechanism supply, recoil and installed target interactions. No whole robot CAD exists here yet. Sideplate CAD is earlier concept geometry, not a claim that it mates to this plant. Do not manufacture from it without engineering review. No physical robot deployment, calibration or safety validation is included.
+Empty-robot acquisition, field/chassis/bumper collision envelope, mechanical packaging, compliant contacts, real sensors, drive traction and energy, simultaneous drive/mechanism supply, recoil and installed target interactions. This fixture predates the complete R2C robot layout. Sideplate CAD is earlier concept geometry, not a claim that it mates to this plant. Do not manufacture from it without engineering review. No physical robot deployment, calibration or safety validation is included.

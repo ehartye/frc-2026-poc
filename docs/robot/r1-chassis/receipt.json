@@ -1,0 +1,67 @@
+{
+  "schema": "agent-frc/cad-still@2",
+  "source": "cad/own-zone/own-zone-public.step",
+  "sourceSha256": "5c76902ac3dd4ed1bcba7981fc4574542e97f77fd55f3fedb7ab303e1af28b69",
+  "imageSha256": "b94003578b44bb6e9b6150e386549274079cf58dea49992c4c76566a41354c24",
+  "meshSha256": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
+  "solids": 30,
+  "triangles": 7116,
+  "units": "mm",
+  "nativeBounds": [
+    -416.0,
+    416.0,
+    -416.0,
+    416.0,
+    0.0,
+    171.46
+  ],
+  "meshBounds": [
+    -416.0,
+    416.0,
+    -416.0,
+    416.0,
+    0.038364164531230927,
+    171.4600067138672
+  ],
+  "chordMm": 0.18,
+  "angleRad": 0.18,
+  "appearances": {
+    "file": "cad/own-zone/appearances.json",
+    "sha256": "e42636fcc7e8ec6ea55d5583838512dbbf7d2e2cef6259d5d86af556d9f6e81a",
+    "paletteSha256": "6cf2659036545c4fc6c54c62b82ad038b4bc5df79c28ee8f2936d622e3820f11",
+    "groups": [
+      {
+        "role": "structure",
+        "color": "#496A81",
+        "solids": 13,
+        "triangles": 4800,
+        "facetsSha256": "827cd9baf37725614c9a938ada22965d152d20dd5de4ff03edf5d8dada9940fd"
+      },
+      {
+        "role": "bumper-blue",
+        "color": "#2358A2",
+        "solids": 5,
+        "triangles": 60,
+        "facetsSha256": "d19432846ae5fdcb5f60af70f0b23283cb1d9a0c8d08edae6fbbcb8f97cde130"
+      },
+      {
+        "role": "wheel",
+        "color": "#29333B",
+        "solids": 4,
+        "triangles": 1104,
+        "facetsSha256": "a04f1092efcd40c40e3d06313f2d3f403f77a9af1aeb58b84a1952954990b2a2"
+      },
+      {
+        "role": "drive",
+        "color": "#506579",
+        "solids": 8,
+        "triangles": 1152,
+        "facetsSha256": "f481d683243b41e25ba69c7db2ef0b7e0dae57d9e18674dff210485c08a2a43b"
+      }
+    ]
+  },
+  "backdrop": {
+    "center": "#405F86",
+    "edge": "#142F63"
+  }
+}
