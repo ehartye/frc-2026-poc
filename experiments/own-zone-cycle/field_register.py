@@ -32,6 +32,12 @@ def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("source", type=Path)
     cli.add_argument("output", type=Path)
+    cli.add_argument(
+        "--include-name",
+        action="append",
+        default=[],
+        help="Also register matching named assembly or leaf occurrences",
+    )
     args = cli.parse_args()
     if hashlib.sha256(args.source.read_bytes()).hexdigest() != PIN:
         raise ValueError("Field STEP revision differs")
@@ -63,7 +69,7 @@ def main():
             "GE-26900: Fuel",
             "Carpet",
         )
-        if any(k.lower() in ident.lower() for k in wanted):
+        if any(k.lower() in ident.lower() for k in (*wanted, *args.include_name)):
             shape = table.GetShape_s(label).Moved(placement)
             bounds = Bnd_Box()
             BRepBndLib.AddOptimal_s(shape, bounds, False, False)

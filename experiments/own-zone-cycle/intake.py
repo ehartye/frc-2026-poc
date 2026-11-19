@@ -3,7 +3,9 @@
 import math
 
 
-def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=None):
+def simulate_intake(
+    cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=None, source=None
+):
     by = {p["name"]: p for p in cad}
     part = by["ground intake roller"]
     radius = 0.150114 / 2
@@ -38,6 +40,8 @@ def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=
     shot_work = 0.0
     chassis_x = 0.0
     x, z = 0.46, radius
+    if source is not None:
+        x, z = source.initial
     vx, vz = -drive, 0.0
     spin = 0.0
     bar = by["front deck crossmember"]
@@ -55,7 +59,8 @@ def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=
     contact_plane = 0.280
     parked = None
     brake_at = None
-    for k in range(round(2.0 / h) + 1):
+    duration = 2.0 if source is None else source.duration
+    for k in range(round(duration / h) + 1):
         t = k * h
         elapsed = 0 if parked is None else max(0, t - parked)
         if parked is not None and brake_at is None and z > 0.25:
@@ -70,6 +75,9 @@ def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=
         angle = capture + min(1, elapsed / 0.2) * math.radians(31)
         cx = pivot[0] + lever * math.cos(angle)
         cz = pivot[1] + lever * math.sin(angle)
+        cvx, cvz = 0.0, 0.0
+        if source is not None:
+            cx, cz, cvx, cvz = source.roller(t, parked)
         # Lower the shelf 33 mm at intake pickup. Each returning cleat remains
         # on the other branch until the indexed carrier advances.
         lift = min(0.490, max(0, elapsed - 0.23) * 0.65)
@@ -99,9 +107,10 @@ def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=
             dz / d,
             radius + wheelr - d,
             radius,
-            -1.25 if roller else 0.0,
+            (-1.25 if roller else 0.0) + (-dz * cvx + dx * cvz) / d,
             0.65,
             "intake roller",
+            (dx * cvx + dz * cvz) / d,
         )
         sx, sz = back[0] - front[0], back[1] - front[1]
         along = min(
@@ -129,6 +138,11 @@ def simulate_intake(cad, h=0.0001, roller=True, drive=0.38, guides=True, wheels=
                     normal_v * nz,
                 )
 
+        if source is not None:
+            near, far, height = source.barrier
+            rectangle(
+                near, far, 0, height, radius, 0, "registered DEPOT front tube", 0.35
+            )
         rectangle(
             bx - hx,
             bx + hx,

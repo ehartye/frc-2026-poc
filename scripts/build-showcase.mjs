@@ -20,7 +20,7 @@ await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true
 await cp(at('docs/robot/r1-chassis'), path.join(destination, 'chassis'), {recursive: true});
 await cp(at('docs/vendor'), path.join(destination, 'vendor'), {recursive: true});
 await rename(path.join(destination, 'robot/index.html'), path.join(destination, 'robot/orbit.html'));
-for (const [source, name] of [['motion.html', 'index.html'], ['motion.js', 'motion.js'], ['batch.html', 'batch.html'], ['batch.js', 'batch.js']]) {
+for (const [source, name] of [['motion.html', 'index.html'], ['motion.js', 'motion.js'], ['batch.html', 'batch.html'], ['batch.js', 'batch.js'], ['loading.js', 'loading.js']]) {
   await cp(at('docs/showcase/' + source), path.join(destination, 'robot', name));
 }
 const {checkChapters} = await import(pathToFileURL(path.resolve(plugin, 'scripts/replay-chapters.mjs')));
@@ -29,3 +29,5 @@ await writeFile(path.join(destination, 'robot/chapters.json'), JSON.stringify(ch
 await cp(path.resolve(plugin, 'templates/replay-chapter-controls.mjs'), path.join(destination, 'robot/chapter-controls.js'));
 
 await cp(at('experiments/batch-port/results.json'), path.join(destination, 'robot/batch-data.json'));
+
+await cp(at('experiments/depot-loading/results.json'),path.join(destination,'robot/loading-data.json'));
