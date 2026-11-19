@@ -1,0 +1,121 @@
+{
+  "reference": "R2C rear guide in millimetres; tongue fully withdrawn from the pickup corridor",
+  "closedTilesYZMm": [
+    [
+      -65,
+      65,
+      134,
+      226
+    ],
+    [
+      -65,
+      0,
+      226,
+      400
+    ],
+    [
+      0,
+      65,
+      226,
+      400
+    ],
+    [
+      -65,
+      65,
+      400,
+      550
+    ]
+  ],
+  "xMm": [
+    167,
+    171
+  ],
+  "cases": {
+    "closed": {
+      "crossing": {
+        "timeS": 0.4237,
+        "positionMm": [
+          257.75119330169656,
+          0,
+          100.02427938170082
+        ],
+        "velocityMps": [
+          -0.09746686705831863,
+          0,
+          0.1740360662790375
+        ],
+        "spinRadS": 4.088705404662103
+      },
+      "lifted": {
+        "timeS": 1.3425,
+        "positionMm": [
+          245.9451282786033,
+          0,
+          540.0571739442142
+        ],
+        "velocityMps": [
+          0.0013324483913226901,
+          0,
+          0.6503919914502504
+        ]
+      },
+      "events": [
+        "carpet",
+        "front deck crossmember",
+        "front lift custody guide",
+        "intake roller",
+        "paired indexed shelves",
+        "rear lift custody gate",
+        "two ramp edges"
+      ],
+      "finalMm": [
+        243.49641345027865,
+        0,
+        582.3588921349514
+      ]
+    },
+    "stalled roller": {
+      "crossing": null,
+      "lifted": null,
+      "events": [
+        "carpet",
+        "intake roller",
+        "two ramp edges"
+      ],
+      "finalMm": [
+        322.33522422615954,
+        0,
+        74.69526160882711
+      ]
+    },
+    "missing guides": {
+      "crossing": {
+        "timeS": 0.4237,
+        "positionMm": [
+          257.75119330169656,
+          0,
+          100.02427938170082
+        ],
+        "velocityMps": [
+          -0.09746686705831863,
+          0,
+          0.1740360662790375
+        ],
+        "spinRadS": 4.088705404662103
+      },
+      "lifted": null,
+      "events": [
+        "carpet",
+        "front deck crossmember",
+        "intake roller",
+        "paired indexed shelves",
+        "two ramp edges"
+      ],
+      "finalMm": [
+        -330.96983391026635,
+        0,
+        74.21364265197958
+      ]
+    }
+  }
+}

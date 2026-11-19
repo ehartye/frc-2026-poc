@@ -1,0 +1,606 @@
+{
+  "source": "cad/own-zone-upper/own-zone-public.f3d",
+  "sha256": "5bed444ce5dc99caa94e38164be3c5cbfbefa6ed7106d2bb0370cbe1abf16dd3",
+  "bytes": 964297,
+  "opened": true,
+  "components": {
+    "left perimeter tube": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left front return": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left blue side bumper": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left blue front bumper": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right perimeter tube": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right front return": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right blue side bumper": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right blue front bumper": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear perimeter tube": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear blue bumper": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left module tab spacer 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left module tab spacer 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right module tab spacer 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right module tab spacer 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left module tab spacer 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left module tab spacer 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right module tab spacer 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right module tab spacer 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right hopper post": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right hopper post": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right floor sill": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left hopper post": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left hopper post": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left floor sill": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear deck crossmember": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front deck crossmember": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left electronics deck": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right electronics deck": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "fore electronics deck bridge": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "aft electronics deck bridge": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "battery cradle floor": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "battery cradle wall -44": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "battery cradle wall 43": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "battery secured envelope": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "distribution enclosure reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "robot controller reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "field radio reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 3": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 4": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 5": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 6": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 7": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "drive controller reserve 8": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "hopper back panel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right hopper wall": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right hopper front wing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right cross feed deck": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right front elevator upright": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right rear elevator upright": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right elevator upper tie": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right inside lift belt": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right outside lift belt": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right lift shelf 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right lift shelf 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right lift shelf 3": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right lift shelf 4": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right intake ramp": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left hopper wall": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left hopper front wing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left cross feed deck": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left front elevator upright": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left rear elevator upright": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left elevator upper tie": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left inside lift belt": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left outside lift belt": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left lift shelf 1": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left lift shelf 2": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left lift shelf 3": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left lift shelf 4": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left intake ramp": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "central fore-aft feed deck": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left lower lift stub shaft": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right lower lift stub shaft": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left upper lift stub shaft": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right upper lift stub shaft": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "ground intake roller": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right intake bearing arm": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right intake pivot plate": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right intake pivot axle": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right intake journal": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right upper head cheek": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left intake bearing arm": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left intake pivot plate": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left intake pivot axle": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left intake journal": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left upper head cheek": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right scoring wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right scoring spindle": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right upper guide": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right scoring bearing bridge -33": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right scoring bearing bridge 33": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left scoring wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left scoring spindle": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left upper guide": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left scoring bearing bridge -33": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left scoring bearing bridge 33": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left feed diverter pivot": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right feed diverter pivot": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "feed diverter vane": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left public wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left public drive housing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front left public motor reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right public wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right public drive housing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front right public motor reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left public wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left public drive housing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear left public motor reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right public wheel": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right public drive housing": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear right public motor reserve": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "right public scoring motor envelope": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "left public scoring motor envelope": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "rear lift custody gate": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    },
+    "front lift custody guide": {
+      "bodies": 1,
+      "sketches": 1,
+      "extrusions": 1
+    }
+  },
+  "documentCountRestored": true,
+  "stepComparison": {
+    "originalStepSha256": "d4ed979565fe132db45fac32de3265f93ffdff685db3bad976c4450fdfa67810",
+    "independentExportSha256": "41a9c274bb7129723d8057d4ed094802bc49ef81ab76b87dda07a0f1dca2510f",
+    "matchedNamedSolids": 117,
+    "identicalFaceCounts": true,
+    "maximumDelta": {
+      "boundsMm": 0.0,
+      "volumeMm3": 0.0,
+      "areaMm2": 0.0,
+      "centroidMm": 0.0
+    }
+  }
+}

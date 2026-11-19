@@ -33,10 +33,10 @@ def bounds(part):
     return np.r_[np.minimum(a, b) - r, np.maximum(a, b) + r]
 
 
-def reopened():
+def reopened(source=None):
     cfg, items, proxies, sites = parts()
     reader = STEPControl_Reader()
-    source = HERE / "own-zone-public.step"
+    source = source or HERE / "own-zone-public.step"
     if reader.ReadFile(str(source)) != IFSelect_RetDone or not reader.TransferRoots():
         raise ValueError("Fusion STEP reopen failed")
     explore = TopExp_Explorer(reader.OneShape(), TopAbs_SOLID)
