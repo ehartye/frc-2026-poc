@@ -1,6 +1,6 @@
 * text eol=lf
 *.jar binary
-shared/** -text
+experiments/legacy/shared/** -text
 cad/** -text
 config.json -text
 

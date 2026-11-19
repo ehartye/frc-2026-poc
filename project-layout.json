@@ -1,0 +1,6 @@
+{
+  "toolchainFiles": [
+    "config.json",
+    "PROVENANCE.json"
+  ]
+}

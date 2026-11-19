@@ -1,0 +1,730 @@
+{
+  "scope": "Agent-run kickoff box trials. Student decision pending.",
+  "windows": [
+    {
+      "name": "AUTO preload",
+      "inputs": {
+        "stock": 504,
+        "opening": 8,
+        "incoming": 0,
+        "goal": 8,
+        "window": 20,
+        "cycle": 1,
+        "arrival": 0,
+        "setup": 2,
+        "travel": 3,
+        "points": 1,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 5,
+        "usable": 15,
+        "afterArrival": 15,
+        "rate": 0.5333333333333333,
+        "available": 8,
+        "delivered": 8,
+        "attainable": true,
+        "points": 8
+      }
+    },
+    {
+      "name": "Active shift, one per second",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 1,
+        "arrival": 5,
+        "setup": 3,
+        "travel": 5,
+        "points": 1,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 8,
+        "usable": 17,
+        "afterArrival": 17,
+        "rate": 1.411764705882353,
+        "available": 24,
+        "delivered": 17,
+        "attainable": false,
+        "points": 17
+      }
+    },
+    {
+      "name": "Active shift, two per second",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 0.5,
+        "arrival": 5,
+        "setup": 3,
+        "travel": 5,
+        "points": 1,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 8,
+        "usable": 17,
+        "afterArrival": 17,
+        "rate": 1.411764705882353,
+        "available": 24,
+        "delivered": 24,
+        "attainable": true,
+        "points": 24
+      }
+    },
+    {
+      "name": "Five extra seconds in traffic",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 0.5,
+        "arrival": 5,
+        "setup": 3,
+        "travel": 10,
+        "points": 1,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 13,
+        "usable": 12,
+        "afterArrival": 12,
+        "rate": 2,
+        "available": 24,
+        "delivered": 24,
+        "attainable": true,
+        "points": 24
+      }
+    },
+    {
+      "name": "Late supply at second 18",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 0.5,
+        "arrival": 18,
+        "setup": 3,
+        "travel": 5,
+        "points": 1,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 8,
+        "usable": 17,
+        "afterArrival": 7,
+        "rate": 3.4285714285714284,
+        "available": 24,
+        "delivered": 14,
+        "attainable": false,
+        "points": 14
+      }
+    },
+    {
+      "name": "Same delivery, inactive HUB",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 0.5,
+        "arrival": 5,
+        "setup": 3,
+        "travel": 5,
+        "points": 0,
+        "cap": null,
+        "delivery": "staged"
+      },
+      "result": {
+        "ready": 8,
+        "usable": 17,
+        "afterArrival": 17,
+        "rate": 1.411764705882353,
+        "available": 24,
+        "delivered": 24,
+        "attainable": true,
+        "points": 0
+      }
+    },
+    {
+      "name": "Single-piece return shuttle",
+      "inputs": {
+        "stock": 504,
+        "opening": 0,
+        "incoming": 24,
+        "goal": 24,
+        "window": 25,
+        "cycle": 0.5,
+        "arrival": 5,
+        "setup": 3,
+        "travel": 2.5,
+        "points": 1,
+        "cap": null,
+        "delivery": "shuttle",
+        "returnTravel": 2.5
+      },
+      "result": {
+        "ready": 3,
+        "usable": 0,
+        "afterArrival": 20,
+        "rate": "unattainable at any service rate",
+        "available": 24,
+        "delivered": 4,
+        "attainable": false,
+        "points": 4,
+        "goalTransit": 117.5,
+        "outboundLegs": 24,
+        "returnLegs": 23
+      }
+    }
+  ],
+  "clearance": [
+    {
+      "name": "Baseline",
+      "dimensions": [
+        26,
+        26,
+        20
+      ],
+      "bumper": 3,
+      "heading": 0,
+      "result": {
+        "status": "clear",
+        "obstacle": null,
+        "segment": null,
+        "distance": 118
+      }
+    },
+    {
+      "name": "Taller trial",
+      "dimensions": [
+        26,
+        26,
+        24
+      ],
+      "bumper": 3,
+      "heading": 0,
+      "result": {
+        "status": "blocked",
+        "obstacle": "Blue low TRENCH roof",
+        "segment": 0,
+        "distance": 20.600000009999995
+      }
+    },
+    {
+      "name": "Wider angled trial",
+      "dimensions": [
+        25,
+        30,
+        20
+      ],
+      "bumper": 4.5,
+      "heading": 45,
+      "result": {
+        "status": "blocked",
+        "obstacle": "Blue low outer support allowance",
+        "segment": 0,
+        "distance": 33.36783554786678
+      }
+    }
+  ],
+  "traffic": {
+    "phase": "Shift 1",
+    "piece": "FUEL",
+    "destination": "odd",
+    "trialBoxWidthIn": 26,
+    "routeIn": [
+      [
+        287,
+        48
+      ],
+      [
+        122,
+        108
+      ]
+    ],
+    "lengthIn": 175.57049866079439,
+    "traffic": "Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"
+  },
+  "match": [
+    {
+      "phase": "AUTO",
+      "seconds": 20,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 13.05,
+          "blocked": "Occupied by B2",
+          "position": [
+            122.90007894478332,
+            96.59900003274475
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 13.05,
+          "blocked": "Occupied by B1",
+          "position": [
+            111.24256072104478,
+            131.53397231820907
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 13.05,
+          "blocked": "Occupied by R2",
+          "position": [
+            528.2999210552166,
+            221.10099996725518
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 13.05,
+          "blocked": "Occupied by R1",
+          "position": [
+            539.9574392789548,
+            186.16602768179092
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Transition",
+      "seconds": 10,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 2.6500000000000004,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 2.7,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 2.6500000000000004,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 2.7,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Shift 1",
+      "seconds": 25,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Shift 2",
+      "seconds": 25,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Shift 3",
+      "seconds": 25,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "Shift 4",
+      "seconds": 25,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 17.900000000000002,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 17.95,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "End game",
+      "seconds": 30,
+      "robots": [
+        {
+          "id": "B1",
+          "visits": 0,
+          "waitSeconds": 22.900000000000002,
+          "blocked": "Occupied by B2",
+          "position": [
+            124.31672368234351,
+            78.65483335698232
+          ]
+        },
+        {
+          "id": "B2",
+          "visits": 1,
+          "waitSeconds": 22.950000000000003,
+          "blocked": "Occupied by B1",
+          "position": [
+            108.79768815764588,
+            113.70078420871113
+          ]
+        },
+        {
+          "id": "B3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            143,
+            285
+          ]
+        },
+        {
+          "id": "R1",
+          "visits": 0,
+          "waitSeconds": 22.900000000000002,
+          "blocked": "Occupied by R2",
+          "position": [
+            526.8832763176563,
+            239.0451666430176
+          ]
+        },
+        {
+          "id": "R2",
+          "visits": 1,
+          "waitSeconds": 22.950000000000003,
+          "blocked": "Occupied by R1",
+          "position": [
+            542.4023118423539,
+            203.99921579128886
+          ]
+        },
+        {
+          "id": "R3",
+          "visits": 0,
+          "waitSeconds": 0,
+          "blocked": "",
+          "position": [
+            508.20000000000005,
+            32.69999999999999
+          ]
+        }
+      ]
+    }
+  ]
+}

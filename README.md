@@ -6,7 +6,13 @@
 **Project CAD · Original mechanism fixture.** Subsystem study. A whole-robot assembly has yet to be published. [Source STEP · f94736a56d](cad/2026-original-fixture.step) · [Rotate the model](docs/robot/cad/index.html)
 <!-- /cad-still -->
 
-The [historical case input manifest](historical-fixtures/agent-frc/manifest.json) identifies source-pinned simulation parameters, original geometry and prior analysis from the earlier plugin case. Inputs labeled as excerpts have a new schema and retain their source hash. The manifest records identical existing files and the original revision of the shared producers.
+## Kickoff field lab
+
+[Open the interactive field lab](kickoff/field-lab.html) from your checkout to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00.
+
+## Archived subsystem experiment
+
+The [historical case input manifest](experiments/legacy/historical-fixtures/agent-frc/manifest.json) identifies source-pinned simulation parameters, original geometry and prior analysis from the earlier plugin case. Inputs labeled as excerpts have a new schema and retain their source hash. The manifest records identical existing files and the original revision of the shared producers.
 
 ![Interim mechanism layout, not a complete robot](cad/interim-layout.svg)
 
@@ -33,13 +39,13 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 ## What lives here
 
 - `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. No vendor CAD or fabrication-ready assembly.
-- `shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
-- `shared/scripts/`: actual execution, finite-body target and evidence checks.
+- `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
+- `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.
-- `DESIGN.md`: design scope, assumptions and remaining work.
+- `docs/DESIGN.md`: design scope, assumptions and remaining work.
 - `PROVENANCE.json`: exact source commit and file hashes; no Git history or private vault included.
 
-The shared source snapshot is derived from agent-frc commit `21d785397cd08ca9dc5bf5f9849996ab508c9a49`. That development commit need not be accessible remotely to run this checkout. Gradle 8.11, GradleRIO/WPILib 2026.2.1 and JUnit 5.10.1 are pinned; 2024/2025 are game models using the 2026 desktop toolchain, not historical toolchain builds. See [dependency notices](shared/examples/java-2026-sim/THIRD_PARTY.md).
+The shared source snapshot is derived from agent-frc commit `21d785397cd08ca9dc5bf5f9849996ab508c9a49`. That development commit need not be accessible remotely to run this checkout. Gradle 8.11, GradleRIO/WPILib 2026.2.1 and JUnit 5.10.1 are pinned; 2024/2025 are game models using the 2026 desktop toolchain, not historical toolchain builds. See [dependency notices](experiments/legacy/shared/examples/java-2026-sim/THIRD_PARTY.md).
 
 ## Open and edit CAD
 

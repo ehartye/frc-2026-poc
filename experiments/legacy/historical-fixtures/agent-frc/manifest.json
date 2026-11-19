@@ -28,7 +28,7 @@
         "simulationInterface"
       ],
       "researchRecord": "frc-2026-historical-case-archive",
-      "destination": "historical-fixtures/agent-frc/inputs/case-parameters.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/case-parameters.json",
       "destinationBytes": 954,
       "destinationSha256": "b3220f1b2625b2320db5c30ca8b994e74516e5a3a35966e75b6f1a38414bd76b"
     },
@@ -66,7 +66,7 @@
         "limitations"
       ],
       "researchRecord": "frc-2026-historical-case-archive",
-      "destination": "historical-fixtures/agent-frc/inputs/chassis-long-ledger-inputs.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/chassis-long-ledger-inputs.json",
       "destinationBytes": 11490,
       "destinationSha256": "6048e742d84b2b7532c36611ef9739f2b13da7e55a81c8d7f9ea8272ab119abb"
     },
@@ -88,7 +88,7 @@
         "limitations"
       ],
       "researchRecord": "frc-2026-historical-case-archive",
-      "destination": "historical-fixtures/agent-frc/inputs/chassis-square-ledger-inputs.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/chassis-square-ledger-inputs.json",
       "destinationBytes": 11496,
       "destinationSha256": "780735b9a737a94d096c7b14051956ff5bc478b76e29ad9b9335e861aa80383a"
     },
@@ -106,7 +106,7 @@
       "sourceSha256": "e2edc36b45b55eeeec51d16ac09d60e364a3655b373992c7a4c70f129b0917a5",
       "disposition": "preserved-input",
       "role": "seeded abstract match-comparison inputs",
-      "destination": "historical-fixtures/agent-frc/inputs/comparison-experiment.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/comparison-experiment.json",
       "destinationBytes": 3280,
       "destinationSha256": "e2edc36b45b55eeeec51d16ac09d60e364a3655b373992c7a4c70f129b0917a5"
     },
@@ -159,7 +159,7 @@
         "fieldModel.referenceGeometry"
       ],
       "researchRecord": "frc-2026-historical-case-archive",
-      "destination": "historical-fixtures/agent-frc/inputs/field-geometry.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/field-geometry.json",
       "destinationBytes": 41027,
       "destinationSha256": "9e17ef690eb6e12eb15d5414abb4617caefdbd27962543b9f80b6e3cf1ccdc15"
     },
@@ -177,7 +177,7 @@
       "sourceSha256": "822e54ebddec0afaa9854aac65333765ce7cb49df3032854385177a3ab7dc5ac",
       "disposition": "preserved-input",
       "role": "synthetic scoring events for a rule assessor",
-      "destination": "historical-fixtures/agent-frc/inputs/fuel-assessment-example.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/fuel-assessment-example.json",
       "destinationBytes": 3323,
       "destinationSha256": "822e54ebddec0afaa9854aac65333765ce7cb49df3032854385177a3ab7dc5ac"
     },
@@ -211,7 +211,7 @@
         "unknowns"
       ],
       "researchRecord": "frc-2026-historical-case-archive",
-      "destination": "historical-fixtures/agent-frc/inputs/hypothetical-components-inputs.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/hypothetical-components-inputs.json",
       "destinationBytes": 3356,
       "destinationSha256": "c61c7fc36b74efef52a4977b24a63ed4b6bc266330663a3750320fa21b392359"
     },
@@ -229,7 +229,7 @@
       "sourceSha256": "d4f219adc2d5d3cba6449c1d37c5268ac1db9041d2bd94a0ef7d0aebdc74f7f6",
       "disposition": "preserved-input",
       "role": "long configuration geometry and uncertainty inputs",
-      "destination": "historical-fixtures/agent-frc/inputs/hypothetical-long-static-input.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/hypothetical-long-static-input.json",
       "destinationBytes": 1061,
       "destinationSha256": "d4f219adc2d5d3cba6449c1d37c5268ac1db9041d2bd94a0ef7d0aebdc74f7f6"
     },
@@ -239,7 +239,7 @@
       "sourceSha256": "3184902e7420344019d51fd89e7a3d69282e7f37d58930e8ba49f05f1af3f4e0",
       "disposition": "preserved-input",
       "role": "square configuration geometry and uncertainty inputs",
-      "destination": "historical-fixtures/agent-frc/inputs/hypothetical-square-static-input.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/hypothetical-square-static-input.json",
       "destinationBytes": 1065,
       "destinationSha256": "3184902e7420344019d51fd89e7a3d69282e7f37d58930e8ba49f05f1af3f4e0"
     },
@@ -249,7 +249,7 @@
       "sourceSha256": "0f6fd257bdbe94a61d1cf1caa2ce5217249efde4ce76c7f5b425caf66f6a54d8",
       "disposition": "preserved-input",
       "role": "compressed geometry/physics fixture",
-      "destination": "historical-fixtures/agent-frc/inputs/intake-fixture-compressed.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/intake-fixture-compressed.json",
       "destinationBytes": 4345,
       "destinationSha256": "0f6fd257bdbe94a61d1cf1caa2ce5217249efde4ce76c7f5b425caf66f6a54d8"
     },
@@ -259,7 +259,7 @@
       "sourceSha256": "c99db72594738e48424db574244cfa70aa1140f424a2772ac1f85702c0e81c56",
       "disposition": "existing-identical-bytes",
       "role": "nominal geometry/physics fixture",
-      "destination": "shared/case-studies/2026/intake-fixture-nominal.json",
+      "destination": "experiments/legacy/shared/case-studies/2026/intake-fixture-nominal.json",
       "destinationBytes": 4339,
       "destinationSha256": "c99db72594738e48424db574244cfa70aa1140f424a2772ac1f85702c0e81c56"
     },
@@ -269,7 +269,7 @@
       "sourceSha256": "65f6982fa663645b3c1b46364ac86a05b622305c61addfdf316c38e0bd389165",
       "disposition": "preserved-input",
       "role": "synthetic electrical and thermal benchmark inputs",
-      "destination": "historical-fixtures/agent-frc/inputs/motor-physics-benchmark.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/motor-physics-benchmark.json",
       "destinationBytes": 1207,
       "destinationSha256": "65f6982fa663645b3c1b46364ac86a05b622305c61addfdf316c38e0bd389165"
     },
@@ -327,7 +327,7 @@
       "sourceSha256": "140e9b97e5fe4404bf391b697a560a10bf5ef7d23d86098cf625d8bddf5de0c9",
       "disposition": "preserved-input",
       "role": "roller configuration and frames",
-      "destination": "historical-fixtures/agent-frc/inputs/roller-mechanism.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/roller-mechanism.json",
       "destinationBytes": 3454,
       "destinationSha256": "140e9b97e5fe4404bf391b697a560a10bf5ef7d23d86098cf625d8bddf5de0c9"
     },
@@ -345,7 +345,7 @@
       "sourceSha256": "e0b7eb15e43d583495b26ba8737e4ab08c10197e9cb766bd5929854ebdc1be05",
       "disposition": "preserved-input",
       "role": "finite contact proxy dimensions and analytic gaps",
-      "destination": "historical-fixtures/agent-frc/inputs/segmented-contact-geometry.json",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/segmented-contact-geometry.json",
       "destinationBytes": 1252,
       "destinationSha256": "e0b7eb15e43d583495b26ba8737e4ab08c10197e9cb766bd5929854ebdc1be05"
     },
@@ -391,7 +391,7 @@
       "sourceSha256": "15aad0984ed990d63147c00426640bfcc454814ecad6bdb3c8281bedfebbe08c",
       "disposition": "preserved-input",
       "role": "season-specific Java simulation case properties",
-      "destination": "historical-fixtures/agent-frc/inputs/case-2026.properties",
+      "destination": "experiments/legacy/historical-fixtures/agent-frc/inputs/case-2026.properties",
       "destinationBytes": 124,
       "destinationSha256": "15aad0984ed990d63147c00426640bfcc454814ecad6bdb3c8281bedfebbe08c"
     }
