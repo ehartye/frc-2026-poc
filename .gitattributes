@@ -9,3 +9,7 @@ docs/robot/cad/*.gz binary
 *.f3d binary
 docs/robot/historical-fixture/*.png binary
 docs/robot/historical-fixture/*.gz binary
+docs/robot/r1-chassis/*.png binary
+docs/robot/r1-chassis/*.gz binary
+*.glb binary
+docs/vendor/* -text

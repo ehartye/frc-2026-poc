@@ -1,1 +1,11 @@
-{"schema":"agent-frc/component-palette@1","colors":{"bumper-blue":"#2358A2","wheel":"#29333B","drive":"#506579"}}
+{
+  "schema": "agent-frc/component-palette@1",
+  "colors": {
+    "bumper-blue": "#2358A2",
+    "wheel": "#29333B",
+    "drive": "#506579",
+    "shaft": "#8A98A8",
+    "guide": "#A8C2CA",
+    "belt": "#B3853A"
+  }
+}

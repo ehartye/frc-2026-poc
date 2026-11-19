@@ -1,4 +1,4 @@
-import {cp, mkdir, readFile, writeFile} from 'node:fs/promises';
+import {cp, mkdir, readFile, rename, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
@@ -17,3 +17,9 @@ await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', J
 for (const name of ['field-lab.html','rule-register.json','match-series.json']) await cp(at('kickoff/' + name), path.join(destination, name));
 await cp(at('docs/robot/historical-fixture'), path.join(destination, 'fixture'), {recursive: true});
 await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true});
+await cp(at('docs/robot/r1-chassis'), path.join(destination, 'chassis'), {recursive: true});
+await cp(at('docs/vendor'), path.join(destination, 'vendor'), {recursive: true});
+await rename(path.join(destination, 'robot/index.html'), path.join(destination, 'robot/orbit.html'));
+for (const [source, name] of [['motion.html', 'index.html'], ['motion.js', 'motion.js']]) {
+  await cp(at('docs/showcase/' + source), path.join(destination, 'robot', name));
+}

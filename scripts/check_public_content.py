@@ -13,11 +13,16 @@ PATTERNS={
 WRAPPER='experiments/legacy/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {
+    "cad/own-zone-upper/own-zone-public.f3d": "5bed444ce5dc99caa94e38164be3c5cbfbefa6ed7106d2bb0370cbe1abf16dd3",
     "cad/own-zone/own-zone-public.f3d": "6939cae9d72d53276de8d1105dd9380d3ccba9de232f811499a297ede7997b25",
-    "docs/robot/cad/assembly.png": "b94003578b44bb6e9b6150e386549274079cf58dea49992c4c76566a41354c24",
-    "docs/robot/cad/assembly.stl.gz": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
+    "docs/robot/cad/assembly.png": "9bccbff501b9b70eda2a85619cf2e9314f21ee45198efc256de82275c4417077",
+    "docs/robot/cad/assembly.stl.gz": "b0f1e621f39babac008896d26cb3e0528114c5f5bd3f013dc7d466446de79156",
+    "docs/robot/cad/own-zone.glb": "431d7556437c0d99389c17b8c8009700f73f54c4085c23c3f18af715fd48dfda",
     "docs/robot/historical-fixture/assembly.png": "f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f",
-    "docs/robot/historical-fixture/assembly.stl.gz": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b"
+    "docs/robot/historical-fixture/assembly.stl.gz": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b",
+    "docs/robot/r1-chassis/assembly.png": "b94003578b44bb6e9b6150e386549274079cf58dea49992c4c76566a41354c24",
+    "docs/robot/r1-chassis/assembly.stl.gz": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
+    "docs/vendor/model-viewer-4.1.0.min.js": "8367184a607fbe07a78b650c0d359e5ebbd96f7e2b22f95f761f559b63430386"
 }
 
 def findings(data):

@@ -1,8 +1,8 @@
 {
-  "source":"cad/own-zone/own-zone-public.step",
-  "appearances":"cad/own-zone/appearances.json",
-  "title":"R1 own-zone swerve chassis",
-  "scope":"Four-module 2026 packaging layout with blue bumpers, a 300 mm pickup opening and project-drawn supplier representations. Upper mechanisms are pending.",
+  "source":"cad/own-zone-upper/own-zone-public.step",
+  "appearances":"cad/own-zone-upper/appearances.json",
+  "title":"R2C own-zone robot",
+  "scope":"Stowed 117-solid Fusion assembly with four swerve modules, blue bumpers, intake, guided lift and scoring wheels. Purchased parts use project-drawn representations in the public model.",
   "viewerUrl":"https://ehartye.github.io/frc-2026-poc/robot/",
   "backdrop":{"center":"#405F86","edge":"#142F63"}
 }

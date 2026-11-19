@@ -1,0 +1,1333 @@
+{
+  "edition": "Kickoff V0 and TU00. Physical field STEP created January 7 and published January 10.",
+  "supplierFieldSha256": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671",
+  "cadSha256": "d4ed979565fe132db45fac32de3265f93ffdff685db3bad976c4450fdfa67810",
+  "registeredHub": {
+    "centerM": [
+      -3.6449,
+      0.0,
+      1.8288
+    ],
+    "markerBoundsByType": {
+      "Counting Sensor": [
+        [
+          -3215.488,
+          285.0,
+          945.103,
+          -3175.673,
+          319.6,
+          981.021
+        ],
+        [
+          -3250.441,
+          215.4,
+          854.045,
+          -3210.626,
+          250.0,
+          889.963
+        ],
+        [
+          -3250.441,
+          -52.1,
+          854.045,
+          -3210.626,
+          -17.5,
+          889.963
+        ],
+        [
+          -3250.441,
+          -319.6,
+          854.045,
+          -3210.626,
+          -285.0,
+          889.963
+        ]
+      ],
+      "Sensor Reflector": [
+        [
+          -3237.239,
+          524.352,
+          918.166,
+          -3156.048,
+          533.679,
+          981.166
+        ],
+        [
+          -3263.09,
+          -232.855,
+          850.821,
+          -3181.899,
+          -223.527,
+          913.821
+        ],
+        [
+          -3263.09,
+          34.646,
+          850.821,
+          -3181.899,
+          43.973,
+          913.821
+        ],
+        [
+          -3263.09,
+          -533.679,
+          850.821,
+          -3181.899,
+          -524.352,
+          913.821
+        ]
+      ]
+    },
+    "registeredSensorHousingCentersM": [
+      [
+        -3.1955805,
+        0.3023,
+        0.9630619999999999
+      ],
+      [
+        -3.2305335,
+        0.2327,
+        0.8720039999999999
+      ],
+      [
+        -3.2305335,
+        -0.0348,
+        0.8720039999999999
+      ],
+      [
+        -3.2305335,
+        -0.3023,
+        0.8720039999999999
+      ]
+    ],
+    "registeredReflectorCentersM": [
+      [
+        -3.1966435,
+        0.5290155,
+        0.949666
+      ],
+      [
+        -3.2224945,
+        -0.22819099999999998,
+        0.882321
+      ],
+      [
+        -3.2224945,
+        0.0393095,
+        0.882321
+      ],
+      [
+        -3.2224945,
+        -0.5290155,
+        0.882321
+      ]
+    ]
+  },
+  "grid": [
+    {
+      "contactNperM": 7500,
+      "initialNoLoadFraction": 0.5,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          262.0973098288424,
+          0,
+          616.6100994439594
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4195,
+          "positionMm": [
+            262.0973098288424,
+            0,
+            616.6100994439594
+          ],
+          "velocityMps": [
+            1.08277282168124,
+            0,
+            2.6458586465226963
+          ],
+          "relativeAxisOffsetMm": -13.063832752662297,
+          "rollerKineticEnergyJ": 3.209156210554592,
+          "workOnPieceJ": 0.9596596868789878,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -1.2952152653384488
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -5.048095141000077,
+          0.8171102609197485,
+          0.9735397327733285
+        ],
+        "releaseFieldM": [
+          -5.30054616347229,
+          0.9641178401326491,
+          0.6166100994439594
+        ],
+        "velocityFieldMps": [
+          0.9356882397254247,
+          -0.5448710869656149,
+          2.6458586465226963
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 7500,
+      "initialNoLoadFraction": 0.7,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          262.0973098288424,
+          0,
+          616.6100994439594
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4195,
+          "positionMm": [
+            262.0973098288424,
+            0,
+            616.6100994439594
+          ],
+          "velocityMps": [
+            1.08277282168124,
+            0,
+            2.6458586465226963
+          ],
+          "relativeAxisOffsetMm": -13.063832752662297,
+          "rollerKineticEnergyJ": 8.543225741290945,
+          "workOnPieceJ": 0.9596596868789878,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -1.2952152653384488
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -5.048095141000077,
+          0.8171102609197485,
+          0.9735397327733285
+        ],
+        "releaseFieldM": [
+          -5.30054616347229,
+          0.9641178401326491,
+          0.6166100994439594
+        ],
+        "velocityFieldMps": [
+          0.9356882397254247,
+          -0.5448710869656149,
+          2.6458586465226963
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 7500,
+      "initialNoLoadFraction": 0.9,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          262.0973098288424,
+          0,
+          616.6100994439594
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4195,
+          "positionMm": [
+            262.0973098288424,
+            0,
+            616.6100994439594
+          ],
+          "velocityMps": [
+            1.08277282168124,
+            0,
+            2.6458586465226963
+          ],
+          "relativeAxisOffsetMm": -13.063832752662297,
+          "rollerKineticEnergyJ": 16.437734523599893,
+          "workOnPieceJ": 0.9596596868789878,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -1.2952152653384488
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -5.048095141000077,
+          0.8171102609197485,
+          0.9735397327733285
+        ],
+        "releaseFieldM": [
+          -5.30054616347229,
+          0.9641178401326491,
+          0.6166100994439594
+        ],
+        "velocityFieldMps": [
+          0.9356882397254247,
+          -0.5448710869656149,
+          2.6458586465226963
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 15000,
+      "initialNoLoadFraction": 0.5,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          263.45380961983756,
+          0,
+          616.0931799100565
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4120000000000001,
+          "positionMm": [
+            263.45380961983756,
+            0,
+            616.0931799100565
+          ],
+          "velocityMps": [
+            1.5707676021781782,
+            0,
+            3.7889674504355204
+          ],
+          "relativeAxisOffsetMm": -14.49705579884378,
+          "rollerKineticEnergyJ": 1.6506051129001198,
+          "workOnPieceJ": 1.9360913708246745,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.1822029721531226
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -4.774921674329494,
+          0.6580355633916017,
+          1.3480594650563524
+        ],
+        "releaseFieldM": [
+          -5.299373931517249,
+          0.9634352246284656,
+          0.6160931799100565
+        ],
+        "velocityFieldMps": [
+          1.3573934839052586,
+          -0.7904389855669621,
+          3.7889674504355204
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 15000,
+      "initialNoLoadFraction": 0.7,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          263.45381339502694,
+          0,
+          616.0931864687498
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4120000000000001,
+          "positionMm": [
+            263.45381339502694,
+            0,
+            616.0931864687498
+          ],
+          "velocityMps": [
+            1.5707713736924385,
+            0,
+            3.7889740068139326
+          ],
+          "relativeAxisOffsetMm": -14.497055788907065,
+          "rollerKineticEnergyJ": 5.838137849148487,
+          "workOnPieceJ": 1.936097999501589,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.1822030513480115
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -4.77491950431613,
+          0.6580342997468426,
+          1.348062004786505
+        ],
+        "releaseFieldM": [
+          -5.299373928254884,
+          0.9634352227287213,
+          0.6160931864687498
+        ],
+        "velocityFieldMps": [
+          1.3573967430945073,
+          -0.790440883461916,
+          3.7889740068139326
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 15000,
+      "initialNoLoadFraction": 0.9,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          263.45381339502694,
+          0,
+          616.0931864687498
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4120000000000001,
+          "positionMm": [
+            263.45381339502694,
+            0,
+            616.0931864687498
+          ],
+          "velocityMps": [
+            1.5707713736924385,
+            0,
+            3.7889740068139326
+          ],
+          "relativeAxisOffsetMm": -14.497055788907065,
+          "rollerKineticEnergyJ": 12.5861170353125,
+          "workOnPieceJ": 1.936097999501589,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.1822030513480115
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -4.77491950431613,
+          0.6580342997468426,
+          1.348062004786505
+        ],
+        "releaseFieldM": [
+          -5.299373928254884,
+          0.9634352227287213,
+          0.6160931864687498
+        ],
+        "velocityFieldMps": [
+          1.3573967430945073,
+          -0.790440883461916,
+          3.7889740068139326
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 30000,
+      "initialNoLoadFraction": 0.5,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          264.0998592121286,
+          0,
+          615.4483374514659
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4071,
+          "positionMm": [
+            264.0998592121286,
+            0,
+            615.4483374514659
+          ],
+          "velocityMps": [
+            1.506645279520246,
+            0,
+            3.897504082511273
+          ],
+          "relativeAxisOffsetMm": -15.378972387167659,
+          "rollerKineticEnergyJ": 1.4396028280620767,
+          "workOnPieceJ": 2.052574209292715,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.88160913027001
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "short-of-full-aperture",
+        "apexM": [
+          -4.781362839338285,
+          0.6617863902489469,
+          1.3899502353060869
+        ],
+        "releaseFieldM": [
+          -5.298815641732281,
+          0.9631101206578665,
+          0.6154483374514659
+        ],
+        "velocityFieldMps": [
+          1.3019815803059924,
+          -0.7581714600567282,
+          3.897504082511273
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665
+      }
+    },
+    {
+      "contactNperM": 30000,
+      "initialNoLoadFraction": 0.7,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          264.72180941160394,
+          0,
+          615.0553973403588
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4058000000000002,
+          "positionMm": [
+            264.72180941160394,
+            0,
+            615.0553973403588
+          ],
+          "velocityMps": [
+            2.354387704015166,
+            0,
+            5.354190728135421
+          ],
+          "relativeAxisOffsetMm": -16.114067115355684,
+          "rollerKineticEnergyJ": 2.885342874037597,
+          "workOnPieceJ": 3.868916631904547,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.7944613933983717
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "clear",
+        "apexM": [
+          -4.187454910296427,
+          0.31594121969353417,
+          2.076683902143289
+        ],
+        "releaseFieldM": [
+          -5.298278177662541,
+          0.962797143942492,
+          0.6150553973403589
+        ],
+        "velocityFieldMps": [
+          2.0345661086880082,
+          -1.184770952630061,
+          5.354190728135421
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665,
+        "apertureMarginM": 0.26870932557255134,
+        "firstSpherePassS": 0.7337170306143791,
+        "lastSpherePassS": 0.8026106876026717
+      }
+    },
+    {
+      "contactNperM": 30000,
+      "initialNoLoadFraction": 0.9,
+      "case": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          264.7281773442264,
+          0,
+          615.0664453245987
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4058000000000002,
+          "positionMm": [
+            264.7281773442264,
+            0,
+            615.0664453245987
+          ],
+          "velocityMps": [
+            2.3649316421617423,
+            0,
+            5.372493170636028
+          ],
+          "relativeAxisOffsetMm": -16.1140579146564,
+          "rollerKineticEnergyJ": 7.965231446032017,
+          "workOnPieceJ": 3.8953722301985763,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.7945926840719366
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "clear",
+        "apexM": [
+          -4.17866049714432,
+          0.31082004658269147,
+          2.0867047146893034
+        ],
+        "releaseFieldM": [
+          -5.2982726747541316,
+          0.9627939394823317,
+          0.6150664453245988
+        ],
+        "velocityFieldMps": [
+          2.043677751247363,
+          -1.1900768551460688,
+          5.372493170636028
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665,
+        "apertureMarginM": 0.29355600530538617,
+        "firstSpherePassS": 0.7409494666149358,
+        "lastSpherePassS": 0.8084282771830081
+      }
+    }
+  ],
+  "controls": {
+    "stopped roller": {
+      "events": [
+        "carpet",
+        "intake roller",
+        "two ramp edges"
+      ],
+      "crossing": null,
+      "lifted": null,
+      "finalMm": [
+        322.33522422615954,
+        0,
+        74.69526160882711
+      ],
+      "dt": 0.0001,
+      "release": null,
+      "wheelContactAtS": null
+    },
+    "prior missing guides": {
+      "events": [
+        "carpet",
+        "front deck crossmember",
+        "intake roller",
+        "paired indexed shelves",
+        "two ramp edges"
+      ],
+      "crossing": {
+        "timeS": 0.4237,
+        "positionMm": [
+          257.75119330169656,
+          0,
+          100.02427938170082
+        ],
+        "velocityMps": [
+          -0.09746686705831863,
+          0,
+          0.1740360662790375
+        ],
+        "spinRadS": 4.088705404662103
+      },
+      "lifted": null,
+      "finalMm": [
+        -330.96983391026635,
+        0,
+        74.21364265197958
+      ],
+      "dt": 0.0001,
+      "release": null,
+      "wheelContactAtS": null
+    },
+    "no approach or roller": {
+      "events": [
+        "carpet"
+      ],
+      "crossing": null,
+      "lifted": null,
+      "finalMm": [
+        460.0,
+        0,
+        74.21362809999995
+      ],
+      "dt": 0.0001,
+      "release": null,
+      "wheelContactAtS": null
+    }
+  },
+  "refinements": [
+    {
+      "mechanism": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.4237,
+          "positionMm": [
+            257.75119330169656,
+            0,
+            100.02427938170082
+          ],
+          "velocityMps": [
+            -0.09746686705831863,
+            0,
+            0.1740360662790375
+          ],
+          "spinRadS": 4.088705404662103
+        },
+        "lifted": {
+          "timeS": 1.3425,
+          "positionMm": [
+            245.9451282786033,
+            0,
+            540.0571739442142
+          ],
+          "velocityMps": [
+            0.0013324483913226901,
+            0,
+            0.6503919914502504
+          ]
+        },
+        "finalMm": [
+          264.72180941160394,
+          0,
+          615.0553973403588
+        ],
+        "dt": 0.0001,
+        "release": {
+          "timeS": 1.4058000000000002,
+          "positionMm": [
+            264.72180941160394,
+            0,
+            615.0553973403588
+          ],
+          "velocityMps": [
+            2.354387704015166,
+            0,
+            5.354190728135421
+          ],
+          "relativeAxisOffsetMm": -16.114067115355684,
+          "rollerKineticEnergyJ": 2.885342874037597,
+          "workOnPieceJ": 3.868916631904547,
+          "chassisTravelM": 0.3987909999999926,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.7944613933983717
+        },
+        "wheelContactAtS": 1.3841
+      },
+      "flight": {
+        "outcome": "clear",
+        "apexM": [
+          -4.187454910296427,
+          0.31594121969353417,
+          2.076683902143289
+        ],
+        "releaseFieldM": [
+          -5.298278177662541,
+          0.962797143942492,
+          0.6150553973403589
+        ],
+        "velocityFieldMps": [
+          2.0345661086880082,
+          -1.184770952630061,
+          5.354190728135421
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665,
+        "apertureMarginM": 0.26870932557255134,
+        "firstSpherePassS": 0.7337170306143791,
+        "lastSpherePassS": 0.8026106876026717
+      },
+      "field": {
+        "contacts": {
+          "GE-26315-01: Hub Funnel Base": {
+            "t": 0.907,
+            "centerM": [
+              -3.4529267170830753,
+              -0.11179011009295847,
+              1.43536732194675
+            ]
+          },
+          "GE-26408: Counter Roller Tube": {
+            "t": 0.9875,
+            "centerM": [
+              -3.4605298074793986,
+              -0.10808559974219316,
+              1.145969260760555
+            ]
+          },
+          "GE-26333: Hub Ramp, Large": {
+            "t": 1.0345,
+            "centerM": [
+              -3.5586221103626263,
+              -0.10080216352768662,
+              1.0407467512720892
+            ]
+          },
+          "GE-26331: Hub Internal Wall": {
+            "t": 1.4075,
+            "centerM": [
+              -3.932281855344114,
+              0.004424426944082564,
+              1.196037404551179
+            ]
+          },
+          "GE-26403-01: Bottom Plate": {
+            "t": 2.115,
+            "centerM": [
+              -3.4667290288829196,
+              0.16792406511801564,
+              1.006400898132934
+            ]
+          }
+        },
+        "counterWheelsTouched": [],
+        "minimumZM": 0.6150553973403589,
+        "finalPositionM": [
+          -3.450535273842305,
+          0.17688324943021752,
+          0.998460454467782
+        ],
+        "maxModeledPenetrationM": 0.010222056603497148,
+        "dt": 0.0005
+      }
+    },
+    {
+      "mechanism": {
+        "events": [
+          "carpet",
+          "front deck crossmember",
+          "front lift custody guide",
+          "intake roller",
+          "paired indexed shelves",
+          "paired scoring wheels",
+          "rear lift custody gate",
+          "two ramp edges"
+        ],
+        "crossing": {
+          "timeS": 0.42365,
+          "positionMm": [
+            257.756407538816,
+            0,
+            100.01621971922287
+          ],
+          "velocityMps": [
+            -0.09848627385206603,
+            0,
+            0.17363891804155251
+          ],
+          "spinRadS": 4.100645500260029
+        },
+        "lifted": {
+          "timeS": 1.3424,
+          "positionMm": [
+            245.94416147572926,
+            0,
+            540.0244108748215
+          ],
+          "velocityMps": [
+            0.0013414310120039748,
+            0,
+            0.6504087217185271
+          ]
+        },
+        "finalMm": [
+          264.719270195789,
+          0,
+          615.0435769553529
+        ],
+        "dt": 5e-05,
+        "release": {
+          "timeS": 1.40575,
+          "positionMm": [
+            264.719270195789,
+            0,
+            615.0435769553529
+          ],
+          "velocityMps": [
+            2.3534061899790752,
+            0,
+            5.352881254739428
+          ],
+          "relativeAxisOffsetMm": -16.11777828245721,
+          "rollerKineticEnergyJ": 2.887063502716414,
+          "workOnPieceJ": 3.8783310372624364,
+          "chassisTravelM": 0.39872449999991977,
+          "chassisSpeedMps": 0.0,
+          "spinRadS": -2.7943535215589477
+        },
+        "wheelContactAtS": 1.38405
+      },
+      "flight": {
+        "outcome": "clear",
+        "apexM": [
+          -4.188191753131451,
+          0.31637029888828827,
+          2.075957228780428
+        ],
+        "releaseFieldM": [
+          -5.298280371949587,
+          0.9627984217223304,
+          0.6150435769553529
+        ],
+        "velocityFieldMps": [
+          2.0337179241729317,
+          -1.184277036815951,
+          5.352881254739428
+        ],
+        "headingRad": -0.5273189396509035,
+        "robotFieldM": [
+          -5.52704,
+          1.0960100000000002
+        ],
+        "gravity": 9.80665,
+        "apertureMarginM": 0.26674254928442753,
+        "firstSpherePassS": 0.733188393814095,
+        "lastSpherePassS": 0.8021882589082828
+      },
+      "field": {
+        "contacts": {
+          "GE-26315-01: Hub Funnel Base": {
+            "t": 0.907,
+            "centerM": [
+              -3.4536982147239894,
+              -0.11134085066977598,
+              1.4352796381351312
+            ]
+          },
+          "GE-26408: Counter Roller Tube": {
+            "t": 0.9842500000000001,
+            "centerM": [
+              -3.4520920945582225,
+              -0.11293292643360249,
+              1.1554194359252896
+            ]
+          },
+          "GE-26333: Hub Ramp, Large": {
+            "t": 1.04475,
+            "centerM": [
+              -3.5935619490045623,
+              -0.10539835562210584,
+              1.0551485604412596
+            ]
+          },
+          "GE-26331: Hub Internal Wall": {
+            "t": 1.29775,
+            "centerM": [
+              -3.9322970319200468,
+              -0.04587971706978222,
+              1.2323930737204145
+            ]
+          },
+          "GE-26403-01: Bottom Plate": {
+            "t": 1.799,
+            "centerM": [
+              -3.466922420116654,
+              0.060764871678131674,
+              1.0064804228496378
+            ]
+          }
+        },
+        "counterWheelsTouched": [],
+        "minimumZM": 0.6150435769553529,
+        "finalPositionM": [
+          -3.4562054594979292,
+          0.07348777132298213,
+          1.0020696791245298
+        ],
+        "maxModeledPenetrationM": 0.009006922573657011,
+        "dt": 0.00025
+      }
+    }
+  ]
+}
