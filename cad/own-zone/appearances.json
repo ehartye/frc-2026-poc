@@ -1,0 +1,366 @@
+{
+  "schema": "agent-frc/assembly-appearances@1",
+  "sourceSha256": "5c76902ac3dd4ed1bcba7981fc4574542e97f77fd55f3fedb7ab303e1af28b69",
+  "solids": [
+    {
+      "id": "left perimeter tube",
+      "role": "structure",
+      "boundsMm": [
+        -340.0,
+        314.6,
+        64.0,
+        340.0,
+        340.0,
+        114.8
+      ]
+    },
+    {
+      "id": "left front return",
+      "role": "structure",
+      "boundsMm": [
+        314.6,
+        150.0,
+        64.0,
+        340.0,
+        314.6,
+        114.8
+      ]
+    },
+    {
+      "id": "left blue side bumper",
+      "role": "bumper-blue",
+      "boundsMm": [
+        -416.0,
+        340.0,
+        48.0,
+        416.0,
+        416.0,
+        168.0
+      ]
+    },
+    {
+      "id": "left blue front bumper",
+      "role": "bumper-blue",
+      "boundsMm": [
+        340.0,
+        150.0,
+        48.0,
+        416.0,
+        340.0,
+        168.0
+      ]
+    },
+    {
+      "id": "right perimeter tube",
+      "role": "structure",
+      "boundsMm": [
+        -340.0,
+        -340.0,
+        64.0,
+        340.0,
+        -314.6,
+        114.8
+      ]
+    },
+    {
+      "id": "right front return",
+      "role": "structure",
+      "boundsMm": [
+        314.6,
+        -314.6,
+        64.0,
+        340.0,
+        -150.0,
+        114.8
+      ]
+    },
+    {
+      "id": "right blue side bumper",
+      "role": "bumper-blue",
+      "boundsMm": [
+        -416.0,
+        -416.0,
+        48.0,
+        416.0,
+        -340.0,
+        168.0
+      ]
+    },
+    {
+      "id": "right blue front bumper",
+      "role": "bumper-blue",
+      "boundsMm": [
+        340.0,
+        -340.0,
+        48.0,
+        416.0,
+        -150.0,
+        168.0
+      ]
+    },
+    {
+      "id": "rear perimeter tube",
+      "role": "structure",
+      "boundsMm": [
+        -340.0,
+        -314.6,
+        64.0,
+        -314.6,
+        314.6,
+        114.8
+      ]
+    },
+    {
+      "id": "rear blue bumper",
+      "role": "bumper-blue",
+      "boundsMm": [
+        -416.0,
+        -340.0,
+        48.0,
+        -340.0,
+        340.0,
+        168.0
+      ]
+    },
+    {
+      "id": "front left module tab spacer 1",
+      "role": "structure",
+      "boundsMm": [
+        179.5,
+        291.5,
+        78.32,
+        216.5,
+        314.6,
+        111.5
+      ]
+    },
+    {
+      "id": "front left module tab spacer 2",
+      "role": "structure",
+      "boundsMm": [
+        291.5,
+        179.5,
+        78.32,
+        314.6,
+        216.5,
+        111.5
+      ]
+    },
+    {
+      "id": "front right module tab spacer 1",
+      "role": "structure",
+      "boundsMm": [
+        291.5,
+        -216.5,
+        78.32,
+        314.6,
+        -179.5,
+        111.5
+      ]
+    },
+    {
+      "id": "front right module tab spacer 2",
+      "role": "structure",
+      "boundsMm": [
+        179.5,
+        -314.6,
+        78.32,
+        216.5,
+        -291.5,
+        111.5
+      ]
+    },
+    {
+      "id": "rear left module tab spacer 1",
+      "role": "structure",
+      "boundsMm": [
+        -314.6,
+        179.5,
+        78.32,
+        -291.5,
+        216.5,
+        111.5
+      ]
+    },
+    {
+      "id": "rear left module tab spacer 2",
+      "role": "structure",
+      "boundsMm": [
+        -216.5,
+        291.5,
+        78.32,
+        -179.5,
+        314.6,
+        111.5
+      ]
+    },
+    {
+      "id": "rear right module tab spacer 1",
+      "role": "structure",
+      "boundsMm": [
+        -216.5,
+        -314.6,
+        78.32,
+        -179.5,
+        -291.5,
+        111.5
+      ]
+    },
+    {
+      "id": "rear right module tab spacer 2",
+      "role": "structure",
+      "boundsMm": [
+        -314.6,
+        -216.5,
+        78.32,
+        -291.5,
+        -179.5,
+        111.5
+      ]
+    },
+    {
+      "id": "front left public wheel",
+      "role": "wheel",
+      "boundsMm": [
+        229.9,
+        255.0,
+        0.0,
+        306.1,
+        281.0,
+        76.2
+      ]
+    },
+    {
+      "id": "front left public drive housing",
+      "role": "drive",
+      "boundsMm": [
+        228.0,
+        228.0,
+        70.0,
+        308.0,
+        308.0,
+        115.0
+      ]
+    },
+    {
+      "id": "front left public motor reserve",
+      "role": "drive",
+      "boundsMm": [
+        238.1,
+        238.1,
+        115.0,
+        297.9,
+        297.9,
+        171.46
+      ]
+    },
+    {
+      "id": "front right public wheel",
+      "role": "wheel",
+      "boundsMm": [
+        229.9,
+        -281.0,
+        0.0,
+        306.1,
+        -255.0,
+        76.2
+      ]
+    },
+    {
+      "id": "front right public drive housing",
+      "role": "drive",
+      "boundsMm": [
+        228.0,
+        -308.0,
+        70.0,
+        308.0,
+        -228.0,
+        115.0
+      ]
+    },
+    {
+      "id": "front right public motor reserve",
+      "role": "drive",
+      "boundsMm": [
+        238.1,
+        -297.9,
+        115.0,
+        297.9,
+        -238.1,
+        171.46
+      ]
+    },
+    {
+      "id": "rear left public wheel",
+      "role": "wheel",
+      "boundsMm": [
+        -306.1,
+        255.0,
+        0.0,
+        -229.9,
+        281.0,
+        76.2
+      ]
+    },
+    {
+      "id": "rear left public drive housing",
+      "role": "drive",
+      "boundsMm": [
+        -308.0,
+        228.0,
+        70.0,
+        -228.0,
+        308.0,
+        115.0
+      ]
+    },
+    {
+      "id": "rear left public motor reserve",
+      "role": "drive",
+      "boundsMm": [
+        -297.9,
+        238.1,
+        115.0,
+        -238.1,
+        297.9,
+        171.46
+      ]
+    },
+    {
+      "id": "rear right public wheel",
+      "role": "wheel",
+      "boundsMm": [
+        -306.1,
+        -281.0,
+        0.0,
+        -229.9,
+        -255.0,
+        76.2
+      ]
+    },
+    {
+      "id": "rear right public drive housing",
+      "role": "drive",
+      "boundsMm": [
+        -308.0,
+        -308.0,
+        70.0,
+        -228.0,
+        -228.0,
+        115.0
+      ]
+    },
+    {
+      "id": "rear right public motor reserve",
+      "role": "drive",
+      "boundsMm": [
+        -297.9,
+        -297.9,
+        115.0,
+        -238.1,
+        -238.1,
+        171.46
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Student workflow and evidence
+
+Start with the [live field study](https://ehartye.github.io/frc-2026-poc/) and its [interactive lab](../kickoff/field-lab.html). Each row identifies the actual project-owned file you can read or edit in this checkout. The January 10 V0 + TU00 boundary applies to game requirements; technical studies state their own assumptions.
+
+| Workflow skill | Project-owned document or artifact | What to check |
+|---|---|---|
+| Agent FRC project setup | [Project layout](../project-layout.json) | Kickoff inputs, experiments, CAD, docs and local restricted artifacts have separate homes. |
+| Agent FRC season and case study | [Release-day rule register](../kickoff/rule-register.json), [derived field model](../kickoff/rules-model.json) | Match the FIRST edition, evidence cutoff, locator and units. |
+| Agent FRC previsualization | [Editable field profile](../kickoff/field-profile.json), [field lab](../kickoff/field-lab.html), [saved trial results](../kickoff/trials.json) | Change volume, traffic or supply assumptions. Compare the available scoring time. |
+| Agent FRC strategic narrative | [Kickoff comparison](../kickoff/study.md), [selected role and enabling requirements](../kickoff/selected-strategy.md), [replay input](../kickoff/selected-strategy.json) | The chosen own-zone plan requires 2.00 FUEL/s with stock at the source by second five. |
+| Agent FRC swerve and mechanism CAD | [Drive selection and native handoff](../cad/own-zone/design.md), [editable Fusion file](../cad/own-zone/own-zone-public.f3d), [module locations](../cad/own-zone/layout.json) | R1 is a chassis. The student master with the exact REV supplier geometry has four placements. Check the [native reopen receipt](../cad/own-zone/fusion-progress.json). |
+| Agent FRC robot highlights | [Showcase evidence manifest](../highlights.json), [selected CAD source](../cad-showcase.json), [still and mesh receipt](robot/cad/receipt.json) | Compare the current 3D chassis and the separately labeled previous roller fixture. |
+
+The historical differential-drive, roller and launch study remains reproducible from [its verification guide](VERIFICATION.md). Its results do not transfer to the new four-module robot. Four-module drive behavior, physical-model acquisition, loaded transit, feeding and HUB sensor passage still need independent evidence.

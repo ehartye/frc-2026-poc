@@ -1,0 +1,200 @@
+{
+  "stage": "complete",
+  "errors": [],
+  "supplierSites": {
+    "front left": {
+      "definition": "REV-21-3005 supplier assembly",
+      "descendants": 74,
+      "boundsMm": [
+        179.354,
+        179.354,
+        -0.0,
+        312.45,
+        312.45,
+        171.46
+      ],
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        26.8,
+        -1.0,
+        0.0,
+        0.0,
+        26.8,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "front right": {
+      "definition": "REV-21-3005 supplier assembly",
+      "descendants": 74,
+      "boundsMm": [
+        179.354,
+        -312.45,
+        -0.0,
+        312.45,
+        -179.354,
+        171.46
+      ],
+      "transform": [
+        -1.0,
+        0.0,
+        0.0,
+        26.8,
+        0.0,
+        0.0,
+        1.0,
+        -26.8,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "rear left": {
+      "definition": "REV-21-3005 supplier assembly",
+      "descendants": 74,
+      "boundsMm": [
+        -312.45,
+        179.354,
+        -0.0,
+        -179.354,
+        312.45,
+        171.46
+      ],
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -26.8,
+        0.0,
+        0.0,
+        -1.0,
+        26.8,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "rear right": {
+      "definition": "REV-21-3005 supplier assembly",
+      "descendants": 74,
+      "boundsMm": [
+        -312.45,
+        -312.45,
+        -0.0,
+        -179.354,
+        -179.354,
+        171.46
+      ],
+      "transform": [
+        0.0,
+        0.0,
+        1.0,
+        -26.8,
+        1.0,
+        0.0,
+        0.0,
+        -26.8,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "projectParts": {
+    "left perimeter tube": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "left blue front bumper": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "left blue side bumper": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "left front return": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "right blue front bumper": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "right perimeter tube": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "right blue side bumper": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "right front return": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "front left module tab spacer 2": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear left module tab spacer 1": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear blue bumper": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear perimeter tube": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "front left module tab spacer 1": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "front right module tab spacer 2": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "front right module tab spacer 1": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear right module tab spacer 1": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear left module tab spacer 2": {
+      "bodies": 1,
+      "extrusions": 1
+    },
+    "rear right module tab spacer 2": {
+      "bodies": 1,
+      "extrusions": 1
+    }
+  }
+}

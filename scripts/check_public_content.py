@@ -12,7 +12,13 @@ PATTERNS={
 # Only the upstream Apache-licensed Gradle wrapper binary is permitted.
 WRAPPER='experiments/legacy/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
-SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': 'f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f', 'docs/robot/cad/assembly.stl.gz': '7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b'}
+SHOWCASE_ASSETS = {
+    "cad/own-zone/own-zone-public.f3d": "6939cae9d72d53276de8d1105dd9380d3ccba9de232f811499a297ede7997b25",
+    "docs/robot/cad/assembly.png": "b94003578b44bb6e9b6150e386549274079cf58dea49992c4c76566a41354c24",
+    "docs/robot/cad/assembly.stl.gz": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
+    "docs/robot/historical-fixture/assembly.png": "f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f",
+    "docs/robot/historical-fixture/assembly.stl.gz": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b"
+}
 
 def findings(data):
  text=data.decode('utf-8',errors='replace')

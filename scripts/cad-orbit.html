@@ -3,9 +3,11 @@
 <title>{{title}} · CAD</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0e161d;color:#e9f1f3;font:16px/1.5 system-ui}main{max-width:76rem;margin:auto;padding:1.3rem}h1{font-size:clamp(1.6rem,4vw,3rem);margin:.2rem 0}p{margin:.35rem 0 1rem}figure{margin:0;position:relative;border:1px solid #546772;background:#0e161d}canvas,img{width:100%;height:min(62vh,42rem);display:block;object-fit:contain}canvas{touch-action:none;cursor:grab}canvas:active{cursor:grabbing}[hidden]{display:none}button{color:inherit;background:#223940;border:1px solid #627d88;border-radius:.3rem;padding:.45rem .8rem;font:inherit}nav{display:flex;gap:.5rem;margin:.7rem 0}a{color:#a2dbed}small{color:#afc4cd}
-</style>
+#legend{display:flex;flex-wrap:wrap;gap:.35rem 1rem;padding:0;list-style:none}#legend[hidden]{display:none}#legend li{display:flex;align-items:center;gap:.4rem}#legend i{width:.8rem;height:.8rem;border:1px solid #afc4cd;border-radius:.1rem}
+</style></head><body class="cad-viewer">
 <main><h1>{{title}}</h1><p>{{scope}}</p>
 <figure><img id="poster" src="assembly.png" alt="{{title}} rendered from the source CAD"><canvas tabindex="0" aria-label="Orbit the CAD assembly. Arrow keys rotate, plus and minus zoom, Home resets." hidden></canvas></figure>
+<ul id="legend" aria-label="Component appearances" hidden></ul>
 <nav aria-label="Camera"><button id="reset">Reset view</button><button id="closer">Zoom in</button><button id="farther">Zoom out</button></nav>
 <p id="status" role="status">Loading assembly…</p><small>{{facts}} · <a href="receipt.json">CAD export record</a></small></main>
 <script id="packed" type="application/octet-stream">{{mesh}}</script>
@@ -13,6 +15,21 @@
 const canvas = document.querySelector('canvas');
 const status = document.querySelector('#status');
 async function start() {
+  const layout = {{bounds}};
+  if(document.body.classList.contains('cad-viewer') && self !== top) document.body.classList.add('embedded');
+  if(layout.backdrop){
+    const {center,edge}=layout.backdrop;
+    document.querySelector('figure').style.background=`radial-gradient(ellipse at 50% 48%, ${center} 0%, ${edge} 72%)`;
+  }
+  if (layout.groups) {
+    const legend=document.querySelector('#legend');
+    for(const [,color,role] of layout.groups){
+      const item=document.createElement('li'), swatch=document.createElement('i');
+      swatch.style.backgroundColor=color; swatch.setAttribute('aria-hidden','true');
+      item.append(swatch,document.createTextNode(role)); legend.append(item);
+    }
+    legend.hidden=false;
+  }
   const gl = canvas.getContext('webgl',{antialias:true});
   if (!gl) throw Error('WebGL unavailable');
   const packed = Uint8Array.from(atob(document.querySelector('#packed').textContent.trim()), c=>c.charCodeAt(0));
@@ -21,7 +38,12 @@ async function start() {
   const count = view.getUint32(80,true);
   if (!count || view.byteLength !== 84+50*count) throw Error('Invalid mesh');
   const vertices = new Float32Array(count*18);
-  const bounds = {{bounds}};
+  const bounds = Array.isArray(layout) ? layout : layout.bounds;
+  const ranges = layout.groups || [[count, null]];
+  if (!Array.isArray(ranges) || ranges.some(([n,color]) => !Number.isSafeInteger(n) || n < 1 ||
+      (color !== null && !/^#[0-9a-f]{6}$/i.test(color))) ||
+      ranges.reduce((sum,[n]) => sum+n, 0) !== count) throw Error('Invalid color ranges');
+  const batches = ranges.map(([n,color,role,kind]) => [n,color ? [1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255) : [.63,.8,.87], kind === 'appearance-overlay']);
   const center = [0,2,4].map(i=>(bounds[i]+bounds[i+1])/2);
   const radius = Math.hypot(...[0,2,4].map(i=>(bounds[i+1]-bounds[i])/2));
   for (let i=0; i<count; i++) {
@@ -38,7 +60,7 @@ async function start() {
     gl.attachShader(program,shader);
   }
   attach(gl.VERTEX_SHADER,'attribute vec3 p,n; uniform mat3 basis; uniform vec2 scale; varying float light; void main(){vec3 v=basis*p; vec3 normal=normalize(basis*n); light=.32+.68*abs(dot(normal,normalize(vec3(-.4,.65,.7)))); gl_Position=vec4(v.xy*scale,-.85*v.z,1.);}');
-  attach(gl.FRAGMENT_SHADER,'precision mediump float; varying float light; void main(){gl_FragColor=vec4(vec3(.63,.8,.87)*light,1.);}');
+  attach(gl.FRAGMENT_SHADER,'precision mediump float; varying float light; uniform vec3 tint; void main(){gl_FragColor=vec4(tint*light,1.);}');
   gl.linkProgram(program);
   if(!gl.getProgramParameter(program,gl.LINK_STATUS)) throw Error('Shader linking failed');
   gl.useProgram(program); gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());
@@ -48,17 +70,27 @@ async function start() {
     gl.vertexAttribPointer(loc,3,gl.FLOAT,false,24,offset);
   }
   const basis=gl.getUniformLocation(program,'basis'), scale=gl.getUniformLocation(program,'scale');
+  const tint=gl.getUniformLocation(program,'tint');
   let yaw,tilt,zoom,drag;
   function draw() {
     const w=Math.max(1,Math.round(canvas.clientWidth*Math.min(devicePixelRatio,2)));
     const h=Math.max(1,Math.round(canvas.clientHeight*Math.min(devicePixelRatio,2)));
     if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
-    gl.viewport(0,0,w,h); gl.enable(gl.DEPTH_TEST); gl.clearColor(.055,.085,.115,1);
+    gl.viewport(0,0,w,h); gl.enable(gl.DEPTH_TEST);
+    if(layout.backdrop) gl.clearColor(0,0,0,0); else gl.clearColor(.055,.085,.115,1);
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
     const a=Math.cos(yaw),b=Math.sin(yaw),c=Math.cos(tilt),d=Math.sin(tilt);
     gl.uniformMatrix3fv(basis,false,[-b,-a*d,a*c,a,-b*d,b*c,0,c,d]);
     gl.uniform2f(scale,zoom*Math.min(1,h/w),zoom*Math.min(1,w/h));
-    gl.drawArrays(gl.TRIANGLES,0,count*3);
+    let start=0;
+    for(const [triangles,rgb,overlay] of batches){
+      // Printed surfaces can share a raster depth with their support at oblique angles.
+      if(overlay){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-1);}
+      gl.uniform3fv(tint,rgb);
+      gl.drawArrays(gl.TRIANGLES,start,triangles*3);
+      if(overlay) gl.disable(gl.POLYGON_OFFSET_FILL);
+      start+=triangles*3;
+    }
   }
   function reset(){yaw=-.89;tilt=.45;zoom=.98;draw();}
   function size(factor){zoom=Math.max(.2,Math.min(7,zoom*factor));draw();}
@@ -76,4 +108,3 @@ async function start() {
 }
 start().catch(e=>{status.textContent='Showing the CAD still. '+e.message+'.';document.querySelector('nav').hidden=true;});
 </script></html>
-
