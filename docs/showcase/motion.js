@@ -1,3 +1,4 @@
+import {attachChapterControls} from './chapter-controls.js';
 const robot = document.querySelector('#robot');
 const clips = [...document.querySelectorAll('[data-clip]')];
 const stow = document.querySelector('#stow');
@@ -37,7 +38,7 @@ for (const button of clips) button.addEventListener('click', async () => {
   seek.disabled = pause.disabled = false;
   pause.textContent = 'Pause';
   press(button);
-  status.textContent = wide ? 'Clip 2 · From the guided handoff through contact with the HUB counter assembly.' : 'Clip 1 · From the carpet to the guided scoring handoff.';
+  status.textContent = wide ? 'Clip 2 · From the guided handoff through the full opening and the active counter.' : 'Clip 1 · From the carpet to the guided scoring handoff.';
   showTime();
 });
 robot.addEventListener('finished', () => {seek.value = robot.duration; pause.textContent = 'Replay';});
@@ -53,3 +54,26 @@ stow.addEventListener('click', () => {
   location.reload();
 });
 if (robot.loaded) ready();
+const marks = document.querySelector('#chapter-list');
+try {
+  const response = await fetch('chapters.json');
+  if (!response.ok) throw Error('The event register could not load.');
+  const register = await response.json();
+  attachChapterControls(marks, register, robot);
+  marks.addEventListener('click', event => {
+    if (!event.target.closest('button')) return;
+    requestAnimationFrame(() => {
+      active = robot.animationName;
+      const button = clips.find(el => el.dataset.clip === active);
+      if (!button) return;
+      press(button);
+      const wide = button === clips[1];
+      robot.cameraTarget = wide ? '1.0m 1.1m 0m' : '.10m .30m 0m';
+      robot.cameraOrbit = wide ? '0deg 84deg 4.7m' : '20deg 74deg 1.9m';
+      seek.max = robot.duration; seek.value = robot.currentTime;
+      seek.disabled = pause.disabled = false; pause.textContent = 'Resume';
+      status.textContent = marks.querySelector('[role=status]').textContent;
+      document.querySelector('.stage').scrollIntoView({block:'start'});
+    });
+  });
+} catch (error) {marks.textContent = error.message;}

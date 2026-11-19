@@ -23,3 +23,7 @@ await rename(path.join(destination, 'robot/index.html'), path.join(destination, 
 for (const [source, name] of [['motion.html', 'index.html'], ['motion.js', 'motion.js']]) {
   await cp(at('docs/showcase/' + source), path.join(destination, 'robot', name));
 }
+const {checkChapters} = await import(pathToFileURL(path.resolve(plugin, 'scripts/replay-chapters.mjs')));
+const chapters = await checkChapters(at('experiments/own-zone-cycle/motion-chapters.json'), root);
+await writeFile(path.join(destination, 'robot/chapters.json'), JSON.stringify(chapters));
+await cp(path.resolve(plugin, 'templates/replay-chapter-controls.mjs'), path.join(destination, 'robot/chapter-controls.js'));

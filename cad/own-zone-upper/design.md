@@ -22,7 +22,7 @@ The [single-piece receipt](../../experiments/own-zone-cycle/single-piece.json) c
 
 The seven short cases peak between 0.974 m and 1.390 m. The registered opening stands at 1.829 m, so reducing horizontal stand-off alone cannot recover those cases. The better result depends on the assumed foam/contact behavior and initial wheel state. The cases are a sensitivity study with equal display weight and carry no statistical prediction.
 
-The animated example uses the middle initial speed in the bottom row. The full ball clears the six-sided aperture, then touches the funnel base, counter roller tube, large ramp, internal wall and bottom plate. Both integration refinements reach those surfaces. The model treats the field counter as stationary. The gold ring represents the opening, and the animation ends in the counter assembly. The study has yet to observe an optical counting event or reach the strategy's 2 FUEL/s target.
+The stationary-counter control uses the middle initial speed in the bottom row. The ball reaches the funnel base, transverse roller, ramp, internal wall and bottom plate. The [powered-counter and traffic comparison](../../experiments/own-zone-cycle/counter-study.md) follows the same FUEL through channel 3 on the clear approach. The showcase plays this later run. Repeated service at 2 FUEL/s remains open.
 
 ## Reproduce the checks
 
@@ -36,4 +36,4 @@ python experiments/own-zone-cycle/run.py $cache
 python cad/own-zone-upper/animated.py
 ```
 
-The animation uses the [sampled run](../../experiments/own-zone-cycle/replay.json) and Fusion geometry. The shelves' illustrative return is displayed separately from the ball contact calculation. The student site uses the Apache-2.0 [Google model-viewer 4.1.0](https://github.com/google/model-viewer/tree/v4.1.0) runtime and keeps its license alongside the bundled copy.
+The animation uses the [sampled run](../../experiments/own-zone-cycle/counter-replay.json) and Fusion geometry. The shelves' illustrative return is displayed separately from the ball contact calculation. The student site uses the Apache-2.0 [Google model-viewer 4.1.0](https://github.com/google/model-viewer/tree/v4.1.0) runtime and keeps its license alongside the bundled copy.

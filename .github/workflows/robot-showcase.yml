@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: 336f10e25f9c35d5bc4b347a74d89fcc6be48038 # v0.32.0
+          ref: f420eefda7f772229546588600c840755da4232e # v0.33.0
           path: builder
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4

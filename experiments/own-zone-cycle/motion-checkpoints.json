@@ -1,0 +1,70 @@
+{
+  "sources": [
+    {
+      "file": "experiments/own-zone-cycle/counter-result.json",
+      "sha256": "9fc65e752129cfca063c7e1a6887b9be56ad02238a7f93ae2710997828cb3068"
+    },
+    {
+      "file": "experiments/own-zone-cycle/counter-replay.json",
+      "sha256": "7867a4ab8f7b5d588708ce020034a8501144aefdc474e174a7a1b4fa6026dd43"
+    }
+  ],
+  "rows": [
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "timeS": -0.7,
+      "position": [
+        0.46,
+        0.075057,
+        -0.0
+      ]
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "timeS": 1.3424,
+      "position": [
+        0.245944044,
+        0.540024312,
+        -0.0
+      ]
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "timeS": 1.3424,
+      "position": [
+        0.245944044,
+        0.540024312,
+        -0.0
+      ]
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "timeS": 4.39325,
+      "position": [
+        2.7617821583788227,
+        0.109939,
+        -0.6495895417269295
+      ]
+    }
+  ]
+}

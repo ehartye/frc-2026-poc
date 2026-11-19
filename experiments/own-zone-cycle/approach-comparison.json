@@ -1,0 +1,284 @@
+{
+  "profile": "Kickoff release V0 with Team Update 00",
+  "scenario": "Neutral return",
+  "period": "Shift 1",
+  "startS": 13,
+  "durationS": 4.1,
+  "activeSide": "blue if red led AUTO",
+  "station": "blue-hub",
+  "configs": [
+    {
+      "offsetM": -0.25,
+      "poseIn": [
+        99.49449475074786,
+        206.9529359177494
+      ],
+      "startIn": [
+        85.92908143972886,
+        214.85236350709445
+      ],
+      "headingDeg": -30.213149699310527,
+      "minimumStaticClearanceIn": 37.16509326314162,
+      "wholeBumperZoneClearanceIn": 35.94358233794475,
+      "aperture": [
+        {
+          "condition": [
+            7500,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            15000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3480594650563524
+        },
+        {
+          "condition": [
+            15000,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            15000,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            30000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3899502353060869
+        },
+        {
+          "condition": [
+            30000,
+            0.7
+          ],
+          "clear": true,
+          "apertureMarginM": 0.01871105552312849
+        },
+        {
+          "condition": [
+            30000,
+            0.9
+          ],
+          "clear": true,
+          "apertureMarginM": 0.04355773525596293
+        }
+      ],
+      "minimumPeerProjectionGapIn": -5.130884912648251,
+      "contactTicks": 16,
+      "limitingPeer": "B3"
+    },
+    {
+      "offsetM": 0,
+      "poseIn": [
+        108,
+        202
+      ],
+      "startIn": [
+        94.434586688981,
+        209.89942758934507
+      ],
+      "headingDeg": -30.213149699310527,
+      "minimumStaticClearanceIn": 28.659588013889486,
+      "wholeBumperZoneClearanceIn": 27.43807708869261,
+      "aperture": [
+        {
+          "condition": [
+            7500,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            15000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3480594650563524
+        },
+        {
+          "condition": [
+            15000,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            15000,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            30000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3899502353060869
+        },
+        {
+          "condition": [
+            30000,
+            0.7
+          ],
+          "clear": true,
+          "apertureMarginM": 0.26870932557255134
+        },
+        {
+          "condition": [
+            30000,
+            0.9
+          ],
+          "clear": true,
+          "apertureMarginM": 0.29355600530538617
+        }
+      ],
+      "minimumPeerProjectionGapIn": -0.7886495448490253,
+      "contactTicks": 3,
+      "limitingPeer": "B3"
+    },
+    {
+      "offsetM": 0.25,
+      "poseIn": [
+        116.50550524925214,
+        197.0470640822506
+      ],
+      "startIn": [
+        102.94009193823314,
+        204.94649167159568
+      ],
+      "headingDeg": -30.213149699310527,
+      "minimumStaticClearanceIn": 20.154082764637348,
+      "wholeBumperZoneClearanceIn": 18.93257183944047,
+      "aperture": [
+        {
+          "condition": [
+            7500,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            7500,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 0.9735397327733285
+        },
+        {
+          "condition": [
+            15000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3480594650563524
+        },
+        {
+          "condition": [
+            15000,
+            0.7
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            15000,
+            0.9
+          ],
+          "clear": false,
+          "apexM": 1.348062004786505
+        },
+        {
+          "condition": [
+            30000,
+            0.5
+          ],
+          "clear": false,
+          "apexM": 1.3899502353060869
+        },
+        {
+          "condition": [
+            30000,
+            0.7
+          ],
+          "clear": true,
+          "apertureMarginM": 0.2281571478885472
+        },
+        {
+          "condition": [
+            30000,
+            0.9
+          ],
+          "clear": true,
+          "apertureMarginM": 0.2059300546385686
+        }
+      ],
+      "minimumPeerProjectionGapIn": 4.164286372900361,
+      "contactTicks": 0,
+      "limitingPeer": "B3"
+    }
+  ]
+}
