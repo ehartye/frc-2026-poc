@@ -858,8 +858,1209 @@
             "dwell": 1
           }
         ]
+      },
+      "auto-1-credited": {
+        "label": "AUTO 1: credited preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              96,
+              32
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              117
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "auto-1-missed": {
+        "label": "AUTO 1: missed preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              96,
+              32
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              117
+            ],
+            "label": "Attempt HUB delivery; missed",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "missed"
+          }
+        ]
+      },
+      "auto-1-unresolved": {
+        "label": "AUTO 1: unresolved preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              96,
+              32
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              117
+            ],
+            "label": "Attempt HUB delivery; unresolved",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "unresolved"
+          }
+        ]
+      },
+      "auto-2-credited": {
+        "label": "AUTO 2: credited preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              76,
+              85
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              82,
+              159
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "auto-2-missed": {
+        "label": "AUTO 2: missed preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              76,
+              85
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              82,
+              159
+            ],
+            "label": "Attempt HUB delivery; missed",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "missed"
+          }
+        ]
+      },
+      "auto-2-unresolved": {
+        "label": "AUTO 2: unresolved preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              76,
+              85
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              82,
+              159
+            ],
+            "label": "Attempt HUB delivery; unresolved",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "unresolved"
+          }
+        ]
+      },
+      "auto-3-credited": {
+        "label": "AUTO 3: credited preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              99,
+              285
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              202
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "auto-3-missed": {
+        "label": "AUTO 3: missed preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              99,
+              285
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              202
+            ],
+            "label": "Attempt HUB delivery; missed",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "missed"
+          }
+        ]
+      },
+      "auto-3-unresolved": {
+        "label": "AUTO 3: unresolved preload trial",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              99,
+              285
+            ],
+            "label": "Clear the start line inside the alliance zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              202
+            ],
+            "label": "Attempt HUB delivery; unresolved",
+            "dwell": 4,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 8,
+            "outcome": "unresolved"
+          }
+        ]
+      },
+      "shift-outpost": {
+        "label": "Outpost receive, own-zone HUB approach",
+        "loop": true,
+        "steps": [
+          {
+            "at": [
+              78,
+              80
+            ],
+            "label": "Move along the outpost lane",
+            "dwell": 0
+          },
+          {
+            "at": [
+              34,
+              32
+            ],
+            "label": "Retrieve 4 available FUEL",
+            "dwell": 2,
+            "station": {
+              "blue": "blue-outpost",
+              "red": "red-outpost"
+            },
+            "operation": "acquire",
+            "quantity": 4
+          },
+          {
+            "at": [
+              78,
+              80
+            ],
+            "label": "Carry FUEL into the delivery sector",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              117
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 2,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 4,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "shift-depot": {
+        "label": "Depot pickup and return",
+        "loop": true,
+        "steps": [
+          {
+            "at": [
+              74,
+              232
+            ],
+            "label": "Approach the depot frame",
+            "dwell": 0
+          },
+          {
+            "at": [
+              42,
+              233
+            ],
+            "label": "Retrieve 4 available FUEL",
+            "dwell": 2,
+            "station": {
+              "blue": "blue-depot",
+              "red": "red-depot"
+            },
+            "operation": "acquire",
+            "quantity": 4
+          },
+          {
+            "at": [
+              76,
+              215
+            ],
+            "label": "Carry FUEL clear of the depot",
+            "dwell": 0
+          },
+          {
+            "at": [
+              108,
+              202
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 2,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 4,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "shift-neutral": {
+        "label": "Low trench neutral supply and return",
+        "loop": true,
+        "steps": [
+          {
+            "at": [
+              110,
+              266
+            ],
+            "label": "Join the high trench corridor",
+            "dwell": 0
+          },
+          {
+            "at": [
+              125,
+              284
+            ],
+            "label": "Square to the roof",
+            "dwell": 0
+          },
+          {
+            "at": [
+              242,
+              284
+            ],
+            "label": "Clear the trench",
+            "dwell": 0
+          },
+          {
+            "at": [
+              307,
+              231
+            ],
+            "label": "Retrieve 4 available FUEL",
+            "dwell": 2,
+            "station": {
+              "blue": "neutral-south",
+              "red": "neutral-north"
+            },
+            "operation": "acquire",
+            "quantity": 4
+          },
+          {
+            "at": [
+              242,
+              284
+            ],
+            "label": "Return with retained FUEL",
+            "dwell": 0
+          },
+          {
+            "at": [
+              125,
+              284
+            ],
+            "label": "Clear roof",
+            "dwell": 0
+          },
+          {
+            "at": [
+              80,
+              228
+            ],
+            "label": "Yield the depot lane",
+            "dwell": 0
+          },
+          {
+            "at": [
+              82,
+              159
+            ],
+            "label": "Attempt HUB delivery; credited",
+            "dwell": 2,
+            "station": {
+              "blue": "blue-hub",
+              "red": "red-hub"
+            },
+            "operation": "attempt",
+            "quantity": 4,
+            "outcome": "credited"
+          }
+        ]
+      },
+      "shift-reserve": {
+        "label": "Hold legal own-zone reserve",
+        "loop": false,
+        "steps": [
+          {
+            "at": [
+              55,
+              157
+            ],
+            "label": "Stage in the central reserve lane",
+            "dwell": 0
+          }
+        ]
       }
-    }
+    },
+    "stations": [
+      {
+        "id": "blue-preload-1",
+        "label": "Blue supported preload 1",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "blue",
+        "at": [
+          143,
+          32
+        ],
+        "displayAt": [
+          143,
+          32
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "blue-preload-2",
+        "label": "Blue supported preload 2",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "blue",
+        "at": [
+          143,
+          85
+        ],
+        "displayAt": [
+          143,
+          85
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "blue-preload-3",
+        "label": "Blue supported preload 3",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "blue",
+        "at": [
+          143,
+          285
+        ],
+        "displayAt": [
+          143,
+          285
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "blue-depot",
+        "label": "Blue DEPOT (24)",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "blue",
+        "at": [
+          42,
+          233
+        ],
+        "displayAt": [
+          12,
+          234.85
+        ],
+        "radiusIn": 8,
+        "stock": 24
+      },
+      {
+        "id": "blue-outpost",
+        "label": "Blue OUTPOST chute (24)",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "blue",
+        "at": [
+          34,
+          32
+        ],
+        "displayAt": [
+          0,
+          30
+        ],
+        "radiusIn": 6,
+        "stock": 24
+      },
+      {
+        "id": "blue-hub",
+        "label": "Blue HUB",
+        "piece": "FUEL",
+        "kind": "scoring",
+        "side": "blue",
+        "at": [
+          108,
+          158.85
+        ],
+        "displayAt": [
+          182.1,
+          158.85
+        ],
+        "radiusIn": 52,
+        "points": 1,
+        "criterion": "A scripted successful FUEL passage through the top opening and sensor in an active window. Scoring action uses a screened alliance-zone chassis pose. No measured or physics-verified shot.",
+        "activeWindows": [
+          {
+            "phase": "AUTO",
+            "fromS": 0,
+            "toS": 20
+          },
+          {
+            "phase": "Transition",
+            "fromS": 0,
+            "toS": 10
+          },
+          {
+            "phase": "Shift 1",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "red"
+          },
+          {
+            "phase": "Shift 2",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "blue"
+          },
+          {
+            "phase": "Shift 3",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "red"
+          },
+          {
+            "phase": "Shift 4",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "blue"
+          },
+          {
+            "phase": "End game",
+            "fromS": 0,
+            "toS": 30
+          }
+        ],
+        "returns": {
+          "credited": {
+            "station": "neutral-north",
+            "delayS": 4
+          },
+          "inactive": {
+            "station": "neutral-north",
+            "delayS": 4
+          }
+        }
+      },
+      {
+        "id": "red-preload-1",
+        "label": "Red supported preload 1",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "red",
+        "at": [
+          508.2,
+          285.7
+        ],
+        "displayAt": [
+          508.2,
+          285.7
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "red-preload-2",
+        "label": "Red supported preload 2",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "red",
+        "at": [
+          508.2,
+          232.7
+        ],
+        "displayAt": [
+          508.2,
+          232.7
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "red-preload-3",
+        "label": "Red supported preload 3",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "red",
+        "at": [
+          508.2,
+          32.7
+        ],
+        "displayAt": [
+          508.2,
+          32.7
+        ],
+        "radiusIn": 2,
+        "stock": 8
+      },
+      {
+        "id": "red-depot",
+        "label": "Red DEPOT (24)",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "red",
+        "at": [
+          609.2,
+          84.7
+        ],
+        "displayAt": [
+          639.2,
+          82.85
+        ],
+        "radiusIn": 8,
+        "stock": 24
+      },
+      {
+        "id": "red-outpost",
+        "label": "Red OUTPOST chute (24)",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "red",
+        "at": [
+          617.2,
+          285.7
+        ],
+        "displayAt": [
+          651.2,
+          287.7
+        ],
+        "radiusIn": 6,
+        "stock": 24
+      },
+      {
+        "id": "red-hub",
+        "label": "Red HUB",
+        "piece": "FUEL",
+        "kind": "scoring",
+        "side": "red",
+        "at": [
+          543.2,
+          158.85
+        ],
+        "displayAt": [
+          469.1,
+          158.85
+        ],
+        "radiusIn": 52,
+        "points": 1,
+        "criterion": "A scripted successful FUEL passage through the top opening and sensor in an active window. Scoring action uses a screened alliance-zone chassis pose. No measured or physics-verified shot.",
+        "activeWindows": [
+          {
+            "phase": "AUTO",
+            "fromS": 0,
+            "toS": 20
+          },
+          {
+            "phase": "Transition",
+            "fromS": 0,
+            "toS": 10
+          },
+          {
+            "phase": "Shift 1",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "blue"
+          },
+          {
+            "phase": "Shift 2",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "red"
+          },
+          {
+            "phase": "Shift 3",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "blue"
+          },
+          {
+            "phase": "Shift 4",
+            "fromS": 0,
+            "toS": 25,
+            "firstPeriodLeader": "red"
+          },
+          {
+            "phase": "End game",
+            "fromS": 0,
+            "toS": 30
+          }
+        ],
+        "returns": {
+          "credited": {
+            "station": "neutral-south",
+            "delayS": 4
+          },
+          "inactive": {
+            "station": "neutral-south",
+            "delayS": 4
+          }
+        }
+      },
+      {
+        "id": "neutral-north",
+        "label": "North neutral FUEL",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "both",
+        "at": [
+          325.6,
+          106.85
+        ],
+        "displayAt": [
+          325.6,
+          106.85
+        ],
+        "radiusIn": 45,
+        "stock": 180,
+        "areaIn": [
+          [
+            289.6,
+            55.85
+          ],
+          [
+            361.6,
+            157.85
+          ]
+        ]
+      },
+      {
+        "id": "neutral-south",
+        "label": "South neutral FUEL",
+        "piece": "FUEL",
+        "kind": "retrieval",
+        "side": "both",
+        "at": [
+          325.6,
+          210.85
+        ],
+        "displayAt": [
+          325.6,
+          210.85
+        ],
+        "radiusIn": 45,
+        "stock": 180,
+        "areaIn": [
+          [
+            289.6,
+            159.85
+          ],
+          [
+            361.6,
+            261.85
+          ]
+        ]
+      }
+    ],
+    "series": {
+      "matches": [
+        {
+          "id": "Own-zone supply",
+          "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. The central support robot retains position after AUTO.",
+          "setup": "kickoff nominal",
+          "roster": [
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-credited",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-credited",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-credited",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "red-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-credited",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "blue-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-credited",
+                "Transition": "shift-reserve",
+                "Shift 1": "shift-reserve",
+                "Shift 2": "shift-reserve",
+                "Shift 3": "shift-reserve",
+                "Shift 4": "shift-reserve",
+                "End game": "shift-reserve"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-3",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-credited",
+                "Transition": "shift-reserve",
+                "Shift 1": "shift-reserve",
+                "Shift 2": "shift-reserve",
+                "Shift 3": "shift-reserve",
+                "Shift 4": "shift-reserve",
+                "End game": "shift-reserve"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-3",
+                "quantity": 8
+              }
+            }
+          ],
+          "tieWinner": "blue"
+        },
+        {
+          "id": "Neutral return",
+          "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. One collector per alliance can use the low-profile trench route.",
+          "setup": "kickoff nominal",
+          "roster": [
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-credited",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-credited",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-credited",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "red-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-missed",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "blue-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-credited",
+                "Transition": "shift-neutral",
+                "Shift 1": "shift-neutral",
+                "Shift 2": "shift-neutral",
+                "Shift 3": "shift-neutral",
+                "Shift 4": "shift-neutral",
+                "End game": "shift-neutral"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-3",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-credited",
+                "Transition": "shift-neutral",
+                "Shift 1": "shift-neutral",
+                "Shift 2": "shift-neutral",
+                "Shift 3": "shift-neutral",
+                "Shift 4": "shift-neutral",
+                "End game": "shift-neutral"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-3",
+                "quantity": 8
+              }
+            }
+          ],
+          "tieWinner": "red"
+        },
+        {
+          "id": "Missed preload",
+          "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. One collector per alliance can use the low-profile trench route.",
+          "setup": "kickoff nominal",
+          "roster": [
+            {
+              "side": "red",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-missed",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 1,
+              "plans": {
+                "AUTO": "auto-1-credited",
+                "Transition": "shift-outpost",
+                "Shift 1": "shift-outpost",
+                "Shift 2": "shift-outpost",
+                "Shift 3": "shift-outpost",
+                "Shift 4": "shift-outpost",
+                "End game": "shift-outpost"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-1",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "red",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-credited",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "red-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "blue",
+              "slot": 2,
+              "plans": {
+                "AUTO": "auto-2-credited",
+                "Transition": "shift-depot",
+                "Shift 1": "shift-depot",
+                "Shift 2": "shift-depot",
+                "Shift 3": "shift-depot",
+                "Shift 4": "shift-depot",
+                "End game": "shift-depot"
+              },
+              "capacity": 24,
+              "preload": {
+                "station": "blue-preload-2",
+                "quantity": 8
+              },
+              "length": 26.77165354330709,
+              "width": 26.77165354330709,
+              "height": 29.133858267716537,
+              "bumper": 2.9921259842519685
+            },
+            {
+              "side": "red",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-unresolved",
+                "Transition": "shift-neutral",
+                "Shift 1": "shift-neutral",
+                "Shift 2": "shift-neutral",
+                "Shift 3": "shift-neutral",
+                "Shift 4": "shift-neutral",
+                "End game": "shift-neutral"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "red-preload-3",
+                "quantity": 8
+              }
+            },
+            {
+              "side": "blue",
+              "slot": 3,
+              "plans": {
+                "AUTO": "auto-3-credited",
+                "Transition": "shift-neutral",
+                "Shift 1": "shift-neutral",
+                "Shift 2": "shift-neutral",
+                "Shift 3": "shift-neutral",
+                "Shift 4": "shift-neutral",
+                "End game": "shift-neutral"
+              },
+              "capacity": 8,
+              "preload": {
+                "station": "blue-preload-3",
+                "quantity": 8
+              }
+            }
+          ],
+          "tieWinner": "blue"
+        }
+      ]
+    },
+    "stationBasis": "Kickoff V0 §§5.3-5.9, 6.3.4 and 6.5, figures 5-4, 5-6, 6-2 and 6-3. HUB from registered structure and one legal approach sector. Depot and chute wall coordinates are figure-estimated, chassis action datums assumed. Neutral stock spans 72 × 206 in with a 2 in divider. Six full preloads. Equal shares, four-second deterministic recycling and target outcomes are simulation assumptions. The official January 7 STEP, served January 10, SHA256 2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671 independently locates 24 staged depot FUEL per side. The displayed depot marker is their centroid. The chassis action coordinates remain declared assumptions."
   },
   "ruleRegister": {
     "schema": "frc-rule-register/v1",
