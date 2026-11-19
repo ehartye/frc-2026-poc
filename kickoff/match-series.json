@@ -1,6 +1,6 @@
 {
   "schema": "agent-frc/rehearsal-series@1",
-  "profileSha256": "2840a230f5fd47a9270cd43be965e9ca3256a5e21c918dfa61886ad2ab830075",
+  "profileSha256": "2d0aaa375a4b02331b3940a97c1ac77a806136dcb977d66b5b0a06a996c7e69e",
   "stepS": 0.05,
   "playbackRate": 10,
   "modelSeconds": 480,
@@ -2699,6 +2699,10 @@
           "blue-hub": 48,
           "red-hub": 48
         },
+        "occupied": {
+          "blue-hub": 0,
+          "red-hub": 0
+        },
         "returning": [],
         "tieWinner": "blue",
         "firstPeriodCount": {
@@ -2724,7 +2728,9 @@
               "blue-preload-3/7",
               "blue-preload-3/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -2743,7 +2749,9 @@
               "red-preload-3/7",
               "red-preload-3/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -2762,7 +2770,9 @@
               "blue-preload-1/7",
               "blue-preload-1/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -2781,7 +2791,9 @@
               "red-preload-1/7",
               "red-preload-1/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -2800,7 +2812,9 @@
               "blue-preload-2/7",
               "blue-preload-2/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -2819,7 +2833,9 @@
               "red-preload-2/7",
               "red-preload-2/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -2862,7 +2878,9 @@
               "blue-outpost/3",
               "blue-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -2877,7 +2895,9 @@
               "red-outpost/3",
               "red-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -2920,7 +2940,9 @@
               "blue-outpost/7",
               "blue-outpost/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -2935,7 +2957,9 @@
               "red-outpost/7",
               "red-outpost/8"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -2978,7 +3002,9 @@
               "blue-outpost/11",
               "blue-outpost/12"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -2993,7 +3019,9 @@
               "red-outpost/11",
               "red-outpost/12"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -3036,7 +3064,9 @@
               "blue-outpost/15",
               "blue-outpost/16"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -3051,7 +3081,9 @@
               "red-outpost/15",
               "red-outpost/16"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -3094,7 +3126,9 @@
               "blue-outpost/19",
               "blue-outpost/20"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -3109,7 +3143,9 @@
               "red-outpost/19",
               "red-outpost/20"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -3152,7 +3188,9 @@
               "blue-outpost/23",
               "blue-outpost/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -3167,7 +3205,9 @@
               "red-outpost/23",
               "red-outpost/24"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -6229,6 +6269,10 @@
           "blue-hub": 72,
           "red-hub": 72
         },
+        "occupied": {
+          "blue-hub": 0,
+          "red-hub": 0
+        },
         "returning": [],
         "tieWinner": "red",
         "firstPeriodCount": {
@@ -6303,7 +6347,9 @@
               "blue-preload-3/7",
               "blue-preload-3/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -6322,7 +6368,9 @@
               "red-preload-3/7",
               "red-preload-3/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -6341,7 +6389,9 @@
               "blue-preload-1/7",
               "blue-preload-1/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -6360,7 +6410,9 @@
               "red-preload-1/7",
               "red-preload-1/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -6379,7 +6431,9 @@
               "blue-preload-2/7",
               "blue-preload-2/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "missed",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -6398,7 +6452,9 @@
               "red-preload-2/7",
               "red-preload-2/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6497,7 +6553,9 @@
               "blue-depot/3",
               "blue-depot/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6512,7 +6570,9 @@
               "red-depot/3",
               "red-depot/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6527,7 +6587,9 @@
               "blue-outpost/3",
               "blue-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6542,7 +6604,9 @@
               "red-outpost/3",
               "red-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6669,7 +6733,9 @@
               "blue-depot/7",
               "blue-depot/8"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -6684,7 +6750,9 @@
               "red-depot/7",
               "red-depot/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -6699,7 +6767,9 @@
               "blue-outpost/7",
               "blue-outpost/8"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -6714,7 +6784,9 @@
               "red-outpost/7",
               "red-outpost/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -6785,7 +6857,9 @@
               "blue-outpost/11",
               "blue-outpost/12"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -6800,7 +6874,9 @@
               "red-outpost/11",
               "red-outpost/12"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -6843,7 +6919,9 @@
               "blue-outpost/15",
               "blue-outpost/16"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -6858,7 +6936,9 @@
               "red-outpost/15",
               "red-outpost/16"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -6947,7 +7027,9 @@
               "blue-depot/11",
               "blue-depot/12"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -6962,7 +7044,9 @@
               "red-depot/11",
               "red-depot/12"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -6977,7 +7061,9 @@
               "blue-outpost/19",
               "blue-outpost/20"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -6992,7 +7078,9 @@
               "red-outpost/19",
               "red-outpost/20"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -7063,7 +7151,9 @@
               "blue-outpost/23",
               "blue-outpost/24"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -7078,7 +7168,9 @@
               "red-outpost/23",
               "red-outpost/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -7183,7 +7275,9 @@
               "blue-depot/15",
               "blue-depot/16"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 3",
@@ -7198,7 +7292,9 @@
               "red-depot/15",
               "red-depot/16"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 3",
@@ -7375,7 +7471,9 @@
               "blue-depot/19",
               "blue-depot/20"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 4",
@@ -7390,7 +7488,9 @@
               "red-depot/19",
               "red-depot/20"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 4",
@@ -7567,7 +7667,9 @@
               "blue-depot/23",
               "blue-depot/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "End game",
@@ -7582,7 +7684,9 @@
               "red-depot/23",
               "red-depot/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "End game",
@@ -10360,6 +10464,10 @@
           "blue-hub": 72,
           "red-hub": 72
         },
+        "occupied": {
+          "blue-hub": 0,
+          "red-hub": 0
+        },
         "returning": [],
         "tieWinner": "blue",
         "firstPeriodCount": {
@@ -10482,7 +10590,9 @@
               "blue-preload-3/7",
               "blue-preload-3/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -10501,7 +10611,9 @@
               "red-preload-3/7",
               "red-preload-3/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "unresolved",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -10520,7 +10632,9 @@
               "blue-preload-1/7",
               "blue-preload-1/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -10539,7 +10653,9 @@
               "red-preload-1/7",
               "red-preload-1/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "missed",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -10558,7 +10674,9 @@
               "blue-preload-2/7",
               "blue-preload-2/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "AUTO",
@@ -10577,7 +10695,9 @@
               "red-preload-2/7",
               "red-preload-2/8"
             ],
-            "points": 8
+            "points": 8,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -10676,7 +10796,9 @@
               "blue-depot/3",
               "blue-depot/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -10691,7 +10813,9 @@
               "red-depot/3",
               "red-depot/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -10706,7 +10830,9 @@
               "blue-outpost/3",
               "blue-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -10721,7 +10847,9 @@
               "red-outpost/3",
               "red-outpost/4"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -10848,7 +10976,9 @@
               "blue-depot/7",
               "blue-depot/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -10863,7 +10993,9 @@
               "red-depot/7",
               "red-depot/8"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -10878,7 +11010,9 @@
               "blue-outpost/7",
               "blue-outpost/8"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -10893,7 +11027,9 @@
               "red-outpost/7",
               "red-outpost/8"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -10964,7 +11100,9 @@
               "blue-outpost/11",
               "blue-outpost/12"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -10979,7 +11117,9 @@
               "red-outpost/11",
               "red-outpost/12"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 1",
@@ -11022,7 +11162,9 @@
               "blue-outpost/15",
               "blue-outpost/16"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 1",
@@ -11037,7 +11179,9 @@
               "red-outpost/15",
               "red-outpost/16"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -11126,7 +11270,9 @@
               "blue-depot/11",
               "blue-depot/12"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -11141,7 +11287,9 @@
               "red-depot/11",
               "red-depot/12"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -11156,7 +11304,9 @@
               "blue-outpost/19",
               "blue-outpost/20"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -11171,7 +11321,9 @@
               "red-outpost/19",
               "red-outpost/20"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -11242,7 +11394,9 @@
               "blue-outpost/23",
               "blue-outpost/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 2",
@@ -11257,7 +11411,9 @@
               "red-outpost/23",
               "red-outpost/24"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 2",
@@ -11362,7 +11518,9 @@
               "blue-depot/15",
               "blue-depot/16"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 3",
@@ -11377,7 +11535,9 @@
               "red-depot/15",
               "red-depot/16"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 3",
@@ -11554,7 +11714,9 @@
               "blue-depot/19",
               "blue-depot/20"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "Shift 4",
@@ -11569,7 +11731,9 @@
               "red-depot/19",
               "red-depot/20"
             ],
-            "points": 0
+            "points": 0,
+            "prescribedOutcome": "credited",
+            "activity": "inactive"
           },
           {
             "phase": "Shift 4",
@@ -11746,7 +11910,9 @@
               "blue-depot/23",
               "blue-depot/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "End game",
@@ -11761,7 +11927,9 @@
               "red-depot/23",
               "red-depot/24"
             ],
-            "points": 4
+            "points": 4,
+            "prescribedOutcome": "credited",
+            "activity": "active"
           },
           {
             "phase": "End game",

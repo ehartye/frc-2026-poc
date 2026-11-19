@@ -1383,8 +1383,8 @@
           233
         ],
         "displayAt": [
-          13.5,
-          233
+          12,
+          234.85
         ],
         "radiusIn": 8,
         "stock": 24
@@ -1537,8 +1537,8 @@
           84.7
         ],
         "displayAt": [
-          637.7,
-          84.7
+          639.2,
+          82.85
         ],
         "radiusIn": 8,
         "stock": 24
@@ -2060,7 +2060,7 @@
         }
       ]
     },
-    "stationBasis": "Kickoff V0 §§5.3-5.9, 6.3.4 and 6.5, figures 5-4, 5-6, 6-2 and 6-3. HUB from registered structure and one legal approach sector. Depot and chute wall coordinates are figure-estimated, chassis action datums assumed. Neutral stock spans 72 × 206 in with a 2 in divider. Six full preloads. Equal shares, four-second deterministic recycling and target outcomes are simulation assumptions."
+    "stationBasis": "Kickoff V0 §§5.3-5.9, 6.3.4 and 6.5, figures 5-4, 5-6, 6-2 and 6-3. HUB from registered structure and one legal approach sector. Depot and chute wall coordinates are figure-estimated, chassis action datums assumed. Neutral stock spans 72 × 206 in with a 2 in divider. Six full preloads. Equal shares, four-second deterministic recycling and target outcomes are simulation assumptions. The official January 7 STEP, served January 10, SHA256 2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671 independently locates 24 staged depot FUEL per side. The displayed depot marker is their centroid. The chassis action coordinates remain declared assumptions."
   },
   "ruleRegister": {
     "schema": "frc-rule-register/v1",
