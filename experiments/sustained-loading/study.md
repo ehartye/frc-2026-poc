@@ -1,5 +1,7 @@
 # Can the robot leave the DEPOT with 24 FUEL?
 
+**Field-boundary correction.** In both simulations eight uncollected DEPOT pieces traveled beyond the omitted blue alliance wall. At the 0.250 ms checkpoint their centers are 3.65–4.29 m in front of a chassis already near the end wall. Reflecting them can change later contacts and custody. Treat these checkpoints as isolated mechanism evidence until a bounded-field rerun establishes which source pieces remain available.
+
 Starting pickup when the previous inactive shift begins gives the candidate enough time to retain **16 named DEPOT pieces and eight unspent preloads**. The last pair cleared its storage stops and all shutters finished closing at 29.74 and 29.58 seconds in two time-step refinements. That leaves 0.26–0.42 seconds before the planned departure. Starting pickup at the beginning of the active shift gives the robot only five seconds. It holds ten pieces then. [Rule register](../../kickoff/rule-register.json) · [Own-zone strategy](../../kickoff/selected-strategy.md) · [Compare the measured times and identities](results.json).
 
 | Collection case | Onboard after 5 s | At 25 s | At 30 s | Final closed-gate observation |
