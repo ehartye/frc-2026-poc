@@ -1,0 +1,18 @@
+import {cp, mkdir, readFile, writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath, pathToFileURL} from 'node:url';
+
+const [plugin, output] = process.argv.slice(2);
+if (!plugin || !output) throw Error('Usage: node scripts/build-showcase.mjs PLUGIN_ROOT NEW_SITE_DIRECTORY');
+const root = fileURLToPath(new URL('../', import.meta.url));
+const at = file => path.join(root, file);
+const destination = path.resolve(output);
+await mkdir(destination, {recursive: false});
+const {buildHighlights} = await import(pathToFileURL(path.resolve(plugin, 'scripts/robot-highlights.mjs')));
+await buildHighlights(at('highlights.json'), path.join(destination, 'evidence'));
+for (const name of ['index.html', 'style.css']) await cp(at('docs/showcase/' + name), path.join(destination, name));
+const config = JSON.parse(await readFile(at('kickoff/selected-strategy.json'), 'utf8'));
+const study = await readFile(at('docs/showcase/study.js'), 'utf8');
+await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', JSON.stringify(config.case)));
+for (const name of ['field-lab.html','rule-register.json']) await cp(at('kickoff/' + name), path.join(destination, name));
+await cp(at('docs/robot/cad'), path.join(destination, 'fixture'), {recursive: true});
