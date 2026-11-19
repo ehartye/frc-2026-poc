@@ -1,0 +1,99 @@
+{
+  "sources": [
+    {
+      "file": "experiments/own-zone-cycle/counter-result.json",
+      "sha256": "9fc65e752129cfca063c7e1a6887b9be56ad02238a7f93ae2710997828cb3068"
+    },
+    {
+      "file": "experiments/own-zone-cycle/counter-replay.json",
+      "sha256": "7867a4ab8f7b5d588708ce020034a8501144aefdc474e174a7a1b4fa6026dd43"
+    }
+  ],
+  "events": [
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "capture",
+      "kind": "target",
+      "qualified": true,
+      "target": "Carpet pickup",
+      "criterion": "The moving intake brought this same ball across the modeled capture threshold.",
+      "timeS": 0.42365
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "handoff",
+      "kind": "target",
+      "qualified": true,
+      "target": "Guided handoff",
+      "criterion": "The ball center rose through the 540 mm handoff plane.",
+      "timeS": 1.3424
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "release",
+      "kind": "target",
+      "qualified": true,
+      "target": "Release",
+      "criterion": "The ball left the paired wheels with the recorded contact velocity.",
+      "timeS": 1.40575
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "full-aperture",
+      "kind": "target",
+      "qualified": true,
+      "target": "Full HUB opening",
+      "criterion": "The full sphere passed all six boundaries before its first field contact.",
+      "timeS": 2.2079382589082828
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "counter-blocked",
+      "kind": "target",
+      "qualified": true,
+      "target": "Counter beam blocked",
+      "criterion": "The sphere intercepted all rays between sensor and reflector housing bounds.",
+      "timeS": 3.8565000000000005
+    },
+    {
+      "revision": "R2C",
+      "attempt": "Neutral return Shift 1, forward corridor",
+      "piece": "R2C-FUEL-01",
+      "clock": "local contact trial",
+      "frame": "glTF scene",
+      "unit": "m",
+      "type": "modeled-active-score",
+      "kind": "score",
+      "qualified": true,
+      "target": "FUEL clear downstream",
+      "criterion": "Channel 3 had one interruption then cleared downstream in the active blue HUB, at 16.987 s in Shift 1.",
+      "timeS": 3.987,
+      "rule": "Kickoff V0 \u00a76.5.1 and Table 6-3. One modeled point."
+    }
+  ]
+}

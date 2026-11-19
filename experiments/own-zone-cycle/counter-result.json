@@ -1,0 +1,986 @@
+{
+  "schema": "frc-2026/registered-counter@1",
+  "piece": "R2C-FUEL-01",
+  "basis": "100% prebuild, contact-only field transport",
+  "rules": "Kickoff V0 + TU00, G407, \u00a7\u00a76.4.1 and 6.5.1, Table 6-3",
+  "source": {
+    "cad": "d4ed979565fe132db45fac32de3265f93ffdff685db3bad976c4450fdfa67810",
+    "field": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671",
+    "ruleRegister": "f9c264c884631e1d234a7ee365ea42a85d5f9515ffba1be4df7e75d092f39c47",
+    "samePieceInput": "91f95d6381fb06123dda49225aacbe7aaf51ad70e47b1574b8bffa0ce1986d88",
+    "release": {
+      "timeS": 1.40575,
+      "positionMm": [
+        264.719270195789,
+        0,
+        615.0435769553529
+      ],
+      "velocityMps": [
+        2.3534061899790752,
+        0,
+        5.352881254739428
+      ],
+      "relativeAxisOffsetMm": -16.11777828245721,
+      "rollerKineticEnergyJ": 2.887063502716414,
+      "workOnPieceJ": 3.8783310372624364,
+      "chassisTravelM": 0.39872449999991977,
+      "chassisSpeedMps": 0.0,
+      "spinRadS": -2.7943535215589477
+    },
+    "nominalContactNperM": 30000,
+    "noLoadSpeedFraction": 0.7
+  },
+  "shiftClockOriginS": 13,
+  "phase": "Shift 1",
+  "scenario": "Neutral return",
+  "selectedPose": {
+    "offsetM": 0.25,
+    "poseIn": [
+      116.50550524925214,
+      197.0470640822506
+    ],
+    "startIn": [
+      102.94009193823314,
+      204.94649167159568
+    ],
+    "headingDeg": -30.213149699310527,
+    "minimumStaticClearanceIn": 20.154082764637348,
+    "wholeBumperZoneClearanceIn": 18.93257183944047,
+    "aperture": [
+      {
+        "condition": [
+          7500,
+          0.5
+        ],
+        "clear": false,
+        "apexM": 0.9735397327733285
+      },
+      {
+        "condition": [
+          7500,
+          0.7
+        ],
+        "clear": false,
+        "apexM": 0.9735397327733285
+      },
+      {
+        "condition": [
+          7500,
+          0.9
+        ],
+        "clear": false,
+        "apexM": 0.9735397327733285
+      },
+      {
+        "condition": [
+          15000,
+          0.5
+        ],
+        "clear": false,
+        "apexM": 1.3480594650563524
+      },
+      {
+        "condition": [
+          15000,
+          0.7
+        ],
+        "clear": false,
+        "apexM": 1.348062004786505
+      },
+      {
+        "condition": [
+          15000,
+          0.9
+        ],
+        "clear": false,
+        "apexM": 1.348062004786505
+      },
+      {
+        "condition": [
+          30000,
+          0.5
+        ],
+        "clear": false,
+        "apexM": 1.3899502353060869
+      },
+      {
+        "condition": [
+          30000,
+          0.7
+        ],
+        "clear": true,
+        "apertureMarginM": 0.2281571478885472
+      },
+      {
+        "condition": [
+          30000,
+          0.9
+        ],
+        "clear": true,
+        "apertureMarginM": 0.2059300546385686
+      }
+    ],
+    "minimumPeerProjectionGapIn": 4.164286372900361,
+    "contactTicks": 0,
+    "limitingPeer": "B3"
+  },
+  "eventsRunS": {
+    "Carpet pickup": 0.42365,
+    "Guided handoff": 1.3424,
+    "Release": 1.40575,
+    "Full HUB opening": 2.2079382589082828,
+    "Counter beam blocked": 3.8565000000000005,
+    "FUEL clear downstream": 3.987
+  },
+  "rows": [
+    {
+      "wheelMps": 1.0,
+      "tubeMps": 1.0,
+      "dt": 0.0005,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.25,
+      "releaseFieldM": [
+        -5.082240538618582,
+        0.8369938494114961,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26329: Hub Funnel Side": {
+          "t": 0.8465,
+          "centerM": [
+            -3.3606983158065553,
+            -0.16549666225323353,
+            1.6306446323048343
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.162,
+          "centerM": [
+            -3.8917964072015008,
+            0.13880913310974216,
+            1.1683930461495555
+          ]
+        },
+        "GE-26313-01: Hub Roof Riser, Left": {
+          "t": 1.3145,
+          "centerM": [
+            -3.8934824698650825,
+            0.26816108559029905,
+            1.3320879737541063
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 2.0180000000000002,
+          "centerM": [
+            -3.466669418603903,
+            0.08501550454707489,
+            1.00638651285399
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 2.025,
+          "centerM": [
+            -3.456929171977361,
+            0.08384113718167888,
+            1.0026235933202052
+          ]
+        },
+        "2in Wheel Intergrated 0500 HEX Hub": {
+          "t": 2.174,
+          "centerM": [
+            -3.3799516366749507,
+            0.08215406012096226,
+            0.9715087571714385
+          ]
+        },
+        "GE-26416: Short Roller Shaft": {
+          "t": 2.186,
+          "centerM": [
+            -3.3741023573979008,
+            0.08427420963471474,
+            0.9716411615456478
+          ]
+        },
+        "GE-26332: Hub Ramp, Small": {
+          "t": 2.5195,
+          "centerM": [
+            -3.1468162188959745,
+            0.12862708640084475,
+            0.8835726736826808
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": -0.12127171361326052,
+        "2in Wheel Intergrated 0500 HEX Hub": 0.07315911923602907
+      },
+      "finalVelocityMps": [
+        1.274455782018748,
+        0.012007817635065686,
+        -3.8976780865883325
+      ],
+      "counterWheelsTouched": [
+        {
+          "t": 2.174,
+          "centerM": [
+            -3.3799516366749507,
+            0.08215406012096226,
+            0.9715087571714385
+          ]
+        },
+        {
+          "t": 2.2845,
+          "centerM": [
+            -3.334660161434528,
+            0.1350850288921144,
+            0.9558233943730563
+          ]
+        },
+        {
+          "t": 2.285,
+          "centerM": [
+            -3.3343977296995306,
+            0.13528029725913104,
+            0.9557210178638069
+          ]
+        }
+      ],
+      "minimumZM": 0.07616776502786567,
+      "finalPositionM": [
+        -2.583465161808547,
+        0.1340088307329064,
+        0.0742189259845715
+      ],
+      "maxModeledPenetrationM": 0.011702246404346778,
+      "channel": {
+        "channel": 3,
+        "enterS": 2.428,
+        "leaveS": 2.458,
+        "maxMarginM": 0.0053058559200319655,
+        "firstCenterM": [
+          -3.2318563660963613,
+          0.12750092425413853,
+          0.9163860403540509
+        ],
+        "upstreamClear": true,
+        "downstreamClear": true,
+        "downstreamClearS": 2.557,
+        "transitions": 1
+      },
+      "apertureMarginM": 0.22994159471585504,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.8465,
+      "clearAtShiftS": 16.96275,
+      "selectedTrafficPose": true,
+      "physicalPassage": true,
+      "pointsActiveScenario": 1,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 1.0,
+      "tubeMps": 1.0,
+      "dt": 0.00025,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.25,
+      "releaseFieldM": [
+        -5.082240538618582,
+        0.8369938494114961,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26329: Hub Funnel Side": {
+          "t": 0.84675,
+          "centerM": [
+            -3.360189886324567,
+            -0.16579273151244528,
+            1.6309445735495864
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.163,
+          "centerM": [
+            -3.9037175470795273,
+            0.14568359986322144,
+            1.1736173170066808
+          ]
+        },
+        "GE-26313-01: Hub Roof Riser, Left": {
+          "t": 1.30475,
+          "centerM": [
+            -3.91013080081212,
+            0.2680446347115046,
+            1.3319352787515697
+          ]
+        },
+        "GE-26315-01: Hub Funnel Base": {
+          "t": 1.3587500000000001,
+          "centerM": [
+            -3.9070993803975838,
+            0.25040187813658177,
+            1.3553791892496128
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 1.9975,
+          "centerM": [
+            -3.466983078324605,
+            0.08501307846366421,
+            1.0065082468054911
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 2.00425,
+          "centerM": [
+            -3.4573767774751665,
+            0.08387923969151279,
+            1.002800315194393
+          ]
+        },
+        "2in Wheel Intergrated 0500 HEX Hub": {
+          "t": 2.15275,
+          "centerM": [
+            -3.38001697351744,
+            0.08206494697892416,
+            0.9715217191691475
+          ]
+        },
+        "GE-26416: Short Roller Shaft": {
+          "t": 2.1645,
+          "centerM": [
+            -3.374278581902152,
+            0.0840155823573054,
+            0.9716382794563589
+          ]
+        },
+        "GE-26332: Hub Ramp, Small": {
+          "t": 2.498,
+          "centerM": [
+            -3.146967037675236,
+            0.12877212639338162,
+            0.8836368202683852
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": -0.1310808132978394,
+        "2in Wheel Intergrated 0500 HEX Hub": 0.07528963520899998
+      },
+      "finalVelocityMps": [
+        1.2735198999563027,
+        0.012153859298208915,
+        -3.89840112887298
+      ],
+      "counterWheelsTouched": [
+        {
+          "t": 2.15275,
+          "centerM": [
+            -3.38001697351744,
+            0.08206494697892416,
+            0.9715217191691475
+          ]
+        },
+        {
+          "t": 2.2625,
+          "centerM": [
+            -3.3350485681261075,
+            0.13511245657889273,
+            0.9559785020174545
+          ]
+        },
+        {
+          "t": 2.26275,
+          "centerM": [
+            -3.3349169565546157,
+            0.13521612346519676,
+            0.9559267815958775
+          ]
+        }
+      ],
+      "minimumZM": 0.07536626770664362,
+      "finalPositionM": [
+        -2.5837857941021665,
+        0.13422575808044873,
+        0.07439166742442538
+      ],
+      "maxModeledPenetrationM": 0.011932701559726838,
+      "channel": {
+        "channel": 3,
+        "enterS": 2.40625,
+        "leaveS": 2.4365,
+        "maxMarginM": 0.00531788811929923,
+        "firstCenterM": [
+          -3.2321545904059623,
+          0.12761360280303824,
+          0.9165042129728936
+        ],
+        "upstreamClear": true,
+        "downstreamClear": true,
+        "downstreamClearS": 2.5355,
+        "transitions": 1
+      },
+      "apertureMarginM": 0.22994159471585504,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.84675,
+      "clearAtShiftS": 16.94125,
+      "selectedTrafficPose": true,
+      "physicalPassage": true,
+      "pointsActiveScenario": 1,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 0.0,
+      "tubeMps": 0.0,
+      "dt": 0.00025,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.25,
+      "releaseFieldM": [
+        -5.082240538618582,
+        0.8369938494114961,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26329: Hub Funnel Side": {
+          "t": 0.84675,
+          "centerM": [
+            -3.360189886324567,
+            -0.16579273151244528,
+            1.6309445735495864
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.163,
+          "centerM": [
+            -3.9037175470795273,
+            0.14568359986322144,
+            1.1736173170066808
+          ]
+        },
+        "GE-26313-01: Hub Roof Riser, Left": {
+          "t": 1.30475,
+          "centerM": [
+            -3.91013080081212,
+            0.2680446347115046,
+            1.3319352787515697
+          ]
+        },
+        "GE-26315-01: Hub Funnel Base": {
+          "t": 1.3587500000000001,
+          "centerM": [
+            -3.9070993803975838,
+            0.25040187813658177,
+            1.3553791892496128
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 1.9975,
+          "centerM": [
+            -3.466983078324605,
+            0.08501307846366421,
+            1.0065082468054911
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 2.00425,
+          "centerM": [
+            -3.4573767774751665,
+            0.08387923969151279,
+            1.002800315194393
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": 0.0
+      },
+      "finalVelocityMps": [
+        -8.30593518156386e-13,
+        0.011646614514266658,
+        2.340725035313378e-13
+      ],
+      "counterWheelsTouched": [],
+      "minimumZM": 0.6150435769553529,
+      "finalPositionM": [
+        -3.456808787633429,
+        0.10285139635594277,
+        1.002467728242445
+      ],
+      "maxModeledPenetrationM": 0.011932701559726838,
+      "channel": null,
+      "apertureMarginM": 0.22994159471585504,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.84675,
+      "clearAtShiftS": null,
+      "selectedTrafficPose": true,
+      "physicalPassage": false,
+      "pointsActiveScenario": 0,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 1.0,
+      "tubeMps": 1.0,
+      "dt": 0.000125,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.25,
+      "releaseFieldM": [
+        -5.082240538618582,
+        0.8369938494114961,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26329: Hub Funnel Side": {
+          "t": 0.84675,
+          "centerM": [
+            -3.3601898863258985,
+            -0.16579273151245114,
+            1.6314635598548288
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.163,
+          "centerM": [
+            -3.903670823575158,
+            0.14565641987844777,
+            1.1743220661012652
+          ]
+        },
+        "GE-26313-01: Hub Roof Riser, Left": {
+          "t": 1.3045,
+          "centerM": [
+            -3.9115233579976922,
+            0.26788530501003543,
+            1.3292856634806625
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 2.039,
+          "centerM": [
+            -3.4672252912584254,
+            0.08426731609014125,
+            1.0066021321265974
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 2.0460000000000003,
+          "centerM": [
+            -3.4572610796511687,
+            0.08319213524476161,
+            1.0027499390034753
+          ]
+        },
+        "2in Wheel Intergrated 0500 HEX Hub": {
+          "t": 2.193625,
+          "centerM": [
+            -3.380399677352681,
+            0.0815181280050795,
+            0.971596680872635
+          ]
+        },
+        "GE-26416: Short Roller Shaft": {
+          "t": 2.205375,
+          "centerM": [
+            -3.3746524192595033,
+            0.08339273408266237,
+            0.9716781652721623
+          ]
+        },
+        "GE-26332: Hub Ramp, Small": {
+          "t": 2.543375,
+          "centerM": [
+            -3.147120256117946,
+            0.13141698210886688,
+            0.8837005730881854
+          ]
+        },
+        "GE-26306: Hub Rear Panel, Bottom": {
+          "t": 2.65525,
+          "centerM": [
+            -3.018382079460081,
+            0.13399253863794605,
+            0.8341411244820218
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": -0.12659299177529,
+        "2in Wheel Intergrated 0500 HEX Hub": 0.0779616774930222
+      },
+      "finalVelocityMps": [
+        1.2667793424289595,
+        0.023423525441671998,
+        -3.8976923129452103
+      ],
+      "counterWheelsTouched": [
+        {
+          "t": 2.193625,
+          "centerM": [
+            -3.380399677352681,
+            0.0815181280050795,
+            0.971596680872635
+          ]
+        },
+        {
+          "t": 2.3035,
+          "centerM": [
+            -3.3361550087617924,
+            0.13541128228018265,
+            0.9563926582763854
+          ]
+        },
+        {
+          "t": 2.303875,
+          "centerM": [
+            -3.3359604263389033,
+            0.13557064979088956,
+            0.956315476377477
+          ]
+        }
+      ],
+      "minimumZM": 0.07526262611394163,
+      "finalPositionM": [
+        -2.585935283897959,
+        0.14198874417308596,
+        0.07477541457482348
+      ],
+      "maxModeledPenetrationM": 0.01197231027295212,
+      "channel": {
+        "channel": 3,
+        "enterS": 2.45075,
+        "leaveS": 2.481625,
+        "maxMarginM": 0.005358934503889065,
+        "firstCenterM": [
+          -3.232328315407743,
+          0.12918314080749047,
+          0.9165518470720111
+        ],
+        "upstreamClear": true,
+        "downstreamClear": true,
+        "downstreamClearS": 2.5812500000000003,
+        "transitions": 1
+      },
+      "apertureMarginM": 0.22994159471585504,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.84675,
+      "clearAtShiftS": 16.987,
+      "selectedTrafficPose": true,
+      "physicalPassage": true,
+      "pointsActiveScenario": 1,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 0.0,
+      "tubeMps": 0.0,
+      "dt": 0.00025,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.0,
+      "releaseFieldM": [
+        -5.298280371949587,
+        0.9627984217223304,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26315-01: Hub Funnel Base": {
+          "t": 0.907,
+          "centerM": [
+            -3.4536982147239894,
+            -0.11134085066977598,
+            1.4352796381351312
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 0.9842500000000001,
+          "centerM": [
+            -3.4520920945582225,
+            -0.11293292643360249,
+            1.1554194359252896
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.04475,
+          "centerM": [
+            -3.5935619490045623,
+            -0.10539835562210584,
+            1.0551485604412596
+          ]
+        },
+        "GE-26331: Hub Internal Wall": {
+          "t": 1.29775,
+          "centerM": [
+            -3.9322970319200468,
+            -0.04587971706978222,
+            1.2323930737204145
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 1.799,
+          "centerM": [
+            -3.466922420116654,
+            0.060764871678131674,
+            1.0064804228496378
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": 0.0
+      },
+      "finalVelocityMps": [
+        -8.729407691905672e-13,
+        0.01269263495226521,
+        1.6644886200388514e-13
+      ],
+      "counterWheelsTouched": [],
+      "minimumZM": 0.6150435769553529,
+      "finalPositionM": [
+        -3.4568087876334284,
+        0.09125746025611543,
+        1.002467728242445
+      ],
+      "maxModeledPenetrationM": 0.009006922573657011,
+      "channel": null,
+      "apertureMarginM": 0.26674254928442753,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.907,
+      "clearAtShiftS": null,
+      "selectedTrafficPose": false,
+      "physicalPassage": false,
+      "pointsActiveScenario": 0,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 1.0,
+      "tubeMps": 0.0,
+      "dt": 0.00025,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.0,
+      "releaseFieldM": [
+        -5.298280371949587,
+        0.9627984217223304,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26315-01: Hub Funnel Base": {
+          "t": 0.907,
+          "centerM": [
+            -3.4536982147239894,
+            -0.11134085066977598,
+            1.4352796381351312
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 0.9842500000000001,
+          "centerM": [
+            -3.4520920945582225,
+            -0.11293292643360249,
+            1.1554194359252896
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.04475,
+          "centerM": [
+            -3.5935619490045623,
+            -0.10539835562210584,
+            1.0551485604412596
+          ]
+        },
+        "GE-26331: Hub Internal Wall": {
+          "t": 1.29775,
+          "centerM": [
+            -3.9322970319200468,
+            -0.04587971706978222,
+            1.2323930737204145
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 1.799,
+          "centerM": [
+            -3.466922420116654,
+            0.060764871678131674,
+            1.0064804228496378
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": 0.0
+      },
+      "finalVelocityMps": [
+        -8.729407691905672e-13,
+        0.01269263495226521,
+        1.6644886200388514e-13
+      ],
+      "counterWheelsTouched": [],
+      "minimumZM": 0.6150435769553529,
+      "finalPositionM": [
+        -3.4568087876334284,
+        0.09125746025611543,
+        1.002467728242445
+      ],
+      "maxModeledPenetrationM": 0.009006922573657011,
+      "channel": null,
+      "apertureMarginM": 0.26674254928442753,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.907,
+      "clearAtShiftS": null,
+      "selectedTrafficPose": false,
+      "physicalPassage": false,
+      "pointsActiveScenario": 0,
+      "pointsSameTrialInactive": 0
+    },
+    {
+      "wheelMps": 0.0,
+      "tubeMps": 1.0,
+      "dt": 0.00025,
+      "seconds": 4.0,
+      "towardHubOffsetM": 0.0,
+      "releaseFieldM": [
+        -5.298280371949587,
+        0.9627984217223304,
+        0.6150435769553529
+      ],
+      "contacts": {
+        "GE-26315-01: Hub Funnel Base": {
+          "t": 0.907,
+          "centerM": [
+            -3.4536982147239894,
+            -0.11134085066977598,
+            1.4352796381351312
+          ]
+        },
+        "GE-26408: Counter Roller Tube": {
+          "t": 0.9842500000000001,
+          "centerM": [
+            -3.4520920945582225,
+            -0.11293292643360249,
+            1.1554194359252896
+          ]
+        },
+        "GE-26333: Hub Ramp, Large": {
+          "t": 1.03875,
+          "centerM": [
+            -3.5859489188712126,
+            -0.10608701120938345,
+            1.0521450303456434
+          ]
+        },
+        "GE-26331: Hub Internal Wall": {
+          "t": 1.34275,
+          "centerM": [
+            -3.9321770873151864,
+            -0.035528677502969286,
+            1.2101458976797128
+          ]
+        },
+        "GE-26403-01: Bottom Plate": {
+          "t": 1.84275,
+          "centerM": [
+            -3.4669509607364803,
+            0.07273058297617328,
+            1.0064946298071134
+          ]
+        },
+        "2in Wheel Intergrated 0500 HEX Hub": {
+          "t": 1.9905,
+          "centerM": [
+            -3.3832180079477117,
+            0.0764058208892345,
+            0.9721588606850414
+          ]
+        },
+        "GE-26416: Short Roller Shaft": {
+          "t": 2.0,
+          "centerM": [
+            -3.3785396067896643,
+            0.07650123129128526,
+            0.9723244055394602
+          ]
+        },
+        "Sensor Reflector": {
+          "t": 2.37825,
+          "centerM": [
+            -3.19919288051367,
+            0.11898877298641718,
+            0.9037624999677352
+          ]
+        },
+        "GE-26332: Hub Ramp, Small": {
+          "t": 2.43525,
+          "centerM": [
+            -3.1470827992536727,
+            0.11768519906746447,
+            0.8836794535228503
+          ]
+        },
+        "GE-26306: Hub Rear Panel, Bottom": {
+          "t": 2.55025,
+          "centerM": [
+            -3.0190381404890503,
+            0.11504690641014877,
+            0.834416266772841
+          ]
+        }
+      },
+      "fieldDriveWorkJ": {
+        "GE-26408: Counter Roller Tube": -0.09080938037046374,
+        "2in Wheel Intergrated 0500 HEX Hub": 0.0
+      },
+      "finalVelocityMps": [
+        1.2341950570536526,
+        -0.022783985234381115,
+        -3.89554176186926
+      ],
+      "counterWheelsTouched": [
+        {
+          "t": 1.9905,
+          "centerM": [
+            -3.3832180079477117,
+            0.0764058208892345,
+            0.9721588606850414
+          ]
+        },
+        {
+          "t": 2.16525,
+          "centerM": [
+            -3.3269223754959465,
+            0.13282047527196428,
+            0.9527931377013251
+          ]
+        },
+        {
+          "t": 2.1662500000000002,
+          "centerM": [
+            -3.3264138103883707,
+            0.1331322829022696,
+            0.9526035941701452
+          ]
+        }
+      ],
+      "minimumZM": 0.07566964625022918,
+      "finalPositionM": [
+        -2.595709340631896,
+        0.10723199293079984,
+        0.07469576080976187
+      ],
+      "maxModeledPenetrationM": 0.009608142676803294,
+      "channel": {
+        "channel": 3,
+        "enterS": 2.338,
+        "leaveS": 2.36875,
+        "maxMarginM": 0.004978796122849183,
+        "firstCenterM": [
+          -3.231509511588649,
+          0.12034424021254417,
+          0.9161667784462479
+        ],
+        "upstreamClear": true,
+        "downstreamClear": true,
+        "downstreamClearS": 2.4745,
+        "transitions": 1
+      },
+      "apertureMarginM": 0.26674254928442753,
+      "fullApertureS": 0.8021882589082828,
+      "firstFieldContactS": 0.907,
+      "clearAtShiftS": 16.88025,
+      "selectedTrafficPose": false,
+      "physicalPassage": true,
+      "pointsActiveScenario": 0,
+      "pointsSameTrialInactive": 0
+    }
+  ]
+}

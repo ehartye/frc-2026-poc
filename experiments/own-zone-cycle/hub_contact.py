@@ -34,7 +34,7 @@ class Hub:
         self.lower = np.array([row[2] for row in self.part])
         self.upper = np.array([row[3] for row in self.part])
 
-    def carry(self, candidate, dt, spin, seconds=2.6):
+    def carry(self, candidate, dt, spin, seconds=2.6, counter=None, observe=None):
         p = np.array(candidate["releaseFieldM"], dtype=float)
         v = np.array(candidate["velocityFieldMps"], dtype=float)
         heading = candidate["headingRad"]
@@ -45,7 +45,7 @@ class Hub:
         contacts = {}
         low = 100.0
         max_depth = 0.0
-        sensors = []
+        work = {}
         counter_wheels = {}
         for k in range(round(seconds / dt) + 1):
             t = k * dt
@@ -68,9 +68,13 @@ class Hub:
                 max_depth = max(depth, max_depth)
                 f = max(0, 9500 * depth - 22 * np.dot(v, n))
                 relative = v + np.cross(omega, -R * n)
+                surface = counter.surface(i, np.array(point)) if counter is not None else 0.0
+                relative -= surface
                 slip = relative - n * np.dot(relative, n)
                 sl = np.linalg.norm(slip)
                 ft = -0.25 * f * np.tanh(sl / 0.035) * slip / max(sl, 1e-12)
+                if np.ndim(surface) and f > .02:
+                    work[name] = work.get(name, 0.) + float(np.dot(ft, surface)) * dt
                 force += f * n + ft
                 torque += np.cross(-R * n, ft)
                 if f > 0.02:
@@ -78,6 +82,8 @@ class Hub:
                         contacts[name] = {"t": t, "centerM": p.tolist()}
                     if "Wheel Intergrated" in name and i not in counter_wheels:
                         counter_wheels[i] = {"t": t, "centerM": p.tolist()}
+            if observe is not None:
+                observe(t, p, v)
             if k % max(1, round((1 / 80) / dt)) == 0:
                 frames.append([round(t, 6), *[round(x, 6) for x in p]])
             v += force / m * dt
@@ -87,6 +93,8 @@ class Hub:
                 break
         return {
             "contacts": contacts,
+            "fieldDriveWorkJ": work,
+            "finalVelocityMps": v.tolist(),
             "counterWheelsTouched": list(counter_wheels.values()),
             "minimumZM": float(low),
             "finalPositionM": p.tolist(),

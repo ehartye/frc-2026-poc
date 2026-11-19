@@ -43,3 +43,17 @@ assert.ok(study.grid.filter(r => r.flight.outcome !== 'clear').every(r => r.flig
 for (const run of Object.values(study.controls)) assert.equal(run.lifted, null);
 for (const trial of study.refinements) assert.ok(Object.keys(trial.field.contacts).some(name => name.includes('Bottom Plate')));
 console.log('117 source-matched solids, continuous two-clip FUEL, nine wheel conditions, three controls, two field refinements.');
+const counter = json('experiments/own-zone-cycle/counter-result.json');
+const success = counter.rows.filter(row => row.selectedTrafficPose && row.physicalPassage);
+assert.deepEqual(success.map(row => row.dt).sort((a,b)=>a-b), [.000125,.00025,.0005]);
+for (const row of success) {
+  assert.equal(row.pointsActiveScenario,1);
+  assert.equal(row.pointsSameTrialInactive,0);
+  assert.equal(row.channel.transitions,1);
+  assert.ok(row.channel.maxMarginM > .005 && row.channel.downstreamClearS > row.channel.leaveS);
+  assert.ok(row.firstFieldContactS > row.fullApertureS);
+}
+assert.ok(counter.rows.some(r=>r.selectedTrafficPose && !r.wheelMps && !r.tubeMps && !r.physicalPassage));
+assert.equal(counter.selectedPose.contactTicks,0);
+assert.ok(counter.selectedPose.minimumPeerProjectionGapIn*.0254 > .105);
+console.log('One active passage, three solver steps, stationary control, inactive zero, and traffic clearance.');

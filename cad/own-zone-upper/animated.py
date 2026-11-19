@@ -137,7 +137,7 @@ class Scene:
 def main():
     palette = resolve_palette(ROOT)
     scene = Scene()
-    data = json.loads((ROOT / "experiments/own-zone-cycle/replay.json").read_bytes())
+    data = json.loads((ROOT / "experiments/own-zone-cycle/counter-replay.json").read_bytes())
     pivot = np.array([275, 0, 240])
     arm = scene.node("Ground intake pivot", world(pivot))
     cleats = []
@@ -189,6 +189,13 @@ def main():
         ]
         vertices += [[quad[0], quad[1], quad[2]], [quad[0], quad[2], quad[3]]]
     scene.geometry(goal, vertices, "#DAA84A")
+    witness = scene.node("Registered field counter channel 3")
+    scene.g["nodes"][witness]["scale"] = [0, 0, 0]
+    ends = [np.array(box).reshape(2,3).mean(axis=0)/1000 for box in data["counterMarkerBoundsMm"]]
+    a, b = [local(p) for p in ends]
+    # Display a reference line between housing centers; the numerical check bounds every ray.
+    up = np.array([0, .009, 0])
+    scene.geometry(witness, [[a-up,b-up,b+up],[a-up,b+up,a+up]], "#61e6de")
     contacts = data["mechanismRows"]
     flying = data["flightRows"]
     parked = data["atPickup"]
@@ -259,6 +266,7 @@ def main():
         scene.track(clip, fuel, "translation", ticks, positions)
         scene.track(clip, fuel, "scale", ticks, cargo)
         scene.track(clip, goal, "scale", ticks, outline)
+        scene.track(clip, witness, "scale", ticks, outline)
         for n, _ in cleats:
             scene.track(clip, n, "translation", ticks, shelves[n])
             scene.track(clip, n, "rotation", ticks, shelfq[n])

@@ -21,6 +21,12 @@
       "label": "R2C single-piece contact study",
       "revision": "R2C, nine input combinations",
       "url": "https://github.com/ehartye/frc-2026-poc/blob/main/experiments/own-zone-cycle/single-piece.json"
+    },
+    {
+      "id": "counter",
+      "label": "R2C powered field counter and clock",
+      "revision": "Three field integration steps, one continuous FUEL identity",
+      "url": "https://github.com/ehartye/frc-2026-poc/blob/main/experiments/own-zone-cycle/counter-result.json"
     }
   ],
   "results": [
@@ -44,6 +50,13 @@
       "conditions": "One 215 g FUEL from carpet pickup and guided lift to the registered opening.",
       "limit": "Seven conditions stayed below the opening. The downstream trace reaches the bottom plate. Optical scoring and repeated service remain open.",
       "source": "mechanical"
+    },
+    {
+      "basis": "modeled",
+      "claim": "One active-HUB point at 16.987 s in Shift 1",
+      "conditions": "One 215 g FUEL; +250 mm clear scoring approach; 1 m/s prescribed field roller and wheels; 30,000 N/m candidate contact input.",
+      "limit": "The same passage earns zero in an inactive HUB. A stationary field counter retains the ball. Repeated service remains open.",
+      "source": "counter"
     }
   ],
   "build": [

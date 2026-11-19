@@ -1,0 +1,104 @@
+{
+  "schema": "agent-frc/replay-chapters@1",
+  "revision": "R2C",
+  "media": {
+    "file": "docs/robot/cad/own-zone.glb",
+    "sha256": "38d6feebb3bd54729e21e43cdc13d296cb5c30b672aeb2e70243bb6f29bfccb1"
+  },
+  "trace": {
+    "file": "experiments/own-zone-cycle/motion-checkpoints.json",
+    "sha256": "401b77a1bfc2284ceae8ce1b8c283eaab15fdb2614ac29ae5cd6a5585f61d3b1"
+  },
+  "observations": {
+    "file": "experiments/own-zone-cycle/motion-observations.json",
+    "sha256": "18603eb025fd806607b5283140e2aa0332193a68d2aa77c399e6660a504a4dcb"
+  },
+  "chapters": [
+    {
+      "id": "0",
+      "label": "Pickup and lift",
+      "animation": "Pickup and lift",
+      "node": "One nominal FUEL",
+      "start": "/rows/0",
+      "end": "/rows/1",
+      "sync": [
+        {
+          "runS": -0.7,
+          "clipS": 0
+        },
+        {
+          "runS": 1.3424,
+          "clipS": 2.0423998832702637
+        }
+      ],
+      "events": [
+        {
+          "id": "capture",
+          "timeS": 0.42365,
+          "type": "capture",
+          "outcome": "reached",
+          "pointer": "/events/0"
+        },
+        {
+          "id": "handoff",
+          "timeS": 1.3424,
+          "type": "handoff",
+          "outcome": "reached",
+          "pointer": "/events/1"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "label": "Release and HUB entry",
+      "animation": "Release and HUB entry",
+      "node": "One nominal FUEL",
+      "start": "/rows/2",
+      "end": "/rows/3",
+      "sync": [
+        {
+          "runS": 1.3424,
+          "clipS": 0
+        },
+        {
+          "runS": 4.39325,
+          "clipS": 3.0508499145507812
+        }
+      ],
+      "events": [
+        {
+          "id": "release",
+          "timeS": 1.40575,
+          "type": "release",
+          "outcome": "reached",
+          "pointer": "/events/2"
+        },
+        {
+          "id": "full-aperture",
+          "timeS": 2.2079382589082828,
+          "type": "full-aperture",
+          "outcome": "reached",
+          "pointer": "/events/3"
+        },
+        {
+          "id": "counter-blocked",
+          "timeS": 3.8565000000000005,
+          "type": "counter-blocked",
+          "outcome": "reached",
+          "pointer": "/events/4"
+        },
+        {
+          "id": "modeled-active-score",
+          "timeS": 3.987,
+          "type": "modeled-active-score",
+          "outcome": "scored",
+          "pointer": "/events/5"
+        }
+      ],
+      "join": {
+        "kind": "position",
+        "tolerance": 0
+      }
+    }
+  ]
+}
