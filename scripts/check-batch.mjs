@@ -27,3 +27,20 @@ assert.deepEqual(data.bothInside,['M0-06','M1-12','M2-16']);
 assert.deepEqual(data.control.aperturesBySlot,[4,0,4,0,4,4]);
 console.log('24 distinct releases per trial; three shared active IDs and five shared complete passages.');
 
+
+const loading = await read('../experiments/depot-loading/results.json');
+const source = await read('../experiments/depot-loading/stock-register.json');
+const groundIds = new Set(source.floorStock.map(p=>p.id));
+assert.equal(groundIds.size,24);
+assert.equal(source.sourceFieldSha256,single.supplierFieldSha256);
+for (const name of ['pair-fine','pair-coarse']) {
+  const run=loading.trials[name];
+  assert.equal(new Set(run.initialIds).size,32);
+  assert.equal(run.retainedPreloads.length,8);
+  assert.deepEqual(run.retainedSourceIds.toSorted(),['blue-depot-03','blue-depot-04']);
+  assert.ok(run.retainedSourceIds.every(id=>groundIds.has(id)));
+  assert.deepEqual(run.finalRetained.map(p=>p.id).toSorted(),[...run.retainedSourceIds,...run.retainedPreloads].toSorted());
+}
+assert.equal(loading.trials['pair-locked'].retainedSourceIds.length,0);
+assert.ok(loading.clocks.every(c=>c.stillOnboard+c.autoPreloadsSpent===8 && c.sourcePiecesNeeded+c.stillOnboard===24));
+console.log('Two registered DEPOT IDs plus eight independent preloads retained in both refinements; locked gates retain zero new stock.');
