@@ -1,10 +1,16 @@
 # 2026 REBUILT proof of concept
 
+<!-- cad-still -->
+[![Original mechanism fixture](docs/robot/cad/assembly.png)](docs/robot/cad/index.html)
+
+**Project CAD · Original mechanism fixture.** Subsystem study. A whole-robot assembly has yet to be published. [Source STEP · f94736a56d](cad/2026-original-fixture.step) · [Rotate the model](docs/robot/cad/index.html)
+<!-- /cad-still -->
+
 The [historical case input manifest](historical-fixtures/agent-frc/manifest.json) identifies source-pinned simulation parameters, original geometry and prior analysis from the earlier plugin case. Inputs labeled as excerpts have a new schema and retain their source hash. The manifest records identical existing files and the original revision of the shared producers.
 
 ![Interim mechanism layout, not a complete robot](cad/interim-layout.svg)
 
-**Interim subsystem concept, not a complete assembled robot.** The top image shows a nominal mechanism fixture. It is not a picture of a complete robot. Chassis, motors, rails, supports and transmission are not assembled.
+**Interim subsystem concept, not a complete assembled robot.** Both views show the nominal mechanism fixture. It is not a picture of a complete robot. Chassis, motors, rails, supports and transmission are not assembled.
 
 ## Design highlights
 

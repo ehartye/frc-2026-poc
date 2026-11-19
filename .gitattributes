@@ -3,3 +3,6 @@
 shared/** -text
 cad/** -text
 config.json -text
+
+docs/robot/cad/*.png binary
+docs/robot/cad/*.gz binary

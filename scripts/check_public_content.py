@@ -12,6 +12,8 @@ PATTERNS={
 # Only the upstream Apache-licensed Gradle wrapper binary is permitted.
 WRAPPER='shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
+SHOWCASE_ASSETS = {'docs/robot/cad/assembly.png': 'f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f', 'docs/robot/cad/assembly.stl.gz': '7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b'}
+
 def findings(data):
  text=data.decode('utf-8',errors='replace')
  return [name for name,p in PATTERNS.items() if re.search(p,text)]
@@ -21,6 +23,9 @@ def audit(revision='HEAD'):
  for raw in git('ls-tree','-rz','--name-only',revision).split(b'\0'):
   if not raw:continue
   path=raw.decode();data=git('show',revision+':'+path)
+  if path in SHOWCASE_ASSETS:
+   if hashlib.sha256(data).hexdigest()!=SHOWCASE_ASSETS[path]:failures.append((path,['unreviewed-cad-export']))
+   continue
   if path==WRAPPER:
    if hashlib.sha256(data).hexdigest()!=WRAPPER_SHA:failures.append((path,['unreviewed-binary']))
    continue
