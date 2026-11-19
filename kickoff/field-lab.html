@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kickoff field lab</title>
+<meta name="theme-color" content="#142f63">
+<style>
+:root{--navy:#142f63;--blue:#194fb0;--ink:#182e49;--paper:#f7faf8;--edge:#b7c9d0;--steel:#516677;--gold:#ffd078;--display:"Barlow Condensed","Franklin Gothic Medium","Arial Narrow",sans-serif;--body:"Source Sans 3","Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--body)}
+header, main{max-width:1440px;margin:auto;padding:18px clamp(14px,3vw,48px)}header{display:flex;align-items:baseline;gap:1em;border-bottom:1px solid var(--edge)}
+h1,h2,p{margin:0}h1{font-size:clamp(22px,3vw,36px);letter-spacing:-.04em}h2{font-size:20px}header p,.muted,small{color:var(--steel)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(265px,315px);gap:24px;align-items:start}figure{margin:0;background:var(--navy);border-radius:12px;overflow:hidden;color:white}
+canvas{display:block;width:100%;height:clamp(340px,49vh,590px);touch-action:none;cursor:grab}canvas:active{cursor:grabbing}
+nav,figcaption{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 16px}figcaption{font-size:13px;color:#d9e9fa}
+button{font:inherit;font-weight:600;cursor:pointer;border:1px solid #8199b9;border-radius:6px;background:#fff;color:var(--navy);padding:6px 12px}
+nav button{font-size:14px;background:#224678;color:white}nav button[aria-pressed=true],button.primary{background:var(--gold);color:var(--navy)}
+aside,article,details{padding:16px 0;border-top:1px solid var(--edge)}aside{padding-top:8px}label{display:block;font-weight:600}
+.slider{margin:7px 0}.slider label{display:flex;justify-content:space-between;font-size:14px}.slider output{font-variant-numeric:tabular-nums;color:var(--blue)}
+input[type=range]{width:100%;accent-color:var(--blue);margin:1px 0}fieldset{padding:8px 0;border:0;margin:0}legend{font-size:17px;font-weight:700}
+#screen{white-space:pre-line;background:#edf4fb;border-left:4px solid var(--blue);padding:9px 12px;font-size:14px}#screen[data-exceeded=true]{background:#fae3ce;border-color:#b85a26}
+article{margin-top:20px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}textarea,input[type=text]{display:block;width:100%;font:inherit;border:1px solid #869bb6;border-radius:5px;padding:8px;background:white}textarea{min-height:54px}
+#captures{padding-left:1.5em}summary{cursor:pointer;font-weight:600}a{color:var(--blue)}button:disabled{opacity:.5;cursor:default}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+select{width:100%;font:inherit;color:inherit;padding:5px;border:1px solid #869bb6;border-radius:5px}#difference{font-size:14px}
+@media(max-width:780px){.layout,.fields{grid-template-columns:1fr}.layout{gap:12px}header{flex-wrap:wrap;gap:2px 15px}canvas{height:350px}}
+#scoreResult{display:block;white-space:pre-line;border-left:4px solid var(--blue);background:#eaf2fc;padding:12px 16px;margin-top:12px}
+#opportunity .fields{margin:12px 0}.fields input[type=number]{display:block;width:100%;padding:6px;font:inherit}h3{margin-bottom:2px}
+#modelSummary table{border-collapse:collapse;margin:10px 0}#modelSummary td,#modelSummary th{border-bottom:1px solid var(--edge);padding:3px 16px 3px 0;text-align:left}
+.rehearsal-board{margin:12px 0}.rehearsal-board canvas{height:auto;aspect-ratio:2.02;touch-action:auto;cursor:default}
+.replay-tools,.replay-robot-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:9px 0}
+#replayClock{font-size:24px;font-variant-numeric:tabular-nums;margin-right:8px}
+#replayRoster{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:8px;margin:10px 0}
+.replay-robot{border:1px solid var(--edge);border-left:5px solid #357bd3;background:white;padding:8px}
+.replay-robot.red{border-left-color:#c04450}.replay-robot strong{font-size:17px}.replay-robot label{font-size:13px}
+.replay-robot select,.replay-robot button{font-size:14px}.replay-robot output{display:block;font-size:14px;margin:5px 0}
+.replay-tools label{font-size:13px}.replay-tools select{width:auto;margin-left:5px}#replayQueue,#replayNotice{font-size:14px}
+header{max-width:none;padding:23px max(clamp(14px,3vw,48px),calc((100vw - 1344px)/2));color:white;background:var(--navy);border-bottom:4px solid var(--gold)}header p{color:#dce8f6}h1,h2,h3,legend{font-family:var(--display)}h1{letter-spacing:-.035em}main>details:first-child{background:white;border:1px solid var(--edge);border-left:5px solid var(--blue);padding:12px 16px;margin-bottom:18px}button:hover:enabled{border-color:var(--blue)}nav button:hover:enabled{border-color:var(--gold)}:focus-visible{outline:3px solid #ad6200;outline-offset:3px}figure :focus-visible{outline-color:var(--gold)}#modelSummary{overflow-x:auto}.layout>*{min-width:0}button.primary{border-color:#b78125}.replay-robot{border-radius:4px}.slider output,#replayClock{font-family:"IBM Plex Mono",Consolas,monospace}
+</style>
+</head>
+<body>
+<header><h1>Kickoff field lab</h1><p id="season"></p></header>
+<main>
+<details open><summary>Kickoff rules model</summary><div id="modelSummary"></div><button id="modelFile">Download rules model</button></details>
+<div class="layout"><div>
+<figure><nav aria-label="Camera"><button data-view="field">Field</button><button data-view="robot">Robot</button><button data-view="target">Target</button><button data-view="top">Overhead</button><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button></nav>
+<canvas id="field" aria-label="Rotatable field with an adjustable robot box. Use the sliders to move and resize it."></canvas>
+<figcaption>Gold shows your trial box. Blue and red lines show candidate alliance routes. Drag to orbit. Scroll to zoom. Click the floor to place the box. Grid squares are 36 inches.</figcaption></figure>
+<div class="actions"><button id="markA">Mark A at robot</button><button id="markB">Mark B at robot</button><button id="clearRoute">Clear route</button><output id="routeLabel"></output></div>
+<details><summary>Field dimensions, sources and omissions</summary><div id="sources"></div></details>
+</div><aside><fieldset><legend>Robot volume</legend><div id="sizes"></div></fieldset><p id="screen" role="status"></p>
+<fieldset><legend>Field pose</legend><div id="pose"></div></fieldset>
+<div id="elevations"><label for="level">Compare box top with</label><select id="level"></select><p id="difference"></p></div></aside></div>
+<article id="rehearsal" hidden><h2>Rehearse a match</h2>
+<p>Assign up to three robots per alliance. Each robot follows its prescribed route with its full bumper footprint. Use the timer to see who waits and which trips finish.</p>
+<figure class="rehearsal-board"><canvas id="replayField" aria-label="Timed overhead field showing labeled blue and red robots, structures and blocked positions. The roster below describes each robot."></canvas>
+<figcaption>Blue and red rectangles show occupied robot footprints. Amber circles mark accumulated waiting. Hatched obstacles block the selected height or reserve uncertain space. Dotted lines show planned robot paths.</figcaption></figure>
+<div class="replay-tools"><b id="replayClock" aria-label="Remaining match period time"></b>
+<button id="replayRun" class="primary">Start period</button><button id="replayStep">Step 1 s</button>
+<button id="replayFast">Run to period end</button><button id="replayReset">Reset match</button><button id="replaySave">Save rehearsal snapshot</button>
+<label>Obstacle setup<select id="replaySetup"></select></label></div>
+<p id="replayNotice" role="status"></p><div class="actions"><button id="addBlue">Add blue robot</button><button id="addRed">Add red robot</button></div>
+<div id="replayRoster"></div><p id="replayQueue"></p><details><summary>Field assumptions and phase log</summary><p id="replayBasis"></p><ol id="replayEvents"></ol></details>
+</article>
+<article id="opportunity"><h2>What can we score in this window?</h2>
+<p id="inventory"></p><p class="muted" id="scoreSource"></p>
+<div class="fields" id="choices"></div>
+<p class="muted">Allocate pieces to this robot at A for a shuttle or at B for locally staged supply. Each empty return follows the loaded route at the same assumed speed. Service time includes handling and release. Enter other non-scoring time once per window.</p>
+<div class="fields" id="numbers"></div>
+<label>Supply and timing assumptions<input id="allocation" type="text" placeholder="Where are the pieces, who else needs them, and when can they arrive?"></label>
+<h3>Route and mechanism exposure</h3><p>The model suggests a pickup-to-goal route. Amber marks show possible shared corridors. Move the robot and mark A or B to compare another route.</p>
+<div class="fields">
+<p id="traffic" role="status"></p>
+<label>Exposed mechanism and state<input id="exposure" type="text" placeholder="e.g. extended capture roller during crossing"></label>
+<label>Contact direction, load and evidence<input id="loadCase" type="text" placeholder="e.g. side contact at the intake tip, load still unknown"></label>
+<label>Function to retain and acceptance test<input id="survive" type="text" placeholder="e.g. retain the piece, then complete the next capture within the cycle budget"></label></div>
+<p class="muted">Potential conflicts come from modeled routes. Establish the load, contact direction and retained function in a separate test.</p>
+<output id="scoreResult" aria-live="polite"></output><div class="actions"><button id="saveWindow">Save opportunity for the narrative</button><span id="windowStatus" role="status"></span></div><ol id="savedWindows"></ol></article>
+<article><h2>Record what changed</h2><p class="muted">Try two sizes or approaches. Save each observation with the exact box and field pose you used.</p>
+<label for="finding">What did you notice?</label><input id="finding" type="text" placeholder="What became easier, harder, or impossible?">
+<div class="actions"><button id="capture">Save observation</button></div><ol id="captures"></ol></article>
+<article><h2>Draft the match story</h2><p class="muted">Use the saved observations to explain a role and what the robot would need to do.</p>
+<div class="fields"><label>Our role and repeatable match cycle<textarea id="story"></textarea></label><label>Alternative role or fallback<textarea id="alternative"></textarea></label><label>Capability the design would need<textarea id="capability"></textarea></label><label>What should we test first?<textarea id="experiment"></textarea></label></div>
+<div class="actions"><button class="primary" id="download">Download narrative and observations</button><span id="feedback" role="status"></span></div></article>
+</main>
+<script id="profile" type="application/json">{"season":2026,"game":"REBUILT","edition":"Kickoff release V0 with Team Update 00","manual":"https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx","manualEdition":"V0","manualSha256":"928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17","units":"in","field":{"length":651.2,"width":317.7,"source":"§5.2 approximate inside field dimensions; §5.3 and Fig. 5-6 for alliance zones."},"limits":{"perimeter":110,"height":30,"source":"R101–104 starting frame perimeter and overall starting height. Bumpers counted separately for collision."},"fieldFeatures":{"allianceZoneDepth":158.6,"hubFootprint":47,"hubOpening":41.7,"trench":{"width":50.34,"height":22.25,"structureWidth":65.65,"depth":47},"bump":{"width":73,"depth":44.4,"height":6.513,"degrees":15},"fuelDiameter":5.91},"landmarks":[{"name":"Blue HUB opening front-edge reference","x":182.1,"y":158.85,"sides":4,"acrossFlats":47,"height":72},{"name":"Red HUB opening front-edge reference","x":469.1,"y":158.85,"sides":4,"acrossFlats":47,"height":72}],"levels":[{"name":"TRENCH nominal roof","height":22.25},{"name":"HUB opening front edge","height":72},{"name":"TOWER first rung","height":27},{"name":"TOWER second rung","height":45},{"name":"TOWER third rung","height":63}],"geometrySource":"§§5.2–5.8, Figs. 5-3 and 5-6. Project origin at blue alliance wall and one side guardrail, inches. HUB face at x=158.6; reflect x and y for red. Bulk obstacles screen movement; resource and shooting points are trial poses.","omissions":"Two schedule rows represent mutually exclusive states of the SAME own HUB. No trajectories, scoring sensor, field tolerances, articulated shapes, driving on ramps or climb dynamics. Schematic wall equipment and supply positions require drawing verification. One team's stock and arrival must be supplied by students.","scoring":{"source":"§§5.10, 6.3.4, 6.4 and 6.5, Tables 6-2 through 6-4, G407. Choose a single HUB schedule for the whole match.","inventory":[{"piece":"FUEL","total":504,"distribution":"Ordinary match nominal. Each DEPOT and OUTPOST chute starts with 24. Six robots may preload up to 8 each. Remaining nominal 360–408 staged in neutral zone, subject to staff variation. FUEL may return from HUB exits."}],"initialDistribution":{"depots":2,"perDepot":24,"outposts":2,"perOutpost":24,"robots":6,"maxPerRobot":8,"neutralAtFullPreload":360,"neutralAtZeroPreload":408,"neutralVariationApprox":24},"phases":[{"name":"AUTO","seconds":20},{"name":"Transition","seconds":10},{"name":"Shift 1","seconds":25},{"name":"Shift 2","seconds":25},{"name":"Shift 3","seconds":25},{"name":"Shift 4","seconds":25},{"name":"End game","seconds":30}],"targets":[{"name":"Own HUB active in shifts 1 and 3","goal":"odd","piece":"FUEL","points":[1,1,1,0,1,0,1]},{"name":"Own HUB active in shifts 2 and 4","goal":"even","piece":"FUEL","points":[1,1,0,1,0,1,1]}],"fieldMap":{"basis":"Three assumed start centers at x=143 for a 26-in frame and 3-in bumpers. Baseline faces east and overlaps the x=158.6 starting line by 0.4 in. Collection and delivery coordinates are hypotheses. Neutral and depot routes share approaches. No traffic labels supplied.","starts":[[143,32],[143,85],[143,285]],"mirror":{"redX":true,"redY":true},"sources":{"FUEL":[[42,221],[287,48],[296,268]],"preload":[[143,32],[143,85],[143,285]]},"targets":{"odd":[[122,108],[122,210]],"even":[[122,108],[122,210]]},"routes":[{"piece":"FUEL","goal":"odd","autoSource":"preload","preloadPhases":["AUTO"]},{"piece":"FUEL","goal":"even","autoSource":"preload","preloadPhases":["AUTO"]}]}},"trial":{"length":26,"width":26,"height":20,"heading":0,"x":143,"y":32},"rehearsal":{"schema":"field-rehearsal/v1","basis":"Project plan-view screen using §5 bounds. Flat transit under each trench. The placement of clear space within each trench is assumed centered. A BUMP is legal to cross, but its full footprint is blocked in this flat-path trial. Structural side allowances model only the remaining width. Two symmetric choices of corridor.","boundsNote":"Includes HUB solids, nominal trench roofs and estimated side allowances. No field-end TOWER or DEPOT collision, impact-force estimate, climb or ramp model. Evaluate corridor geometry independently of shooting or possession.","sources":["https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx","https://firstfrc.blob.core.windows.net/frc2026/Manual/TeamUpdates/2026TeamUpdate00.pdf"],"resourceLabel":"trial shared corridor","setups":["kickoff nominal"],"planes":[],"obstacles":[{"name":"Blue HUB","poly":[[158.6,135.35],[205.6,135.35],[205.6,182.35],[158.6,182.35]],"lower":0,"kind":"solid"},{"name":"Blue low TRENCH roof","poly":[[158.6,7.655],[205.6,7.655],[205.6,57.995],[158.6,57.995]],"lower":22.25,"kind":"height"},{"name":"Blue low outer support allowance","poly":[[158.6,0],[205.6,0],[205.6,7.655],[158.6,7.655]],"lower":0,"kind":"solid"},{"name":"Blue low inner support allowance","poly":[[158.6,57.995],[205.6,57.995],[205.6,65.65],[158.6,65.65]],"lower":0,"kind":"solid"},{"name":"Blue high TRENCH roof","poly":[[158.6,259.705],[205.6,259.705],[205.6,310.045],[158.6,310.045]],"lower":22.25,"kind":"height"},{"name":"Blue high outer support allowance","poly":[[158.6,252.05],[205.6,252.05],[205.6,259.705],[158.6,259.705]],"lower":0,"kind":"solid"},{"name":"Blue high inner support allowance","poly":[[158.6,310.045],[205.6,310.045],[205.6,317.7],[158.6,317.7]],"lower":0,"kind":"solid"},{"name":"Blue low BUMP rough terrain","poly":[[159.9,65.65],[204.3,65.65],[204.3,138.65],[159.9,138.65]],"lower":0,"kind":"solid"},{"name":"Blue high BUMP rough terrain","poly":[[159.9,179.05],[204.3,179.05],[204.3,252.05],[159.9,252.05]],"lower":0,"kind":"solid"},{"name":"Red HUB","poly":[[445.6,135.35],[492.6,135.35],[492.6,182.35],[445.6,182.35]],"lower":0,"kind":"solid"},{"name":"Red low TRENCH roof","poly":[[445.6,7.655],[492.6,7.655],[492.6,57.995],[445.6,57.995]],"lower":22.25,"kind":"height"},{"name":"Red low outer support allowance","poly":[[445.6,0],[492.6,0],[492.6,7.655],[445.6,7.655]],"lower":0,"kind":"solid"},{"name":"Red low inner support allowance","poly":[[445.6,57.995],[492.6,57.995],[492.6,65.65],[445.6,65.65]],"lower":0,"kind":"solid"},{"name":"Red high TRENCH roof","poly":[[445.6,259.705],[492.6,259.705],[492.6,310.045],[445.6,310.045]],"lower":22.25,"kind":"height"},{"name":"Red high outer support allowance","poly":[[445.6,252.05],[492.6,252.05],[492.6,259.705],[445.6,259.705]],"lower":0,"kind":"solid"},{"name":"Red high inner support allowance","poly":[[445.6,310.045],[492.6,310.045],[492.6,317.7],[445.6,317.7]],"lower":0,"kind":"solid"},{"name":"Red low BUMP rough terrain","poly":[[446.9,65.65],[491.3,65.65],[491.3,138.65],[446.9,138.65]],"lower":0,"kind":"solid"},{"name":"Red high BUMP rough terrain","poly":[[446.9,179.05],[491.3,179.05],[491.3,252.05],[446.9,252.05]],"lower":0,"kind":"solid"}],"bands":[{"name":"Blue low trench entry","from":[158.6,7.655],"to":[158.6,57.995]},{"name":"Blue high trench entry","from":[158.6,259.705],"to":[158.6,310.045]}],"starts":[[143,32],[143,85],[143,285]],"mirror":{"redX":true,"redY":true},"periods":[{"name":"AUTO","seconds":20},{"name":"Transition","seconds":10},{"name":"Shift 1","seconds":25},{"name":"Shift 2","seconds":25},{"name":"Shift 3","seconds":25},{"name":"Shift 4","seconds":25},{"name":"End game","seconds":30}],"defaults":{"length":26,"width":26,"height":20,"bumper":3,"heading":0,"speed":72,"orders":["neutral","local","hold"]},"programs":{"hold":{"label":"Hold starting position","steps":[]},"neutral":{"label":"Neutral FUEL via low trench","loop":true,"steps":[{"at":[128,32],"label":"Align with own trench","dwell":0},{"at":[235,32],"label":"Clear own trench","dwell":0},{"at":[287,48],"label":"Collect from neutral trial patch","dwell":1},{"at":[235,32],"label":"Return to trench","dwell":0},{"at":[128,32],"label":"Clear roof in own zone","dwell":0},{"at":[122,108],"label":"Present FUEL at legal trial position","dwell":1}]},"local":{"label":"Alliance depot to HUB approach","loop":true,"steps":[{"at":[105,86],"label":"Stage in own zone","dwell":0},{"at":[42,221],"label":"Collect from depot approach","dwell":1},{"at":[122,210],"label":"Present FUEL at legal trial position","dwell":1}]}}},"ruleRegister":{"schema":"frc-rule-register/v1","edition":"Kickoff release V0 with Team Update 00","cutoff":"2026-01-10 23:59:59 America/New_York. Kickoff-day publications only.","manualSourceId":"manual","sources":[{"id":"manual","title":"FIRST REBUILT Game Manual, accessible English kickoff edition","edition":"V0","location":"https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx","sha256":"928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17"},{"id":"tu00","title":"FIRST Team Update 00","edition":"January 10, 2026","location":"https://firstfrc.blob.core.windows.net/frc2026/Manual/TeamUpdates/2026TeamUpdate00.pdf","sha256":"d0aed7c64b354093de713cdac8da12134443227d0bfae688410175742169ed80"},{"id":"figures","title":"FIRST-authored V0 page images, archived English PDF copy","edition":"V0 layout corroboration only","location":"https://team2227.com/files/2026GameManual.pdf","sha256":"523066c372b00f5d2ef45dd8ced2b91c5c78d5ff3fd428d59163787a1d9781ea"}],"facts":[{"id":"length","topic":"field","statement":"Approximate field length in inches.","sourceId":"manual","locator":"§5.2 FIELD","status":"modeled","pointer":"/field/length","value":651.2},{"id":"width","topic":"field","statement":"Approximate field width in inches.","sourceId":"manual","locator":"§5.2 FIELD","status":"modeled","pointer":"/field/width","value":317.7},{"id":"zone","topic":"field","statement":"Alliance zone depth to included starting line.","sourceId":"manual","locator":"§5.3; Fig. 5-6","status":"modeled","pointer":"/fieldFeatures/allianceZoneDepth","value":158.6},{"id":"hub","topic":"field","statement":"Side length of each square HUB footprint.","sourceId":"manual","locator":"§5.4","status":"modeled","pointer":"/fieldFeatures/hubFootprint","value":47},{"id":"opening","topic":"field","statement":"Hexagonal HUB opening span.","sourceId":"manual","locator":"§5.4","status":"modeled","pointer":"/fieldFeatures/hubOpening","value":41.7},{"id":"trench","topic":"field","statement":"Nominal passage and structure dimensions in inches.","sourceId":"manual","locator":"§5.6","status":"modeled","pointer":"/fieldFeatures/trench","value":{"width":50.34,"height":22.25,"structureWidth":65.65,"depth":47}},{"id":"bump","topic":"field","statement":"BUMP dimensions and slope in degrees.","sourceId":"manual","locator":"§5.5","status":"modeled","pointer":"/fieldFeatures/bump","value":{"width":73,"depth":44.4,"height":6.513,"degrees":15}},{"id":"piece","topic":"inventory","statement":"Nominal diameter of one FUEL in inches.","sourceId":"manual","locator":"§5.10","status":"modeled","pointer":"/fieldFeatures/fuelDiameter","value":5.91},{"id":"stock","topic":"inventory","statement":"Ordinary match nominal stock before reuse.","sourceId":"manual","locator":"§6.3.4","status":"modeled","pointer":"/scoring/inventory/0/total","value":504},{"id":"distribution","topic":"inventory","statement":"Nominal staging and preload allocation; neutral range derived by subtraction.","sourceId":"manual","locator":"§6.3.4; Fig. 6-2","status":"modeled","pointer":"/scoring/initialDistribution","value":{"depots":2,"perDepot":24,"outposts":2,"perOutpost":24,"robots":6,"maxPerRobot":8,"neutralAtFullPreload":360,"neutralAtZeroPreload":408,"neutralVariationApprox":24}},{"id":"clock","topic":"timing","statement":"Match periods and duration in seconds.","sourceId":"manual","locator":"§6.4 Table 6-2","status":"modeled","pointer":"/scoring/phases","value":[{"name":"AUTO","seconds":20},{"name":"Transition","seconds":10},{"name":"Shift 1","seconds":25},{"name":"Shift 2","seconds":25},{"name":"Shift 3","seconds":25},{"name":"Shift 4","seconds":25},{"name":"End game","seconds":30}]},{"id":"odd","topic":"scoring","statement":"Points per FUEL for the branch active in the first alliance shift.","sourceId":"manual","locator":"§6.4 Table 6-3; §6.5 Table 6-4","status":"modeled","pointer":"/scoring/targets/0/points","value":[1,1,1,0,1,0,1]},{"id":"even","topic":"scoring","statement":"Points per FUEL for the branch inactive in the first alliance shift.","sourceId":"manual","locator":"§6.4 Table 6-3; §6.5 Table 6-4","status":"modeled","pointer":"/scoring/targets/1/points","value":[1,1,0,1,0,1,1]},{"id":"perimeter","topic":"restrictions","statement":"Maximum starting robot perimeter in inches excluding bumpers.","sourceId":"manual","locator":"R101, R102, R104","status":"modeled","pointer":"/limits/perimeter","value":110},{"id":"height","topic":"restrictions","statement":"Maximum starting configuration height in inches.","sourceId":"manual","locator":"R104","status":"modeled","pointer":"/limits/height","value":30},{"id":"launch","topic":"restrictions","locator":"G407","statement":"Launch into own HUB only while bumpers are at least partly in the own alliance zone.","reason":"Candidate poses satisfy the zone test. The lab cannot adjudicate a release.","status":"unmodeled","sourceId":"manual"},{"id":"score","topic":"scoring","locator":"§6.5.1","statement":"Active HUB credit requires the FUEL to pass the opening and the sensor. Processing can continue briefly at timing boundaries.","reason":"A delivered piece is an opportunity; no flight, sensor lag or referee call is simulated.","status":"unmodeled","sourceId":"manual"},{"id":"order","topic":"timing","locator":"§6.4.1","statement":"The AUTO FUEL leader starts inactive in shift 1. FMS resolves ties. Both HUBs are active in AUTO, transition and end game.","reason":"Select one schedule branch per alliance; the lab does not simulate AUTO results.","status":"unmodeled","sourceId":"manual"},{"id":"tower","topic":"scoring","locator":"§6.5 Tables 6-4 and 6-5","statement":"TOWER level 1 in AUTO earns 15 points, capped at two robots per alliance. TELEOP levels 1–3 earn 10, 20 or 30 points per robot.","reason":"Students should value the displaced scoring window and climbing reliability before pursuing this separate role.","status":"unmodeled","sourceId":"manual"},{"id":"ranks","topic":"scoring","locator":"§6.5 Table 6-4","statement":"Ranking points include alliance FUEL and TOWER performance incentives.","reason":"Compare an alliance-level objective separately from a single robot's nominal opportunity.","status":"unmodeled","sourceId":"manual"},{"id":"reuse","topic":"inventory","locator":"§5.4; §6.3.4; G408","statement":"HUBs return FUEL into neutral space. Directly catching freshly discharged FUEL is restricted.","reason":"Choose supply arrivals explicitly. Neither ownership nor immediate recycling is guaranteed.","status":"unmodeled","sourceId":"manual"},{"id":"start","topic":"restrictions","locator":"G303","statement":"Bumpers overlap the starting line, the robot avoids BUMP contact and onboard preload is limited.","reason":"Recheck each edited start configuration; the rehearsal does not inspect staging legality.","status":"unmodeled","sourceId":"manual"},{"id":"autocontact","topic":"restrictions","locator":"G403","statement":"Opposing robot contact during AUTO is restricted on the opponent side of the centerline.","reason":"Traffic is a routing cue, not permission for contact.","status":"unmodeled","sourceId":"manual"},{"id":"expansion","topic":"restrictions","locator":"R103, R105–R107","statement":"Mass, single-side horizontal extension and vertical limits constrain later mechanisms.","reason":"Moving mechanisms and mass are outside this initial box study.","status":"unmodeled","sourceId":"manual"},{"id":"bumpers","topic":"restrictions","locator":"Team Update 00 §8, R401, R402, R406, R409, R412","statement":"Kickoff notes identify revisions to bumper coverage, construction, fastening relative to the frame and team-number coverage.","reason":"Bumper thickness is a project scenario assumption. Later technical design needs an explicit compliance check.","status":"unmodeled","sourceId":"tu00"}],"openQuestions":[{"topic":"field","question":"What tolerance, approach yaw, roof deflection and field variant govern dependable trench clearance?"},{"topic":"inventory","question":"How many available pieces will partners allocate or return in each shift, and when will they arrive?"},{"topic":"strategy","question":"Which role, testable requirement and fallback will the students select after reviewing the field lab?"}]},"manualBinding":{"sourceId":"manual","edition":"V0","location":"https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx","sha256":"928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17"},"ruleRegisterSha256":"f9c264c884631e1d234a7ee365ea42a85d5f9515ffba1be4df7e75d092f39c47","routeHypotheses":[{"phase":"AUTO","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[143,32],[122,108]],"lengthIn":78.84795495128584,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"AUTO","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[143,32],[122,108]],"lengthIn":78.84795495128584,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Transition","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Transition","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 1","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 1","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 2","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 2","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 3","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 3","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 4","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"Shift 4","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"End game","piece":"FUEL","destination":"odd","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"},{"phase":"End game","piece":"FUEL","destination":"even","trialBoxWidthIn":26,"routeIn":[[287,48],[122,108]],"lengthIn":175.57049866079439,"traffic":"Potential overlap · up to 1 other start slot(s) near one point (Blue partner slot 2)"}]}</script>
+<script>
+'use strict';
+const profile = JSON.parse(document.querySelector('#profile').textContent);
+function initialTrial(p) {
+  const seed=p.trial || p.rehearsal?.defaults;
+  const relative=Math.min(p.field.length,p.field.width)/12;
+  return {length:seed?.length ?? relative,width:seed?.width ?? relative,height:seed?.height ?? relative,
+    heading:seed?.heading ?? 0,x:p.trial?.x ?? p.field.length/4,y:p.trial?.y ?? p.field.width/3};
+}
+function fieldGeometry(profile) {
+  const EPS = 1e-8;
+  const L = profile.field.length, W = profile.field.width;
+  const config = profile.rehearsal;
+  const dot = (p,q) => p[0]*q[0] + p[1]*q[1];
+  const rect = (x,y,l,w) => [[x-l/2,y-w/2],[x+l/2,y-w/2],[x+l/2,y+w/2],[x-l/2,y+w/2]];
+  const add = (p,q) => [p[0]+q[0],p[1]+q[1]];
+  const minus = (p,q) => [p[0]-q[0],p[1]-q[1]];
+  const validPoint = p => Array.isArray(p) && p.length===2 && p.every(Number.isFinite);
+  const validBody = b => b && [b.length,b.width,b.height].every(n=>Number.isFinite(n) && n>0) &&
+    Number.isFinite(b.heading) && Number.isFinite(b.bumper) && b.bumper>=0;
+  const planes = [
+    {name:'Blue end wall',normal:[1,0],origin:[0,0]}, {name:'Red end wall',normal:[-1,0],origin:[L,0]},
+    {name:'South guardrail',normal:[0,1],origin:[0,0]}, {name:'North guardrail',normal:[0,-1],origin:[0,W]}
+  ];
+  for (const face of config?.planes || []) {
+    const a=face.inwardDeg*Math.PI/180;
+    planes.push({name:face.name,normal:[Math.cos(a),Math.sin(a)],origin:face.at});
+  }
+  function clip(poly,plane) {
+    const result=[];
+    for(let i=0;i<poly.length;i++){
+      const a=poly[i],b=poly[(i+1)%poly.length];
+      const x=dot(minus(a,plane.origin),plane.normal),y=dot(minus(b,plane.origin),plane.normal);
+      if(x>=0) result.push(a);
+      if((x>=0)!==(y>=0)) result.push([a[0]+(b[0]-a[0])*x/(x-y),a[1]+(b[1]-a[1])*x/(x-y)]);
+    }
+    return result;
+  }
+  const boundary=planes.reduce(clip,rect(L/2,W/2,L,W));
+  function offsets(body) {
+    const a=body.heading*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+    return rect(0,0,body.length+2*body.bumper,body.width+2*body.bumper)
+      .map(([x,y])=>[x*c-y*s,x*s+y*c]);
+  }
+  const footprint=(p,body)=>offsets(body).map(q=>add(p,q));
+  // Counterclockwise convex hull for Minkowski expansion by a reflected footprint.
+  function hull(points) {
+    const sorted=points.slice().sort((a,b)=>a[0]-b[0] || a[1]-b[1]);
+    function chain(list) {
+      const h=[];
+      for(const p of list) {
+        while(h.length>=2){
+          const a=h.at(-2),b=h.at(-1);
+          if((b[0]-a[0])*(p[1]-a[1])-(b[1]-a[1])*(p[0]-a[0])>EPS)break;
+          h.pop();
+        }
+        h.push(p);
+      }
+      h.pop();return h;
+    }
+    return [...chain(sorted),...chain(sorted.slice().reverse())];
+  }
+  const expand=(poly,shape)=>hull(poly.flatMap(p=>shape.map(q=>minus(p,q))));
+  function solid(name,poly,low,kind) {return {name,poly,low,kind};}
+  function obstacles(setup=config?.setups[0]) {
+    const solids=profile.landmarks.map(m=>{
+      const r=m.acrossFlats/(2*Math.cos(Math.PI/m.sides));
+      return solid(m.name,Array.from({length:m.sides},(_,i)=>{
+        const a=(2*i+1)*Math.PI/m.sides;return [m.x+r*Math.cos(a),m.y+r*Math.sin(a)];
+      }),0,'landmark');
+    });
+    for(const item of config?.obstacles || []){
+      const low=typeof item.lower==='number'?item.lower:item.lower[setup];
+      solids.push(solid(item.name,item.poly,low,item.kind));
+    }
+    return solids;
+  }
+  // The forbidden region is convex. Clip the swept center segment by every inward face.
+  // Return first intersection of the interiors. Tangency alone permits sliding and separation.
+  function prepare(poly) {
+    return poly.map((p,i)=>{
+      const q=poly[(i+1)%poly.length],dx=q[0]-p[0],dy=q[1]-p[1],length=Math.hypot(dx,dy);
+      const n=[-dy/length,dx/length];return {n,offset:dot(p,n)};
+    });
+  }
+  function enter(a,b,faces) {
+    let low=0,high=1;
+    const delta=minus(b,a);
+    for(const {n,offset} of faces){
+      const start=dot(a,n)-offset-EPS, velocity=dot(delta,n);
+      if(Math.abs(velocity)<EPS){if(start<=0)return null;continue;}
+      const t=-start/velocity;
+      if(velocity>0)low=Math.max(low,t);else high=Math.min(high,t);
+      if(low>=high)return null;
+    }
+    return low;
+  }
+  const cache=new Map();
+  function space(body,setup) {
+    const key=[body.length,body.width,body.height,body.heading,body.bumper,setup].join('/');
+    if(cache.has(key))return cache.get(key);
+    const shape=offsets(body);
+    const walls=planes.map(p=>({...p,offset:dot(p.normal,p.origin)-Math.min(...shape.map(q=>dot(q,p.normal)))}));
+    const solids=obstacles(setup).filter(o=>body.height>=o.low-EPS).map(o=>{
+      const inflated=expand(o.poly,shape);return {...o,inflated,faces:prepare(inflated)};
+    });
+    // No search through field-exterior nodes. Offset corner candidates outward to avoid numeric grazing.
+    const nodes=solids.flatMap(o=>{
+      const c=o.inflated.reduce((v,p)=>add(v,p),[0,0]).map(v=>v/o.inflated.length);
+      return o.inflated.map(p=>{
+        const d=minus(p,c),size=Math.hypot(...d);
+        return [p[0]+d[0]/size*.15,p[1]+d[1]/size*.15];
+      });
+    }).filter(q=>walls.every(w=>dot(q,w.normal)>=w.offset) && solids.every(o=>enter(q,q,o.faces)===null));
+    const prepared={walls,solids,nodes};
+    if(cache.size>80)cache.clear();
+    cache.set(key,prepared);return prepared;
+  }
+  function hit(a,b,body,setup=config?.setups[0]) {
+    const {walls,solids}=space(body,setup);
+    let result=null;
+    function consider(name,t) {if(t!==null && (!result || t<result.t))result={name,t};}
+    for(const w of walls){
+      const x=dot(a,w.normal)-w.offset,y=dot(b,w.normal)-w.offset;
+      if(x < -EPS)consider(w.name,0);
+      else if(y < -EPS)consider(w.name,Math.max(0,x/(x-y)));
+    }
+    for(const o of solids)consider(o.name,enter(a,b,o.faces));
+    return result;
+  }
+  function assessRoute(line,body,setup=config?.setups[0]) {
+    if(!config || !config.setups.includes(setup) || !validBody(body) || !Array.isArray(line) || !line.length || !line.every(validPoint))
+      return {status:'unknown',obstacle:null,segment:null};
+    let walked=0;
+    for(let i=0;i<Math.max(1,line.length-1);i++){
+      const a=line[i],b=line[i+1] || a, contact=hit(a,b,body,setup);
+      const length=Math.hypot(...minus(b,a));
+      if(contact)return {status:'blocked',obstacle:contact.name,segment:i,distance:walked+length*contact.t};
+      walked+=length;
+    }
+    return {status:'clear',obstacle:null,segment:null,distance:walked};
+  }
+  function robotContact(a,b,body,c,d,peer) {
+    const relativeA=minus(a,c),relativeB=minus(b,d);
+    const key='relative/'+[body.length,body.width,body.bumper,body.heading,peer.length,peer.width,peer.bumper,peer.heading].join('/');
+    if(!cache.has(key))cache.set(key,prepare(expand(offsets(peer),offsets(body))));
+    return enter(relativeA,relativeB,cache.get(key));
+  }
+  function plan(a,b,body,setup=config?.setups[0]) {
+    if(hit(a,a,body,setup) || hit(b,b,body,setup))return [];
+    if(!hit(a,b,body,setup))return [a,b];
+    const nodes=[a,b,...space(body,setup).nodes];
+    const cost=nodes.map(()=>Infinity), prev=[],seen=new Set();
+    const distance=(p,q)=>Math.hypot(...minus(p,q));
+    cost[0]=0;
+    while(true){
+      let i=-1,f=Infinity;
+      nodes.forEach((p,j)=>{
+        const priority=cost[j]+distance(p,b);
+        if(!seen.has(j) && priority<f){i=j;f=priority;}
+      });
+      if(i===-1)return [];
+      if(i===1)break;
+      seen.add(i);
+      nodes.forEach((p,j)=>{
+        if(seen.has(j))return;
+        const next=cost[i]+distance(nodes[i],p);
+        if(next<cost[j] && !hit(nodes[i],p,body,setup)){prev[j]=i;cost[j]=next;}
+      });
+    }
+    const line=[b];
+    for(let i=prev[1];i!==undefined;i=prev[i])line.unshift(nodes[i]);
+    return line;
+  }
+  return {boundary,obstacles,footprint,hit,assessRoute,robotContact,plan,validBody};
+}
+function createFieldRehearsal(profile) {
+  const geom=fieldGeometry(profile);
+  const model=profile.rehearsal, supported=Boolean(model?.schema==='field-rehearsal/v1');
+  const L=profile.field.length,W=profile.field.width,dt=0.05;
+  const behaviors=Object.fromEntries(Object.entries(model?.programs || {}).map(([key,p])=>[key,p.label]));
+  const phases=model?.periods || [];
+  const duration=name=>Math.round((phases.find(p=>p.name===name)?.seconds || 0)/dt);
+  const norm=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+  const sidePoint=(q,side)=>side==='blue'?[...q]:[model.mirror.redX?L-q[0]:q[0],model.mirror.redY?W-q[1]:q[1]];
+  const assessRoute=(line,body,setup=model?.setups[0])=>supported?geom.assessRoute(line,body,setup):
+    {status:'unknown',obstacle:null,segment:null};
+  function defaults(side,slot) {
+    const {orders,...body}=model.defaults,order=orders[slot-1];
+    const heading=side==='red'?Math.atan2((model.mirror.redY?-1:1)*Math.sin(body.heading*Math.PI/180),
+      (model.mirror.redX?-1:1)*Math.cos(body.heading*Math.PI/180))*180/Math.PI:body.heading;
+    const plans=Object.fromEntries(phases.map(p=>[p.name,order]));
+    return {id:(side==='blue'?'B':'R')+slot,side,slot,plans,...body,heading};
+  }
+  function reservations(){
+    const names=new Set([model.resourceLabel]);
+    for(const program of Object.values(model.programs)){
+      for(const list of [program.steps,...Object.values(program.byPeriod || {})]) {
+        for(const step of list)if(typeof step.lock==='string')names.add(step.lock);
+      }
+    }
+    return Object.fromEntries([...names].map(key=>[key,{owner:null,queue:[]}]));
+  }
+  function create(roster,setup=model?.setups[0]) {
+    if(!supported)throw Error('Supply an external rehearsal geometry and behavior model.');
+    if(!model.setups.includes(setup))throw Error('Unknown obstacle setup.');
+    if(!Array.isArray(roster) || roster.length>6)throw Error('Use up to three robots per alliance.');
+    const robots=[];
+    for(const b of roster) {
+      if(!['blue','red'].includes(b.side) || ![1,2,3].includes(b.slot) ||
+        b.id!==defaults(b.side,b.slot).id || robots.some(r=>r.id===b.id) ||
+        !b.plans || !phases.every(p=>Object.hasOwn(behaviors,b.plans[p.name])) ||
+        !geom.validBody(b) || !Number.isFinite(b.speed) || b.speed<=0 || b.speed>500) {
+        throw Error('Check unique alliance slots, positive dimensions and speed (up to 500 in/s).');
+      }
+      const p=sidePoint(model.starts[b.slot-1],b.side);
+      const collision=geom.hit(p,p,b,setup);
+      if(collision)throw Error(b.id+' start overlaps '+collision.name+'.');
+      for(const other of robots) if(geom.robotContact(p,p,b,other.p,other.p,other)!==null)
+        throw Error(b.id+' start overlaps '+other.id+'.');
+      robots.push({...b,p,leg:0,waypoints:null,target:0,dwell:0,wait:0,visits:0,blocked:'',action:''});
+    }
+    robots.sort((a,b)=>a.id.localeCompare(b.id));
+    return {robots,setup,phase:phases[0].name,phaseIndex:0,ticks:0,paused:true,ended:false,resources:reservations(),hotspots:[],
+      log:[], carry:0,phaseHistory:[]};
+  }
+  function program(r,sim){return model.programs[r.plans[sim.phase]];}
+  function itinerary(r,sim) {
+    const chosen=program(r,sim);
+    return (chosen.byPeriod?.[sim.phase] || chosen.steps).map(step=>{
+      const spec=step.at;
+      const q=Array.isArray(spec)?spec:spec[r.side] || spec.slots?.[r.slot] || spec.default;
+      return {...step,action:step.label,point:step.frame==='field'?[...q]:sidePoint(q,r.side),
+        dwell:Math.round((step.dwell || 0)/dt)};
+    });
+  }
+  function event(sim,msg) {
+    sim.log.push({phase:sim.phase,t:sim.ticks*dt,message:msg});
+    if(sim.log.length>24)sim.log.shift();
+  }
+  function recordWait(sim,r,why) {
+    r.wait++;r.blocked=why;
+    const key=[Math.floor(r.p[0]/24),Math.floor(r.p[1]/24)].join(',');
+    let spot=sim.hotspots.find(v=>v.key===key);
+    if(!spot){spot={key,point:[...r.p],ticks:0};sim.hotspots.push(spot);}
+    spot.ticks++;
+  }
+  function release(sim,r,key) {
+    const resource=sim.resources[key];
+    if(resource.owner===r.id){resource.owner=null;event(sim,r.id+' cleared '+key);}
+    resource.queue=resource.queue.filter(id=>id!==r.id);
+  }
+  function proposal(sim,r) {
+    r.blocked='';
+    const legs=itinerary(r,sim);
+    if(!legs.length || r.leg>=legs.length){r.action=legs.length?'Holding at destination':'Holding position';return r.p;}
+    const leg=legs[r.leg];
+    r.action=leg.action;
+    if(!r.waypoints) {
+      if(leg.straight) r.waypoints=geom.hit(r.p,leg.point,r,sim.setup)?[]:[r.p,leg.point];
+      else r.waypoints=geom.plan(r.p,leg.point,r,sim.setup);
+      r.target=1;
+    }
+    if(r.waypoints.length===0){
+      recordWait(sim,r,'No footprint-clear path · '+leg.action);
+      return r.p;
+    }
+    const key=typeof leg.lock==='string'?leg.lock:model.resourceLabel;
+    const resource=sim.resources[key];
+    if(leg.lock && resource.owner!==r.id){
+      if(!resource.queue.includes(r.id)){resource.queue.push(r.id);event(sim,r.id+' requested '+key);}
+      if(resource.owner || resource.queue[0]!==r.id){
+        recordWait(sim,r,'Queue at '+key+' for '+(resource.owner || resource.queue[0]));return r.p;
+      }
+      resource.queue.shift();resource.owner=r.id;event(sim,r.id+' entered '+key);
+    }
+    if(r.target>=r.waypoints.length) {
+      if(++r.dwell>=(leg.dwell || 0)) {
+        if(leg.release)release(sim,r,key);
+        r.leg++;r.dwell=0;r.waypoints=null;
+        if(r.leg===legs.length){
+          r.visits++;event(sim,r.id+' completed '+leg.action);
+          if(program(r,sim).loop)r.leg=0;
+        }
+      }
+      return r.p;
+    }
+    const dest=r.waypoints[r.target],d=norm(r.p,dest);
+    const f=d?Math.min(1,r.speed*dt/d):1;
+    return [r.p[0]+(dest[0]-r.p[0])*f,r.p[1]+(dest[1]-r.p[1])*f];
+  }
+  function step(sim) {
+    if(sim.paused || sim.ended)return;
+    const begins=sim.robots.map(r=>[...r.p]), ends=begins.map(p=>[...p]);
+    // Each move reserves a continuous sweep. Earlier movers saw later peers stationary.
+    // A later peer may move only if its simultaneous sweep also misses earlier movers.
+    for(let i=0;i<sim.robots.length;i++) {
+      const r=sim.robots[i],a=begins[i],b=proposal(sim,r);
+      if(norm(a,b)<1e-9){
+        if(!r.blocked && r.waypoints?.[r.target] && norm(r.p,r.waypoints[r.target])<1e-8)r.target++;
+        continue;
+      }
+      let hit=geom.hit(a,b,r,sim.setup);
+      for(let j=0;j<sim.robots.length;j++)if(i!==j){
+        const t=geom.robotContact(a,b,r,begins[j],ends[j],sim.robots[j]);
+        if(t!==null && (!hit || t<hit.t))hit={name:sim.robots[j].id,t};
+      }
+      // Rejected motion stays at its starting point for this entire tick. Earlier
+      // movers already cleared that stationary footprint. Clipping one mover after
+      // relative sweeps could introduce a late moving-peer overlap.
+      if(hit){recordWait(sim,r,'Occupied by '+hit.name);continue;}
+      ends[i]=b;
+      if(r.waypoints?.[r.target] && norm(b,r.waypoints[r.target])<1e-8)r.target++;
+    }
+    sim.robots.forEach((r,i)=>{r.p=ends[i];});
+    sim.ticks++;
+    if(sim.ticks>=duration(sim.phase)){
+      sim.paused=true;sim.ended=true;sim.carry=0;
+      sim.phaseHistory.push({phase:sim.phase,seconds:sim.ticks*dt,
+        robots:sim.robots.map(r=>({id:r.id,visits:r.visits,waitSeconds:r.wait*dt,blocked:r.blocked,position:[...r.p]}))});
+      event(sim,sim.phase+' clock expired');
+    }
+  }
+  function advance(sim,seconds) {
+    if(!Number.isFinite(seconds) || seconds<0)throw Error('Use nonnegative elapsed seconds.');
+    if(sim.paused || sim.ended)return;
+    sim.carry+=seconds;
+    const steps=Math.min(duration(sim.phase)-sim.ticks,Math.floor((sim.carry+1e-9)/dt));
+    sim.carry-=steps*dt;
+    for(let i=0;i<steps;i++)step(sim);
+  }
+  function nextPhase(sim) {
+    if(!sim.ended || sim.phaseIndex===phases.length-1)throw Error('Finish the active period before advancing to a configured next period.');
+    sim.phase=phases[++sim.phaseIndex].name;sim.ticks=0;sim.carry=0;sim.ended=false;sim.paused=true;sim.resources=reservations();
+    for(const r of sim.robots)Object.assign(r,{leg:0,waypoints:null,target:0,dwell:0,wait:0,visits:0,blocked:'',action:''});
+  }
+  return {supported,behaviors,defaults,create,advance,nextPhase,assessRoute,geom,dt,periods:phases,
+    phaseSeconds:name=>duration(name)*dt};
+}
+const rehearsal=createFieldRehearsal(profile); const rehearsalNotes=[];
+// Orthographic projection of field coordinates in inches. Z is up.
+function fieldScene(canvas, profile, state, place) {
+  const ctx = canvas.getContext('2d');
+  const field = profile.field;
+  const camera = {view: 'field', yaw: -0.27, tilt: 0.77, zoom: 1};
+  let project, unproject;
+  let route=[], study=null;
+  function draw() {
+    const {width, height} = canvas.getBoundingClientRect();
+    if (!width || !height) return;
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.fillStyle = '#142f63';
+    ctx.fillRect(0, 0, width, height);
+    const c = Math.cos(camera.yaw), s = Math.sin(camera.yaw);
+    const up = Math.sin(camera.tilt), lift = Math.cos(camera.tilt);
+    let x0 = field.length / 2, y0 = field.width / 2;
+    let spanX = Math.abs(c) * field.length + Math.abs(s) * field.width;
+    let spanY = up * (Math.abs(s) * field.length + Math.abs(c) * field.width);
+    if (camera.view === 'robot' || camera.view === 'target') {
+      const focus = camera.view === 'robot' ? state : profile.landmarks[0];
+      x0 = focus.x;
+      y0 = focus.y;
+      const extent=camera.view==='target'?Math.max(focus.acrossFlats,focus.height):Math.max(state.length,state.width,state.height);
+      spanX=4*extent;spanY=3.5*extent;
+    }
+    const scale = Math.min(width * .90 / spanX, height * .75 / spanY) * camera.zoom;
+    const cx = width / 2, cy = height * .57;
+    const depth = (x,y) => (x-x0)*s + (y-y0)*c;
+    project = (x,y,z=0) => [cx + ((x-x0)*c - (y-y0)*s)*scale, cy - (depth(x,y)*up + z*lift)*scale];
+    unproject = (px,py) => {
+      const a=(px-cx)/scale, b=(cy-py)/(scale*up);
+      return [x0+a*c+b*s, y0-a*s+b*c];
+    };
+    function path(points, color, fill) {
+      ctx.beginPath();
+      points.forEach(([x,y,z],i) => {
+        const [px,py] = project(x,y,z);
+        if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+      });
+      if (fill) {ctx.closePath();ctx.fillStyle=fill;ctx.fill();}
+      ctx.strokeStyle=color;
+      ctx.stroke();
+    }
+    const L=field.length, W=field.width;
+    path(rehearsal.supported?rehearsal.geom.boundary:[[0,0],[L,0],[L,W],[0,W]], '#d6e5f5','#2c4c70');
+    ctx.save();ctx.clip();
+    for(let x=36;x<L;x+=36) path([[x,0],[x,W]],'#486988');
+    for(let y=36;y<W;y+=36) path([[0,y],[L,y]],'#486988');
+    path([[L/2,0],[L/2,W]],'#d2e2ef');
+    if(study) {
+      for(const peer of study.peers) for(const leg of peer.paths) path(leg,peer.alliance==='red'?'#b96d74':peer.alliance==='blue'?'#669be0':'#94a9c0');
+      for(const h of study.hot) {
+        const [px,py]=project(...h.point);
+        ctx.fillStyle=h.count>=2?'#d89569':'#ae9d70';ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fill();
+      }
+      if(study.line.length) {ctx.lineWidth=2;path(study.line,'#ffcb77');ctx.lineWidth=1;}
+    }
+    if(!study && route.length===2) {
+      ctx.lineWidth=3;
+      path(route.map(p=>[p.x,p.y]),'#ffcb77');
+      ctx.lineWidth=1;
+    }
+    for (const p of route) {
+      const [px,py]=project(p.x,p.y);
+      ctx.fillStyle='#ffcb77';ctx.beginPath();ctx.arc(px,py,6,0,Math.PI*2);ctx.fill();
+      ctx.font='bold 15px system-ui';ctx.fillText(p.name,px+9,py+12);
+    }
+    ctx.restore();
+    const objects = profile.landmarks.map(m => {
+      const r = m.acrossFlats / (2*Math.cos(Math.PI/m.sides));
+      const points = Array.from({length:m.sides},(_,i) => {
+        const a = (2*i+1)*Math.PI/m.sides;
+        return [m.x+r*Math.cos(a), m.y+r*Math.sin(a)];
+      });
+      return {...m, points};
+    });
+    const heading=state.heading*Math.PI/180;
+    const rotate=(x,y)=>[state.x+x*Math.cos(heading)-y*Math.sin(heading),state.y+x*Math.sin(heading)+y*Math.cos(heading)];
+    const halfL=state.length/2, halfW=state.width/2;
+    objects.push({...state, name:'Robot', robot:true, points:[
+      rotate(-halfL,-halfW),rotate(halfL,-halfW),rotate(halfL,halfW),rotate(-halfL,halfW)
+    ]});
+    for(const obj of objects.sort((a,b)=>depth(b.x,b.y)-depth(a.x,a.y))) {
+      const roof=obj.points.map(([x,y])=>[x,y,obj.height]);
+      const edge=obj.robot?'#fff0cc':'#b5cede';
+      const faces=obj.points.map((p,i)=>{
+        const j=(i+1)%roof.length, q=obj.points[j];
+        return {points:[p,q,roof[j],roof[i]], depth:depth((p[0]+q[0])/2,(p[1]+q[1])/2)};
+      }).sort((a,b)=>b.depth-a.depth);
+      for(const face of faces) path(face.points,edge,obj.robot?'#ba832d':'#476888');
+      path(roof,edge,obj.robot?'#ffd078':'#6285a5');
+      if(obj.robot) path([[...rotate(0,0),obj.height],[...rotate(halfL,0),obj.height]],'#49340b');
+      let peak=obj.height;
+      if(!obj.robot) {
+        for(const level of profile.levels) {
+          const ring=obj.points.map(([x,y])=>[x,y,level.height]);
+          path([...ring,ring[0]],level===profile.levels[state.level]?'#ffcb77':'#abc2d2');
+          peak=Math.max(peak,level.height);
+        }
+      }
+      const [px,py]=project(obj.x,obj.y,peak);
+      ctx.fillStyle=obj.robot?'#fff0cc':'#f5f9ff';
+      ctx.font='600 13px system-ui';ctx.textAlign='center';ctx.fillText(obj.name,px,py-12);
+    }
+  }
+  let start;
+  canvas.onpointerdown=e=>{
+    canvas.setPointerCapture(e.pointerId);
+    start={x:e.clientX,y:e.clientY,yaw:camera.yaw,tilt:camera.tilt,moved:false};
+  };
+  canvas.onpointermove=e=>{
+    if(!start) return;
+    const dx=e.clientX-start.x, dy=e.clientY-start.y;
+    if(Math.hypot(dx,dy)>4) start.moved=true;
+    if(start.moved) {
+      camera.yaw=start.yaw+dx*.007;
+      camera.tilt=Math.max(.18,Math.min(Math.PI/2,start.tilt+dy*.006));
+      draw();
+    }
+  };
+  canvas.onpointerup=e=>{
+    if(start && !start.moved && unproject) {
+      const bounds=canvas.getBoundingClientRect();
+      const [x,y]=unproject(e.clientX-bounds.left,e.clientY-bounds.top);
+      if(x>=0 && x<=field.length && y>=0 && y<=field.width) place(x,y);
+    }
+    start=null;
+  };
+  canvas.onpointercancel=()=>{start=null;};
+  function zoom(factor) {camera.zoom=Math.max(.5,Math.min(6,camera.zoom*factor));draw();}
+  canvas.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?1.12:1/1.12);},{passive:false});
+  new ResizeObserver(draw).observe(canvas);
+  return {draw,zoom,setRoute(points,analysis){route=points;study=analysis;draw();},view(name){
+    camera.view=name;camera.yaw=name==='top'?0:-.27;camera.tilt=name==='top'?Math.PI/2:.77;
+    camera.zoom=1;draw();
+  }};
+}
+
+function routeStudy(profile, piece, goal, phase, custom, bodyWidth) {
+  const map=profile.scoring?.fieldMap;
+  const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+  const nearest=(p,points)=>points.reduce((best,q)=>distance(p,q)<distance(p,best)?q:best);
+  const same=(a,b)=>distance(a,b)<1e-7;
+  const segmentDistance=(p,a,b)=>{
+    const dx=b[0]-a[0],dy=b[1]-a[1];
+    const u=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy || 1)));
+    return distance(p,[a[0]+u*dx,a[1]+u*dy]);
+  };
+  // Bend sight lines around bounding squares of modeled solids. These are directional estimates.
+  const rectangles=profile.landmarks.map(m=>{
+    const r=m.acrossFlats/(2*Math.cos(Math.PI/m.sides));
+    return [m.x-r,m.y-r,m.x+r,m.y+r];
+  });
+  const corners=rectangles.flatMap(([l,b,r,t])=>[[l,b],[l,t],[r,b],[r,t]]);
+  function crosses(a,b,[left,bottom,right,top]) {
+    let lo=0, hi=1;
+    for (const [i,min,max] of [[0,left,right],[1,bottom,top]]) {
+      const delta=b[i]-a[i];
+      if(Math.abs(delta)<1e-10) {
+        if(a[i]<=min+1e-8 || a[i]>=max-1e-8) return false;
+      } else {
+        const u=(min+1e-8-a[i])/delta, v=(max-1e-8-a[i])/delta;
+        lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));
+      }
+    }
+    return hi>lo;
+  }
+  function path(a,b) {
+    if(same(a,b)) return [a,b];
+    const nodes=[a,b,...corners], costs=nodes.map(()=>Infinity), prev=[], visited=new Set();
+    costs[0]=0;
+    while(true){
+      let i=-1;
+      nodes.forEach((_,j)=>{if(!visited.has(j) && Number.isFinite(costs[j]) && (i<0 || costs[j]<costs[i])) i=j;});
+      if(i<0) return [];
+      if(i===1) break;
+      visited.add(i);
+      nodes.forEach((q,j)=>{
+        const cost=costs[i]+distance(nodes[i],q);
+        if(!visited.has(j) && cost<costs[j] && !rectangles.some(r=>crosses(nodes[i],q,r))){
+          costs[j]=cost;prev[j]=i;
+        }
+      });
+    }
+    const result=[b];
+    for(let i=prev[1];i!==undefined;i=prev[i]) result.unshift(nodes[i]);
+    return result;
+  }
+  const routeType=map?.routes.find(r=>r.piece===piece && r.goal===goal);
+  const first=profile.scoring?.phases[0]?.name;
+  // Older external profiles identify the opening period's alternate source with autoSource.
+  const sourceFor=r=>r.sourceByPhase?.[phase] || (phase===first && r.autoSource) || r.piece;
+  const preload=r=>r.preloadPhases?.includes(phase) ?? Boolean(phase===first && r.autoSource);
+  const start=map?.starts[0];
+  const a=custom?.a || (routeType && nearest(start,map.sources[sourceFor(routeType)]));
+  const b=custom?.b || (a && routeType && nearest(a,map.targets[goal]));
+  if(!a || !b) return {line:[], peers:[], hot:[], length:0, traffic:'Unknown · route endpoints unavailable'};
+  const line=path(a,b);
+  if(!line.length) return {line:[],peers:[],hot:[],length:0,traffic:'Unresolved · endpoint inside a modeled obstruction'};
+  const length=line.slice(1).reduce((n,q,i)=>n+distance(line[i],q),0);
+  const peers=[];
+  if(map) for(const side of [0,1]) for(const [slot,p] of map.starts.entries()) {
+    if(!side && slot===0) continue;
+    const mirror=map.mirror || profile.rehearsal?.mirror;
+    if(side && !mirror)continue;
+    const transform=q=>side?[mirror.redX?profile.field.length-q[0]:q[0],mirror.redY?profile.field.width-q[1]:q[1]]:q;
+    const paths=[];
+    for(const r of map.routes){
+      const supply=nearest(p,map.sources[sourceFor(r)]);
+      const dest=nearest(supply,map.targets[r.goal]);
+      const legs=[[p,supply],[supply,dest]];
+      if(preload(r)) legs.push([p,nearest(p,map.targets[r.goal])]);
+      for(const [from,to] of legs){
+        const part=path(transform(from),transform(to));
+        if(part.length) paths.push(part);
+      }
+    }
+    peers.push({name:(side?'Red opponent':'Blue partner')+' slot '+(slot+1),alliance:side?'red':'blue',paths});
+  }
+  const hot=[];
+  const names=new Set();
+  for(let i=1;i<line.length;i++){
+    const p=line[i-1],q=line[i],steps=Math.max(1,Math.ceil(distance(p,q)/12));
+    for(let j=0;j<=steps;j++){
+      const u=j/steps, point=[p[0]+(q[0]-p[0])*u,p[1]+(q[1]-p[1])*u];
+      const at=peers.filter(peer=>peer.paths.some(leg=>leg.slice(1).some((v,k)=>segmentDistance(point,leg[k],v)<=bodyWidth)));
+      if(at.length){hot.push({point,count:at.length});at.forEach(peer=>names.add(peer.name));}
+    }
+  }
+  const peak=hot.reduce((n,h)=>Math.max(n,h.count),0);
+  const traffic=!map?'Unknown · missing start, piece and target model':(peak>=2?'High potential overlap':peak?'Potential overlap':'No overlap in sampled routes')+
+    ' · up to '+peak+' other start slot(s) near one point'+(names.size?' ('+[...names].join(', ')+')':'');
+  return {line,peers,hot,length,traffic};
+}
+function analyzeWindow(s) {
+  const whole = n => Number.isSafeInteger(n) && n >= 0;
+  const finite = n => Number.isFinite(n) && n >= 0;
+  if (![s.stock,s.opening,s.incoming,s.goal].every(whole) || !s.goal ||
+      ![s.window,s.cycle].every(n=>finite(n) && n>0) ||
+      ![s.arrival,s.setup,s.travel,s.points].every(finite) || s.arrival>s.window) {
+    throw Error('Enter whole piece counts, positive window and cycle times, and an arrival inside the window.');
+  }
+  if (s.opening+s.incoming>s.stock) throw Error('Allocated pieces exceed the distinct match inventory.');
+  if (s.cap !== null && !whole(s.cap)) throw Error('Target capacity must be a whole count.');
+  if (s.delivery==='shuttle') {
+    const returning=s.returnTravel ?? s.travel;
+    if(!finite(returning)) throw Error('Return transit must be finite and nonnegative.');
+    const available=Math.min(s.opening+s.incoming,s.cap ?? s.stock);
+    // First pickup is at A. Every scored piece travels A→B. Only intervening trips return B→A.
+    const transit=n=>n*s.travel+Math.max(0,n-1)*returning;
+    const serviceBudget=(n,start)=>s.window-start-transit(n);
+    const maxCycle=n=>{
+      if(n===0) return Infinity;
+      const late=Math.max(0,n-s.opening);
+      const full=serviceBudget(n,s.setup)/n;
+      return late?Math.min(full,serviceBudget(late,Math.max(s.setup,s.arrival))/late):full;
+    };
+    let lo=0,hi=available;
+    while(lo<hi){
+      const count=lo+Math.ceil((hi-lo)/2);
+      if(maxCycle(count)>=s.cycle-Number.EPSILON*s.cycle*4) lo=count; else hi=count-1;
+    }
+    const allowance=maxCycle(s.goal);
+    return {ready:s.setup,usable:Math.max(0,serviceBudget(s.goal,s.setup)),
+      afterArrival:Math.max(0,s.window-Math.max(s.setup,s.arrival)),rate:allowance>0?1/allowance:Infinity,
+      available,delivered:lo,attainable:lo>=s.goal,points:lo*s.points,goalTransit:transit(s.goal),
+      outboundLegs:s.goal,returnLegs:s.goal-1};
+  }
+  if(s.delivery && s.delivery!=='staged') throw Error('Unknown delivery mode.');
+  const ready=s.setup+s.travel;
+  const usable=Math.max(0,s.window-ready);
+  const afterArrival=Math.max(0,s.window-Math.max(ready,s.arrival));
+  const lateNeeded=Math.max(0,s.goal-s.opening);
+  const required=(count,time)=>count===0?0:time>0?count/time:Infinity;
+  const rate=Math.max(required(s.goal,usable),required(lateNeeded,afterArrival));
+  const supply=s.opening+s.incoming;
+  const available=Math.min(supply,s.cap ?? supply);
+  // A serial cycle may start only after its piece arrives. Both constraints must hold.
+  const cycles=t=>Math.floor(t/s.cycle+1e-10);
+  const delivered=Math.min(available,cycles(usable),s.opening+cycles(afterArrival));
+  return {ready,usable,afterArrival,rate,available,delivered,
+    attainable:delivered>=s.goal,points:delivered*s.points};
+}
+const byId = id => document.getElementById(id);
+const fmt = n => String(Number(n.toFixed(3)));
+const state=initialTrial(profile);
+const gameTitle=(profile.season?profile.season+' ':'')+profile.game;
+const exportName=profile.season || profile.game.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'game';
+const observations = [];
+const opportunities = [];
+const sliders = new Map();
+byId('season').textContent=gameTitle+' · '+profile.edition;
+function paragraph(parent, content) {
+  const p = document.createElement('p');
+  p.textContent = content;
+  parent.append(p);
+}
+const sources = byId('sources');
+if(/^https?:\/\//i.test(profile.manual)) {
+  const a=document.createElement('a');
+  a.href=profile.manual;a.textContent='Game manual · '+profile.edition;sources.append(a);
+} else {
+  paragraph(sources,'Project source file: '+profile.manual+' · '+profile.edition);
+}
+paragraph(sources, 'Field: ' + profile.field.length + ' × ' + profile.field.width + ' in. ' + profile.field.source);
+paragraph(sources, profile.limits.source);
+paragraph(sources, profile.geometrySource);
+if (profile.levels.length) paragraph(sources, profile.levels.map(v=>v.name+' '+v.height+' in').join(' · '));
+paragraph(sources, profile.omissions);
+paragraph(sources,'Editable starting box: '+[state.length,state.width,state.height].map(fmt).join(' × ')+' in. '+(profile.trial?'The project supplies this trial.':profile.rehearsal?'Dimensions come from the project rehearsal defaults.':'The initial cube uses one twelfth of the shorter field side as a visual scale reference.')+' X runs downfield from the first end wall. Y runs across the field from the near side.');
+
+function slider(group, key, title, min, max, unit) {
+  const item = document.createElement('div');
+  item.className = 'slider';
+  const label = document.createElement('label');
+  label.htmlFor = key;
+  label.append(title);
+  const out = document.createElement('output');
+  out.htmlFor = key;
+  label.append(out);
+  const input = document.createElement('input');
+  Object.assign(input, {id:key, type:'range', min, max, step:key==='heading'?1:'any', value:state[key]});
+  state[key] = Number(input.value);
+  item.append(label,input);
+  byId(group).append(item);
+  sliders.set(key,{input,out,unit});
+  input.oninput = () => {state[key]=Number(input.value);refresh();};
+}
+for(const key of ['length','width','height']) slider('sizes',key,key[0].toUpperCase()+key.slice(1),Math.min(1,state[key]),
+  Math.max(2*state[key],profile.limits.height || 0,(profile.limits.perimeter || 0)/2), ' in');
+slider('pose','x','Downfield X',0,profile.field.length,' in');
+slider('pose','y','Across field Y',0,profile.field.width,' in');
+slider('pose','heading','Heading',-180,180,'°');
+function margin(value, limit) {
+  if (limit === null) return 'limit unknown';
+  const remaining = limit-value;
+  return fmt(Math.abs(remaining))+' in '+(remaining<0?'over limit':'remaining');
+}
+function checks(box) {
+  const perimeter = 2*(box.length+box.width);
+  return ['Perimeter '+fmt(perimeter)+' in · '+margin(perimeter,profile.limits.perimeter),
+    'Starting height '+fmt(box.height)+' in · '+margin(box.height,profile.limits.height)];
+}
+const scene = fieldScene(byId('field'),profile,state,(x,y)=>{
+  state.x=Math.min(Math.floor(profile.field.length),Math.round(x));
+  state.y=Math.min(Math.floor(profile.field.width),Math.round(y));
+  refresh();
+});
+const levelSelect = byId('level');
+profile.levels.forEach((level,i)=>levelSelect.add(new Option(level.name+' · '+level.height+' in',String(i))));
+levelSelect.onchange=()=>{state.level=Number(levelSelect.value);refresh();};
+state.level=profile.levels.length ? 0 : null;
+byId('elevations').hidden=state.level===null;
+function heightComparison(box) {
+  if (box.level===null) return '';
+  const level=profile.levels[box.level], delta=box.height-level.height;
+  const position=delta===0?'at':fmt(Math.abs(delta))+' in '+(delta>0?'above':'below');
+  return 'Box top is '+position+' '+level.name+'.';
+}
+function refresh() {
+  for(const [key,{input,out,unit}] of sliders) {
+    input.value=state[key];
+    out.value=fmt(state[key])+unit;
+  }
+  const messages=checks(state);
+  byId('screen').textContent=messages.join('\n');
+  byId('difference').textContent=heightComparison(state);
+  byId('screen').dataset.exceeded=messages.some(m=>m.endsWith('over limit'));
+  scene.draw();
+}
+for(const button of document.querySelectorAll('[data-view]')) {
+  button.disabled=button.dataset.view==='target' && !profile.landmarks.length;
+  button.onclick=()=>{
+    document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    scene.view(button.dataset.view);
+  };
+}
+document.querySelector('[data-view=field]').click();
+byId('zoomIn').onclick=()=>scene.zoom(1.25);
+byId('zoomOut').onclick=()=>scene.zoom(.8);
+
+function reportObservation(o) {
+  const b=o.box;
+  return o.id+' — '+o.finding+'\nBox '+b.length+' × '+b.width+' × '+b.height+
+    ' in at ('+b.x+', '+b.y+') in, heading '+b.heading+'°. '+checks(b).join('. ')+'. '+heightComparison(b);
+}
+byId('capture').onclick=()=>{
+  const finding=byId('finding').value.trim();
+  if (!finding) {byId('finding').focus();return;}
+  const observation={id:'OBS-'+(observations.length+1), box:{...state}, finding};
+  observations.push(observation);
+  const item=document.createElement('li');
+  item.textContent=reportObservation(observation);
+  byId('captures').append(item);
+  byId('finding').value='';
+  byId('feedback').textContent='';
+};
+byId('download').onclick=()=>{
+  const feedback=byId('feedback');
+  if(!observations.length && !opportunities.length && !rehearsalNotes.length) {
+    feedback.textContent='Save a field observation, scoring opportunity or match snapshot to ground your draft.';
+    byId('finding').focus();
+    return;
+  }
+  const sections=[['story','Role and repeatable cycle'],['alternative','Alternative or fallback'],
+    ['capability','REQ-1 · Provisional capability'],['experiment','TEST-1 · First experiment for REQ-1']];
+  const draft=['# '+gameTitle+' kickoff narrative','Status: student draft for review.',
+    '## Release-day evidence',profile.edition+' — '+profile.manual,
+    'Field: '+profile.field.length+' × '+profile.field.width+' in. '+profile.field.source,
+    profile.limits.source,profile.geometrySource,
+    profile.levels.map(v=>v.name+' '+v.height+' in').join(' · '),profile.omissions,
+    '## Student observations',...observations.map(reportObservation),
+    '## Scoring opportunities and route requirements',...opportunities.map(o=>o.report),
+    '## Match rehearsal snapshots',...rehearsalNotes.map(note=>note.report)];
+  for (const [id,title] of sections) draft.push('## '+title,byId(id).value.trim() || 'Open for student discussion.');
+  draft.push('Evidence for capability review: '+[...observations,...opportunities,...rehearsalNotes].map(o=>o.id).join(', ')+'.',
+    'Before technical design, record the team decision, then give the selected capability a measurable acceptance check.');
+  const url=URL.createObjectURL(new Blob([draft.join('\n\n')+'\n'],{type:'text/markdown;charset=utf-8'}));
+  const link=document.createElement('a');
+  link.href=url;link.download=exportName+'-kickoff-narrative.md';link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),30000);
+  feedback.textContent='Downloaded the draft with its observations and source edition.';
+};
+refresh();
+
+const scoring=profile.scoring;
+const area=byId('modelSummary');
+paragraph(area,gameTitle+' · '+profile.edition+' · '+profile.field.source);
+if(scoring) {
+  for(const i of scoring.inventory) paragraph(area,i.piece+' · '+i.total+' distinct pieces. '+i.distribution);
+  paragraph(area,scoring.phases.map(p=>p.name+' '+p.seconds+' seconds').join(' / '));
+  const table=document.createElement('table');
+  const addRow=(values,tag)=>{
+    const row=table.insertRow();
+    for(const value of values){const cell=document.createElement(tag);cell.textContent=value;row.append(cell);}
+  };
+  addRow(['Scoring opportunity',...scoring.phases.map(p=>p.name+' pts/piece')],'th');
+  scoring.targets.forEach(t=>addRow([t.name,...t.points],'td'));
+  area.append(table);
+  paragraph(area,scoring.source);
+  if(scoring.fieldMap) paragraph(area,scoring.fieldMap.basis);
+  if(profile.routeHypotheses?.length) {
+    const routes=document.createElement('details'), heading=document.createElement('summary');
+    heading.textContent='Inspect inferred routes before entering the pre-sim';routes.append(heading);
+    for(const h of profile.routeHypotheses) paragraph(routes,h.phase+' · '+h.piece+' to '+h.destination+
+      ' · '+Math.round(h.lengthIn)+' in · '+h.traffic);
+    area.append(routes);
+  }
+} else paragraph(area,'Scoring inventory, phase timing and route locations are open in this profile.');
+byId('modelFile').onclick=()=>{
+  const url=URL.createObjectURL(new Blob([JSON.stringify(profile,null,2)],{type:'application/json'}));
+  const a=document.createElement('a');a.href=url;a.download=exportName+'-rules-model.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),30000);
+};
+
+function control(group,id,title,options) {
+  const label=document.createElement('label');
+  label.textContent=title;
+  const input=document.createElement(options?'select':'input');
+  input.id=id;
+  if(options) options.forEach((v,i)=>input.add(new Option(v,String(i))));
+  else input.type='number';
+  label.append(input);byId(group).append(label);
+  return input;
+}
+const targetBox=control('choices','opTarget','Scoring target',scoring?.targets.map(t=>t.name) || ['Custom opportunity']);
+const phaseBox=control('choices','opPhase','Match phase',scoring?.phases.map(v=>v.name) || ['Custom window']);
+const delivery=control('choices','opDelivery','Piece delivery',
+  ['Shuttle · fetch one piece from A for every score at B','Staged at B · transit once, then score locally']);
+const inputs={};
+for(const [key,title,initial] of [
+  ['stock','Distinct pieces in match',null],['points','Points per scored piece',null],
+  ['window','Window length (s)',10],['opening','Accessible here at start',1],
+  ['incoming','Additional pieces arriving here',0],['arrival','Their arrival time from window start (s)',0],
+  ['goal','Pieces this robot aims to score',1],['setup','Non-scoring time beyond transit (s)',0],
+  ['speed','Assumed average transit speed (in/s)',profile.rehearsal?.defaults?.speed ?? null],['cycle','Non-travel service per piece (s)',1],
+  ['bumper','Trial bumper projection per side (in)',profile.rehearsal?.defaults?.bumper ?? null],
+  ['capacity','Open target slots (optional)',null]
+]){
+  const input=control('numbers','op-'+key,title);input.min=0;input.step='any';
+  if(initial!==null) input.value=initial;
+  inputs[key]=input;
+}
+const overrides={};
+let study, clearance;
+const read=key=>inputs[key].value===''?NaN:Number(inputs[key].value);
+const selected=()=>scoring?.targets[Number(targetBox.value)];
+const phase=()=>scoring?.phases[Number(phaseBox.value)];
+const coords=q=>'('+q.map(n=>fmt(n)).join(', ')+') in';
+function selectOpportunity() {
+  for(const key of ['a','b']) delete overrides[key];
+  const t=selected(), p=phase();
+  const i=scoring?.inventory.find(v=>v.piece===t.piece);
+  inputs.stock.value=i?.total ?? '';
+  inputs.stock.readOnly=Boolean(i);
+  inputs.points.value=t?.points[Number(phaseBox.value)] ?? '';
+  inputs.points.readOnly=Boolean(t);
+  inputs.capacity.value=t?.cap ?? '';
+  inputs.window.value=p?.seconds ?? 10;
+  byId('inventory').textContent=i?i.piece+' · '+i.total+' in the match. '+i.distribution:'Enter a sourced piece inventory and scoring value.';
+  byId('scoreSource').textContent=scoring?.source || 'Document the source and edition in the allocation notes.';
+  updateRoute();
+}
+function updateRoute() {
+  const t=selected();
+  const bumper=read('bumper');
+  const occupied=Number.isFinite(bumper) && bumper>=0;
+  study=routeStudy(profile,t?.piece,t?.goal,phase()?.name,overrides,Math.max(state.length,state.width)+(occupied?2*bumper:0));
+  if(!occupied)study.traffic+=' · frame-width estimate, bumper unknown';
+  clearance=Number.isFinite(bumper) && bumper>=0 && study.line.length?
+    rehearsal.assessRoute(study.line,{length:state.length,width:state.width,height:state.height,heading:state.heading,bumper}):
+    {status:'unknown',obstacle:null,segment:null};
+  const endpoints=study.line.length?[study.line[0],study.line.at(-1)]:[];
+  const labels=['A','B'];
+  scene.setRoute(endpoints.map((q,i)=>({x:q[0],y:q[1],name:labels[i]})),study);
+  byId('routeLabel').textContent=endpoints.length?'A '+coords(endpoints[0])+' → B '+coords(endpoints[1])+' · '+fmt(study.length)+' in':
+    'Route unresolved'+(overrides.a?' · A '+coords(overrides.a):'')+(overrides.b?' · B '+coords(overrides.b):'');
+  byId('traffic').textContent=study.traffic;
+  reviewWindow();
+}
+function evaluate() {
+  const t=selected(),p=phase();
+  const speed=read('speed');
+  if(study.length && (!Number.isFinite(speed) || speed<=0)) throw Error('Enter a positive transit speed.');
+  if(p && read('window')>p.seconds) throw Error('The window exceeds the duration of this phase.');
+  if(t?.cap!==undefined && read('capacity')>t.cap) throw Error('Open slots exceed the target inventory.');
+  const cap=inputs.capacity.value===''?(t?.cap ?? null):read('capacity');
+  const trial={};
+  for(const key of ['stock','opening','incoming','goal','window','cycle','arrival','setup','points']) trial[key]=read(key);
+  trial.cap=cap;trial.travel=study.length?study.length/speed:0;
+  trial.delivery=delivery.value==='0'?'shuttle':'staged';
+  const result=analyzeWindow(trial);
+  const n=v=>Number(v.toFixed(3));
+  const rate=Number.isFinite(result.rate)?n(result.rate)+' pieces/s':'unattainable in the remaining time';
+  const routeStatus=clearance.status==='clear'?'Footprint clears the modeled static obstacles.':
+    clearance.status==='blocked'?'Footprint blocked by '+clearance.obstacle+' on route segment '+(clearance.segment+1)+'.':
+    'Footprint clearance unknown.';
+  const lines=[routeStatus,
+    'Supply and target ceiling: '+result.available+' pieces · goal '+trial.goal+'.',
+    trial.delivery==='shuttle'?'Goal requires '+result.outboundLegs+' loaded and '+result.returnLegs+' empty legs ('+
+      n(result.goalTransit)+' s transit). After setup, '+n(result.usable)+' s remain for service.':
+      'One transit '+n(trial.travel)+' s + other non-scoring time '+trial.setup+' s leaves '+n(result.usable)+' s.',
+    'Required throughput: '+rate+(result.rate>0 && Number.isFinite(result.rate)?' (at most '+n(1/result.rate)+' s/piece).':'.'),
+    'Candidate: '+n(1/trial.cycle)+' pieces/s. At most '+result.delivered+' scored for '+result.points+' points. '+
+      (result.available<trial.goal?'Supply or scoring slots rule out this goal.':
+        !result.attainable?'Candidate misses this window.':clearance.status==='clear'?'Meets the arithmetic screen.':
+        'Arithmetic bound only. A feasible route is required.')
+  ];
+  if(!study.line.length) lines.unshift('Transit unknown. The rate below assumes zero travel time.');
+  return {lines,trial};
+}
+function reviewWindow() {
+  try{byId('scoreResult').textContent=evaluate().lines.join('\n');byId('saveWindow').disabled=false;}
+  catch(e){byId('scoreResult').textContent=e.message;byId('saveWindow').disabled=true;}
+}
+for(const name of ['A','B']) byId('mark'+name).onclick=()=>{
+  overrides[name.toLowerCase()]=[state.x,state.y];updateRoute();
+};
+byId('clearRoute').textContent='Restore modeled route';
+byId('clearRoute').onclick=()=>{delete overrides.a;delete overrides.b;updateRoute();};
+targetBox.onchange=selectOpportunity;phaseBox.onchange=selectOpportunity;delivery.onchange=reviewWindow;
+Object.values(inputs).forEach(input=>input.oninput=reviewWindow);
+inputs.bumper.oninput=updateRoute;
+for(const key of ['width','length','height','heading']) sliders.get(key).input.addEventListener('input',updateRoute);
+byId('saveWindow').onclick=()=>{
+  const notes=byId('allocation').value.trim();
+  if(!notes){byId('windowStatus').textContent='Record the location and basis for the assumed supply and timing.';byId('allocation').focus();return;}
+  const {lines,trial}=evaluate(), id='OP-'+(opportunities.length+1);
+  const t=selected(),p=phase(),i=scoring?.inventory.find(v=>v.piece===t.piece);
+  const text=id+' · '+(t?.name || 'Custom opportunity')+' · '+(p?.name || 'Custom window');
+  const report=[text,scoring?.source || '',i?i.distribution:'',
+    'Distinct inventory '+trial.stock+'. Opening allocation '+trial.opening+', plus '+trial.incoming+' at '+trial.arrival+
+    ' s. Window '+trial.window+' s. Value '+trial.points+' points/piece. Slots '+(trial.cap ?? 'unspecified')+'.',
+    'Assumptions: '+notes,'Delivery: '+delivery.selectedOptions[0].textContent+
+    '. For a shuttle, incoming pieces arrive at A and the empty return uses the same route and assumed speed. For staged supply, incoming pieces arrive at B.',
+    'Route: '+byId('routeLabel').textContent+' at assumed '+inputs.speed.value+' in/s.',
+    'Traffic inference: '+study.traffic+'. '+(scoring?.fieldMap?.basis || ''),
+    'Trial box '+state.length+' × '+state.width+' × '+state.height+' in, heading '+state.heading+'°, bumper projection '+(Number.isFinite(read('bumper'))?read('bumper')+' in per side':'unknown')+'. Candidate non-travel cycle '+trial.cycle+' s/piece.',
+    ...lines,'Provisional scoring requirement: sustain this opportunity’s required throughput over its usable window. Resolve supply shortfalls before adopting the target.',
+    'Capture mechanism and exposed state: '+(byId('exposure').value.trim() || 'Open.'),
+    'Provisional contact requirement: assess the exposed capture mechanism along this route and verify retained function under the specified contact case.',
+    'Contact load case and basis: '+(byId('loadCase').value.trim() || 'Unknown. Establish direction, magnitude and load path.'),
+    'Retained function and verification: '+(byId('survive').value.trim() || 'Open. Define a post-contact capture and cycle-time check.')];
+  opportunities.push({id,report:report.filter(Boolean).join('\n')});
+  const li=document.createElement('li');li.textContent=text+' · '+lines.at(-1);byId('savedWindows').append(li);
+  byId('windowStatus').textContent='Saved '+id+' for the match story.';
+};
+selectOpportunity();
+
+(() => {
+  if(!rehearsal.supported)return;
+  const panel=byId('rehearsal'),canvas=byId('replayField'),context=canvas.getContext('2d');
+  const rosterBox=byId('replayRoster'), clock=byId('replayClock'),notice=byId('replayNotice');
+  panel.hidden=false;
+  let roster=[rehearsal.defaults('blue',1),rehearsal.defaults('red',1)];
+  let setup=profile.rehearsal.setups[0],sim=rehearsal.create(roster,setup),frame=null,lastTime=0;
+  const config=profile.rehearsal, L=profile.field.length,W=profile.field.width;
+  for(const setup of config.setups)byId('replaySetup').add(new Option(setup,setup));
+  byId('replayBasis').textContent=config.basis+' '+config.boundsNote+
+    ' The default bumper adds '+config.defaults.bumper+' in per side. Priorities follow request time, then robot ID for same-tick requests. Completed trips count arrivals and service, with scoring and game pieces unverified.';
+  function draw() {
+    const box=canvas.getBoundingClientRect();if(!box.width || !box.height)return;
+    const dpr=window.devicePixelRatio || 1;
+    if(canvas.width!==Math.round(box.width*dpr) || canvas.height!==Math.round(box.height*dpr)){
+      canvas.width=Math.round(box.width*dpr);canvas.height=Math.round(box.height*dpr);
+    }
+    context.setTransform(dpr,0,0,dpr,0,0);context.clearRect(0,0,box.width,box.height);
+    const scale=Math.min((box.width-22)/L,(box.height-22)/W);
+    const x0=(box.width-L*scale)/2,y0=(box.height+W*scale)/2;
+    const at=p=>[x0+p[0]*scale,y0-p[1]*scale];
+    function line(points,color,width=1,fill=null){
+      if(!points.length)return;
+      context.beginPath();points.forEach((p,i)=>{const xy=at(p);if(i)context.lineTo(...xy);else context.moveTo(...xy);});
+      if(fill){context.closePath();context.fillStyle=fill;context.fill();}
+      context.strokeStyle=color;context.lineWidth=width;context.stroke();
+    }
+    line(rehearsal.geom.boundary,'#dce8f6',2,'#274a70');
+    context.save();context.clip();
+    for(let x=36;x<L;x+=36)line([[x,0],[x,W]],'#446887');
+    for(let y=36;y<W;y+=36)line([[0,y],[L,y]],'#446887');
+    context.setLineDash([4,4]);for(const band of config.bands)line([band.from,band.to],'#c8d7e5');
+    context.setLineDash([]);
+    const maxH=Math.max(0,...roster.map(r=>r.height));
+    for(const ob of rehearsal.geom.obstacles(setup)){
+      if(ob.kind==='overlay' && maxH<ob.low)continue;
+      const blocks=maxH>=ob.low;
+      line(ob.poly,blocks?'#dce7f3':'#a4b9cb',1,blocks?'#667d93':'#506d88');
+      if(blocks && ob.kind!=='landmark'){
+        context.save();context.clip();
+        const left=Math.min(...ob.poly.map(q=>q[0])),right=Math.max(...ob.poly.map(q=>q[0]));
+        const bottom=Math.min(...ob.poly.map(q=>q[1])),top=Math.max(...ob.poly.map(q=>q[1]));
+        for(let x=left-(top-bottom);x<right;x+=7)line([[x,bottom],[x+top-bottom,top]],'#bbcad7');
+        context.restore();
+      }
+    }
+    for(const h of sim.hotspots){
+      const xy=at(h.point);context.fillStyle='#ffbd6e91';context.beginPath();
+      context.arc(...xy,Math.max(3,Math.min(13,Math.sqrt(h.ticks)*.8))*Math.max(scale,.55),0,Math.PI*2);context.fill();
+    }
+    for(const r of sim.robots) {
+      if(r.waypoints?.length && r.target<r.waypoints.length) {
+        context.setLineDash([3,5]);line([r.p,...r.waypoints.slice(r.target)],r.side==='blue'?'#a3ccff':'#ffb7b3',1.5);context.setLineDash([]);
+      }
+    }
+    for(const r of sim.robots){
+      const blue=r.side==='blue';
+      line(rehearsal.geom.footprint(r.p,r),'#f7faff',1.3,blue?'#2867ab':'#af3849');
+      line(rehearsal.geom.footprint(r.p,{...r,bumper:0}),blue?'#9ccbff':'#ffadaf',1,blue?'#22518a':'#8e3240');
+      const [x,y]=at(r.p);context.font='bold '+Math.max(10,Math.min(17,12*scale))+'px system-ui';
+      context.textAlign='center';context.textBaseline='middle';context.fillStyle='white';context.fillText(r.id,x,y);
+      if(r.blocked){context.strokeStyle='#ffc66f';context.lineWidth=2;context.beginPath();context.arc(x,y,17*scale,0,Math.PI*2);context.stroke();}
+    }
+    context.restore();
+  }
+  function button(label,fn) {
+    const b=document.createElement('button');b.textContent=label;b.type='button';b.onclick=fn;return b;
+  }
+  function setRoster(newRoster,newSetup=setup){
+    try{
+      const next=rehearsal.create(newRoster,newSetup);
+      roster=newRoster;setup=newSetup;sim=next;notice.textContent='';
+    } catch(e){notice.textContent=e.message;}
+    byId('replaySetup').value=setup;
+    listRoster();render();
+  }
+  function edit(id,patch){setRoster(roster.map(r=>r.id===id?{...r,...patch}:r));}
+  function listRoster(){
+    rosterBox.replaceChildren();
+    for(const r of roster){
+      const card=document.createElement('section');card.className='replay-robot '+r.side;
+      const title=document.createElement('strong');title.textContent=(r.side==='blue'?'Blue ':'Red ')+r.slot+' · '+r.id;
+      card.append(title);
+      for(const period of config.periods){
+        const key=period.name,name=key+' behavior';
+        const label=document.createElement('label'),sel=document.createElement('select');
+        label.append(name);sel.setAttribute('aria-label',r.id+' '+name);
+        for(const [value,text] of Object.entries(rehearsal.behaviors))sel.add(new Option(text,value));
+        sel.value=r.plans[key];sel.onchange=()=>edit(r.id,{plans:{...r.plans,[key]:sel.value}});label.append(sel);card.append(label);
+      }
+      const o=document.createElement('output');o.id='replay-state-'+r.id;card.append(o);
+      const configLine=document.createElement('div');configLine.className='replay-robot-actions';
+      const addNumber=(text,value,min,max,step,patch)=>{
+        const label=document.createElement('label'),i=document.createElement('input');
+        label.append(text+' ');i.type='number';i.min=min;i.max=max;i.step=step;i.value=value;
+        i.style.width='5em';i.setAttribute('aria-label',r.id+' '+text);
+        i.onchange=()=>{if(i.checkValidity() && i.value!=='')edit(r.id,{[patch]:i.valueAsNumber});else i.reportValidity();};
+        label.append(i);configLine.append(label);
+      };
+      addNumber('Speed (in/s)',r.speed,1,500,1,'speed');
+      addNumber('Bumper per side (in)',r.bumper,0,12,.25,'bumper');
+      const apply=button('Use trial box',()=>edit(r.id,{length:state.length,width:state.width,height:state.height,heading:state.heading}));
+      apply.setAttribute('aria-label','Use trial box for '+r.id);
+      const remove=button('Remove',()=>setRoster(roster.filter(other=>other.id!==r.id)));
+      remove.setAttribute('aria-label','Remove '+r.id);configLine.append(apply,remove);card.append(configLine);rosterBox.append(card);
+    }
+  }
+  function queues(){
+    return Object.entries(sim.resources).map(([name,r])=>name+' holder: '+(r.owner || 'open')+
+      '. Requests in order: '+(r.queue.join(', ') || 'none')+'.').join(' ');
+  }
+  function render(){
+    const used=sim.ticks*rehearsal.dt,left=rehearsal.phaseSeconds(sim.phase)-used;
+    clock.textContent=sim.phase+' · '+left.toFixed(2)+' s';
+    const began=sim.ticks>0 || sim.phaseIndex>0 || !sim.paused;
+    for(const control of rosterBox.querySelectorAll('select,input,button'))control.disabled=began;
+    byId('replaySetup').disabled=began;
+    for(const side of ['blue','red'])byId(side==='blue'?'addBlue':'addRed').disabled=began || roster.filter(r=>r.side===side).length>=3;
+    const end=sim.ended;
+    byId('replayRun').disabled=!roster.length || (end && sim.phaseIndex===config.periods.length-1);
+    const following=config.periods[sim.phaseIndex+1];
+    byId('replayRun').textContent=end?(following?'Start '+following.name:'Match complete'):(!sim.paused?'Pause':used?'Resume':'Start '+sim.phase);
+    for(const id of ['replayStep','replayFast'])byId(id).disabled=!sim.paused || end || !roster.length;
+    for(const r of sim.robots){
+      const o=byId('replay-state-'+r.id);
+      o.textContent=(r.length+2*r.bumper)+' × '+(r.width+2*r.bumper)+' in occupied, '+r.height+' in tall, heading '+r.heading+'°. '+
+        (r.blocked || r.action || 'At start')+' · '+(r.wait*rehearsal.dt).toFixed(2)+' s waiting · '+r.visits+' completed trips';
+    }
+    byId('replayQueue').textContent=queues()+' '+(end?'Period frozen. ':'')+'Trip counts are unscored.';
+    byId('replayEvents').replaceChildren(...sim.log.map(ev=>{const item=document.createElement('li');item.textContent=ev.phase+' '+ev.t.toFixed(2)+' s · '+ev.message;return item;}));
+    draw();
+  }
+  function animate(now){
+    frame=null;
+    if(sim.paused)return;
+    rehearsal.advance(sim,Math.max(0,(now-lastTime)/1000));lastTime=now;
+    render();
+    if(!sim.paused)frame=requestAnimationFrame(animate);
+  }
+  function stopFrame(){if(frame!==null)cancelAnimationFrame(frame);frame=null;}
+  byId('replayRun').onclick=()=>{
+    if(sim.ended && config.periods[sim.phaseIndex+1]){rehearsal.nextPhase(sim);notice.textContent=sim.phase+' starts from the frozen poses.';}
+    if(!sim.paused){sim.paused=true;stopFrame();render();return;}
+    sim.paused=false;lastTime=performance.now();frame=requestAnimationFrame(animate);render();
+  };
+  function advancePaused(seconds){sim.paused=false;rehearsal.advance(sim,seconds);sim.paused=true;render();}
+  byId('replayStep').onclick=()=>advancePaused(1);
+  byId('replayFast').onclick=()=>advancePaused(rehearsal.phaseSeconds(sim.phase));
+  byId('replayReset').onclick=()=>{stopFrame();setRoster(roster,setup);notice.textContent='Same roster and behaviors restored at '+sim.phase+' start.';};
+  byId('replaySave').onclick=()=>{
+    const id='MATCH-'+(rehearsalNotes.length+1);
+    const lines=[id+' · '+profile.game+' '+profile.edition+' prescribed rehearsal',
+      sim.phase+' active time '+(sim.ticks*rehearsal.dt).toFixed(2)+' s; '+(sim.ended?'clock frozen':'snapshot')+
+      '. Obstacle setup: '+setup+'. Sources: '+config.sources.join(', '),
+      ...sim.robots.map(r=>r.id+' '+r.side+' · '+config.periods.map(p=>p.name+' '+rehearsal.behaviors[r.plans[p.name]]).join(', ')+
+        '; '+r.length+' × '+r.width+' × '+r.height+' in frame, bumper '+r.bumper+' in/side, heading '+r.heading+'°, '+r.speed+' in/s. '+
+        'Position '+r.p.map(x=>x.toFixed(2)).join(', ')+' in. '+r.visits+' completed trips, '+(r.wait*rehearsal.dt).toFixed(2)+
+        ' s waiting; '+(r.blocked || r.action || 'at start')+'.'),
+      queues()];
+    for(const summary of sim.phaseHistory)lines.push(summary.phase+' cutoff at '+summary.seconds+' s: '+
+      summary.robots.map(r=>r.id+' '+r.visits+' trips, '+r.waitSeconds.toFixed(2)+' s waiting').join('; ')+'.');
+    const waits=sim.hotspots.slice().sort((a,b)=>b.ticks-a.ticks).slice(0,3);
+    lines.push('Largest waiting areas: '+(waits.map(h=>h.point.map(v=>v.toFixed(1)).join(', ')+
+      ' in, '+(h.ticks*rehearsal.dt).toFixed(2)+' robot-s').join('; ') || 'none')+'.',
+      'Trips are unscored. '+config.boundsNote);
+    rehearsalNotes.push({id,report:lines.join('\n')});
+    notice.textContent='Saved '+id+' for the narrative download.';
+  };
+  byId('replaySetup').onchange=e=>setRoster(roster,e.target.value);
+  function addRobot(side){
+    const slot=[1,2,3].find(n=>!roster.some(r=>r.side===side && r.slot===n));
+    if(slot)setRoster([...roster,rehearsal.defaults(side,slot)]);
+  }
+  byId('addBlue').onclick=()=>addRobot('blue');byId('addRed').onclick=()=>addRobot('red');
+  new ResizeObserver(draw).observe(canvas);listRoster();render();
+})();
+
+</script>
+</body></html>

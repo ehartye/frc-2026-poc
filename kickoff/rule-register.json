@@ -1,0 +1,350 @@
+{
+  "schema": "frc-rule-register/v1",
+  "edition": "Kickoff release V0 with Team Update 00",
+  "cutoff": "2026-01-10 23:59:59 America/New_York. Kickoff-day publications only.",
+  "manualSourceId": "manual",
+  "sources": [
+    {
+      "id": "manual",
+      "title": "FIRST REBUILT Game Manual, accessible English kickoff edition",
+      "edition": "V0",
+      "location": "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+      "sha256": "928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17"
+    },
+    {
+      "id": "tu00",
+      "title": "FIRST Team Update 00",
+      "edition": "January 10, 2026",
+      "location": "https://firstfrc.blob.core.windows.net/frc2026/Manual/TeamUpdates/2026TeamUpdate00.pdf",
+      "sha256": "d0aed7c64b354093de713cdac8da12134443227d0bfae688410175742169ed80"
+    },
+    {
+      "id": "figures",
+      "title": "FIRST-authored V0 page images, archived English PDF copy",
+      "edition": "V0 layout corroboration only",
+      "location": "https://team2227.com/files/2026GameManual.pdf",
+      "sha256": "523066c372b00f5d2ef45dd8ced2b91c5c78d5ff3fd428d59163787a1d9781ea"
+    }
+  ],
+  "facts": [
+    {
+      "id": "length",
+      "topic": "field",
+      "statement": "Approximate field length in inches.",
+      "sourceId": "manual",
+      "locator": "§5.2 FIELD",
+      "status": "modeled",
+      "pointer": "/field/length",
+      "value": 651.2
+    },
+    {
+      "id": "width",
+      "topic": "field",
+      "statement": "Approximate field width in inches.",
+      "sourceId": "manual",
+      "locator": "§5.2 FIELD",
+      "status": "modeled",
+      "pointer": "/field/width",
+      "value": 317.7
+    },
+    {
+      "id": "zone",
+      "topic": "field",
+      "statement": "Alliance zone depth to included starting line.",
+      "sourceId": "manual",
+      "locator": "§5.3; Fig. 5-6",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/allianceZoneDepth",
+      "value": 158.6
+    },
+    {
+      "id": "hub",
+      "topic": "field",
+      "statement": "Side length of each square HUB footprint.",
+      "sourceId": "manual",
+      "locator": "§5.4",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/hubFootprint",
+      "value": 47
+    },
+    {
+      "id": "opening",
+      "topic": "field",
+      "statement": "Hexagonal HUB opening span.",
+      "sourceId": "manual",
+      "locator": "§5.4",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/hubOpening",
+      "value": 41.7
+    },
+    {
+      "id": "trench",
+      "topic": "field",
+      "statement": "Nominal passage and structure dimensions in inches.",
+      "sourceId": "manual",
+      "locator": "§5.6",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/trench",
+      "value": {
+        "width": 50.34,
+        "height": 22.25,
+        "structureWidth": 65.65,
+        "depth": 47
+      }
+    },
+    {
+      "id": "bump",
+      "topic": "field",
+      "statement": "BUMP dimensions and slope in degrees.",
+      "sourceId": "manual",
+      "locator": "§5.5",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/bump",
+      "value": {
+        "width": 73,
+        "depth": 44.4,
+        "height": 6.513,
+        "degrees": 15
+      }
+    },
+    {
+      "id": "piece",
+      "topic": "inventory",
+      "statement": "Nominal diameter of one FUEL in inches.",
+      "sourceId": "manual",
+      "locator": "§5.10",
+      "status": "modeled",
+      "pointer": "/fieldFeatures/fuelDiameter",
+      "value": 5.91
+    },
+    {
+      "id": "stock",
+      "topic": "inventory",
+      "statement": "Ordinary match nominal stock before reuse.",
+      "sourceId": "manual",
+      "locator": "§6.3.4",
+      "status": "modeled",
+      "pointer": "/scoring/inventory/0/total",
+      "value": 504
+    },
+    {
+      "id": "distribution",
+      "topic": "inventory",
+      "statement": "Nominal staging and preload allocation; neutral range derived by subtraction.",
+      "sourceId": "manual",
+      "locator": "§6.3.4; Fig. 6-2",
+      "status": "modeled",
+      "pointer": "/scoring/initialDistribution",
+      "value": {
+        "depots": 2,
+        "perDepot": 24,
+        "outposts": 2,
+        "perOutpost": 24,
+        "robots": 6,
+        "maxPerRobot": 8,
+        "neutralAtFullPreload": 360,
+        "neutralAtZeroPreload": 408,
+        "neutralVariationApprox": 24
+      }
+    },
+    {
+      "id": "clock",
+      "topic": "timing",
+      "statement": "Match periods and duration in seconds.",
+      "sourceId": "manual",
+      "locator": "§6.4 Table 6-2",
+      "status": "modeled",
+      "pointer": "/scoring/phases",
+      "value": [
+        {
+          "name": "AUTO",
+          "seconds": 20
+        },
+        {
+          "name": "Transition",
+          "seconds": 10
+        },
+        {
+          "name": "Shift 1",
+          "seconds": 25
+        },
+        {
+          "name": "Shift 2",
+          "seconds": 25
+        },
+        {
+          "name": "Shift 3",
+          "seconds": 25
+        },
+        {
+          "name": "Shift 4",
+          "seconds": 25
+        },
+        {
+          "name": "End game",
+          "seconds": 30
+        }
+      ]
+    },
+    {
+      "id": "odd",
+      "topic": "scoring",
+      "statement": "Points per FUEL for the branch active in the first alliance shift.",
+      "sourceId": "manual",
+      "locator": "§6.4 Table 6-3; §6.5 Table 6-4",
+      "status": "modeled",
+      "pointer": "/scoring/targets/0/points",
+      "value": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "even",
+      "topic": "scoring",
+      "statement": "Points per FUEL for the branch inactive in the first alliance shift.",
+      "sourceId": "manual",
+      "locator": "§6.4 Table 6-3; §6.5 Table 6-4",
+      "status": "modeled",
+      "pointer": "/scoring/targets/1/points",
+      "value": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "perimeter",
+      "topic": "restrictions",
+      "statement": "Maximum starting robot perimeter in inches excluding bumpers.",
+      "sourceId": "manual",
+      "locator": "R101, R102, R104",
+      "status": "modeled",
+      "pointer": "/limits/perimeter",
+      "value": 110
+    },
+    {
+      "id": "height",
+      "topic": "restrictions",
+      "statement": "Maximum starting configuration height in inches.",
+      "sourceId": "manual",
+      "locator": "R104",
+      "status": "modeled",
+      "pointer": "/limits/height",
+      "value": 30
+    },
+    {
+      "id": "launch",
+      "topic": "restrictions",
+      "locator": "G407",
+      "statement": "Launch into own HUB only while bumpers are at least partly in the own alliance zone.",
+      "reason": "Candidate poses satisfy the zone test. The lab cannot adjudicate a release.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "score",
+      "topic": "scoring",
+      "locator": "§6.5.1",
+      "statement": "Active HUB credit requires the FUEL to pass the opening and the sensor. Processing can continue briefly at timing boundaries.",
+      "reason": "A delivered piece is an opportunity; no flight, sensor lag or referee call is simulated.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "order",
+      "topic": "timing",
+      "locator": "§6.4.1",
+      "statement": "The AUTO FUEL leader starts inactive in shift 1. FMS resolves ties. Both HUBs are active in AUTO, transition and end game.",
+      "reason": "Select one schedule branch per alliance; the lab does not simulate AUTO results.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "tower",
+      "topic": "scoring",
+      "locator": "§6.5 Tables 6-4 and 6-5",
+      "statement": "TOWER level 1 in AUTO earns 15 points, capped at two robots per alliance. TELEOP levels 1–3 earn 10, 20 or 30 points per robot.",
+      "reason": "Students should value the displaced scoring window and climbing reliability before pursuing this separate role.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "ranks",
+      "topic": "scoring",
+      "locator": "§6.5 Table 6-4",
+      "statement": "Ranking points include alliance FUEL and TOWER performance incentives.",
+      "reason": "Compare an alliance-level objective separately from a single robot's nominal opportunity.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "reuse",
+      "topic": "inventory",
+      "locator": "§5.4; §6.3.4; G408",
+      "statement": "HUBs return FUEL into neutral space. Directly catching freshly discharged FUEL is restricted.",
+      "reason": "Choose supply arrivals explicitly. Neither ownership nor immediate recycling is guaranteed.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "start",
+      "topic": "restrictions",
+      "locator": "G303",
+      "statement": "Bumpers overlap the starting line, the robot avoids BUMP contact and onboard preload is limited.",
+      "reason": "Recheck each edited start configuration; the rehearsal does not inspect staging legality.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "autocontact",
+      "topic": "restrictions",
+      "locator": "G403",
+      "statement": "Opposing robot contact during AUTO is restricted on the opponent side of the centerline.",
+      "reason": "Traffic is a routing cue, not permission for contact.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "expansion",
+      "topic": "restrictions",
+      "locator": "R103, R105–R107",
+      "statement": "Mass, single-side horizontal extension and vertical limits constrain later mechanisms.",
+      "reason": "Moving mechanisms and mass are outside this initial box study.",
+      "status": "unmodeled",
+      "sourceId": "manual"
+    },
+    {
+      "id": "bumpers",
+      "topic": "restrictions",
+      "locator": "Team Update 00 §8, R401, R402, R406, R409, R412",
+      "statement": "Kickoff notes identify revisions to bumper coverage, construction, fastening relative to the frame and team-number coverage.",
+      "reason": "Bumper thickness is a project scenario assumption. Later technical design needs an explicit compliance check.",
+      "status": "unmodeled",
+      "sourceId": "tu00"
+    }
+  ],
+  "openQuestions": [
+    {
+      "topic": "field",
+      "question": "What tolerance, approach yaw, roof deflection and field variant govern dependable trench clearance?"
+    },
+    {
+      "topic": "inventory",
+      "question": "How many available pieces will partners allocate or return in each shift, and when will they arrive?"
+    },
+    {
+      "topic": "strategy",
+      "question": "Which role, testable requirement and fallback will the students select after reviewing the field lab?"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ def main():
   if hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=h:raise ValueError('Changed pinned source: '+p)
  out=pathlib.Path(v.output).resolve() if v.output else ROOT/'artifacts'/datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
  if out.exists():raise ValueError('Output must be fresh')
- out.mkdir(parents=True);shared=ROOT/'shared'
+ out.mkdir(parents=True);shared=ROOT/'experiments'/'legacy'/'shared'
  subprocess.run([sys.executable,str(shared/'scripts/run-season-robot.py'),'--output',str(out/'robot-run'),'--java-home',v.java_home,'--gradle-home',v.gradle_home],check=True,stdout=(out/'runner-output.json').open('w'))
  subprocess.run([sys.executable,str(shared/'scripts/season-robot-targets.py'),'--receipt',str(out/'robot-run/receipt.json'),'--output',str(out/'all-season-targets.json')],check=True)
  report=json.loads((out/'all-season-targets.json').read_text());cases=[r for r in report['cases'] if r['runtime']['year']==config['season']]

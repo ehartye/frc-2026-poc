@@ -6,7 +6,7 @@ The proof of concept starts preloaded. It links an ideal differential-drive appr
 
 ## Informed simulation inputs
 
-Straight rigid guide; prescribed contact normal force 15 N and friction coefficient 0.8; ideal virtual sensors and retention; declared mounting transform; constant gravity after exit. These are provisional model inputs, not sourced hardware ratings or measured calibration. CORAL floor friction values 0, 0.1, 0.3 and 0.5 are hypotheses; source-backed mass endpoints are 1.1 and 1.8 lb. NOTE attitude is fixed; FUEL is spherical. Source URLs and drawing hashes live in shared/case-studies/target-frame-evidence.json and piece nominal files. Official drawings and vendor assets are not bundled.
+Straight rigid guide; prescribed contact normal force 15 N and friction coefficient 0.8; ideal virtual sensors and retention; declared mounting transform; constant gravity after exit. These are provisional model inputs, not sourced hardware ratings or measured calibration. CORAL floor friction values 0, 0.1, 0.3 and 0.5 are hypotheses; source-backed mass endpoints are 1.1 and 1.8 lb. NOTE attitude is fixed; FUEL is spherical. Source URLs and drawing hashes live in experiments/legacy/shared/case-studies/target-frame-evidence.json and piece nominal files. Official drawings and vendor assets are not bundled.
 
 ## Preserved controls
 

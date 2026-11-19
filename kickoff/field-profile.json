@@ -1,0 +1,864 @@
+{
+  "season": 2026,
+  "game": "REBUILT",
+  "edition": "Kickoff release V0 with Team Update 00",
+  "manual": "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+  "manualEdition": "V0",
+  "manualSha256": "928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17",
+  "units": "in",
+  "field": {
+    "length": 651.2,
+    "width": 317.7,
+    "source": "§5.2 approximate inside field dimensions; §5.3 and Fig. 5-6 for alliance zones."
+  },
+  "limits": {
+    "perimeter": 110,
+    "height": 30,
+    "source": "R101–104 starting frame perimeter and overall starting height. Bumpers counted separately for collision."
+  },
+  "fieldFeatures": {
+    "allianceZoneDepth": 158.6,
+    "hubFootprint": 47,
+    "hubOpening": 41.7,
+    "trench": {
+      "width": 50.34,
+      "height": 22.25,
+      "structureWidth": 65.65,
+      "depth": 47
+    },
+    "bump": {
+      "width": 73,
+      "depth": 44.4,
+      "height": 6.513,
+      "degrees": 15
+    },
+    "fuelDiameter": 5.91
+  },
+  "landmarks": [
+    {
+      "name": "Blue HUB opening front-edge reference",
+      "x": 182.1,
+      "y": 158.85,
+      "sides": 4,
+      "acrossFlats": 47,
+      "height": 72
+    },
+    {
+      "name": "Red HUB opening front-edge reference",
+      "x": 469.1,
+      "y": 158.85,
+      "sides": 4,
+      "acrossFlats": 47,
+      "height": 72
+    }
+  ],
+  "levels": [
+    {
+      "name": "TRENCH nominal roof",
+      "height": 22.25
+    },
+    {
+      "name": "HUB opening front edge",
+      "height": 72
+    },
+    {
+      "name": "TOWER first rung",
+      "height": 27
+    },
+    {
+      "name": "TOWER second rung",
+      "height": 45
+    },
+    {
+      "name": "TOWER third rung",
+      "height": 63
+    }
+  ],
+  "geometrySource": "§§5.2–5.8, Figs. 5-3 and 5-6. Project origin at blue alliance wall and one side guardrail, inches. HUB face at x=158.6; reflect x and y for red. Bulk obstacles screen movement; resource and shooting points are trial poses.",
+  "omissions": "Two schedule rows represent mutually exclusive states of the SAME own HUB. No trajectories, scoring sensor, field tolerances, articulated shapes, driving on ramps or climb dynamics. Schematic wall equipment and supply positions require drawing verification. One team's stock and arrival must be supplied by students.",
+  "scoring": {
+    "source": "§§5.10, 6.3.4, 6.4 and 6.5, Tables 6-2 through 6-4, G407. Choose a single HUB schedule for the whole match.",
+    "inventory": [
+      {
+        "piece": "FUEL",
+        "total": 504,
+        "distribution": "Ordinary match nominal. Each DEPOT and OUTPOST chute starts with 24. Six robots may preload up to 8 each. Remaining nominal 360–408 staged in neutral zone, subject to staff variation. FUEL may return from HUB exits."
+      }
+    ],
+    "initialDistribution": {
+      "depots": 2,
+      "perDepot": 24,
+      "outposts": 2,
+      "perOutpost": 24,
+      "robots": 6,
+      "maxPerRobot": 8,
+      "neutralAtFullPreload": 360,
+      "neutralAtZeroPreload": 408,
+      "neutralVariationApprox": 24
+    },
+    "phases": [
+      {
+        "name": "AUTO",
+        "seconds": 20
+      },
+      {
+        "name": "Transition",
+        "seconds": 10
+      },
+      {
+        "name": "Shift 1",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 2",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 3",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 4",
+        "seconds": 25
+      },
+      {
+        "name": "End game",
+        "seconds": 30
+      }
+    ],
+    "targets": [
+      {
+        "name": "Own HUB active in shifts 1 and 3",
+        "goal": "odd",
+        "piece": "FUEL",
+        "points": [
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "name": "Own HUB active in shifts 2 and 4",
+        "goal": "even",
+        "piece": "FUEL",
+        "points": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1
+        ]
+      }
+    ],
+    "fieldMap": {
+      "basis": "Three assumed start centers at x=143 for a 26-in frame and 3-in bumpers. Baseline faces east and overlaps the x=158.6 starting line by 0.4 in. Collection and delivery coordinates are hypotheses. Neutral and depot routes share approaches. No traffic labels supplied.",
+      "starts": [
+        [
+          143,
+          32
+        ],
+        [
+          143,
+          85
+        ],
+        [
+          143,
+          285
+        ]
+      ],
+      "mirror": {
+        "redX": true,
+        "redY": true
+      },
+      "sources": {
+        "FUEL": [
+          [
+            42,
+            221
+          ],
+          [
+            287,
+            48
+          ],
+          [
+            296,
+            268
+          ]
+        ],
+        "preload": [
+          [
+            143,
+            32
+          ],
+          [
+            143,
+            85
+          ],
+          [
+            143,
+            285
+          ]
+        ]
+      },
+      "targets": {
+        "odd": [
+          [
+            122,
+            108
+          ],
+          [
+            122,
+            210
+          ]
+        ],
+        "even": [
+          [
+            122,
+            108
+          ],
+          [
+            122,
+            210
+          ]
+        ]
+      },
+      "routes": [
+        {
+          "piece": "FUEL",
+          "goal": "odd",
+          "autoSource": "preload",
+          "preloadPhases": [
+            "AUTO"
+          ]
+        },
+        {
+          "piece": "FUEL",
+          "goal": "even",
+          "autoSource": "preload",
+          "preloadPhases": [
+            "AUTO"
+          ]
+        }
+      ]
+    }
+  },
+  "trial": {
+    "length": 26,
+    "width": 26,
+    "height": 20,
+    "heading": 0,
+    "x": 143,
+    "y": 32
+  },
+  "rehearsal": {
+    "schema": "field-rehearsal/v1",
+    "basis": "Project plan-view screen using §5 bounds. Flat transit under each trench. The placement of clear space within each trench is assumed centered. A BUMP is legal to cross, but its full footprint is blocked in this flat-path trial. Structural side allowances model only the remaining width. Two symmetric choices of corridor.",
+    "boundsNote": "Includes HUB solids, nominal trench roofs and estimated side allowances. No field-end TOWER or DEPOT collision, impact-force estimate, climb or ramp model. Evaluate corridor geometry independently of shooting or possession.",
+    "sources": [
+      "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+      "https://firstfrc.blob.core.windows.net/frc2026/Manual/TeamUpdates/2026TeamUpdate00.pdf"
+    ],
+    "resourceLabel": "trial shared corridor",
+    "setups": [
+      "kickoff nominal"
+    ],
+    "planes": [],
+    "obstacles": [
+      {
+        "name": "Blue HUB",
+        "poly": [
+          [
+            158.6,
+            135.35
+          ],
+          [
+            205.6,
+            135.35
+          ],
+          [
+            205.6,
+            182.35
+          ],
+          [
+            158.6,
+            182.35
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue low TRENCH roof",
+        "poly": [
+          [
+            158.6,
+            7.655
+          ],
+          [
+            205.6,
+            7.655
+          ],
+          [
+            205.6,
+            57.995
+          ],
+          [
+            158.6,
+            57.995
+          ]
+        ],
+        "lower": 22.25,
+        "kind": "height"
+      },
+      {
+        "name": "Blue low outer support allowance",
+        "poly": [
+          [
+            158.6,
+            0
+          ],
+          [
+            205.6,
+            0
+          ],
+          [
+            205.6,
+            7.655
+          ],
+          [
+            158.6,
+            7.655
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue low inner support allowance",
+        "poly": [
+          [
+            158.6,
+            57.995
+          ],
+          [
+            205.6,
+            57.995
+          ],
+          [
+            205.6,
+            65.65
+          ],
+          [
+            158.6,
+            65.65
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue high TRENCH roof",
+        "poly": [
+          [
+            158.6,
+            259.705
+          ],
+          [
+            205.6,
+            259.705
+          ],
+          [
+            205.6,
+            310.045
+          ],
+          [
+            158.6,
+            310.045
+          ]
+        ],
+        "lower": 22.25,
+        "kind": "height"
+      },
+      {
+        "name": "Blue high outer support allowance",
+        "poly": [
+          [
+            158.6,
+            252.05
+          ],
+          [
+            205.6,
+            252.05
+          ],
+          [
+            205.6,
+            259.705
+          ],
+          [
+            158.6,
+            259.705
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue high inner support allowance",
+        "poly": [
+          [
+            158.6,
+            310.045
+          ],
+          [
+            205.6,
+            310.045
+          ],
+          [
+            205.6,
+            317.7
+          ],
+          [
+            158.6,
+            317.7
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue low BUMP rough terrain",
+        "poly": [
+          [
+            159.9,
+            65.65
+          ],
+          [
+            204.3,
+            65.65
+          ],
+          [
+            204.3,
+            138.65
+          ],
+          [
+            159.9,
+            138.65
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Blue high BUMP rough terrain",
+        "poly": [
+          [
+            159.9,
+            179.05
+          ],
+          [
+            204.3,
+            179.05
+          ],
+          [
+            204.3,
+            252.05
+          ],
+          [
+            159.9,
+            252.05
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red HUB",
+        "poly": [
+          [
+            445.6,
+            135.35
+          ],
+          [
+            492.6,
+            135.35
+          ],
+          [
+            492.6,
+            182.35
+          ],
+          [
+            445.6,
+            182.35
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red low TRENCH roof",
+        "poly": [
+          [
+            445.6,
+            7.655
+          ],
+          [
+            492.6,
+            7.655
+          ],
+          [
+            492.6,
+            57.995
+          ],
+          [
+            445.6,
+            57.995
+          ]
+        ],
+        "lower": 22.25,
+        "kind": "height"
+      },
+      {
+        "name": "Red low outer support allowance",
+        "poly": [
+          [
+            445.6,
+            0
+          ],
+          [
+            492.6,
+            0
+          ],
+          [
+            492.6,
+            7.655
+          ],
+          [
+            445.6,
+            7.655
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red low inner support allowance",
+        "poly": [
+          [
+            445.6,
+            57.995
+          ],
+          [
+            492.6,
+            57.995
+          ],
+          [
+            492.6,
+            65.65
+          ],
+          [
+            445.6,
+            65.65
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red high TRENCH roof",
+        "poly": [
+          [
+            445.6,
+            259.705
+          ],
+          [
+            492.6,
+            259.705
+          ],
+          [
+            492.6,
+            310.045
+          ],
+          [
+            445.6,
+            310.045
+          ]
+        ],
+        "lower": 22.25,
+        "kind": "height"
+      },
+      {
+        "name": "Red high outer support allowance",
+        "poly": [
+          [
+            445.6,
+            252.05
+          ],
+          [
+            492.6,
+            252.05
+          ],
+          [
+            492.6,
+            259.705
+          ],
+          [
+            445.6,
+            259.705
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red high inner support allowance",
+        "poly": [
+          [
+            445.6,
+            310.045
+          ],
+          [
+            492.6,
+            310.045
+          ],
+          [
+            492.6,
+            317.7
+          ],
+          [
+            445.6,
+            317.7
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red low BUMP rough terrain",
+        "poly": [
+          [
+            446.9,
+            65.65
+          ],
+          [
+            491.3,
+            65.65
+          ],
+          [
+            491.3,
+            138.65
+          ],
+          [
+            446.9,
+            138.65
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      },
+      {
+        "name": "Red high BUMP rough terrain",
+        "poly": [
+          [
+            446.9,
+            179.05
+          ],
+          [
+            491.3,
+            179.05
+          ],
+          [
+            491.3,
+            252.05
+          ],
+          [
+            446.9,
+            252.05
+          ]
+        ],
+        "lower": 0,
+        "kind": "solid"
+      }
+    ],
+    "bands": [
+      {
+        "name": "Blue low trench entry",
+        "from": [
+          158.6,
+          7.655
+        ],
+        "to": [
+          158.6,
+          57.995
+        ]
+      },
+      {
+        "name": "Blue high trench entry",
+        "from": [
+          158.6,
+          259.705
+        ],
+        "to": [
+          158.6,
+          310.045
+        ]
+      }
+    ],
+    "starts": [
+      [
+        143,
+        32
+      ],
+      [
+        143,
+        85
+      ],
+      [
+        143,
+        285
+      ]
+    ],
+    "mirror": {
+      "redX": true,
+      "redY": true
+    },
+    "periods": [
+      {
+        "name": "AUTO",
+        "seconds": 20
+      },
+      {
+        "name": "Transition",
+        "seconds": 10
+      },
+      {
+        "name": "Shift 1",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 2",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 3",
+        "seconds": 25
+      },
+      {
+        "name": "Shift 4",
+        "seconds": 25
+      },
+      {
+        "name": "End game",
+        "seconds": 30
+      }
+    ],
+    "defaults": {
+      "length": 26,
+      "width": 26,
+      "height": 20,
+      "bumper": 3,
+      "heading": 0,
+      "speed": 72,
+      "orders": [
+        "neutral",
+        "local",
+        "hold"
+      ]
+    },
+    "programs": {
+      "hold": {
+        "label": "Hold starting position",
+        "steps": []
+      },
+      "neutral": {
+        "label": "Neutral FUEL via low trench",
+        "loop": true,
+        "steps": [
+          {
+            "at": [
+              128,
+              32
+            ],
+            "label": "Align with own trench",
+            "dwell": 0
+          },
+          {
+            "at": [
+              235,
+              32
+            ],
+            "label": "Clear own trench",
+            "dwell": 0
+          },
+          {
+            "at": [
+              287,
+              48
+            ],
+            "label": "Collect from neutral trial patch",
+            "dwell": 1
+          },
+          {
+            "at": [
+              235,
+              32
+            ],
+            "label": "Return to trench",
+            "dwell": 0
+          },
+          {
+            "at": [
+              128,
+              32
+            ],
+            "label": "Clear roof in own zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              122,
+              108
+            ],
+            "label": "Present FUEL at legal trial position",
+            "dwell": 1
+          }
+        ]
+      },
+      "local": {
+        "label": "Alliance depot to HUB approach",
+        "loop": true,
+        "steps": [
+          {
+            "at": [
+              105,
+              86
+            ],
+            "label": "Stage in own zone",
+            "dwell": 0
+          },
+          {
+            "at": [
+              42,
+              221
+            ],
+            "label": "Collect from depot approach",
+            "dwell": 1
+          },
+          {
+            "at": [
+              122,
+              210
+            ],
+            "label": "Present FUEL at legal trial position",
+            "dwell": 1
+          }
+        ]
+      }
+    }
+  }
+}
