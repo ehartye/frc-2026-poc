@@ -12,6 +12,8 @@
 
 [Open the live 2026 showcase](https://ehartye.github.io/frc-2026-poc/) or [launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
 
+[Play three matches at 10×](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) or inspect the [student match-series results](kickoff/match-series.md).
+
 ## Archived subsystem experiment
 
 The [historical case input manifest](experiments/legacy/historical-fixtures/agent-frc/manifest.json) identifies source-pinned simulation parameters, original geometry and prior analysis from the earlier plugin case. Inputs labeled as excerpts have a new schema and retain their source hash. The manifest records identical existing files and the original revision of the shared producers.
