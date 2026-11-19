@@ -1,0 +1,15 @@
+{
+  "schema":"agent-frc/robot-highlights@1",
+  "title":"REBUILT kickoff evidence",
+  "role":"The own-zone scorer stages allocated FUEL, drives loaded to a legal alliance-zone pose and feeds the active HUB.",
+  "revision":"Kickoff V0 and Team Update 00 • Stage 1 strategy",
+  "sources":[
+    {"id":"trials","label":"Kickoff rehearsal inputs and outputs","revision":"Kickoff study","url":"https://github.com/ehartye/frc-2026-poc/blob/fa7e897/kickoff/trials.json"},
+    {"id":"decision","label":"Own-zone design decision","revision":"Selected service clock","url":"https://github.com/ehartye/frc-2026-poc/blob/05df184/kickoff/selected-strategy.md"}
+  ],
+  "results":[
+    {"basis":"modeled","claim":"24 service opportunities in 12 seconds","conditions":"24 items onboard at second five, five seconds to travel, three to settle and 0.5 seconds per delivery.","limit":"A schedule calculation. Acquisition, retained inventory and target crossings remain to be demonstrated.","source":"decision"},
+    {"basis":"modeled","claim":"Congestion delayed two robots by 13.05 seconds apiece","conditions":"Six occupied robot volumes in the kickoff AUTO rehearsal.","limit":"A simulated AUTO conflict. Shift waits depend on other robots and the chosen route.","source":"trials"}
+  ],
+  "build":[{"subsystem":"Initial field-lab robot box","configuration":"26 × 26 × 20 in with 3 in trial bumpers. This earlier clearance experiment compared passing and blocked trench configurations.","source":"trials"}]
+}
