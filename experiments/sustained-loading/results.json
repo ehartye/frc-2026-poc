@@ -1,0 +1,615 @@
+{
+  "previous-gate": {
+    "mode": "paired-wheel",
+    "stockStart": "blue-depot-01",
+    "stepS": 0.0005,
+    "initialConflictsAbove1mm": [],
+    "onboardByCollectionSecond": {
+      "0": 8,
+      "5": 10,
+      "25": 20,
+      "30": 24
+    },
+    "gateClosedS": 30.1795,
+    "admissions": [
+      {
+        "sourceIds": [
+          "blue-depot-02",
+          "blue-depot-01"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 3.064
+      },
+      {
+        "sourceIds": [
+          "blue-depot-08",
+          "blue-depot-07"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 6.695
+      },
+      {
+        "sourceIds": [
+          "blue-depot-06",
+          "blue-depot-05"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 10.8505
+      },
+      {
+        "sourceIds": [
+          "blue-depot-12",
+          "blue-depot-11"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 14.5775
+      },
+      {
+        "sourceIds": [
+          "blue-depot-04",
+          "blue-depot-03"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 18.5315
+      },
+      {
+        "sourceIds": [
+          "blue-depot-10",
+          "blue-depot-09"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 22.1975
+      },
+      {
+        "sourceIds": [
+          "blue-depot-16",
+          "blue-depot-15"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 26.4795
+      },
+      {
+        "sourceIds": [
+          "blue-depot-22",
+          "blue-depot-21"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 30.1795
+      }
+    ],
+    "rail": {
+      "mass": 58,
+      "cogM": null,
+      "mu": 0.8,
+      "currentA": 50,
+      "stableS": 1.337,
+      "endM": 0.30480501019785855,
+      "maximum": {
+        "tilt": 0.11389928913999263,
+        "current": 50,
+        "dropV": 3.5999999999999996
+      }
+    },
+    "closestTire": null,
+    "terminalStage": "hold"
+  },
+  "combined-adverse": {
+    "mode": "paired-wheel-low",
+    "stockStart": "blue-depot-01",
+    "stepS": 0.0005,
+    "initialConflictsAbove1mm": [],
+    "onboardByCollectionSecond": {
+      "0": 8,
+      "5": 10,
+      "25": 20,
+      "30": 20
+    },
+    "gateClosedS": null,
+    "admissions": [
+      {
+        "sourceIds": [
+          "blue-depot-02",
+          "blue-depot-01"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 3.064
+      },
+      {
+        "sourceIds": [
+          "blue-depot-08",
+          "blue-depot-07"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 6.695
+      },
+      {
+        "sourceIds": [
+          "blue-depot-06",
+          "blue-depot-05"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 10.8505
+      },
+      {
+        "sourceIds": [
+          "blue-depot-12",
+          "blue-depot-11"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 14.5775
+      },
+      {
+        "sourceIds": [
+          "blue-depot-04",
+          "blue-depot-03"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 18.531
+      },
+      {
+        "sourceIds": [
+          "blue-depot-10",
+          "blue-depot-09"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 22.1965
+      }
+    ],
+    "rail": {
+      "mass": 68,
+      "cogM": 0.32,
+      "mu": 0.6,
+      "currentA": 40,
+      "stableS": null,
+      "endM": 0.0398057574473882,
+      "maximum": {
+        "tilt": 0.011482715328494555,
+        "current": 40,
+        "dropV": 2.880000000000001
+      }
+    },
+    "closestTire": null,
+    "terminalStage": "synchronized return"
+  },
+  "coarse-timed": {
+    "mode": "paired-wheel-timed",
+    "stockStart": "blue-depot-01",
+    "stepS": 0.0005,
+    "initialConflictsAbove1mm": [],
+    "onboardByCollectionSecond": {
+      "0": 8,
+      "5": 10,
+      "25": 20,
+      "30": 22
+    },
+    "gateClosedS": null,
+    "admissions": [
+      {
+        "sourceIds": [
+          "blue-depot-02",
+          "blue-depot-01"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 3.019
+      },
+      {
+        "sourceIds": [
+          "blue-depot-08",
+          "blue-depot-07"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 6.376
+      },
+      {
+        "sourceIds": [
+          "blue-depot-06",
+          "blue-depot-05"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 10.4865
+      },
+      {
+        "sourceIds": [
+          "blue-depot-12",
+          "blue-depot-11"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 14.1455
+      },
+      {
+        "sourceIds": [
+          "blue-depot-04",
+          "blue-depot-03"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 18.0625
+      },
+      {
+        "sourceIds": [
+          "blue-depot-10",
+          "blue-depot-09"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 21.681
+      },
+      {
+        "sourceIds": [
+          "blue-depot-16",
+          "blue-depot-15"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 25.9395
+      }
+    ],
+    "rail": {
+      "mass": 58,
+      "cogM": 0.32,
+      "mu": 0.8,
+      "currentA": 50,
+      "stableS": 1.337,
+      "endM": 0.30480501019785855,
+      "maximum": {
+        "tilt": 0.11389928913999263,
+        "current": 50,
+        "dropV": 3.5999999999999996
+      }
+    },
+    "closestTire": {
+      "id": "blue-depot-09",
+      "wheel": "front left public wheel",
+      "timeS": 19.4815,
+      "gapM": 0.08422792254914473
+    },
+    "terminalStage": "collect"
+  },
+  "timed-250us": {
+    "mode": "paired-wheel-timed",
+    "stockStart": "blue-depot-01",
+    "stepS": 0.00025,
+    "initialConflictsAbove1mm": [],
+    "onboardByCollectionSecond": {
+      "0": 8,
+      "5": 10,
+      "25": 20,
+      "30": 24
+    },
+    "gateClosedS": 29.7375,
+    "admissions": [
+      {
+        "sourceIds": [
+          "blue-depot-02",
+          "blue-depot-01"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 3.0220000000000002
+      },
+      {
+        "sourceIds": [
+          "blue-depot-08",
+          "blue-depot-07"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 6.5512500000000005
+      },
+      {
+        "sourceIds": [
+          "blue-depot-06",
+          "blue-depot-05"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 10.64475
+      },
+      {
+        "sourceIds": [
+          "blue-depot-12",
+          "blue-depot-11"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 14.3125
+      },
+      {
+        "sourceIds": [
+          "blue-depot-04",
+          "blue-depot-03"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 18.2425
+      },
+      {
+        "sourceIds": [
+          "blue-depot-10",
+          "blue-depot-09"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 21.84675
+      },
+      {
+        "sourceIds": [
+          "blue-depot-16",
+          "blue-depot-15"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 26.1175
+      },
+      {
+        "sourceIds": [
+          "blue-depot-22",
+          "blue-depot-21"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 29.7375
+      }
+    ],
+    "rail": {
+      "mass": 58,
+      "cogM": 0.32,
+      "mu": 0.8,
+      "currentA": 50,
+      "stableS": 1.337,
+      "endM": 0.30480501019785855,
+      "maximum": {
+        "tilt": 0.11389928913999263,
+        "current": 50,
+        "dropV": 3.5999999999999996
+      }
+    },
+    "closestTire": {
+      "id": "blue-depot-07",
+      "wheel": "front left public wheel",
+      "timeS": 4.4405,
+      "gapM": 0.08615818802363027
+    },
+    "terminalStage": "hold",
+    "checkpoint": "timed-250us-checkpoint.json",
+    "checkpointSha256": "e241ee77fe071d00696c9acf700292ba64c01bb36070bf913d89de424c0d423f"
+  },
+  "timed-125us": {
+    "mode": "paired-wheel-timed",
+    "stockStart": "blue-depot-01",
+    "stepS": 0.000125,
+    "initialConflictsAbove1mm": [],
+    "onboardByCollectionSecond": {
+      "0": 8,
+      "5": 10,
+      "25": 20,
+      "30": 24
+    },
+    "gateClosedS": 29.57975,
+    "admissions": [
+      {
+        "sourceIds": [
+          "blue-depot-02",
+          "blue-depot-01"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 3.0216250000000002
+      },
+      {
+        "sourceIds": [
+          "blue-depot-08",
+          "blue-depot-07"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 0,
+        "closedS": 6.397375
+      },
+      {
+        "sourceIds": [
+          "blue-depot-06",
+          "blue-depot-05"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 10.487625
+      },
+      {
+        "sourceIds": [
+          "blue-depot-12",
+          "blue-depot-11"
+        ],
+        "dockedLanes": [
+          0,
+          1
+        ],
+        "tier": 1,
+        "closedS": 14.14675
+      },
+      {
+        "sourceIds": [
+          "blue-depot-04",
+          "blue-depot-03"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 18.068875000000002
+      },
+      {
+        "sourceIds": [
+          "blue-depot-10",
+          "blue-depot-09"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 0,
+        "closedS": 21.626625
+      },
+      {
+        "sourceIds": [
+          "blue-depot-16",
+          "blue-depot-15"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 25.921375
+      },
+      {
+        "sourceIds": [
+          "blue-depot-22",
+          "blue-depot-21"
+        ],
+        "dockedLanes": [
+          2,
+          3
+        ],
+        "tier": 1,
+        "closedS": 29.57975
+      }
+    ],
+    "rail": {
+      "mass": 58,
+      "cogM": 0.32,
+      "mu": 0.8,
+      "currentA": 50,
+      "stableS": 1.337,
+      "endM": 0.30480501019785855,
+      "maximum": {
+        "tilt": 0.11389928913999263,
+        "current": 50,
+        "dropV": 3.5999999999999996
+      }
+    },
+    "closestTire": {
+      "id": "blue-depot-12",
+      "wheel": "front right public wheel",
+      "timeS": 12.041125000000001,
+      "gapM": 0.0859320127518514
+    },
+    "terminalStage": "hold",
+    "checkpoint": "timed-125us-checkpoint.json",
+    "checkpointSha256": "b5b99fb5c68be3c5df9248579c7b28aa9a7ed4d94688a31c0325b724c38364e8"
+  }
+}

@@ -1,6 +1,6 @@
 # Three complete REBUILT match rehearsals
 
-[Play the student field lab](field-lab.html#rehearsal). Select **Play match series at 10×** to run three complete matches. Add red and blue robots in either order in a separate manual trial. Compare stock markers, carried FUEL, scoring attempts, alliance score and blocked paths.
+[Play the student field lab](field-lab.html#rehearsal). Choose the published series to replay the three project scenarios, or edit the robots and choose the student setup to test your behaviors across the same scenarios. Select **Play match series at 10×**. Reset restores your edited setup. Add red and blue robots in either order in a separate manual trial. Compare stock markers, carried FUEL, scoring attempts, alliance score and blocked paths.
 
 Each match runs a 20 s AUTO, 10 s transition, four 25 s shifts and 30 s end game. The fixed-step model advances 480 simulated seconds in the 48-second series playback budget. All six students' robot roles have distinct starts and configured autonomous and teleoperated behaviors. Slot 2 on each side uses the 680 mm frame, 76 mm bumpers and 740 mm design-height budget. Other slots represent low-profile partner robots. The neutral runner crosses the high-side trench. Each occupied body must clear the structures and the other robots.
 

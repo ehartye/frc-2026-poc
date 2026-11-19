@@ -30,7 +30,7 @@ An active shift follows an inactive shift when the official outcome makes that s
 | 1 | 7 | 17 | 3.40/s | 0.57/s |
 | 8 | 0 | 24 | 4.80/s | 0.80/s |
 
-With all eight preloads retained, eight two-piece admissions must average 0.625 s each if collection starts in the active shift, or 3.75 s each with the preceding inactive shift available. This first paired admission takes 1.699 s. Repositioning the chassis for the remaining source ranks, resetting the intake, filling the farther storage pockets, then driving to the HUB with 24 pieces all consume time. Only the first admission currently earns capacity credit. [Selected strategy and fallback](../../kickoff/selected-strategy.md).
+With all eight preloads retained, eight two-piece admissions must average 0.625 s each if collection starts in the active shift, or 3.75 s each with the preceding inactive shift available. This first paired admission takes 1.699 s. Repositioning the chassis for the remaining source ranks, resetting the intake, filling the farther storage pockets, then driving to the HUB with 24 pieces all consume time. This experiment qualifies a single admission. The [sustained loading comparison](../sustained-loading/study.md) extends the sequence through the chassis move and the remaining seven admissions. [Selected strategy and fallback](../../kickoff/selected-strategy.md).
 
 ## Reproduce
 
@@ -46,4 +46,3 @@ To inspect the native registration and planar pickup controls, use the local sou
 python experiments/own-zone-cycle/field_register.py artifacts/own-zone-native/released-field.step artifacts/own-zone-native/depot-registration.json --include-name GE-26601
 python experiments/depot-loading/pickup.py artifacts/own-zone-native artifacts/depot-loading/planar.json
 ```
-
