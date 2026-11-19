@@ -6,6 +6,8 @@ Open the F3D in Autodesk Fusion to inspect the stowed layout. Four swerve module
 
 ## Which geometry students can edit
 
+The [student-download reopen receipt](student-reopen.json) binds the 964,297-byte F3D, SHA-256 `5bed444ce5dc99caa94e38164be3c5cbfbefa6ed7106d2bb0370cbe1abf16dd3`, to an independent Fusion reopen and new STEP export. All 117 solids matched the published STEP exactly in tight bounds, surface area, volume, center of mass and face count. The native project-local intermediate export has its own archive identity.
+
 The public assembly has 103 original single-body components with editable sketches and extrusions plus 14 project-drawn purchased-part envelopes. The [independent Fusion reopen](fusion-progress.json) and [STEP appearance map](appearances.json) identify the definitions and bounds. Positive X points forward, positive Y left and positive Z up. The public STEP SHA-256 is `d4ed979565fe132db45fac32de3265f93ffdff685db3bad976c4450fdfa67810`.
 
 The project-local supplier master is `artifacts/own-zone-native/R2C/own-zone-supplier.f3d`, SHA-256 `ae65324c100cb681ff898bef86b5c209a76a9dc06b6ef3e04ef4d37db8999c70`. Its four REV-21-3005 MAXSwerve placements share the original 74-descendant definition. Its two scoring motor placements use the REV-21-1650 NEO definition extracted from that same supplier archive. The public file preserves the mounting frames using project-drawn envelopes. The [R1 drive handoff](../own-zone/design.md) records the options and supplier source. The R2C native rebuild inputs are in [prepare_upper.py](prepare_upper.py) and the two-guide modification in [fusion_guides.py](fusion_guides.py). Preliminary guides and drive transmissions require detailed design before fabrication.

@@ -1,0 +1,30 @@
+{
+  "scenario": "Neutral return",
+  "phase": "Shift 1",
+  "stoppedPoseIn": [
+    116.50550524925214,
+    197.0470640822506
+  ],
+  "headingDeg": -30.213149699310527,
+  "robotEnvelope": "26.77 in square frame, 2.99 in bumpers, bound to original standing R2C. Recheck hardware if candidate exceeds these bounds.",
+  "rows": [
+    {
+      "name": "selected",
+      "startShiftS": 13,
+      "deadlineShiftS": 25,
+      "overlaps": []
+    },
+    {
+      "name": "one-second settle",
+      "startShiftS": 11,
+      "deadlineShiftS": 25,
+      "overlaps": []
+    },
+    {
+      "name": "stock already at destination",
+      "startShiftS": 8,
+      "deadlineShiftS": 25,
+      "overlaps": []
+    }
+  ]
+}
