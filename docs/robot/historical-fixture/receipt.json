@@ -1,0 +1,28 @@
+{
+  "schema": "agent-frc/cad-still@1",
+  "source": "cad/2026-original-fixture.step",
+  "sourceSha256": "f94736a56ddae861744429d7dc70a519f48f17049dcb8b501f6fd8f625c9b48f",
+  "imageSha256": "f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f",
+  "meshSha256": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b",
+  "solids": 8,
+  "triangles": 4828,
+  "units": "mm",
+  "nativeBounds": [
+    289.0,
+    531.0,
+    -150.2,
+    150.2,
+    -6.0,
+    160.0
+  ],
+  "meshBounds": [
+    289.0,
+    531.0,
+    -150.16163635253906,
+    150.16163635253906,
+    -6.0,
+    160.0
+  ],
+  "chordMm": 0.18,
+  "angleRad": 0.18
+}

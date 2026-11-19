@@ -1,0 +1,52 @@
+{
+  "schema": "agent-frc/cad-color-convention@1",
+  "id": "functional-roles-v1",
+  "purpose": "Viewing appearance only, never material or acceptance evidence",
+  "roles": [
+    {
+      "id": "structure",
+      "label": "STRUCTURE",
+      "color": "#496A81",
+      "textColor": "#FFFFFF",
+      "cue": "S / structural group"
+    },
+    {
+      "id": "mechanism",
+      "label": "MOVING MECHANISM",
+      "color": "#007F78",
+      "textColor": "#FFFFFF",
+      "cue": "M / named moving group and motion arrow"
+    },
+    {
+      "id": "game-piece",
+      "label": "GAME PIECE",
+      "color": "#E6B450",
+      "textColor": "#000000",
+      "cue": "G / game-piece outline"
+    },
+    {
+      "id": "electrical",
+      "label": "ELECTRICAL / CONTROL",
+      "color": "#8263A9",
+      "textColor": "#FFFFFF",
+      "cue": "E / named electrical group"
+    },
+    {
+      "id": "reserved-space",
+      "label": "RESERVED / KEEP-OUT",
+      "color": "#D55E00",
+      "textColor": "#000000",
+      "cue": "K / dashed or hatched envelope; label required"
+    },
+    {
+      "id": "reference",
+      "label": "REFERENCE / UNASSIGNED",
+      "color": "#8A9199",
+      "textColor": "#000000",
+      "cue": "R / reference group; not hidden by default"
+    }
+  ],
+  "statusPolicy": "Evidence status is a separate text annotation; no color means safe, legal, verified or failed",
+  "supplierPolicy": "Preserve supplier appearance by default; use an assembly overlay/view override with an explicit legend when needed",
+  "overridePolicy": "Project-specific versioned mapping permitted; keep role IDs and legend, document changes and review views"
+}

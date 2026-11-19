@@ -15,4 +15,5 @@ const config = JSON.parse(await readFile(at('kickoff/selected-strategy.json'), '
 const study = await readFile(at('docs/showcase/study.js'), 'utf8');
 await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', JSON.stringify(config.case)));
 for (const name of ['field-lab.html','rule-register.json']) await cp(at('kickoff/' + name), path.join(destination, name));
-await cp(at('docs/robot/cad'), path.join(destination, 'fixture'), {recursive: true});
+await cp(at('docs/robot/historical-fixture'), path.join(destination, 'fixture'), {recursive: true});
+await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true});

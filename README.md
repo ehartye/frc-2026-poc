@@ -1,10 +1,12 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![Original mechanism fixture](docs/robot/cad/assembly.png)](docs/robot/cad/index.html)
+[![R1 own-zone swerve chassis](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/)
 
-**Project CAD · Original mechanism fixture.** Subsystem study. A whole-robot assembly has yet to be published. [Source STEP · f94736a56d](cad/2026-original-fixture.step) · [Rotate the model](docs/robot/cad/index.html)
+**Project CAD · R1 own-zone swerve chassis.** Four-module 2026 packaging layout with blue bumpers, a 300 mm pickup opening and project-drawn supplier representations. Upper mechanisms are pending. [Source STEP · 5c76902ac3](cad/own-zone/own-zone-public.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/)
 <!-- /cad-still -->
+
+[Project workflow and student-owned outputs](docs/workflow.md) · [Current Fusion handoff](cad/own-zone/design.md)
 
 ## Kickoff field lab
 
@@ -38,7 +40,7 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
-- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. No vendor CAD or fabrication-ready assembly.
+- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. The exact supplier archive stays project-local.
 - `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.

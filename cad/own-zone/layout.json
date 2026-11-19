@@ -1,0 +1,28 @@
+{
+  "revision": "R1",
+  "layout": "680 mm square own-zone scorer",
+  "frame": "robot center on carpet, +X intake end, +Y robot left, +Z up, mm",
+  "wheelAxisFromRobotCenterMm": [268,268],
+  "wheelRadiusMm": 38.1,
+  "frameOutsideMm": 680,
+  "railWidthMm": 25.4,
+  "railHeightMm": 50.8,
+  "railBaseMm": 64,
+  "railWallMm": 2.54,
+  "intakeOpeningMm": 300,
+  "hopperLowerInsideMm": [-330,-311,235],
+  "hopperClearMm": [478,622,317],
+  "swerve": {
+    "manufacturer": "REV Robotics",
+    "model": "REV-21-3005 MAXSwerve base manufacturer STEP, revision as drawn in the 2022-11-14 exchange",
+    "source": "https://www.revrobotics.com/rev-21-3005/",
+    "drawing": "https://www.revrobotics.com/content/docs/REV-21-3005-DR.pdf",
+    "sha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+    "nativeSourceBoundsMm": [-44.45,-38.1,-44.45,88.646,133.36,88.646],
+    "basis": "Wheel center is supplier origin; supplier +Y up, +X wheel axle. Rotate both supplier horizontal positive axes toward robot interior.",
+    "nativeQuantity": 4,
+    "sourceOccurrenceCount": 72,
+    "scope": "Use the exact purchased-part geometry in the local student archive. Current catalog revisions, V1.1 substitution and ratios require a separate configuration check. Public models use independently drawn packaging proxies.",
+    "controller": "Reserve two controller envelopes per module; final harness and connectors remain unqualified."
+  }
+}

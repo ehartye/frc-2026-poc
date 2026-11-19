@@ -1,5 +1,8 @@
 {
-  "source": "cad/2026-original-fixture.step",
-  "title": "Original mechanism fixture",
-  "scope": "Subsystem study. A whole-robot assembly has yet to be published."
+  "source":"cad/own-zone/own-zone-public.step",
+  "appearances":"cad/own-zone/appearances.json",
+  "title":"R1 own-zone swerve chassis",
+  "scope":"Four-module 2026 packaging layout with blue bumpers, a 300 mm pickup opening and project-drawn supplier representations. Upper mechanisms are pending.",
+  "viewerUrl":"https://ehartye.github.io/frc-2026-poc/robot/",
+  "backdrop":{"center":"#405F86","edge":"#142F63"}
 }
