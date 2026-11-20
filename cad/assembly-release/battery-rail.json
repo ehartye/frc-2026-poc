@@ -1,0 +1,340 @@
+{
+  "sourceRegisterSha256": "fda118c738e194c4a8bcf0418871b8200c089960641bde32bab8bd5710548b72",
+  "sourceFieldSha256": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671",
+  "chassisYmm": 1930.4,
+  "headingDeg": 180,
+  "section": [
+    {
+      "name": "sled bottom",
+      "fromX": -137,
+      "toX": 54,
+      "bottom": 41.65
+    },
+    {
+      "name": "aft screw heads",
+      "fromX": -114.25,
+      "toX": -105.75,
+      "bottom": 35.65
+    },
+    {
+      "name": "fore screw heads",
+      "fromX": 21.75,
+      "toX": 30.25,
+      "bottom": 35.65
+    }
+  ],
+  "halfWheelbaseMm": 265,
+  "integratorStepS": 0.000125,
+  "traceStepS": 0.0005,
+  "rows": [
+    {
+      "case": "registered pickup advance",
+      "massKg": 58,
+      "friction": 0.8,
+      "motorCurrentCapA": 50,
+      "strokeM": 0.3048,
+      "achievedM": 0.30480701685066747,
+      "readyS": 1.3955,
+      "railXM": [
+        0.34499999999999975,
+        0.4212000000000007
+      ],
+      "railTopMm": 28.575,
+      "cases": [
+        {
+          "dropMm": 0,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": 4.275180210645175
+          },
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 34.465029791666666
+        },
+        {
+          "dropMm": 6,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -1.7245850820441326
+          },
+          "firstContact": {
+            "timeS": 0.8085,
+            "member": "fore screw heads",
+            "clearanceMm": -0.07846744055870977
+          },
+          "flatGroundLoadedClearanceMm": 28.465029791666666
+        },
+        {
+          "dropMm": 8,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -3.724506846273939
+          },
+          "firstContact": {
+            "timeS": 0.798,
+            "member": "fore screw heads",
+            "clearanceMm": -0.024658950011229724
+          },
+          "flatGroundLoadedClearanceMm": 26.465029791666666
+        },
+        {
+          "dropMm": 10,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -5.724428610503689
+          },
+          "firstContact": {
+            "timeS": 0.7825,
+            "member": "fore screw heads",
+            "clearanceMm": -0.32572376351001564
+          },
+          "flatGroundLoadedClearanceMm": 24.465029791666666
+        },
+        {
+          "dropMm": 12,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -7.724350374733495
+          },
+          "firstContact": {
+            "timeS": 0.7825,
+            "member": "fore screw heads",
+            "clearanceMm": -2.3258822325225963
+          },
+          "flatGroundLoadedClearanceMm": 22.465029791666666
+        },
+        {
+          "dropMm": 14,
+          "minimum": {
+            "timeS": 0.8240000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -9.724272138963302
+          },
+          "firstContact": {
+            "timeS": 0.7825,
+            "member": "fore screw heads",
+            "clearanceMm": -4.3260407015352875
+          },
+          "flatGroundLoadedClearanceMm": 20.465029791666666
+        }
+      ]
+    },
+    {
+      "case": "registered pickup advance",
+      "massKg": 68,
+      "friction": 0.55,
+      "motorCurrentCapA": 40,
+      "strokeM": 0.3048,
+      "achievedM": 0.04402699942327973,
+      "readyS": null,
+      "railXM": [
+        0.34499999999999975,
+        0.4212000000000007
+      ],
+      "railTopMm": 28.575,
+      "cases": [
+        {
+          "dropMm": 0,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 34.260724583333335
+        },
+        {
+          "dropMm": 6,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 28.26072458333333
+        },
+        {
+          "dropMm": 8,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 26.26072458333333
+        },
+        {
+          "dropMm": 10,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 24.26072458333333
+        },
+        {
+          "dropMm": 12,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 22.26072458333333
+        },
+        {
+          "dropMm": 14,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 20.26072458333333
+        }
+      ]
+    },
+    {
+      "case": "whole assembly traverses the rail",
+      "massKg": 58,
+      "friction": 0.8,
+      "motorCurrentCapA": 50,
+      "strokeM": 0.9,
+      "achievedM": 0.9001222180729841,
+      "readyS": 1.89225,
+      "railXM": [
+        0.34499999999999975,
+        0.4212000000000007
+      ],
+      "railTopMm": 28.575,
+      "cases": [
+        {
+          "dropMm": 0,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": 2.451338627847372
+          },
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 34.465029791666666
+        },
+        {
+          "dropMm": 6,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -3.5480140548572563
+          },
+          "firstContact": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "clearanceMm": -3.5480140548572563
+          },
+          "flatGroundLoadedClearanceMm": 28.465029791666666
+        },
+        {
+          "dropMm": 8,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -5.547798282425503
+          },
+          "firstContact": {
+            "timeS": 0.755,
+            "member": "sled bottom",
+            "clearanceMm": -0.009121203275379991
+          },
+          "flatGroundLoadedClearanceMm": 26.465029791666666
+        },
+        {
+          "dropMm": 10,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -7.547582509993694
+          },
+          "firstContact": {
+            "timeS": 0.747,
+            "member": "sled bottom",
+            "clearanceMm": -0.03809067577607503
+          },
+          "flatGroundLoadedClearanceMm": 24.465029791666666
+        },
+        {
+          "dropMm": 12,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -9.54736673756194
+          },
+          "firstContact": {
+            "timeS": 0.7425,
+            "member": "sled bottom",
+            "clearanceMm": -0.0086170668708134
+          },
+          "flatGroundLoadedClearanceMm": 22.465029791666666
+        },
+        {
+          "dropMm": 14,
+          "minimum": {
+            "timeS": 0.7625000000000001,
+            "member": "fore screw heads",
+            "robotAxisXMm": 30.25,
+            "clearanceMm": -11.54715096513013
+          },
+          "firstContact": {
+            "timeS": 0.739,
+            "member": "sled bottom",
+            "clearanceMm": -0.1714557251963171
+          },
+          "flatGroundLoadedClearanceMm": 20.465029791666666
+        }
+      ]
+    },
+    {
+      "case": "whole assembly traverses the rail",
+      "massKg": 68,
+      "friction": 0.55,
+      "motorCurrentCapA": 40,
+      "strokeM": 0.9,
+      "achievedM": 0.04283053052738256,
+      "readyS": null,
+      "railXM": [
+        0.34499999999999975,
+        0.4212000000000007
+      ],
+      "railTopMm": 28.575,
+      "cases": [
+        {
+          "dropMm": 0,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 34.260724583333335
+        },
+        {
+          "dropMm": 6,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 28.26072458333333
+        },
+        {
+          "dropMm": 8,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 26.26072458333333
+        },
+        {
+          "dropMm": 10,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 24.26072458333333
+        },
+        {
+          "dropMm": 12,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 22.26072458333333
+        },
+        {
+          "dropMm": 14,
+          "minimum": null,
+          "firstContact": null,
+          "flatGroundLoadedClearanceMm": 20.26072458333333
+        }
+      ]
+    }
+  ],
+  "scope": "Four wheels with contact against carpet and the registered front tube. Gross supported mass and traction are scenario inputs. The complete 900 mm crossing is a deliberate engineering comparison. A touch invalidates subsequent free-motion prediction. No model of battery-sled contact forces, operator service or added qualification of earlier gameplay."
+}

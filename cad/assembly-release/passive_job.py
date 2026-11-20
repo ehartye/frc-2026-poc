@@ -83,7 +83,7 @@ if __name__ == "__main__":
     ap.add_argument("out", type=Path)
     a = ap.parse_args()
     data = recipe()
-    a.out.write_text(json.dumps(data, indent=2) + "\n", encoding="utf8")
+    a.out.write_text(json.dumps(data, indent=2) + "\n", encoding="utf8", newline="\n")
     print(
         len(data["parts"]),
         "machined or purchased articles",

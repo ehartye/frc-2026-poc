@@ -191,6 +191,22 @@ def check():
         separationMm=23,
         projectedUnmatedGapMm=8.3,
     )
+    # Different Anderson drawing and family editions give different widths. Surround
+    # both values and add the drawing tolerance as a separate receiving gauge.
+    lower = 82.95 - 16.4 / 2
+    upper = 82.95 + 16.4 / 2
+    tol_shapes = {
+        "joined": rect([64.45, -40.9, lower], [101.55, 40.9, upper]),
+        "23mm release sweep": rect([64.45, -63.9, lower], [101.55, 8.1, upper]),
+        "pack-side 270mm drop": rect([64.45, -63.9, lower - 270], [101.55, -14.4, upper]),
+    }
+    connector["editionAndReceivingEnvelope"] = {
+        "housingMaximumMm": [48.5, 37.1, 16.4],
+        "matedPairLengthMm": [80.8, 81.8],
+        "worstIndependentSeparationGapMm": round(23 - (2 * 48.5 - 80.8), 2),
+        "contactsMm3": {name: clashes(shape(box), set()) for name, box in tol_shapes.items()},
+        "basis": "Anderson drawing 111923S1 Rev 2 and DS-SB50 Rev 9. Take the larger nominal from both editions on each perpendicular axis plus 0.5 mm. The finished mated length, lug, strain relief and wiring require separate receiving checks."
+    }
     transient = {}
     for name, s in ((n, world[n][0]) for n in parts if n != pack):
         hits = clashes(s, {name})
@@ -229,4 +245,4 @@ if __name__ == "__main__":
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("output", type=Path)
     a = cli.parse_args()
-    a.output.write_text(json.dumps(check(), indent=2) + "\n", encoding="utf8")
+    a.output.write_text(json.dumps(check(), indent=2) + "\n", encoding="utf8", newline="\n")

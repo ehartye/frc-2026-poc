@@ -169,7 +169,7 @@ def build():
                 "Aluminum 6061",
                 [stock(vc(anchor_u, s, 98.8, 114.8, 6.35, 2.5))],
                 parent=rail,
-                connection="12.70 OD 6061 threaded weld boss, length 16 mm. ÃƒËœ5 mm pilot, thread M6x1-6H after welding, face flush with rail.",
+                connection="12.70 OD 6061 threaded weld boss, length 16 mm. diameter 5 mm pilot, thread M6x1-6H after welding, face flush with rail.",
             )
             rail_cuts.setdefault(rail, []).append(
                 drill(vc(anchor_u, s, 111, 115.5, 6.40))

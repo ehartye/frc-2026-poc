@@ -1,0 +1,23 @@
+{
+  "nativeInputSha256": "dd71b87514d4f35b90b083ed918da83fc48b80f1ee7d8b6511042b8ec7550204",
+  "readableRecipeSha256": "e6c3c42c264b4ee18f2653a2730b668110927b22c70d2ab04aea0d9937c9b1e8",
+  "metadataOnly": [
+    "left side bumper mounting 1 frame boss",
+    "left side bumper mounting 2 frame boss",
+    "left side bumper mounting 3 frame boss",
+    "left side bumper mounting 4 frame boss",
+    "right side bumper mounting 1 frame boss",
+    "right side bumper mounting 2 frame boss",
+    "right side bumper mounting 3 frame boss",
+    "right side bumper mounting 4 frame boss",
+    "rear bumper mounting 1 frame boss",
+    "rear bumper mounting 2 frame boss",
+    "rear bumper mounting 3 frame boss",
+    "left front bumper mounting 1 frame boss",
+    "left front bumper mounting 2 frame boss",
+    "right front bumper mounting 1 frame boss",
+    "right front bumper mounting 2 frame boss"
+  ],
+  "field": "connection",
+  "difference": "The pilot diameter phrase now reads diameter 5 mm in fifteen bumper frame boss descriptions. Every other field matched, including every native machining operation, material, occurrence, constraint and site."
+}
