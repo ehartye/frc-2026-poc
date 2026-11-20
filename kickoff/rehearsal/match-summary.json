@@ -1,21 +1,21 @@
 {
-  "profileSha256": "9b8d57cda6a417c049b82e0b6737fcfc584ed7f61c877559bdbef8548cffeb4c",
+  "profileSha256": "68cffc66867db892f4362430e403dc488299d1ddad517c05e556cce8f4c77b62",
   "modelSeconds": 480,
   "playbackSeconds": 48,
   "matches": [
     {
       "id": "Own-zone supply",
       "score": {
-        "blue": 42,
-        "red": 50
+        "blue": 46,
+        "red": 46
       },
       "auto": {
         "blue": 24,
         "red": 24
       },
       "fuel": {
-        "blue": 32,
-        "red": 40
+        "blue": 36,
+        "red": 36
       },
       "tower": {
         "blue": 10,
@@ -42,16 +42,16 @@
     {
       "id": "Neutral return",
       "score": {
-        "blue": 42,
-        "red": 36
+        "blue": 70,
+        "red": 74
       },
       "auto": {
         "blue": 16,
         "red": 24
       },
       "fuel": {
-        "blue": 42,
-        "red": 36
+        "blue": 70,
+        "red": 74
       },
       "tower": {
         "blue": 0,
@@ -59,17 +59,17 @@
       },
       "acquired": {
         "B1": 24,
-        "B2": 6,
-        "B3": 4,
+        "B2": 22,
+        "B3": 44,
         "R1": 24,
-        "R2": 6,
-        "R3": 4
+        "R2": 22,
+        "R3": 48
       },
       "individualChuteReleases": 48,
       "final": {
-        "floor": 496,
+        "floor": 484,
         "operators": 0,
-        "bays": 0,
+        "bays": 12,
         "returning": 0,
         "terminal": 8
       },
@@ -78,16 +78,16 @@
     {
       "id": "Missed preload",
       "score": {
-        "blue": 46,
-        "red": 34
+        "blue": 74,
+        "red": 64
       },
       "auto": {
         "blue": 24,
         "red": 8
       },
       "fuel": {
-        "blue": 36,
-        "red": 34
+        "blue": 64,
+        "red": 64
       },
       "tower": {
         "blue": 10,
@@ -95,17 +95,17 @@
       },
       "acquired": {
         "B1": 24,
-        "B2": 6,
-        "B3": 4,
+        "B2": 22,
+        "B3": 44,
         "R1": 24,
-        "R2": 6,
-        "R3": 4
+        "R2": 22,
+        "R3": 48
       },
       "individualChuteReleases": 48,
       "final": {
-        "floor": 488,
+        "floor": 476,
         "operators": 0,
-        "bays": 0,
+        "bays": 12,
         "returning": 0,
         "terminal": 16
       },

@@ -27,6 +27,8 @@ export async function physicalMatchProfile({secondsPerPiece=1.5} = {}) {
     read('../rules-model.json'), read('../../experiments/depot-loading/stock-register.json'),
   ]);
   const {field, rehearsal} = profile;
+  // Rehearsal envelope for the deployed front roller, in field inches.
+  rehearsal.defaults.intake={widthIn:18,extensionIn:5};
   const stations = new Map(rehearsal.stations.map(station => [station.id, station]));
   const mirror = ([x,y]) => [round(field.length-x), round(field.width-y)];
   const fuel = {radiusIn:profile.fieldFeatures.fuelDiameter/2,
@@ -35,7 +37,7 @@ export async function physicalMatchProfile({secondsPerPiece=1.5} = {}) {
     [round(x/25.4+field.length/2),round(y/25.4+field.width/2)]);
   for (const side of ['blue','red']) {
     const positions = side === 'blue' ? bluePositions : bluePositions.map(mirror);
-    stations.get(side+'-depot').floor = {positions, ...fuel, captureReachIn:5};
+    stations.get(side+'-depot').floor = {positions, ...fuel};
     // The kickoff manual gives random return direction into the neutral zone.
     // These floor landing points and the inherited four-second delay are trial
     // assumptions, beyond the protected 48-inch direct-catch band.
@@ -47,12 +49,12 @@ export async function physicalMatchProfile({secondsPerPiece=1.5} = {}) {
       operator: side+'-chute-attendant', secondsPerPiece,
       phases:rehearsal.periods.map(phase=>phase.name),
       outlet:side==='blue' ? [13,32] : mirror([13,32]),
-      ...fuel, capacity:1, captureReachIn:5,
+      ...fuel, capacity:1,
     };
   }
   for (const id of ['neutral-north','neutral-south']) {
     const station=stations.get(id);
-    station.floor={positions:neutralPositions(station),...fuel,captureReachIn:5};
+    station.floor={positions:neutralPositions(station),...fuel};
   }
   // Each pickup is tested against a real available identity. Four separated
   // services give the OUTPOST operator time to release the next FUEL.
@@ -64,7 +66,13 @@ export async function physicalMatchProfile({secondsPerPiece=1.5} = {}) {
   pickup.at=[295,247];
   pickup.dwell=0.15;
   pickup.label='Collect reachable FUEL at the near neutral edge';
+  // Keep the low robot's return clear of the DEPOT robot's working lane.
+  const neutralSteps=rehearsal.programs['shift-neutral'].steps;
+  neutralSteps[0].at=[133,266];
+  neutralSteps.at(-2).at=[139,237];
+  neutralSteps.at(-1).at=[139,192];
   const ownZone=rehearsal.series.matches.find(m=>m.id==='Own-zone supply');
+  rehearsal.defaultTieWinner=ownZone.tieWinner; // Explicit default trial assignment on a tied AUTO.
   const neutral=rehearsal.series.matches.find(m=>m.id==='Neutral return');
   // First-time students get three working roles. The blocked-lane reserve
   // belongs to the deliberately different published comparison.
@@ -76,5 +84,35 @@ export async function physicalMatchProfile({secondsPerPiece=1.5} = {}) {
     }
     return result;
   });
+  for(const rows of [rehearsal.defaults.roster,...rehearsal.series.matches.map(m=>m.roster)]){
+    for(const r of rows){
+      const facesOwnWall=r.slot!==3;
+      r.heading=(r.side==='blue')===facesOwnWall?180:0;
+    }
+  }
+  // The two editable route presets also use real stock and delivery operations.
+  for(const [key,station] of [['local',{blue:'blue-depot',red:'red-depot'}],
+                              ['neutral',{blue:'neutral-north',red:'neutral-south'}]]){
+    const steps=rehearsal.programs[key].steps;
+    Object.assign(steps.find(s=>s.label.startsWith('Collect')),{station,operation:'acquire',quantity:4});
+    Object.assign(steps.at(-1),{station:{blue:'blue-hub',red:'red-hub'},operation:'attempt',quantity:4,outcome:'credited'});
+  }
+  // Historical scenario names retain their bounded attempts. Student roles drain
+  // the actual hopper, one ball per half second of eligible time at the HUB.
+  for(const actor of rehearsal.defaults.roster){
+    for(const [period,id] of Object.entries(actor.plans)){
+      const key='student-'+id;
+      if(!rehearsal.programs[key]){
+        const program=structuredClone(rehearsal.programs[id]);
+        program.label+=' · full hopper delivery';
+        for(const step of program.steps.filter(s=>s.operation==='attempt')){
+          delete step.quantity;delete step.dwell;
+          step.deliveryRatePerS=2;
+        }
+        rehearsal.programs[key]=program;
+      }
+      actor.plans[period]=key;
+    }
+  }
   return profile;
 }

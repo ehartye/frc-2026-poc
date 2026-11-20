@@ -40,6 +40,13 @@ export function auditMatch(profile, match) {
       }
     }
     if (operation==='acquire' && pieces.length) {
+      assert.equal(pieces.length,1);
+      const {position:p,mouth:[a,b],radiusIn,robotPosition}=event.contact;
+      const dx=b[0]-a[0],dy=b[1]-a[1];
+      const u=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy)));
+      assert.ok(Math.hypot(p[0]-a[0]-u*dx,p[1]-a[1]-u*dy)<=radiusIn+1e-6);
+      const mid=a.map((v,i)=>(v+b[i])/2);
+      assert.ok((p[0]-mid[0])*(mid[0]-robotPosition[0])+(p[1]-mid[1])*(mid[1]-robotPosition[1])>=-1e-6);
       for (const id of pieces) {
         if (station.endsWith('-outpost')) assert.ok(released.has(id));
         assert.ok(places.has(id));

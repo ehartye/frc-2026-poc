@@ -106,6 +106,20 @@ try {
     await evaluate(button+'.click()');
     console.log(width+'px: direct and repeated held pose, power-off seek, timed finish and restart; zero uncaught page errors');
   }
+  const lab=new URL('field-lab.html#rehearsal',site).href;
+  await send('Page.navigate',{url:lab});
+  await until("document.querySelector('#replaySeriesSource')?.value==='student'");
+  await evaluate("document.querySelector('#rehearsal').open=true");
+  const state=()=>evaluate("document.querySelector('#replay-state-B2').textContent");
+  const tick=()=>evaluate("document.querySelector('#replayStep').click()");
+  const opening=[];
+  for(let i=0;i<8;i++){await tick();opening.push(await state());}
+  assert.ok(opening.some(s=>/[1-7] aboard/.test(s)));assert.match(opening.at(-1),/0 aboard/);
+  await evaluate("document.querySelector('#replayFast').click();document.querySelector('#replayRun').click();document.querySelector('#replayRun').click()");
+  await tick();assert.match(await state(),/0 aboard/);
+  await tick();assert.match(await state(),/blue-depot\/3.*1 aboard/);
+  await tick();assert.match(await state(),/blue-depot\/2.*3 aboard/);
+  assert.equal(errors.length,0,errors[0]);
 } finally {
   socket?.close();chrome.kill();await closed;
   await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:250});
