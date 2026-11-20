@@ -1,0 +1,62 @@
+{
+  "schema": "agent-frc/alliance-study@1",
+  "side": "blue",
+  "roles": [
+    {
+      "id": "alliance-depot",
+      "basis": "Depot pickup and return with the project bumper and 29.685-inch total robot height. The existing AUTO and terminal-climb commitments are held equal within each comparison.",
+      "plans": {
+        "Transition": "shift-depot",
+        "Shift 1": "shift-depot",
+        "Shift 2": "shift-depot",
+        "Shift 3": "shift-depot",
+        "Shift 4": "shift-depot",
+        "End game": "shift-depot"
+      }
+    },
+    {
+      "id": "neutral-return",
+      "basis": "Low trench neutral supply and return with the project bumper and 29.685-inch total robot height. The existing AUTO and terminal-climb commitments are held equal within each comparison.",
+      "plans": {
+        "Transition": "shift-neutral",
+        "Shift 1": "shift-neutral",
+        "Shift 2": "shift-neutral",
+        "Shift 3": "shift-neutral",
+        "Shift 4": "shift-neutral",
+        "End game": "shift-neutral"
+      }
+    },
+    {
+      "id": "partner-reserve",
+      "basis": "Hold legal own-zone reserve with the project bumper and 29.685-inch total robot height. The existing AUTO and terminal-climb commitments are held equal within each comparison.",
+      "plans": {
+        "Transition": "shift-reserve",
+        "Shift 1": "shift-reserve",
+        "Shift 2": "shift-reserve",
+        "Shift 3": "shift-reserve",
+        "Shift 4": "shift-reserve",
+        "End game": "shift-reserve"
+      }
+    }
+  ],
+  "contexts": [
+    {
+      "id": "reserving-peer",
+      "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. The central support robot retains position after AUTO.",
+      "match": "Own-zone supply",
+      "slot": 2
+    },
+    {
+      "id": "moving-peer",
+      "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. One collector per alliance can use the low-profile trench route.",
+      "match": "Neutral return",
+      "slot": 2
+    },
+    {
+      "id": "missed-preloads",
+      "basis": "Three occupied robots per alliance. Identical starts and nominal 504 FUEL; experimentally assigned target outcomes. One collector per alliance can use the low-profile trench route.",
+      "match": "Missed preload",
+      "slot": 2
+    }
+  ]
+}

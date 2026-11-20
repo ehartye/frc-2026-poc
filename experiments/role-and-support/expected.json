@@ -1,0 +1,34 @@
+{
+  "roleMargins": {
+    "reserving-peer/alliance-depot": -4,
+    "reserving-peer/neutral-return": -4,
+    "reserving-peer/partner-reserve": -14,
+    "moving-peer/alliance-depot": -4,
+    "moving-peer/neutral-return": -20,
+    "moving-peer/partner-reserve": -20,
+    "missed-preloads/alliance-depot": 22,
+    "missed-preloads/neutral-return": 6,
+    "missed-preloads/partner-reserve": -4
+  },
+  "cargo": {
+    "single": {
+      "fine": "fail",
+      "coarse": "fail",
+      "locked": "fail"
+    },
+    "pair": {
+      "fine": "pass",
+      "coarse": "pass",
+      "locked": "fail"
+    }
+  },
+  "elevation": {
+    "twin-hook-tower-lift": "fail",
+    "service-cart-whole-robot-support": "open"
+  },
+  "freshAdmissions": {
+    "reserving-peer": 0,
+    "moving-peer": 8,
+    "missed-preloads": 12
+  }
+}

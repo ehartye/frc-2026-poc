@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: 4154d301e28d36f0168f6df3f568fe57b549791f # v0.36.0
+          ref: 344fac71aa4aecbec66cf4015c7646b1149a542b # v0.38.0
           path: builder
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -28,6 +28,8 @@ jobs:
           node-version: '22'
       - name: Verify the manifest and build the public files
         run: node project/scripts/check-robot-motion.mjs && node project/scripts/check-batch.mjs && node project/scripts/check-strategy.mjs && node project/scripts/check-match-series.mjs && node project/scripts/check-tower.mjs && node project/scripts/build-showcase.mjs builder "$RUNNER_TEMP/showcase"
+      - name: Replay role, architecture, load and replenishment studies
+        run: python project/experiments/role-and-support/review.py builder "$RUNNER_TEMP/method-results"
       - name: Exercise terminal replay controls on phone and desktop
         run: |
           python -m http.server 8765 --bind 127.0.0.1 --directory "$RUNNER_TEMP/showcase" >"$RUNNER_TEMP/showcase-http.log" 2>&1 &

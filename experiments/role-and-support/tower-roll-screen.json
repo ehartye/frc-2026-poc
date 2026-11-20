@@ -1,0 +1,231 @@
+{
+  "schema": "r26-tower-free-roll-screen/1",
+  "sources": {
+    "cad/tower-lift/parts.json": "f71e55e763326896a4697b2fcddf1b8c43d85edc76cd0a217c555751c7a87b1f",
+    "experiments/tower-climb/support.json": "d47405371bd2156695a426facbe7f5e209c0bef647d1493c0c19787d67051910"
+  },
+  "hookCentersYM": [
+    -0.088,
+    0.088
+  ],
+  "model": "Static lateral force and roll moment, two unilateral centers, no tire contact, no vertical/lateral brace friction. Ground, wall friction or torsional transfer through a captured hook could change the answer and would need an independently engineered interface.",
+  "cases": [
+    {
+      "grossKg": 62,
+      "gravityCenterYM": 0,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        304.00615,
+        304.00615
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": 304.00615,
+      "staticEquilibriumWithUnilateralRungOnly": true
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        333.42609999999996,
+        333.42609999999996
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": 333.42609999999996,
+      "staticEquilibriumWithUnilateralRungOnly": true
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0.05,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        143.97945227272714,
+        522.8727477272728
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": 143.97945227272714,
+      "staticEquilibriumWithUnilateralRungOnly": true
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": -0.05,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        522.8727477272727,
+        143.97945227272723
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": 143.97945227272723,
+      "staticEquilibriumWithUnilateralRungOnly": true
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0.088,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        0.0,
+        666.8521999999999
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": 0.0,
+      "staticEquilibriumWithUnilateralRungOnly": true
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0.095,
+      "landedSupportIndices": [
+        0,
+        1
+      ],
+      "requiredVertical": [
+        -26.522530681818125,
+        693.374730681818
+      ],
+      "momentLeftIfSingleHookNm": 0,
+      "positiveTwoContactMarginN": -26.522530681818125,
+      "staticEquilibriumWithUnilateralRungOnly": false
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0,
+      "landedSupportIndices": [
+        1
+      ],
+      "requiredVertical": [
+        0,
+        666.8521999999999
+      ],
+      "momentLeftIfSingleHookNm": 58.68299359999999,
+      "positiveTwoContactMarginN": 0,
+      "staticEquilibriumWithUnilateralRungOnly": false
+    },
+    {
+      "grossKg": 68,
+      "gravityCenterYM": 0,
+      "landedSupportIndices": [
+        0
+      ],
+      "requiredVertical": [
+        666.8521999999999,
+        0.0
+      ],
+      "momentLeftIfSingleHookNm": 58.68299359999999,
+      "positiveTwoContactMarginN": 0.0,
+      "staticEquilibriumWithUnilateralRungOnly": false
+    }
+  ],
+  "priorDynamicControls": {
+    "nominal": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": 50.98543271658242,
+      "peakPerHookN": [
+        424.56630041484044,
+        424.56630041484044
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": true,
+      "firstClearS": 4.89775,
+      "postCutReadS": 2.0
+    },
+    "finer": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": 50.98545786957034,
+      "peakPerHookN": [
+        424.56486764880765,
+        424.56486764880765
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": true,
+      "firstClearS": 4.897625,
+      "postCutReadS": 2.0
+    },
+    "loaded": {
+      "grossKg": 68.0,
+      "minimumClearanceMm": 48.79495706898381,
+      "peakPerHookN": [
+        479.3185557176253,
+        479.3185557176253
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": true,
+      "firstClearS": 4.99925,
+      "postCutReadS": 2.0
+    },
+    "early-cut": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": -1.3818461363636416,
+      "peakPerHookN": [
+        0.0,
+        0.0
+      ],
+      "wheelReactionN": 608.0123,
+      "leadScrewSelfLocks": true,
+      "firstClearS": null,
+      "postCutReadS": 2.0
+    },
+    "stalled-drive": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": -1.3818461363636416,
+      "peakPerHookN": [
+        0.0,
+        0.0
+      ],
+      "wheelReactionN": 608.0123,
+      "leadScrewSelfLocks": true,
+      "firstClearS": null,
+      "postCutReadS": 2.0
+    },
+    "missed-rung": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": 47.601785505197746,
+      "peakPerHookN": [
+        846.9836843894849,
+        0.0
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": true,
+      "firstClearS": null,
+      "postCutReadS": 2.0
+    },
+    "released-thread": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": 36.85391566570919,
+      "peakPerHookN": [
+        424.56630041484044,
+        424.56630041484044
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": false,
+      "firstClearS": 4.89775,
+      "postCutReadS": 2.0
+    },
+    "roll-error": {
+      "grossKg": 62.0,
+      "minimumClearanceMm": 51.59919500950013,
+      "peakPerHookN": [
+        734.664396410695,
+        253.36174566019633
+      ],
+      "wheelReactionN": 0.0,
+      "leadScrewSelfLocks": true,
+      "firstClearS": 4.8765,
+      "postCutReadS": 2.0
+    }
+  },
+  "scope": "No native material strength, weld/bearing/latch capacity, exact assembled center of gravity, free-roll dynamics, screw synchronization or hardware proof. Previous low-friction run lasted two unpowered seconds. Positive gap after two seconds leaves indefinite retention and repeated cycles unresolved."
+}

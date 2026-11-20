@@ -20,3 +20,7 @@ The [whole-robot assembly engineering record](../cad/assembly-release/engineerin
 ## Chassis fabrication revision
 
 The **frc-swerve** and **frc-mechanism-cad** foundation work produced the [corrected student Fusion archive](../cad/assembly-release/foundation-student.f3d), [drawing and assembly record](../cad/assembly-release/engineering.md), [235-product inspection](../cad/assembly-release/reopened-products.json), and [CAD orbit](https://ehartye.github.io/frc-2026-poc/foundation/). The archive includes 126 inherited upper, bumper and electrical articles with their earlier material and verification limits.
+
+## Alliance role, collection and whole-robot support
+
+**frc-case-study**, **frc-strategic-narrative** and **frc-mechanism-cad** produced the [role, system-design and support comparison](../experiments/role-and-support/study.md). Its [interactive field rehearsal](https://ehartye.github.io/frc-2026-poc/depot-lanes/#rehearsal) preserves the baseline and changes the reserve route independently on each alliance. The comparison links the original per-piece runs, observed supply rates, full-weight support demands and the remaining anchors, hold ratings and cart support evidence.
