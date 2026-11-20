@@ -1,0 +1,155 @@
+{
+  "scope": "One selected default 3v3 roster from AUTO through the first 25-second shift; outlet occupancy limited to one physical piece each.",
+  "trials": [
+    {
+      "secondsPerPiece": 0.75,
+      "rows": [
+        {
+          "period": "AUTO",
+          "bySide": {
+            "blue": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            },
+            "red": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            }
+          }
+        },
+        {
+          "period": "Transition",
+          "bySide": {
+            "blue": {
+              "released": 5,
+              "retrieved": 4,
+              "queued": 19
+            },
+            "red": {
+              "released": 5,
+              "retrieved": 4,
+              "queued": 19
+            }
+          }
+        },
+        {
+          "period": "Shift 1",
+          "bySide": {
+            "blue": {
+              "released": 13,
+              "retrieved": 12,
+              "queued": 11
+            },
+            "red": {
+              "released": 13,
+              "retrieved": 12,
+              "queued": 11
+            }
+          }
+        }
+      ]
+    },
+    {
+      "secondsPerPiece": 1.5,
+      "rows": [
+        {
+          "period": "AUTO",
+          "bySide": {
+            "blue": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            },
+            "red": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            }
+          }
+        },
+        {
+          "period": "Transition",
+          "bySide": {
+            "blue": {
+              "released": 5,
+              "retrieved": 4,
+              "queued": 19
+            },
+            "red": {
+              "released": 5,
+              "retrieved": 4,
+              "queued": 19
+            }
+          }
+        },
+        {
+          "period": "Shift 1",
+          "bySide": {
+            "blue": {
+              "released": 13,
+              "retrieved": 12,
+              "queued": 11
+            },
+            "red": {
+              "released": 13,
+              "retrieved": 12,
+              "queued": 11
+            }
+          }
+        }
+      ]
+    },
+    {
+      "secondsPerPiece": 3,
+      "rows": [
+        {
+          "period": "AUTO",
+          "bySide": {
+            "blue": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            },
+            "red": {
+              "released": 1,
+              "retrieved": 0,
+              "queued": 23
+            }
+          }
+        },
+        {
+          "period": "Transition",
+          "bySide": {
+            "blue": {
+              "released": 3,
+              "retrieved": 2,
+              "queued": 21
+            },
+            "red": {
+              "released": 3,
+              "retrieved": 2,
+              "queued": 21
+            }
+          }
+        },
+        {
+          "period": "Shift 1",
+          "bySide": {
+            "blue": {
+              "released": 7,
+              "retrieved": 6,
+              "queued": 17
+            },
+            "red": {
+              "released": 7,
+              "retrieved": 6,
+              "queued": 17
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
