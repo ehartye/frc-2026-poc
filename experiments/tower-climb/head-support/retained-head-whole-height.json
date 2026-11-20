@@ -1,0 +1,104 @@
+{
+  "source": "2c6702a1f8ad028e6af24ef921b751f2e781acfb24c2ab583bf7a0bd5b539db8",
+  "loadedProductBounds": 275,
+  "candidateHeadsSolidCount": 20,
+  "cases": {
+    "0": {
+      "maximumHeightMm": 755.2,
+      "remainingTo762Mm": 6.7999999999999545,
+      "part": "retained head solid 5",
+      "partBoundsMm": [
+        -242.5,
+        302.5,
+        746.0,
+        -237.5,
+        307.5,
+        754.7
+      ],
+      "wheelDeltaMm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "supports": [
+        0,
+        1,
+        2
+      ]
+    },
+    "1": {
+      "maximumHeightMm": 758.2754716981133,
+      "remainingTo762Mm": 3.7245283018867212,
+      "part": "retained head solid 15",
+      "partBoundsMm": [
+        -242.5,
+        -307.5,
+        746.0,
+        -237.5,
+        -302.5,
+        754.7
+      ],
+      "wheelDeltaMm": [
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "supports": [
+        0,
+        1,
+        2
+      ]
+    },
+    "2": {
+      "maximumHeightMm": 761.3509433962265,
+      "remainingTo762Mm": 0.649056603773488,
+      "part": "retained head solid 15",
+      "partBoundsMm": [
+        -242.5,
+        -307.5,
+        746.0,
+        -237.5,
+        -302.5,
+        754.7
+      ],
+      "wheelDeltaMm": [
+        -2,
+        2,
+        2,
+        -2
+      ],
+      "supports": [
+        0,
+        1,
+        2
+      ]
+    },
+    "3": {
+      "maximumHeightMm": 764.5754716981132,
+      "remainingTo762Mm": -2.5754716981132333,
+      "part": "right aft mast upper plate key",
+      "partBoundsMm": [
+        -289.5,
+        -335.5,
+        718.0,
+        -270.5,
+        -316.5,
+        754.0
+      ],
+      "wheelDeltaMm": [
+        -3,
+        3,
+        3,
+        -3
+      ],
+      "supports": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "scope": "Conservative individual solid bounding boxes evaluated over three-point support planes, fourth wheel may unload. Machining +0.5 mm. No tire stiffness calibration. Upper plates in separate tied-head recipe require integrating both sets of cuts. Lower brake candidate sits below 700 mm."
+}
