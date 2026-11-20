@@ -1,0 +1,76 @@
+{
+  "revision": "Foundation red 1780 display, derived from the 235-component public drivetrain foundation",
+  "sha256": {
+    "display.f3d": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
+    "display.step": "c0569107f87b51bbda654def72acba1c995c8cbebc32a98222944c3b52034d69",
+    "display.glb": "74f3619521255c29949baa1d3edd190b722501ef849847f81ef4da6d6a0ffbc4",
+    "assembly.png": "6a7d02e5a1bc68f2307a4c2fe1d28b0ba63f53c3c3af36fc0c5c9544615f7c66"
+  },
+  "source": {
+    "archive": "../assembly-release/foundation-student.f3d",
+    "sha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
+    "step": "../assembly-release/foundation-student.step",
+    "stepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e"
+  },
+  "pipeline": [
+    "The issue script opens the exact public F3D in Fusion, recolors five existing bumper envelopes and creates sixteen original editable ink extrusions.",
+    "A separate Fusion document opens the saved derivative, reads all component appearances and exports the entire STEP. The cold viewport is independently checked after native graphics refresh.",
+    "The public GLB tessellates those same 251 named STEP products with the colors read from the reopened archive."
+  ],
+  "appearance": "Project red-alliance finish #C5273D; native white numerals #FFFFFF. Four 165 by 100 mm print groups use 13 mm primary strokes on the two sides, rear, and left front return. The print is represented by 0.12 mm relief.",
+  "nativeStill": {
+    "method": "Byte-for-byte copy of Autodesk Fusion\u00e2\u20ac\u2122s embedded preview in the issued archive",
+    "archiveEntry": "FusionAssetName[Active]/Previews/big.png",
+    "pixels": [
+      1024,
+      1024
+    ],
+    "pose": "Fusion-authored default saved assembly preview; blue studio background is a site presentation choice."
+  },
+  "coldDiagnosticCamera": {
+    "eyeCm": [
+      226.1931631080099,
+      195.62651944476534,
+      146.2115857388475
+    ],
+    "targetCm": [
+      0.0,
+      0.0,
+      37.70000073432923
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "viewExtents": 127.2527225497814,
+    "image": [
+      1500,
+      1050
+    ]
+  },
+  "fusionCounts": {
+    "components": 251,
+    "oneSolidPerProduct": true,
+    "sourceComponents": 235,
+    "whiteDigits": 16,
+    "regularJointCollectionOnly": 0,
+    "asBuiltJoints": "Source swerve and tower motion have separate evidence. The display inspection did not remeasure the AsBuiltJoints collection.",
+    "nativeRigidGroups": 12
+  },
+  "mesh": {
+    "triangles": 74964,
+    "nodes": 251,
+    "chordToleranceMm": 0.16,
+    "angularToleranceRad": 0.22,
+    "coordinateMapping": "(robot X, robot Z, -robot Y) / 1000 to glTF metres"
+  },
+  "unchangedFoundationMaxDifference": {
+    "volumeMm3": 0.0,
+    "centroidMm": 0.0,
+    "extentMm": 0.0
+  },
+  "rights": "Public first-party robot geometry only. Purchased module and motor geometry is represented by the issued editable project envelopes. Exact supplier CAD remains in the private local relink; its geometry is not republished.",
+  "engineeringScope": "The five colored bumpers in this display revision are solid packaging envelopes. Their inherited Fusion Steel assignment and the artwork are excluded from bumper mass or inspection claims. Sectioned foam, cloth, plywood and physical mounts belong to the separate passive service revision. This derivative does not qualify those mounts, tower support or match performance.",
+  "motion": "Static assembled display. The pre-existing tower/joint and scoring motion studies have their own revision-bound viewers."
+}

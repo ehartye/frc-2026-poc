@@ -89,3 +89,12 @@ button:disabled{opacity:.6;cursor:default}input[type=range]{accent-color:#da9a30
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 
+
+.assembly-stage { margin: 0; }
+.assembly-stage model-viewer, .assembly-stage #fusion-still { height: clamp(22rem, 34vw, 32rem); }
+.assembly-stage img[slot="poster"] { display: block; width: 100%; height: 100%; object-fit: contain; }
+.assembly-stage .controls[hidden], .assembly-stage button[hidden] { display: none; }
+.assembly-stage:fullscreen { display: flex; flex-direction: column; }
+.assembly-stage #fusion-still { width: 100%; object-fit: contain; }
+.assembly-stage [hidden] { display: none; }
+.assembly-stage:fullscreen model-viewer, .assembly-stage:fullscreen #fusion-still { flex: 1; height: auto; }

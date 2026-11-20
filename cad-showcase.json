@@ -7,5 +7,15 @@
   "backdrop": {
     "center": "#405F86",
     "edge": "#142F63"
+  },
+  "featuredAssembly": {
+    "title": "Robot 1780 with red alliance bumpers",
+    "scope": "Parked Fusion assembly with four swerve modules, a rear lift and white 1780 numbering. Purchased components use public project-drawn representations.",
+    "source": "cad/showcase-red/display.step",
+    "archive": "cad/showcase-red/display.f3d",
+    "still": "cad/showcase-red/assembly.png",
+    "mesh": "cad/showcase-red/display.glb",
+    "receipt": "cad/showcase-red/provenance.json",
+    "viewerUrl": "https://ehartye.github.io/frc-2026-poc/#model"
   }
 }
