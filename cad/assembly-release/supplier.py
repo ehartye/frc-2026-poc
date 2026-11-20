@@ -16,7 +16,7 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "experiments/own-zone-cycle"))
 sys.path.insert(0, str(ROOT / "cad/own-zone"))
 import field_mesh as fm
-from prepare import layout
+from swerve import layout
 
 
 def content(path, expected):

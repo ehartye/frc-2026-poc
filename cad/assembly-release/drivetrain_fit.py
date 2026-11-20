@@ -56,7 +56,7 @@ def cyl(a, b, r):
     return shape(round_stock(a, b, r))
 
 
-def run(source, issued_step=None):
+def run(source, issued_step=None, frame_recipe=None):
     cfg, _, _, sites = layout()
     native = content(source, cfg["swerve"]["sha256"])
     leaves = {}
@@ -77,7 +77,7 @@ def run(source, issued_step=None):
         else:
             leaves[name] = part
     new, hardware, rail_ops, stacks = build()
-    new.update(build_frame())
+    new.update((frame_recipe or build_frame)())
     scene = {
         m["id"]: body
         for body, m in records()
