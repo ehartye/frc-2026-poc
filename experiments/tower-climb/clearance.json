@@ -1,0 +1,54 @@
+[
+  {
+    "deployMm": 0,
+    "lowerMm": 0,
+    "intersections": []
+  },
+  {
+    "deployMm": 108,
+    "lowerMm": 0,
+    "intersections": []
+  },
+  {
+    "deployMm": 215,
+    "lowerMm": 0,
+    "intersections": []
+  },
+  {
+    "deployMm": 215,
+    "lowerMm": 50,
+    "intersections": []
+  },
+  {
+    "deployMm": 215,
+    "lowerMm": 100,
+    "intersections": []
+  },
+  {
+    "deployMm": 215,
+    "lowerMm": 115,
+    "intersections": [
+      {
+        "pair": [
+          "feed diverter vane",
+          "extension bearing beam"
+        ],
+        "volumeMm3": 896.0
+      },
+      {
+        "pair": [
+          "left reduction envelope",
+          "left crosshead cheek"
+        ],
+        "volumeMm3": 3271.584
+      },
+      {
+        "pair": [
+          "right reduction envelope",
+          "right crosshead cheek"
+        ],
+        "volumeMm3": 3271.584
+      }
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "publicFusionHandoff": "cad/own-zone-upper/public-handoff.json",
+  "publicFusionHandoff": "cad/tower-lift/public-handoff.json",
   "toolchainFiles": [
     "config.json",
     "PROVENANCE.json"

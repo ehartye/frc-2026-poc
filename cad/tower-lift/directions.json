@@ -1,0 +1,4 @@
+{
+  "Tower rear deployment": {"frame":"crosshead lift bridge","axis":[-1,0,0],"sign":1},
+  "Tower load stroke": {"frame":"left mast","axis":[0,0,1],"sign":1}
+}

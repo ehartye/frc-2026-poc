@@ -44,7 +44,22 @@ for (const match of receipt.matches) {
       if(e.outcome==='inactive') assert.ok(!active);
     }
   }
-  assert.deepEqual(totals,game.score);
+  const terminal=game.endgame;
+  assert.deepEqual(totals,terminal.ordinaryScore);
+  const expected={
+    'Own-zone supply':[['B2','qualified','tower-L1',10],['R2','qualified','tower-L1',10]],
+    'Neutral return':[['B2','unresolved',null,0],['R2','service-incomplete',null,0]],
+    'Missed preload':[['B1','failed','tower-L1',10],['R2','failed',null,0]],
+  };
+  assert.deepEqual(terminal.attempts.map(a=>[a.robot,a.outcome,a.awardedAction,a.points]),expected[match.id]);
+  assert.equal(terminal.activeCutoffS,160);
+  assert.equal(terminal.assessmentTimeS,160+Math.min(3,terminal.atRestAfterS??3));
+  for(const side of ['blue','red']){
+    const tower=terminal.attempts.filter(a=>a.side===side).reduce((sum,a)=>sum+a.points,0);
+    assert.equal(tower,terminal.terminalScore[side]);
+    assert.equal(game.score[side],totals[side]+tower);
+    assert.ok(tower<50); // None of these AUTO plans earns TOWER points.
+  }
   console.log(match.id,game.score,match.periods.length+' complete periods','504 identities conserved');
 }
 assert.deepEqual([...leaders].sort(),['blue','red','tie']);

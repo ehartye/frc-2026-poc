@@ -32,7 +32,25 @@
       "height": 6.513,
       "degrees": 15
     },
-    "fuelDiameter": 5.91
+    "fuelDiameter": 5.91,
+    "towerRules": {
+      "teleopPoints": [
+        10,
+        20,
+        30
+      ],
+      "autoLevel1": 15,
+      "autoAllianceCap": 2,
+      "teleopAssessmentMaxS": 3,
+      "districtRegionalTraversalThreshold": 50,
+      "championshipThresholdAtKickoff": null,
+      "rungCentersIn": [
+        27,
+        45,
+        63
+      ],
+      "rungOutsideDiameterIn": 1.66
+    }
   },
   "landmarks": [
     {
@@ -259,7 +277,7 @@
   "rehearsal": {
     "schema": "field-rehearsal/v1",
     "basis": "Project plan-view screen using §5 bounds. Flat transit under each trench. The placement of clear space within each trench is assumed centered. A BUMP is legal to cross, but its full footprint is blocked in this flat-path trial. Structural side allowances model only the remaining width. Two symmetric choices of corridor.",
-    "boundsNote": "Includes HUB solids, nominal trench roofs and estimated side allowances. No field-end TOWER or DEPOT collision, impact-force estimate, climb or ramp model. Evaluate corridor geometry independently of shooting or possession.",
+    "boundsNote": "Includes HUB solids, nominal trench roofs and estimated side allowances. TOWER sites use registered field coordinates and a shared approach reservation. The planar lab omits structure contact forces, DEPOT collisions and ramp dynamics. Evaluate corridor geometry independently of shooting or possession.",
     "sources": [
       "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
       "https://firstfrc.blob.core.windows.net/frc2026/Manual/TeamUpdates/2026TeamUpdate00.pdf"
@@ -1746,8 +1764,20 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
-              "bumper": 2.9921259842519685
+              "height": 29.68503937007874,
+              "bumper": 2.9921259842519685,
+              "endgame": {
+                "action": "tower-L1",
+                "target": "red-tower",
+                "startS": 7,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "met",
+                  "clear-carpet-and-base": "met"
+                }
+              }
             },
             {
               "side": "blue",
@@ -1768,8 +1798,20 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
-              "bumper": 2.9921259842519685
+              "height": 29.68503937007874,
+              "bumper": 2.9921259842519685,
+              "endgame": {
+                "action": "tower-L1",
+                "target": "blue-tower",
+                "startS": 7,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "met",
+                  "clear-carpet-and-base": "met"
+                }
+              }
             },
             {
               "side": "red",
@@ -1808,7 +1850,8 @@
               }
             }
           ],
-          "tieWinner": "blue"
+          "tieWinner": "blue",
+          "endgameAtRestAfterS": 2
         },
         {
           "id": "Neutral return",
@@ -1870,8 +1913,20 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
-              "bumper": 2.9921259842519685
+              "height": 29.68503937007874,
+              "bumper": 2.9921259842519685,
+              "endgame": {
+                "action": "tower-L1",
+                "target": "red-tower",
+                "startS": 27,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "met",
+                  "clear-carpet-and-base": "met"
+                }
+              }
             },
             {
               "side": "blue",
@@ -1892,8 +1947,20 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
-              "bumper": 2.9921259842519685
+              "height": 29.68503937007874,
+              "bumper": 2.9921259842519685,
+              "endgame": {
+                "action": "tower-L1",
+                "target": "blue-tower",
+                "startS": 7,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "unknown",
+                  "clear-carpet-and-base": "met"
+                }
+              }
             },
             {
               "side": "red",
@@ -1932,7 +1999,8 @@
               }
             }
           ],
-          "tieWinner": "red"
+          "tieWinner": "red",
+          "endgameAtRestAfterS": 3
         },
         {
           "id": "Missed preload",
@@ -1973,6 +2041,25 @@
               "preload": {
                 "station": "blue-preload-1",
                 "quantity": 8
+              },
+              "endgame": {
+                "action": "tower-L2",
+                "target": "blue-tower",
+                "startS": 2,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "met",
+                  "clear-carpet-and-base": "met",
+                  "bumpers-above-low": "failed"
+                },
+                "fallbacks": [
+                  {
+                    "action": "tower-L1",
+                    "target": "blue-tower"
+                  }
+                ]
               }
             },
             {
@@ -1994,8 +2081,20 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
-              "bumper": 2.9921259842519685
+              "height": 29.68503937007874,
+              "bumper": 2.9921259842519685,
+              "endgame": {
+                "action": "tower-L1",
+                "target": "red-tower",
+                "startS": 7,
+                "witnesses": {
+                  "rung-or-upright": "met",
+                  "only-permitted-contacts": "met",
+                  "independent-support": "met",
+                  "held-to-assessment": "met",
+                  "clear-carpet-and-base": "failed"
+                }
+              }
             },
             {
               "side": "blue",
@@ -2016,7 +2115,7 @@
               },
               "length": 26.77165354330709,
               "width": 26.77165354330709,
-              "height": 29.133858267716537,
+              "height": 29.68503937007874,
               "bumper": 2.9921259842519685
             },
             {
@@ -2056,11 +2155,113 @@
               }
             }
           ],
-          "tieWinner": "blue"
+          "tieWinner": "blue",
+          "endgameAtRestAfterS": 1
         }
       ]
     },
-    "stationBasis": "Kickoff V0 §§5.3-5.9, 6.3.4 and 6.5, figures 5-4, 5-6, 6-2 and 6-3. HUB from registered structure and one legal approach sector. Depot and chute wall coordinates are figure-estimated, chassis action datums assumed. Neutral stock spans 72 × 206 in with a 2 in divider. Six full preloads. Equal shares, four-second deterministic recycling and target outcomes are simulation assumptions. The official January 7 STEP, served January 10, SHA256 2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671 independently locates 24 staged depot FUEL per side. The displayed depot marker is their centroid. The chassis action coordinates remain declared assumptions."
+    "stationBasis": "Kickoff V0 §§5.3-5.9, 6.3.4 and 6.5, figures 5-4, 5-6, 6-2 and 6-3. HUB from registered structure and one legal approach sector. Depot and chute wall coordinates are figure-estimated, chassis action datums assumed. Neutral stock spans 72 × 206 in with a 2 in divider. Six full preloads. Equal shares, four-second deterministic recycling and target outcomes are simulation assumptions. The official January 7 STEP, served January 10, SHA256 2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671 independently locates 24 staged depot FUEL per side. The displayed depot marker is their centroid. The chassis action coordinates remain declared assumptions.",
+    "endgame": {
+      "period": "End game",
+      "basis": "Kickoff V0 sections 5.8 and 6.5. The assigned own-zone slot makes one final choice. Two-inch route arrival is a staging allowance. Separate criteria require actual rung contact, support and clearance. The 9 s L1 service starts at the dock. Higher-level times and all scenario witnesses are assumptions. One tower berth per alliance reserves approach clearance. B2 and R2 are the native R2C-T1 low-rung robot. B1 and R1 are hypothetical multi-level peers with a separate upper-tier drive and no native evidence.",
+      "sources": [
+        "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+        "experiments/tower-climb/study.md"
+      ],
+      "assessment": {
+        "maxDelayS": 3
+      },
+      "targets": [
+        {
+          "id": "blue-tower",
+          "side": "blue",
+          "label": "Blue TOWER",
+          "at": [
+            59.929205,
+            164.475
+          ],
+          "displayAt": [
+            41.80125,
+            164.475
+          ],
+          "radiusIn": 2,
+          "resource": "tower",
+          "capacity": 1
+        },
+        {
+          "id": "red-tower",
+          "side": "red",
+          "label": "Red TOWER",
+          "at": [
+            591.270795,
+            153.225
+          ],
+          "displayAt": [
+            609.39875,
+            153.225
+          ],
+          "radiusIn": 2,
+          "resource": "tower",
+          "capacity": 1
+        }
+      ],
+      "actions": [
+        {
+          "id": "tower-L1",
+          "label": "TOWER Level 1 · selected lift / comparison peer",
+          "points": 10,
+          "serviceS": 9,
+          "requires": [
+            "rung-or-upright",
+            "only-permitted-contacts",
+            "independent-support",
+            "held-to-assessment",
+            "clear-carpet-and-base"
+          ],
+          "eligibleRobots": [
+            "B2",
+            "R2",
+            "B1",
+            "R1"
+          ]
+        },
+        {
+          "id": "tower-L2",
+          "label": "TOWER Level 2 · comparison peer only",
+          "points": 20,
+          "serviceS": 15,
+          "requires": [
+            "rung-or-upright",
+            "only-permitted-contacts",
+            "independent-support",
+            "held-to-assessment",
+            "bumpers-above-low"
+          ],
+          "eligibleRobots": [
+            "B1",
+            "R1"
+          ]
+        },
+        {
+          "id": "tower-L3",
+          "label": "TOWER Level 3 · comparison peer only",
+          "points": 30,
+          "serviceS": 21,
+          "requires": [
+            "rung-or-upright",
+            "only-permitted-contacts",
+            "independent-support",
+            "held-to-assessment",
+            "bumpers-above-mid"
+          ],
+          "eligibleRobots": [
+            "B1",
+            "R1"
+          ]
+        }
+      ],
+      "bonuses": []
+    }
   },
   "ruleRegister": {
     "schema": "frc-rule-register/v1",
@@ -2336,11 +2537,29 @@
       {
         "id": "tower",
         "topic": "scoring",
-        "locator": "§6.5 Tables 6-4 and 6-5",
-        "statement": "TOWER level 1 in AUTO earns 15 points, capped at two robots per alliance. TELEOP levels 1–3 earn 10, 20 or 30 points per robot.",
-        "reason": "Students should value the displaced scoring window and climbing reliability before pursuing this separate role.",
-        "status": "unmodeled",
-        "sourceId": "manual"
+        "locator": "§5.8; §6.5 Robot Scoring Criteria; Tables 6-4 and 6-5",
+        "statement": "On this kickoff edition, AUTO counts only a Level 1 tower and at most two robots per alliance. TELEOP awards the single attained level per robot. Assess TELEOP at rest of all robots or three seconds after zero, whichever is earlier. Regional/district traversal uses the alliance tower-point total across both periods.",
+        "status": "modeled",
+        "sourceId": "manual",
+        "pointer": "/fieldFeatures/towerRules",
+        "value": {
+          "teleopPoints": [
+            10,
+            20,
+            30
+          ],
+          "autoLevel1": 15,
+          "autoAllianceCap": 2,
+          "teleopAssessmentMaxS": 3,
+          "districtRegionalTraversalThreshold": 50,
+          "championshipThresholdAtKickoff": null,
+          "rungCentersIn": [
+            27,
+            45,
+            63
+          ],
+          "rungOutsideDiameterIn": 1.66
+        }
       },
       {
         "id": "ranks",
@@ -2395,6 +2614,15 @@
         "reason": "Bumper thickness is a project scenario assumption. Later technical design needs an explicit compliance check.",
         "status": "unmodeled",
         "sourceId": "tu00"
+      },
+      {
+        "id": "tower-contact",
+        "topic": "restrictions",
+        "status": "unmodeled",
+        "sourceId": "manual",
+        "locator": "§6.5 Robot Scoring Criteria, Figure 6-4; G414, G420",
+        "statement": "A robot must touch a rung or upright. Additional contact can only be with the tower wall, support structure, FUEL or another robot. Level 1 clears both carpet and tower base, Level 2 places every bumper completely above the low rung, Level 3 above the mid rung. A partner cannot fully support its weight. Opponent-contact protection during the last 30 seconds can trigger a major foul and a Level 3 award for an off-ground opponent.",
+        "reason": "Project-owned witnesses and a single-upright mechanics comparison support student review. Human officials assess the match, including foul attribution."
       }
     ],
     "openQuestions": [
@@ -2672,5 +2900,5 @@
     "location": "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
     "sha256": "928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17"
   },
-  "ruleRegisterSha256": "f9c264c884631e1d234a7ee365ea42a85d5f9515ffba1be4df7e75d092f39c47"
+  "ruleRegisterSha256": "b926f5d1ca03691bbf5a4ff0f3ecd42340d3e1e5bc84e861b0f9f4043203ad76"
 }

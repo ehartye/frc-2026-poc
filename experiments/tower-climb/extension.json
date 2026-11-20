@@ -1,0 +1,16 @@
+{
+  "schema": "r2c-t1/axial-deployment@1",
+  "workingDeployMm": 215,
+  "workingLiftMm": 100,
+  "nativeLiftMm": 115,
+  "minimumEngagementMm": 19.999999999999986,
+  "leadMm": 4,
+  "minimumEngagedTurns": 4.9999999999999964,
+  "radialCenterErrorMm": 0.0,
+  "minimumGuideOverlapMm": 87.0,
+  "minimumStopClearanceMm": 0.0,
+  "nominalAtStopAxialLoadN": 489.2324977799358,
+  "peakUnloadedCommandRpm": 3901.2096774193546,
+  "assumedNoLoadRpm": 5500,
+  "scope": "Smooth motion requires the indicated shaft speed; screw, nut and motor are packaging envelopes. Powered friction, bearings, thread stripping, installed retention and motor selection need independent qualification."
+}

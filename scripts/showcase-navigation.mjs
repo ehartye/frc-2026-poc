@@ -1,7 +1,7 @@
 const workflow='https://github.com/ehartye/frc-2026-poc/blob/main/docs/workflow.md';
 
 export function navigation(base,current) {
-  const links=[['model','Model',base+'#model'],['motion','Motion',base+'robot/'],
+  const links=[['model','Model',base+'#model'],['motion','FUEL replay',base+'robot/'],['tower','Climb',base+'robot/tower.html'],
     ['results','Results',base+'robot/batch.html'],['strategy','Strategy',base+'#strategy'],
     ['lab','Field lab',base+'field-lab.html'],['workflow','Workflow',workflow]];
   const items=links.map(([key,title,href])=>

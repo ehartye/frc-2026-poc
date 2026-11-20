@@ -1,0 +1,856 @@
+[
+  {
+    "name": "left mast",
+    "stage": "fixed",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -180,
+      326,
+      114.8
+    ],
+    "end": [
+      -180,
+      326,
+      744
+    ],
+    "width": 20,
+    "height": 20,
+    "wall": 2
+  },
+  {
+    "name": "left aft mast",
+    "stage": "fixed",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -280,
+      326,
+      114.8
+    ],
+    "end": [
+      -280,
+      326,
+      744
+    ],
+    "width": 20,
+    "height": 20,
+    "wall": 2
+  },
+  {
+    "name": "left upper bearing plate",
+    "stage": "fixed",
+    "role": "guide",
+    "shape": "box",
+    "lower": [
+      -294,
+      298,
+      744
+    ],
+    "upper": [
+      -166,
+      336,
+      750
+    ]
+  },
+  {
+    "name": "left lower bearing plate",
+    "stage": "fixed",
+    "role": "guide",
+    "shape": "box",
+    "lower": [
+      -267,
+      292,
+      551
+    ],
+    "upper": [
+      -213,
+      335,
+      557
+    ]
+  },
+  {
+    "name": "left lead screw envelope",
+    "stage": "fixed",
+    "role": "shaft",
+    "shape": "cylinder",
+    "start": [
+      -240,
+      305,
+      557
+    ],
+    "end": [
+      -240,
+      305,
+      744
+    ],
+    "radius": 5
+  },
+  {
+    "name": "left lift motor envelope",
+    "stage": "fixed",
+    "role": "drive",
+    "shape": "cylinder",
+    "start": [
+      -240,
+      258,
+      577
+    ],
+    "end": [
+      -240,
+      258,
+      638
+    ],
+    "radius": 30
+  },
+  {
+    "name": "left reduction envelope",
+    "stage": "fixed",
+    "role": "drive",
+    "shape": "box",
+    "lower": [
+      -259,
+      248,
+      557
+    ],
+    "upper": [
+      -221,
+      312,
+      577
+    ]
+  },
+  {
+    "name": "left driven nut",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -249,
+      296,
+      711
+    ],
+    "upper": [
+      -231,
+      315,
+      725
+    ],
+    "holes": [
+      [
+        -240,
+        305,
+        5.0
+      ]
+    ]
+  },
+  {
+    "name": "left nut link",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -248,
+      298,
+      701
+    ],
+    "upper": [
+      -232,
+      314,
+      711
+    ],
+    "holes": [
+      [
+        -240,
+        305,
+        5.8
+      ]
+    ]
+  },
+  {
+    "name": "left crosshead cheek",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -292,
+      292,
+      687
+    ],
+    "upper": [
+      -117,
+      315,
+      701
+    ],
+    "holes": [
+      [
+        -240,
+        305,
+        5.8
+      ]
+    ]
+  },
+  {
+    "name": "left forward carriage sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -180,
+      326,
+      682
+    ],
+    "end": [
+      -180,
+      326,
+      722
+    ],
+    "width": 26,
+    "height": 25,
+    "wall": 2
+  },
+  {
+    "name": "left aft carriage sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -280,
+      326,
+      682
+    ],
+    "end": [
+      -280,
+      326,
+      722
+    ],
+    "width": 26,
+    "height": 25,
+    "wall": 2
+  },
+  {
+    "name": "left extension sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -173,
+      72,
+      739
+    ],
+    "end": [
+      -86,
+      72,
+      739
+    ],
+    "width": 28,
+    "height": 30,
+    "wall": 2
+  },
+  {
+    "name": "left sleeve pedestal",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -164,
+      61,
+      701
+    ],
+    "upper": [
+      -142,
+      83,
+      724
+    ]
+  },
+  {
+    "name": "left extending rail",
+    "stage": "hooks",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -220,
+      72,
+      739
+    ],
+    "end": [
+      175,
+      72,
+      739
+    ],
+    "width": 20,
+    "height": 22,
+    "wall": 2
+  },
+  {
+    "name": "left crown hook",
+    "stage": "hooks",
+    "role": "guide",
+    "shape": "hook",
+    "y": 82,
+    "thickness": 12,
+    "profile": [
+      [
+        -283,
+        710
+      ],
+      [
+        -271,
+        710
+      ],
+      [
+        -271,
+        737
+      ],
+      [
+        -223,
+        737
+      ],
+      [
+        -223,
+        710
+      ],
+      [
+        -211,
+        710
+      ],
+      [
+        -211,
+        736
+      ],
+      [
+        -176,
+        736
+      ],
+      [
+        -176,
+        753
+      ],
+      [
+        -283,
+        753
+      ]
+    ]
+  },
+  {
+    "name": "right mast",
+    "stage": "fixed",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -180,
+      -326,
+      114.8
+    ],
+    "end": [
+      -180,
+      -326,
+      744
+    ],
+    "width": 20,
+    "height": 20,
+    "wall": 2
+  },
+  {
+    "name": "right aft mast",
+    "stage": "fixed",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -280,
+      -326,
+      114.8
+    ],
+    "end": [
+      -280,
+      -326,
+      744
+    ],
+    "width": 20,
+    "height": 20,
+    "wall": 2
+  },
+  {
+    "name": "right upper bearing plate",
+    "stage": "fixed",
+    "role": "guide",
+    "shape": "box",
+    "lower": [
+      -294,
+      -336,
+      744
+    ],
+    "upper": [
+      -166,
+      -298,
+      750
+    ]
+  },
+  {
+    "name": "right lower bearing plate",
+    "stage": "fixed",
+    "role": "guide",
+    "shape": "box",
+    "lower": [
+      -267,
+      -335,
+      551
+    ],
+    "upper": [
+      -213,
+      -292,
+      557
+    ]
+  },
+  {
+    "name": "right lead screw envelope",
+    "stage": "fixed",
+    "role": "shaft",
+    "shape": "cylinder",
+    "start": [
+      -240,
+      -305,
+      557
+    ],
+    "end": [
+      -240,
+      -305,
+      744
+    ],
+    "radius": 5
+  },
+  {
+    "name": "right lift motor envelope",
+    "stage": "fixed",
+    "role": "drive",
+    "shape": "cylinder",
+    "start": [
+      -240,
+      -258,
+      577
+    ],
+    "end": [
+      -240,
+      -258,
+      638
+    ],
+    "radius": 30
+  },
+  {
+    "name": "right reduction envelope",
+    "stage": "fixed",
+    "role": "drive",
+    "shape": "box",
+    "lower": [
+      -259,
+      -312,
+      557
+    ],
+    "upper": [
+      -221,
+      -248,
+      577
+    ]
+  },
+  {
+    "name": "right driven nut",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -249,
+      -315,
+      711
+    ],
+    "upper": [
+      -231,
+      -296,
+      725
+    ],
+    "holes": [
+      [
+        -240,
+        -305,
+        5.0
+      ]
+    ]
+  },
+  {
+    "name": "right nut link",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -248,
+      -314,
+      701
+    ],
+    "upper": [
+      -232,
+      -298,
+      711
+    ],
+    "holes": [
+      [
+        -240,
+        -305,
+        5.8
+      ]
+    ]
+  },
+  {
+    "name": "right crosshead cheek",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -292,
+      -315,
+      687
+    ],
+    "upper": [
+      -117,
+      -292,
+      701
+    ],
+    "holes": [
+      [
+        -240,
+        -305,
+        5.8
+      ]
+    ]
+  },
+  {
+    "name": "right forward carriage sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -180,
+      -326,
+      682
+    ],
+    "end": [
+      -180,
+      -326,
+      722
+    ],
+    "width": 26,
+    "height": 25,
+    "wall": 2
+  },
+  {
+    "name": "right aft carriage sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -280,
+      -326,
+      682
+    ],
+    "end": [
+      -280,
+      -326,
+      722
+    ],
+    "width": 26,
+    "height": 25,
+    "wall": 2
+  },
+  {
+    "name": "right extension sleeve",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "tube",
+    "start": [
+      -173,
+      -72,
+      739
+    ],
+    "end": [
+      -86,
+      -72,
+      739
+    ],
+    "width": 28,
+    "height": 30,
+    "wall": 2
+  },
+  {
+    "name": "right sleeve pedestal",
+    "stage": "elevator",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      -164,
+      -83,
+      701
+    ],
+    "upper": [
+      -142,
+      -61,
+      724
+    ]
+  },
+  {
+    "name": "right extending rail",
+    "stage": "hooks",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -220,
+      -72,
+      739
+    ],
+    "end": [
+      175,
+      -72,
+      739
+    ],
+    "width": 20,
+    "height": 22,
+    "wall": 2
+  },
+  {
+    "name": "right crown hook",
+    "stage": "hooks",
+    "role": "guide",
+    "shape": "hook",
+    "y": -94,
+    "thickness": 12,
+    "profile": [
+      [
+        -283,
+        710
+      ],
+      [
+        -271,
+        710
+      ],
+      [
+        -271,
+        737
+      ],
+      [
+        -223,
+        737
+      ],
+      [
+        -223,
+        710
+      ],
+      [
+        -211,
+        710
+      ],
+      [
+        -211,
+        736
+      ],
+      [
+        -176,
+        736
+      ],
+      [
+        -176,
+        753
+      ],
+      [
+        -283,
+        753
+      ]
+    ]
+  },
+  {
+    "name": "crosshead lift bridge",
+    "stage": "elevator",
+    "role": "structure",
+    "shape": "tube",
+    "start": [
+      -151,
+      -315,
+      691
+    ],
+    "end": [
+      -151,
+      315,
+      691
+    ],
+    "width": 20,
+    "height": 20,
+    "wall": 2
+  },
+  {
+    "name": "rail synchronizing tie",
+    "stage": "hooks",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      153,
+      -82,
+      750
+    ],
+    "upper": [
+      173,
+      82,
+      754
+    ]
+  },
+  {
+    "name": "extension bearing beam",
+    "stage": "elevator",
+    "role": "structure",
+    "shape": "box",
+    "lower": [
+      -161,
+      -14,
+      701
+    ],
+    "upper": [
+      225,
+      14,
+      716
+    ]
+  },
+  {
+    "name": "extension rear bearing and stop",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "axial-block",
+    "start": [
+      -74,
+      0,
+      733
+    ],
+    "end": [
+      -62,
+      0,
+      733
+    ],
+    "width": 28,
+    "height": 34,
+    "holes": [
+      [
+        -74,
+        0,
+        5.2
+      ]
+    ]
+  },
+  {
+    "name": "extension forward bearing",
+    "stage": "elevator",
+    "role": "guide",
+    "shape": "axial-block",
+    "start": [
+      193,
+      0,
+      733
+    ],
+    "end": [
+      205,
+      0,
+      733
+    ],
+    "width": 28,
+    "height": 34,
+    "holes": [
+      [
+        193,
+        0,
+        5.2
+      ]
+    ]
+  },
+  {
+    "name": "extension screw envelope",
+    "stage": "elevator",
+    "role": "shaft",
+    "shape": "cylinder",
+    "start": [
+      -74,
+      0,
+      733
+    ],
+    "end": [
+      205,
+      0,
+      733
+    ],
+    "radius": 5
+  },
+  {
+    "name": "extension deployment nut",
+    "stage": "hooks",
+    "role": "guide",
+    "shape": "axial-block",
+    "start": [
+      153,
+      0,
+      733
+    ],
+    "end": [
+      173,
+      0,
+      733
+    ],
+    "width": 20,
+    "height": 26,
+    "holes": [
+      [
+        153,
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "name": "extension nut hanger",
+    "stage": "hooks",
+    "role": "mechanism",
+    "shape": "box",
+    "lower": [
+      153,
+      -8,
+      746
+    ],
+    "upper": [
+      173,
+      8,
+      750
+    ]
+  },
+  {
+    "name": "extension motor envelope",
+    "stage": "elevator",
+    "role": "drive",
+    "shape": "cylinder",
+    "start": [
+      205,
+      0,
+      733
+    ],
+    "end": [
+      254,
+      0,
+      733
+    ],
+    "radius": 18
+  },
+  {
+    "name": "extension motor foot",
+    "stage": "elevator",
+    "role": "structure",
+    "shape": "box",
+    "lower": [
+      207,
+      -9,
+      716
+    ],
+    "upper": [
+      223,
+      9,
+      718
+    ]
+  }
+]

@@ -272,11 +272,29 @@
     {
       "id": "tower",
       "topic": "scoring",
-      "locator": "§6.5 Tables 6-4 and 6-5",
-      "statement": "TOWER level 1 in AUTO earns 15 points, capped at two robots per alliance. TELEOP levels 1–3 earn 10, 20 or 30 points per robot.",
-      "reason": "Students should value the displaced scoring window and climbing reliability before pursuing this separate role.",
-      "status": "unmodeled",
-      "sourceId": "manual"
+      "locator": "§5.8; §6.5 Robot Scoring Criteria; Tables 6-4 and 6-5",
+      "statement": "On this kickoff edition, AUTO counts only a Level 1 tower and at most two robots per alliance. TELEOP awards the single attained level per robot. Assess TELEOP at rest of all robots or three seconds after zero, whichever is earlier. Regional/district traversal uses the alliance tower-point total across both periods.",
+      "status": "modeled",
+      "sourceId": "manual",
+      "pointer": "/fieldFeatures/towerRules",
+      "value": {
+        "teleopPoints": [
+          10,
+          20,
+          30
+        ],
+        "autoLevel1": 15,
+        "autoAllianceCap": 2,
+        "teleopAssessmentMaxS": 3,
+        "districtRegionalTraversalThreshold": 50,
+        "championshipThresholdAtKickoff": null,
+        "rungCentersIn": [
+          27,
+          45,
+          63
+        ],
+        "rungOutsideDiameterIn": 1.66
+      }
     },
     {
       "id": "ranks",
@@ -331,6 +349,15 @@
       "reason": "Bumper thickness is a project scenario assumption. Later technical design needs an explicit compliance check.",
       "status": "unmodeled",
       "sourceId": "tu00"
+    },
+    {
+      "id": "tower-contact",
+      "topic": "restrictions",
+      "status": "unmodeled",
+      "sourceId": "manual",
+      "locator": "§6.5 Robot Scoring Criteria, Figure 6-4; G414, G420",
+      "statement": "A robot must touch a rung or upright. Additional contact can only be with the tower wall, support structure, FUEL or another robot. Level 1 clears both carpet and tower base, Level 2 places every bumper completely above the low rung, Level 3 above the mid rung. A partner cannot fully support its weight. Opponent-contact protection during the last 30 seconds can trigger a major foul and a Level 3 award for an off-ground opponent.",
+      "reason": "Project-owned witnesses and a single-upright mechanics comparison support student review. Human officials assess the match, including foul attribution."
     }
   ],
   "openQuestions": [

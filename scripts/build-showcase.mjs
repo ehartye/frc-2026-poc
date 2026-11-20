@@ -34,11 +34,11 @@ for(const route of ['robot/orbit.html','chassis/index.html','fixture/index.html'
   const file=path.join(destination,route);
   await writeFile(file,styleOrbit(await readFile(file,'utf8')));
 }
-for(const [source,name,section] of [['motion.html','index.html','motion'],['batch.html','batch.html','results']]){
+for(const [source,name,section] of [['motion.html','index.html','motion'],['batch.html','batch.html','results'],['tower.html','tower.html','tower']]){
   const html=await readFile(at('docs/showcase/'+source),'utf8');
   await writeFile(path.join(destination,'robot',name),styleShowcase(html,'../',section));
 }
-for(const file of ['motion.js','batch.js','loading.js']) await cp(at('docs/showcase/'+file),path.join(destination,'robot',file));
+for(const file of ['motion.js','batch.js','loading.js','tower.js']) await cp(at('docs/showcase/'+file),path.join(destination,'robot',file));
 const {checkChapters} = await import(pathToFileURL(path.resolve(plugin, 'scripts/replay-chapters.mjs')));
 const chapters = await checkChapters(at('experiments/own-zone-cycle/motion-chapters.json'), root);
 await writeFile(path.join(destination, 'robot/chapters.json'), JSON.stringify(chapters));
