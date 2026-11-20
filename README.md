@@ -6,9 +6,9 @@
 **Project CAD · R2C-T1 own-zone scorer and TOWER lift.** Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations. [Source STEP · 973dd45e1f](cad/tower-lift/tower-l1.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/tower.html)
 <!-- /cad-still -->
 
-[Project workflow and student-owned outputs](docs/workflow.md) · [Current R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
+[Project workflow and student-owned outputs](docs/workflow.md) · [Earlier R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
 
-[Rotate the revised chassis foundation](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download its editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Chassis shop drawings, fasteners and mass check](cad/assembly-release/engineering.md). The 109-part foundation is a newer engineering revision. The scoring and climbing runs above used R2C-T1.
+[Rotate the revised chassis foundation](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download its editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Chassis shop drawings, fasteners and mass check](cad/assembly-release/engineering.md). The foundation added 109 new or revised articles. The scoring and climbing runs above used R2C-T1.
 
 ## Kickoff field lab
 

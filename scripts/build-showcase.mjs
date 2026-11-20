@@ -22,6 +22,18 @@ if(createHash('sha256').update(await readFile(path.join(destination,download))).
   throw Error('Student download differs from the independently reopened assembly');
 const home=(await readFile(at('docs/showcase/index.html'),'utf8')).replace('__PUBLIC_FUSION__',download);
 await writeFile(path.join(destination,'index.html'),styleShowcase(home,'./','model'));
+const featured = at('cad/showcase-red');
+const provenance = JSON.parse(await readFile(path.join(featured, 'provenance.json'), 'utf8'));
+const assembly = path.join(destination, 'assembly');
+await mkdir(assembly);
+for (const name of ['display.f3d', 'display.step', 'display.glb', 'assembly.png']) {
+  const bytes = await readFile(path.join(featured, name));
+  if (createHash('sha256').update(bytes).digest('hex') !== provenance.sha256[name])
+    throw Error('Featured Fusion export changed: ' + name);
+  await writeFile(path.join(assembly, name), bytes);
+}
+await cp(path.join(featured, 'provenance.json'), path.join(assembly, 'provenance.json'));
+await cp(at('docs/showcase/assembly-view.js'), path.join(destination, 'assembly-view.js'));
 const config = JSON.parse(await readFile(at('kickoff/selected-strategy.json'), 'utf8'));
 const study = await readFile(at('docs/showcase/study.js'), 'utf8');
 await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', JSON.stringify(config.case)));

@@ -54,12 +54,24 @@ try {
       if(await evaluate(expression))return;
       await wait(100);
     }
-    const snapshot=await evaluate("({url:location.href,time:tower.currentTime,paused:tower.paused,clip:tower.animationName,button:document.querySelector('#play').textContent})");
+    const snapshot=await evaluate("({url:location.href, title:document.title, modelLoaded:document.querySelector('model-viewer')?.loaded})");
     throw Error('Timed out waiting for '+expression+' '+JSON.stringify(snapshot));
   }
   await send('Runtime.enable');
   for(const width of [390,1280]){
     await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
+    const home = new URL('#model', site).href;
+    await send('Page.navigate', {url: home});
+    await until("location.href===" + JSON.stringify(home) + " && document.querySelector('#featured-robot')?.loaded && !document.querySelector('.assembly-stage .controls').hidden");
+    const model = "document.querySelector('#featured-robot')";
+    const initial = await evaluate(model + ".getCameraOrbit().theta");
+    await evaluate("document.querySelector('[data-turn=\"45\"]').click()");
+    await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") > 0.5");
+    await evaluate("document.querySelector('#reset-camera').click()");
+    await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") < 0.01");
+    assert.ok(await evaluate("document.querySelector('#model a[download]').href.endsWith('/assembly/display.f3d')"));
+    assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"));
+    console.log(width + 'px: featured Fusion model loaded, rotated and reset');
     const url=new URL('robot/tower.html',site).href+'?test='+width+'-'+Date.now();
     await send('Page.navigate',{url});
     await until('location.href==='+JSON.stringify(url)+" && document.querySelector('#play')?.disabled===false && document.querySelector('#tower')?.loaded");

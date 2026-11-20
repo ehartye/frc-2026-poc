@@ -60,6 +60,11 @@ def run(root, update, template):
                   bounds=json.dumps(layout), mesh=base64.b64encode(mesh).decode("ascii"))
     viewer = re.sub(r"\{\{(\w+)\}\}", lambda match: fields[match[1]], template.read_text(encoding="utf-8"))
     output(folder / "index.html", viewer.encode(), update)
+    featured = config["featuredAssembly"]
+    hashes = json.loads((root / featured["receipt"]).read_text(encoding="utf-8"))["sha256"]
+    for role in ("archive", "mesh", "source", "still"):
+        asset = root / featured[role]
+        checked(asset, hashes[asset.name])
     paths = subprocess.check_output(["git", "ls-files", "-co", "--exclude-standard", "-z"], cwd=root)
     names = sorted(set(n.decode() for n in paths.split(b"\0") if n and Path(n.decode()).name.lower() in ("readme.md", "readme")))
     for name in names:
@@ -75,13 +80,14 @@ def run(root, update, template):
             raise ValueError(f"README needs a title: {name}")
         def link(target):
             return quote(Path(os.path.relpath(target, file.parent)).as_posix(), safe="/.-_")
-        title = config["title"]
-        image = link(folder / "assembly.png")
-        target = config.get("viewerUrl") or link(folder / "index.html")
-        source = link(root / config["source"])
+        title = featured["title"]
+        image = link(root / featured["still"])
+        target = featured["viewerUrl"]
+        step = link(root / featured["source"])
+        archive = link(root / featured["archive"])
         block = (f'{START}\n[![{title}]({image})]({target})\n\n'
-                 f'**Project CAD Â· {title}.** {config["scope"]} '
-                 f'[Source STEP Â· {receipt["sourceSha256"][:10]}]({source}) Â· [Rotate the model]({target})\n{END}')
+                 f'**Project CAD · {title}.** {featured["scope"]} '
+                 f'[Editable Fusion assembly]({archive}) · [STEP]({step}) · [Rotate the model]({target})\n{END}')
         merged = "".join(lines[:heading+1]).rstrip("\n") + "\n\n" + block + "\n\n" + "".join(lines[heading+1:]).lstrip("\n")
         if b"\r\n" in original:
             merged = merged.replace("\n", "\r\n")
