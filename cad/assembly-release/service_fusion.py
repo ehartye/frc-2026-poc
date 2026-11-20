@@ -4,16 +4,58 @@ import hashlib
 import importlib
 import importlib.util
 import json
+import os
+from zipfile import ZipFile
 import sys
 import traceback
 from pathlib import Path
 
+import adsk
 import adsk.core as core
 import adsk.fusion as fusion
 
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def atomic_json(path, data):
+    staged = path.with_suffix(path.suffix + ".tmp")
+    with staged.open("w", encoding="utf8", newline="\n") as stream:
+        json.dump(data, stream, indent=2)
+        stream.flush()
+        os.fsync(stream.fileno())
+    staged.replace(path)
+
+
+def service_checkpoints(folder, pins):
+    for register in sorted(folder.glob("completed-*.json"), reverse=True):
+        record = json.loads(register.read_bytes())
+        if any(record.get(k) != v for k, v in pins.items()):
+            continue
+        archive = folder / (register.stem + ".f3d")
+        if archive.is_file() and digest(archive) == record["archiveSha256"]:
+            return archive, record["completedArticles"]
+    return None, 0
+
+
+def checkpoint(design, root, folder, pins, completed):
+    # Distinct filenames retain the last confirmed checkpoint through interruption of
+    # a later export. Commit the small register only after flushing the archive.
+    stem = f"completed-{completed:03d}"
+    temporary = folder / (stem + ".partial.f3d")
+    archive = folder / (stem + ".f3d")
+    for name, value in {**pins, "completedArticles": completed}.items():
+        root.attributes.add("R26-service-checkpoint", name, str(value))
+    if not design.exportManager.execute(design.exportManager.createFusionArchiveExportOptions(str(temporary))):
+        raise RuntimeError("Checkpoint export failed at " + stem)
+    with ZipFile(temporary) as package:
+        if not package.namelist() or package.testzip() is not None:
+            raise ValueError("Incomplete archive at " + stem)
+    with temporary.open("rb+") as stream:
+        os.fsync(stream.fileno())
+    temporary.replace(archive)
+    atomic_json(folder / (stem + ".json"), {**pins, "completedArticles": completed, "archiveSha256": digest(archive)})
 
 
 def design_tree(doc):
@@ -83,9 +125,7 @@ def run(context):
     )
 
     def save():
-        (out / "service-native.json").write_text(
-            json.dumps(report, indent=2), encoding="utf8"
-        )
+        atomic_json(out / "service-native.json", report)
 
     def open_doc(file):
         return app.importManager.importToNewDocument(
@@ -97,10 +137,41 @@ def run(context):
             if digest(archive) != cfg["verifyExisting"]:
                 raise ValueError("Archive to reopen differs")
         else:
-            doc = open_doc(src)
+            pins = {"sourceSha256": digest(src), "recipeSha256": digest(jobfile)}
+            checkpoint_dir = out / "service-checkpoints" / pins["recipeSha256"]
+            checkpoint_dir.mkdir(parents=True, exist_ok=True)
+            path, completed = service_checkpoints(checkpoint_dir, pins)
+            doc = open_doc(path or src)
             design, r, occs = design_tree(doc)
-            if len(occs) != 235 or not occs["rear perimeter tube"].isGrounded:
-                raise ValueError("Foundation shape or ground changed")
+            original = json.loads((folder / "reopened-native.json").read_bytes())
+            source_names = {row["occurrence"] for row in original["rows"]}
+            processed = list(job["parts"])[:completed]
+            if set(occs) != source_names | set(processed) or not occs["rear perimeter tube"].isGrounded:
+                raise ValueError("Stored checkpoint articles or foundation ground differ")
+            if path:
+                for key, val in {**pins, "completedArticles": completed}.items():
+                    attr = r.attributes.itemByName("R26-service-checkpoint", key)
+                    if not attr or attr.value != str(val):
+                        raise ValueError("Cold checkpoint identity " + key)
+                for name in processed:
+                    comp = occs[name].component
+                    if comp.bRepBodies.count != 1:
+                        raise ValueError("Cold checkpoint solids " + name)
+                    body = comp.bRepBodies.item(0)
+                    for key in ("identity", "instance"):
+                        attr = body.attributes.itemByName("R26-service", key)
+                        if not attr or attr.value != job["parts"][name][key]:
+                            raise ValueError("Cold checkpoint " + key + " " + name)
+                    if body.material.name != job["parts"][name]["material"]:
+                        raise ValueError("Cold checkpoint material " + name)
+            report["resumedFromArticle"] = completed
+            interval = int(cfg.get("checkpointEvery", 18))
+            if interval <= 0:
+                raise ValueError("checkpointEvery must be positive")
+            close_every = int(cfg.get("closeEveryArticles", 0))
+            if close_every < 0 or close_every % interval:
+                raise ValueError("closeEveryArticles must be a nonnegative multiple of checkpointEvery")
+            pause_file = out / "pause-service-after-checkpoint"
             materials = app.materialLibraries.itemByName(
                 "Fusion Material Library"
             ).materials
@@ -113,9 +184,10 @@ def run(context):
                 # Resolve the entire material inventory before processing any timeline features.
                 physical(materials, design, row)
             for i, (name, row) in enumerate(job["parts"].items(), 1):
+                if i <= completed:
+                    continue
                 report.update(stage="machining", index=i, article=name)
-                if i % 3 == 1:
-                    save()
+                save()
                 occ = occs.get(name)
                 if occ is None:
                     occ = r.occurrences.addNewComponent(core.Matrix3D.create())
@@ -132,12 +204,20 @@ def run(context):
                     if comp.bRepBodies.count:
                         raise RuntimeError("Predecessor envelope still present " + name)
                 operations = row.get("appendFeatures", row["features"])
-                body = machining.build(occ, operations)
+                body = machining.build(occ, operations, after_feature=adsk.doEvents)
                 body.name = name
                 body.material = physical(materials, design, row)
                 body.appearance = colors.finish(design, job, row["role"], cache)
                 body.attributes.add("R26-service", "identity", row["identity"])
                 body.attributes.add("R26-service", "instance", row["instance"])
+                if i == 4 or i % interval == 0 or i == len(job["parts"]):
+                    checkpoint(design, r, checkpoint_dir, pins, i)
+                    report["completedArticles"] = i
+                    if (cfg.get("closeAtCheckpoint") or pause_file.exists()
+                            or (close_every and i % close_every == 0)):
+                        report["stage"] = "checkpointed"
+                        return
+                    save()
             for key, names in job["groups"].items():
                 objects = core.ObjectCollection.create()
                 for name in names:
