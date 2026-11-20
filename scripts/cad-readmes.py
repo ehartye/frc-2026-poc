@@ -32,6 +32,14 @@ def output(file, data, update):
 
 def run(root, update, template):
     config = json.loads((root / "cad-showcase.json").read_text(encoding="utf-8-sig"))
+    if config.get("publication", {}).get("status") == "withheld":
+        names = subprocess.check_output(["git", "ls-files", "-co", "--exclude-standard", "-z"], cwd=root).decode().split(chr(0))
+        for name in set(names):
+            if Path(name).name.lower() in ("readme.md", "readme") and (root / name).is_file():
+                text = (root / name).read_text(encoding="utf-8-sig")
+                if START in text or "cad/showcase-red/display." in text or "cad/showcase-red/assembly.png" in text:
+                    raise ValueError(f"Withheld CAD promoted in {name}")
+        return
     folder = root / "docs/robot/cad"
     receipt = json.loads((folder / "receipt.json").read_text(encoding="utf-8"))
     if receipt["source"] != config["source"]:

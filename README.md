@@ -1,24 +1,12 @@
 # 2026 REBUILT proof of concept
 
-<!-- cad-still -->
-[![Robot 1780 with red alliance bumpers](cad/showcase-red/assembly.png)](https://ehartye.github.io/frc-2026-poc/#model)
-
-**Project CAD · Robot 1780 with red alliance bumpers.** Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations. [Editable Fusion assembly](cad/showcase-red/display.f3d) · [STEP](cad/showcase-red/display.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/#model)
-<!-- /cad-still -->
-
-[Project workflow and student-owned outputs](docs/workflow.md) · [Earlier R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
-
-[Rotate the revised chassis foundation](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download its editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Chassis shop drawings, fasteners and mass check](cad/assembly-release/engineering.md). The foundation added 109 new or revised articles. The scoring and climbing runs above used R2C-T1.
+The 2026 robot CAD is withheld from the student showcase. Assembly inspection found the intake roller intersecting both outside lift belts and both rear elevator uprights.
 
 ## Kickoff field lab
 
-See the [intake attachment comparison and motion clearances](cad/showcase-red/handoff.md#intake-attachment).
+[Rehearse the match](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) · [Compare alliance roles](https://ehartye.github.io/frc-2026-poc/alliance-roles.html#roleLab) · [Explore depot traffic](https://ehartye.github.io/frc-2026-poc/depot-lanes/)
 
-[Open the live 2026 showcase](https://ehartye.github.io/frc-2026-poc/) or [launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
-
-Choose B2 or R2 in the student rehearsal to operate the Level 1 low-rung robot. B1/R1 can compare hypothetical higher-level hardware. [Play the physical climb](https://ehartye.github.io/frc-2026-poc/robot/tower.html).
-
-[Play three matches at 10×](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) or inspect the [student match-series results](kickoff/match-series.md).
+The [kickoff study](kickoff/study.md) and [rule register](kickoff/rule-register.json) use the January 10 release and Team Update 00. The [selected strategy](kickoff/selected-strategy.md) records the project’s role, assumptions and supply requirements.
 
 ## Archived subsystem experiment
 
@@ -72,5 +60,3 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 ## Public contribution checks
 
 Run `python -m unittest discover -s tests` and `python scripts/check_public_content.py` after committing changes. The guard checks committed bytes, private paths/network addresses, unexplained machine aliases and binary additions. Reports identify file/category only. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
-
-[Follow the 24-piece packed service comparison in the student showcase](https://ehartye.github.io/frc-2026-poc/robot/batch.html).
