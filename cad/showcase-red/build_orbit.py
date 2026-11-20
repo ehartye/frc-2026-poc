@@ -12,6 +12,8 @@ sys.path[:0] = [str(CAD / "assembly-release"), str(CAD / "own-zone-upper")]
 from verify_products import products, measure
 from animated import Scene, world, triangles
 from numbering import COVERS, glyphs
+from ramp_support import parts as ramp_parts
+from offline import shape
 
 
 def digest(path):
@@ -35,7 +37,8 @@ def main():
     }
     solids = products(step)
     artwork = {row["name"]: row for row in glyphs()}
-    if set(solids) != (set(originals) | set(artwork)) or set(solids) != set(
+    support = ramp_parts()
+    if set(solids) != (set(originals) | set(artwork) | set(support)) or set(solids) != set(
         native["inventory"]
     ):
         raise ValueError("Fusion, STEP, foundation and artwork product lists differ")
@@ -65,7 +68,7 @@ def main():
                 raise ValueError(("Changed foundation geometry", name, deviations))
             for key, d in zip(maxima, deviations):
                 maxima[key] = max(maxima[key], d)
-        else:
+        elif name in artwork:
             row = artwork[name]
             axis = 0 if row["normal"][0] else 1
             if (
@@ -75,6 +78,14 @@ def main():
                 raise ValueError(
                     "Print relief dimensions differ from the issue " + name
                 )
+        else:
+            row=support[name]
+            planned=shape({"kind":"profile","points":row["points"],"delta":row["delta"],"holes":[]})
+            v0,c0,b0,_=measure(planned)
+            if abs(v0-volume)>0.025 or np.linalg.norm(c0-cg)>0.001 or np.abs(b0-bb).max()>0.001:
+                raise ValueError("Intake fabrication geometry differs: "+name)
+            if native["inventory"][name]["material"] != row["material"]:
+                raise ValueError("Intake support has a different physical material: "+name)
         color = native["inventory"][name]["rgb"]
         if color is None:
             raise ValueError(
@@ -86,22 +97,23 @@ def main():
     output = HERE / "display.glb"
     scene.save(output)
     result = {
-        "revision": "Foundation red 1780 display, derived from the 235-component public drivetrain foundation",
+        "revision": "Robot 1780 with chassis-connected intake ramps, derived from the issued red Fusion assembly",
         "sha256": {p.name: digest(p) for p in (archive, step, output, still)},
         "source": {
+            "immediatePredecessor": {"commit": "25df8858ffa118469e9fefdbc5ff392de6e3a1ae", "path": "cad/showcase-red/display.f3d", "sha256": native["rampPredecessorSha256"]},
             "archive": "../assembly-release/foundation-student.f3d",
             "sha256": native["basisSha256"],
             "step": "../assembly-release/foundation-student.step",
             "stepSha256": digest(CAD / "assembly-release/foundation-student.step"),
         },
         "pipeline": [
-            "The issue script opens the exact public F3D in Fusion, recolors five existing bumper envelopes and creates sixteen original editable ink extrusions.",
+            "Fusion opens the issued red 1780 predecessor, adds four editable ramp bridges and two frame cheeks, and assigns the six supports and two existing ramps their aluminum physical material.",
             "A separate Fusion document opens the saved derivative, reads all component appearances and exports the entire STEP. The cold viewport is independently checked after native graphics refresh.",
-            "The public GLB tessellates those same 251 named STEP products with the colors read from the reopened archive.",
+            "The public GLB tessellates those same 257 named STEP products with the colors read from the reopened archive.",
         ],
         "appearance": "Project red-alliance finish #C5273D; native white numerals #FFFFFF. Four 165 by 100 mm print groups use 13 mm primary strokes on the two sides, rear, and left front return. The print is represented by 0.12 mm relief.",
         "nativeStill": {
-            "method": "Byte-for-byte copy of Autodesk Fusionâ€™s embedded preview in the issued archive",
+            "method": "Embedded assembly preview written by Autodesk Fusion into the issued archive",
             "archiveEntry": "FusionAssetName[Active]/Previews/big.png",
             "pixels": [1024, 1024],
             "pose": "Fusion-authored default saved assembly preview; blue studio background is a site presentation choice.",
@@ -112,6 +124,8 @@ def main():
             "oneSolidPerProduct": True,
             "sourceComponents": len(originals),
             "whiteDigits": len(artwork),
+            "rampSupportArticles": len(support),
+            "redPredecessorSha256":native["rampPredecessorSha256"],
             "regularJointCollectionOnly": native["joints"],
             "asBuiltJoints": "Source swerve and tower motion have separate evidence. The display inspection did not remeasure the AsBuiltJoints collection.",
             "nativeRigidGroups": native["rigidGroups"],

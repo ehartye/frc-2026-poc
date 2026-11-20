@@ -13,9 +13,10 @@ PATTERNS={
 WRAPPER='experiments/legacy/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {
-    "cad/showcase-red/assembly.png": "6a7d02e5a1bc68f2307a4c2fe1d28b0ba63f53c3c3af36fc0c5c9544615f7c66",
-    "cad/showcase-red/display.f3d": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
-    "cad/showcase-red/display.glb": "74f3619521255c29949baa1d3edd190b722501ef849847f81ef4da6d6a0ffbc4",
+    "cad/showcase-red/ramp-comparison.png": "6f10ddb88a2afac6b8c80ee648f238894a4e1c3fc535f6d9f9b4e0e7c6a6027d",
+    "cad/showcase-red/assembly.png": "740c99afb7a9d2317418aaff1bca6f202cc46771d94a26c3f02cdee7e0aff33b",
+    "cad/showcase-red/display.f3d": "12a858347903805d7ec784615bf0c2d1c0a7dda3e251eef1acc89da7434d44fa",
+    "cad/showcase-red/display.glb": "2e9c46c9fd9a84de807cd36da3a163e38ae5b9103698b16ecc3ac234a68bf031",
     "cad/assembly-release/foundation-still.png": "75be3286c4f9fcc44706c470133d5cb60ee2fede103b5ea20ad7ed6502772b42",
     "cad/assembly-release/foundation-student.f3d": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
     "docs/robot/cad/tower-climb.glb": "0de92064047e2e9029445f12b6d95a00083372881ea3267750ad3af4b611e45b",

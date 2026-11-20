@@ -10,7 +10,7 @@
   },
   "featuredAssembly": {
     "title": "Robot 1780 with red alliance bumpers",
-    "scope": "Parked Fusion assembly with four swerve modules, a rear lift and white 1780 numbering. Purchased components use public project-drawn representations.",
+    "scope": "Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations.",
     "source": "cad/showcase-red/display.step",
     "archive": "cad/showcase-red/display.f3d",
     "still": "cad/showcase-red/assembly.png",

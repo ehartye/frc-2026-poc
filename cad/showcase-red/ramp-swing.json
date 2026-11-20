@@ -1,0 +1,51 @@
+{
+  "stepSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+  "recipeSha256": "b0bf6a952b78483b129c491d8e1453d660c7e9a789c4470e3346e37e6ad0108e",
+  "installedSource": true,
+  "rotationAxisMm": [
+    275,
+    0,
+    240
+  ],
+  "parkAngleDeg": 84,
+  "captureAngleDeg": -39,
+  "sampleDegrees": 3,
+  "scope": "Legacy roller and both bearing arms and journals vs six stationary repair plates. Continuous rigid rotation bound via farthest bounding-box radius. Does not validate unrelated original moving components against the chassis.",
+  "clearance": {
+    "ground intake roller": {
+      "minSampledMm": 30.82132496946002,
+      "continuousLowerBoundMm": 26.929476172213512,
+      "maxRadialDistanceMm": 148.661919156864,
+      "angleDeg": -39,
+      "fixedPart": "left intake foundation cheek"
+    },
+    "left intake bearing arm": {
+      "minSampledMm": 57.515510856421365,
+      "continuousLowerBoundMm": 54.78207497136877,
+      "maxRadialDistanceMm": 104.41254163102612,
+      "angleDeg": -39,
+      "fixedPart": "left intake foundation cheek"
+    },
+    "left intake journal": {
+      "minSampledMm": 56.019074180973575,
+      "continuousLowerBoundMm": 53.11662578102616,
+      "maxRadialDistanceMm": 110.86852852434258,
+      "angleDeg": -39,
+      "fixedPart": "left intake foundation cheek"
+    },
+    "right intake bearing arm": {
+      "minSampledMm": 57.515510856421365,
+      "continuousLowerBoundMm": 54.78207497136877,
+      "maxRadialDistanceMm": 104.41254163102612,
+      "angleDeg": -39,
+      "fixedPart": "right intake foundation cheek"
+    },
+    "right intake journal": {
+      "minSampledMm": 56.019074180973575,
+      "continuousLowerBoundMm": 53.11662578102616,
+      "maxRadialDistanceMm": 110.86852852434258,
+      "angleDeg": -39,
+      "fixedPart": "right intake foundation cheek"
+    }
+  }
+}

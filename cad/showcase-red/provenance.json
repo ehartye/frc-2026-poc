@@ -1,25 +1,30 @@
 {
-  "revision": "Foundation red 1780 display, derived from the 235-component public drivetrain foundation",
+  "revision": "Robot 1780 with chassis-connected intake ramps, derived from the issued red Fusion assembly",
   "sha256": {
-    "display.f3d": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
-    "display.step": "c0569107f87b51bbda654def72acba1c995c8cbebc32a98222944c3b52034d69",
-    "display.glb": "74f3619521255c29949baa1d3edd190b722501ef849847f81ef4da6d6a0ffbc4",
-    "assembly.png": "6a7d02e5a1bc68f2307a4c2fe1d28b0ba63f53c3c3af36fc0c5c9544615f7c66"
+    "display.f3d": "12a858347903805d7ec784615bf0c2d1c0a7dda3e251eef1acc89da7434d44fa",
+    "display.step": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+    "display.glb": "2e9c46c9fd9a84de807cd36da3a163e38ae5b9103698b16ecc3ac234a68bf031",
+    "assembly.png": "740c99afb7a9d2317418aaff1bca6f202cc46771d94a26c3f02cdee7e0aff33b"
   },
   "source": {
+    "immediatePredecessor": {
+      "commit": "25df8858ffa118469e9fefdbc5ff392de6e3a1ae",
+      "path": "cad/showcase-red/display.f3d",
+      "sha256": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e"
+    },
     "archive": "../assembly-release/foundation-student.f3d",
     "sha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
     "step": "../assembly-release/foundation-student.step",
     "stepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e"
   },
   "pipeline": [
-    "The issue script opens the exact public F3D in Fusion, recolors five existing bumper envelopes and creates sixteen original editable ink extrusions.",
+    "Fusion opens the issued red 1780 predecessor, adds four editable ramp bridges and two frame cheeks, and assigns the six supports and two existing ramps their aluminum physical material.",
     "A separate Fusion document opens the saved derivative, reads all component appearances and exports the entire STEP. The cold viewport is independently checked after native graphics refresh.",
-    "The public GLB tessellates those same 251 named STEP products with the colors read from the reopened archive."
+    "The public GLB tessellates those same 257 named STEP products with the colors read from the reopened archive."
   ],
   "appearance": "Project red-alliance finish #C5273D; native white numerals #FFFFFF. Four 165 by 100 mm print groups use 13 mm primary strokes on the two sides, rear, and left front return. The print is represented by 0.12 mm relief.",
   "nativeStill": {
-    "method": "Byte-for-byte copy of Autodesk Fusion\u00e2\u20ac\u2122s embedded preview in the issued archive",
+    "method": "Embedded assembly preview written by Autodesk Fusion into the issued archive",
     "archiveEntry": "FusionAssetName[Active]/Previews/big.png",
     "pixels": [
       1024,
@@ -50,17 +55,19 @@
     ]
   },
   "fusionCounts": {
-    "components": 251,
+    "components": 257,
     "oneSolidPerProduct": true,
     "sourceComponents": 235,
     "whiteDigits": 16,
+    "rampSupportArticles": 6,
+    "redPredecessorSha256": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
     "regularJointCollectionOnly": 0,
     "asBuiltJoints": "Source swerve and tower motion have separate evidence. The display inspection did not remeasure the AsBuiltJoints collection.",
-    "nativeRigidGroups": 12
+    "nativeRigidGroups": 14
   },
   "mesh": {
-    "triangles": 74964,
-    "nodes": 251,
+    "triangles": 75156,
+    "nodes": 257,
     "chordToleranceMm": 0.16,
     "angularToleranceRad": 0.22,
     "coordinateMapping": "(robot X, robot Z, -robot Y) / 1000 to glTF metres"

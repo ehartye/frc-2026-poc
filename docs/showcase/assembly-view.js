@@ -19,6 +19,11 @@ for (const button of controls.querySelectorAll('[data-turn]')) {
     viewer.cameraOrbit = theta + 'deg ' + orbit.phi + 'rad ' + orbit.radius + 'm';
   });
 }
+controls.querySelector('#inspect-intake').addEventListener('click', () => {
+  viewer.cameraTarget = '0.27m 0.065m 0m';
+  viewer.cameraOrbit = '100deg 72deg 0.78m';
+  viewer.fieldOfView = '30deg';
+});
 controls.querySelector('#reset-camera').addEventListener('click', () => {
   viewer.cameraTarget = 'auto auto auto';
   viewer.fieldOfView = 'auto';
@@ -31,7 +36,7 @@ toggle.addEventListener('click', () => {
   still.hidden = !showStill;
   viewer.hidden = showStill;
   toggle.setAttribute('aria-pressed', String(showStill));
-  for (const button of controls.querySelectorAll('[data-turn], #reset-camera')) {
+  for (const button of controls.querySelectorAll('[data-turn], #reset-camera, #inspect-intake')) {
     button.disabled = showStill;
   }
 });

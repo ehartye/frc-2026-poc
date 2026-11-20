@@ -1,0 +1,153 @@
+{
+  "stepSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+  "issued": true,
+  "productCount": 257,
+  "looseBodyCollisionsMm3": {},
+  "seats": [
+    {
+      "a": "left intake ramp",
+      "b": "left ramp bridge aft",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 31.146453053802936,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "left ramp bridge aft",
+      "b": "left intake foundation cheek",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 118.91917414972252,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "left intake ramp",
+      "b": "left ramp bridge forward",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 31.14807570332028,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "left ramp bridge forward",
+      "b": "left intake foundation cheek",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 119.99371428565814,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "left intake foundation cheek",
+      "b": "front deck crossmember",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 131.99051383387322,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "left intake foundation cheek",
+      "b": "left front return",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 291.1474999995327,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right intake ramp",
+      "b": "right ramp bridge aft",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 31.14645305379346,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right ramp bridge aft",
+      "b": "right intake foundation cheek",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 118.91917414958353,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right intake ramp",
+      "b": "right ramp bridge forward",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 31.14807570332107,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right ramp bridge forward",
+      "b": "right intake foundation cheek",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 119.99371428567515,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right intake foundation cheek",
+      "b": "front deck crossmember",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 131.9905138338791,
+      "reverseMm3": 0.0
+    },
+    {
+      "a": "right intake foundation cheek",
+      "b": "right front return",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "overlapMm3": 0.0,
+      "pressedAreaMm2": 291.1474999987089,
+      "reverseMm3": 0.0
+    }
+  ],
+  "passed": true
+}
