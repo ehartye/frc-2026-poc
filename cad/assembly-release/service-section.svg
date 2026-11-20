@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 675" role="img" aria-labelledby="title details">
+<title id="title">Bumper anchor section and battery sled mounting drawing</title>
+<desc id="details">Section through the side rail shows the bumper angle and centered vertical cap screw. An underside plan shows the four battery sled fasteners around the supported cart platform. Dimensions in millimetres; diagrams are not at the same scale.</desc>
+<defs><pattern id="wood" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#efd7a5"/><path d="m0 0 8 8" stroke="#bf9961"/></pattern><pattern id="foam" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#dce6ec"/><circle cx="5" cy="5" r="2" fill="none" stroke="#94a9b8"/></pattern></defs>
+<style>text{font-family:Arial,sans-serif;fill:#132d4b;font-size:16px}.sub{font-size:13px}.label{font-weight:700}.line{stroke:#21394c;stroke-width:1.4;fill:none}.dim{stroke:#5a6d80;stroke-width:1.2;fill:none}.dot{stroke:#64778a;stroke-width:1;stroke-dasharray:6 4}.al{fill:#96a9bb;stroke:#1f3f56;stroke-width:1.2}.steel{fill:#314e64;stroke:#112d40}.gold{fill:#d8a63a;stroke:#795a1b}</style>
+<rect x="1" y="1" width="1158" height="673" fill="#fcfbf7" stroke="#b2bcc4"/>
+<text x="34" y="42" font-size="25" class="label">Installed service hardware</text><text x="34" y="70">Robot frame datums and receiving dimensions · mm · drawing S1</text>
+<path d="M32 85H1128M624 102v475" class="dim"/>
+<text x="40" y="125" class="label">A  Bumper mount, transverse section</text>
+<!-- Cross-section at the top screw. The two panel screws are at tangent offsets ±10. -->
+<path d="M137 317h76v152h-76z M147 327v132h56V327z" fill-rule="evenodd" class="al"/>
+<rect x="213" y="159" width="36" height="357" fill="url(#wood)" stroke="#755d3d"/>
+<rect x="249" y="159" width="190.5" height="357" fill="url(#foam)" stroke="#8196a7"/>
+<path d="M213 157.5h228v360H213" fill="none" stroke="#2358a2" stroke-width="3"/>
+<path d="M137 317v-19h57v-76h19v95z" class="al"/>
+<path d="M156 317h38v48h-38z" class="al"/><path d="M167.5 318h15v46h-15z" fill="#fcfbf7"/>
+<path d="M166 358v-60h-6v-18h30v18h-6v60z" class="steel"/><path d="M175 262v119" class="dot"/>
+<path d="M171 281h8v7h-8z" fill="#fcfbf7"/>
+<path d="M138 398H67l-10 12" class="line"/><text x="42" y="434" class="sub">25.4 × 50.8 rail</text>
+<path d="M175 281l-36-46H47" class="line"/><text x="44" y="227" class="sub">M6 × 20 top screw</text>
+<path d="M164 345l-40 16H44" class="line"/><text x="41" y="381" class="sub">Ø12.70 × 16 boss</text>
+<path d="M207 230l-46-57H53" class="line"/><text x="43" y="164" class="sub">6.35 mm machined legs</text>
+<text x="266" y="303">63.5 foam</text><text x="265" y="328" class="sub">37 kg/m³ PE</text><text x="462" y="284" class="sub">Coated nylon</text><path d="M440 309l15-19h76" class="line"/>
+<path d="M213 529v17m36-17v17M213 539h36" class="dim"/><text x="195" y="570" class="sub">12 mm backer</text>
+<path d="M453 159h12m-12 357h12m-6-357v357" class="dim"/><text x="473" y="422" class="sub">119 high</text>
+<text x="652" y="125" class="label">B  Battery sled, underside · front to right</text>
+<rect x="711" y="213" width="333" height="298" fill="#d2dce3" stroke="#355569" stroke-width="2"/>
+<rect x="739" y="285" width="277" height="155" fill="#e7f1ef" stroke="#548b80" stroke-width="2"/>
+<text x="758" y="345" class="label">Cart support</text><text x="758" y="367">159 × 89</text>
+<g fill="#fcfbf7" stroke="#143950" stroke-width="3"><circle cx="758" cy="490" r="7"/><circle cx="995" cy="490" r="7"/><circle cx="758" cy="224" r="7"/><circle cx="995" cy="224" r="7"/></g>
+<path d="M758 503v36m237-36v36M758 530h237" class="dim"/><text x="850" y="551" class="sub">136 hole pitch</text>
+<path d="M1052 224h33m-33 266h33m-10-266v266" class="dim"/><text x="1086" y="363" class="sub">153</text><text x="1086" y="381" class="sub">pitch</text>
+<text x="665" y="170" class="sub">Plate 191 × 171 × 6.35 · 4 × Ø5.5 through</text>
+<text x="665" y="578" class="sub">Retain with four M5 × 20 and flat washers before removing the support.</text>
+<path d="M32 596H1128" class="dim"/><text x="38" y="624">Use the shop traveler for datum coordinates, thread pilots, gross engagement and service order.</text>
+<text x="38" y="648" class="sub">Prebuild drawing · Inspect actual stock, threads, weld seams, terminal insulation and the supported cart before fabrication release.</text>
+</svg>

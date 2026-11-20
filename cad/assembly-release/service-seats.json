@@ -1,0 +1,1281 @@
+{
+  "sourceSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "count": 397,
+  "products": {
+    "left blue side bumper": {
+      "volumeMm3": 121720.5,
+      "solids": 1
+    },
+    "right blue side bumper": {
+      "volumeMm3": 121720.5,
+      "solids": 1
+    },
+    "rear blue bumper": {
+      "volumeMm3": 92140.0,
+      "solids": 1
+    },
+    "left blue front bumper": {
+      "volumeMm3": 30305.0,
+      "solids": 1
+    },
+    "right blue front bumper": {
+      "volumeMm3": 30305.0,
+      "solids": 1
+    },
+    "left side bumper padding": {
+      "volumeMm3": 6495079.5,
+      "solids": 1
+    },
+    "left side bumper backer": {
+      "volumeMm3": 961916.81493,
+      "solids": 1
+    },
+    "left side bumper mounting 1 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left side bumper mounting 1 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 1 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 1 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 1 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 1 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left side bumper mounting 1 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "left side bumper mounting 2 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left side bumper mounting 2 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 2 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 2 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 2 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 2 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left side bumper mounting 2 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "left side bumper mounting 3 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left side bumper mounting 3 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 3 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 3 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 3 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 3 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left side bumper mounting 3 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "left side bumper mounting 4 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left side bumper mounting 4 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 4 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 4 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left side bumper mounting 4 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left side bumper mounting 4 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left side bumper mounting 4 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right side bumper padding": {
+      "volumeMm3": 6495079.5,
+      "solids": 1
+    },
+    "right side bumper backer": {
+      "volumeMm3": 961916.81493,
+      "solids": 1
+    },
+    "right side bumper mounting 1 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right side bumper mounting 1 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 1 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 1 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 1 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 1 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right side bumper mounting 1 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right side bumper mounting 2 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right side bumper mounting 2 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 2 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 2 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 2 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 2 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right side bumper mounting 2 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right side bumper mounting 3 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right side bumper mounting 3 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 3 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 3 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 3 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 3 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right side bumper mounting 3 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right side bumper mounting 4 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right side bumper mounting 4 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 4 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 4 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right side bumper mounting 4 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right side bumper mounting 4 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right side bumper mounting 4 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "rear bumper padding": {
+      "volumeMm3": 5138420.0,
+      "solids": 1
+    },
+    "rear bumper backer": {
+      "volumeMm3": 964197.6112,
+      "solids": 1
+    },
+    "rear bumper mounting 1 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "rear bumper mounting 1 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 1 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 1 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 1 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 1 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "rear bumper mounting 1 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "rear bumper mounting 2 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "rear bumper mounting 2 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 2 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 2 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 2 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 2 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "rear bumper mounting 2 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "rear bumper mounting 3 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "rear bumper mounting 3 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 3 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 3 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "rear bumper mounting 3 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "rear bumper mounting 3 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "rear bumper mounting 3 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "left front bumper padding": {
+      "volumeMm3": 1435735.0,
+      "solids": 1
+    },
+    "left front bumper backer": {
+      "volumeMm3": 266758.40747,
+      "solids": 1
+    },
+    "left front bumper mounting 1 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left front bumper mounting 1 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left front bumper mounting 1 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left front bumper mounting 1 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left front bumper mounting 1 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left front bumper mounting 1 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left front bumper mounting 1 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "left front bumper mounting 2 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "left front bumper mounting 2 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left front bumper mounting 2 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left front bumper mounting 2 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "left front bumper mounting 2 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left front bumper mounting 2 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "left front bumper mounting 2 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right front bumper padding": {
+      "volumeMm3": 1435735.0,
+      "solids": 1
+    },
+    "right front bumper backer": {
+      "volumeMm3": 266758.40747,
+      "solids": 1
+    },
+    "right front bumper mounting 1 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right front bumper mounting 1 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right front bumper mounting 1 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right front bumper mounting 1 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right front bumper mounting 1 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right front bumper mounting 1 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right front bumper mounting 1 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "right front bumper mounting 2 angle": {
+      "volumeMm3": 11219.68298,
+      "solids": 1
+    },
+    "right front bumper mounting 2 a panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right front bumper mounting 2 a panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right front bumper mounting 2 b panel washer": {
+      "volumeMm3": 154.65275,
+      "solids": 1
+    },
+    "right front bumper mounting 2 b panel screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right front bumper mounting 2 frame boss": {
+      "volumeMm3": 1712.67065,
+      "solids": 1
+    },
+    "right front bumper mounting 2 top screw": {
+      "volumeMm3": 971.77367,
+      "solids": 1
+    },
+    "battery secured envelope": {
+      "volumeMm3": 2297252.0,
+      "solids": 1
+    },
+    "battery cradle floor": {
+      "volumeMm3": 206793.88932,
+      "solids": 1
+    },
+    "aft battery end stop": {
+      "volumeMm3": 12385.675,
+      "solids": 1
+    },
+    "fore battery end stop": {
+      "volumeMm3": 12385.675,
+      "solids": 1
+    },
+    "right battery well bearer": {
+      "volumeMm3": 28026.31195,
+      "solids": 1
+    },
+    "right battery sled mount 1": {
+      "volumeMm3": 6350.87858,
+      "solids": 1
+    },
+    "right battery sled mount 1 screw": {
+      "volumeMm3": 641.78315,
+      "solids": 1
+    },
+    "right battery sled mount 1 washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "right battery sled mount 2": {
+      "volumeMm3": 6350.87858,
+      "solids": 1
+    },
+    "right battery sled mount 2 screw": {
+      "volumeMm3": 641.78315,
+      "solids": 1
+    },
+    "right battery sled mount 2 washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "battery cradle wall -44": {
+      "volumeMm3": 61884.0,
+      "solids": 1
+    },
+    "right battery hold-down post": {
+      "volumeMm3": 21341.10593,
+      "solids": 1
+    },
+    "right battery hold-down screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "right battery hold-down washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "left battery well bearer": {
+      "volumeMm3": 28026.31195,
+      "solids": 1
+    },
+    "left battery sled mount 1": {
+      "volumeMm3": 6350.87858,
+      "solids": 1
+    },
+    "left battery sled mount 1 screw": {
+      "volumeMm3": 641.78315,
+      "solids": 1
+    },
+    "left battery sled mount 1 washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "left battery sled mount 2": {
+      "volumeMm3": 6350.87858,
+      "solids": 1
+    },
+    "left battery sled mount 2 screw": {
+      "volumeMm3": 641.78315,
+      "solids": 1
+    },
+    "left battery sled mount 2 washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "battery cradle wall 43": {
+      "volumeMm3": 61884.0,
+      "solids": 1
+    },
+    "left battery hold-down post": {
+      "volumeMm3": 21341.10593,
+      "solids": 1
+    },
+    "left battery hold-down screw": {
+      "volumeMm3": 496.61451,
+      "solids": 1
+    },
+    "left battery hold-down washer": {
+      "volumeMm3": 55.63761,
+      "solids": 1
+    },
+    "battery center keeper": {
+      "volumeMm3": 18827.64466,
+      "solids": 1
+    },
+    "right electronics deck": {
+      "volumeMm3": 495369.38949,
+      "solids": 1
+    },
+    "left electronics deck": {
+      "volumeMm3": 488124.38949,
+      "solids": 1
+    },
+    "fore electronics deck bridge": {
+      "volumeMm3": 71319.69475,
+      "solids": 1
+    },
+    "aft electronics deck bridge": {
+      "volumeMm3": 25455.69475,
+      "solids": 1
+    },
+    "left electronics deck retainer 1 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "left electronics deck retainer 1 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "left electronics deck retainer 2 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "left electronics deck retainer 2 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "left electronics deck retainer 3 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "left electronics deck retainer 3 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "left electronics deck retainer 4 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "left electronics deck retainer 4 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "right electronics deck retainer 1 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "right electronics deck retainer 1 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "right electronics deck retainer 2 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "right electronics deck retainer 2 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "right electronics deck retainer 3 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "right electronics deck retainer 3 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "right electronics deck retainer 4 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "right electronics deck retainer 4 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "fore electronics deck bridge retainer 1 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "fore electronics deck bridge retainer 1 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "fore electronics deck bridge retainer 2 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "fore electronics deck bridge retainer 2 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "aft electronics deck bridge retainer 1 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "aft electronics deck bridge retainer 1 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "aft electronics deck bridge retainer 2 welded boss": {
+      "volumeMm3": 776.22471,
+      "solids": 1
+    },
+    "aft electronics deck bridge retainer 2 screw": {
+      "volumeMm3": 496.22479,
+      "solids": 1
+    },
+    "left perimeter tube": {
+      "volumeMm3": 298266.32257,
+      "solids": 1
+    },
+    "right perimeter tube": {
+      "volumeMm3": 298266.32257,
+      "solids": 1
+    },
+    "rear perimeter tube": {
+      "volumeMm3": 276142.66741,
+      "solids": 1
+    },
+    "left front return": {
+      "volumeMm3": 71334.92979,
+      "solids": 1
+    },
+    "right front return": {
+      "volumeMm3": 71334.92979,
+      "solids": 1
+    },
+    "rear deck crossmember": {
+      "volumeMm3": 172485.49196,
+      "solids": 1
+    },
+    "front deck crossmember": {
+      "volumeMm3": 172485.49196,
+      "solids": 1
+    }
+  },
+  "modeledThreadContacts": {
+    "left side bumper mounting 1 angle / left side bumper mounting 1 b panel screw": 36.7064,
+    "left side bumper mounting 1 a panel screw / left side bumper mounting 1 angle": 36.7064,
+    "left side bumper mounting 1 frame boss / left side bumper mounting 1 top screw": 117.9275,
+    "left side bumper mounting 2 angle / left side bumper mounting 2 b panel screw": 36.7064,
+    "left side bumper mounting 2 a panel screw / left side bumper mounting 2 angle": 36.7064,
+    "left side bumper mounting 2 frame boss / left side bumper mounting 2 top screw": 117.9275,
+    "left side bumper mounting 3 angle / left side bumper mounting 3 b panel screw": 36.7064,
+    "left side bumper mounting 3 a panel screw / left side bumper mounting 3 angle": 36.7064,
+    "left side bumper mounting 3 frame boss / left side bumper mounting 3 top screw": 117.9275,
+    "left side bumper mounting 4 angle / left side bumper mounting 4 b panel screw": 36.7064,
+    "left side bumper mounting 4 a panel screw / left side bumper mounting 4 angle": 36.7064,
+    "left side bumper mounting 4 frame boss / left side bumper mounting 4 top screw": 117.9275,
+    "right side bumper mounting 1 angle / right side bumper mounting 1 b panel screw": 36.7064,
+    "right side bumper mounting 1 a panel screw / right side bumper mounting 1 angle": 36.7064,
+    "right side bumper mounting 1 frame boss / right side bumper mounting 1 top screw": 117.9275,
+    "right side bumper mounting 2 angle / right side bumper mounting 2 b panel screw": 36.7064,
+    "right side bumper mounting 2 a panel screw / right side bumper mounting 2 angle": 36.7064,
+    "right side bumper mounting 2 frame boss / right side bumper mounting 2 top screw": 117.9275,
+    "right side bumper mounting 3 angle / right side bumper mounting 3 b panel screw": 36.7064,
+    "right side bumper mounting 3 a panel screw / right side bumper mounting 3 angle": 36.7064,
+    "right side bumper mounting 3 frame boss / right side bumper mounting 3 top screw": 117.9275,
+    "right side bumper mounting 4 angle / right side bumper mounting 4 b panel screw": 36.7064,
+    "right side bumper mounting 4 a panel screw / right side bumper mounting 4 angle": 36.7064,
+    "right side bumper mounting 4 frame boss / right side bumper mounting 4 top screw": 117.9275,
+    "rear bumper mounting 1 angle / rear bumper mounting 1 b panel screw": 36.7064,
+    "rear bumper mounting 1 a panel screw / rear bumper mounting 1 angle": 36.7064,
+    "rear bumper mounting 1 frame boss / rear bumper mounting 1 top screw": 117.9275,
+    "rear bumper mounting 2 angle / rear bumper mounting 2 b panel screw": 36.7064,
+    "rear bumper mounting 2 a panel screw / rear bumper mounting 2 angle": 36.7064,
+    "rear bumper mounting 2 frame boss / rear bumper mounting 2 top screw": 117.9275,
+    "rear bumper mounting 3 angle / rear bumper mounting 3 b panel screw": 36.7064,
+    "rear bumper mounting 3 a panel screw / rear bumper mounting 3 angle": 36.7064,
+    "rear bumper mounting 3 frame boss / rear bumper mounting 3 top screw": 117.9275,
+    "left front bumper mounting 1 angle / left front bumper mounting 1 b panel screw": 36.7064,
+    "left front bumper mounting 1 a panel screw / left front bumper mounting 1 angle": 36.7064,
+    "left front bumper mounting 1 frame boss / left front bumper mounting 1 top screw": 117.9275,
+    "left front bumper mounting 2 angle / left front bumper mounting 2 b panel screw": 36.7064,
+    "left front bumper mounting 2 a panel screw / left front bumper mounting 2 angle": 36.7064,
+    "left front bumper mounting 2 frame boss / left front bumper mounting 2 top screw": 117.9275,
+    "right front bumper mounting 1 angle / right front bumper mounting 1 b panel screw": 36.7064,
+    "right front bumper mounting 1 a panel screw / right front bumper mounting 1 angle": 36.7064,
+    "right front bumper mounting 1 frame boss / right front bumper mounting 1 top screw": 117.9275,
+    "right front bumper mounting 2 angle / right front bumper mounting 2 b panel screw": 36.7064,
+    "right front bumper mounting 2 a panel screw / right front bumper mounting 2 angle": 36.7064,
+    "right front bumper mounting 2 frame boss / right front bumper mounting 2 top screw": 117.9275,
+    "right battery sled mount 1 / right battery sled mount 1 screw": 73.1237,
+    "right battery sled mount 2 / right battery sled mount 2 screw": 73.1237,
+    "right battery hold-down post / right battery hold-down screw": 50.0016,
+    "left battery sled mount 1 / left battery sled mount 1 screw": 73.1237,
+    "left battery sled mount 2 / left battery sled mount 2 screw": 73.1237,
+    "left battery hold-down post / left battery hold-down screw": 50.0016,
+    "left electronics deck retainer 1 screw / left electronics deck retainer 1 welded boss": 69.3664,
+    "left electronics deck retainer 2 screw / left electronics deck retainer 2 welded boss": 69.3664,
+    "left electronics deck retainer 3 screw / left electronics deck retainer 3 welded boss": 69.3664,
+    "left electronics deck retainer 4 screw / left electronics deck retainer 4 welded boss": 69.3664,
+    "right electronics deck retainer 1 screw / right electronics deck retainer 1 welded boss": 69.3664,
+    "right electronics deck retainer 2 screw / right electronics deck retainer 2 welded boss": 69.3664,
+    "right electronics deck retainer 3 screw / right electronics deck retainer 3 welded boss": 69.3664,
+    "right electronics deck retainer 4 screw / right electronics deck retainer 4 welded boss": 69.3664,
+    "fore electronics deck bridge retainer 1 screw / fore electronics deck bridge retainer 1 welded boss": 69.3664,
+    "fore electronics deck bridge retainer 2 screw / fore electronics deck bridge retainer 2 welded boss": 69.3664,
+    "aft electronics deck bridge retainer 1 screw / aft electronics deck bridge retainer 1 welded boss": 69.3664,
+    "aft electronics deck bridge retainer 2 screw / aft electronics deck bridge retainer 2 welded boss": 69.3664
+  },
+  "unexpectedCommonMm3": {},
+  "absentThreadEngagement": [],
+  "seats": {
+    "left side bumper mounting 1 angle to left perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left side bumper mounting 1 angle to left side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "left side bumper mounting 2 angle to left perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left side bumper mounting 2 angle to left side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "left side bumper mounting 3 angle to left perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left side bumper mounting 3 angle to left side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "left side bumper mounting 4 angle to left perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left side bumper mounting 4 angle to left side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right side bumper mounting 1 angle to right perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right side bumper mounting 1 angle to right side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right side bumper mounting 2 angle to right perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right side bumper mounting 2 angle to right side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right side bumper mounting 3 angle to right perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right side bumper mounting 3 angle to right side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right side bumper mounting 4 angle to right perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right side bumper mounting 4 angle to right side bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "rear bumper mounting 1 angle to rear perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "rear bumper mounting 1 angle to rear bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "rear bumper mounting 2 angle to rear perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "rear bumper mounting 2 angle to rear bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "rear bumper mounting 3 angle to rear perimeter tube": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "rear bumper mounting 3 angle to rear bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "left front bumper mounting 1 angle to left front return": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left front bumper mounting 1 angle to left front bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "left front bumper mounting 2 angle to left front return": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "left front bumper mounting 2 angle to left front bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right front bumper mounting 1 angle to right front return": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right front bumper mounting 1 angle to right front bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right front bumper mounting 2 angle to right front return": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 785.7204
+    },
+    "right front bumper mounting 2 angle to right front bumper backer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 1095.4834
+    },
+    "right battery well bearer to rear deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 110.0798
+    },
+    "right battery well bearer to front deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 110.0798
+    },
+    "right battery sled mount 1 to right battery well bearer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "right battery sled mount 1 to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "right battery sled mount 2 to right battery well bearer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "right battery sled mount 2 to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "right battery hold-down post to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "right battery hold-down post to battery center keeper": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "left battery well bearer to rear deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 110.0798
+    },
+    "left battery well bearer to front deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "contactAreaMm2": 110.0798
+    },
+    "left battery sled mount 1 to left battery well bearer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "left battery sled mount 1 to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "left battery sled mount 2 to left battery well bearer": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "left battery sled mount 2 to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "left battery hold-down post to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 126.6769
+    },
+    "left battery hold-down post to battery center keeper": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "contactAreaMm2": 102.9186
+    },
+    "left electronics deck to front deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 5021.3631
+    },
+    "left electronics deck to rear deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 5021.3631
+    },
+    "right electronics deck to front deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 5097.5631
+    },
+    "right electronics deck to rear deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 5097.5631
+    },
+    "fore electronics deck bridge to front deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 2151.1631
+    },
+    "aft electronics deck bridge to rear deck crossmember": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 2151.1631
+    },
+    "battery secured envelope to battery cradle floor": {
+      "nominalVolumeMm3": 0.0,
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "contactAreaMm2": 13756.0
+    }
+  },
+  "passParked": true
+}
