@@ -98,3 +98,22 @@ button:disabled{opacity:.6;cursor:default}input[type=range]{accent-color:#da9a30
 .assembly-stage #fusion-still { width: 100%; object-fit: contain; }
 .assembly-stage [hidden] { display: none; }
 .assembly-stage:fullscreen model-viewer, .assembly-stage:fullscreen #fusion-still { flex: 1; height: auto; }
+
+.draft-notice {
+  background: #ffcf24;
+  color: #111;
+}
+.draft-notice::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background: repeating-linear-gradient(-50deg, #111 0 8px, #ffcf24 8px 16px);
+}
+.draft-notice p {
+  max-width: 1200px;
+  width: 92%;
+  margin: 0 auto;
+  padding: .5rem 0;
+  color: inherit;
+  font: 650 .875rem/1.4 var(--body-type);
+}
