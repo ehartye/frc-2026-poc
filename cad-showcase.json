@@ -17,11 +17,5 @@
     "mesh": "cad/showcase-red/display.glb",
     "receipt": "cad/showcase-red/provenance.json",
     "viewerUrl": "https://ehartye.github.io/frc-2026-poc/#model"
-  },
-  "publication": {
-    "status": "withheld",
-    "reason": "The intake roller intersects both outside lift belts and both rear elevator uprights.",
-    "sourceSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
-    "receipt": "cad/showcase-red/attachment-graph.json"
   }
 }
