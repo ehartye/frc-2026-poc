@@ -34,6 +34,15 @@ def run(context):
     issued = json.loads((out / "foundation-issue-reopen.json").read_bytes())
     if sha(public) != issued["archiveSha256"] or issued["stage"] != "verified":
         raise ValueError("Issue the public archive first")
+    geo = json.loads((out / "foundation-products.json").read_bytes())
+    if (
+        geo["stepSha256"] != issued["stepSha256"]
+        or geo["failed"]
+        or geo["planned"] + geo["inherited"] != issued["count"]
+    ):
+        raise ValueError(
+            "Verify the geometry of every issued and inherited article before supplier relink."
+        )
     job = json.loads((out / "foundation-job.json").read_bytes())
     a = math.radians(60)
     nx = -math.sin(a)

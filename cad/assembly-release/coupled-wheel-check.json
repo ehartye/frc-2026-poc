@@ -1,0 +1,30 @@
+{
+  "archiveSha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
+  "maxJointRoundingRad": 0.0008726646259971648,
+  "cases": {
+    "front left": {
+      "steerRad": 0.630063859969953,
+      "spinRad": 0.7993607974134029,
+      "signedAxisDot": -1.0,
+      "centerShiftMm": 9.325873406851315e-14
+    },
+    "front right": {
+      "steerRad": 0.630063859969953,
+      "spinRad": 0.7993607974134029,
+      "signedAxisDot": -1.0,
+      "centerShiftMm": 1.513165152058422e-13
+    },
+    "rear left": {
+      "steerRad": 0.630063859969953,
+      "spinRad": 0.7993607974134029,
+      "signedAxisDot": 1.0,
+      "centerShiftMm": 3.794299872214038e-14
+    },
+    "rear right": {
+      "steerRad": 0.630063859969953,
+      "spinRad": 0.7993607974134029,
+      "signedAxisDot": 1.0,
+      "centerShiftMm": 1.2631196225257118e-13
+    }
+  }
+}

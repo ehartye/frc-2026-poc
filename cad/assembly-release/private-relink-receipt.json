@@ -1,0 +1,217 @@
+{
+  "publicSha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
+  "sites": {
+    "front left": {
+      "article": "REV-21-3005",
+      "sourceSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+      "transform": [
+        0.0,
+        0.0,
+        -1.0,
+        26.5,
+        -1.0,
+        0.0,
+        0.0,
+        26.5,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 74,
+      "boundsMm": [
+        176.354,
+        176.354,
+        -0.0,
+        309.45,
+        309.45,
+        171.46
+      ]
+    },
+    "front right": {
+      "article": "REV-21-3005",
+      "sourceSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+      "transform": [
+        -1.0,
+        0.0,
+        0.0,
+        26.5,
+        0.0,
+        0.0,
+        1.0,
+        -26.5,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 74,
+      "boundsMm": [
+        176.354,
+        -309.45,
+        -0.0,
+        309.45,
+        -176.354,
+        171.46
+      ]
+    },
+    "rear left": {
+      "article": "REV-21-3005",
+      "sourceSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        -26.5,
+        0.0,
+        0.0,
+        -1.0,
+        26.5,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 74,
+      "boundsMm": [
+        -309.45,
+        176.354,
+        -0.0,
+        -176.354,
+        309.45,
+        171.46
+      ]
+    },
+    "rear right": {
+      "article": "REV-21-3005",
+      "sourceSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+      "transform": [
+        0.0,
+        0.0,
+        1.0,
+        -26.5,
+        1.0,
+        0.0,
+        0.0,
+        -26.5,
+        0.0,
+        1.0,
+        0.0,
+        3.81,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 74,
+      "boundsMm": [
+        -309.45,
+        -309.45,
+        -0.0,
+        -176.354,
+        -176.354,
+        171.46
+      ]
+    },
+    "left scoring motor": {
+      "article": "REV-21-1650",
+      "sourceSha256": "204eabe42f40b49a117ef9027e18448a8046b4bf985c518eb2bdf57bb4be2a0d",
+      "transform": [
+        0.0,
+        -0.8660254037844386,
+        0.5000000000000001,
+        24.84789073857917,
+        1.0,
+        0.0,
+        0.0,
+        10.4,
+        0.0,
+        0.5000000000000001,
+        0.8660254037844386,
+        59.495000000000005,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 1,
+      "boundsMm": [
+        118.68149,
+        74.0088,
+        606.70987,
+        215.56828,
+        133.9912,
+        686.5497
+      ]
+    },
+    "right scoring motor": {
+      "article": "REV-21-1650",
+      "sourceSha256": "204eabe42f40b49a117ef9027e18448a8046b4bf985c518eb2bdf57bb4be2a0d",
+      "transform": [
+        0.0,
+        -0.8660254037844386,
+        0.5000000000000001,
+        24.84789073857917,
+        1.0,
+        0.0,
+        0.0,
+        -10.4,
+        0.0,
+        0.5000000000000001,
+        0.8660254037844386,
+        59.495000000000005,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "descendants": 1,
+      "boundsMm": [
+        118.68149,
+        -133.9912,
+        606.70987,
+        215.56828,
+        -74.0088,
+        686.5497
+      ]
+    }
+  },
+  "removed": [
+    "front left public wheel",
+    "front left public drive housing",
+    "front left public motor reserve",
+    "front right public wheel",
+    "front right public drive housing",
+    "front right public motor reserve",
+    "rear left public wheel",
+    "rear left public drive housing",
+    "rear left public motor reserve",
+    "rear right public wheel",
+    "rear right public drive housing",
+    "rear right public motor reserve",
+    "right public scoring motor envelope",
+    "left public scoring motor envelope",
+    "front left public turning fork",
+    "front left public wheel axle",
+    "front right public turning fork",
+    "front right public wheel axle",
+    "rear left public turning fork",
+    "rear left public wheel axle",
+    "rear right public turning fork",
+    "rear right public wheel axle"
+  ],
+  "archiveSha256": "9de9e1b065470c6fdb6176fa838306391ee93cc33ac1daa26d6f824f0e2233f3",
+  "restored": true
+}

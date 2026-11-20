@@ -1,0 +1,2146 @@
+{
+  "basisSha256": "973dd45e1f80a2dd9e56b2aebfb09cad230076d5939681a512d62f84e39d12ad",
+  "recipeSha256": "7b73a2db2aa3532d29d640576782717575829d872fa107a4cee42d86b5ff88ae",
+  "stepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "planned": 109,
+  "inherited": 126,
+  "failed": [],
+  "products": {
+    "left perimeter tube": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 7.566995918750763e-10,
+      "centroidDeltaMm": 1.9755529341734526e-13,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "left front return": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.0372681319713593e-10,
+      "centroidDeltaMm": 2.2914314707516465e-13,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "left blue side bumper": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left blue front bumper": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right perimeter tube": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 6.984919309616089e-10,
+      "centroidDeltaMm": 1.2804436960487014e-13,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "right front return": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.3283064365386963e-10,
+      "centroidDeltaMm": 2.278173318171838e-13,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "right blue side bumper": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right blue front bumper": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear perimeter tube": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 6.810296326875687e-09,
+      "centroidDeltaMm": 1.8560572788857113e-12,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "rear blue bumper": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left module tab spacer 1": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.015883301937719807,
+      "centroidDeltaMm": 2.0254819117407643e-05,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front left module tab spacer 2": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.07656640861387132,
+      "centroidDeltaMm": 1.4148904906423662e-05,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front right module tab spacer 1": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.07656640352797695,
+      "centroidDeltaMm": 1.4148906911305429e-05,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front right module tab spacer 2": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.03785623106523417,
+      "centroidDeltaMm": 7.908515037601995e-06,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear left module tab spacer 1": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.07611400391760981,
+      "centroidDeltaMm": 9.282903480522974e-06,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear left module tab spacer 2": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.01588355913554551,
+      "centroidDeltaMm": 2.0254906715890212e-05,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear right module tab spacer 1": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.03785497415083228,
+      "centroidDeltaMm": 7.908757533510636e-06,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear right module tab spacer 2": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -0.07611380248999922,
+      "centroidDeltaMm": 9.28286387385954e-06,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear right hopper post": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.4551915228366852e-11,
+      "centroidDeltaMm": 1.3923737144427707e-13,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front right hopper post": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.7284841053187847e-11,
+      "centroidDeltaMm": 9.845568954283847e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "right floor sill": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.2369127944111824e-10,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left hopper post": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.4551915228366852e-11,
+      "centroidDeltaMm": 8.038873388460929e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front left hopper post": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.9103830456733704e-11,
+      "centroidDeltaMm": 1.3923737144427707e-13,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "left floor sill": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.2369127944111824e-10,
+      "centroidDeltaMm": 1.6140428288623166e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear deck crossmember": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -2.6193447411060333e-10,
+      "centroidDeltaMm": 8.41436099454198e-14,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "front deck crossmember": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 4.141578746125218e-14,
+      "boxDeltaMm": 5.684341886080802e-14,
+      "pass": true
+    },
+    "left electronics deck": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right electronics deck": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "fore electronics deck bridge": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "aft electronics deck bridge": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "battery cradle floor": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "battery cradle wall -44": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "battery cradle wall 43": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "battery secured envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "distribution enclosure reserve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "robot controller reserve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "field radio reserve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 1": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 2": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 3": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 4": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 5": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 6": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 7": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "drive controller reserve 8": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "hopper back panel": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right hopper wall": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right hopper front wing": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right cross feed deck": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right front elevator upright": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right rear elevator upright": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right elevator upper tie": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right inside lift belt": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right outside lift belt": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lift shelf 1": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lift shelf 2": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lift shelf 3": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lift shelf 4": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right intake ramp": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left hopper wall": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left hopper front wing": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left cross feed deck": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left front elevator upright": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left rear elevator upright": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left elevator upper tie": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left inside lift belt": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left outside lift belt": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lift shelf 1": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lift shelf 2": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lift shelf 3": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lift shelf 4": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left intake ramp": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "central fore-aft feed deck": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lower lift stub shaft": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lower lift stub shaft": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left upper lift stub shaft": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right upper lift stub shaft": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "ground intake roller": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right intake bearing arm": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right intake pivot plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right intake pivot axle": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right intake journal": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right upper head cheek": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left intake bearing arm": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left intake pivot plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left intake pivot axle": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left intake journal": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left upper head cheek": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right scoring wheel": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right scoring spindle": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right upper guide": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right scoring bearing bridge -33": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right scoring bearing bridge 33": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left scoring wheel": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left scoring spindle": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left upper guide": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left scoring bearing bridge -33": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left scoring bearing bridge 33": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left feed diverter pivot": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right feed diverter pivot": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "feed diverter vane": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left public wheel": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 8.070214144311583e-14,
+      "boxDeltaMm": 9.574341364007001e-16,
+      "pass": true
+    },
+    "front left public drive housing": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 5.820766091346741e-11,
+      "centroidDeltaMm": 3.595093471822542e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left public motor reserve": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right public wheel": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.9103830456733704e-11,
+      "centroidDeltaMm": 8.070214144311583e-14,
+      "boxDeltaMm": 9.574341364007001e-16,
+      "pass": true
+    },
+    "front right public drive housing": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 2.21980646867526e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right public motor reserve": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -7.275957614183426e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left public wheel": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.9103830456733704e-11,
+      "centroidDeltaMm": 8.070214144311583e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left public drive housing": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.731149137020111e-11,
+      "centroidDeltaMm": 2.382173337059642e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left public motor reserve": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 8.038873388460929e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right public wheel": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 8.070214144311583e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right public drive housing": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.4551915228366852e-10,
+      "centroidDeltaMm": 9.099386826154683e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right public motor reserve": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 8.038873388460929e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right public scoring motor envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left public scoring motor envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear lift custody gate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front lift custody guide": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left mast": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left aft mast": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left upper bearing plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lower bearing plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lead screw envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left lift motor envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left reduction envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left driven nut": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left nut link": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left crosshead cheek": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left forward carriage sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left aft carriage sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left extension sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left sleeve pedestal": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left extending rail": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "left crown hook": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right mast": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right aft mast": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right upper bearing plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lower bearing plate": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lead screw envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right lift motor envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right reduction envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right driven nut": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right nut link": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right crosshead cheek": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right forward carriage sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right aft carriage sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right extension sleeve": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right sleeve pedestal": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right extending rail": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "right crown hook": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "crosshead lift bridge": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rail synchronizing tie": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension bearing beam": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension rear bearing and stop": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension forward bearing": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension screw envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension deployment nut": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension nut hanger": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension motor envelope": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "extension motor foot": {
+      "basis": "predecessor",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right crossmember backing plate": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.637978807091713e-12,
+      "centroidDeltaMm": 3.1776437161565096e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left crossmember backing plate": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right crossmember backing plate": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left crossmember backing plate": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 2.842170943040401e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left rail mount 1-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.637978807091713e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front left rail mount 1-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.637978807091713e-12,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left rail mount 1-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.637978807091713e-12,
+      "centroidDeltaMm": 4.0194366942304644e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front left rail mount 1-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.410605131648481e-12,
+      "centroidDeltaMm": 6.51223174224333e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left tab 1-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.5006662579253316e-11,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615458393
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615458373
+        }
+      ]
+    },
+    "front left tab 1-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.7564616427989677e-11,
+      "centroidDeltaMm": 1.4210854715202004e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front left tab 1-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4779288903810084e-11,
+      "centroidDeltaMm": 1.0345658394727079e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541852,
+        18.29213999541852
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615457644
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615457595
+        }
+      ]
+    },
+    "front left tab 1-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.750777300912887e-11,
+      "centroidDeltaMm": 1.803155319699033e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front left rail mount 2-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.2737367544323206e-13,
+      "centroidDeltaMm": 5.684341886080802e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left rail mount 2-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.412825991399586e-12,
+      "centroidDeltaMm": 6.51223174224333e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left rail mount 2-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.2737367544323206e-13,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left rail mount 2-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.412825991399586e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left tab 2-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.6843418860808015e-12,
+      "centroidDeltaMm": 1.302446348448666e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615453564
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861545355
+        }
+      ]
+    },
+    "front left tab 2-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5916157281026244e-11,
+      "centroidDeltaMm": 1.0247593068766006e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front left tab 2-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.4569682106375694e-12,
+      "centroidDeltaMm": 1.180442248897588e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452183
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452218
+        }
+      ]
+    },
+    "front left tab 2-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5347723092418164e-11,
+      "centroidDeltaMm": 1.8254173395838975e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front right rail mount 1-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.2737367544323206e-13,
+      "centroidDeltaMm": 5.684341886080802e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right rail mount 1-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.86757334228605e-12,
+      "centroidDeltaMm": 2.842170943040401e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right rail mount 1-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 2.2737367544323206e-13,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right rail mount 1-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.412825991399586e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right tab 1-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.9117155615240335e-12,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615453592
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615453578
+        }
+      ]
+    },
+    "front right tab 1-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5973000699887052e-11,
+      "centroidDeltaMm": 1.632702903446565e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front right tab 1-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.4569682106375694e-12,
+      "centroidDeltaMm": 1.4281732235759946e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452044
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861545208
+        }
+      ]
+    },
+    "front right tab 1-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.546140993013978e-11,
+      "centroidDeltaMm": 1.9945885082418896e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front right rail mount 2-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -4.092726157978177e-12,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front right rail mount 2-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.637978807091713e-12,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right rail mount 2-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.865352482534945e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "front right rail mount 2-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.865352482534945e-12,
+      "centroidDeltaMm": 1.1718571004216928e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right tab 2-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.5006662579253316e-11,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615458393
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615458373
+        }
+      ]
+    },
+    "front right tab 2-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.7564616427989677e-11,
+      "centroidDeltaMm": 1.4210854715202004e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front right tab 2-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4779288903810084e-11,
+      "centroidDeltaMm": 1.0345658394727079e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541852,
+        18.29213999541852
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615457644
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615457595
+        }
+      ]
+    },
+    "front right tab 2-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.750777300912887e-11,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear left rail mount 1-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left rail mount 1-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.412825991399586e-12,
+      "centroidDeltaMm": 6.961868572213853e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left rail mount 1-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left rail mount 1-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.640199666842818e-12,
+      "centroidDeltaMm": 2.842170943040401e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left tab 1-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.6843418860808015e-12,
+      "centroidDeltaMm": 1.1718571004216928e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452017
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861545205
+        }
+      ]
+    },
+    "rear left tab 1-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5916157281026244e-11,
+      "centroidDeltaMm": 8.526512829121202e-14,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear left tab 1-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.4569682106375694e-12,
+      "centroidDeltaMm": 1.180442248897588e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452183
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452218
+        }
+      ]
+    },
+    "rear left tab 1-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5347723092418164e-11,
+      "centroidDeltaMm": 1.537138960314901e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear left rail mount 2-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.637978807091713e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear left rail mount 2-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 4.092726157978177e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left rail mount 2-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.637978807091713e-12,
+      "centroidDeltaMm": 4.0194366942304644e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear left rail mount 2-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.865352482534945e-12,
+      "centroidDeltaMm": 8.038873388460929e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left tab 2-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 8.526512829121202e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615461252
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861546126
+        }
+      ]
+    },
+    "rear left tab 2-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.8133050616597757e-11,
+      "centroidDeltaMm": 1.803155319699033e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear left tab 2-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4779288903810084e-11,
+      "centroidDeltaMm": 8.526512829121202e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861546234
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615462383
+        }
+      ]
+    },
+    "rear left tab 2-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.807620719773695e-11,
+      "centroidDeltaMm": 2.870451947490573e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear right rail mount 1-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -4.092726157978177e-12,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear right rail mount 1-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.865352482534945e-12,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right rail mount 1-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -3.865352482534945e-12,
+      "centroidDeltaMm": 6.355287432313019e-14,
+      "boxDeltaMm": 1.4210854715202004e-14,
+      "pass": true
+    },
+    "rear right rail mount 1-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.865352482534945e-12,
+      "centroidDeltaMm": 7.105427357601002e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right tab 1-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4779288903810084e-11,
+      "centroidDeltaMm": 4.263256414560601e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615461252
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861546126
+        }
+      ]
+    },
+    "rear right tab 1-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.8133050616597757e-11,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear right tab 1-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4779288903810084e-11,
+      "centroidDeltaMm": 8.526512829121202e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.292139995418523,
+        18.292139995418523
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861546234
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615462383
+        }
+      ]
+    },
+    "rear right tab 1-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.807620719773695e-11,
+      "centroidDeltaMm": 4.0194366942304644e-14,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear right rail mount 2-1 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right rail mount 2-1 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 8.640199666842818e-12,
+      "centroidDeltaMm": 5.684341886080802e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right rail mount 2-2 weld boss": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 0.0,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right rail mount 2-2 M6 cap screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 9.094947017729282e-12,
+      "centroidDeltaMm": 6.961868572213853e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right tab 2-1 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.9117155615240335e-12,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861545199
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452024
+        }
+      ]
+    },
+    "rear right tab 2-1 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.5973000699887052e-11,
+      "centroidDeltaMm": 1.632702903446565e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "rear right tab 2-2 socket screw": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -5.4569682106375694e-12,
+      "centroidDeltaMm": 1.4281732235759946e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true,
+      "tabShankAreaMm2": [
+        18.29213999541848,
+        18.29213999541848
+      ],
+      "tabToShankOverlapMm3Per0p1mmSlice": [
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.019332648615452044
+        },
+        {
+          "0.0": 0.0,
+          "0.04": 0.0,
+          "0.15": 0.01933264861545208
+        }
+      ]
+    },
+    "rear right tab 2-2 locknut": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.546140993013978e-11,
+      "centroidDeltaMm": 2.074005965273276e-13,
+      "boxDeltaMm": 3.979039320256561e-13,
+      "pass": true
+    },
+    "front left public turning fork": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 5.859285502108464e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front left public wheel axle": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 3.637978807091713e-12,
+      "centroidDeltaMm": 5.728578676879116e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right public turning fork": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": -1.4551915228366852e-11,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "front right public wheel axle": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 9.094947017729282e-13,
+      "centroidDeltaMm": 1.7067822212573437e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left public turning fork": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 1.4551915228366852e-11,
+      "centroidDeltaMm": 1.2789769243681803e-13,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear left public wheel axle": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 4.547473508864641e-13,
+      "centroidDeltaMm": 8.070214144311583e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right public turning fork": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 0.0,
+      "centroidDeltaMm": 8.163514517232825e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    },
+    "rear right public wheel axle": {
+      "basis": "recipe",
+      "solids": 1,
+      "volumeDeltaMm3": 4.092726157978177e-12,
+      "centroidDeltaMm": 5.728578676879116e-14,
+      "boxDeltaMm": 0.0,
+      "pass": true
+    }
+  }
+}

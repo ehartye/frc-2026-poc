@@ -92,6 +92,13 @@ def run(context):
                 ):
                     raise ValueError("Joint did not articulate relative to frame")
                 report["frameGround"]["relativeMotion"][tag + " " + label] = values
+        import sys
+
+        sys.path.insert(0, str(Path(cfg["project"]) / "cad/assembly-release"))
+        import coupled_motion, importlib
+
+        check = importlib.reload(coupled_motion).check
+        report["compoundMotion"] = check(root, recipe["sites"], anchor)
         for o in root.occurrences:
             if o.component.bRepBodies.count != 1:
                 raise ValueError(o.component.name)

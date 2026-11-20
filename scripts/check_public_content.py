@@ -13,6 +13,8 @@ PATTERNS={
 WRAPPER='experiments/legacy/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {
+    "cad/assembly-release/foundation-still.png": "75be3286c4f9fcc44706c470133d5cb60ee2fede103b5ea20ad7ed6502772b42",
+    "cad/assembly-release/foundation-student.f3d": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
     "docs/robot/cad/tower-climb.glb": "0de92064047e2e9029445f12b6d95a00083372881ea3267750ad3af4b611e45b",
     "docs/robot/cad/r2c-assembly.png": "9bccbff501b9b70eda2a85619cf2e9314f21ee45198efc256de82275c4417077",
     "cad/tower-lift/tower-l1.f3d": "7c4a6210bcd23540999d3412107e6a8cf72f30596250f113314b35cbf66eb941",

@@ -87,75 +87,88 @@ def run(context):
         return fusion.JointGeometry.createByPoint(point)
 
     try:
-        doc = openfile(src)
-        design, r, old = tree(doc)
-        appearances = {
-            k: design.appearances.itemByName("FRC " + k)
-            for k in job["palette"]
-            if design.appearances.itemByName("FRC " + k)
-        }
-        lib = app.materialLibraries.itemByName("Fusion Material Library")
-        for i, (name, row) in enumerate(plan.items()):
-            result["stage"] = (
-                "machining " + str(i + 1) + " / " + str(len(plan)) + " " + name
-            )
-            if i % 5 == 0:
-                save_status()
-            if name in old:
-                o = old[name]
-                comp = o.component
-                stock = comp.features.extrudeFeatures
-                while stock.count:
-                    if not stock.item(stock.count - 1).deleteMe():
-                        raise RuntimeError("Prior stock removal " + name)
-            else:
-                o = r.occurrences.addNewComponent(core.Matrix3D.create())
-                o.component.name = name
-            body = native_stock.build(o, row["features"])
-            body.name = name
-            mat = lib.materials.itemByName(row["material"])
-            if mat is None:
-                raise RuntimeError("Material unavailable " + row["material"])
-            body.material = mat
-            body.appearance = colors.finish(design, job, row["role"], appearances)
-            for key in ("identity", "instance"):
-                body.attributes.add("R26-foundation", key, row[key])
-            old[name] = o
-        # Bolted and welded frame paths only, both unmodified upper and older tower groups retain their historical qualification.
-        installed = [old[k] for k, row in plan.items() if row["stage"] == "fixed"]
-        rigid(r, "Installed chassis weldments and module mounts", installed)
-        for site in job["sites"]:
-            tag = site["name"]
-            rigid(
-                r,
-                tag + " moving axle",
-                [old[tag + " public wheel axle"], old[tag + " public turning fork"]],
-            )
-            p = axis_point(r, site["translation"])
-            rot = site["rotation"]
-            first = (
-                "XAxisJointDirection" if abs(rot[0][0]) > 0.5 else "YAxisJointDirection"
-            )
-            for label, body, base, axis in (
-                (
-                    "steering",
-                    " public turning fork",
-                    " public drive housing",
-                    "ZAxisJointDirection",
-                ),
-                ("wheel rotation", " public wheel", " public wheel axle", first),
+        if cfg.get("verifyExisting"):
+            if digest(filename) != cfg["verifyExisting"]:
+                raise ValueError("Reopen request does not match archive identity")
+        else:
+            doc = openfile(src)
+            design, r, old = tree(doc)
+            appearances = {
+                k: design.appearances.itemByName("FRC " + k)
+                for k in job["palette"]
+                if design.appearances.itemByName("FRC " + k)
+            }
+            lib = app.materialLibraries.itemByName("Fusion Material Library")
+            for i, (name, row) in enumerate(plan.items()):
+                result["stage"] = (
+                    "machining " + str(i + 1) + " / " + str(len(plan)) + " " + name
+                )
+                if i % 5 == 0:
+                    save_status()
+                if name in old:
+                    o = old[name]
+                    comp = o.component
+                    stock = comp.features.extrudeFeatures
+                    while stock.count:
+                        if not stock.item(stock.count - 1).deleteMe():
+                            raise RuntimeError("Prior stock removal " + name)
+                else:
+                    o = r.occurrences.addNewComponent(core.Matrix3D.create())
+                    o.component.name = name
+                body = native_stock.build(o, row["features"])
+                body.name = name
+                mat = lib.materials.itemByName(row["material"])
+                if mat is None:
+                    raise RuntimeError("Material unavailable " + row["material"])
+                body.material = mat
+                body.appearance = colors.finish(design, job, row["role"], appearances)
+                for key in ("identity", "instance"):
+                    body.attributes.add("R26-foundation", key, row[key])
+                old[name] = o
+            # Bolted and welded frame paths only, both unmodified upper and older tower groups retain their historical qualification.
+            installed = [old[k] for k, row in plan.items() if row["stage"] == "fixed"]
+            rigid(r, "Installed chassis weldments and module mounts", installed)
+            for site in job["sites"]:
+                tag = site["name"]
+                rigid(
+                    r,
+                    tag + " moving axle",
+                    [
+                        old[tag + " public wheel axle"],
+                        old[tag + " public turning fork"],
+                    ],
+                )
+                p = axis_point(r, site["translation"])
+                rot = site["rotation"]
+                first = (
+                    "XAxisJointDirection"
+                    if abs(rot[0][0]) > 0.5
+                    else "YAxisJointDirection"
+                )
+                for label, body, base, axis in (
+                    (
+                        "steering",
+                        " public turning fork",
+                        " public drive housing",
+                        "ZAxisJointDirection",
+                    ),
+                    ("wheel rotation", " public wheel", " public wheel axle", first),
+                ):
+                    inp = r.asBuiltJoints.createInput(
+                        old[tag + body], old[tag + base], p
+                    )
+                    inp.setAsRevoluteJointMotion(getattr(fusion.JointDirections, axis))
+                    r.asBuiltJoints.add(inp).name = tag + " " + label
+            design.computeAll()
+            result["stage"] = "exporting"
+            save_status()
+            export = design.exportManager
+            if not export.execute(
+                export.createFusionArchiveExportOptions(str(filename))
             ):
-                inp = r.asBuiltJoints.createInput(old[tag + body], old[tag + base], p)
-                inp.setAsRevoluteJointMotion(getattr(fusion.JointDirections, axis))
-                r.asBuiltJoints.add(inp).name = tag + " " + label
-        design.computeAll()
-        result["stage"] = "exporting"
-        save_status()
-        export = design.exportManager
-        if not export.execute(export.createFusionArchiveExportOptions(str(filename))):
-            raise RuntimeError("F3D export")
-        doc.close(False)
-        doc = None
+                raise RuntimeError("F3D export")
+            doc.close(False)
+            doc = None
         doc = openfile(filename)
         design, r, occs = tree(doc)
         result["stage"] = "qualifying"
@@ -167,6 +180,10 @@ def run(context):
             raise RuntimeError("STEP export")
         result["stepSha256"] = digest(step)
         for n, o in occs.items():
+            if o.component.bRepBodies.count != 1:
+                raise ValueError(
+                    (n, "expected one connected article", o.component.bRepBodies.count)
+                )
             b = o.component.bRepBodies.item(0)
             p = b.physicalProperties
             wanted = plan.get(n)

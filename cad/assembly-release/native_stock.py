@@ -104,7 +104,7 @@ def build(occ, features):
             plane.isLightBulbOn = False
         else:
             plane = base
-        sk = comp.sketches.add(plane)
+        sk = comp.sketches.addWithoutEdges(plane)
         sk.name = feat.get("label", feat["op"].title() + " stock profile")
         if points:
             pts = [sk.modelToSketchSpace(local(p)) for p in points]
@@ -124,9 +124,20 @@ def build(occ, features):
             "cut": fusion.FeatureOperations.CutFeatureOperation,
             "join": fusion.FeatureOperations.JoinFeatureOperation,
         }[feat["op"]]
-        ext = comp.features.extrudeFeatures.addSimple(
-            profile, core.ValueInput.createByReal(length), operation
+        extrudes = comp.features.extrudeFeatures
+        setup = extrudes.createInput(profile, operation)
+        magnitude = core.ValueInput.createByReal(abs(length))
+        setup.setOneSideExtent(
+            fusion.DistanceExtentDefinition.create(magnitude),
+            fusion.ExtentDirections.PositiveExtentDirection
+            if length > 0
+            else fusion.ExtentDirections.NegativeExtentDirection,
         )
+        if feat["op"] == "cut":
+            if comp.bRepBodies.count != 1:
+                raise ValueError("Machining requires one target in " + comp.name)
+            setup.participantBodies = [comp.bRepBodies.item(0)]
+        ext = extrudes.add(setup)
         ext.name = feat.get("label", feat["op"].title() + " " + str(i + 1))
         sk.isVisible = False
     if comp.bRepBodies.count != 1:

@@ -8,6 +8,8 @@
 
 [Project workflow and student-owned outputs](docs/workflow.md) · [Current R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
 
+[Rotate the revised chassis foundation](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download its editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Chassis shop drawings, fasteners and mass check](cad/assembly-release/engineering.md). The 109-part foundation is a newer engineering revision. The scoring and climbing runs above used R2C-T1.
+
 ## Kickoff field lab
 
 [Open the live 2026 showcase](https://ehartye.github.io/frc-2026-poc/) or [launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
