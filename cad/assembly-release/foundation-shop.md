@@ -53,3 +53,7 @@ The [elastic mount calculation](module_loads.py) registers the four M6 rail scre
 | All | 212.3 MPa | 39.2 MPa | 60.3 MPa |
 
 The last line includes a maximum 3.66 kN tensile reaction. Thread area assumes 11.9 mm full-form engagement after two pitches of allowances. Weld area assumes a continuous 1.5 mm effective throat around the 13 mm boss. The available as-welded strength, prying, shell bending, thread tolerances, fatigue and actual reaction distribution must be established separately. No 62 kg robot was weighed.
+
+### Post weld landing inspection
+
+At each post foot, measure the actual crossmember flat between the two outside corner tangencies, the actual post width and the post's center offset in its fixture. Accept each weld land only where its measured flat width beyond the post edge is at least 1.50 mm after subtracting measurement and placement uncertainty. For symmetric stock, the test is (flat crown width minus post width) / 2 − absolute center offset − measurement uncertainty ≥ 1.50 mm. With nominal section widths, 0.20 mm maximum center offset and 0.10 mm measurement allowance, the outside radius must be ≤1.375 mm; a 1.30 mm radius gives 1.575 mm remaining flat land. If either side fails, hold the joint for a wider cap design and repeat the fit and load checks. A radius taken from an uninspected manufacturer rendering does not establish this gate.
