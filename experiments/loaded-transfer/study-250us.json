@@ -1,0 +1,170 @@
+{
+  "dt": 0.00025,
+  "mode": "paired-wheel-field",
+  "gateClosedS": 29.68625,
+  "onboardAt5": 10,
+  "admissions": [
+    {
+      "ids": [
+        "blue-depot-02",
+        "blue-depot-01"
+      ],
+      "closeS": 3.0220000000000002
+    },
+    {
+      "ids": [
+        "blue-depot-08",
+        "blue-depot-07"
+      ],
+      "closeS": 6.5512500000000005
+    },
+    {
+      "ids": [
+        "blue-depot-06",
+        "blue-depot-05"
+      ],
+      "closeS": 10.643
+    },
+    {
+      "ids": [
+        "blue-depot-12",
+        "blue-depot-11"
+      ],
+      "closeS": 14.306750000000001
+    },
+    {
+      "ids": [
+        "blue-depot-04",
+        "blue-depot-03"
+      ],
+      "closeS": 18.22
+    },
+    {
+      "ids": [
+        "blue-depot-10",
+        "blue-depot-09"
+      ],
+      "closeS": 21.745
+    },
+    {
+      "ids": [
+        "blue-depot-16",
+        "blue-depot-15"
+      ],
+      "closeS": 26.028000000000002
+    },
+    {
+      "ids": [
+        "blue-depot-22",
+        "blue-depot-21"
+      ],
+      "closeS": 29.68625
+    }
+  ],
+  "sourceBound": {
+    "file": "depot-250us.json",
+    "sha256": "468c48d35be93e97427170411b460a141bb5218224c1cc6488182b25c247a8b9"
+  },
+  "closestLooseCenterToWallAtHandoffM": 0.08348480106420908,
+  "fieldBoundary": {
+    "wallX": -8.270526,
+    "minimumStockWallGapM": -0.016273511998124615,
+    "wallContacts": [
+      [
+        "blue-depot-19",
+        22.5335
+      ],
+      [
+        "blue-depot-20",
+        22.5335
+      ],
+      [
+        "blue-depot-23",
+        22.5335
+      ],
+      [
+        "blue-depot-24",
+        22.5335
+      ]
+    ]
+  },
+  "closestTire": {
+    "id": "blue-depot-14",
+    "wheel": "front left public wheel",
+    "timeS": 28.83475,
+    "gapM": 0.0771734364825971
+  },
+  "end": {
+    "file": "arrived-250us.json",
+    "sha256": "45f1dfbb97fc9fe23329bea7ee439249e76e43a1ab8356464052ae3a2144fe2a"
+  },
+  "travel": {
+    "sourceSha256": "468c48d35be93e97427170411b460a141bb5218224c1cc6488182b25c247a8b9",
+    "departS": 30,
+    "arriveS": 35,
+    "readyS": 38,
+    "wheel": {
+      "mass": 58.86,
+      "mu": 0.8,
+      "currentA": 50,
+      "cogM": 0.32,
+      "step": 0.000125,
+      "duration": 1.25,
+      "stroke": 0.57,
+      "near": -0.05620000000000047,
+      "far": 0.020000000000000462,
+      "railHeightM": 0.028575,
+      "radiusM": 0.0381,
+      "ratio": 5.5,
+      "efficiency": 0.82,
+      "maximum": {
+        "tilt": 0.05402621898986682,
+        "current": 50,
+        "dropV": 3.5999999999999996
+      },
+      "peakM": 0.5758597957533098,
+      "endM": 0.5700052281031975,
+      "stableS": 1.346125
+    },
+    "minimumDoorM": -0.0013269596204205786,
+    "minimumWallM": -0.0010181062632266952,
+    "firstEnvelopeEscape": null,
+    "closestLooseTire": {
+      "gapM": 0.11048897147580274,
+      "id": "blue-depot-17",
+      "t": 0,
+      "wheel": "front right public wheel"
+    },
+    "firstBodyStockContact": {
+      "t": 0,
+      "id": "blue-depot-14"
+    },
+    "retainedAtReady": 24,
+    "initialPayloadIds": [
+      "blue-depot-01",
+      "blue-depot-02",
+      "blue-depot-03",
+      "blue-depot-04",
+      "blue-depot-05",
+      "blue-depot-06",
+      "blue-depot-07",
+      "blue-depot-08",
+      "blue-depot-09",
+      "blue-depot-10",
+      "blue-depot-11",
+      "blue-depot-12",
+      "blue-depot-15",
+      "blue-depot-16",
+      "blue-depot-21",
+      "blue-depot-22",
+      "blue-unspent-preload-1",
+      "blue-unspent-preload-2",
+      "blue-unspent-preload-3",
+      "blue-unspent-preload-4",
+      "blue-unspent-preload-5",
+      "blue-unspent-preload-6",
+      "blue-unspent-preload-7",
+      "blue-unspent-preload-8"
+    ]
+  }
+}

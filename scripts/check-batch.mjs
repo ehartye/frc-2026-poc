@@ -86,3 +86,30 @@ assert.equal(sustained['coarse-timed'].onboardByCollectionSecond[30],22);
 assert.equal(sustained['combined-adverse'].rail.stableS,null);
 assert.equal(sustained['combined-adverse'].onboardByCollectionSecond[30],20);
 console.log('Two intact 24-piece checkpoints under 30 s; late, incomplete-pair and stalled controls retained.');
+
+for (const step of [125,250]) {
+  const run=await read('../experiments/loaded-transfer/study-'+step+'us.json');
+  const link=async ref=>{
+    const bytes=await readFile(new URL('../experiments/loaded-transfer/'+ref.file,import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),ref.sha256);
+    return JSON.parse(bytes);
+  };
+  const start=await link(run.sourceBound), end=await link(run.end);
+  assert.equal(run.travel.sourceSha256,run.sourceBound.sha256);
+  const ids=rows=>rows.map(p=>p.id).sort();
+  assert.deepEqual(ids(start.payload),ids(end.payload));
+  assert.deepEqual(ids(start.remainingField),ids(end.remainingField));
+  assert.equal(end.payload.length,24);
+  assert.equal(end.remainingField.length,8);
+  assert.equal(new Set([...end.payload,...end.remainingField].map(b=>b.id)).size,32);
+  assert.equal(start.payload.filter(p=>p.id.startsWith('blue-unspent-preload-')).length,8);
+  assert.ok(run.gateClosedS<30 && run.fieldBoundary.minimumStockWallGapM>-.017);
+  assert.ok(run.closestLooseCenterToWallAtHandoffM>0);
+  assert.ok(run.fieldBoundary.wallContacts.length>0);
+  assert.equal(run.travel.retainedAtReady,24);
+  assert.equal(run.travel.firstEnvelopeEscape,null);
+  assert.equal(run.travel.departS,30);
+  assert.equal(run.travel.arriveS,35);
+  assert.equal(end.timeS,38);
+}
+console.log('Corrected end-wall collection and prescribed transfer share 32 source-bound IDs at both steps.');
