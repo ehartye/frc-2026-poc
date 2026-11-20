@@ -23,14 +23,14 @@
           "period": "Transition",
           "bySide": {
             "blue": {
-              "released": 5,
+              "released": 4,
               "retrieved": 4,
-              "queued": 19
+              "queued": 20
             },
             "red": {
-              "released": 5,
+              "released": 4,
               "retrieved": 4,
-              "queued": 19
+              "queued": 20
             }
           }
         },
@@ -38,14 +38,14 @@
           "period": "Shift 1",
           "bySide": {
             "blue": {
-              "released": 13,
-              "retrieved": 12,
-              "queued": 11
+              "released": 9,
+              "retrieved": 8,
+              "queued": 15
             },
             "red": {
-              "released": 13,
-              "retrieved": 12,
-              "queued": 11
+              "released": 12,
+              "retrieved": 11,
+              "queued": 12
             }
           }
         }
@@ -73,14 +73,14 @@
           "period": "Transition",
           "bySide": {
             "blue": {
-              "released": 5,
-              "retrieved": 4,
-              "queued": 19
+              "released": 3,
+              "retrieved": 3,
+              "queued": 21
             },
             "red": {
-              "released": 5,
-              "retrieved": 4,
-              "queued": 19
+              "released": 3,
+              "retrieved": 3,
+              "queued": 21
             }
           }
         },
@@ -88,14 +88,14 @@
           "period": "Shift 1",
           "bySide": {
             "blue": {
-              "released": 13,
-              "retrieved": 12,
-              "queued": 11
+              "released": 9,
+              "retrieved": 8,
+              "queued": 15
             },
             "red": {
-              "released": 13,
-              "retrieved": 12,
-              "queued": 11
+              "released": 9,
+              "retrieved": 9,
+              "queued": 15
             }
           }
         }
@@ -123,14 +123,14 @@
           "period": "Transition",
           "bySide": {
             "blue": {
-              "released": 3,
+              "released": 2,
               "retrieved": 2,
-              "queued": 21
+              "queued": 22
             },
             "red": {
-              "released": 3,
+              "released": 2,
               "retrieved": 2,
-              "queued": 21
+              "queued": 22
             }
           }
         },
@@ -139,12 +139,12 @@
           "bySide": {
             "blue": {
               "released": 7,
-              "retrieved": 6,
+              "retrieved": 7,
               "queued": 17
             },
             "red": {
               "released": 7,
-              "retrieved": 6,
+              "retrieved": 7,
               "queued": 17
             }
           }
