@@ -1,9 +1,9 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![R2C-T1 own-zone scorer and TOWER lift](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/tower.html)
+[![Robot 1780 with red alliance bumpers](cad/showcase-red/assembly.png)](https://ehartye.github.io/frc-2026-poc/#model)
 
-**Project CAD · R2C-T1 own-zone scorer and TOWER lift.** Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations. [Source STEP · 973dd45e1f](cad/tower-lift/tower-l1.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/tower.html)
+**Project CAD · Robot 1780 with red alliance bumpers.** Parked Fusion assembly with four swerve modules, a rear lift and white 1780 numbering. Purchased components use public project-drawn representations. [Editable Fusion assembly](cad/showcase-red/display.f3d) · [STEP](cad/showcase-red/display.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/#model)
 <!-- /cad-still -->
 
 [Project workflow and student-owned outputs](docs/workflow.md) · [Earlier R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)

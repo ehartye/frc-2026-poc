@@ -86,8 +86,8 @@ def run(root, update, template):
         step = link(root / featured["source"])
         archive = link(root / featured["archive"])
         block = (f'{START}\n[![{title}]({image})]({target})\n\n'
-                 f'**Project CAD · {title}.** {featured["scope"]} '
-                 f'[Editable Fusion assembly]({archive}) · [STEP]({step}) · [Rotate the model]({target})\n{END}')
+                 f'**Project CAD Â· {title}.** {featured["scope"]} '
+                 f'[Editable Fusion assembly]({archive}) Â· [STEP]({step}) Â· [Rotate the model]({target})\n{END}')
         merged = "".join(lines[:heading+1]).rstrip("\n") + "\n\n" + block + "\n\n" + "".join(lines[heading+1:]).lstrip("\n")
         if b"\r\n" in original:
             merged = merged.replace("\n", "\r\n")
