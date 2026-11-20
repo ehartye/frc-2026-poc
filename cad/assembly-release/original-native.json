@@ -1,0 +1,1335 @@
+{
+  "source": "cad/tower-lift/tower-l1.f3d",
+  "sha256": "7c4a6210bcd23540999d3412107e6a8cf72f30596250f113314b35cbf66eb941",
+  "components": {
+    "left perimeter tube": {
+      "material": "Steel",
+      "massKg": 1.9285638847999997,
+      "volumeCm3": 245.67692799999998,
+      "body": "left perimeter tube",
+      "grounded": false,
+      "features": 1
+    },
+    "left front return": {
+      "material": "Steel",
+      "massKg": 0.46682590505600025,
+      "volumeCm3": 59.46826816000004,
+      "body": "left front return",
+      "grounded": false,
+      "features": 1
+    },
+    "left blue side bumper": {
+      "material": "Steel",
+      "massKg": 59.56454399999999,
+      "volumeCm3": 7587.839999999999,
+      "body": "left blue side bumper",
+      "grounded": false,
+      "features": 1
+    },
+    "left blue front bumper": {
+      "material": "Steel",
+      "massKg": 13.60248,
+      "volumeCm3": 1732.8000000000002,
+      "body": "left blue front bumper",
+      "grounded": false,
+      "features": 1
+    },
+    "right perimeter tube": {
+      "material": "Steel",
+      "massKg": 1.9285638847999997,
+      "volumeCm3": 245.67692799999998,
+      "body": "right perimeter tube",
+      "grounded": false,
+      "features": 1
+    },
+    "right front return": {
+      "material": "Steel",
+      "massKg": 0.46682590505600025,
+      "volumeCm3": 59.46826816000004,
+      "body": "right front return",
+      "grounded": false,
+      "features": 1
+    },
+    "right blue side bumper": {
+      "material": "Steel",
+      "massKg": 59.56454399999999,
+      "volumeCm3": 7587.839999999999,
+      "body": "right blue side bumper",
+      "grounded": false,
+      "features": 1
+    },
+    "right blue front bumper": {
+      "material": "Steel",
+      "massKg": 13.60248,
+      "volumeCm3": 1732.8000000000002,
+      "body": "right blue front bumper",
+      "grounded": false,
+      "features": 1
+    },
+    "rear perimeter tube": {
+      "material": "Steel",
+      "massKg": 1.7844888181119998,
+      "volumeCm3": 227.32341631999998,
+      "body": "rear perimeter tube",
+      "grounded": true,
+      "features": 1
+    },
+    "rear blue bumper": {
+      "material": "Steel",
+      "massKg": 48.682559999999995,
+      "volumeCm3": 6201.599999999999,
+      "body": "rear blue bumper",
+      "grounded": false,
+      "features": 1
+    },
+    "front left module tab spacer 1": {
+      "material": "Steel",
+      "massKg": 0.21112514294822343,
+      "volumeCm3": 26.894922668563495,
+      "body": "front left module tab spacer 1",
+      "grounded": false,
+      "features": 1
+    },
+    "front left module tab spacer 2": {
+      "material": "Steel",
+      "massKg": 0.2111251429482224,
+      "volumeCm3": 26.894922668563368,
+      "body": "front left module tab spacer 2",
+      "grounded": false,
+      "features": 1
+    },
+    "front right module tab spacer 1": {
+      "material": "Steel",
+      "massKg": 0.2111251429482224,
+      "volumeCm3": 26.894922668563368,
+      "body": "front right module tab spacer 1",
+      "grounded": false,
+      "features": 1
+    },
+    "front right module tab spacer 2": {
+      "material": "Steel",
+      "massKg": 0.21112514294822343,
+      "volumeCm3": 26.894922668563495,
+      "body": "front right module tab spacer 2",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left module tab spacer 1": {
+      "material": "Steel",
+      "massKg": 0.21112514294822243,
+      "volumeCm3": 26.89492266856337,
+      "body": "rear left module tab spacer 1",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left module tab spacer 2": {
+      "material": "Steel",
+      "massKg": 0.21112514294822343,
+      "volumeCm3": 26.894922668563495,
+      "body": "rear left module tab spacer 2",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right module tab spacer 1": {
+      "material": "Steel",
+      "massKg": 0.21112514294822343,
+      "volumeCm3": 26.894922668563495,
+      "body": "rear right module tab spacer 1",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right module tab spacer 2": {
+      "material": "Steel",
+      "massKg": 0.21112514294822243,
+      "volumeCm3": 26.89492266856337,
+      "body": "rear right module tab spacer 2",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right hopper post": {
+      "material": "Steel",
+      "massKg": 0.286368,
+      "volumeCm3": 36.480000000000004,
+      "body": "rear right hopper post",
+      "grounded": false,
+      "features": 1
+    },
+    "front right hopper post": {
+      "material": "Steel",
+      "massKg": 0.286368,
+      "volumeCm3": 36.480000000000004,
+      "body": "front right hopper post",
+      "grounded": false,
+      "features": 1
+    },
+    "right floor sill": {
+      "material": "Steel",
+      "massKg": 0.813888,
+      "volumeCm3": 103.68,
+      "body": "right floor sill",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left hopper post": {
+      "material": "Steel",
+      "massKg": 0.286368,
+      "volumeCm3": 36.480000000000004,
+      "body": "rear left hopper post",
+      "grounded": false,
+      "features": 1
+    },
+    "front left hopper post": {
+      "material": "Steel",
+      "massKg": 0.286368,
+      "volumeCm3": 36.480000000000004,
+      "body": "front left hopper post",
+      "grounded": false,
+      "features": 1
+    },
+    "left floor sill": {
+      "material": "Steel",
+      "massKg": 0.813888,
+      "volumeCm3": 103.68,
+      "body": "left floor sill",
+      "grounded": false,
+      "features": 1
+    },
+    "rear deck crossmember": {
+      "material": "Steel",
+      "massKg": 2.47275,
+      "volumeCm3": 315.0,
+      "body": "rear deck crossmember",
+      "grounded": false,
+      "features": 1
+    },
+    "front deck crossmember": {
+      "material": "Steel",
+      "massKg": 2.47275,
+      "volumeCm3": 315.0,
+      "body": "front deck crossmember",
+      "grounded": false,
+      "features": 1
+    },
+    "left electronics deck": {
+      "material": "Steel",
+      "massKg": 3.867381,
+      "volumeCm3": 492.66,
+      "body": "left electronics deck",
+      "grounded": false,
+      "features": 1
+    },
+    "right electronics deck": {
+      "material": "Steel",
+      "massKg": 3.9242542499999997,
+      "volumeCm3": 499.90500000000003,
+      "body": "right electronics deck",
+      "grounded": false,
+      "features": 1
+    },
+    "fore electronics deck bridge": {
+      "material": "Steel",
+      "massKg": 0.56505085,
+      "volumeCm3": 71.98100000000001,
+      "body": "fore electronics deck bridge",
+      "grounded": false,
+      "features": 1
+    },
+    "aft electronics deck bridge": {
+      "material": "Steel",
+      "massKg": 0.20501845,
+      "volumeCm3": 26.117,
+      "body": "aft electronics deck bridge",
+      "grounded": false,
+      "features": 1
+    },
+    "battery cradle floor": {
+      "material": "Steel",
+      "massKg": 0.5457634,
+      "volumeCm3": 69.524,
+      "body": "battery cradle floor",
+      "grounded": false,
+      "features": 1
+    },
+    "battery cradle wall -44": {
+      "material": "Steel",
+      "massKg": 0.4857894,
+      "volumeCm3": 61.884,
+      "body": "battery cradle wall -44",
+      "grounded": false,
+      "features": 1
+    },
+    "battery cradle wall 43": {
+      "material": "Steel",
+      "massKg": 0.4857894,
+      "volumeCm3": 61.884,
+      "body": "battery cradle wall 43",
+      "grounded": false,
+      "features": 1
+    },
+    "battery secured envelope": {
+      "material": "Steel",
+      "massKg": 18.0334282,
+      "volumeCm3": 2297.252,
+      "body": "battery secured envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "distribution enclosure reserve": {
+      "material": "Steel",
+      "massKg": 5.92361,
+      "volumeCm3": 754.6,
+      "body": "distribution enclosure reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "robot controller reserve": {
+      "material": "Steel",
+      "massKg": 5.065510799999999,
+      "volumeCm3": 645.288,
+      "body": "robot controller reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "field radio reserve": {
+      "material": "Steel",
+      "massKg": 2.88301455,
+      "volumeCm3": 367.26300000000003,
+      "body": "field radio reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 1": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 1",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 2": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 2",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 3": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 3",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 4": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 4",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 5": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 5",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 6": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 6",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 7": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 7",
+      "grounded": false,
+      "features": 1
+    },
+    "drive controller reserve 8": {
+      "material": "Steel",
+      "massKg": 0.6724938000000001,
+      "volumeCm3": 85.66800000000002,
+      "body": "drive controller reserve 8",
+      "grounded": false,
+      "features": 1
+    },
+    "hopper back panel": {
+      "material": "Steel",
+      "massKg": 6.33024,
+      "volumeCm3": 806.4000000000001,
+      "body": "hopper back panel",
+      "grounded": false,
+      "features": 1
+    },
+    "right hopper wall": {
+      "material": "Steel",
+      "massKg": 4.802944,
+      "volumeCm3": 611.84,
+      "body": "right hopper wall",
+      "grounded": false,
+      "features": 1
+    },
+    "right hopper front wing": {
+      "material": "Steel",
+      "massKg": 2.2507519999999994,
+      "volumeCm3": 286.71999999999997,
+      "body": "right hopper front wing",
+      "grounded": false,
+      "features": 1
+    },
+    "right cross feed deck": {
+      "material": "Steel",
+      "massKg": 4.202575999999999,
+      "volumeCm3": 535.3599999999999,
+      "body": "right cross feed deck",
+      "grounded": false,
+      "features": 1
+    },
+    "right front elevator upright": {
+      "material": "Steel",
+      "massKg": 0.8262281999999999,
+      "volumeCm3": 105.252,
+      "body": "right front elevator upright",
+      "grounded": false,
+      "features": 1
+    },
+    "right rear elevator upright": {
+      "material": "Steel",
+      "massKg": 0.8231509999999999,
+      "volumeCm3": 104.85999999999999,
+      "body": "right rear elevator upright",
+      "grounded": false,
+      "features": 1
+    },
+    "right elevator upper tie": {
+      "material": "Steel",
+      "massKg": 0.21232679999999998,
+      "volumeCm3": 27.048,
+      "body": "right elevator upper tie",
+      "grounded": false,
+      "features": 1
+    },
+    "right inside lift belt": {
+      "material": "Steel",
+      "massKg": 0.251985,
+      "volumeCm3": 32.1,
+      "body": "right inside lift belt",
+      "grounded": false,
+      "features": 1
+    },
+    "right outside lift belt": {
+      "material": "Steel",
+      "massKg": 0.251985,
+      "volumeCm3": 32.1,
+      "body": "right outside lift belt",
+      "grounded": false,
+      "features": 1
+    },
+    "right lift shelf 1": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "right lift shelf 1",
+      "grounded": false,
+      "features": 1
+    },
+    "right lift shelf 2": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "right lift shelf 2",
+      "grounded": false,
+      "features": 1
+    },
+    "right lift shelf 3": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "right lift shelf 3",
+      "grounded": false,
+      "features": 1
+    },
+    "right lift shelf 4": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "right lift shelf 4",
+      "grounded": false,
+      "features": 1
+    },
+    "right intake ramp": {
+      "material": "Steel",
+      "massKg": 0.14101930174625033,
+      "volumeCm3": 17.964242260668833,
+      "body": "right intake ramp",
+      "grounded": false,
+      "features": 1
+    },
+    "left hopper wall": {
+      "material": "Steel",
+      "massKg": 4.802944,
+      "volumeCm3": 611.84,
+      "body": "left hopper wall",
+      "grounded": false,
+      "features": 1
+    },
+    "left hopper front wing": {
+      "material": "Steel",
+      "massKg": 2.2507519999999994,
+      "volumeCm3": 286.71999999999997,
+      "body": "left hopper front wing",
+      "grounded": false,
+      "features": 1
+    },
+    "left cross feed deck": {
+      "material": "Steel",
+      "massKg": 4.202575999999999,
+      "volumeCm3": 535.3599999999999,
+      "body": "left cross feed deck",
+      "grounded": false,
+      "features": 1
+    },
+    "left front elevator upright": {
+      "material": "Steel",
+      "massKg": 0.8262281999999999,
+      "volumeCm3": 105.252,
+      "body": "left front elevator upright",
+      "grounded": false,
+      "features": 1
+    },
+    "left rear elevator upright": {
+      "material": "Steel",
+      "massKg": 0.8231509999999999,
+      "volumeCm3": 104.85999999999999,
+      "body": "left rear elevator upright",
+      "grounded": false,
+      "features": 1
+    },
+    "left elevator upper tie": {
+      "material": "Steel",
+      "massKg": 0.21232679999999998,
+      "volumeCm3": 27.048,
+      "body": "left elevator upper tie",
+      "grounded": false,
+      "features": 1
+    },
+    "left inside lift belt": {
+      "material": "Steel",
+      "massKg": 0.251985,
+      "volumeCm3": 32.1,
+      "body": "left inside lift belt",
+      "grounded": false,
+      "features": 1
+    },
+    "left outside lift belt": {
+      "material": "Steel",
+      "massKg": 0.251985,
+      "volumeCm3": 32.1,
+      "body": "left outside lift belt",
+      "grounded": false,
+      "features": 1
+    },
+    "left lift shelf 1": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "left lift shelf 1",
+      "grounded": false,
+      "features": 1
+    },
+    "left lift shelf 2": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "left lift shelf 2",
+      "grounded": false,
+      "features": 1
+    },
+    "left lift shelf 3": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "left lift shelf 3",
+      "grounded": false,
+      "features": 1
+    },
+    "left lift shelf 4": {
+      "material": "Steel",
+      "massKg": 0.08138880000000001,
+      "volumeCm3": 10.368000000000002,
+      "body": "left lift shelf 4",
+      "grounded": false,
+      "features": 1
+    },
+    "left intake ramp": {
+      "material": "Steel",
+      "massKg": 0.14101930174625033,
+      "volumeCm3": 17.964242260668833,
+      "body": "left intake ramp",
+      "grounded": false,
+      "features": 1
+    },
+    "central fore-aft feed deck": {
+      "material": "Steel",
+      "massKg": 3.2713304999999995,
+      "volumeCm3": 416.72999999999996,
+      "body": "central fore-aft feed deck",
+      "grounded": false,
+      "features": 1
+    },
+    "left lower lift stub shaft": {
+      "material": "Steel",
+      "massKg": 0.03884186617081914,
+      "volumeCm3": 4.948008429403712,
+      "body": "left lower lift stub shaft",
+      "grounded": false,
+      "features": 1
+    },
+    "right lower lift stub shaft": {
+      "material": "Steel",
+      "massKg": 0.03884186617081914,
+      "volumeCm3": 4.948008429403712,
+      "body": "right lower lift stub shaft",
+      "grounded": false,
+      "features": 1
+    },
+    "left upper lift stub shaft": {
+      "material": "Steel",
+      "massKg": 0.03884186617081914,
+      "volumeCm3": 4.948008429403712,
+      "body": "left upper lift stub shaft",
+      "grounded": false,
+      "features": 1
+    },
+    "right upper lift stub shaft": {
+      "material": "Steel",
+      "massKg": 0.03884186617081914,
+      "volumeCm3": 4.948008429403712,
+      "body": "right upper lift stub shaft",
+      "grounded": false,
+      "features": 1
+    },
+    "ground intake roller": {
+      "material": "Steel",
+      "massKg": 8.974024760106053,
+      "volumeCm3": 1143.1878675294336,
+      "body": "ground intake roller",
+      "grounded": false,
+      "features": 1
+    },
+    "right intake bearing arm": {
+      "material": "Steel",
+      "massKg": 0.14553899999999995,
+      "volumeCm3": 18.539999999999996,
+      "body": "right intake bearing arm",
+      "grounded": false,
+      "features": 1
+    },
+    "right intake pivot plate": {
+      "material": "Steel",
+      "massKg": 0.08415577260200277,
+      "volumeCm3": 10.720480586242392,
+      "body": "right intake pivot plate",
+      "grounded": false,
+      "features": 1
+    },
+    "right intake pivot axle": {
+      "material": "Steel",
+      "massKg": 0.04439070419522187,
+      "volumeCm3": 5.654866776461385,
+      "body": "right intake pivot axle",
+      "grounded": false,
+      "features": 1
+    },
+    "right intake journal": {
+      "material": "Steel",
+      "massKg": 0.029001926740878283,
+      "volumeCm3": 3.6945129606214375,
+      "body": "right intake journal",
+      "grounded": false,
+      "features": 1
+    },
+    "right upper head cheek": {
+      "material": "Steel",
+      "massKg": 1.537344,
+      "volumeCm3": 195.84000000000003,
+      "body": "right upper head cheek",
+      "grounded": false,
+      "features": 1
+    },
+    "left intake bearing arm": {
+      "material": "Steel",
+      "massKg": 0.14553899999999995,
+      "volumeCm3": 18.539999999999996,
+      "body": "left intake bearing arm",
+      "grounded": false,
+      "features": 1
+    },
+    "left intake pivot plate": {
+      "material": "Steel",
+      "massKg": 0.08415577260200277,
+      "volumeCm3": 10.720480586242392,
+      "body": "left intake pivot plate",
+      "grounded": false,
+      "features": 1
+    },
+    "left intake pivot axle": {
+      "material": "Steel",
+      "massKg": 0.04439070419522187,
+      "volumeCm3": 5.654866776461385,
+      "body": "left intake pivot axle",
+      "grounded": false,
+      "features": 1
+    },
+    "left intake journal": {
+      "material": "Steel",
+      "massKg": 0.029001926740878283,
+      "volumeCm3": 3.6945129606214375,
+      "body": "left intake journal",
+      "grounded": false,
+      "features": 1
+    },
+    "left upper head cheek": {
+      "material": "Steel",
+      "massKg": 1.537344,
+      "volumeCm3": 195.84000000000003,
+      "body": "left upper head cheek",
+      "grounded": false,
+      "features": 1
+    },
+    "right scoring wheel": {
+      "material": "Steel",
+      "massKg": 1.262668919330864,
+      "volumeCm3": 160.84954386380434,
+      "body": "right scoring wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "right scoring spindle": {
+      "material": "Steel",
+      "massKg": 0.06392261404111949,
+      "volumeCm3": 8.143008158104394,
+      "body": "right scoring spindle",
+      "grounded": false,
+      "features": 1
+    },
+    "right upper guide": {
+      "material": "Steel",
+      "massKg": 0.09576601057264524,
+      "volumeCm3": 12.199491792693662,
+      "body": "right upper guide",
+      "grounded": false,
+      "features": 1
+    },
+    "right scoring bearing bridge -33": {
+      "material": "Steel",
+      "massKg": 0.049455,
+      "volumeCm3": 6.300000000000001,
+      "body": "right scoring bearing bridge -33",
+      "grounded": false,
+      "features": 1
+    },
+    "right scoring bearing bridge 33": {
+      "material": "Steel",
+      "massKg": 0.049455,
+      "volumeCm3": 6.300000000000001,
+      "body": "right scoring bearing bridge 33",
+      "grounded": false,
+      "features": 1
+    },
+    "left scoring wheel": {
+      "material": "Steel",
+      "massKg": 1.262668919330864,
+      "volumeCm3": 160.84954386380434,
+      "body": "left scoring wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "left scoring spindle": {
+      "material": "Steel",
+      "massKg": 0.06392261404111949,
+      "volumeCm3": 8.143008158104394,
+      "body": "left scoring spindle",
+      "grounded": false,
+      "features": 1
+    },
+    "left upper guide": {
+      "material": "Steel",
+      "massKg": 0.09576601057264524,
+      "volumeCm3": 12.199491792693662,
+      "body": "left upper guide",
+      "grounded": false,
+      "features": 1
+    },
+    "left scoring bearing bridge -33": {
+      "material": "Steel",
+      "massKg": 0.049455,
+      "volumeCm3": 6.300000000000001,
+      "body": "left scoring bearing bridge -33",
+      "grounded": false,
+      "features": 1
+    },
+    "left scoring bearing bridge 33": {
+      "material": "Steel",
+      "massKg": 0.049455,
+      "volumeCm3": 6.300000000000001,
+      "body": "left scoring bearing bridge 33",
+      "grounded": false,
+      "features": 1
+    },
+    "left feed diverter pivot": {
+      "material": "Steel",
+      "massKg": 0.029001926740878283,
+      "volumeCm3": 3.6945129606214375,
+      "body": "left feed diverter pivot",
+      "grounded": false,
+      "features": 1
+    },
+    "right feed diverter pivot": {
+      "material": "Steel",
+      "massKg": 0.029001926740878283,
+      "volumeCm3": 3.6945129606214375,
+      "body": "right feed diverter pivot",
+      "grounded": false,
+      "features": 1
+    },
+    "feed diverter vane": {
+      "material": "Steel",
+      "massKg": 0.21666,
+      "volumeCm3": 27.6,
+      "body": "feed diverter vane",
+      "grounded": false,
+      "features": 1
+    },
+    "front left public wheel": {
+      "material": "Steel",
+      "massKg": 0.9307709683542336,
+      "volumeCm3": 118.56955010881957,
+      "body": "front left public wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "front left public drive housing": {
+      "material": "Steel",
+      "massKg": 2.2607999999999997,
+      "volumeCm3": 288.0,
+      "body": "front left public drive housing",
+      "grounded": false,
+      "features": 1
+    },
+    "front left public motor reserve": {
+      "material": "Steel",
+      "massKg": 1.2448091727858952,
+      "volumeCm3": 158.5744169154007,
+      "body": "front left public motor reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "front right public wheel": {
+      "material": "Steel",
+      "massKg": 0.9307709683542336,
+      "volumeCm3": 118.56955010881957,
+      "body": "front right public wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "front right public drive housing": {
+      "material": "Steel",
+      "massKg": 2.2607999999999997,
+      "volumeCm3": 288.0,
+      "body": "front right public drive housing",
+      "grounded": false,
+      "features": 1
+    },
+    "front right public motor reserve": {
+      "material": "Steel",
+      "massKg": 1.2448091727858952,
+      "volumeCm3": 158.5744169154007,
+      "body": "front right public motor reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left public wheel": {
+      "material": "Steel",
+      "massKg": 0.9307709683542336,
+      "volumeCm3": 118.56955010881957,
+      "body": "rear left public wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left public drive housing": {
+      "material": "Steel",
+      "massKg": 2.2607999999999997,
+      "volumeCm3": 288.0,
+      "body": "rear left public drive housing",
+      "grounded": false,
+      "features": 1
+    },
+    "rear left public motor reserve": {
+      "material": "Steel",
+      "massKg": 1.2448091727858952,
+      "volumeCm3": 158.5744169154007,
+      "body": "rear left public motor reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right public wheel": {
+      "material": "Steel",
+      "massKg": 0.9307709683542336,
+      "volumeCm3": 118.56955010881957,
+      "body": "rear right public wheel",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right public drive housing": {
+      "material": "Steel",
+      "massKg": 2.2607999999999997,
+      "volumeCm3": 288.0,
+      "body": "rear right public drive housing",
+      "grounded": false,
+      "features": 1
+    },
+    "rear right public motor reserve": {
+      "material": "Steel",
+      "massKg": 1.2448091727858952,
+      "volumeCm3": 158.5744169154007,
+      "body": "rear right public motor reserve",
+      "grounded": false,
+      "features": 1
+    },
+    "right public scoring motor envelope": {
+      "material": "Steel",
+      "massKg": 2.0699385366231966,
+      "volumeCm3": 263.6864377863945,
+      "body": "right public scoring motor envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "left public scoring motor envelope": {
+      "material": "Steel",
+      "massKg": 2.0699385366231966,
+      "volumeCm3": 263.6864377863945,
+      "body": "left public scoring motor envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "rear lift custody gate": {
+      "material": "Steel",
+      "massKg": 1.698112,
+      "volumeCm3": 216.32000000000002,
+      "body": "rear lift custody gate",
+      "grounded": false,
+      "features": 1
+    },
+    "front lift custody guide": {
+      "material": "Steel",
+      "massKg": 1.473602,
+      "volumeCm3": 187.72000000000003,
+      "body": "front lift custody guide",
+      "grounded": false,
+      "features": 1
+    },
+    "left mast": {
+      "material": "Steel",
+      "massKg": 0.7112476799999998,
+      "volumeCm3": 90.60479999999998,
+      "body": "left mast",
+      "grounded": false,
+      "features": 1
+    },
+    "left aft mast": {
+      "material": "Steel",
+      "massKg": 0.7112476799999998,
+      "volumeCm3": 90.60479999999998,
+      "body": "left aft mast",
+      "grounded": false,
+      "features": 1
+    },
+    "left upper bearing plate": {
+      "material": "Steel",
+      "massKg": 0.2290944,
+      "volumeCm3": 29.184000000000005,
+      "body": "left upper bearing plate",
+      "grounded": false,
+      "features": 1
+    },
+    "left lower bearing plate": {
+      "material": "Steel",
+      "massKg": 0.10936620000000001,
+      "volumeCm3": 13.932000000000002,
+      "body": "left lower bearing plate",
+      "grounded": false,
+      "features": 1
+    },
+    "left lead screw envelope": {
+      "material": "Steel",
+      "massKg": 0.11529252339592348,
+      "volumeCm3": 14.686945655531655,
+      "body": "left lead screw envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "left lift motor envelope": {
+      "material": "Steel",
+      "massKg": 1.353916477954267,
+      "volumeCm3": 172.47343668207225,
+      "body": "left lift motor envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "left reduction envelope": {
+      "material": "Steel",
+      "massKg": 0.381824,
+      "volumeCm3": 48.64,
+      "body": "left reduction envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "left driven nut": {
+      "material": "Steel",
+      "massKg": 0.028954274184261674,
+      "volumeCm3": 3.6884425712435256,
+      "body": "left driven nut",
+      "grounded": false,
+      "features": 1
+    },
+    "left nut link": {
+      "material": "Steel",
+      "massKg": 0.011799870615958937,
+      "volumeCm3": 1.503168231332349,
+      "body": "left nut link",
+      "grounded": false,
+      "features": 1
+    },
+    "left crosshead cheek": {
+      "material": "Steel",
+      "massKg": 0.4307329188623425,
+      "volumeCm3": 54.87043552386529,
+      "body": "left crosshead cheek",
+      "grounded": false,
+      "features": 1
+    },
+    "left forward carriage sleeve": {
+      "material": "Steel",
+      "massKg": 0.05903200000000002,
+      "volumeCm3": 7.520000000000003,
+      "body": "left forward carriage sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "left aft carriage sleeve": {
+      "material": "Steel",
+      "massKg": 0.05903200000000002,
+      "volumeCm3": 7.520000000000003,
+      "body": "left aft carriage sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "left extension sleeve": {
+      "material": "Steel",
+      "massKg": 0.1475172,
+      "volumeCm3": 18.792,
+      "body": "left extension sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "left sleeve pedestal": {
+      "material": "Steel",
+      "massKg": 0.08738620000000001,
+      "volumeCm3": 11.132000000000003,
+      "body": "left sleeve pedestal",
+      "grounded": false,
+      "features": 1
+    },
+    "left extending rail": {
+      "material": "Steel",
+      "massKg": 0.471314,
+      "volumeCm3": 60.040000000000006,
+      "body": "left extending rail",
+      "grounded": false,
+      "features": 1
+    },
+    "left crown hook": {
+      "material": "Steel",
+      "massKg": 0.22560899999999973,
+      "volumeCm3": 28.739999999999966,
+      "body": "left crown hook",
+      "grounded": false,
+      "features": 1
+    },
+    "right mast": {
+      "material": "Steel",
+      "massKg": 0.7112476799999998,
+      "volumeCm3": 90.60479999999998,
+      "body": "right mast",
+      "grounded": false,
+      "features": 1
+    },
+    "right aft mast": {
+      "material": "Steel",
+      "massKg": 0.7112476799999998,
+      "volumeCm3": 90.60479999999998,
+      "body": "right aft mast",
+      "grounded": false,
+      "features": 1
+    },
+    "right upper bearing plate": {
+      "material": "Steel",
+      "massKg": 0.2290944,
+      "volumeCm3": 29.184000000000005,
+      "body": "right upper bearing plate",
+      "grounded": false,
+      "features": 1
+    },
+    "right lower bearing plate": {
+      "material": "Steel",
+      "massKg": 0.10936620000000001,
+      "volumeCm3": 13.932000000000002,
+      "body": "right lower bearing plate",
+      "grounded": false,
+      "features": 1
+    },
+    "right lead screw envelope": {
+      "material": "Steel",
+      "massKg": 0.11529252339592348,
+      "volumeCm3": 14.686945655531655,
+      "body": "right lead screw envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "right lift motor envelope": {
+      "material": "Steel",
+      "massKg": 1.353916477954267,
+      "volumeCm3": 172.47343668207225,
+      "body": "right lift motor envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "right reduction envelope": {
+      "material": "Steel",
+      "massKg": 0.381824,
+      "volumeCm3": 48.64,
+      "body": "right reduction envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "right driven nut": {
+      "material": "Steel",
+      "massKg": 0.028954274184261674,
+      "volumeCm3": 3.6884425712435256,
+      "body": "right driven nut",
+      "grounded": false,
+      "features": 1
+    },
+    "right nut link": {
+      "material": "Steel",
+      "massKg": 0.011799870615958937,
+      "volumeCm3": 1.503168231332349,
+      "body": "right nut link",
+      "grounded": false,
+      "features": 1
+    },
+    "right crosshead cheek": {
+      "material": "Steel",
+      "massKg": 0.4307329188623425,
+      "volumeCm3": 54.87043552386529,
+      "body": "right crosshead cheek",
+      "grounded": false,
+      "features": 1
+    },
+    "right forward carriage sleeve": {
+      "material": "Steel",
+      "massKg": 0.05903200000000002,
+      "volumeCm3": 7.520000000000003,
+      "body": "right forward carriage sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "right aft carriage sleeve": {
+      "material": "Steel",
+      "massKg": 0.05903200000000002,
+      "volumeCm3": 7.520000000000003,
+      "body": "right aft carriage sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "right extension sleeve": {
+      "material": "Steel",
+      "massKg": 0.1475172,
+      "volumeCm3": 18.792,
+      "body": "right extension sleeve",
+      "grounded": false,
+      "features": 1
+    },
+    "right sleeve pedestal": {
+      "material": "Steel",
+      "massKg": 0.08738620000000001,
+      "volumeCm3": 11.132000000000003,
+      "body": "right sleeve pedestal",
+      "grounded": false,
+      "features": 1
+    },
+    "right extending rail": {
+      "material": "Steel",
+      "massKg": 0.471314,
+      "volumeCm3": 60.040000000000006,
+      "body": "right extending rail",
+      "grounded": false,
+      "features": 1
+    },
+    "right crown hook": {
+      "material": "Steel",
+      "massKg": 0.22560899999999973,
+      "volumeCm3": 28.739999999999966,
+      "body": "right crown hook",
+      "grounded": false,
+      "features": 1
+    },
+    "crosshead lift bridge": {
+      "material": "Steel",
+      "massKg": 0.7121519999999997,
+      "volumeCm3": 90.71999999999997,
+      "body": "crosshead lift bridge",
+      "grounded": false,
+      "features": 1
+    },
+    "rail synchronizing tie": {
+      "material": "Steel",
+      "massKg": 0.10299199999999999,
+      "volumeCm3": 13.12,
+      "body": "rail synchronizing tie",
+      "grounded": false,
+      "features": 1
+    },
+    "extension bearing beam": {
+      "material": "Steel",
+      "massKg": 1.2726419999999998,
+      "volumeCm3": 162.12,
+      "body": "extension bearing beam",
+      "grounded": false,
+      "features": 1
+    },
+    "extension rear bearing and stop": {
+      "material": "Steel",
+      "massKg": 0.08167623572374066,
+      "volumeCm3": 10.404616015763143,
+      "body": "extension rear bearing and stop",
+      "grounded": false,
+      "features": 1
+    },
+    "extension forward bearing": {
+      "material": "Steel",
+      "massKg": 0.08167623572374066,
+      "volumeCm3": 10.404616015763143,
+      "body": "extension forward bearing",
+      "grounded": false,
+      "features": 1
+    },
+    "extension screw envelope": {
+      "material": "Steel",
+      "massKg": 0.17201397875648478,
+      "volumeCm3": 21.912608758787872,
+      "body": "extension screw envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "extension deployment nut": {
+      "material": "Steel",
+      "massKg": 0.06930924883465953,
+      "volumeCm3": 8.829203673205036,
+      "body": "extension deployment nut",
+      "grounded": false,
+      "features": 1
+    },
+    "extension nut hanger": {
+      "material": "Steel",
+      "massKg": 0.010048000000000001,
+      "volumeCm3": 1.2800000000000002,
+      "body": "extension nut hanger",
+      "grounded": false,
+      "features": 1
+    },
+    "extension motor envelope": {
+      "material": "Steel",
+      "massKg": 0.3915260110018569,
+      "volumeCm3": 49.87592496838942,
+      "body": "extension motor envelope",
+      "grounded": false,
+      "features": 1
+    },
+    "extension motor foot": {
+      "material": "Steel",
+      "massKg": 0.004521600000000001,
+      "volumeCm3": 0.5760000000000002,
+      "body": "extension motor foot",
+      "grounded": false,
+      "features": 1
+    }
+  },
+  "rigidGroups": {
+    "Tower fixed": [
+      "left mast",
+      "left aft mast",
+      "left upper bearing plate",
+      "left lower bearing plate",
+      "left lead screw envelope",
+      "left lift motor envelope",
+      "left reduction envelope",
+      "right mast",
+      "right aft mast",
+      "right upper bearing plate",
+      "right lower bearing plate",
+      "right lead screw envelope",
+      "right lift motor envelope",
+      "right reduction envelope",
+      "rear perimeter tube"
+    ],
+    "Tower elevator": [
+      "left driven nut",
+      "left nut link",
+      "left crosshead cheek",
+      "left forward carriage sleeve",
+      "left aft carriage sleeve",
+      "left extension sleeve",
+      "left sleeve pedestal",
+      "right driven nut",
+      "right nut link",
+      "right crosshead cheek",
+      "right forward carriage sleeve",
+      "right aft carriage sleeve",
+      "right extension sleeve",
+      "right sleeve pedestal",
+      "crosshead lift bridge",
+      "extension bearing beam",
+      "extension rear bearing and stop",
+      "extension forward bearing",
+      "extension screw envelope",
+      "extension motor envelope",
+      "extension motor foot"
+    ],
+    "Tower hooks": [
+      "left extending rail",
+      "left crown hook",
+      "right extending rail",
+      "right crown hook",
+      "rail synchronizing tie",
+      "extension deployment nut",
+      "extension nut hanger"
+    ]
+  },
+  "joints": [
+    "Tower rear deployment",
+    "Tower load stroke"
+  ],
+  "restored": true,
+  "nativeMassKg": 350.4926575160117
+}

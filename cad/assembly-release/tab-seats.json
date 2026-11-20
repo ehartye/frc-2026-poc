@@ -1,0 +1,230 @@
+{
+  "sourceSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+  "method": "Finite coplanar surface intersections on the unmodified supplier plates. Saddle area partitioned at bolt midplane; minimum 7.5692 mm socket cap diameter, measured between r2.75 mm and the outside edge; nut seat uses an inscribed 9.2 mm circle.",
+  "stacks": [
+    {
+      "site": "front left",
+      "centerMm": [
+        207.85,
+        296.75,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front left",
+      "centerMm": [
+        182.45,
+        296.75,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front left",
+      "centerMm": [
+        296.75,
+        207.85,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front left",
+      "centerMm": [
+        296.75,
+        182.45,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front right",
+      "centerMm": [
+        296.75,
+        -207.85,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front right",
+      "centerMm": [
+        296.75,
+        -182.45,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front right",
+      "centerMm": [
+        207.85,
+        -296.75,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "front right",
+      "centerMm": [
+        182.45,
+        -296.75,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear left",
+      "centerMm": [
+        -296.75,
+        207.85,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear left",
+      "centerMm": [
+        -296.75,
+        182.45,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear left",
+      "centerMm": [
+        -207.85,
+        296.75,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear left",
+      "centerMm": [
+        -182.45,
+        296.75,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear right",
+      "centerMm": [
+        -207.85,
+        -296.75,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear right",
+      "centerMm": [
+        -182.45,
+        -296.75,
+        69.85
+      ],
+      "saddle": 1,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear right",
+      "centerMm": [
+        -296.75,
+        -207.85,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 57.15,
+      "lowerSaddleAreaMm2": 342.0782,
+      "upperSaddleAreaMm2": 342.0782,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    },
+    {
+      "site": "rear right",
+      "centerMm": [
+        -296.75,
+        -182.45,
+        69.85
+      ],
+      "saddle": 2,
+      "supplierStation": 82.55,
+      "lowerSaddleAreaMm2": 327.0,
+      "upperSaddleAreaMm2": 327.0,
+      "headAreaMm2": 21.2394,
+      "nutAreaMm2": 46.8411
+    }
+  ]
+}

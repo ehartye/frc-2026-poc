@@ -1,0 +1,231 @@
+{
+  "supplierSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+  "supplierBodies": 72,
+  "sites": {
+    "front left": {
+      "supplierRobotIntersectionsMm3": {
+        "10:REV-21-3005-P02/": {
+          "front left hopper post": 236.6353,
+          "front deck crossmember": 424.3199
+        },
+        "11:REV-21-3005-P03/": {
+          "left perimeter tube": 145.1694,
+          "left front return": 145.1694
+        },
+        "39:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        },
+        "41:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        },
+        "42:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        },
+        "43:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        },
+        "44:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        },
+        "45:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "left front return": 112.0253
+        }
+      },
+      "serviceContactsMm3": {
+        "front left rail mount 1-1 key": {},
+        "front left rail mount 1-1 headWithdrawal": {},
+        "front left rail mount 1-2 key": {},
+        "front left rail mount 1-2 headWithdrawal": {},
+        "front left tab 1-1 bottomKey": {},
+        "front left tab 1-1 topSocket": {},
+        "front left tab 1-2 bottomKey": {},
+        "front left tab 1-2 topSocket": {},
+        "front left rail mount 2-1 key": {},
+        "front left rail mount 2-1 headWithdrawal": {},
+        "front left rail mount 2-2 key": {},
+        "front left rail mount 2-2 headWithdrawal": {},
+        "front left tab 2-1 bottomKey": {},
+        "front left tab 2-1 topSocket": {},
+        "front left tab 2-2 bottomKey": {},
+        "front left tab 2-2 topSocket": {}
+      }
+    },
+    "front right": {
+      "supplierRobotIntersectionsMm3": {
+        "10:REV-21-3005-P02/": {
+          "front right hopper post": 236.6353,
+          "front deck crossmember": 424.3199
+        },
+        "11:REV-21-3005-P03/": {
+          "right perimeter tube": 145.1694,
+          "right front return": 145.1694
+        },
+        "39:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        },
+        "41:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        },
+        "42:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        },
+        "43:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        },
+        "44:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        },
+        "45:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "right front return": 112.0253
+        }
+      },
+      "serviceContactsMm3": {
+        "front right rail mount 1-1 key": {},
+        "front right rail mount 1-1 headWithdrawal": {},
+        "front right rail mount 1-2 key": {},
+        "front right rail mount 1-2 headWithdrawal": {},
+        "front right tab 1-1 bottomKey": {},
+        "front right tab 1-1 topSocket": {},
+        "front right tab 1-2 bottomKey": {},
+        "front right tab 1-2 topSocket": {},
+        "front right rail mount 2-1 key": {},
+        "front right rail mount 2-1 headWithdrawal": {},
+        "front right rail mount 2-2 key": {},
+        "front right rail mount 2-2 headWithdrawal": {},
+        "front right tab 2-1 bottomKey": {},
+        "front right tab 2-1 topSocket": {},
+        "front right tab 2-2 bottomKey": {},
+        "front right tab 2-2 topSocket": {}
+      }
+    },
+    "rear left": {
+      "supplierRobotIntersectionsMm3": {
+        "10:REV-21-3005-P02/": {
+          "rear left hopper post": 817.4171,
+          "rear deck crossmember": 1481.4701
+        },
+        "11:REV-21-3005-P03/": {
+          "left perimeter tube": 145.1694,
+          "rear perimeter tube": 145.1694
+        },
+        "39:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "41:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "42:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "43:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "44:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "45:#10 Button Head Cap Screws_0.375 Long/": {
+          "left perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        }
+      },
+      "serviceContactsMm3": {
+        "rear left rail mount 1-1 key": {},
+        "rear left rail mount 1-1 headWithdrawal": {},
+        "rear left rail mount 1-2 key": {},
+        "rear left rail mount 1-2 headWithdrawal": {},
+        "rear left tab 1-1 bottomKey": {},
+        "rear left tab 1-1 topSocket": {},
+        "rear left tab 1-2 bottomKey": {},
+        "rear left tab 1-2 topSocket": {},
+        "rear left rail mount 2-1 key": {},
+        "rear left rail mount 2-1 headWithdrawal": {},
+        "rear left rail mount 2-2 key": {
+          "rear deck crossmember": 820.5952
+        },
+        "rear left rail mount 2-2 headWithdrawal": {
+          "rear deck crossmember": 1556.8368
+        },
+        "rear left tab 2-1 bottomKey": {},
+        "rear left tab 2-1 topSocket": {},
+        "rear left tab 2-2 bottomKey": {},
+        "rear left tab 2-2 topSocket": {}
+      }
+    },
+    "rear right": {
+      "supplierRobotIntersectionsMm3": {
+        "10:REV-21-3005-P02/": {
+          "rear right hopper post": 817.4171,
+          "rear deck crossmember": 1481.4701
+        },
+        "11:REV-21-3005-P03/": {
+          "right perimeter tube": 145.1694,
+          "rear perimeter tube": 145.1694
+        },
+        "39:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "41:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "42:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "43:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "44:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        },
+        "45:#10 Button Head Cap Screws_0.375 Long/": {
+          "right perimeter tube": 112.0253,
+          "rear perimeter tube": 112.0253
+        }
+      },
+      "serviceContactsMm3": {
+        "rear right rail mount 1-1 key": {},
+        "rear right rail mount 1-1 headWithdrawal": {},
+        "rear right rail mount 1-2 key": {
+          "rear deck crossmember": 820.5952
+        },
+        "rear right rail mount 1-2 headWithdrawal": {
+          "rear deck crossmember": 1556.8368
+        },
+        "rear right tab 1-1 bottomKey": {},
+        "rear right tab 1-1 topSocket": {},
+        "rear right tab 1-2 bottomKey": {},
+        "rear right tab 1-2 topSocket": {},
+        "rear right rail mount 2-1 key": {},
+        "rear right rail mount 2-1 headWithdrawal": {},
+        "rear right rail mount 2-2 key": {},
+        "rear right rail mount 2-2 headWithdrawal": {},
+        "rear right tab 2-1 bottomKey": {},
+        "rear right tab 2-1 topSocket": {},
+        "rear right tab 2-2 bottomKey": {},
+        "rear right tab 2-2 topSocket": {}
+      }
+    }
+  },
+  "interpretation": "Volume over 0.02 cubic mm. Moving leaves use enclosing cylinders over their full axial intervals. Positive cylinder overlap requires exact angular investigation. Bottom key and top socket checks are against its non-chassis module before installation. The side driver and cap head are checked with the complete parked T1 robot."
+}
