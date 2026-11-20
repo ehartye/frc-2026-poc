@@ -1,6 +1,6 @@
 # Student workflow and evidence
 
-Start with the [live field study](https://ehartye.github.io/frc-2026-poc/) and its [interactive lab](../kickoff/field-lab.html). Each row identifies the actual project-owned file you can read or edit in this checkout. The January 10 V0 + TU00 boundary applies to game requirements; technical studies state their own assumptions.
+Start with the [live field study](https://ehartye.github.io/frc-2026-poc/) and its [interactive lab](../kickoff/field-lab.html). The [three-on-three rehearsal](../kickoff/rehearsal/field-study.md) records physical stock, the six opening assignments, and the two staffed supply outlets. Each row identifies the actual project-owned file you can read or edit in this checkout. The January 10 V0 + TU00 boundary applies to game requirements; technical studies state their own assumptions.
 
 | Workflow skill | Project-owned document or artifact | What to check |
 |---|---|---|
