@@ -69,6 +69,10 @@ try {
     await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") > 0.5");
     await evaluate("document.querySelector('#reset-camera').click()");
     await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") < 0.01");
+    await evaluate("document.querySelector('#toggle-still').click()");
+    await until("!document.querySelector('#fusion-still').hidden && document.querySelector('#fusion-still').naturalWidth > 0 && document.querySelector('#featured-robot').hidden");
+    await evaluate("document.querySelector('#toggle-still').click()");
+    await until("document.querySelector('#fusion-still').hidden && !document.querySelector('#featured-robot').hidden");
     assert.ok(await evaluate("document.querySelector('#model a[download]').href.endsWith('/assembly/display.f3d')"));
     assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"));
     console.log(width + 'px: featured Fusion model loaded, rotated and reset');

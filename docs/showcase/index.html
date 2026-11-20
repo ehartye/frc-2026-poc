@@ -14,8 +14,9 @@
 <model-viewer id="featured-robot" src="assembly/display.glb" alt="Parked robot with four swerve modules and white 1780 numbers on red bumper covers" camera-controls touch-action="pan-y" interaction-prompt="none" camera-orbit="131deg 70deg auto" shadow-intensity=".55" exposure="1.12">
 <img slot="poster" src="assembly/assembly.png" alt="Fusion assembly with red 1780 bumpers" fetchpriority="high">
 </model-viewer>
-<div class="controls" aria-label="Model camera" hidden><button type="button" data-turn="-45" aria-label="Turn model left">←</button><button type="button" data-turn="45" aria-label="Turn model right">→</button><button type="button" id="reset-camera">Reset view</button><button type="button" id="expand-model" hidden>Full screen</button></div></div>
-<figcaption>Parked Fusion assembly with project-drawn purchased parts. <a href="assembly/display.step" download>Download STEP</a> · <a href="assembly/provenance.json">Export record</a></figcaption></figure>
+<img id="fusion-still" src="assembly/assembly.png" alt="Three-quarter view captured in Autodesk Fusion" hidden>
+<div class="controls" aria-label="Model camera" hidden><button type="button" data-turn="-45" aria-label="Turn model left">←</button><button type="button" data-turn="45" aria-label="Turn model right">→</button><button type="button" id="reset-camera">Reset view</button><button type="button" id="toggle-still" aria-pressed="false">Fusion still</button><button type="button" id="expand-model" hidden>Full screen</button></div></div>
+<figcaption>Orbit of the reopened Fusion assembly, including project-drawn purchased parts. <a href="assembly/display.step" download>Download STEP</a> · <a href="assembly/provenance.json">Export record</a></figcaption></figure>
 </section>
 <div class="content">
 <section id="results"><p class="eyebrow">Design evidence</p><h2>What reached the HUB and TOWER?</h2><p>At the registered low rung, the modeled R2C-T1 hangs on two hooks with 51 mm below its tires. Early cutoff and a stalled drive earn zero. <a href="robot/tower.html">Inspect the parked and loaded poses</a>.</p>

@@ -24,6 +24,17 @@ controls.querySelector('#reset-camera').addEventListener('click', () => {
   viewer.fieldOfView = 'auto';
   viewer.cameraOrbit = initialOrbit;
 });
+const toggle = controls.querySelector('#toggle-still');
+const still = stage.querySelector('#fusion-still');
+toggle.addEventListener('click', () => {
+  const showStill = still.hidden;
+  still.hidden = !showStill;
+  viewer.hidden = showStill;
+  toggle.setAttribute('aria-pressed', String(showStill));
+  for (const button of controls.querySelectorAll('[data-turn], #reset-camera')) {
+    button.disabled = showStill;
+  }
+});
 expand.addEventListener('click', async () => {
   if (document.fullscreenElement === stage) await document.exitFullscreen();
   else await stage.requestFullscreen();
