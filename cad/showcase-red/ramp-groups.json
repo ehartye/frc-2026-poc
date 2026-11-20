@@ -1,0 +1,25 @@
+{
+  "basisSha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
+  "documentsBefore": 1,
+  "stage": "verified",
+  "rampPredecessorSha256": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
+  "rampRigidGroups": {
+    "Left welded intake ramp": [
+      "front deck crossmember",
+      "left intake foundation cheek",
+      "left intake ramp",
+      "left ramp bridge aft",
+      "left ramp bridge forward"
+    ],
+    "Right welded intake ramp": [
+      "front deck crossmember",
+      "right intake foundation cheek",
+      "right intake ramp",
+      "right ramp bridge aft",
+      "right ramp bridge forward"
+    ]
+  },
+  "archiveSha256": "12a858347903805d7ec784615bf0c2d1c0a7dda3e251eef1acc89da7434d44fa",
+  "documentsAfter": 1,
+  "restored": true
+}

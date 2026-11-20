@@ -65,6 +65,11 @@ try {
     await until("location.href===" + JSON.stringify(home) + " && document.querySelector('#featured-robot')?.loaded && !document.querySelector('.assembly-stage .controls').hidden");
     const model = "document.querySelector('#featured-robot')";
     const initial = await evaluate(model + ".getCameraOrbit().theta");
+    await evaluate("document.querySelector('#inspect-intake').click()");
+    await until("Math.abs(" + model + ".getCameraTarget().x - 0.27) < 0.004");
+    assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true);
+    await evaluate("document.querySelector('#reset-camera').click()");
+    await until("Math.abs(" + model + ".getCameraTarget().x) < 0.15");
     await evaluate("document.querySelector('[data-turn=\"45\"]').click()");
     await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") > 0.5");
     await evaluate("document.querySelector('#reset-camera').click()");

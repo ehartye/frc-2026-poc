@@ -1,0 +1,199 @@
+{
+  "stepSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+  "installedSource": true,
+  "scope": "Nominal geometric closure through the six named structural members on each side, ignoring all moving parts, bumper and geometry outside each chosen path. Omission trials treat omitted parts as unavailable. They do not establish safe single-gusset strength.",
+  "checks": {
+    "left": [
+      {
+        "control": "complete",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "left front return": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "left front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "aft gusset omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "left intake ramp",
+            "left ramp bridge forward",
+            "left intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "left front return": [
+            "left intake ramp",
+            "left ramp bridge forward",
+            "left intake foundation cheek",
+            "left front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "forward gusset omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "left front return": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "left front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "both gussets omitted",
+        "chassisPaths": {
+          "front deck crossmember": [],
+          "left front return": []
+        },
+        "hasPath": false
+      },
+      {
+        "control": "support cheek omitted",
+        "chassisPaths": {
+          "front deck crossmember": [],
+          "left front return": []
+        },
+        "hasPath": false
+      },
+      {
+        "control": "front crossmember omitted",
+        "chassisPaths": {
+          "left front return": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "left front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "front return omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "left intake ramp",
+            "left ramp bridge aft",
+            "left intake foundation cheek",
+            "front deck crossmember"
+          ]
+        },
+        "hasPath": true
+      }
+    ],
+    "right": [
+      {
+        "control": "complete",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "right front return": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "right front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "aft gusset omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "right intake ramp",
+            "right ramp bridge forward",
+            "right intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "right front return": [
+            "right intake ramp",
+            "right ramp bridge forward",
+            "right intake foundation cheek",
+            "right front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "forward gusset omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "front deck crossmember"
+          ],
+          "right front return": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "right front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "both gussets omitted",
+        "chassisPaths": {
+          "front deck crossmember": [],
+          "right front return": []
+        },
+        "hasPath": false
+      },
+      {
+        "control": "support cheek omitted",
+        "chassisPaths": {
+          "front deck crossmember": [],
+          "right front return": []
+        },
+        "hasPath": false
+      },
+      {
+        "control": "front crossmember omitted",
+        "chassisPaths": {
+          "right front return": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "right front return"
+          ]
+        },
+        "hasPath": true
+      },
+      {
+        "control": "front return omitted",
+        "chassisPaths": {
+          "front deck crossmember": [
+            "right intake ramp",
+            "right ramp bridge aft",
+            "right intake foundation cheek",
+            "front deck crossmember"
+          ]
+        },
+        "hasPath": true
+      }
+    ]
+  }
+}

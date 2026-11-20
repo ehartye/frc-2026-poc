@@ -1,0 +1,109 @@
+{
+  "sourceReplaySha256": "a7de4cdda4de73ce9d4e5ced2b3ec29a65f0198cc652ff9cb09afc1a49cfbcd7",
+  "recipeSha256": "b0bf6a952b78483b129c491d8e1453d660c7e9a789c4470e3346e37e6ad0108e",
+  "issuedStepSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+  "mode": "Exact swept sphere along piecewise-linear pre-pickup centerline through acquisition timestamp, plus prescribed lateral offsets of the same trace. Offset paths have no recomputed contacts or dynamics. Negative means geometric intrusion into the sphere on that path.",
+  "radiusMm": 75.057,
+  "cutoffS": 0.42365,
+  "segments": 43,
+  "cases": [
+    {
+      "lateralOffsetMm": 0,
+      "minSignedSurfaceClearanceMm": 15.13447,
+      "part": "left ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.596553967577,
+        0.0,
+        73.1615459894184
+      ]
+    },
+    {
+      "lateralOffsetMm": -10,
+      "minSignedSurfaceClearanceMm": 7.12877,
+      "part": "right ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.596553967577,
+        -10.0,
+        73.1615459894184
+      ]
+    },
+    {
+      "lateralOffsetMm": 10,
+      "minSignedSurfaceClearanceMm": 7.12877,
+      "part": "left ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.596553967577,
+        10.0,
+        73.1615459894184
+      ]
+    },
+    {
+      "lateralOffsetMm": -25,
+      "minSignedSurfaceClearanceMm": -3.92683,
+      "part": "right ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.596553967577,
+        -25.0,
+        73.1615459894184
+      ]
+    },
+    {
+      "lateralOffsetMm": 25,
+      "minSignedSurfaceClearanceMm": -3.92683,
+      "part": "left ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.596553967577,
+        25.0,
+        73.1615459894184
+      ]
+    },
+    {
+      "lateralOffsetMm": -50,
+      "minSignedSurfaceClearanceMm": -19.04904,
+      "part": "right ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.2278,
+        -50.0,
+        73.2239
+      ]
+    },
+    {
+      "lateralOffsetMm": 50,
+      "minSignedSurfaceClearanceMm": -19.04904,
+      "part": "left ramp bridge forward",
+      "timeIntervalS": [
+        0.24,
+        0.25
+      ],
+      "centerMm": [
+        329.2278,
+        50.0,
+        73.2239
+      ]
+    }
+  ]
+}

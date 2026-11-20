@@ -172,7 +172,10 @@ def run(context):
         "documentsBefore": app.documents.count,
         "stage": "opening",
     }
-    result = out / "native-reopen.json"
+    if cfg.get("mode") in ("repair-ramps", "inspect-ramps"):
+        report["rampPredecessorSha256"] = "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e"
+    inspection_only = cfg.get("mode") == "inspect-ramps"
+    result = out / ("ramp-groups.json" if inspection_only else "native-reopen.json")
 
     def save():
         result.write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
@@ -188,6 +191,55 @@ def run(context):
         return design, design.rootComponent, occs
 
     try:
+        if cfg.get("mode") == "repair-ramps":
+            predecessor = Path(cfg["inputArchive"])
+            expected = "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e"
+            if digest(predecessor) != expected:
+                raise ValueError("Unexpected predecessor for the ramp repair")
+            owned = open_file(predecessor)
+            design, root, occs = tree(owned)
+            if len(occs) != 251:
+                raise ValueError("Expected issued red robot with 251 components")
+            supports = load("r26_ramp_support", out / "ramp_support.py").parts()
+            machining = load("r26_machining", root_dir / "cad/assembly-release/native_stock.py")
+            aluminum = occs["left perimeter tube"].component.bRepBodies.item(0).material
+            if aluminum.name != "Aluminum 6061":
+                raise ValueError("Expected the verified foundation alloy")
+            finish = design.appearances.itemByName("FRC structure") or colors.finish(
+                design, {"palette":{"structure":"#496A81"}}, "structure", {})
+            for name, row in supports.items():
+                report["stage"] = "cutting " + name
+                save()
+                occ = root.occurrences.addNewComponent(core.Matrix3D.create())
+                occ.component.name = name
+                profile = {"kind":"profile","points":row["points"],"delta":row["delta"],"holes":[]}
+                body = machining.build(occ,[{"op":"new","shape":profile}])
+                body.name = name
+                body.material = aluminum
+                body.appearance = finish
+                body.attributes.add("R26-intake", "parentSurfaces", "; ".join(row["parents"]))
+                occs[name] = occ
+                adsk.doEvents()
+            for side in ("left","right"):
+                ramp = occs[side+" intake ramp"].component.bRepBodies.item(0)
+                original_appearance = ramp.appearance
+                ramp.material = aluminum
+                ramp.appearance = original_appearance
+                objects=core.ObjectCollection.create()
+                for name in ("front deck crossmember", side+" intake foundation cheek",
+                             side+" ramp bridge forward", side+" ramp bridge aft",side+" intake ramp"):
+                    objects.add(occs[name])
+                root.rigidGroups.add(objects, False).name=side.capitalize()+" welded intake ramp"
+            reveal(design,root,occs)
+            design.computeAll()
+            adsk.doEvents()
+            app.activeViewport.refresh()
+            report.update(stage="exporting supported ramps", rampPredecessorSha256=expected)
+            save()
+            if not design.exportManager.execute(design.exportManager.createFusionArchiveExportOptions(str(out/"display.f3d"))):
+                raise ValueError("Ramp repair archive export failed")
+            owned.close(False)
+            owned=None
         if cfg.get("mode", "issue") == "issue":
             owned = open_file(base)
             design, root, occs = tree(owned)
@@ -255,9 +307,10 @@ def run(context):
         owned = open_file(out / "display.f3d")
         owned.activate()
         design, root, occs = tree(owned)
-        report["coldViewRefresh"] = reveal(design, root, occs)
-        if len(occs) != 251:
-            raise ValueError("Expected 235 previous components and 16 new digit bodies")
+        if not inspection_only:
+            report["coldViewRefresh"] = reveal(design, root, occs)
+        if len(occs) != (257 if cfg.get("mode") in ("repair-ramps","inspect-ramps") else 251):
+            raise ValueError("Unexpected number of components in the cold display assembly")
         rows = {}
         for name, occ in sorted(occs.items()):
             comp = occ.component
@@ -276,8 +329,9 @@ def run(context):
                 "appearance": ap,
                 "rgb": rgb,
                 "graphicsVisible": rendered,
+                "material": body.material.name,
             }
-            if not rendered:
+            if not rendered and not inspection_only:
                 raise ValueError("Cold archive still hides " + name)
         for row in numbering.glyphs():
             if rows[row["name"]]["rgb"] != "#FFFFFF":
@@ -285,6 +339,20 @@ def run(context):
         for name in numbering.COVERS:
             if rows[name.replace(" blue ", " red ")]["rgb"] != "#C5273D":
                 raise ValueError("Wrong alliance appearance")
+        if cfg.get("mode") in ("repair-ramps","inspect-ramps"):
+            report["rampRigidGroups"]={}
+            for side in ("left", "right"):
+                label=side.capitalize()+" welded intake ramp"
+                group=next(g for g in root.rigidGroups if g.name==label)
+                members=sorted(o.component.name for o in group.occurrences)
+                expected=sorted(["front deck crossmember",side+" intake foundation cheek",
+                                 side+" ramp bridge forward",side+" ramp bridge aft",side+" intake ramp"])
+                if members!=expected or any(rows[n]["material"]!="Aluminum 6061" for n in members):
+                    raise ValueError("Ramp group or physical material differs: "+label)
+                report["rampRigidGroups"][label]=members
+            if inspection_only:
+                report.update(stage="verified", archiveSha256=digest(out / "display.f3d"))
+                return
         if not design.exportManager.execute(
             design.exportManager.createSTEPExportOptions(str(out / "display.step"))
         ):

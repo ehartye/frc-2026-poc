@@ -1,0 +1,3475 @@
+{
+  "criterion": "Native STEP shape distance <= 0.05 mm at parked pose. Geometric contact alone does not retain or transmit rated loads.",
+  "groups": [
+    [
+      "aft electronics deck bridge",
+      "battery cradle floor",
+      "battery cradle wall -44",
+      "battery cradle wall 43",
+      "battery secured envelope",
+      "central fore-aft feed deck",
+      "crosshead lift bridge",
+      "distribution enclosure reserve",
+      "drive controller reserve 1",
+      "drive controller reserve 2",
+      "drive controller reserve 3",
+      "drive controller reserve 4",
+      "drive controller reserve 5",
+      "drive controller reserve 6",
+      "drive controller reserve 7",
+      "drive controller reserve 8",
+      "extension bearing beam",
+      "extension deployment nut",
+      "extension forward bearing",
+      "extension motor envelope",
+      "extension motor foot",
+      "extension nut hanger",
+      "extension rear bearing and stop",
+      "extension screw envelope",
+      "field radio reserve",
+      "fore electronics deck bridge",
+      "front deck crossmember",
+      "front left crossmember backing plate",
+      "front left hopper post",
+      "front left module tab spacer 1",
+      "front left module tab spacer 2",
+      "front left public drive housing",
+      "front left public motor reserve",
+      "front left public turning fork",
+      "front left public wheel",
+      "front left public wheel axle",
+      "front left rail mount 1-1 M6 cap screw",
+      "front left rail mount 1-1 weld boss",
+      "front left rail mount 1-2 M6 cap screw",
+      "front left rail mount 1-2 weld boss",
+      "front left rail mount 2-1 M6 cap screw",
+      "front left rail mount 2-1 weld boss",
+      "front left rail mount 2-2 M6 cap screw",
+      "front left rail mount 2-2 weld boss",
+      "front left tab 1-1 locknut",
+      "front left tab 1-1 socket screw",
+      "front left tab 1-2 locknut",
+      "front left tab 1-2 socket screw",
+      "front left tab 2-1 locknut",
+      "front left tab 2-1 socket screw",
+      "front left tab 2-2 locknut",
+      "front left tab 2-2 socket screw",
+      "front right crossmember backing plate",
+      "front right hopper post",
+      "front right module tab spacer 1",
+      "front right module tab spacer 2",
+      "front right public drive housing",
+      "front right public motor reserve",
+      "front right public turning fork",
+      "front right public wheel",
+      "front right public wheel axle",
+      "front right rail mount 1-1 M6 cap screw",
+      "front right rail mount 1-1 weld boss",
+      "front right rail mount 1-2 M6 cap screw",
+      "front right rail mount 1-2 weld boss",
+      "front right rail mount 2-1 M6 cap screw",
+      "front right rail mount 2-1 weld boss",
+      "front right rail mount 2-2 M6 cap screw",
+      "front right rail mount 2-2 weld boss",
+      "front right tab 1-1 locknut",
+      "front right tab 1-1 socket screw",
+      "front right tab 1-2 locknut",
+      "front right tab 1-2 socket screw",
+      "front right tab 2-1 locknut",
+      "front right tab 2-1 socket screw",
+      "front right tab 2-2 locknut",
+      "front right tab 2-2 socket screw",
+      "front white 1780 digit 0",
+      "front white 1780 digit 1",
+      "front white 1780 digit 7",
+      "front white 1780 digit 8",
+      "hopper back panel",
+      "left aft carriage sleeve",
+      "left aft mast",
+      "left cross feed deck",
+      "left crosshead cheek",
+      "left crown hook",
+      "left driven nut",
+      "left electronics deck",
+      "left extending rail",
+      "left extension sleeve",
+      "left feed diverter pivot",
+      "left floor sill",
+      "left forward carriage sleeve",
+      "left front return",
+      "left hopper front wing",
+      "left hopper wall",
+      "left intake foundation cheek",
+      "left intake ramp",
+      "left lead screw envelope",
+      "left lift motor envelope",
+      "left lower bearing plate",
+      "left mast",
+      "left nut link",
+      "left perimeter tube",
+      "left ramp bridge aft",
+      "left ramp bridge forward",
+      "left red front bumper",
+      "left red side bumper",
+      "left reduction envelope",
+      "left sleeve pedestal",
+      "left upper bearing plate",
+      "left white 1780 digit 0",
+      "left white 1780 digit 1",
+      "left white 1780 digit 7",
+      "left white 1780 digit 8",
+      "rail synchronizing tie",
+      "rear deck crossmember",
+      "rear left crossmember backing plate",
+      "rear left hopper post",
+      "rear left module tab spacer 1",
+      "rear left module tab spacer 2",
+      "rear left public drive housing",
+      "rear left public motor reserve",
+      "rear left public turning fork",
+      "rear left public wheel",
+      "rear left public wheel axle",
+      "rear left rail mount 1-1 M6 cap screw",
+      "rear left rail mount 1-1 weld boss",
+      "rear left rail mount 1-2 M6 cap screw",
+      "rear left rail mount 1-2 weld boss",
+      "rear left rail mount 2-1 M6 cap screw",
+      "rear left rail mount 2-1 weld boss",
+      "rear left rail mount 2-2 M6 cap screw",
+      "rear left rail mount 2-2 weld boss",
+      "rear left tab 1-1 locknut",
+      "rear left tab 1-1 socket screw",
+      "rear left tab 1-2 locknut",
+      "rear left tab 1-2 socket screw",
+      "rear left tab 2-1 locknut",
+      "rear left tab 2-1 socket screw",
+      "rear left tab 2-2 locknut",
+      "rear left tab 2-2 socket screw",
+      "rear perimeter tube",
+      "rear red bumper",
+      "rear right crossmember backing plate",
+      "rear right hopper post",
+      "rear right module tab spacer 1",
+      "rear right module tab spacer 2",
+      "rear right public drive housing",
+      "rear right public motor reserve",
+      "rear right public turning fork",
+      "rear right public wheel",
+      "rear right public wheel axle",
+      "rear right rail mount 1-1 M6 cap screw",
+      "rear right rail mount 1-1 weld boss",
+      "rear right rail mount 1-2 M6 cap screw",
+      "rear right rail mount 1-2 weld boss",
+      "rear right rail mount 2-1 M6 cap screw",
+      "rear right rail mount 2-1 weld boss",
+      "rear right rail mount 2-2 M6 cap screw",
+      "rear right rail mount 2-2 weld boss",
+      "rear right tab 1-1 locknut",
+      "rear right tab 1-1 socket screw",
+      "rear right tab 1-2 locknut",
+      "rear right tab 1-2 socket screw",
+      "rear right tab 2-1 locknut",
+      "rear right tab 2-1 socket screw",
+      "rear right tab 2-2 locknut",
+      "rear right tab 2-2 socket screw",
+      "rear white 1780 digit 0",
+      "rear white 1780 digit 1",
+      "rear white 1780 digit 7",
+      "rear white 1780 digit 8",
+      "right aft carriage sleeve",
+      "right aft mast",
+      "right cross feed deck",
+      "right crosshead cheek",
+      "right crown hook",
+      "right driven nut",
+      "right electronics deck",
+      "right extending rail",
+      "right extension sleeve",
+      "right feed diverter pivot",
+      "right floor sill",
+      "right forward carriage sleeve",
+      "right front return",
+      "right hopper front wing",
+      "right hopper wall",
+      "right intake foundation cheek",
+      "right intake ramp",
+      "right lead screw envelope",
+      "right lift motor envelope",
+      "right lower bearing plate",
+      "right mast",
+      "right nut link",
+      "right perimeter tube",
+      "right ramp bridge aft",
+      "right ramp bridge forward",
+      "right red front bumper",
+      "right red side bumper",
+      "right reduction envelope",
+      "right sleeve pedestal",
+      "right upper bearing plate",
+      "right white 1780 digit 0",
+      "right white 1780 digit 1",
+      "right white 1780 digit 7",
+      "right white 1780 digit 8",
+      "robot controller reserve"
+    ],
+    [
+      "ground intake roller",
+      "left elevator upper tie",
+      "left front elevator upright",
+      "left inside lift belt",
+      "left intake bearing arm",
+      "left intake journal",
+      "left intake pivot axle",
+      "left intake pivot plate",
+      "left lift shelf 1",
+      "left lift shelf 2",
+      "left lift shelf 3",
+      "left lift shelf 4",
+      "left outside lift belt",
+      "left public scoring motor envelope",
+      "left rear elevator upright",
+      "left scoring bearing bridge -33",
+      "left scoring bearing bridge 33",
+      "left scoring spindle",
+      "left scoring wheel",
+      "left upper guide",
+      "left upper head cheek",
+      "left upper lift stub shaft",
+      "right elevator upper tie",
+      "right front elevator upright",
+      "right inside lift belt",
+      "right intake bearing arm",
+      "right intake journal",
+      "right intake pivot axle",
+      "right intake pivot plate",
+      "right lift shelf 1",
+      "right lift shelf 2",
+      "right lift shelf 3",
+      "right lift shelf 4",
+      "right outside lift belt",
+      "right public scoring motor envelope",
+      "right rear elevator upright",
+      "right scoring bearing bridge -33",
+      "right scoring bearing bridge 33",
+      "right scoring spindle",
+      "right scoring wheel",
+      "right upper guide",
+      "right upper head cheek",
+      "right upper lift stub shaft"
+    ],
+    [
+      "feed diverter vane"
+    ],
+    [
+      "front lift custody guide"
+    ],
+    [
+      "left lower lift stub shaft"
+    ],
+    [
+      "rear lift custody gate"
+    ],
+    [
+      "right lower lift stub shaft"
+    ]
+  ],
+  "pairs": [
+    {
+      "parts": [
+        "left perimeter tube",
+        "left front return"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "left red side bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "left red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear perimeter tube"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear red bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "front left module tab spacer 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear left module tab spacer 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "left mast"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "left aft mast"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear left crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "front left crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "front left rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "front left rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear left rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left perimeter tube",
+        "rear left rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front return",
+        "left red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front return",
+        "front left module tab spacer 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front return",
+        "front left rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front return",
+        "front left rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front return",
+        "left intake foundation cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "left red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "rear red bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "left white 1780 digit 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "left white 1780 digit 7"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "left white 1780 digit 8"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red side bumper",
+        "left white 1780 digit 0"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red front bumper",
+        "front white 1780 digit 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red front bumper",
+        "front white 1780 digit 7"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red front bumper",
+        "front white 1780 digit 8"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left red front bumper",
+        "front white 1780 digit 0"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "right front return"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "right red side bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "right red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear perimeter tube"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear red bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "front right module tab spacer 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear right module tab spacer 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "right mast"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "right aft mast"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear right crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "front right crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "front right rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "front right rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear right rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right perimeter tube",
+        "rear right rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front return",
+        "right red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front return",
+        "front right module tab spacer 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front return",
+        "front right rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front return",
+        "front right rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front return",
+        "right intake foundation cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "right red front bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "rear red bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "right white 1780 digit 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "right white 1780 digit 7"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "right white 1780 digit 8"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right red side bumper",
+        "right white 1780 digit 0"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear red bumper"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear left module tab spacer 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear right module tab spacer 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear left rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear left rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear right rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.05,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear perimeter tube",
+        "rear right rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.025,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear red bumper",
+        "rear white 1780 digit 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear red bumper",
+        "rear white 1780 digit 7"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear red bumper",
+        "rear white 1780 digit 8"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear red bumper",
+        "rear white 1780 digit 0"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 1",
+        "front left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 1",
+        "front left rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 1",
+        "front left rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 1",
+        "front left rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 1",
+        "front left rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 2",
+        "front left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 2",
+        "front left rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 2",
+        "front left rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 2",
+        "front left rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left module tab spacer 2",
+        "front left rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 1",
+        "front right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 1",
+        "front right rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 1",
+        "front right rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 1",
+        "front right rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 1",
+        "front right rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 2",
+        "front right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 2",
+        "front right rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 2",
+        "front right rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 2",
+        "front right rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right module tab spacer 2",
+        "front right rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 1",
+        "rear left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 1",
+        "rear left rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 1",
+        "rear left rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 1",
+        "rear left rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 1",
+        "rear left rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 2",
+        "rear left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 2",
+        "rear left rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 2",
+        "rear left rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 2",
+        "rear left rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left module tab spacer 2",
+        "rear left rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 1",
+        "rear right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 1",
+        "rear right rail mount 1-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 1",
+        "rear right rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 1",
+        "rear right rail mount 1-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 1",
+        "rear right rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 2",
+        "rear right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 2",
+        "rear right rail mount 2-1 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 2",
+        "rear right rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 2",
+        "rear right rail mount 2-2 weld boss"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right module tab spacer 2",
+        "rear right rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right hopper post",
+        "right floor sill"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right hopper post",
+        "rear deck crossmember"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right hopper post",
+        "right floor sill"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right hopper post",
+        "front deck crossmember"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right floor sill",
+        "right cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left hopper post",
+        "left floor sill"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left hopper post",
+        "rear deck crossmember"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left hopper post",
+        "left floor sill"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left hopper post",
+        "front deck crossmember"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left floor sill",
+        "left cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear deck crossmember",
+        "left electronics deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear deck crossmember",
+        "right electronics deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear deck crossmember",
+        "aft electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear deck crossmember",
+        "rear right crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear deck crossmember",
+        "rear left crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "left electronics deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "right electronics deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "fore electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "front right crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "front left crossmember backing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "left intake foundation cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front deck crossmember",
+        "right intake foundation cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "fore electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "aft electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "battery cradle wall 43"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "distribution enclosure reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "robot controller reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "drive controller reserve 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "drive controller reserve 4"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "drive controller reserve 6"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left electronics deck",
+        "drive controller reserve 8"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "fore electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "aft electronics deck bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "battery cradle wall -44"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "distribution enclosure reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "field radio reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "drive controller reserve 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "drive controller reserve 3"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "drive controller reserve 5"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right electronics deck",
+        "drive controller reserve 7"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "fore electronics deck bridge",
+        "battery cradle wall -44"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "fore electronics deck bridge",
+        "battery cradle wall 43"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "fore electronics deck bridge",
+        "distribution enclosure reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "aft electronics deck bridge",
+        "battery cradle wall -44"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "aft electronics deck bridge",
+        "battery cradle wall 43"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "battery cradle floor",
+        "battery cradle wall -44"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "battery cradle floor",
+        "battery cradle wall 43"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "battery cradle floor",
+        "battery secured envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "hopper back panel",
+        "right hopper wall"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "hopper back panel",
+        "right cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "hopper back panel",
+        "left hopper wall"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "hopper back panel",
+        "left cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "hopper back panel",
+        "central fore-aft feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right hopper wall",
+        "right hopper front wing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right hopper wall",
+        "right cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right hopper wall",
+        "right lower bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 216.0
+    },
+    {
+      "parts": [
+        "right hopper front wing",
+        "right cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right hopper front wing",
+        "central fore-aft feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right hopper front wing",
+        "right feed diverter pivot"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 292.2986
+    },
+    {
+      "parts": [
+        "right cross feed deck",
+        "central fore-aft feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right front elevator upright",
+        "right elevator upper tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1764.0
+    },
+    {
+      "parts": [
+        "right front elevator upright",
+        "right public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 9711.8001
+    },
+    {
+      "parts": [
+        "right rear elevator upright",
+        "right elevator upper tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1372.0
+    },
+    {
+      "parts": [
+        "right rear elevator upright",
+        "ground intake roller"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6254.0631
+    },
+    {
+      "parts": [
+        "right elevator upper tie",
+        "right scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1948.4931
+    },
+    {
+      "parts": [
+        "right elevator upper tie",
+        "right public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 8734.7707
+    },
+    {
+      "parts": [
+        "right inside lift belt",
+        "right lift shelf 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "right inside lift belt",
+        "right lift shelf 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "right inside lift belt",
+        "right lift shelf 3"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "right inside lift belt",
+        "right lift shelf 4"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "right inside lift belt",
+        "right public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1604.961
+    },
+    {
+      "parts": [
+        "right outside lift belt",
+        "ground intake roller"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 4171.3746
+    },
+    {
+      "parts": [
+        "right lift shelf 4",
+        "right scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2175.1206
+    },
+    {
+      "parts": [
+        "right lift shelf 4",
+        "right upper guide"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 428.0523
+    },
+    {
+      "parts": [
+        "right intake ramp",
+        "right ramp bridge aft"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right intake ramp",
+        "right ramp bridge forward"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left hopper wall",
+        "left hopper front wing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left hopper wall",
+        "left cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left hopper wall",
+        "left lower bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 216.0
+    },
+    {
+      "parts": [
+        "left hopper front wing",
+        "left cross feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left hopper front wing",
+        "central fore-aft feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left hopper front wing",
+        "left feed diverter pivot"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 292.2986
+    },
+    {
+      "parts": [
+        "left cross feed deck",
+        "central fore-aft feed deck"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left front elevator upright",
+        "left elevator upper tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1764.0
+    },
+    {
+      "parts": [
+        "left front elevator upright",
+        "left public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 9711.8001
+    },
+    {
+      "parts": [
+        "left rear elevator upright",
+        "left elevator upper tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1372.0
+    },
+    {
+      "parts": [
+        "left rear elevator upright",
+        "ground intake roller"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6254.0631
+    },
+    {
+      "parts": [
+        "left elevator upper tie",
+        "left scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1948.4931
+    },
+    {
+      "parts": [
+        "left elevator upper tie",
+        "left public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 8734.7707
+    },
+    {
+      "parts": [
+        "left inside lift belt",
+        "left lift shelf 1"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "left inside lift belt",
+        "left lift shelf 2"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "left inside lift belt",
+        "left lift shelf 3"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "left inside lift belt",
+        "left lift shelf 4"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 72.0
+    },
+    {
+      "parts": [
+        "left inside lift belt",
+        "left public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1604.961
+    },
+    {
+      "parts": [
+        "left outside lift belt",
+        "ground intake roller"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 4171.3746
+    },
+    {
+      "parts": [
+        "left lift shelf 4",
+        "left scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2175.1206
+    },
+    {
+      "parts": [
+        "left lift shelf 4",
+        "left upper guide"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 428.0523
+    },
+    {
+      "parts": [
+        "left intake ramp",
+        "left ramp bridge aft"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left intake ramp",
+        "left ramp bridge forward"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left upper lift stub shaft",
+        "left scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 4881.5288
+    },
+    {
+      "parts": [
+        "right upper lift stub shaft",
+        "right scoring wheel"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 4881.5228
+    },
+    {
+      "parts": [
+        "ground intake roller",
+        "right intake journal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "ground intake roller",
+        "left intake journal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right intake bearing arm",
+        "right intake pivot plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1092.4162
+    },
+    {
+      "parts": [
+        "right intake bearing arm",
+        "right intake pivot axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 424.115
+    },
+    {
+      "parts": [
+        "right intake bearing arm",
+        "right intake journal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 540.6634
+    },
+    {
+      "parts": [
+        "right intake pivot plate",
+        "right intake pivot axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 339.292
+    },
+    {
+      "parts": [
+        "right upper head cheek",
+        "right scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right upper head cheek",
+        "right scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left intake bearing arm",
+        "left intake pivot plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1092.4162
+    },
+    {
+      "parts": [
+        "left intake bearing arm",
+        "left intake pivot axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 424.115
+    },
+    {
+      "parts": [
+        "left intake bearing arm",
+        "left intake journal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 540.6634
+    },
+    {
+      "parts": [
+        "left intake pivot plate",
+        "left intake pivot axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 339.292
+    },
+    {
+      "parts": [
+        "left upper head cheek",
+        "left scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left upper head cheek",
+        "left scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right scoring wheel",
+        "right scoring spindle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 5654.8668
+    },
+    {
+      "parts": [
+        "right scoring wheel",
+        "right upper guide"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2522.9337
+    },
+    {
+      "parts": [
+        "right scoring wheel",
+        "right scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 36.5909
+    },
+    {
+      "parts": [
+        "right scoring wheel",
+        "right scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 36.5909
+    },
+    {
+      "parts": [
+        "right scoring spindle",
+        "right scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 520.3639
+    },
+    {
+      "parts": [
+        "right scoring spindle",
+        "right scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 520.3639
+    },
+    {
+      "parts": [
+        "right scoring spindle",
+        "right public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 904.7787
+    },
+    {
+      "parts": [
+        "right scoring bearing bridge 33",
+        "right public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 3920.9978
+    },
+    {
+      "parts": [
+        "left scoring wheel",
+        "left scoring spindle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 5654.8668
+    },
+    {
+      "parts": [
+        "left scoring wheel",
+        "left upper guide"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2522.9337
+    },
+    {
+      "parts": [
+        "left scoring wheel",
+        "left scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 36.5909
+    },
+    {
+      "parts": [
+        "left scoring wheel",
+        "left scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 36.5909
+    },
+    {
+      "parts": [
+        "left scoring spindle",
+        "left scoring bearing bridge -33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 520.3639
+    },
+    {
+      "parts": [
+        "left scoring spindle",
+        "left scoring bearing bridge 33"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 520.3639
+    },
+    {
+      "parts": [
+        "left scoring spindle",
+        "left public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 904.7787
+    },
+    {
+      "parts": [
+        "left scoring bearing bridge 33",
+        "left public scoring motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 3920.9978
+    },
+    {
+      "parts": [
+        "front left public wheel",
+        "front left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 578.3422
+    },
+    {
+      "parts": [
+        "front left public wheel",
+        "front left public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6745.8564
+    },
+    {
+      "parts": [
+        "front left public wheel",
+        "front left public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left public motor reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1086.2071
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 1-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 1-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 1-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 1-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 2-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 2-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 2-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left tab 2-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public drive housing",
+        "front left public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1051.5287
+    },
+    {
+      "parts": [
+        "front right public wheel",
+        "front right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 578.3422
+    },
+    {
+      "parts": [
+        "front right public wheel",
+        "front right public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6745.8564
+    },
+    {
+      "parts": [
+        "front right public wheel",
+        "front right public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right public motor reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1086.2071
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 1-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 1-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 1-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 1-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 2-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 2-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 2-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right tab 2-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public drive housing",
+        "front right public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1051.5287
+    },
+    {
+      "parts": [
+        "rear left public wheel",
+        "rear left public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 578.3422
+    },
+    {
+      "parts": [
+        "rear left public wheel",
+        "rear left public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6745.8564
+    },
+    {
+      "parts": [
+        "rear left public wheel",
+        "rear left public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left public motor reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1086.2071
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 1-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 1-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 1-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 1-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 2-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 2-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 2-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left tab 2-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public drive housing",
+        "rear left public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1051.5287
+    },
+    {
+      "parts": [
+        "rear right public wheel",
+        "rear right public drive housing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 578.3422
+    },
+    {
+      "parts": [
+        "rear right public wheel",
+        "rear right public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 6745.8564
+    },
+    {
+      "parts": [
+        "rear right public wheel",
+        "rear right public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right public motor reserve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1086.2071
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 1-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 1-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 1-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 1-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 2-1 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 2-1 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 2-2 socket screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right tab 2-2 locknut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public drive housing",
+        "rear right public turning fork"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1051.5287
+    },
+    {
+      "parts": [
+        "left mast",
+        "left upper bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left aft mast",
+        "left upper bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left upper bearing plate",
+        "left lead screw envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left lower bearing plate",
+        "left lead screw envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left lower bearing plate",
+        "left reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left lead screw envelope",
+        "left reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1570.7963
+    },
+    {
+      "parts": [
+        "left lead screw envelope",
+        "left driven nut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left lift motor envelope",
+        "left reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left driven nut",
+        "left nut link"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left nut link",
+        "left crosshead cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left crosshead cheek",
+        "left forward carriage sleeve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 546.0
+    },
+    {
+      "parts": [
+        "left crosshead cheek",
+        "left aft carriage sleeve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 525.0
+    },
+    {
+      "parts": [
+        "left crosshead cheek",
+        "crosshead lift bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2024.0
+    },
+    {
+      "parts": [
+        "left extension sleeve",
+        "left sleeve pedestal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left sleeve pedestal",
+        "crosshead lift bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left extending rail",
+        "left crown hook"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left extending rail",
+        "rail synchronizing tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right mast",
+        "right upper bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right aft mast",
+        "right upper bearing plate"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right upper bearing plate",
+        "right lead screw envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right lower bearing plate",
+        "right lead screw envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right lower bearing plate",
+        "right reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right lead screw envelope",
+        "right reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 1570.7963
+    },
+    {
+      "parts": [
+        "right lead screw envelope",
+        "right driven nut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right lift motor envelope",
+        "right reduction envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right driven nut",
+        "right nut link"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right nut link",
+        "right crosshead cheek"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right crosshead cheek",
+        "right forward carriage sleeve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 546.0
+    },
+    {
+      "parts": [
+        "right crosshead cheek",
+        "right aft carriage sleeve"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 525.0
+    },
+    {
+      "parts": [
+        "right crosshead cheek",
+        "crosshead lift bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 2024.0
+    },
+    {
+      "parts": [
+        "right extension sleeve",
+        "right sleeve pedestal"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right sleeve pedestal",
+        "crosshead lift bridge"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right extending rail",
+        "right crown hook"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right extending rail",
+        "rail synchronizing tie"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "crosshead lift bridge",
+        "extension bearing beam"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rail synchronizing tie",
+        "extension nut hanger"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension bearing beam",
+        "extension rear bearing and stop"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension bearing beam",
+        "extension forward bearing"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension bearing beam",
+        "extension motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 158.66
+    },
+    {
+      "parts": [
+        "extension bearing beam",
+        "extension motor foot"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension forward bearing",
+        "extension motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension screw envelope",
+        "extension deployment nut"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension screw envelope",
+        "extension motor envelope"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension deployment nut",
+        "extension nut hanger"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "extension motor envelope",
+        "extension motor foot"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 512.1459
+    },
+    {
+      "parts": [
+        "front left rail mount 1-1 weld boss",
+        "front left rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front left rail mount 1-2 weld boss",
+        "front left rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front left tab 1-1 socket screw",
+        "front left tab 1-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left tab 1-2 socket screw",
+        "front left tab 1-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left rail mount 2-1 weld boss",
+        "front left rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front left rail mount 2-2 weld boss",
+        "front left rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front left tab 2-1 socket screw",
+        "front left tab 2-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left tab 2-2 socket screw",
+        "front left tab 2-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right rail mount 1-1 weld boss",
+        "front right rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front right rail mount 1-2 weld boss",
+        "front right rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front right tab 1-1 socket screw",
+        "front right tab 1-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right tab 1-2 socket screw",
+        "front right tab 1-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right rail mount 2-1 weld boss",
+        "front right rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front right rail mount 2-2 weld boss",
+        "front right rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "front right tab 2-1 socket screw",
+        "front right tab 2-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right tab 2-2 socket screw",
+        "front right tab 2-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left rail mount 1-1 weld boss",
+        "rear left rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear left rail mount 1-2 weld boss",
+        "rear left rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear left tab 1-1 socket screw",
+        "rear left tab 1-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left tab 1-2 socket screw",
+        "rear left tab 1-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left rail mount 2-1 weld boss",
+        "rear left rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear left rail mount 2-2 weld boss",
+        "rear left rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear left tab 2-1 socket screw",
+        "rear left tab 2-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left tab 2-2 socket screw",
+        "rear left tab 2-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right rail mount 1-1 weld boss",
+        "rear right rail mount 1-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear right rail mount 1-2 weld boss",
+        "rear right rail mount 1-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear right tab 1-1 socket screw",
+        "rear right tab 1-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right tab 1-2 socket screw",
+        "rear right tab 1-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right rail mount 2-1 weld boss",
+        "rear right rail mount 2-1 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear right rail mount 2-2 weld boss",
+        "rear right rail mount 2-2 M6 cap screw"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 120.0874
+    },
+    {
+      "parts": [
+        "rear right tab 2-1 socket screw",
+        "rear right tab 2-1 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right tab 2-2 socket screw",
+        "rear right tab 2-2 locknut"
+      ],
+      "gapMm": 0.017,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front left public turning fork",
+        "front left public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "front right public turning fork",
+        "front right public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear left public turning fork",
+        "rear left public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "rear right public turning fork",
+        "rear right public wheel axle"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left intake foundation cheek",
+        "left ramp bridge aft"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "left intake foundation cheek",
+        "left ramp bridge forward"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right intake foundation cheek",
+        "right ramp bridge aft"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    },
+    {
+      "parts": [
+        "right intake foundation cheek",
+        "right ramp bridge forward"
+      ],
+      "gapMm": 0.0,
+      "commonVolumeMm3": 0.0
+    }
+  ],
+  "stepSha256": "4c923381fff68ef579da685fb84e9ea8c70e48b1fc7ea4fc847a67717b3c4a52",
+  "productCount": 257,
+  "anchor": "front deck crossmember",
+  "detachedGroups": [
+    [
+      "ground intake roller",
+      "left elevator upper tie",
+      "left front elevator upright",
+      "left inside lift belt",
+      "left intake bearing arm",
+      "left intake journal",
+      "left intake pivot axle",
+      "left intake pivot plate",
+      "left lift shelf 1",
+      "left lift shelf 2",
+      "left lift shelf 3",
+      "left lift shelf 4",
+      "left outside lift belt",
+      "left public scoring motor envelope",
+      "left rear elevator upright",
+      "left scoring bearing bridge -33",
+      "left scoring bearing bridge 33",
+      "left scoring spindle",
+      "left scoring wheel",
+      "left upper guide",
+      "left upper head cheek",
+      "left upper lift stub shaft",
+      "right elevator upper tie",
+      "right front elevator upright",
+      "right inside lift belt",
+      "right intake bearing arm",
+      "right intake journal",
+      "right intake pivot axle",
+      "right intake pivot plate",
+      "right lift shelf 1",
+      "right lift shelf 2",
+      "right lift shelf 3",
+      "right lift shelf 4",
+      "right outside lift belt",
+      "right public scoring motor envelope",
+      "right rear elevator upright",
+      "right scoring bearing bridge -33",
+      "right scoring bearing bridge 33",
+      "right scoring spindle",
+      "right scoring wheel",
+      "right upper guide",
+      "right upper head cheek",
+      "right upper lift stub shaft"
+    ],
+    [
+      "feed diverter vane"
+    ],
+    [
+      "front lift custody guide"
+    ],
+    [
+      "left lower lift stub shaft"
+    ],
+    [
+      "rear lift custody gate"
+    ],
+    [
+      "right lower lift stub shaft"
+    ]
+  ],
+  "requiredGeometricPaths": {
+    "left intake ramp": [
+      "left intake ramp",
+      "left ramp bridge aft",
+      "left intake foundation cheek",
+      "front deck crossmember"
+    ],
+    "right intake ramp": [
+      "right intake ramp",
+      "right ramp bridge aft",
+      "right intake foundation cheek",
+      "front deck crossmember"
+    ]
+  },
+  "structuralPathsWithAllOtherProductsExcluded": [
+    {
+      "path": [
+        "left intake ramp",
+        "left ramp bridge forward",
+        "left intake foundation cheek",
+        "front deck crossmember"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "left intake ramp",
+        "left ramp bridge forward",
+        "left intake foundation cheek",
+        "left front return"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "left intake ramp",
+        "left ramp bridge aft",
+        "left intake foundation cheek",
+        "front deck crossmember"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "left intake ramp",
+        "left ramp bridge aft",
+        "left intake foundation cheek",
+        "left front return"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "right intake ramp",
+        "right ramp bridge forward",
+        "right intake foundation cheek",
+        "front deck crossmember"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "right intake ramp",
+        "right ramp bridge forward",
+        "right intake foundation cheek",
+        "right front return"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "right intake ramp",
+        "right ramp bridge aft",
+        "right intake foundation cheek",
+        "front deck crossmember"
+      ],
+      "allEdgesPresent": true
+    },
+    {
+      "path": [
+        "right intake ramp",
+        "right ramp bridge aft",
+        "right intake foundation cheek",
+        "right front return"
+      ],
+      "allEdgesPresent": true
+    }
+  ],
+  "nearestForIsolated": {
+    "feed diverter vane": [
+      {
+        "product": "left feed diverter pivot",
+        "gapMm": 1.0
+      },
+      {
+        "product": "right feed diverter pivot",
+        "gapMm": 1.0
+      }
+    ],
+    "front lift custody guide": [
+      {
+        "product": "ground intake roller",
+        "gapMm": 3.23357
+      }
+    ],
+    "left lower lift stub shaft": [
+      {
+        "product": "left lift shelf 1",
+        "gapMm": 7.5
+      }
+    ],
+    "rear lift custody gate": [
+      {
+        "product": "fore electronics deck bridge",
+        "gapMm": 5.0
+      },
+      {
+        "product": "left electronics deck",
+        "gapMm": 5.0
+      },
+      {
+        "product": "right electronics deck",
+        "gapMm": 5.0
+      }
+    ],
+    "right lower lift stub shaft": [
+      {
+        "product": "right lift shelf 1",
+        "gapMm": 7.5
+      }
+    ]
+  }
+}

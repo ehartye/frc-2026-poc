@@ -17,3 +17,5 @@ cad/tower-lift/tower-l1.step -whitespace
 
 cad/assembly-release/foundation-student.step -whitespace
 cad/assembly-release/foundation-still.png binary
+cad/showcase-red/display.step -whitespace
+cad/showcase-red/*.png binary
