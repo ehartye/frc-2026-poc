@@ -308,6 +308,15 @@ export function sequenceDock(source, limits = {}) {
   return {
     tick,
     contacts,
+    parkCarriage(saved, elapsed) {
+      if (saved.storageGateOpenFractions.flat().some(value => value !== 0) ||
+          saved.carriage.rearStopOpenFraction !== 0) throw Error('Departure requires closed stops.');
+      stage = 'home'; conveyor = 0; open = 0;
+      [y, vy] = curves(saved.carriage.lateralM, 0, 0, .49, elapsed);
+      [lift, rate] = curves(saved.carriage.liftM, 0, .49, .49 + saved.carriage.liftM / .50, elapsed);
+      return {lateralM:y, lateralMps:vy, liftM:lift, liftMps:rate, rollerXZ:saved.carriage.rollerXZ,
+        rearStopOpenFraction:open};
+    },
     initial: legalPreloads,
     get support() {
       return support

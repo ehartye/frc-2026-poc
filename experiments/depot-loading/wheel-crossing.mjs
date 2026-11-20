@@ -10,9 +10,7 @@ const layout =
 const source = JSON.parse(await readFile(new URL('stock-register.json', here)));
 const R = layout.wheelRadiusMm / 1000,
       half = layout.wheelAxisFromRobotCenterMm[0] / 1000;
-const near = source.centerXM - source.frontTubeBoundsMm[3] / 1000,
-      far = source.centerXM - source.frontTubeBoundsMm[0] / 1000,
-      high = source.frontTubeBoundsMm[5] / 1000;
+const high = source.frontTubeBoundsMm[5] / 1000;
 const clip = (v, a, b) => Math.max(a, Math.min(b, v));
 export function crossing({
   mass = 58,
@@ -21,8 +19,13 @@ export function crossing({
   cogM = .32,
   step = .000125,
   stroke = .3048,
-  duration = .9
+  duration = .9,
+  startFieldXM = source.centerXM,
+  direction = -1
 }) {
+  if (direction !== 1 && direction !== -1) throw Error('Rail crossing requires a straight approach.');
+  const [near, far] = [source.frontTubeBoundsMm[0], source.frontTubeBoundsMm[3]]
+      .map(x => (x / 1000 - startFieldXM) * direction).sort((a, b) => a - b);
   const g = 9.80665, stiffness = 120000, damping = 650,
         inertia = mass * (.68 ** 2 + .64 ** 2) / 12;
   const ratio = 5.5, eff = .82, kt = 2.6 / 105, resist = 12 / 105,

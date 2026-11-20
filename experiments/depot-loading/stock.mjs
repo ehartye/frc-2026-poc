@@ -4,6 +4,7 @@ import {readFile, writeFile} from 'node:fs/promises';
 
 import {box, clamp, contact, integrate, mass, pair, radius, state} from '../batch-port/contact.mjs';
 
+import {ramp,rollerContact} from './intake-contacts.mjs';
 import {createDock} from './cartridge.mjs';
 import {accumulate, localBody} from './chassis-frame.mjs';
 import {pairedDock} from './paired.mjs';
@@ -16,7 +17,7 @@ if (!sourcePath || !out ||
     !['reach', 'stalled', 'fixed', 'load', 'load-stalled-belt',
       'load-locked-gate', 'paired', 'paired-locked-gate', 'paired-series',
       'paired-overlap', 'paired-early', 'paired-rail', 'paired-wheel',
-      'paired-wheel-low', 'paired-wheel-high', 'paired-wheel-timed']
+      'paired-wheel-low', 'paired-wheel-high', 'paired-wheel-timed', 'paired-wheel-field']
          .includes(mode))
   throw Error(
       'Usage: node stock.mjs REGISTER OUTPUT [id] [pickup or loading mode] [dt]');
@@ -55,14 +56,14 @@ const sequence =
     [
       'paired-series', 'paired-overlap', 'paired-early', 'paired-rail',
       'paired-wheel', 'paired-wheel-low', 'paired-wheel-high',
-      'paired-wheel-timed'
+      'paired-wheel-timed', 'paired-wheel-field'
     ].includes(mode) ?
     sequenceDock(source, {
       overlap: mode !== 'paired-series',
       early: mode === 'paired-early' || mode === 'paired-rail' || !!wheelRun,
       straight: mode === 'paired-rail' || !!wheelRun,
       wheel: wheelRun,
-      quick: mode === 'paired-wheel-timed'
+      quick: mode === 'paired-wheel-timed' || mode === 'paired-wheel-field'
     }) :
     null;
 const dock = sequence ??
@@ -127,29 +128,6 @@ const wheelBoxes =
 const initialHits = [];
 const coords = [], touches = new Map(), settled = [], handoffs = [];
 let shelfStart = null;
-function ramp(b, y) {
-  const x0 = .213, z0 = .048, x1 = mode === 'fixed' ? .337 : .402,
-        z1 = mode === 'fixed' ? .015 : .035;
-  const len = Math.hypot(x1 - x0, z1 - z0), ux = (x1 - x0) / len,
-        uz = (z1 - z0) / len;
-  const dx = b.x - x0, dz = b.z - z0;
-  const u = clamp(dx * ux + dz * uz, 0, len),
-        v = clamp(-dx * uz + dz * ux, -.0025, .0025);
-  return sphereSurface(
-      b,
-      [
-        x0 + u * ux - v * uz, clamp(b.y, y - .014, y + .014),
-        z0 + u * uz + v * ux
-      ],
-      zero, .28, 2500, 10);
-}
-function sphereSurface(b, q, s, mu, k, damping) {
-  const n = [b.x - q[0], b.y - q[1], b.z - q[2]];
-  const d = Math.hypot(...n);
-  if (d >= radius || d < 1e-9) return false;
-  contact(b, n[0] / d, n[1] / d, n[2] / d, radius - d, ...s, mu, k, damping);
-  return true;
-}
 function roller(t) {
   if (mode === 'fixed')
     return [
@@ -171,19 +149,14 @@ function roller(t) {
   }
   return [.330, .302, 0, 0];
 }
-function rollerContact(b, pose) {
-  const [cx, cz, cxv, czv] = pose, rx = b.x - cx, rz = b.z - cz;
-  const radial = Math.hypot(rx, rz),
-        f = Math.min(1, .038 / Math.max(1e-9, radial));
-  const dx = rx * f, dz = rz * f, spin = mode === 'stalled' ? 0 : 1.25 / .038;
-  return sphereSurface(
-      b,
-      [cx + dx, clamp(b.y, wide ? -.165 : -.126, wide ? .165 : .126), cz + dz],
-      [cxv + spin * dz, 0, czv - spin * dx], .65, 2500, 10);
-}
 const duration = sequence ? 42 : dock ? 8.0 : 2.5;
 const baseObstacles = shapes.slice(0, 3).map(s => ({a: [...s.a], c: [...s.c]}));
 const custody = [];
+const boundedField = mode === 'paired-wheel-field';
+const wallX = Math.min(...source.sideTubeBoundsMm.map(q=>q[0])) / 1000;
+let previousPose = [source.centerXM,refY], previousVelocity = [0,0];
+let minimumStockWallGapM = Infinity;
+const wallContacts = new Map();
 for (let step = 0; step <= Math.round(duration / dt); step++) {
   const t = step * dt;
   sequence?.tick(
@@ -192,6 +165,17 @@ for (let step = 0; step <= Math.round(duration / dt); step++) {
                          stock);
   const pose = sequence?.roller ?? roller(t);
   if (sequence) {
+    if (boundedField) {
+      // Transport each body through the exact attained change of translational frame.
+      for (const b of stock) {
+        b.x += sequence.pose[0]-previousPose[0]-previousVelocity[0]*dt;
+        b.y += sequence.pose[1]-previousPose[1]-previousVelocity[1]*dt;
+        b.vx += sequence.velocity[0]-previousVelocity[0];
+        b.vy += sequence.velocity[1]-previousVelocity[1];
+      }
+      previousPose = [...sequence.pose];
+      previousVelocity = [...sequence.velocity];
+    }
     const d = [sequence.pose[0] - source.centerXM, sequence.pose[1] - refY];
     for (let i = 0; i < 3; i++) {
       for (let axis = 0; axis < 2; axis++) {
@@ -218,13 +202,21 @@ for (let step = 0; step <= Math.round(duration / dt); step++) {
     b.fx = b.fy = b.mx = b.my = b.mz = 0;
     b.fz = -mass * 9.80665;
     const velocity = sequence?.velocity ?? zero;
-    if (sequence) {
+    if (sequence && !boundedField) {
       b.fx += mass * sequence.acceleration[0];
       b.fy += mass * sequence.acceleration[1];
     }
     contact(
         b, 0, 0, 1, radius - b.z, velocity[0], velocity[1], 0, .55, 2500, 10);
     for (const surface of shapes.slice(0, 3)) box(b, surface);
+    if (boundedField) {
+      const gap = sequence.pose[0] - b.x - wallX - radius;
+      minimumStockWallGapM = Math.min(minimumStockWallGapM,gap);
+      if (gap < 0) {
+        if (!wallContacts.has(b.id)) wallContacts.set(b.id,t);
+        contact(b,-1,0,0,-gap,velocity[0],velocity[1],0,.30,10000,20);
+      }
+    }
     const attitude = sequence?.support;
     if (attitude) b = localBody(world, attitude);
     if (sequence && b.z < .2) {
@@ -238,11 +230,11 @@ for (let step = 0; step <= Math.round(duration / dt); step++) {
     for (const surface of shapes.slice(3)) box(b, surface);
     dock?.contacts(b, t, lift);
     if (wide) {
-      for (const y of [-.1362, -.0162, .0162, .1362]) ramp(b, y);
+      for (const y of [-.1362, -.0162, .0162, .1362]) ramp(b, y, mode === 'fixed');
       if (!sequence) dock.shelves(b, lift, rate, t);
     } else
       for (const sign of [-1, 1]) {
-        ramp(b, sign * .060);
+        ramp(b, sign * .060, mode === 'fixed');
         const y = sign * .081 + (dock?.carY ?? 0);
         box(b,
             shape(
@@ -250,7 +242,7 @@ for (let step = 0; step <= Math.round(duration / dt); step++) {
                 [.292, y + .009, .072 + lift], .6,
                 [dock?.shelfVelocity() ?? 0, dock?.carV ?? 0, rate]));
       }
-    if (rollerContact(b, pose) && !touches.has(b.id)) touches.set(b.id, t);
+    if (rollerContact(b, pose, wide, mode === 'stalled') && !touches.has(b.id)) touches.set(b.id, t);
     if (attitude) accumulate(world, b, attitude);
     if (!step && b.maxPen > .001) initialHits.push([b.id, b.maxPen]);
   }
@@ -295,6 +287,7 @@ const result = {
     maximum: wheelRun.maximum
   } :
                                          null,
+  fieldBoundary: boundedField ? {wallX,minimumStockWallGapM,wallContacts:[...wallContacts]} : null,
   firstRollerTouch: Object.fromEntries(touches),
   settled,
   handoffs,
