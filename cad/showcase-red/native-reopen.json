@@ -1,0 +1,1548 @@
+{
+  "basisSha256": "3e11e4f83ad035d1999aae2b6509fbeef82c5b6d410ce6f5c60b6229d819c6c0",
+  "documentsBefore": 1,
+  "stage": "verified",
+  "coldViewRefresh": {
+    "isolated": 0,
+    "hiddenOccurrence": 0,
+    "disabledBodyFolder": 0,
+    "hiddenBody": 0
+  },
+  "diagnosticCamera": {
+    "eyeCm": [
+      226.1931631080099,
+      195.62651944476534,
+      146.2115857388475
+    ],
+    "targetCm": [
+      0.0,
+      0.0,
+      37.70000073432923
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "viewExtents": 127.2527225497814,
+    "image": [
+      1500,
+      1050
+    ]
+  },
+  "archiveSha256": "68e55a29bfb6a2d92a0af66768029a57c923bdb9e3771671d994f76d587ba74e",
+  "stepSha256": "c0569107f87b51bbda654def72acba1c995c8cbebc32a98222944c3b52034d69",
+  "diagnosticViewportSha256": "d025f57ebab9dd481775fb8179dfd5d202f75c3c45b81365bed4611dcb03e54e",
+  "inventory": {
+    "aft electronics deck bridge": {
+      "body": "aft electronics deck bridge",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "battery cradle floor": {
+      "body": "battery cradle floor",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "battery cradle wall -44": {
+      "body": "battery cradle wall -44",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "battery cradle wall 43": {
+      "body": "battery cradle wall 43",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "battery secured envelope": {
+      "body": "battery secured envelope",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "central fore-aft feed deck": {
+      "body": "central fore-aft feed deck",
+      "appearance": "FRC belt",
+      "rgb": "#B3853A",
+      "graphicsVisible": true
+    },
+    "crosshead lift bridge": {
+      "body": "crosshead lift bridge",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "distribution enclosure reserve": {
+      "body": "distribution enclosure reserve",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 1": {
+      "body": "drive controller reserve 1",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 2": {
+      "body": "drive controller reserve 2",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 3": {
+      "body": "drive controller reserve 3",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 4": {
+      "body": "drive controller reserve 4",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 5": {
+      "body": "drive controller reserve 5",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 6": {
+      "body": "drive controller reserve 6",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 7": {
+      "body": "drive controller reserve 7",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "drive controller reserve 8": {
+      "body": "drive controller reserve 8",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "extension bearing beam": {
+      "body": "extension bearing beam",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "extension deployment nut": {
+      "body": "extension deployment nut",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "extension forward bearing": {
+      "body": "extension forward bearing",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "extension motor envelope": {
+      "body": "extension motor envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "extension motor foot": {
+      "body": "extension motor foot",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "extension nut hanger": {
+      "body": "extension nut hanger",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "extension rear bearing and stop": {
+      "body": "extension rear bearing and stop",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "extension screw envelope": {
+      "body": "extension screw envelope",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "feed diverter vane": {
+      "body": "feed diverter vane",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "field radio reserve": {
+      "body": "field radio reserve",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    },
+    "fore electronics deck bridge": {
+      "body": "fore electronics deck bridge",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front deck crossmember": {
+      "body": "front deck crossmember",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left crossmember backing plate": {
+      "body": "front left crossmember backing plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left hopper post": {
+      "body": "front left hopper post",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left module tab spacer 1": {
+      "body": "front left module tab spacer 1",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left module tab spacer 2": {
+      "body": "front left module tab spacer 2",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left public drive housing": {
+      "body": "front left public drive housing",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front left public motor reserve": {
+      "body": "front left public motor reserve",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front left public turning fork": {
+      "body": "front left public turning fork",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front left public wheel": {
+      "body": "front left public wheel",
+      "appearance": "FRC wheel",
+      "rgb": "#29333B",
+      "graphicsVisible": true
+    },
+    "front left public wheel axle": {
+      "body": "front left public wheel axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "front left rail mount 1-1 M6 cap screw": {
+      "body": "front left rail mount 1-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left rail mount 1-1 weld boss": {
+      "body": "front left rail mount 1-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left rail mount 1-2 M6 cap screw": {
+      "body": "front left rail mount 1-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left rail mount 1-2 weld boss": {
+      "body": "front left rail mount 1-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left rail mount 2-1 M6 cap screw": {
+      "body": "front left rail mount 2-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left rail mount 2-1 weld boss": {
+      "body": "front left rail mount 2-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left rail mount 2-2 M6 cap screw": {
+      "body": "front left rail mount 2-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left rail mount 2-2 weld boss": {
+      "body": "front left rail mount 2-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front left tab 1-1 locknut": {
+      "body": "front left tab 1-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 1-1 socket screw": {
+      "body": "front left tab 1-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 1-2 locknut": {
+      "body": "front left tab 1-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 1-2 socket screw": {
+      "body": "front left tab 1-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 2-1 locknut": {
+      "body": "front left tab 2-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 2-1 socket screw": {
+      "body": "front left tab 2-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 2-2 locknut": {
+      "body": "front left tab 2-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front left tab 2-2 socket screw": {
+      "body": "front left tab 2-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front lift custody guide": {
+      "body": "front lift custody guide",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "front right crossmember backing plate": {
+      "body": "front right crossmember backing plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right hopper post": {
+      "body": "front right hopper post",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right module tab spacer 1": {
+      "body": "front right module tab spacer 1",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right module tab spacer 2": {
+      "body": "front right module tab spacer 2",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right public drive housing": {
+      "body": "front right public drive housing",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front right public motor reserve": {
+      "body": "front right public motor reserve",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front right public turning fork": {
+      "body": "front right public turning fork",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "front right public wheel": {
+      "body": "front right public wheel",
+      "appearance": "FRC wheel",
+      "rgb": "#29333B",
+      "graphicsVisible": true
+    },
+    "front right public wheel axle": {
+      "body": "front right public wheel axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "front right rail mount 1-1 M6 cap screw": {
+      "body": "front right rail mount 1-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right rail mount 1-1 weld boss": {
+      "body": "front right rail mount 1-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right rail mount 1-2 M6 cap screw": {
+      "body": "front right rail mount 1-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right rail mount 1-2 weld boss": {
+      "body": "front right rail mount 1-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right rail mount 2-1 M6 cap screw": {
+      "body": "front right rail mount 2-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right rail mount 2-1 weld boss": {
+      "body": "front right rail mount 2-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right rail mount 2-2 M6 cap screw": {
+      "body": "front right rail mount 2-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right rail mount 2-2 weld boss": {
+      "body": "front right rail mount 2-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "front right tab 1-1 locknut": {
+      "body": "front right tab 1-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 1-1 socket screw": {
+      "body": "front right tab 1-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 1-2 locknut": {
+      "body": "front right tab 1-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 1-2 socket screw": {
+      "body": "front right tab 1-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 2-1 locknut": {
+      "body": "front right tab 2-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 2-1 socket screw": {
+      "body": "front right tab 2-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 2-2 locknut": {
+      "body": "front right tab 2-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front right tab 2-2 socket screw": {
+      "body": "front right tab 2-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "front white 1780 digit 0": {
+      "body": "front white 1780 digit 0",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "front white 1780 digit 1": {
+      "body": "front white 1780 digit 1",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "front white 1780 digit 7": {
+      "body": "front white 1780 digit 7",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "front white 1780 digit 8": {
+      "body": "front white 1780 digit 8",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "ground intake roller": {
+      "body": "ground intake roller",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "hopper back panel": {
+      "body": "hopper back panel",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left aft carriage sleeve": {
+      "body": "left aft carriage sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left aft mast": {
+      "body": "left aft mast",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left cross feed deck": {
+      "body": "left cross feed deck",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left crosshead cheek": {
+      "body": "left crosshead cheek",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left crown hook": {
+      "body": "left crown hook",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left driven nut": {
+      "body": "left driven nut",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left electronics deck": {
+      "body": "left electronics deck",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left elevator upper tie": {
+      "body": "left elevator upper tie",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left extending rail": {
+      "body": "left extending rail",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left extension sleeve": {
+      "body": "left extension sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left feed diverter pivot": {
+      "body": "left feed diverter pivot",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left floor sill": {
+      "body": "left floor sill",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left forward carriage sleeve": {
+      "body": "left forward carriage sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left front elevator upright": {
+      "body": "left front elevator upright",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left front return": {
+      "body": "left front return",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left hopper front wing": {
+      "body": "left hopper front wing",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left hopper wall": {
+      "body": "left hopper wall",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left inside lift belt": {
+      "body": "left inside lift belt",
+      "appearance": "FRC belt",
+      "rgb": "#B3853A",
+      "graphicsVisible": true
+    },
+    "left intake bearing arm": {
+      "body": "left intake bearing arm",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left intake journal": {
+      "body": "left intake journal",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left intake pivot axle": {
+      "body": "left intake pivot axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left intake pivot plate": {
+      "body": "left intake pivot plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left intake ramp": {
+      "body": "left intake ramp",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left lead screw envelope": {
+      "body": "left lead screw envelope",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left lift motor envelope": {
+      "body": "left lift motor envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "left lift shelf 1": {
+      "body": "left lift shelf 1",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left lift shelf 2": {
+      "body": "left lift shelf 2",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left lift shelf 3": {
+      "body": "left lift shelf 3",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left lift shelf 4": {
+      "body": "left lift shelf 4",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left lower bearing plate": {
+      "body": "left lower bearing plate",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left lower lift stub shaft": {
+      "body": "left lower lift stub shaft",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left mast": {
+      "body": "left mast",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left nut link": {
+      "body": "left nut link",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left outside lift belt": {
+      "body": "left outside lift belt",
+      "appearance": "FRC belt",
+      "rgb": "#B3853A",
+      "graphicsVisible": true
+    },
+    "left perimeter tube": {
+      "body": "left perimeter tube",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left public scoring motor envelope": {
+      "body": "left public scoring motor envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "left rear elevator upright": {
+      "body": "left rear elevator upright",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left red front bumper": {
+      "body": "left red front bumper",
+      "appearance": "FRC bumper-red",
+      "rgb": "#C5273D",
+      "graphicsVisible": true
+    },
+    "left red side bumper": {
+      "body": "left red side bumper",
+      "appearance": "FRC bumper-red",
+      "rgb": "#C5273D",
+      "graphicsVisible": true
+    },
+    "left reduction envelope": {
+      "body": "left reduction envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "left scoring bearing bridge -33": {
+      "body": "left scoring bearing bridge -33",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left scoring bearing bridge 33": {
+      "body": "left scoring bearing bridge 33",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left scoring spindle": {
+      "body": "left scoring spindle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left scoring wheel": {
+      "body": "left scoring wheel",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left sleeve pedestal": {
+      "body": "left sleeve pedestal",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "left upper bearing plate": {
+      "body": "left upper bearing plate",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left upper guide": {
+      "body": "left upper guide",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "left upper head cheek": {
+      "body": "left upper head cheek",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "left upper lift stub shaft": {
+      "body": "left upper lift stub shaft",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "left white 1780 digit 0": {
+      "body": "left white 1780 digit 0",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "left white 1780 digit 1": {
+      "body": "left white 1780 digit 1",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "left white 1780 digit 7": {
+      "body": "left white 1780 digit 7",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "left white 1780 digit 8": {
+      "body": "left white 1780 digit 8",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "rail synchronizing tie": {
+      "body": "rail synchronizing tie",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "rear deck crossmember": {
+      "body": "rear deck crossmember",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left crossmember backing plate": {
+      "body": "rear left crossmember backing plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left hopper post": {
+      "body": "rear left hopper post",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left module tab spacer 1": {
+      "body": "rear left module tab spacer 1",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left module tab spacer 2": {
+      "body": "rear left module tab spacer 2",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left public drive housing": {
+      "body": "rear left public drive housing",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear left public motor reserve": {
+      "body": "rear left public motor reserve",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear left public turning fork": {
+      "body": "rear left public turning fork",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear left public wheel": {
+      "body": "rear left public wheel",
+      "appearance": "FRC wheel",
+      "rgb": "#29333B",
+      "graphicsVisible": true
+    },
+    "rear left public wheel axle": {
+      "body": "rear left public wheel axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 1-1 M6 cap screw": {
+      "body": "rear left rail mount 1-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 1-1 weld boss": {
+      "body": "rear left rail mount 1-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 1-2 M6 cap screw": {
+      "body": "rear left rail mount 1-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 1-2 weld boss": {
+      "body": "rear left rail mount 1-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 2-1 M6 cap screw": {
+      "body": "rear left rail mount 2-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 2-1 weld boss": {
+      "body": "rear left rail mount 2-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 2-2 M6 cap screw": {
+      "body": "rear left rail mount 2-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left rail mount 2-2 weld boss": {
+      "body": "rear left rail mount 2-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear left tab 1-1 locknut": {
+      "body": "rear left tab 1-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 1-1 socket screw": {
+      "body": "rear left tab 1-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 1-2 locknut": {
+      "body": "rear left tab 1-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 1-2 socket screw": {
+      "body": "rear left tab 1-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 2-1 locknut": {
+      "body": "rear left tab 2-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 2-1 socket screw": {
+      "body": "rear left tab 2-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 2-2 locknut": {
+      "body": "rear left tab 2-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear left tab 2-2 socket screw": {
+      "body": "rear left tab 2-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear lift custody gate": {
+      "body": "rear lift custody gate",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "rear perimeter tube": {
+      "body": "rear perimeter tube",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear red bumper": {
+      "body": "rear red bumper",
+      "appearance": "FRC bumper-red",
+      "rgb": "#C5273D",
+      "graphicsVisible": true
+    },
+    "rear right crossmember backing plate": {
+      "body": "rear right crossmember backing plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right hopper post": {
+      "body": "rear right hopper post",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right module tab spacer 1": {
+      "body": "rear right module tab spacer 1",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right module tab spacer 2": {
+      "body": "rear right module tab spacer 2",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right public drive housing": {
+      "body": "rear right public drive housing",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear right public motor reserve": {
+      "body": "rear right public motor reserve",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear right public turning fork": {
+      "body": "rear right public turning fork",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "rear right public wheel": {
+      "body": "rear right public wheel",
+      "appearance": "FRC wheel",
+      "rgb": "#29333B",
+      "graphicsVisible": true
+    },
+    "rear right public wheel axle": {
+      "body": "rear right public wheel axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 1-1 M6 cap screw": {
+      "body": "rear right rail mount 1-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 1-1 weld boss": {
+      "body": "rear right rail mount 1-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 1-2 M6 cap screw": {
+      "body": "rear right rail mount 1-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 1-2 weld boss": {
+      "body": "rear right rail mount 1-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 2-1 M6 cap screw": {
+      "body": "rear right rail mount 2-1 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 2-1 weld boss": {
+      "body": "rear right rail mount 2-1 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 2-2 M6 cap screw": {
+      "body": "rear right rail mount 2-2 M6 cap screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right rail mount 2-2 weld boss": {
+      "body": "rear right rail mount 2-2 weld boss",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "rear right tab 1-1 locknut": {
+      "body": "rear right tab 1-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 1-1 socket screw": {
+      "body": "rear right tab 1-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 1-2 locknut": {
+      "body": "rear right tab 1-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 1-2 socket screw": {
+      "body": "rear right tab 1-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 2-1 locknut": {
+      "body": "rear right tab 2-1 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 2-1 socket screw": {
+      "body": "rear right tab 2-1 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 2-2 locknut": {
+      "body": "rear right tab 2-2 locknut",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear right tab 2-2 socket screw": {
+      "body": "rear right tab 2-2 socket screw",
+      "appearance": "FRC fastener",
+      "rgb": "#87909B",
+      "graphicsVisible": true
+    },
+    "rear white 1780 digit 0": {
+      "body": "rear white 1780 digit 0",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "rear white 1780 digit 1": {
+      "body": "rear white 1780 digit 1",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "rear white 1780 digit 7": {
+      "body": "rear white 1780 digit 7",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "rear white 1780 digit 8": {
+      "body": "rear white 1780 digit 8",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "right aft carriage sleeve": {
+      "body": "right aft carriage sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right aft mast": {
+      "body": "right aft mast",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right cross feed deck": {
+      "body": "right cross feed deck",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right crosshead cheek": {
+      "body": "right crosshead cheek",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right crown hook": {
+      "body": "right crown hook",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right driven nut": {
+      "body": "right driven nut",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right electronics deck": {
+      "body": "right electronics deck",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right elevator upper tie": {
+      "body": "right elevator upper tie",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right extending rail": {
+      "body": "right extending rail",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right extension sleeve": {
+      "body": "right extension sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right feed diverter pivot": {
+      "body": "right feed diverter pivot",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right floor sill": {
+      "body": "right floor sill",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right forward carriage sleeve": {
+      "body": "right forward carriage sleeve",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right front elevator upright": {
+      "body": "right front elevator upright",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right front return": {
+      "body": "right front return",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right hopper front wing": {
+      "body": "right hopper front wing",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right hopper wall": {
+      "body": "right hopper wall",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right inside lift belt": {
+      "body": "right inside lift belt",
+      "appearance": "FRC belt",
+      "rgb": "#B3853A",
+      "graphicsVisible": true
+    },
+    "right intake bearing arm": {
+      "body": "right intake bearing arm",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right intake journal": {
+      "body": "right intake journal",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right intake pivot axle": {
+      "body": "right intake pivot axle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right intake pivot plate": {
+      "body": "right intake pivot plate",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right intake ramp": {
+      "body": "right intake ramp",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right lead screw envelope": {
+      "body": "right lead screw envelope",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right lift motor envelope": {
+      "body": "right lift motor envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "right lift shelf 1": {
+      "body": "right lift shelf 1",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right lift shelf 2": {
+      "body": "right lift shelf 2",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right lift shelf 3": {
+      "body": "right lift shelf 3",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right lift shelf 4": {
+      "body": "right lift shelf 4",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right lower bearing plate": {
+      "body": "right lower bearing plate",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right lower lift stub shaft": {
+      "body": "right lower lift stub shaft",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right mast": {
+      "body": "right mast",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right nut link": {
+      "body": "right nut link",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right outside lift belt": {
+      "body": "right outside lift belt",
+      "appearance": "FRC belt",
+      "rgb": "#B3853A",
+      "graphicsVisible": true
+    },
+    "right perimeter tube": {
+      "body": "right perimeter tube",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right public scoring motor envelope": {
+      "body": "right public scoring motor envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "right rear elevator upright": {
+      "body": "right rear elevator upright",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right red front bumper": {
+      "body": "right red front bumper",
+      "appearance": "FRC bumper-red",
+      "rgb": "#C5273D",
+      "graphicsVisible": true
+    },
+    "right red side bumper": {
+      "body": "right red side bumper",
+      "appearance": "FRC bumper-red",
+      "rgb": "#C5273D",
+      "graphicsVisible": true
+    },
+    "right reduction envelope": {
+      "body": "right reduction envelope",
+      "appearance": "FRC drive",
+      "rgb": "#506579",
+      "graphicsVisible": true
+    },
+    "right scoring bearing bridge -33": {
+      "body": "right scoring bearing bridge -33",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right scoring bearing bridge 33": {
+      "body": "right scoring bearing bridge 33",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right scoring spindle": {
+      "body": "right scoring spindle",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right scoring wheel": {
+      "body": "right scoring wheel",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right sleeve pedestal": {
+      "body": "right sleeve pedestal",
+      "appearance": "FRC mechanism",
+      "rgb": "#007F78",
+      "graphicsVisible": true
+    },
+    "right upper bearing plate": {
+      "body": "right upper bearing plate",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right upper guide": {
+      "body": "right upper guide",
+      "appearance": "FRC guide",
+      "rgb": "#A8C2CA",
+      "graphicsVisible": true
+    },
+    "right upper head cheek": {
+      "body": "right upper head cheek",
+      "appearance": "FRC structure",
+      "rgb": "#496A81",
+      "graphicsVisible": true
+    },
+    "right upper lift stub shaft": {
+      "body": "right upper lift stub shaft",
+      "appearance": "FRC shaft",
+      "rgb": "#8A98A8",
+      "graphicsVisible": true
+    },
+    "right white 1780 digit 0": {
+      "body": "right white 1780 digit 0",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "right white 1780 digit 1": {
+      "body": "right white 1780 digit 1",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "right white 1780 digit 7": {
+      "body": "right white 1780 digit 7",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "right white 1780 digit 8": {
+      "body": "right white 1780 digit 8",
+      "appearance": "FRC bumper-number",
+      "rgb": "#FFFFFF",
+      "graphicsVisible": true
+    },
+    "robot controller reserve": {
+      "body": "robot controller reserve",
+      "appearance": "FRC electrical",
+      "rgb": "#8263A9",
+      "graphicsVisible": true
+    }
+  },
+  "joints": 0,
+  "rigidGroups": 12,
+  "documentsAfter": 1,
+  "restored": true
+}
