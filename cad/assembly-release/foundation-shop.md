@@ -42,3 +42,14 @@ Install saddle and long screws on the detached module first. Both vertical screw
 ## Evidence boundaries
 
 The exact supplier STEP and a 360-degree conservative envelope separately exercise mounting interference. Tool calculations use bounded straight keys/socket bodies. Wrench handles, standard extrusion corner radii, wiring and removable bumper service are distinct checks. The nominal static region supports a geometry decision. No physical load, weld strength, inspection mass, motor performance or swerve odometry measurement has been made. Update the kinematics module locations to 0.265 m in both chassis directions when issuing controls for this revision. Existing scoring and climb simulations belong to their named earlier robot.
+## Corner load sensitivity
+
+The [elastic mount calculation](module_loads.py) registers the four M6 rail screw centers of one installed corner. It applies a 62 kg gross scenario with 2 g vertical reaction, then evaluates 0.5, 1 and 2 g lateral reaction in eight directions. No friction or clamp preload is credited. The reported pairwise maxima span nine combinations of shear, tension and compressive bearing stiffness. The directions and fasteners producing each column's maximum may differ.
+
+| Load assigned to the corner, at 2 g vertical and 2 g lateral | Largest M6 combined stress | Gross thread-flank shear demand | Mean circumferential weld demand |
+| --- | ---: | ---: | ---: |
+| Quarter | 53.1 MPa | 9.8 MPa | 15.1 MPa |
+| Half | 106.1 MPa | 19.6 MPa | 30.2 MPa |
+| All | 212.3 MPa | 39.2 MPa | 60.3 MPa |
+
+The last line includes a maximum 3.66 kN tensile reaction. Thread area assumes 11.9 mm full-form engagement after two pitches of allowances. Weld area assumes a continuous 1.5 mm effective throat around the 13 mm boss. The available as-welded strength, prying, shell bending, thread tolerances, fatigue and actual reaction distribution must be established separately. No 62 kg robot was weighed.
