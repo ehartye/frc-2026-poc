@@ -1,0 +1,147 @@
+{
+  "predecessorStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "maxCaseMm": [
+    183,
+    78,
+    169
+  ],
+  "sampleAxisXmm": [
+    -105,
+    -75
+  ],
+  "rightSideWidthMm": 7,
+  "leftSideWidthMm": 6,
+  "rows": [
+    {
+      "side": "right",
+      "outerDiameterMm": 5,
+      "gapToCaseAndDeckMm": [
+        1.0,
+        1.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        0.0,
+        0.0
+      ],
+      "passesHalfMmRadialAllowance": true
+    },
+    {
+      "side": "right",
+      "outerDiameterMm": 6,
+      "gapToCaseAndDeckMm": [
+        0.5,
+        0.5
+      ],
+      "commonWithCaseAndDeckMm3": [
+        0.0,
+        0.0
+      ],
+      "passesHalfMmRadialAllowance": true
+    },
+    {
+      "side": "right",
+      "outerDiameterMm": 7,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        0.0,
+        0.0
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "right",
+      "outerDiameterMm": 8,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        39.2414,
+        39.2414
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "right",
+      "outerDiameterMm": 9.525,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        167.9841,
+        167.2841
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "left",
+      "outerDiameterMm": 5,
+      "gapToCaseAndDeckMm": [
+        0.5,
+        0.5
+      ],
+      "commonWithCaseAndDeckMm3": [
+        0.0,
+        0.0
+      ],
+      "passesHalfMmRadialAllowance": true
+    },
+    {
+      "side": "left",
+      "outerDiameterMm": 6,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        0.0,
+        0.0
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "left",
+      "outerDiameterMm": 7,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        36.6043,
+        36.6043
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "left",
+      "outerDiameterMm": 8,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        108.7948,
+        108.7948
+      ],
+      "passesHalfMmRadialAllowance": false
+    },
+    {
+      "side": "left",
+      "outerDiameterMm": 9.525,
+      "gapToCaseAndDeckMm": [
+        0.0,
+        0.0
+      ],
+      "commonWithCaseAndDeckMm3": [
+        272.2521,
+        264.418
+      ],
+      "passesHalfMmRadialAllowance": false
+    }
+  ],
+  "scope": "30 mm straight-gauge cross section through the actual side-deck thickness. A wire carried beside the maximum-size case must pass the deck here during lowering if routed along that side. A matched terminal or continuous routed cable has not been registered. The 9.525 mm trial is a sample gauge, not the installed am-4483 insulation diameter. No positive result establishes bend or branch slack."
+}

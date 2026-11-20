@@ -35,7 +35,7 @@ def section(s):
     return [[x, y, z], [u, y, z], [u, v, z], [x, v, z]], [], [0, 0, w - z]
 
 
-def build(occ, features):
+def build(occ, features, after_feature=None):
     comp = occ.component
     inverse = occ.transform2.copy()
     inverse.invert()
@@ -140,6 +140,8 @@ def build(occ, features):
         ext = extrudes.add(setup)
         ext.name = feat.get("label", feat["op"].title() + " " + str(i + 1))
         sk.isVisible = False
+        if after_feature is not None:
+            after_feature()
     if comp.bRepBodies.count != 1:
         raise RuntimeError("Expected one physical body for " + comp.name)
     return comp.bRepBodies.item(0)

@@ -30,11 +30,19 @@ def run(context):
     cfg = json.loads(Path("INPUT_MANIFEST_JSON").read_bytes())
     out = Path(cfg["output"])
     src = Path(cfg["supplierDirectory"])
-    public = out / "foundation-student.f3d"
-    issued = json.loads((out / "foundation-issue-reopen.json").read_bytes())
+    revision = cfg.get("relinkRevision", "foundation")
+    if revision not in ("foundation", "service"):
+        raise ValueError("Unrecognized supplier-master revision")
+    public = out / (revision + "-student.f3d")
+    receipt = (
+        "foundation-issue-reopen.json"
+        if revision == "foundation"
+        else "service-native.json"
+    )
+    issued = json.loads((out / receipt).read_bytes())
     if sha(public) != issued["archiveSha256"] or issued["stage"] != "verified":
         raise ValueError("Issue the public archive first")
-    geo = json.loads((out / "foundation-products.json").read_bytes())
+    geo = json.loads((out / (revision + "-products.json")).read_bytes())
     if (
         geo["stepSha256"] != issued["stepSha256"]
         or geo["failed"]
@@ -94,11 +102,29 @@ def run(context):
         doc = openfile(public)
         design = fusion.Design.cast(doc.products.itemByProductType("DesignProductType"))
         r = design.rootComponent
+        old_groups = {
+            g.name: sorted(o.component.name for o in g.occurrences)
+            for g in r.rigidGroups
+        }
+        retired_groups = {
+            "Installed chassis weldments and module mounts",
+            *(site["name"] + " moving axle" for site in job["sites"]),
+        }
+        retained_groups = {
+            name: members
+            for name, members in old_groups.items()
+            if name not in retired_groups
+        }
+        removed_wheel_joints = {
+            s["name"] + " " + end
+            for s in job["sites"]
+            for end in ("steering", "wheel rotation")
+        }
         for j in list(r.asBuiltJoints):
-            if not j.name.startswith("Tower "):
+            if j.name in removed_wheel_joints:
                 j.deleteMe()
         for group in list(r.rigidGroups):
-            if not group.name.startswith("Tower "):
+            if group.name in retired_groups:
                 group.deleteMe()
         for o in list(r.occurrences):
             name = o.component.name
@@ -135,7 +161,7 @@ def run(context):
             ):
                 frozen.add(o)
         r.rigidGroups.add(frozen, False).name = "Installed supplier modules and frame"
-        output = out / "foundation-supplier.f3d"
+        output = out / (revision + "-supplier.f3d")
         ex = design.exportManager
         if not ex.execute(ex.createFusionArchiveExportOptions(str(output))):
             raise RuntimeError("Private export")
@@ -144,6 +170,16 @@ def run(context):
         doc = openfile(output)
         design = fusion.Design.cast(doc.products.itemByProductType("DesignProductType"))
         r = design.rootComponent
+        finalgroups = {
+            g.name: sorted(o.component.name for o in g.occurrences)
+            for g in r.rigidGroups
+        }
+        for name, members in retained_groups.items():
+            if finalgroups.get(name) != members:
+                raise ValueError(
+                    "Retained assembly changed during supplier substitution: " + name
+                )
+        report["retainedAssemblyGroups"] = sorted(retained_groups)
         for o in r.occurrences:
             site = o.attributes.itemByName("R26-supplier", "site")
             if not site:
@@ -183,6 +219,6 @@ def run(context):
         if prior and prior.isValid:
             prior.activate()
         report["restored"] = app.documents.count == before
-        (out / "foundation-supplier-reopen.json").write_text(
+        (out / (revision + "-supplier-reopen.json")).write_text(
             json.dumps(report, indent=2), encoding="utf8"
         )
