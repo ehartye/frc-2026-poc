@@ -43,8 +43,8 @@ def run():
         rad = math.radians(angle)
         w = np.array([f * lat * math.cos(rad), f * lat * math.sin(rad), 2 * f, 0, 0, 0])
         cases = []
-        for shear_ratio, contact_ratio in itertools.product(
-            (0.1, 0.4, 1.0), (0, 1.0, 4.0)
+        for shear_ratio, seated_ratio in itertools.product(
+            (0.1, 0.4, 1.0), (1.0, 2.0, 5.0)
         ):
 
             def reaction(q, details=False):
@@ -54,9 +54,9 @@ def run():
                     u = a @ q
                     un = n @ u
                     us = u - un * n
-                    tensile = 10000 * un
+                    tensile = 10000 * max(un, 0)
                     # No preload or friction credit. A closed compressed joint can bear on its rail.
-                    contact = 10000 * contact_ratio * min(un, 0)
+                    contact = 10000 * seated_ratio * min(un, 0)
                     shear = 10000 * shear_ratio * us
                     eq += a.T @ (shear + (tensile + contact) * n)
                     forces.append((max(0, tensile), np.linalg.norm(shear)))
@@ -67,7 +67,7 @@ def run():
                 for flag, (a, n) in zip(flags, constraints):
                     p = np.outer(n, n)
                     spring = 10000 * (
-                        (1 + contact_ratio * flag) * p + shear_ratio * (np.eye(3) - p)
+                        (seated_ratio if flag else 1.0) * p + shear_ratio * (np.eye(3) - p)
                     )
                     k += a.T @ spring @ a
                 q = np.linalg.solve(k, w)
@@ -108,7 +108,7 @@ def run():
     return dict(
         bodyMassKg=62.0,
         massBasis="Scenario gross supported mass, including any cargo; no measured weight.",
-        model="Four M6 spring stations on exact saddle/rail planes, no friction or assembly preload. Rigid purchased module and rails, lateral headings in 45 degree steps. Force and moment closure checked. Vary shear/axial spring ratio 0.1 to 1 and compression bearing stiffness from zero to four times tensile. The tensile and shear peaks can belong to different screws.",
+        model="Four M6 spring stations on exact saddle/rail planes, no friction or assembly preload. Rigid purchased module and rails, lateral headings in 45 degree steps. Force and moment closure checked. Vary shear/axial spring ratio 0.1 to 1 and compression bearing stiffness at one, two and five times bolt tensile stiffness. Only rail-face contact takes compression; no compressive bolt load is credited. The tensile and shear peaks can belong to different screws.",
         limits="No thread/weld allowable or HAZ strength assigned. Mean circular attachment stress assumes 1.5 mm continuous throat. Thread screening subtracts two pitch-lengths from 13.9 mm geometry; avoids using gross engagement as fully formed. No prying, fatigue, stress concentration, under-head slip, motor torque, deck load or local rail shell yielding evaluated.",
         loads=samples,
     )
