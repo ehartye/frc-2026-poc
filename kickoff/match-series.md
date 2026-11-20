@@ -2,13 +2,19 @@
 
 [Play the student field lab](field-lab.html#rehearsal). Choose the published series to replay the three project scenarios, or edit the robots and choose the student setup to test your behaviors across the same scenarios. Select **Play match series at 10×**. Reset restores your edited setup. Add red and blue robots in either order in a separate manual trial. Compare stock markers, carried FUEL, scoring attempts, alliance score and blocked paths.
 
-Each match runs a 20 s AUTO, 10 s transition, four 25 s shifts and 30 s end game. The fixed-step model advances 480 simulated seconds in the 48-second series playback budget. All six students' robot roles have distinct starts and configured autonomous and teleoperated behaviors. Slot 2 on each side uses the 680 mm frame, 76 mm bumpers and 740 mm design-height budget. Other slots represent low-profile partner robots. The neutral runner crosses the high-side trench. Each occupied body must clear the structures and the other robots.
+Each match runs a 20 s AUTO, 10 s transition, four 25 s shifts and 30 s end game. The fixed-step model advances 480 simulated seconds in the 48-second series playback budget. All six students' robot roles have distinct starts and configured autonomous and teleoperated behaviors. Slot 2 on each side uses the 680 mm frame, 76 mm bumpers and 754 mm R2C-T1 stowed height. Other slots represent low-profile partner robots. The neutral runner crosses the high-side trench. Each occupied body must clear the structures and the other robots.
 
 | Match | AUTO result (blue–red) | Assumption exercised | Modeled final score (blue–red) |
 |---|---:|---|---:|
-| Own-zone supply | 24–24 | FMS tie scenario gives blue the first inactive shift; no neutral runner | 36–40 |
-| Neutral return | 16–24 | One blue preload batch misses. Each side sends a low-profile neutral runner. | 48–52 |
-| Missed preload | 24–8 | One red batch misses and one has an unresolved observation. Blue takes first inactive shift. | 52–40 |
+| Own-zone supply | 24–24 | FMS tie scenario gives blue the first inactive shift; no neutral runner | 46–50 (36–40 FUEL + 10–10 TOWER) |
+| Neutral return | 16–24 | One blue preload batch misses. Each side sends a low-profile neutral runner. | 48–52 (48–52 FUEL + 0–0 TOWER) |
+| Missed preload | 24–8 | One red batch misses and one has an unresolved observation. Blue takes first inactive shift. | 62–40 (52–40 FUEL + 10–0 TOWER) |
+
+## Compare the terminal decision
+
+Choose B2 or R2 for the native Level 1 robot. Both hooks and the rear bumper fit one upright. This design reserves one berth per alliance. B1/R1 are comparison peers that can attempt a hypothetical Level 2 or 3. Their higher-level actuator and timing are scenario inputs. In the first match both Level 1 attempts qualify. In the second the blue robot's held state is unknown and the red robot starts too late. In the third the blue comparison peer fails the upper bumper threshold and separately qualifies at Level 1. The red robot stays in contact with the ground. Only one level is awarded per robot.
+
+Each robot spends its entire AUTO on its ordinary job, earning zero AUTO TOWER points. The alliance TRAVERSAL ranking point requires 50 TOWER points across AUTO and TELEOP at regional and district events on this release. None of these three rehearsals earns it. For comparison, two qualifying AUTO Level 1s yield the capped 30 points; two separate successful TELEOP Level 1s would bring that alliance to 50. The ranking point is independent of the match-score total. End game ends at 160 s. Post-cutoff states are assessed at 162, 163 and 161 s in the respective examples; powered service always ends at the cutoff.
 
 ## Read the field
 

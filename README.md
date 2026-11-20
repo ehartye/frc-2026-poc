@@ -1,16 +1,18 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![R2C own-zone robot](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/)
+[![R2C-T1 own-zone scorer and TOWER lift](docs/robot/cad/assembly.png)](https://ehartye.github.io/frc-2026-poc/robot/tower.html)
 
-**Project CAD · R2C own-zone robot.** Stowed 117-solid Fusion assembly with four swerve modules, blue bumpers, intake, guided lift and scoring wheels. Purchased parts use project-drawn representations in the public model. [Source STEP · d4ed979565](cad/own-zone-upper/own-zone-public.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/)
+**Project CAD · R2C-T1 own-zone scorer and TOWER lift.** Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations. [Source STEP · 973dd45e1f](cad/tower-lift/tower-l1.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/robot/tower.html)
 <!-- /cad-still -->
 
-[Project workflow and student-owned outputs](docs/workflow.md) · [Current R2C Fusion handoff](cad/own-zone-upper/design.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
+[Project workflow and student-owned outputs](docs/workflow.md) · [Current R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
 
 ## Kickoff field lab
 
 [Open the live 2026 showcase](https://ehartye.github.io/frc-2026-poc/) or [launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
+
+Choose B2 or R2 in the student rehearsal to operate the Level 1 low-rung robot. B1/R1 can compare hypothetical higher-level hardware. [Play the physical climb](https://ehartye.github.io/frc-2026-poc/robot/tower.html).
 
 [Play three matches at 10×](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) or inspect the [student match-series results](kickoff/match-series.md).
 

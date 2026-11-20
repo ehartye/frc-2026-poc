@@ -13,10 +13,13 @@ PATTERNS={
 WRAPPER='experiments/legacy/shared/examples/java-2026-sim/gradle/wrapper/gradle-wrapper.jar'
 WRAPPER_SHA='2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046'
 SHOWCASE_ASSETS = {
+    "docs/robot/cad/tower-climb.glb": "0de92064047e2e9029445f12b6d95a00083372881ea3267750ad3af4b611e45b",
+    "docs/robot/cad/r2c-assembly.png": "9bccbff501b9b70eda2a85619cf2e9314f21ee45198efc256de82275c4417077",
+    "cad/tower-lift/tower-l1.f3d": "7c4a6210bcd23540999d3412107e6a8cf72f30596250f113314b35cbf66eb941",
     "cad/own-zone-upper/own-zone-public.f3d": "5bed444ce5dc99caa94e38164be3c5cbfbefa6ed7106d2bb0370cbe1abf16dd3",
     "cad/own-zone/own-zone-public.f3d": "6939cae9d72d53276de8d1105dd9380d3ccba9de232f811499a297ede7997b25",
-    "docs/robot/cad/assembly.png": "9bccbff501b9b70eda2a85619cf2e9314f21ee45198efc256de82275c4417077",
-    "docs/robot/cad/assembly.stl.gz": "b0f1e621f39babac008896d26cb3e0528114c5f5bd3f013dc7d466446de79156",
+    "docs/robot/cad/assembly.png": "aed219de41f4735dc78461f0df197c4c506a51fb561e077302b27de5c209b86a",
+    "docs/robot/cad/assembly.stl.gz": "c23ca725d96527c41c85379256ff8eba180b829a28ca34237b236cbd65e9d5ed",
     "docs/robot/cad/own-zone.glb": "38d6feebb3bd54729e21e43cdc13d296cb5c30b672aeb2e70243bb6f29bfccb1",
     "docs/robot/historical-fixture/assembly.png": "f8e583a0399eb09b91c684c1783a952716d92ba6c704d0fa9630e09d1b7a0d1f",
     "docs/robot/historical-fixture/assembly.stl.gz": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b",

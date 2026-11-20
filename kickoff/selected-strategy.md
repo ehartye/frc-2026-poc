@@ -20,3 +20,9 @@ The provisional 680 × 680 mm frame uses 2,720 mm of the 2,794 mm perimeter budg
 | Loss of evidence | Stop counting at the last observed state. Compare low-supply, obstructed and inactive controls. |
 
 Run `node scripts/check-strategy.mjs` from this repository. The input [decision and requirements](selected-strategy.json) uses the dimensions in the [release-day rules register](rule-register.json) and [field profile](field-profile.json). Vendor selection and subsystem packaging follow this decision. The earlier differential-drive fixture is a historical control.
+
+## Reserve the final TOWER berth
+
+Under the same delegated authority, the own-zone scorer carries a low-rung fallback. Before interrupting FUEL service, compare the expected points still available from that service with ten times the chance of a qualified Level 1 hang. With three seconds for approach and nine seconds at the berth, ten points breaks even at 0.83 FUEL/s. If 24 pieces and the planned 2 FUEL/s were actually available the opportunity cost could reach 24 points. With eight available and no replacement source it is at most eight. Clear the partner's route before committing. The prebuild route rehearsal and isolated mechanical hang provide separate evidence.
+
+The final 30 s is a shared active-HUB period. TELEOP TOWER levels are worth 10/20/30. R2C-T1 pursues the first. Its 754 mm stowed height uses 14 mm more than the earlier 740 mm design budget and leaves 8 mm under R107. Keep the eight-FUEL AUTO objective for this robot. A successful AUTO Level 1 could earn 15, subject to the two-robot alliance cap, but its approach, hang and return to collection have no joined evidence in this project's AUTO. See the [climb geometry and controls](../experiments/tower-climb/study.md) and [actual scenario decisions](match-series.md).

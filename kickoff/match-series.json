@@ -1,6 +1,6 @@
 {
   "schema": "agent-frc/rehearsal-series@1",
-  "profileSha256": "2d0aaa375a4b02331b3940a97c1ac77a806136dcb977d66b5b0a06a996c7e69e",
+  "profileSha256": "7c0c5b7f5da866e91a3a0410bc40e99575f43aa26579dcf473bb024f3de8ac5c",
   "stepS": 0.05,
   "playbackRate": 10,
   "modelSeconds": 480,
@@ -76,7 +76,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -84,6 +84,18 @@
           "preload": {
             "station": "red-preload-2",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L1",
+            "target": "red-tower",
+            "startS": 7,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "met",
+              "clear-carpet-and-base": "met"
+            }
           }
         },
         {
@@ -101,7 +113,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -109,6 +121,18 @@
           "preload": {
             "station": "blue-preload-2",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L1",
+            "target": "blue-tower",
+            "startS": 7,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "met",
+              "clear-carpet-and-base": "met"
+            }
           }
         },
         {
@@ -576,21 +600,21 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 30,
-              "blocked": "Occupied by B3",
+              "waitSeconds": 7,
+              "blocked": "",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                59.929205,
+                164.475
               ]
             },
             {
               "id": "B3",
               "visits": 0,
-              "waitSeconds": 30,
+              "waitSeconds": 29.8,
               "blocked": "Occupied by B2",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                94.27870657495791,
+                190.34984520515292
               ]
             },
             {
@@ -606,21 +630,21 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 30,
-              "blocked": "Occupied by R3",
+              "waitSeconds": 7,
+              "blocked": "",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                591.270795,
+                153.225
               ]
             },
             {
               "id": "R3",
               "visits": 0,
-              "waitSeconds": 30,
+              "waitSeconds": 29.8,
               "blocked": "Occupied by R2",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                556.921293425042,
+                127.350154794847
               ]
             }
           ]
@@ -2692,8 +2716,8 @@
           "R3": 8
         },
         "score": {
-          "blue": 36,
-          "red": 40
+          "blue": 46,
+          "red": 50
         },
         "attempts": {
           "blue-hub": 48,
@@ -3605,7 +3629,108 @@
             "outcome": "no-compatible-cargo",
             "pieces": []
           }
-        ]
+        ],
+        "endgame": {
+          "period": "End game",
+          "basis": "Kickoff V0 sections 5.8 and 6.5. The assigned own-zone slot makes one final choice. Two-inch route arrival is a staging allowance. Separate criteria require actual rung contact, support and clearance. The 9 s L1 service starts at the dock. Higher-level times and all scenario witnesses are assumptions. One tower berth per alliance reserves approach clearance. B2 and R2 are the native R2C-T1 low-rung robot. B1 and R1 are hypothetical multi-level peers with a separate upper-tier drive and no native evidence.",
+          "sources": [
+            "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+            "experiments/tower-climb/study.md"
+          ],
+          "activeCutoffS": 160,
+          "periodCutoffS": 30,
+          "maxDelayS": 3,
+          "atRestAfterS": 2,
+          "assessmentTimeS": 162,
+          "assessed": true,
+          "attempts": [
+            {
+              "robot": "B2",
+              "side": "blue",
+              "action": "tower-L1",
+              "target": "blue-tower",
+              "resource": "tower",
+              "startS": 7,
+              "serviceS": 9,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "clear-carpet-and-base"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "met",
+                "clear-carpet-and-base": "met"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 7,
+              "arrivedAtS": 7.300000000000001,
+              "serviceStartS": 7.300000000000001,
+              "completedAtS": 16.3,
+              "fallbacks": [],
+              "awardedAction": "tower-L1",
+              "awardedTarget": "blue-tower",
+              "outcome": "qualified",
+              "points": 10,
+              "interruptedBehavior": "shift-depot",
+              "position": [
+                59.929205,
+                164.475
+              ]
+            },
+            {
+              "robot": "R2",
+              "side": "red",
+              "action": "tower-L1",
+              "target": "red-tower",
+              "resource": "tower",
+              "startS": 7,
+              "serviceS": 9,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "clear-carpet-and-base"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "met",
+                "clear-carpet-and-base": "met"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 7,
+              "arrivedAtS": 7.300000000000001,
+              "serviceStartS": 7.300000000000001,
+              "completedAtS": 16.3,
+              "fallbacks": [],
+              "awardedAction": "tower-L1",
+              "awardedTarget": "red-tower",
+              "outcome": "qualified",
+              "points": 10,
+              "interruptedBehavior": "shift-depot",
+              "position": [
+                591.270795,
+                153.225
+              ]
+            }
+          ],
+          "bonusAwards": [],
+          "ordinaryScore": {
+            "blue": 36,
+            "red": 40
+          },
+          "terminalScore": {
+            "blue": 10,
+            "red": 10
+          }
+        }
       }
     },
     {
@@ -3678,7 +3803,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -3686,6 +3811,18 @@
           "preload": {
             "station": "red-preload-2",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L1",
+            "target": "red-tower",
+            "startS": 27,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "met",
+              "clear-carpet-and-base": "met"
+            }
           }
         },
         {
@@ -3703,7 +3840,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -3711,6 +3848,18 @@
           "preload": {
             "station": "blue-preload-2",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L1",
+            "target": "blue-tower",
+            "startS": 7,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "unknown",
+              "clear-carpet-and-base": "met"
+            }
           }
         },
         {
@@ -4178,21 +4327,21 @@
             {
               "id": "B2",
               "visits": 1,
-              "waitSeconds": 20.700000000000003,
-              "blocked": "Occupied by B3",
+              "waitSeconds": 0.15000000000000002,
+              "blocked": "",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                59.90587890709342,
+                164.6865843271837
               ]
             },
             {
               "id": "B3",
               "visits": 0,
-              "waitSeconds": 20.6,
+              "waitSeconds": 19.8,
               "blocked": "Occupied by B2",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                80.83443215418454,
+                199.21209068063354
               ]
             },
             {
@@ -4208,21 +4357,21 @@
             {
               "id": "R2",
               "visits": 1,
-              "waitSeconds": 20.700000000000003,
-              "blocked": "Occupied by R3",
+              "waitSeconds": 17.7,
+              "blocked": "",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                591.2543054422117,
+                152.39501061289712
               ]
             },
             {
               "id": "R3",
               "visits": 0,
-              "waitSeconds": 20.6,
+              "waitSeconds": 19.8,
               "blocked": "Occupied by R2",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                570.3655678458156,
+                118.48790931936634
               ]
             }
           ]
@@ -7709,15 +7858,6 @@
           {
             "phase": "End game",
             "timeS": 9.15,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 9.15,
             "robot": "R2",
             "station": "red-depot",
             "operation": "acquire",
@@ -7832,7 +7972,108 @@
             "outcome": "no-compatible-cargo",
             "pieces": []
           }
-        ]
+        ],
+        "endgame": {
+          "period": "End game",
+          "basis": "Kickoff V0 sections 5.8 and 6.5. The assigned own-zone slot makes one final choice. Two-inch route arrival is a staging allowance. Separate criteria require actual rung contact, support and clearance. The 9 s L1 service starts at the dock. Higher-level times and all scenario witnesses are assumptions. One tower berth per alliance reserves approach clearance. B2 and R2 are the native R2C-T1 low-rung robot. B1 and R1 are hypothetical multi-level peers with a separate upper-tier drive and no native evidence.",
+          "sources": [
+            "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+            "experiments/tower-climb/study.md"
+          ],
+          "activeCutoffS": 160,
+          "periodCutoffS": 30,
+          "maxDelayS": 3,
+          "atRestAfterS": 3,
+          "assessmentTimeS": 163,
+          "assessed": true,
+          "attempts": [
+            {
+              "robot": "B2",
+              "side": "blue",
+              "action": "tower-L1",
+              "target": "blue-tower",
+              "resource": "tower",
+              "startS": 7,
+              "serviceS": 9,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "clear-carpet-and-base"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "unknown",
+                "clear-carpet-and-base": "met"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 7,
+              "arrivedAtS": 7.95,
+              "serviceStartS": 7.95,
+              "completedAtS": 16.95,
+              "fallbacks": [],
+              "awardedAction": null,
+              "awardedTarget": null,
+              "outcome": "unresolved",
+              "points": 0,
+              "interruptedBehavior": "shift-depot",
+              "position": [
+                59.90587890709342,
+                164.6865843271837
+              ]
+            },
+            {
+              "robot": "R2",
+              "side": "red",
+              "action": "tower-L1",
+              "target": "red-tower",
+              "resource": "tower",
+              "startS": 27,
+              "serviceS": 9,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "clear-carpet-and-base"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "met",
+                "clear-carpet-and-base": "met"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 27,
+              "arrivedAtS": 27.8,
+              "serviceStartS": 27.8,
+              "completedAtS": null,
+              "fallbacks": [],
+              "awardedAction": null,
+              "awardedTarget": null,
+              "outcome": "service-incomplete",
+              "points": 0,
+              "interruptedBehavior": "shift-depot",
+              "position": [
+                591.2543054422117,
+                152.39501061289712
+              ]
+            }
+          ],
+          "bonusAwards": [],
+          "ordinaryScore": {
+            "blue": 48,
+            "red": 52
+          },
+          "terminalScore": {
+            "blue": 0,
+            "red": 0
+          }
+        }
       }
     },
     {
@@ -7888,6 +8129,25 @@
           "preload": {
             "station": "blue-preload-1",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L2",
+            "target": "blue-tower",
+            "startS": 2,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "met",
+              "clear-carpet-and-base": "met",
+              "bumpers-above-low": "failed"
+            },
+            "fallbacks": [
+              {
+                "action": "tower-L1",
+                "target": "blue-tower"
+              }
+            ]
           }
         },
         {
@@ -7905,7 +8165,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -7913,6 +8173,18 @@
           "preload": {
             "station": "red-preload-2",
             "quantity": 8
+          },
+          "endgame": {
+            "action": "tower-L1",
+            "target": "red-tower",
+            "startS": 7,
+            "witnesses": {
+              "rung-or-upright": "met",
+              "only-permitted-contacts": "met",
+              "independent-support": "met",
+              "held-to-assessment": "met",
+              "clear-carpet-and-base": "failed"
+            }
           }
         },
         {
@@ -7930,7 +8202,7 @@
           },
           "length": 26.77165354330709,
           "width": 26.77165354330709,
-          "height": 29.133858267716537,
+          "height": 29.68503937007874,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -8394,12 +8666,12 @@
           "robots": [
             {
               "id": "B1",
-              "visits": 4,
+              "visits": 0,
               "waitSeconds": 0,
               "blocked": "",
               "position": [
-                101.19813884905085,
-                108.61103791382938
+                59.585623759329636,
+                162.7196077749855
               ]
             },
             {
@@ -8435,21 +8707,21 @@
             {
               "id": "R2",
               "visits": 1,
-              "waitSeconds": 20.700000000000003,
-              "blocked": "Occupied by R3",
+              "waitSeconds": 0.15000000000000002,
+              "blocked": "",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                591.2941210929066,
+                153.01341567281614
               ]
             },
             {
               "id": "R3",
               "visits": 0,
-              "waitSeconds": 20.6,
+              "waitSeconds": 19.8,
               "blocked": "Occupied by R2",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                570.3655678458156,
+                118.48790931936634
               ]
             }
           ]
@@ -10457,7 +10729,7 @@
           "R3": 8
         },
         "score": {
-          "blue": 52,
+          "blue": 62,
           "red": 40
         },
         "attempts": {
@@ -11864,15 +12136,6 @@
           {
             "phase": "End game",
             "timeS": 3.95,
-            "robot": "B1",
-            "station": "blue-outpost",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 3.95,
             "robot": "R1",
             "station": "red-outpost",
             "operation": "acquire",
@@ -11934,15 +12197,6 @@
           {
             "phase": "End game",
             "timeS": 7.65,
-            "robot": "B1",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 7.65,
             "robot": "R1",
             "station": "red-hub",
             "operation": "attempt",
@@ -11960,38 +12214,11 @@
           },
           {
             "phase": "End game",
-            "timeS": 9.15,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 11.350000000000001,
-            "robot": "B1",
-            "station": "blue-outpost",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
             "timeS": 11.350000000000001,
             "robot": "R1",
             "station": "red-outpost",
             "operation": "acquire",
             "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 15.05,
-            "robot": "B1",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "no-compatible-cargo",
             "pieces": []
           },
           {
@@ -12006,28 +12233,10 @@
           {
             "phase": "End game",
             "timeS": 18.75,
-            "robot": "B1",
-            "station": "blue-outpost",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 18.75,
             "robot": "R1",
             "station": "red-outpost",
             "operation": "acquire",
             "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 22.450000000000003,
-            "robot": "B1",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "no-compatible-cargo",
             "pieces": []
           },
           {
@@ -12042,28 +12251,10 @@
           {
             "phase": "End game",
             "timeS": 26.150000000000002,
-            "robot": "B1",
-            "station": "blue-outpost",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 26.150000000000002,
             "robot": "R1",
             "station": "red-outpost",
             "operation": "acquire",
             "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 29.85,
-            "robot": "B1",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "no-compatible-cargo",
             "pieces": []
           },
           {
@@ -12075,7 +12266,124 @@
             "outcome": "no-compatible-cargo",
             "pieces": []
           }
-        ]
+        ],
+        "endgame": {
+          "period": "End game",
+          "basis": "Kickoff V0 sections 5.8 and 6.5. The assigned own-zone slot makes one final choice. Two-inch route arrival is a staging allowance. Separate criteria require actual rung contact, support and clearance. The 9 s L1 service starts at the dock. Higher-level times and all scenario witnesses are assumptions. One tower berth per alliance reserves approach clearance. B2 and R2 are the native R2C-T1 low-rung robot. B1 and R1 are hypothetical multi-level peers with a separate upper-tier drive and no native evidence.",
+          "sources": [
+            "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+            "experiments/tower-climb/study.md"
+          ],
+          "activeCutoffS": 160,
+          "periodCutoffS": 30,
+          "maxDelayS": 3,
+          "atRestAfterS": 1,
+          "assessmentTimeS": 161,
+          "assessed": true,
+          "attempts": [
+            {
+              "robot": "B1",
+              "side": "blue",
+              "action": "tower-L2",
+              "target": "blue-tower",
+              "resource": "tower",
+              "startS": 2,
+              "serviceS": 15,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "bumpers-above-low"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "met",
+                "clear-carpet-and-base": "met",
+                "bumpers-above-low": "failed"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 2,
+              "arrivedAtS": 3.85,
+              "serviceStartS": 3.85,
+              "completedAtS": 18.85,
+              "fallbacks": [
+                {
+                  "action": "tower-L1",
+                  "target": "blue-tower",
+                  "requires": [
+                    "rung-or-upright",
+                    "only-permitted-contacts",
+                    "independent-support",
+                    "held-to-assessment",
+                    "clear-carpet-and-base"
+                  ],
+                  "serviceS": 9,
+                  "heldFromS": 3.85,
+                  "outcome": "qualified"
+                }
+              ],
+              "awardedAction": "tower-L1",
+              "awardedTarget": "blue-tower",
+              "outcome": "failed",
+              "points": 10,
+              "interruptedBehavior": "shift-outpost",
+              "position": [
+                59.585623759329636,
+                162.7196077749855
+              ]
+            },
+            {
+              "robot": "R2",
+              "side": "red",
+              "action": "tower-L1",
+              "target": "red-tower",
+              "resource": "tower",
+              "startS": 7,
+              "serviceS": 9,
+              "requires": [
+                "rung-or-upright",
+                "only-permitted-contacts",
+                "independent-support",
+                "held-to-assessment",
+                "clear-carpet-and-base"
+              ],
+              "witnesses": {
+                "rung-or-upright": "met",
+                "only-permitted-contacts": "met",
+                "independent-support": "met",
+                "held-to-assessment": "met",
+                "clear-carpet-and-base": "failed"
+              },
+              "targetWitnesses": {},
+              "interruptedAtS": 7,
+              "arrivedAtS": 7.95,
+              "serviceStartS": 7.95,
+              "completedAtS": 16.95,
+              "fallbacks": [],
+              "awardedAction": null,
+              "awardedTarget": null,
+              "outcome": "failed",
+              "points": 0,
+              "interruptedBehavior": "shift-depot",
+              "position": [
+                591.2941210929066,
+                153.01341567281614
+              ]
+            }
+          ],
+          "bonusAwards": [],
+          "ordinaryScore": {
+            "blue": 52,
+            "red": 40
+          },
+          "terminalScore": {
+            "blue": 10,
+            "red": 0
+          }
+        }
       }
     }
   ]

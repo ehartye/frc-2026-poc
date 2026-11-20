@@ -1,0 +1,8 @@
+{
+  "samples": 441,
+  "entrySamples": 20,
+  "entryTravelMm": 350,
+  "stepS": 0.025,
+  "role": "Conservative occupied component boxes against registered field boxes and finite rung cylinders; explicit compliant hook-rung and rear-bumper-upright contacts are solved separately.",
+  "unexpected": {}
+}

@@ -2,7 +2,7 @@
   "schema": "agent-frc/robot-highlights@1",
   "title": "REBUILT kickoff evidence",
   "role": "The own-zone scorer stages allocated FUEL, drives loaded to a legal alliance-zone pose and feeds the active HUB.",
-  "revision": "Kickoff V0 and Team Update 00 • R2C prebuild study",
+  "revision": "R2C-T1 low-rung lift and own-zone scorer",
   "sources": [
     {
       "id": "trials",
@@ -27,6 +27,12 @@
       "label": "R2C powered field counter and clock",
       "revision": "Three field integration steps, one continuous FUEL identity",
       "url": "https://github.com/ehartye/frc-2026-poc/blob/main/experiments/own-zone-cycle/counter-result.json"
+    },
+    {
+      "id": "tower",
+      "label": "R2C-T1 parked and hung contact study",
+      "revision": "100 mm working stroke, 62 and 68 kg gross cases",
+      "url": "https://github.com/ehartye/frc-2026-poc/blob/main/experiments/tower-climb/study.md"
     }
   ],
   "results": [
@@ -57,6 +63,13 @@
       "conditions": "One 215 g FUEL; +250 mm clear scoring approach; 1 m/s prescribed field roller and wheels; 30,000 N/m candidate contact input.",
       "limit": "The same passage earns zero in an inactive HUB. A stationary field counter retains the ball. Repeated service remains open.",
       "source": "counter"
+    },
+    {
+      "basis": "modeled",
+      "claim": "Two hooks supported the 62 kg robot with 51 mm tire clearance",
+      "conditions": "The registered dock and passive screw lock held the robot for two seconds after power cutoff.",
+      "limit": "The isolated contact study gives conditional Level 1 eligibility. Bearing strength, full route, fabrication and inspection remain open.",
+      "source": "tower"
     }
   ],
   "build": [
@@ -69,6 +82,11 @@
       "subsystem": "R2C robot",
       "configuration": "Four-module swerve, hinged intake, two guided shelves, hopper and paired scoring wheels.",
       "source": "mechanical"
+    },
+    {
+      "subsystem": "R2C-T1 low-rung mechanism",
+      "configuration": "Two rear crown hooks deploy 215 mm. The carriage runs 100 mm of the native 115 mm slider limit.",
+      "source": "tower"
     }
   ]
 }

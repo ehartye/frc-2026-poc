@@ -1,8 +1,11 @@
 {
-  "source":"cad/own-zone-upper/own-zone-public.step",
-  "appearances":"cad/own-zone-upper/appearances.json",
-  "title":"R2C own-zone robot",
-  "scope":"Stowed 117-solid Fusion assembly with four swerve modules, blue bumpers, intake, guided lift and scoring wheels. Purchased parts use project-drawn representations in the public model.",
-  "viewerUrl":"https://ehartye.github.io/frc-2026-poc/robot/",
-  "backdrop":{"center":"#405F86","edge":"#142F63"}
+  "source": "cad/tower-lift/tower-l1.step",
+  "appearances": "cad/tower-lift/appearances.json",
+  "title": "R2C-T1 own-zone scorer and TOWER lift",
+  "scope": "Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations.",
+  "viewerUrl": "https://ehartye.github.io/frc-2026-poc/robot/tower.html",
+  "backdrop": {
+    "center": "#405F86",
+    "edge": "#142F63"
+  }
 }

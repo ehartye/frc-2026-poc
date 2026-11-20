@@ -1,0 +1,1150 @@
+{
+  "schema": "agent-frc/public-fusion-handoff@1",
+  "revision": "R2C-T1 low-rung lift and own-zone scorer",
+  "shareable": true,
+  "archive": {
+    "file": "cad/tower-lift/tower-l1.f3d",
+    "sha256": "7c4a6210bcd23540999d3412107e6a8cf72f30596250f113314b35cbf66eb941"
+  },
+  "reopen": {
+    "file": "cad/tower-lift/student-reopen.json",
+    "sha256": "7ac5cd8beee840b793cb93650bb5e9b3cbd5530b7070a98c0bedfbb262e5b122"
+  },
+  "components": [
+    {
+      "id": "left perimeter tube",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left front return",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left blue side bumper",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left blue front bumper",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right perimeter tube",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right front return",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right blue side bumper",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right blue front bumper",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear perimeter tube",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear blue bumper",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left module tab spacer 1",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left module tab spacer 2",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right module tab spacer 1",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right module tab spacer 2",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left module tab spacer 1",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left module tab spacer 2",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right module tab spacer 1",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right module tab spacer 2",
+      "role": "drive",
+      "representation": "project-original",
+      "provenance": "Project-authored drivetrain interface in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right hopper post",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right hopper post",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right floor sill",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left hopper post",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left hopper post",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left floor sill",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear deck crossmember",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front deck crossmember",
+      "role": "frame",
+      "representation": "project-original",
+      "provenance": "Project-authored frame and bumper component in the R2C Fusion assembly recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left electronics deck",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right electronics deck",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "fore electronics deck bridge",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "aft electronics deck bridge",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "battery cradle floor",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "battery cradle wall -44",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "battery cradle wall 43",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "battery secured envelope",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "distribution enclosure reserve",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "robot controller reserve",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "field radio reserve",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 1",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 2",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 3",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 4",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 5",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 6",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 7",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "drive controller reserve 8",
+      "role": "other",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn electronics or battery packaging reservation. No supplier solid is redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "hopper back panel",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right hopper wall",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right hopper front wing",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right cross feed deck",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right front elevator upright",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right rear elevator upright",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right elevator upper tie",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right inside lift belt",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right outside lift belt",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lift shelf 1",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lift shelf 2",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lift shelf 3",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lift shelf 4",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right intake ramp",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left hopper wall",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left hopper front wing",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left cross feed deck",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left front elevator upright",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left rear elevator upright",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left elevator upper tie",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left inside lift belt",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left outside lift belt",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lift shelf 1",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lift shelf 2",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lift shelf 3",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lift shelf 4",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left intake ramp",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear lift custody gate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front lift custody guide",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "central fore-aft feed deck",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lower lift stub shaft",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lower lift stub shaft",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left upper lift stub shaft",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right upper lift stub shaft",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "ground intake roller",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right intake bearing arm",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right intake pivot plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right intake pivot axle",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right intake journal",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right upper head cheek",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left intake bearing arm",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left intake pivot plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left intake pivot axle",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left intake journal",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left upper head cheek",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right scoring wheel",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right scoring spindle",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right upper guide",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right scoring bearing bridge -33",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right scoring bearing bridge 33",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left scoring wheel",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left scoring spindle",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left upper guide",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left scoring bearing bridge -33",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left scoring bearing bridge 33",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left feed diverter pivot",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right feed diverter pivot",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "feed diverter vane",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Project-authored solid in the R2C mechanism and support recipe.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left public wheel",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left public drive housing",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front left public motor reserve",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right public wheel",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right public drive housing",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "front right public motor reserve",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left public wheel",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left public drive housing",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear left public motor reserve",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right public wheel",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right public drive housing",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rear right public motor reserve",
+      "role": "drive",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right public scoring motor envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left public scoring motor envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-drawn public purchased-part envelope. The registered supplier master is described in cad/own-zone-upper/design.md.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left mast",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left aft mast",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left upper bearing plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lower bearing plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lead screw envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left lift motor envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left reduction envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left driven nut",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left nut link",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left crosshead cheek",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left forward carriage sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left aft carriage sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left extension sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left sleeve pedestal",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left extending rail",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "left crown hook",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right mast",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right aft mast",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right upper bearing plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lower bearing plate",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lead screw envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right lift motor envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right reduction envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right driven nut",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right nut link",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right crosshead cheek",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right forward carriage sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right aft carriage sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right extension sleeve",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right sleeve pedestal",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right extending rail",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "right crown hook",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "crosshead lift bridge",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "rail synchronizing tie",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension bearing beam",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension rear bearing and stop",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension forward bearing",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension screw envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension deployment nut",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension nut hanger",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension motor envelope",
+      "role": "mechanism",
+      "representation": "project-proxy",
+      "provenance": "Project-authored packaging and interface sketch; no manufacturer geometry redistributed.",
+      "editMetric": "extrusions"
+    },
+    {
+      "id": "extension motor foot",
+      "role": "mechanism",
+      "representation": "project-original",
+      "provenance": "Original dimensioned low-rung assembly part in cad/tower-lift/recipe.py.",
+      "editMetric": "extrusions"
+    }
+  ],
+  "joints": [
+    {
+      "id": "Tower rear deployment",
+      "type": "slider",
+      "occurrenceOne": "left extending rail",
+      "occurrenceTwo": "crosshead lift bridge",
+      "direction": {
+        "file": "cad/tower-lift/directions.json",
+        "sha256": "8619bfffffca697ebdccc4f7e933e2945b0897cb7bffdf23eae577a74c4845a3"
+      }
+    },
+    {
+      "id": "Tower load stroke",
+      "type": "slider",
+      "occurrenceOne": "crosshead lift bridge",
+      "occurrenceTwo": "left mast",
+      "direction": {
+        "file": "cad/tower-lift/directions.json",
+        "sha256": "8619bfffffca697ebdccc4f7e933e2945b0897cb7bffdf23eae577a74c4845a3"
+      }
+    }
+  ]
+}

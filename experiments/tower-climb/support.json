@@ -1,0 +1,426 @@
+[
+  {
+    "name": "nominal",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": 4.89775,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.05098543271658242,
+    "peak": {
+      "eachHookN": [
+        424.56630041484044,
+        424.56630041484044
+      ],
+      "uprightN": 490.7734780245682,
+      "currentA": 2.81454220260028,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 1.3590604428647874
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.0013157234575409912,
+      "z": 0.05725941746952384,
+      "pitch": -0.023698334322541943,
+      "deploy": 0.215,
+      "down": 0.1,
+      "hookXZ": [
+        [
+          -244.6162488899679,
+          304.00615394081757
+        ],
+        [
+          -244.6162488899679,
+          304.00615394081757
+        ]
+      ],
+      "uprightN": 489.2324685287914,
+      "wheelN": 0.0,
+      "tireGapM": 0.050988013696638156,
+      "baseGapM": 0.07519597733305829,
+      "qualified": true
+    },
+    "conditionalTeleopPoints": 10
+  },
+  {
+    "name": "finer",
+    "dt": 0.000125,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": 4.897625,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.05098545786957034,
+    "peak": {
+      "eachHookN": [
+        424.56486764880765,
+        424.56486764880765
+      ],
+      "uprightN": 490.77311228301545,
+      "currentA": 2.814533035019968,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 1.359059279493472
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.0013157234716162844,
+      "z": 0.057259417446014926,
+      "pitch": -0.023698334372178335,
+      "deploy": 0.215,
+      "down": 0.1,
+      "hookXZ": [
+        [
+          -244.61624931935532,
+          304.0061542192544
+        ],
+        [
+          -244.61624931935532,
+          304.0061542192544
+        ]
+      ],
+      "uprightN": 489.23247005986894,
+      "wheelN": 0.0,
+      "tireGapM": 0.05098801366528274,
+      "baseGapM": 0.07519597732768403,
+      "qualified": true
+    },
+    "conditionalTeleopPoints": 10
+  },
+  {
+    "name": "loaded",
+    "dt": 0.00025,
+    "massKg": 68.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": 4.99925,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.04879495706898381,
+    "peak": {
+      "eachHookN": [
+        479.3185557176253,
+        479.3185557176253
+      ],
+      "uprightN": 578.1233696001102,
+      "currentA": 3.103179638122948,
+      "wheelN": 673.1230101171075,
+      "pitchDeg": 1.520837135427524
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.001953359451549938,
+      "z": 0.054877405523477085,
+      "pitch": -0.02652002203423149,
+      "deploy": 0.215,
+      "down": 0.1,
+      "hookXZ": [
+        [
+          -288.2359662962033,
+          333.42608262116477
+        ],
+        [
+          -288.2359662962033,
+          333.42608262116477
+        ]
+      ],
+      "uprightN": 576.4718266946858,
+      "wheelN": 0.0,
+      "tireGapM": 0.04879809061404169,
+      "baseGapM": 0.07493477829195079,
+      "qualified": true
+    },
+    "conditionalTeleopPoints": 10
+  },
+  {
+    "name": "early-cut",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 2.0,
+    "assessedS": 4.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": null,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": -0.0013818461363636417,
+    "peak": {
+      "eachHookN": [
+        0.0,
+        0.0
+      ],
+      "uprightN": 0.0,
+      "currentA": 0.0,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 0.0
+    },
+    "atAssessment": {
+      "t": 4.0,
+      "x": 0.0,
+      "z": -0.0013818461363636625,
+      "pitch": 0.0,
+      "deploy": 0.215,
+      "down": 0.0025480898584858826,
+      "hookXZ": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "uprightN": 0.0,
+      "wheelN": 608.0123,
+      "tireGapM": -0.0013818461363636417,
+      "baseGapM": 0.006620753863636322,
+      "qualified": false
+    },
+    "conditionalTeleopPoints": 0
+  },
+  {
+    "name": "stalled-drive",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": null,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": -0.0013818461363636417,
+    "peak": {
+      "eachHookN": [
+        0.0,
+        0.0
+      ],
+      "uprightN": 0.0,
+      "currentA": 0.0,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 0.0
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": 0.0,
+      "z": -0.0013818461363636625,
+      "pitch": 0.0,
+      "deploy": 0.215,
+      "down": 0.0,
+      "hookXZ": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "uprightN": 0.0,
+      "wheelN": 608.0123,
+      "tireGapM": -0.0013818461363636417,
+      "baseGapM": 0.006620753863636322,
+      "qualified": false
+    },
+    "conditionalTeleopPoints": 0
+  },
+  {
+    "name": "missed-rung",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.372875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      false
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": null,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.047601785505197745,
+    "peak": {
+      "eachHookN": [
+        846.9836843894849,
+        0.0
+      ],
+      "uprightN": 489.8331886628502,
+      "currentA": 5.599151607764848,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 1.4943798734629727
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.0006859854345734637,
+      "z": 0.05449232967365919,
+      "pitch": -0.02605542547333723,
+      "deploy": 0.215,
+      "down": 0.1,
+      "hookXZ": [
+        [
+          -488.38780092831644,
+          608.0122869645655
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "uprightN": 488.38778851931625,
+      "wheelN": 0.0,
+      "tireGapM": 0.047605949168959404,
+      "baseGapM": 0.07342508346228611,
+      "qualified": false
+    },
+    "conditionalTeleopPoints": 0
+  },
+  {
+    "name": "released-thread",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": false,
+    "firstClearS": 4.89775,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.03685391566570919,
+    "peak": {
+      "eachHookN": [
+        424.56630041484044,
+        424.56630041484044
+      ],
+      "uprightN": 490.7734780245682,
+      "currentA": 1.386282545451501,
+      "wheelN": 608.0123000000024,
+      "pitchDeg": 1.3590604428647874
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.0013453393311309036,
+      "z": 0.04281357905448735,
+      "pitch": -0.022519347355240936,
+      "deploy": 0.215,
+      "down": 0.08478481014524956,
+      "hookXZ": [
+        [
+          -235.64482363048575,
+          263.42263883068296
+        ],
+        [
+          -235.64482363048575,
+          263.42263883068296
+        ]
+      ],
+      "uprightN": 471.2880080872289,
+      "wheelN": 0.0,
+      "tireGapM": 0.03685391566570919,
+      "baseGapM": 0.060252502517956955,
+      "qualified": true
+    },
+    "conditionalTeleopPoints": 10
+  },
+  {
+    "name": "roll-error",
+    "dt": 0.00025,
+    "massKg": 62.0,
+    "startDatumX": -6.7480382,
+    "startDatumY": 0.142875,
+    "rungX": -0.46045005,
+    "rungZ": 0.6858,
+    "cutS": 9.0,
+    "assessedS": 11.0,
+    "hasTwoContacts": [
+      true,
+      true
+    ],
+    "threadSelfLocks": true,
+    "firstClearS": 4.8765,
+    "lostAfterCutS": null,
+    "minimumAssessedClearanceM": 0.05159919500950013,
+    "peak": {
+      "eachHookN": [
+        734.664396410695,
+        253.36174566019633
+      ],
+      "uprightN": 491.2350236718978,
+      "currentA": 5.569384934689149,
+      "wheelN": 639.6988946583426,
+      "pitchDeg": 1.3613551119687826
+    },
+    "atAssessment": {
+      "t": 11.0,
+      "x": -0.0013126247844327454,
+      "z": 0.05788680158725962,
+      "pitch": -0.02374343988584534,
+      "deploy": 0.215,
+      "down": 0.1,
+      "hookXZ": [
+        [
+          -237.81791813986746,
+          602.0284745885668
+        ],
+        [
+          -251.97275803650655,
+          5.983818395384213
+        ]
+      ],
+      "uprightN": 489.79065062754114,
+      "wheelN": 0.0,
+      "tireGapM": 0.0516036145185251,
+      "baseGapM": 0.07584241108067342,
+      "qualified": true
+    },
+    "conditionalTeleopPoints": 10
+  }
+]
