@@ -26,4 +26,8 @@ play.addEventListener('click',()=>{
   function frame(){paint(viewer.currentTime);if(!viewer.paused)requestAnimationFrame(frame);}
   requestAnimationFrame(frame);
 });
-viewer.addEventListener('finished',()=>seek(duration));
+viewer.addEventListener('finished',()=>{
+  // Seeking the last key can itself dispatch finished. Only update the controls here.
+  paint(duration);
+  play.textContent='Replay climb';
+});
