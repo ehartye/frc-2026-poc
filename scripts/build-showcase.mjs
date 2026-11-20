@@ -37,12 +37,8 @@ await cp(at('docs/showcase/assembly-view.js'), path.join(destination, 'assembly-
 const config = JSON.parse(await readFile(at('kickoff/selected-strategy.json'), 'utf8'));
 const study = await readFile(at('docs/showcase/study.js'), 'utf8');
 await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', JSON.stringify(config.case)));
-for (const name of ['field-lab.html','rule-register.json','match-series.json']) await cp(at('kickoff/' + name), path.join(destination, name));
-execFileSync(process.execPath, [at('experiments/role-and-support/replay-lanes.mjs'), plugin, path.join(destination, 'depot-lanes')], {stdio:'inherit'});
-execFileSync(process.execPath, [
-  path.resolve(plugin, 'scripts/strategy-lab.mjs'), at('kickoff/rules-model.json'),
-  at('experiments/role-and-support/study.json'), '--html', path.join(destination, 'alliance-roles.html'),
-], {stdio:['ignore','ignore','inherit']});
+await cp(at('kickoff/rule-register.json'),path.join(destination,'rule-register.json'));
+execFileSync(process.execPath,[at('kickoff/rehearsal/build.mjs'),plugin,destination],{stdio:'inherit'});
 await cp(at('docs/robot/historical-fixture'), path.join(destination, 'fixture'), {recursive: true});
 await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true});
 await cp(at('docs/robot/r1-chassis'), path.join(destination, 'chassis'), {recursive: true});

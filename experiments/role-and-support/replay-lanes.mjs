@@ -32,7 +32,8 @@ const results = series.results.map((result, index) => {
     bySide[side] = {robot, pieces: pieces.length, admissions: admissions.map(({phase, timeS, pieces}) => ({phase, timeS, pieces}))};
   }
   if (physicalProfile) {
-    for (const {pieces} of Object.values(bySide)) assert.ok(pieces>=0 && pieces<=24);
+    const physicalExpected=[[0,0],[4,0],[0,4],[4,4],[6,0],[0,6],[6,6]];
+    assert.deepEqual([bySide.blue.pieces,bySide.red.pieces],physicalExpected[index]);
   } else {
     assert.deepEqual([bySide.blue.pieces, bySide.red.pieces],expected[index]);
   }

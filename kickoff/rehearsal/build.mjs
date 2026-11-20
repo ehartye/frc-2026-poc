@@ -1,3 +1,4 @@
+import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {dirname,join,resolve} from 'node:path';
@@ -21,8 +22,11 @@ await buildLab(model,file('field-lab.html'));
 execFileSync(process.execPath,[script('rehearsal-series.mjs'),profilePath,file('match-series.json')],{stdio:'inherit'});
 const series=JSON.parse(await readFile(file('match-series.json')));
 const summaries=series.matches.map(match=>auditMatch(model,match));
-await writeFile(file('match-summary.json'),JSON.stringify({profileSha256:series.profileSha256,
-  modelSeconds:series.modelSeconds,playbackSeconds:series.playbackSeconds,matches:summaries},null,2)+'\n');
+const receipt={profileSha256:series.profileSha256,modelSeconds:series.modelSeconds,
+  playbackSeconds:series.playbackSeconds,matches:summaries};
+assert.deepEqual(receipt,JSON.parse(await readFile(join(project,'kickoff/rehearsal/match-summary.json'))));
+assert.deepEqual(await readFile(file('field-lab.html')),await readFile(join(project,'kickoff/field-lab.html')));
+await writeFile(file('match-summary.json'),JSON.stringify(receipt,null,2)+'\n');
 execFileSync(process.execPath,[script('strategy-lab.mjs'),profilePath,join(project,'experiments/role-and-support/study.json'),
   '--html',file('alliance-roles.html')],{stdio:['ignore','ignore','inherit']});
 execFileSync(process.execPath,[join(project,'experiments/role-and-support/replay-lanes.mjs'),plugin,
