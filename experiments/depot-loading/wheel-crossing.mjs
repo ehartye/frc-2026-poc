@@ -8,11 +8,12 @@ const here = new URL('./', import.meta.url);
 const layout =
     JSON.parse(await readFile(new URL('../../cad/own-zone/layout.json', here)));
 const source = JSON.parse(await readFile(new URL('stock-register.json', here)));
-const R = layout.wheelRadiusMm / 1000,
-      half = layout.wheelAxisFromRobotCenterMm[0] / 1000;
+const R = layout.wheelRadiusMm / 1000;
 const high = source.frontTubeBoundsMm[5] / 1000;
 const clip = (v, a, b) => Math.max(a, Math.min(b, v));
 export function crossing({
+  recordStep = .005,
+  halfWheelbaseM = layout.wheelAxisFromRobotCenterMm[0] / 1000,
   mass = 58,
   mu = .80,
   currentA = 50,
@@ -31,7 +32,7 @@ export function crossing({
   const ratio = 5.5, eff = .82, kt = 2.6 / 105, resist = 12 / 105,
         kv = 5676 * Math.PI / 30 / 12;
   const wheels = Array.from(
-      {length: 4}, (_, i) => ({x: i < 2 ? half : -half, w: 0, current: 0}));
+      {length: 4}, (_, i) => ({x: i < 2 ? halfWheelbaseM : -halfWheelbaseM, w: 0, current: 0}));
   let x = 0, z = cogM - mass * g / (4 * stiffness), a = 0, vx = 0, vz = 0,
       va = 0, volts = 12.6;
   const trace = [], maximum = {tilt: 0, current: 0, dropV: 0};
@@ -88,7 +89,7 @@ export function crossing({
     a += va * step;
     maximum.tilt = Math.max(maximum.tilt, Math.abs(a));
     peak = Math.max(peak, x);
-    if (k % Math.round(.005 / step) === 0)
+    if (k % Math.max(1,Math.round(recordStep / step)) === 0)
       trace.push([t, x, z - initialZ, a, vx, vz, va]);
     if (t > duration && Math.abs(x - stroke) < .004 && Math.abs(vx) < .04 &&
         Math.abs(a) < .006 && Math.abs(vz) < .02 && ready == null)

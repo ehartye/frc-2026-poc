@@ -35,7 +35,25 @@
       82.95
     ],
     "separationMm": 23,
-    "projectedUnmatedGapMm": 8.3
+    "projectedUnmatedGapMm": 8.3,
+    "editionAndReceivingEnvelope": {
+      "housingMaximumMm": [
+        48.5,
+        37.1,
+        16.4
+      ],
+      "matedPairLengthMm": [
+        80.8,
+        81.8
+      ],
+      "worstIndependentSeparationGapMm": 6.8,
+      "contactsMm3": {
+        "joined": {},
+        "23mm release sweep": {},
+        "pack-side 270mm drop": {}
+      },
+      "basis": "Anderson drawing 111923S1 Rev 2 and DS-SB50 Rev 9. Take the larger nominal from both editions on each perpendicular axis plus 0.5 mm. The finished mated length, lug, strain relief and wiring require separate receiving checks."
+    }
   },
   "sideDrawerSweeps": {
     "left": {
