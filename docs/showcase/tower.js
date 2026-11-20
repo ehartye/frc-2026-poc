@@ -27,4 +27,3 @@ play.addEventListener('click',()=>{
   requestAnimationFrame(frame);
 });
 viewer.addEventListener('finished',()=>seek(duration));
-

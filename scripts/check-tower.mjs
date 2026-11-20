@@ -59,4 +59,3 @@ for(const [name,property,axis,expected] of [['Lift carriage','translation',1,r=>
 const roles=json('kickoff/rules-model.json').rehearsal.endgame.actions;
 for(const a of roles.filter(a=>a.points>10))assert.deepEqual(a.eligibleRobots,['B1','R1']);
 console.log('159 reopened solids, two native sliders, 100 mm working lift, loaded and failed controls, all 441 motion samples.');
-
