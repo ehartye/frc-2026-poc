@@ -13,10 +13,12 @@ from supplier import bounds
 from verify_products import products
 
 
-def run():
+def run(additional=None):
     plan = recipe()
     world = products(Path(__file__).resolve().parents[2] / plan["stepBase"])
     world.update({k: machine(row["features"]) for k, row in plan["parts"].items()})
+    if additional:
+        world.update(additional)
     fixed = {k: (s, bounds(s)) for k, s in world.items()}
 
     def check(s, skip):
@@ -33,7 +35,7 @@ def run():
     panel = next(p for p in plan["panels"] if p["panel"] == "rear blue bumper")
     for i, (x, y, z) in enumerate(panel["topScrewAxisMm"], 1):
         # The head projects 12 mm behind the stud; the 87 mm handle points forward into the bay.
-        # 24-mm max width + 10 mm extra on each side encloses the entire 6° ratchet sector.
+        # 24-mm max width + 10 mm extra on each side encloses the entire 6Â° ratchet sector.
         skip = f"rear bumper mounting {i} top screw"
 
         def hull(x0, x1, y0, y1, z0, z1):

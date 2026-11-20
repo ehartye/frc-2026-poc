@@ -1,0 +1,153 @@
+{
+  "sourceStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "solidCount": 235,
+  "sides": {
+    "left": {
+      "upperPlateBoxMm": [
+        -294.0,
+        298.0,
+        744.0,
+        -166.0,
+        336.0,
+        750.0
+      ],
+      "screwBoxMm": [
+        -245.0,
+        300.0,
+        557.0,
+        -235.0,
+        310.0,
+        744.0
+      ],
+      "nearScrew": {
+        "left upper bearing plate": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "left lower bearing plate": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "left reduction envelope": {
+          "gapMm": 0.0,
+          "overlapMm3": 1570.79633
+        },
+        "left driven nut": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "left nut link": {
+          "gapMm": 0.8,
+          "overlapMm3": 0.0
+        },
+        "left crosshead cheek": {
+          "gapMm": 0.8,
+          "overlapMm3": 0.0
+        }
+      },
+      "flatEndContactMm2": 78.5398163397448,
+      "probeUp025OverlapMm3": 19.63495408493619,
+      "probeDown025GapMm": 0.25,
+      "sizingScreens": [
+        {
+          "outerDiameterMm": 14,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 75.39822368615503,
+          "supportedAreaMm2": 75.39822368615512,
+          "unsupportedAreaMm2": -8.526512829121202e-14,
+          "overhangMm": 0
+        },
+        {
+          "outerDiameterMm": 18,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 175.92918860102841,
+          "supportedAreaMm2": 160.4735890159069,
+          "unsupportedAreaMm2": 15.455599585121519,
+          "overhangMm": 2.0
+        },
+        {
+          "outerDiameterMm": 24,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 373.84952577718536,
+          "supportedAreaMm2": 305.569443431717,
+          "unsupportedAreaMm2": 68.28008234546837,
+          "overhangMm": 5.0
+        }
+      ]
+    },
+    "right": {
+      "upperPlateBoxMm": [
+        -294.0,
+        -336.0,
+        744.0,
+        -166.0,
+        -298.0,
+        750.0
+      ],
+      "screwBoxMm": [
+        -245.0,
+        -310.0,
+        557.0,
+        -235.0,
+        -300.0,
+        744.0
+      ],
+      "nearScrew": {
+        "right upper bearing plate": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "right lower bearing plate": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "right reduction envelope": {
+          "gapMm": 0.0,
+          "overlapMm3": 1570.79633
+        },
+        "right driven nut": {
+          "gapMm": 0.0,
+          "overlapMm3": 0.0
+        },
+        "right nut link": {
+          "gapMm": 0.8,
+          "overlapMm3": 0.0
+        },
+        "right crosshead cheek": {
+          "gapMm": 0.8,
+          "overlapMm3": 0.0
+        }
+      },
+      "flatEndContactMm2": 78.5398163397448,
+      "probeUp025OverlapMm3": 19.63495408493619,
+      "probeDown025GapMm": 0.25,
+      "sizingScreens": [
+        {
+          "outerDiameterMm": 14,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 75.39822368615503,
+          "supportedAreaMm2": 75.39822368615503,
+          "unsupportedAreaMm2": 0.0,
+          "overhangMm": 0
+        },
+        {
+          "outerDiameterMm": 18,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 175.92918860102841,
+          "supportedAreaMm2": 160.47358901590673,
+          "unsupportedAreaMm2": 15.45559958512169,
+          "overhangMm": 2.0
+        },
+        {
+          "outerDiameterMm": 24,
+          "innerDiameterMm": 10,
+          "idealAreaMm2": 373.84952577718536,
+          "supportedAreaMm2": 305.5694434317173,
+          "unsupportedAreaMm2": 68.28008234546809,
+          "overhangMm": 5.0
+        }
+      ]
+    }
+  },
+  "scope": "Parked geometry only. Gauges are ideal annuli, not a selected or load-rated bearing. Positive thickness overlap counterchecks whether the observed end faces are merely touching."
+}

@@ -1,0 +1,105 @@
+{
+  "cases": {
+    "nominal": {
+      "settings": {},
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 7.232674747938678,
+      "peakDemandA": 2.81454220260028,
+      "firstClearS": 4.89775,
+      "firstLostAfterCutS": null,
+      "strokeAtCutMm": 100.0,
+      "stroke12sAfterCutMm": 100.0,
+      "modeledPoints12sAfterCut": 10,
+      "minimumClearanceAfterCutMm": 50.98543271658242
+    },
+    "soft-forward": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 7.232674747938678,
+      "peakDemandA": 3.0523696854096993,
+      "firstClearS": 5.5512500000000005,
+      "firstLostAfterCutS": null,
+      "strokeAtCutMm": 100.0,
+      "stroke12sAfterCutMm": 100.0,
+      "modeledPoints12sAfterCut": 10,
+      "minimumClearanceAfterCutMm": 37.04964482971587
+    },
+    "tilt": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 7.232674747938678,
+      "peakDemandA": 6.135497876746696,
+      "firstClearS": 4.98725,
+      "firstLostAfterCutS": null,
+      "strokeAtCutMm": 100.0,
+      "stroke12sAfterCutMm": 100.0,
+      "modeledPoints12sAfterCut": 10,
+      "minimumClearanceAfterCutMm": 49.257959539789695
+    },
+    "low-thread-friction": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "thread_mu": 0.035
+      },
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 3.5624019958670305,
+      "peakDemandA": 1.5284488410782944,
+      "firstClearS": 4.99925,
+      "firstLostAfterCutS": 12.56,
+      "strokeAtCutMm": 99.9999994412761,
+      "stroke12sAfterCutMm": 0.0,
+      "modeledPoints12sAfterCut": 0,
+      "minimumClearanceAfterCutMm": -2.3156143328162195
+    },
+    "high-thread-friction": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "thread_mu": 0.21
+      },
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 9.711296105514233,
+      "peakDemandA": 4.098409906647199,
+      "firstClearS": 5.5512500000000005,
+      "firstLostAfterCutS": null,
+      "strokeAtCutMm": 100.0,
+      "stroke12sAfterCutMm": 100.0,
+      "modeledPoints12sAfterCut": 10,
+      "minimumClearanceAfterCutMm": 37.04964482971587
+    },
+    "tilt-high-friction": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5,
+        "thread_mu": 0.21
+      },
+      "idealTripLowN": 900,
+      "hypotheticalBlockedUpperNAtZeroOvershoot": 1100,
+      "equivalentCurrentAInThisFrictionScenario": 9.711296105514233,
+      "peakDemandA": 8.238119189974974,
+      "firstClearS": 4.98725,
+      "firstLostAfterCutS": null,
+      "strokeAtCutMm": 100.0,
+      "stroke12sAfterCutMm": 100.0,
+      "modeledPoints12sAfterCut": 10,
+      "minimumClearanceAfterCutMm": 49.257959539789695
+    }
+  },
+  "scope": "Ideal 1.0 kN axial demand trip, +/-10% variation; lifting tested at 900 N, hard-stop sensitivity capped at 1100 N only for an instantaneous ideal axial limiter. Not installed hardware or a sensor/control design. Claim excludes response delay, impact and guide binding. Historical solver uses per-hook lumping for screw current and has a quasi-static friction law. No active control after 9 s."
+}

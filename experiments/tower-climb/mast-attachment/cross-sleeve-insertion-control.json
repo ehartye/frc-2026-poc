@@ -1,0 +1,335 @@
+{
+  "sourceStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "recipeSha256": "4a7ed9d0d21c2aceff0cce525f467184219bf314939234d4a144dc9bca1b93b7",
+  "cases": {
+    "left mast": [
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.01
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 9.48565,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 1.316202,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 5.906789,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 21.377661,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.1
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.075
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0852354
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0602076
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.020443
+      }
+    ],
+    "left aft mast": [
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.01
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 9.48565,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 1.316202,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 5.906788,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 21.377649,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.1
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.075
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0852354
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0602076
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.020443
+      }
+    ],
+    "right mast": [
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.01
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 9.48565,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 1.316202,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 5.906789,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 21.377661,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.1
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.075
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0852354
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0602076
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.020443
+      }
+    ],
+    "right aft mast": [
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.01
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 9.48565,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 1.316202,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 5.906788,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.98,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 21.377649,
+        "gapMm": 0.0
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.1
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.075
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0.15,
+        "tiltDeg": 0,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0852354
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0,
+        "yawDeg": 0,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.0602076
+      },
+      {
+        "spanMm": 15.8,
+        "translationMm": 0.025,
+        "yawDeg": 0.15,
+        "tiltDeg": 0.03,
+        "overlapMm3": 0.0,
+        "gapMm": 0.020443
+      }
+    ]
+  },
+  "scope": "Shop-drawing sensitivity. Changes to actual stock cavity, corner radii, coatings, shaft sizing and bore alignment require a receiving/assembly study. This comparison does not establish load capacity."
+}

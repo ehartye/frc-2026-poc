@@ -1,0 +1,132 @@
+{
+  "operatingPathMm": [
+    [
+      0,
+      0
+    ],
+    [
+      215,
+      0
+    ],
+    [
+      215,
+      100
+    ]
+  ],
+  "basis": "Exact parked STEP for each moving item. Swept bounding-box separation or recursive rigid-translation distance bound covers every point on each commanded segment.",
+  "moving": {
+    "left driven nut": {
+      "conservativeClearanceMm": 21.02379604162864,
+      "limitingTieArticle": "left aft mast"
+    },
+    "left nut link": {
+      "conservativeClearanceMm": 22.090722034374522,
+      "limitingTieArticle": "left aft mast"
+    },
+    "left crosshead cheek": {
+      "conservativeClearanceMm": 0.21875,
+      "limitingTieArticle": "left aft mast"
+    },
+    "left forward carriage sleeve": {
+      "conservativeClearanceMm": 0.109375,
+      "limitingTieArticle": "left mast"
+    },
+    "left aft carriage sleeve": {
+      "conservativeClearanceMm": 0.109375,
+      "limitingTieArticle": "left aft mast"
+    },
+    "left extension sleeve": {
+      "conservativeClearanceMm": 230.0,
+      "limitingTieArticle": "left mast"
+    },
+    "left sleeve pedestal": {
+      "conservativeClearanceMm": 233.0772404161333,
+      "limitingTieArticle": "left mast"
+    },
+    "left extending rail": {
+      "conservativeClearanceMm": 234.0,
+      "limitingTieArticle": "left aft mast"
+    },
+    "left crown hook": {
+      "conservativeClearanceMm": 222.0,
+      "limitingTieArticle": "left aft mast"
+    },
+    "right driven nut": {
+      "conservativeClearanceMm": 21.02379604162864,
+      "limitingTieArticle": "right aft mast"
+    },
+    "right nut link": {
+      "conservativeClearanceMm": 22.090722034374522,
+      "limitingTieArticle": "right aft mast"
+    },
+    "right crosshead cheek": {
+      "conservativeClearanceMm": 0.21875,
+      "limitingTieArticle": "right aft mast"
+    },
+    "right forward carriage sleeve": {
+      "conservativeClearanceMm": 0.109375,
+      "limitingTieArticle": "right mast"
+    },
+    "right aft carriage sleeve": {
+      "conservativeClearanceMm": 0.109375,
+      "limitingTieArticle": "right aft mast"
+    },
+    "right extension sleeve": {
+      "conservativeClearanceMm": 230.0,
+      "limitingTieArticle": "right mast"
+    },
+    "right sleeve pedestal": {
+      "conservativeClearanceMm": 233.0772404161333,
+      "limitingTieArticle": "right mast"
+    },
+    "right extending rail": {
+      "conservativeClearanceMm": 234.0,
+      "limitingTieArticle": "right aft mast"
+    },
+    "right crown hook": {
+      "conservativeClearanceMm": 222.0,
+      "limitingTieArticle": "right aft mast"
+    },
+    "crosshead lift bridge": {
+      "conservativeClearanceMm": 9.055385138137417,
+      "limitingTieArticle": "left mast"
+    },
+    "rail synchronizing tie": {
+      "conservativeClearanceMm": 257.72077913897436,
+      "limitingTieArticle": "left mast"
+    },
+    "extension bearing beam": {
+      "conservativeClearanceMm": 302.1340761979688,
+      "limitingTieArticle": "left mast"
+    },
+    "extension rear bearing and stop": {
+      "conservativeClearanceMm": 316.8911485037094,
+      "limitingTieArticle": "left mast"
+    },
+    "extension forward bearing": {
+      "conservativeClearanceMm": 472.200169419707,
+      "limitingTieArticle": "left mast"
+    },
+    "extension screw envelope": {
+      "conservativeClearanceMm": 325.4796460610095,
+      "limitingTieArticle": "left mast"
+    },
+    "extension deployment nut": {
+      "conservativeClearanceMm": 324.49961479175903,
+      "limitingTieArticle": "left mast"
+    },
+    "extension nut hanger": {
+      "conservativeClearanceMm": 326.38627422120555,
+      "limitingTieArticle": "left mast"
+    },
+    "extension motor envelope": {
+      "conservativeClearanceMm": 478.9874737401804,
+      "limitingTieArticle": "left mast"
+    },
+    "extension motor foot": {
+      "conservativeClearanceMm": 486.1872067424234,
+      "limitingTieArticle": "left mast"
+    }
+  },
+  "passed": true
+}

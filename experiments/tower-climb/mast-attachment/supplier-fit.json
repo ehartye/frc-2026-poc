@@ -1,0 +1,168 @@
+{
+  "anchorSha256": "e7cef1c5189eb90a3d5536215dee42e46cb96c4818165d7524d1db64b441d280",
+  "supplierSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+  "registeredLeavesPerModule": 72,
+  "sweptLeafIndices": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    23,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "stages": {
+    "front left": {
+      "pose": {
+        "name": "front left",
+        "rotation": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translation": [
+          265.0,
+          265.0,
+          38.1
+        ]
+      },
+      "minimumMm": 346.6090758291336,
+      "anchorOrTool": "left mast",
+      "supplierLeaf": "10:REV-21-3005-P02/",
+      "collisionsMm3": {}
+    },
+    "front right": {
+      "pose": {
+        "name": "front right",
+        "rotation": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translation": [
+          265.0,
+          -265.0,
+          38.1
+        ]
+      },
+      "minimumMm": 346.60907582913376,
+      "anchorOrTool": "right mast",
+      "supplierLeaf": "10:REV-21-3005-P02/",
+      "collisionsMm3": {}
+    },
+    "rear left": {
+      "pose": {
+        "name": "rear left",
+        "rotation": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translation": [
+          -265.0,
+          265.0,
+          38.1
+        ]
+      },
+      "minimumMm": 6.550000000000182,
+      "anchorOrTool": "left aft mast",
+      "supplierLeaf": "10:REV-21-3005-P02/",
+      "collisionsMm3": {}
+    },
+    "rear right": {
+      "pose": {
+        "name": "rear right",
+        "rotation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "translation": [
+          -265.0,
+          -265.0,
+          38.1
+        ]
+      },
+      "minimumMm": 6.550000000000011,
+      "anchorOrTool": "right aft mast",
+      "supplierLeaf": "10:REV-21-3005-P02/",
+      "collisionsMm3": {}
+    }
+  },
+  "passed": true
+}

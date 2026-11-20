@@ -1,0 +1,1083 @@
+{
+  "foundationStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "tieRecipeSha256": "e7cef1c5189eb90a3d5536215dee42e46cb96c4818165d7524d1db64b441d280",
+  "articlesAndSweeps": {
+    "left mast": {},
+    "left mast lower rail key": {},
+    "left mast upper plate key": {},
+    "left mast lower rail crush sleeve": {},
+    "left mast full length M8 tie": {},
+    "left mast bottom locking washer": {},
+    "left mast bottom tie nut": {},
+    "left aft mast": {},
+    "left aft mast lower rail key": {},
+    "left aft mast upper plate key": {},
+    "left aft mast lower rail crush sleeve": {},
+    "left aft mast full length M8 tie": {},
+    "left aft mast bottom locking washer": {},
+    "left aft mast bottom tie nut": {},
+    "right mast": {},
+    "right mast lower rail key": {},
+    "right mast upper plate key": {},
+    "right mast lower rail crush sleeve": {},
+    "right mast full length M8 tie": {},
+    "right mast bottom locking washer": {},
+    "right mast bottom tie nut": {},
+    "right aft mast": {},
+    "right aft mast lower rail key": {},
+    "right aft mast upper plate key": {},
+    "right aft mast lower rail crush sleeve": {},
+    "right aft mast full length M8 tie": {},
+    "right aft mast bottom locking washer": {},
+    "right aft mast bottom tie nut": {},
+    "left mast head insertion above plate": {},
+    "left mast lower socket": {},
+    "left mast rod insertion before head": {},
+    "left aft mast head insertion above plate": {},
+    "left aft mast lower socket": {},
+    "left aft mast rod insertion before head": {},
+    "right mast head insertion above plate": {},
+    "right mast lower socket": {},
+    "right mast rod insertion before head": {},
+    "right aft mast head insertion above plate": {},
+    "right aft mast lower socket": {},
+    "right aft mast rod insertion before head": {}
+  },
+  "threads": {
+    "left mast upper plate key": {
+      "rod": "left mast full length M8 tie",
+      "modeledMajorVsTapPilotMm3": 376.61413,
+      "grossEngagementMm": 27
+    },
+    "left aft mast upper plate key": {
+      "rod": "left aft mast full length M8 tie",
+      "modeledMajorVsTapPilotMm3": 376.61413,
+      "grossEngagementMm": 27
+    },
+    "right mast upper plate key": {
+      "rod": "right mast full length M8 tie",
+      "modeledMajorVsTapPilotMm3": 376.61413,
+      "grossEngagementMm": 27
+    },
+    "right aft mast upper plate key": {
+      "rod": "right aft mast full length M8 tie",
+      "modeledMajorVsTapPilotMm3": 376.61413,
+      "grossEngagementMm": 27
+    }
+  },
+  "maximumRobotZmm": 754.0,
+  "seats": [
+    {
+      "moving": "left mast upper plate key",
+      "fixed": "left upper bearing plate",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 94.8437,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left mast bottom tie nut",
+      "fixed": "left mast bottom locking washer",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 86.9115,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left mast bottom locking washer",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 152.8071,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left mast lower rail crush sleeve",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 63.0596,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left mast lower rail key",
+      "fixed": "left mast lower rail crush sleeve",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 66.6018,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left mast",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 204.0,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left upper bearing plate",
+      "fixed": "left mast",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 202.07,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast upper plate key",
+      "fixed": "left upper bearing plate",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 94.8437,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast bottom tie nut",
+      "fixed": "left aft mast bottom locking washer",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 86.9115,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast bottom locking washer",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 152.8071,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast lower rail crush sleeve",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 63.0596,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast lower rail key",
+      "fixed": "left aft mast lower rail crush sleeve",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 66.6018,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left aft mast",
+      "fixed": "left perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 204.0,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "left upper bearing plate",
+      "fixed": "left aft mast",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 202.07,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast upper plate key",
+      "fixed": "right upper bearing plate",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 94.8437,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast bottom tie nut",
+      "fixed": "right mast bottom locking washer",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 86.9115,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast bottom locking washer",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 152.8071,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast lower rail crush sleeve",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 63.0596,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast lower rail key",
+      "fixed": "right mast lower rail crush sleeve",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 66.6018,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right mast",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 204.0,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right upper bearing plate",
+      "fixed": "right mast",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 202.07,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast upper plate key",
+      "fixed": "right upper bearing plate",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 94.8437,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast bottom tie nut",
+      "fixed": "right aft mast bottom locking washer",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 86.9115,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast bottom locking washer",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 152.8071,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast lower rail crush sleeve",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 63.0596,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast lower rail key",
+      "fixed": "right aft mast lower rail crush sleeve",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 66.6018,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right aft mast",
+      "fixed": "right perimeter tube",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 204.0,
+      "reversedCommonMm3": 0.0
+    },
+    {
+      "moving": "right upper bearing plate",
+      "fixed": "right aft mast",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "parkedCommonMm3": 0.0,
+      "compressedAreaMm2": 202.07,
+      "reversedCommonMm3": 0.0
+    }
+  ],
+  "lateralBearingTransitions": {
+    "left mast lower pilot against left perimeter tube": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922848999
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922849543
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922893863
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922878942
+        ]
+      }
+    },
+    "left mast lower rail key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000046695
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000035233
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999998351
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999978003
+        ]
+      }
+    },
+    "left mast upper pilot against left upper bearing plate": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999994888
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992217
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999993578
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.55859999999936
+        ]
+      }
+    },
+    "left mast upper plate key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420600000004665
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420600000003518
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999989274
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977954
+        ]
+      }
+    },
+    "left aft mast lower pilot against left perimeter tube": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.095709269228903
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922892065
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.0957092692289071
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922889744
+        ]
+      }
+    },
+    "left aft mast lower rail key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977865
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977865
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977634
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997787
+        ]
+      }
+    },
+    "left aft mast upper pilot against left upper bearing plate": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992237
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.558599999999224
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999994861
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999994894
+        ]
+      }
+    },
+    "left aft mast upper plate key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977847
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977847
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997773
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997786
+        ]
+      }
+    },
+    "right mast lower pilot against right perimeter tube": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922848999
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922849543
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922893863
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922878942
+        ]
+      }
+    },
+    "right mast lower rail key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000035233
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000046695
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997204
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977963
+        ]
+      }
+    },
+    "right mast upper pilot against right upper bearing plate": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.558599999999489
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999994886
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999997543
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992318
+        ]
+      }
+    },
+    "right mast upper plate key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000035184
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4206000000046646
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977794
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.42059999999779
+        ]
+      }
+    },
+    "right aft mast lower pilot against right perimeter tube": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.095709269228903
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922892065
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.0957092692289071
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.09570926922889744
+        ]
+      }
+    },
+    "right aft mast lower rail key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977865
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977865
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977634
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997787
+        ]
+      }
+    },
+    "right aft mast upper pilot against right upper bearing plate": {
+      "forward": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992237
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992238
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999994633
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.14,
+          0.16
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          0.5585999999992224
+        ]
+      }
+    },
+    "right aft mast upper plate key against mast": {
+      "forward": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977847
+        ]
+      },
+      "aft": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977847
+        ]
+      },
+      "left": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.4205999999977745
+        ]
+      },
+      "right": {
+        "translationMm": [
+          0.09,
+          0.11
+        ],
+        "materialIntersectionsMm3": [
+          0.0,
+          2.420599999997786
+        ]
+      }
+    }
+  },
+  "scope": "Parked project recipe with idealized stock. Incipient lateral bearing under signed displacement is checked independently of clamp friction. Static geometric seating does not establish joint preload or stock strength.",
+  "passed": true
+}

@@ -1,0 +1,1141 @@
+{
+  "cases": {
+    "nominal": {
+      "settings": {},
+      "externalSingleSide": {
+        "tensionN": 1420.867143619151,
+        "compressionN": 824.5968091158127,
+        "longitudinalN": 506.294834170882
+      },
+      "historicalClimbObservation": {
+        "name": "nominal",
+        "dt": 0.00025,
+        "massKg": 62.0,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.89775,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.05098543271658242,
+        "peak": {
+          "eachHookN": [
+            424.56630041484044,
+            424.56630041484044
+          ],
+          "uprightN": 490.7734780245682,
+          "currentA": 2.81454220260028,
+          "wheelN": 608.0123000000024,
+          "pitchDeg": 1.3590604428647874
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0013157234575409912,
+          "z": 0.05725941746952384,
+          "pitch": -0.023698334322541943,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -244.6162488899679,
+              304.00615394081757
+            ],
+            [
+              -244.6162488899679,
+              304.00615394081757
+            ]
+          ],
+          "uprightN": 489.2324685287914,
+          "wheelN": 0.0,
+          "tireGapM": 0.050988013696638156,
+          "baseGapM": 0.07519597733305829,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 118.43051505580557,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 3591.734287238302,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 98.13481659121044,
+        "elasticExtensionFromZeroMm": 0.33537573570046164,
+        "topFlangePlateBearingMPa": 37.870035513569185,
+        "bottomWasherRailBearingMPa": 23.505022261650815,
+        "headFlangeShearMPa": 17.98459729019123,
+        "threadHalfPitchShearScreenMPa": 14.04082286221794,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 2399.1936182316254,
+        "mastCompressionAtMeasuredFaceMPa": 11.873081695608578,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.1495387435174536
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.5981549740698144
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 25.311577761323935,
+        "upperKeyShearProjectedPressureMPa": 18.1467682498524
+      }
+    },
+    "original heavy": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035
+      },
+      "externalSingleSide": {
+        "tensionN": 1772.3535494464045,
+        "compressionN": 1120.9895597503646,
+        "longitudinalN": 597.2533956420742
+      },
+      "historicalClimbObservation": {
+        "name": "original heavy",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.99925,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.04879495706898381,
+        "peak": {
+          "eachHookN": [
+            479.3185557176253,
+            479.3185557176253
+          ],
+          "uprightN": 578.1233696001102,
+          "currentA": 3.103179638122948,
+          "wheelN": 673.1230101171075,
+          "pitchDeg": 1.520837135427524
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.001953359451549938,
+          "z": 0.054877405523477085,
+          "pitch": -0.02652002203423149,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -288.2359662962033,
+              333.42608262116477
+            ],
+            [
+              -288.2359662962033,
+              333.42608262116477
+            ]
+          ],
+          "uprightN": 576.4718266946858,
+          "wheelN": 0.0,
+          "tireGapM": 0.04879809061404169,
+          "baseGapM": 0.07493477829195079,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 147.72721338835083,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4294.707098892809,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 117.34172401346473,
+        "elasticExtensionFromZeroMm": 0.40101534181601567,
+        "topFlangePlateBearingMPa": 45.28194386019113,
+        "bottomWasherRailBearingMPa": 28.105415906020134,
+        "headFlangeShearMPa": 21.504535546336776,
+        "threadHalfPitchShearScreenMPa": 16.7888871498425,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 2991.979119500729,
+        "mastCompressionAtMeasuredFaceMPa": 14.806646803091647,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.18648632388842962
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7459452955537185
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 29.85893741492685,
+        "upperKeyShearProjectedPressureMPa": 21.40693174344352
+      }
+    },
+    "soft upright bumper": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 32000
+      },
+      "externalSingleSide": {
+        "tensionN": 1808.6614358863628,
+        "compressionN": 1166.1353569671069,
+        "longitudinalN": 601.1087661058522
+      },
+      "historicalClimbObservation": {
+        "name": "soft upright bumper",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.51525,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.03777543831459714,
+        "peak": {
+          "eachHookN": [
+            476.1873333720223,
+            476.1873333720223
+          ],
+          "uprightN": 571.1331243830041,
+          "currentA": 3.0449761104166098,
+          "wheelN": 673.1246033670384,
+          "pitchDeg": 2.406188280225901
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.006806221596304122,
+          "z": 0.04731143237153501,
+          "pitch": -0.04197696347557022,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -285.17357227350834,
+              333.42551152362324
+            ],
+            [
+              -285.17357227350834,
+              333.42551152362324
+            ]
+          ],
+          "uprightN": 570.3461322606024,
+          "wheelN": 0.0,
+          "tireGapM": 0.03778199866255313,
+          "baseGapM": 0.0744796892938895,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 150.75350737437358,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4367.322871772725,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 119.32576152384495,
+        "elasticExtensionFromZeroMm": 0.4077957900077401,
+        "topFlangePlateBearingMPa": 46.047580089902915,
+        "bottomWasherRailBearingMPa": 28.580627940538925,
+        "headFlangeShearMPa": 21.86813856585898,
+        "threadHalfPitchShearScreenMPa": 17.072757036218174,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3082.2707139342137,
+        "mastCompressionAtMeasuredFaceMPa": 15.253480051141752,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.19211408626624168
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7684563450649667
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 30.051681845061978,
+        "upperKeyShearProjectedPressureMPa": 21.545117064725883
+      }
+    },
+    "stiffer upright bumper": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 128000
+      },
+      "externalSingleSide": {
+        "tensionN": 1753.5710422400196,
+        "compressionN": 1097.5579501646066,
+        "longitudinalN": 595.2722252616215
+      },
+      "historicalClimbObservation": {
+        "name": "stiffer upright bumper",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.743,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.05445331190543425,
+        "peak": {
+          "eachHookN": [
+            481.864877622702,
+            481.864877622702
+          ],
+          "uprightN": 581.7383179010828,
+          "currentA": 3.137168998567058,
+          "wheelN": 673.1192579476347,
+          "pitchDeg": 1.0702074801825558
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": 0.00046899669981678715,
+          "z": 0.058752601464704624,
+          "pitch": -0.018661254192292434,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -289.7947816344833,
+              333.42609916199416
+            ],
+            [
+              -289.7947816344833,
+              333.42609916199416
+            ]
+          ],
+          "uprightN": 579.5895626045934,
+          "wheelN": 0.0,
+          "tireGapM": 0.05445386494054757,
+          "baseGapM": 0.07521829822576272,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 146.16167503912445,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4257.14208448004,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 116.31535749945463,
+        "elasticExtensionFromZeroMm": 0.39750773425438624,
+        "topFlangePlateBearingMPa": 44.88587101178085,
+        "bottomWasherRailBearingMPa": 27.859582993722412,
+        "headFlangeShearMPa": 21.316439322511336,
+        "threadHalfPitchShearScreenMPa": 16.642037836667967,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 2945.115900329213,
+        "mastCompressionAtMeasuredFaceMPa": 14.574731035429373,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.18356539793279256
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7342615917311702
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 29.759891276671496,
+        "upperKeyShearProjectedPressureMPa": 21.33592205238787
+      }
+    },
+    "forward CG": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 64000
+      },
+      "externalSingleSide": {
+        "tensionN": 1862.6054201979623,
+        "compressionN": 1212.042132711208,
+        "longitudinalN": 615.063641752969
+      },
+      "historicalClimbObservation": {
+        "name": "forward CG",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.018,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.048392427480769794,
+        "peak": {
+          "eachHookN": [
+            485.54490944195834,
+            485.54490944195834
+          ],
+          "uprightN": 595.4988864886702,
+          "currentA": 3.1130699277927523,
+          "wheelN": 679.4782036261535,
+          "pitchDeg": 1.553010446576576
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0020841657005378628,
+          "z": 0.054195278944719205,
+          "pitch": -0.027081132491673005,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -296.91085642520534,
+              333.4261773519835
+            ],
+            [
+              -296.91085642520534,
+              333.4261773519835
+            ]
+          ],
+          "uprightN": 593.821695492985,
+          "wheelN": 0.0,
+          "tireGapM": 0.04839567828966348,
+          "baseGapM": 0.07491587887292057,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 155.24978549219418,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4475.210840395925,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 122.27352022939684,
+        "elasticExtensionFromZeroMm": 0.4178697553839637,
+        "topFlangePlateBearingMPa": 47.185114460906995,
+        "bottomWasherRailBearingMPa": 29.28666822677693,
+        "headFlangeShearMPa": 22.408357165837028,
+        "threadHalfPitchShearScreenMPa": 17.494513139331143,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3174.084265422416,
+        "mastCompressionAtMeasuredFaceMPa": 15.70784513001641,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.19783671032754632
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7913468413101853
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 30.74933842034591,
+        "upperKeyShearProjectedPressureMPa": 22.045291819102832
+      }
+    },
+    "forward stiff": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 128000
+      },
+      "externalSingleSide": {
+        "tensionN": 1843.0698267211028,
+        "compressionN": 1187.5772474085625,
+        "longitudinalN": 613.0413976924893
+      },
+      "historicalClimbObservation": {
+        "name": "forward stiff",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.7540000000000004,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.054218655802920145,
+        "peak": {
+          "eachHookN": [
+            488.0753027110317,
+            488.0753027110317
+          ],
+          "uprightN": 599.2401184226763,
+          "currentA": 3.14806744907198,
+          "wheelN": 679.4714982164271,
+          "pitchDeg": 1.0888595699535246
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": 0.0004155566962901619,
+          "z": 0.05830717541835223,
+          "pitch": -0.018986283669520966,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -298.5224403709513,
+              333.426100320859
+            ],
+            [
+              -298.5224403709513,
+              333.426100320859
+            ]
+          ],
+          "uprightN": 597.0448794625096,
+          "wheelN": 0.0,
+          "tireGapM": 0.05421922222870725,
+          "baseGapM": 0.0752058757222925,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 153.62147674582383,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4436.139653442206,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 121.20600146016955,
+        "elasticExtensionFromZeroMm": 0.4142215099901294,
+        "topFlangePlateBearingMPa": 46.773161036971416,
+        "bottomWasherRailBearingMPa": 29.030978622342847,
+        "headFlangeShearMPa": 22.212719207453226,
+        "threadHalfPitchShearScreenMPa": 17.341775890091146,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3125.154494817125,
+        "mastCompressionAtMeasuredFaceMPa": 15.465702453689934,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.19478697880054036
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7791479152021614
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 30.648238854767623,
+        "upperKeyShearProjectedPressureMPa": 21.972809953135815
+      }
+    },
+    "forward soft": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "externalSingleSide": {
+        "tensionN": 1900.4033536106379,
+        "compressionN": 1259.1709700825181,
+        "longitudinalN": 618.9347957835134
+      },
+      "historicalClimbObservation": {
+        "name": "forward soft",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.5512500000000005,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.037049644829715865,
+        "peak": {
+          "eachHookN": [
+            482.4292803663935,
+            482.4292803663935
+          ],
+          "uprightN": 588.3521627559343,
+          "currentA": 3.0523696854096993,
+          "wheelN": 679.4810849901285,
+          "pitchDeg": 2.465013381120366
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.007097061768298621,
+          "z": 0.04616786479470275,
+          "pitch": -0.04300129437309099,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -293.7449048524447,
+              333.42617173915824
+            ],
+            [
+              -293.7449048524447,
+              333.42617173915824
+            ]
+          ],
+          "uprightN": 587.4887128525722,
+          "wheelN": 0.0,
+          "tireGapM": 0.037057062980784226,
+          "baseGapM": 0.07445433363649469,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 158.4002761923353,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4550.806707221276,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 124.33898107161956,
+        "elasticExtensionFromZeroMm": 0.42492846781225985,
+        "topFlangePlateBearingMPa": 47.98217179655872,
+        "bottomWasherRailBearingMPa": 29.781382587728427,
+        "headFlangeShearMPa": 22.78688216599851,
+        "threadHalfPitchShearScreenMPa": 17.79003282155873,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3268.3419401650362,
+        "mastCompressionAtMeasuredFaceMPa": 16.174305637477293,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.2037116735405101
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.8148466941620404
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 30.942871930184403,
+        "upperKeyShearProjectedPressureMPa": 22.184042859624135
+      }
+    },
+    "forward soft half step": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "dt": 0.000125
+      },
+      "externalSingleSide": {
+        "tensionN": 1900.4007034273486,
+        "compressionN": 1259.169227796494,
+        "longitudinalN": 618.9338055094172
+      },
+      "historicalClimbObservation": {
+        "name": "forward soft half step",
+        "dt": 0.000125,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.551125,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.03704966961192354,
+        "peak": {
+          "eachHookN": [
+            482.4285696225455,
+            482.4285696225455
+          ],
+          "uprightN": 588.3519522967962,
+          "currentA": 3.0523645807474216,
+          "wheelN": 679.4666386063942,
+          "pitchDeg": 2.4650094302549266
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.007097062271703897,
+          "z": 0.04616786389070027,
+          "pitch": -0.04300129609975249,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -293.7449120460696,
+              333.42617902117615
+            ],
+            [
+              -293.7449120460696,
+              333.42617902117615
+            ]
+          ],
+          "uprightN": 587.4887366523847,
+          "wheelN": 0.0,
+          "tireGapM": 0.03705706195562316,
+          "baseGapM": 0.07445433340535602,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 158.40005529724786,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4550.801406854697,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 124.33883625286057,
+        "elasticExtensionFromZeroMm": 0.4249279728941511,
+        "topFlangePlateBearingMPa": 47.98211591128032,
+        "bottomWasherRailBearingMPa": 29.781347901077226,
+        "headFlangeShearMPa": 22.78685562590651,
+        "threadHalfPitchShearScreenMPa": 17.790012101343287,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3268.338455592988,
+        "mastCompressionAtMeasuredFaceMPa": 16.174288393096393,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.2037114563514838
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.8148458254059352
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 30.94282242266803,
+        "upperKeyShearProjectedPressureMPa": 22.18400736592893
+      }
+    },
+    "missed two-hook set": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "lateral_error": 0.23
+      },
+      "externalSingleSide": {
+        "tensionN": 1778.5317913476074,
+        "compressionN": 1128.8003534763284,
+        "longitudinalN": 597.9927306900017
+      },
+      "historicalClimbObservation": {
+        "name": "missed two-hook set",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.372875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          false
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": null,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.04495201771936227,
+        "peak": {
+          "eachHookN": [
+            956.3735415434032,
+            0.0
+          ],
+          "uprightN": 576.8991954874108,
+          "currentA": 6.170074922853785,
+          "wheelN": 673.1230101171075,
+          "pitchDeg": 1.6799808296553198
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.001217109029123531,
+          "z": 0.0516621843351438,
+          "pitch": -0.029293059222227143,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -575.3726915918014,
+              666.8521516789579
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "uprightN": 575.3726627285876,
+          "wheelN": 0.0,
+          "tireGapM": 0.04495881580781771,
+          "baseGapM": 0.07299075572615012,
+          "qualified": false
+        },
+        "conditionalTeleopPoints": 0
+      },
+      "previousSleeveOneWallStressMPa": 148.24217523667335,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4307.063582695215,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 117.679332860525,
+        "elasticExtensionFromZeroMm": 0.40216912005084415,
+        "topFlangePlateBearingMPa": 45.41222645990419,
+        "bottomWasherRailBearingMPa": 28.18627918922102,
+        "headFlangeShearMPa": 21.56640715691182,
+        "threadHalfPitchShearScreenMPa": 16.837191168568463,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3007.6007069526568,
+        "mastCompressionAtMeasuredFaceMPa": 14.883954604605616,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.187459997935225
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7498399917409
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 29.895899547056707,
+        "upperKeyShearProjectedPressureMPa": 21.433431207526944
+      }
+    },
+    "thread release": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "thread_mu": 0.035
+      },
+      "externalSingleSide": {
+        "tensionN": 1913.7318928974469,
+        "compressionN": 1357.6382715940613,
+        "longitudinalN": 597.2533956420742
+      },
+      "historicalClimbObservation": {
+        "name": "thread release",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": false,
+        "firstClearS": 4.99925,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.033647153842219245,
+        "peak": {
+          "eachHookN": [
+            479.3185557176253,
+            479.3185557176253
+          ],
+          "uprightN": 578.1233696001102,
+          "currentA": 1.5284488410782944,
+          "wheelN": 673.1230101171075,
+          "pitchDeg": 1.520837135427524
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.001982304149487399,
+          "z": 0.039398488063300985,
+          "pitch": -0.025083340597725046,
+          "deploy": 0.215,
+          "down": 0.08354003842758571,
+          "hookXZ": [
+            [
+              -277.16817540449074,
+              285.0881489327442
+            ],
+            [
+              -277.16817540449074,
+              285.0881489327442
+            ]
+          ],
+          "uprightN": 554.333841711481,
+          "wheelN": 0.0,
+          "tireGapM": 0.033647153842219245,
+          "baseGapM": 0.05879818563494017,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 159.5112215609907,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4577.463785794894,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 125.06731655177305,
+        "elasticExtensionFromZeroMm": 0.42741755431568446,
+        "topFlangePlateBearingMPa": 48.26323504665986,
+        "bottomWasherRailBearingMPa": 29.95583180228467,
+        "headFlangeShearMPa": 22.920359974973106,
+        "threadHalfPitchShearScreenMPa": 17.89424078582999,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 3465.2765431881226,
+        "mastCompressionAtMeasuredFaceMPa": 17.148891686980367,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.21598636153042192
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.8639454461216877
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 29.85893741492685,
+        "upperKeyShearProjectedPressureMPa": 21.40693174344352
+      }
+    },
+    "power off early": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "powered_cut": 2
+      },
+      "externalSingleSide": {
+        "tensionN": 0.0,
+        "compressionN": 0.0,
+        "longitudinalN": 0.0
+      },
+      "historicalClimbObservation": {
+        "name": "power off early",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 2,
+        "assessedS": 4.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": null,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": -0.0017148481392932693,
+        "peak": {
+          "eachHookN": [
+            0.0,
+            0.0
+          ],
+          "uprightN": 0.21121332527441805,
+          "currentA": 0.0,
+          "wheelN": 673.1230101171075,
+          "pitchDeg": 0.0691004915566306
+        },
+        "atAssessment": {
+          "t": 4.0,
+          "x": 0.00023771915976375513,
+          "z": -0.001541675820186883,
+          "pitch": -0.0007435631845368743,
+          "deploy": 0.215,
+          "down": 0.0025480898584858826,
+          "hookXZ": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "uprightN": 0.0,
+          "wheelN": 666.8521999999996,
+          "tireGapM": -0.0017148480969117266,
+          "baseGapM": 0.006796346337658812,
+          "qualified": false
+        },
+        "conditionalTeleopPoints": 0
+      },
+      "previousSleeveOneWallStressMPa": 0.0,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 750.0,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 20.491803278688522,
+        "elasticExtensionFromZeroMm": 0.07003073770491804,
+        "topFlangePlateBearingMPa": 7.907747167181373,
+        "bottomWasherRailBearingMPa": 4.908148901458113,
+        "headFlangeShearMPa": 3.7554136494920787,
+        "threadHalfPitchShearScreenMPa": 2.9319031711447914,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 750.0,
+        "mastCompressionAtMeasuredFaceMPa": 3.7115850942742616,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.04674656383954357
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.18698625535817429
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 0.0,
+        "upperKeyShearProjectedPressureMPa": 0.0
+      }
+    },
+    "lateral assembly tilt": {
+      "settings": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "externalSingleSide": {
+        "tensionN": 1771.7918261619477,
+        "compressionN": 1120.4795615383837,
+        "longitudinalN": 597.6318804750262
+      },
+      "historicalClimbObservation": {
+        "name": "lateral assembly tilt",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.98725,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.049257959539789696,
+        "peak": {
+          "eachHookN": [
+            816.0878497830614,
+            298.78140600024443
+          ],
+          "uprightN": 578.4913044575916,
+          "currentA": 6.135497876746696,
+          "wheelN": 689.0939313644917,
+          "pitchDeg": 1.5226732888052004
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0019509740916505147,
+          "z": 0.05535308891105001,
+          "pitch": -0.02655936214630565,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -279.838843029848,
+              658.958605838571
+            ],
+            [
+              -297.1348741306306,
+              7.893540048838667
+            ]
+          ],
+          "uprightN": 576.9736311151686,
+          "wheelN": 0.0,
+          "tireGapM": 0.04926490528570234,
+          "baseGapM": 0.07542848176927021,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      },
+      "previousSleeveOneWallStressMPa": 147.6803932629114,
+      "throughTie": {
+        "assumedMaxPreloadN": 750.0,
+        "tensionIncludingPreloadN": 4293.583652323896,
+        "threadAreaMm2": 36.6,
+        "stressMPa": 117.31102875201901,
+        "elasticExtensionFromZeroMm": 0.40091044076002497,
+        "topFlangePlateBearingMPa": 45.27009861829406,
+        "bottomWasherRailBearingMPa": 28.09806384862939,
+        "headFlangeShearMPa": 21.49891020423095,
+        "threadHalfPitchShearScreenMPa": 16.784495367765157,
+        "threadScreenEngagementMm": 24.5,
+        "mastCompressionN": 2990.9591230767674,
+        "mastCompressionAtMeasuredFaceMPa": 14.801599065060461,
+        "minimumWallMm": 2.85,
+        "maxReceivedOuterCornerRadiusMm": 2,
+        "minimumSecondMomentMm4": 9340.49798174809,
+        "mastEuler": {
+          "1.0": {
+            "elasticBucklingN": 16043.959991890666,
+            "demandOverEuler": 0.18642274878449783
+          },
+          "2.0": {
+            "elasticBucklingN": 4010.9899979726665,
+            "demandOverEuler": 0.7456909951379913
+          }
+        },
+        "lowerKeyShearProjectedPressureMPa": 29.87785929133989,
+        "upperKeyShearProjectedPressureMPa": 21.420497508065452
+      }
+    }
+  },
+  "scope": "Planar registered forces; the tension rod bypasses mast wall fastener bearing. Scenario mass, stiffness, friction, preload and CG are assumptions. Euler is elastic; end fixing, imperfections, fatigue and impact strength are unqualified. A single hook does not establish yaw closure."
+}
