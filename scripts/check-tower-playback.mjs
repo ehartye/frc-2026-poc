@@ -47,18 +47,20 @@ try {
     return result.result.value;
   };
   async function until(expression){
-    for(let i=0;i<150;i++){
+    for(let i=0;i<450;i++){
       assert.equal(errors.length,0,errors[0]);
       if(await evaluate(expression))return;
       await wait(100);
     }
-    throw Error('Timed out waiting for '+expression);
+    const snapshot=await evaluate("({url:location.href,time:tower.currentTime,paused:tower.paused,clip:tower.animationName,button:document.querySelector('#play').textContent})");
+    throw Error('Timed out waiting for '+expression+' '+JSON.stringify(snapshot));
   }
   await send('Runtime.enable');
   for(const width of [390,1280]){
     await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
-    await send('Page.navigate',{url:new URL('robot/tower.html',site).href+'?test='+width+'-'+Date.now()});
-    await until("document.querySelector('#play')?.disabled===false && document.querySelector('#tower')?.loaded");
+    const url=new URL('robot/tower.html',site).href+'?test='+width+'-'+Date.now();
+    await send('Page.navigate',{url});
+    await until('location.href==='+JSON.stringify(url)+" && document.querySelector('#play')?.disabled===false && document.querySelector('#tower')?.loaded");
     const stage="document.querySelector('#tower')", button="document.querySelector('#play')";
     const held="document.querySelector('[data-t=\"11\"]').click()";
     const checkHeld=async()=>{
@@ -72,7 +74,7 @@ try {
     await until(stage+'.currentTime===9');
     await evaluate(held);await checkHeld();
     await evaluate(held);await checkHeld();
-    await evaluate(stage+'.timeScale=4;'+button+'.click()');
+    await evaluate(button+'.click()');
     await until('!'+stage+'.paused && '+stage+'.currentTime>0 && '+stage+'.currentTime<10');
     await checkHeld();
     await evaluate(held);await checkHeld();
@@ -85,4 +87,3 @@ try {
   socket?.close();chrome.kill();await closed;
   await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:250});
 }
-
