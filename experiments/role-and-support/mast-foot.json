@@ -1,0 +1,35 @@
+{
+  "archive": "cad/assembly-release/foundation-student.step",
+  "sha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "rows": [
+    {
+      "mast": "left aft mast",
+      "parent": "left perimeter tube",
+      "gapMm": 1.4210854715202004e-14,
+      "seatAreaMm2": 144.0000000002783,
+      "pressedMm": 0.01
+    },
+    {
+      "mast": "left mast",
+      "parent": "left perimeter tube",
+      "gapMm": 1.4210854715202004e-14,
+      "seatAreaMm2": 144.0000000002783,
+      "pressedMm": 0.01
+    },
+    {
+      "mast": "right aft mast",
+      "parent": "right perimeter tube",
+      "gapMm": 1.4210854715202004e-14,
+      "seatAreaMm2": 144.0000000002783,
+      "pressedMm": 0.01
+    },
+    {
+      "mast": "right mast",
+      "parent": "right perimeter tube",
+      "gapMm": 1.4210854715202004e-14,
+      "seatAreaMm2": 144.0000000002783,
+      "pressedMm": 0.01
+    }
+  ],
+  "scope": "Measured compression seating at the floor end of each full-height mast. Vertical lifting pulls robot weight across the same interface in tension. A measured seat gives no tensile joint rating."
+}

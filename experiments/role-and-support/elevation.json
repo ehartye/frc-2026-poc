@@ -1,0 +1,26 @@
+{
+  "schema": "agent-frc/elevation-study@1",
+  "inventory": {
+    "path": "experiments/role-and-support/lift-model.json",
+    "sha256": "2695f4fffeec658a443b4c5e4c5b043cb0f3841b1aec8fc7615422da3a4c90df",
+    "pointer": "/inventory"
+  },
+  "mechanisms": [
+    {
+      "id": "twin-hook-tower-lift",
+      "source": {
+        "path": "experiments/role-and-support/lift-model.json",
+        "sha256": "2695f4fffeec658a443b4c5e4c5b043cb0f3841b1aec8fc7615422da3a4c90df",
+        "pointer": "/tower"
+      }
+    },
+    {
+      "id": "service-cart-whole-robot-support",
+      "source": {
+        "path": "experiments/role-and-support/lift-model.json",
+        "sha256": "2695f4fffeec658a443b4c5e4c5b043cb0f3841b1aec8fc7615422da3a4c90df",
+        "pointer": "/cart"
+      }
+    }
+  ]
+}

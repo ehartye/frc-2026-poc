@@ -1,0 +1,188 @@
+{
+  "inventory": [
+    "twin-hook-tower-lift",
+    "service-cart-whole-robot-support"
+  ],
+  "tower": {
+    "geometry": "two-simple-supports",
+    "axis": "Project transverse Y; use the plugin xM coordinate along that axis.",
+    "massEvidence": "design-scenario",
+    "massBasis": "62/68 kg are project design inputs. Competition inspection excludes some articles; a verified dressed whole-robot upper bound is pending.",
+    "factor": 1,
+    "factorBasis": "Unfactored required reactions only. No structural working margin or safety certification.",
+    "supports": [
+      {
+        "id": "right-hook",
+        "xM": -0.088,
+        "path": [
+          {
+            "id": "right-hook-complete-lift-drive",
+            "kind": "actuator",
+            "loading": "torque",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "right-hook-vertical-screw-train",
+            "kind": "transmission",
+            "loading": "compression",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "right-hook-crown-hook-and-bridge",
+            "kind": "member",
+            "loading": "shear",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "right-hook-mast-to-side-rail",
+            "kind": "anchor",
+            "loading": "tension",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          }
+        ]
+      },
+      {
+        "id": "left-hook",
+        "xM": 0.088,
+        "path": [
+          {
+            "id": "left-hook-complete-lift-drive",
+            "kind": "actuator",
+            "loading": "torque",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "left-hook-vertical-screw-train",
+            "kind": "transmission",
+            "loading": "compression",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "left-hook-crown-hook-and-bridge",
+            "kind": "member",
+            "loading": "shear",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          },
+          {
+            "id": "left-hook-mast-to-side-rail",
+            "kind": "anchor",
+            "loading": "tension",
+            "advantage": 1,
+            "efficiency": 1,
+            "ratings": {},
+            "basis": "Demand on the vertical load line; no manufacturer working rating or qualified joint assembled capacity."
+          }
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "id": "raise",
+        "mode": "raise",
+        "massKg": 62,
+        "cgXM": 0,
+        "accelZMps2": 0.2,
+        "pitchMomentNm": 0,
+        "basis": "Full extension with the original lift controller upper vertical acceleration command. The 62 kg run is a gross design scenario.",
+        "worstExtension": false,
+        "asymmetric": false
+      },
+      {
+        "id": "hold",
+        "mode": "hold",
+        "massKg": 62,
+        "cgXM": 0,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Registered 100 mm working stroke; the original run reads after settling.",
+        "worstExtension": true,
+        "asymmetric": false
+      },
+      {
+        "id": "offset-left",
+        "mode": "hold",
+        "massKg": 68,
+        "cgXM": 0.05,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "50 mm lateral offset and assumed loaded gross mass. The installed CG is unmeasured.",
+        "worstExtension": false,
+        "asymmetric": true
+      },
+      {
+        "id": "offset-right",
+        "mode": "hold",
+        "massKg": 68,
+        "cgXM": -0.05,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Mirror adverse lateral CG; this is a design sensitivity.",
+        "worstExtension": false,
+        "asymmetric": true
+      },
+      {
+        "id": "disabled",
+        "mode": "power-loss",
+        "massKg": 68,
+        "cgXM": 0,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Unpowered static demand at full extension, with no independent braking or thread working rating.",
+        "worstExtension": false,
+        "asymmetric": false
+      },
+      {
+        "id": "hook-miss",
+        "mode": "power-loss",
+        "massKg": 68,
+        "cgXM": 0,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "Only one landed hook. The off-axis load would require an independent roll moment from the remaining contacts.",
+        "worstExtension": false,
+        "asymmetric": false,
+        "unavailableSupport": "right-hook"
+      },
+      {
+        "id": "out-of-span",
+        "mode": "hold",
+        "massKg": 68,
+        "cgXM": 0.095,
+        "accelZMps2": 0,
+        "pitchMomentNm": 0,
+        "basis": "CG beyond both nominal hook centers and outer machined lands. Unilateral supports cannot sustain this gravity moment.",
+        "worstExtension": false,
+        "asymmetric": true
+      }
+    ]
+  },
+  "cart": {
+    "geometry": "four-pad-cart-and-cradle",
+    "basis": "The checked cart in the service CAD supports the robot on four distinct rail pads. It has no identified rated lift column/locking pin; a manufactured cart or independent load model is required."
+  },
+  "sourceHashes": {
+    "cad/tower-lift/parts.json": "f71e55e763326896a4697b2fcddf1b8c43d85edc76cd0a217c555751c7a87b1f",
+    "experiments/tower-climb/support.json": "d47405371bd2156695a426facbe7f5e209c0bef647d1493c0c19787d67051910"
+  }
+}
