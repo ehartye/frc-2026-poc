@@ -32,6 +32,7 @@ def run(
     read_after=2.0,
     disable=False,
     bumper_k=64000,
+    observe_contacts=None,
 ):
     tower = json.loads((HERE / "field.json").read_bytes())["sides"]["blue"]
     low = min(
@@ -99,6 +100,7 @@ def run(
         fz = -mass * G
         tau = 0.0
         hook = [[0.0, 0.0], [0.0, 0.0]]
+        hook_contacts = [] if observe_contacts is not None else None
         wheel = 0.0
         brace = 0.0
 
@@ -135,7 +137,9 @@ def run(
         # Normal at the nearest rear cover edge under pitch; friction at the upright face.
         lx, lz = min(((-0.416, 0.048), (-0.416, 0.168)), key=lambda p: point(*p)[0])
         wx, wz = point(lx, lz)
-        brace = apply(lx, lz, 1, 0, bumper_k, 260, -0.416 - wx, 0.18)[0]
+        brace_force = apply(lx, lz, 1, 0, bumper_k, 260, -0.416 - wx, 0.18)
+        brace = brace_force[0]
+        brace_position = (wx, wz)
         # Transform the stationary rung center to the current chassis frame.
         cx = c * (rung_x - x) + s * (rung_z - z) + cog_x
         cz = -s * (rung_x - x) + c * (rung_z - z) + com_h
@@ -162,8 +166,12 @@ def run(
                 nx = (c * dx - s * dz) / dist
                 nz = (s * dx + c * dz) / dist
                 qx, qz = apply(px, pz, nx, nz, 180000, 115, R - dist, 0.14, -ve, -dv)
+                if hook_contacts is not None:
+                    hook_contacts.append((j, px, pz, *point(px, pz), qx, qz))
                 hook[j][0] += qx
                 hook[j][1] += qz
+        if observe_contacts is not None:
+            observe_contacts(t, a, (x, z), hook_contacts, brace_position, brace_force)
         resistance = max(0.0, sum((-s * h[0] + c * h[1]) for h in hook))
         # Two independent NEO envelopes; track the per-screw worst nominal shared torque.
         demand = 0.0

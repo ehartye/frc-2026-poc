@@ -1,0 +1,416 @@
+{
+  "contactSampleHash": "38a515a5c76e6190731ea004ffa711d9b395b53646979e3e16e56ab7e771b767",
+  "rackingReceiptHash": "927f3f040dd1a7302bc7e99d9d764fec8e426bf2afdec1c5ef16c6b1cd776cb4",
+  "sourceContactTimeS": 11.0,
+  "measuredRungProjectionN": [
+    325.6657100884543,
+    325.6657100884543
+  ],
+  "perScrewLoadsN": [
+    325.6657100884543,
+    325.6657100884543
+  ],
+  "reflectedMassEachKg": 17765.287921960844,
+  "guideInterferenceDifferenceMm": 8.465576171875,
+  "instantaneouslyHeldSideAnalyticLosslessTimeS": 0.9610442116154676,
+  "cases": {
+    "both-0.0": {
+      "friction": 0.0,
+      "outputBrakeTorquesNm": [
+        0.15,
+        0.15
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.10366261511221926,
+        0.10366261511221926
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        3.1115235510751096,
+        3.1115235510751096
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "left-only-0.0": {
+      "friction": 0.0,
+      "outputBrakeTorquesNm": [
+        0.3,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.10366261511221926,
+        0.10366261511221926
+      ],
+      "hitRegisteredInterferenceS": 1.039,
+      "assessedUntilS": 1.039,
+      "terminalTravelMm": [
+        1.4306973935866012,
+        9.897040966442322
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        19.046506550766374
+      ],
+      "maxDifferentialMm": 8.466343572855722
+    },
+    "right-only-0.0": {
+      "friction": 0.0,
+      "outputBrakeTorquesNm": [
+        0,
+        0.3
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.10366261511221926,
+        0.10366261511221926
+      ],
+      "hitRegisteredInterferenceS": 1.039,
+      "assessedUntilS": 1.039,
+      "terminalTravelMm": [
+        9.897040966442322,
+        1.4306973935866012
+      ],
+      "terminalSpeedMmS": [
+        19.046506550766374,
+        0.0
+      ],
+      "maxDifferentialMm": 8.466343572855722
+    },
+    "both-open-0.0": {
+      "friction": 0.0,
+      "outputBrakeTorquesNm": [
+        0,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.10366261511221926,
+        0.10366261511221926
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 3.303,
+      "terminalTravelMm": [
+        100.00456026895516,
+        100.00456026895516
+      ],
+      "terminalSpeedMmS": [
+        60.54919262481099,
+        60.54919262481099
+      ],
+      "maxDifferentialMm": 0
+    },
+    "both-0.035": {
+      "friction": 0.035,
+      "outputBrakeTorquesNm": [
+        0.15,
+        0.15
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.050553456355381235,
+        0.050553456355381235
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        0.6878224229525797,
+        0.6878224229525797
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "left-only-0.035": {
+      "friction": 0.035,
+      "outputBrakeTorquesNm": [
+        0.3,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.050553456355381235,
+        0.050553456355381235
+      ],
+      "hitRegisteredInterferenceS": 1.41775,
+      "assessedUntilS": 1.41775,
+      "terminalTravelMm": [
+        0.518566320703198,
+        8.98616455470501
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        12.674421092673436
+      ],
+      "maxDifferentialMm": 8.46759823400181
+    },
+    "right-only-0.035": {
+      "friction": 0.035,
+      "outputBrakeTorquesNm": [
+        0,
+        0.3
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.050553456355381235,
+        0.050553456355381235
+      ],
+      "hitRegisteredInterferenceS": 1.41775,
+      "assessedUntilS": 1.41775,
+      "terminalTravelMm": [
+        8.98616455470501,
+        0.518566320703198
+      ],
+      "terminalSpeedMmS": [
+        12.674421092673436,
+        0.0
+      ],
+      "maxDifferentialMm": 8.46759823400181
+    },
+    "both-open-0.035": {
+      "friction": 0.035,
+      "outputBrakeTorquesNm": [
+        0,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.050553456355381235,
+        0.050553456355381235
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 4.73,
+      "terminalTravelMm": [
+        100.01006636119969,
+        100.01006636119969
+      ],
+      "terminalSpeedMmS": [
+        42.285319533308304,
+        42.285319533308304
+      ],
+      "maxDifferentialMm": 0
+    },
+    "both-0.14": {
+      "friction": 0.14,
+      "outputBrakeTorquesNm": [
+        0.15,
+        0.15
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.0,
+        0.0
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        0.0,
+        0.0
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "left-only-0.14": {
+      "friction": 0.14,
+      "outputBrakeTorquesNm": [
+        0.3,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.0,
+        0.0
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        0.0,
+        0.0
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "right-only-0.14": {
+      "friction": 0.14,
+      "outputBrakeTorquesNm": [
+        0,
+        0.3
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.0,
+        0.0
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        0.0,
+        0.0
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "both-open-0.14": {
+      "friction": 0.14,
+      "outputBrakeTorquesNm": [
+        0,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.00025,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.0,
+        0.0
+      ],
+      "hitRegisteredInterferenceS": null,
+      "assessedUntilS": 12.0,
+      "terminalTravelMm": [
+        0.0,
+        0.0
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        0.0
+      ],
+      "maxDifferentialMm": 0
+    },
+    "left-lossless-refined": {
+      "friction": 0.0,
+      "outputBrakeTorquesNm": [
+        0.3,
+        0
+      ],
+      "engageDelayS": 0.25,
+      "rampS": 0.15,
+      "dt": 0.000125,
+      "screwAxialN": [
+        325.6657100884543,
+        325.6657100884543
+      ],
+      "driveBackTorqueNm": [
+        0.10366261511221926,
+        0.10366261511221926
+      ],
+      "hitRegisteredInterferenceS": 1.039,
+      "assessedUntilS": 1.039,
+      "terminalTravelMm": [
+        1.4301281028520973,
+        9.895850559782485
+      ],
+      "terminalSpeedMmS": [
+        0.0,
+        19.046506550765773
+      ],
+      "maxDifferentialMm": 8.465722456930388
+    }
+  },
+  "losslessCatchWork": {
+    "0.002": {
+      "energyJ": 0.6513314201769087,
+      "speedMmS": 8.563077746008618,
+      "minimumMeanCatchLoadFor05mmStopN": 1628.3285504422715,
+      "minimumMeanCatchLoadFor1mmStopN": 976.997130265363
+    },
+    "0.004": {
+      "energyJ": 1.3026628403538174,
+      "speedMmS": 12.110020684060622,
+      "minimumMeanCatchLoadFor05mmStopN": 2930.991390796089,
+      "minimumMeanCatchLoadFor1mmStopN": 1628.3285504422715
+    },
+    "0.006": {
+      "energyJ": 1.9539942605307261,
+      "speedMmS": 14.83168572524931,
+      "minimumMeanCatchLoadFor05mmStopN": 4233.654231149906,
+      "minimumMeanCatchLoadFor1mmStopN": 2279.6599706191805
+    }
+  },
+  "scope": "Two independent screw coordinates under the frozen 68 kg rung contact and a rigid bridge force split. The model stops at significant initial guide overlap or full mechanical travel; impact, varying contact, chassis roll and structural binding after that boundary are unresolved. Brake torque is an assumed dynamic capacity, not a supplier working allowance. Direct-catch work is a necessary mean in an ideal lossless fixed-load stop; peak, socket, frame load sharing and damping are unknown."
+}

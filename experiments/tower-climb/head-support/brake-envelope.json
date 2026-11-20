@@ -1,0 +1,125 @@
+{
+  "sourceStep": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "registeredTireBottomMm": 0.0,
+  "wheelCandidates": {
+    "right scoring wheel": 560.787187078898,
+    "left scoring wheel": 560.787187078898,
+    "front left public wheel": 0.0,
+    "front right public wheel": 0.0,
+    "rear left public wheel": 0.0,
+    "rear right public wheel": 0.0,
+    "front left public wheel axle": 33.1,
+    "front right public wheel axle": 33.1,
+    "rear left public wheel axle": 33.1,
+    "rear right public wheel axle": 33.1
+  },
+  "startingHeightRule": {
+    "id": "height",
+    "topic": "restrictions",
+    "statement": "Maximum starting configuration height in inches.",
+    "sourceId": "manual",
+    "locator": "R104",
+    "status": "modeled",
+    "pointer": "/limits/height",
+    "value": 30
+  },
+  "highestPermittedZMm": 762.0,
+  "originalHighest": "left extension sleeve",
+  "originalHighestZMm": 754.0,
+  "headControlOverHeightMm": 3.0,
+  "proposedTieAt763OverHeightMm": 1.0,
+  "candidates": {
+    "left SA-35 above-current-plate": {
+      "minimumZ": 750,
+      "maximumZ": 777,
+      "ownTopMarginMm": -15.0,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "left SA-35 above-lock-stack": {
+      "minimumZ": 765,
+      "maximumZ": 792,
+      "ownTopMarginMm": -30.0,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "left SA-35 below-existing-reduction": {
+      "minimumZ": 524,
+      "maximumZ": 551,
+      "ownTopMarginMm": 211.0,
+      "nativeEnvelopeOverlapsMm3": [
+        [
+          "left hopper wall",
+          3350.142
+        ]
+      ]
+    },
+    "left SA-40 above-current-plate": {
+      "minimumZ": 750,
+      "maximumZ": 780.5,
+      "ownTopMarginMm": -18.5,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "left SA-40 above-lock-stack": {
+      "minimumZ": 765,
+      "maximumZ": 795.5,
+      "ownTopMarginMm": -33.5,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "left SA-40 below-existing-reduction": {
+      "minimumZ": 520.5,
+      "maximumZ": 551.0,
+      "ownTopMarginMm": 211.0,
+      "nativeEnvelopeOverlapsMm3": [
+        [
+          "left hopper wall",
+          4461.992
+        ]
+      ]
+    },
+    "right SA-35 above-current-plate": {
+      "minimumZ": 750,
+      "maximumZ": 777,
+      "ownTopMarginMm": -15.0,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "right SA-35 above-lock-stack": {
+      "minimumZ": 765,
+      "maximumZ": 792,
+      "ownTopMarginMm": -30.0,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "right SA-35 below-existing-reduction": {
+      "minimumZ": 524,
+      "maximumZ": 551,
+      "ownTopMarginMm": 211.0,
+      "nativeEnvelopeOverlapsMm3": [
+        [
+          "right hopper wall",
+          3350.142
+        ]
+      ]
+    },
+    "right SA-40 above-current-plate": {
+      "minimumZ": 750,
+      "maximumZ": 780.5,
+      "ownTopMarginMm": -18.5,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "right SA-40 above-lock-stack": {
+      "minimumZ": 765,
+      "maximumZ": 795.5,
+      "ownTopMarginMm": -33.5,
+      "nativeEnvelopeOverlapsMm3": []
+    },
+    "right SA-40 below-existing-reduction": {
+      "minimumZ": 520.5,
+      "maximumZ": 551.0,
+      "ownTopMarginMm": 211.0,
+      "nativeEnvelopeOverlapsMm3": [
+        [
+          "right hopper wall",
+          4461.992
+        ]
+      ]
+    }
+  }
+}

@@ -17,3 +17,4 @@ cad/tower-lift/tower-l1.step -whitespace
 
 cad/assembly-release/foundation-student.step -whitespace
 cad/assembly-release/foundation-still.png binary
+experiments/tower-climb/head-support/*.step -text -whitespace

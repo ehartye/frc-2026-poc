@@ -1,0 +1,49 @@
+{
+  "left": {
+    "fullHousingBackingAreaMm2": {
+      "735": 103.67256,
+      "741": 103.67256
+    },
+    "highestJournalZ": 754.7,
+    "nominalHeadToHeightLimitMm": 7.2999999999999545,
+    "shaftShoulderDiameterMm": 12,
+    "requiredMinimumMm": 10.8,
+    "journalToPlateRadialClearanceMm": 1,
+    "nearestPlateEdgeBeyond14mmRaceMm": 3,
+    "collisionsWithOriginalParkedAssemblyMm3": [
+      [
+        "spindle threaded major envelope",
+        "left reduction envelope",
+        1570.7963
+      ]
+    ],
+    "nutTopZMm": 753.1,
+    "threadAboveNutMm": 1.6000000000000458,
+    "carriageNutToLowerShoulderParkedMm": 2.0,
+    "socketToHousingMm": 3.4999999999999862
+  },
+  "right": {
+    "fullHousingBackingAreaMm2": {
+      "735": 103.67256,
+      "741": 103.67256
+    },
+    "highestJournalZ": 754.7,
+    "nominalHeadToHeightLimitMm": 7.2999999999999545,
+    "shaftShoulderDiameterMm": 12,
+    "requiredMinimumMm": 10.8,
+    "journalToPlateRadialClearanceMm": 1,
+    "nearestPlateEdgeBeyond14mmRaceMm": 3,
+    "collisionsWithOriginalParkedAssemblyMm3": [
+      [
+        "spindle threaded major envelope",
+        "right reduction envelope",
+        1570.7963
+      ]
+    ],
+    "nutTopZMm": 753.1,
+    "threadAboveNutMm": 1.6000000000000458,
+    "carriageNutToLowerShoulderParkedMm": 2.0,
+    "socketToHousingMm": 3.4999999999999862
+  },
+  "scope": "Nominal parked fit only. Bearing envelopes are gauges for EZO F6-14M. Reopen exported STEP before design use. Unverified elements include reverse locknut, race pilots and tolerances, selected radial bush, lubrication, life and working load, alignment, tool and motion sweeps. Lower gearbox remains an undrilled envelope."
+}

@@ -1,0 +1,37 @@
+{
+  "left": {
+    "fullHousingBackingAreaMm2": {
+      "744": 103.67256,
+      "750": 103.67256
+    },
+    "shaftShoulderDiameterMm": 12,
+    "requiredMinimumMm": 10.8,
+    "journalToPlateRadialClearanceMm": 1,
+    "nearestPlateEdgeBeyond14mmRaceMm": 3,
+    "collisionsWithOriginalParkedAssemblyMm3": [
+      [
+        "spindle threaded major envelope",
+        "left reduction envelope",
+        1570.7963
+      ]
+    ]
+  },
+  "right": {
+    "fullHousingBackingAreaMm2": {
+      "744": 103.67256,
+      "750": 103.67256
+    },
+    "shaftShoulderDiameterMm": 12,
+    "requiredMinimumMm": 10.8,
+    "journalToPlateRadialClearanceMm": 1,
+    "nearestPlateEdgeBeyond14mmRaceMm": 3,
+    "collisionsWithOriginalParkedAssemblyMm3": [
+      [
+        "spindle threaded major envelope",
+        "right reduction envelope",
+        1570.7963
+      ]
+    ]
+  },
+  "scope": "Nominal parked fit only. Bearing envelopes are gauges for EZO F6-14M. Reopen exported STEP before design use. Unverified elements include reverse locknut, race pilots and tolerances, selected radial bush, lubrication, life and working load, alignment, tool and motion sweeps. Lower gearbox remains an undrilled envelope."
+}
