@@ -1,0 +1,215 @@
+{
+  "supplierSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+  "supplierBodies": 72,
+  "sites": {
+    "front left": {
+      "supplierRobotIntersectionsMm3": {},
+      "serviceContactsMm3": {
+        "front left rail mount 1-1 key": {},
+        "front left rail mount 1-1 headWithdrawal": {},
+        "front left rail mount 1-2 key": {},
+        "front left rail mount 1-2 headWithdrawal": {},
+        "front left tab 1-1 bottomKey": {},
+        "front left tab 1-1 topSocket": {},
+        "front left tab 1-2 bottomKey": {},
+        "front left tab 1-2 topSocket": {},
+        "front left rail mount 2-1 key": {},
+        "front left rail mount 2-1 headWithdrawal": {},
+        "front left rail mount 2-2 key": {},
+        "front left rail mount 2-2 headWithdrawal": {},
+        "front left tab 2-1 bottomKey": {},
+        "front left tab 2-1 topSocket": {},
+        "front left tab 2-2 bottomKey": {},
+        "front left tab 2-2 topSocket": {}
+      }
+    },
+    "front right": {
+      "supplierRobotIntersectionsMm3": {},
+      "serviceContactsMm3": {
+        "front right rail mount 1-1 key": {},
+        "front right rail mount 1-1 headWithdrawal": {},
+        "front right rail mount 1-2 key": {},
+        "front right rail mount 1-2 headWithdrawal": {},
+        "front right tab 1-1 bottomKey": {},
+        "front right tab 1-1 topSocket": {},
+        "front right tab 1-2 bottomKey": {},
+        "front right tab 1-2 topSocket": {},
+        "front right rail mount 2-1 key": {},
+        "front right rail mount 2-1 headWithdrawal": {},
+        "front right rail mount 2-2 key": {},
+        "front right rail mount 2-2 headWithdrawal": {},
+        "front right tab 2-1 bottomKey": {},
+        "front right tab 2-1 topSocket": {},
+        "front right tab 2-2 bottomKey": {},
+        "front right tab 2-2 topSocket": {}
+      }
+    },
+    "rear left": {
+      "supplierRobotIntersectionsMm3": {},
+      "serviceContactsMm3": {
+        "rear left rail mount 1-1 key": {},
+        "rear left rail mount 1-1 headWithdrawal": {},
+        "rear left rail mount 1-2 key": {},
+        "rear left rail mount 1-2 headWithdrawal": {},
+        "rear left tab 1-1 bottomKey": {},
+        "rear left tab 1-1 topSocket": {},
+        "rear left tab 1-2 bottomKey": {},
+        "rear left tab 1-2 topSocket": {},
+        "rear left rail mount 2-1 key": {},
+        "rear left rail mount 2-1 headWithdrawal": {},
+        "rear left rail mount 2-2 key": {},
+        "rear left rail mount 2-2 headWithdrawal": {},
+        "rear left tab 2-1 bottomKey": {},
+        "rear left tab 2-1 topSocket": {},
+        "rear left tab 2-2 bottomKey": {},
+        "rear left tab 2-2 topSocket": {}
+      }
+    },
+    "rear right": {
+      "supplierRobotIntersectionsMm3": {},
+      "serviceContactsMm3": {
+        "rear right rail mount 1-1 key": {},
+        "rear right rail mount 1-1 headWithdrawal": {},
+        "rear right rail mount 1-2 key": {},
+        "rear right rail mount 1-2 headWithdrawal": {},
+        "rear right tab 1-1 bottomKey": {},
+        "rear right tab 1-1 topSocket": {},
+        "rear right tab 1-2 bottomKey": {},
+        "rear right tab 1-2 topSocket": {},
+        "rear right rail mount 2-1 key": {},
+        "rear right rail mount 2-1 headWithdrawal": {},
+        "rear right rail mount 2-2 key": {},
+        "rear right rail mount 2-2 headWithdrawal": {},
+        "rear right tab 2-1 bottomKey": {},
+        "rear right tab 2-1 topSocket": {},
+        "rear right tab 2-2 bottomKey": {},
+        "rear right tab 2-2 topSocket": {}
+      }
+    }
+  },
+  "nativeBinding": null,
+  "interpretation": "Volume over 0.02 cubic mm. Moving leaves use enclosing cylinders over their full axial intervals. Positive cylinder overlap requires exact angular investigation. Bottom key and top socket checks are against its non-chassis module before installation. The side driver and cap head are checked with the complete parked T1 robot.",
+  "alternate": {
+    "front left": {
+      "end": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          645.16,
+          645.16,
+          645.16
+        ]
+      },
+      "post": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          110.0798,
+          110.0798,
+          110.0798
+        ]
+      }
+    },
+    "front right": {
+      "end": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          645.16,
+          645.16,
+          645.16
+        ]
+      },
+      "post": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          110.0798,
+          110.0798,
+          110.0798
+        ]
+      }
+    },
+    "rear left": {
+      "end": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          645.16,
+          645.16,
+          645.16
+        ]
+      },
+      "post": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          110.0798,
+          110.0798,
+          110.0798
+        ]
+      }
+    },
+    "rear right": {
+      "end": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          645.16,
+          645.16,
+          645.16
+        ]
+      },
+      "post": {
+        "gapMm": 0.0,
+        "commonMm3": 0.0,
+        "perturbationMm": [
+          0.005,
+          0.01,
+          0.02
+        ],
+        "areaMm2": [
+          110.0798,
+          110.0798,
+          110.0798
+        ]
+      }
+    }
+  },
+  "massChangeKg": 1.2081387127499985
+}

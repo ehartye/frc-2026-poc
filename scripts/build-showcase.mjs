@@ -29,8 +29,11 @@ await cp(at('docs/robot/historical-fixture'), path.join(destination, 'fixture'),
 await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true});
 await cp(at('docs/robot/r1-chassis'), path.join(destination, 'chassis'), {recursive: true});
 await cp(at('docs/vendor'), path.join(destination, 'vendor'), {recursive: true});
+await cp(at('docs/foundation'),path.join(destination,'foundation'),{recursive:true});
+for(const [source,name] of [['foundation-student.f3d','foundation-student.f3d'],['foundation-still.png','assembly.png']])
+  await cp(at('cad/assembly-release/'+source),path.join(destination,'foundation',name));
 await rename(path.join(destination, 'robot/index.html'), path.join(destination, 'robot/orbit.html'));
-for(const route of ['robot/orbit.html','chassis/index.html','fixture/index.html']){
+for(const route of ['robot/orbit.html','chassis/index.html','fixture/index.html','foundation/index.html']){
   const file=path.join(destination,route);
   await writeFile(file,styleOrbit(await readFile(file,'utf8')));
 }

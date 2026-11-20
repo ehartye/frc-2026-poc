@@ -1,0 +1,226 @@
+{
+  "rear deck crossmember / rear left crossmember backing plate": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      282.2575,
+      282.2575,
+      282.2575
+    ]
+  },
+  "rear left crossmember backing plate / left perimeter tube": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      2504.44,
+      2504.44,
+      2504.44
+    ]
+  },
+  "rear left hopper post / rear deck crossmember": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "rear left hopper post / left floor sill": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "rear deck crossmember / rear right crossmember backing plate": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      282.2575,
+      282.2575,
+      282.2575
+    ]
+  },
+  "rear right crossmember backing plate / right perimeter tube": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      2504.44,
+      2504.44,
+      2504.44
+    ]
+  },
+  "rear right hopper post / rear deck crossmember": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "rear right hopper post / right floor sill": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "front deck crossmember / front left crossmember backing plate": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      282.2575,
+      282.2575,
+      282.2575
+    ]
+  },
+  "front left crossmember backing plate / left perimeter tube": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      2504.44,
+      2504.44,
+      2504.44
+    ]
+  },
+  "front left hopper post / front deck crossmember": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "front left hopper post / left floor sill": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "front deck crossmember / front right crossmember backing plate": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      282.2575,
+      282.2575,
+      282.2575
+    ]
+  },
+  "front right crossmember backing plate / right perimeter tube": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      2504.44,
+      2504.44,
+      2504.44
+    ]
+  },
+  "front right hopper post / front deck crossmember": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  },
+  "front right hopper post / right floor sill": {
+    "gapMm": 0.0,
+    "commonMm3": 0.0,
+    "perturbationMm": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "areaMm2": [
+      110.0798,
+      110.0798,
+      110.0798
+    ]
+  }
+}

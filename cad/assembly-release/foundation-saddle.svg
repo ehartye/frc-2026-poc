@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 570" role="img" aria-labelledby="title desc">
+<title id="title">Module saddle machining drawing</title>
+<desc id="desc">Two orthographic views of a machined 6061-T6 swerve saddle. The side face locates four transverse bores and the top face locates the two vertical tab bores.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#192b38;font-size:16px}.t{font-size:26px;font-weight:bold}.v{fill:#f3f8fc;stroke:#203b53;stroke-width:2}.h{fill:white;stroke:#203b53;stroke-width:2}.axis{stroke:#6692a0;stroke-dasharray:8 4}.dim{stroke:#315569;stroke-width:1.3}.label{font-weight:bold}</style>
+<rect width="970" height="570" fill="#fff"/>
+<text x="30" y="42" class="t">R26-FDN · module saddle</text><text x="30" y="70">8 required · 6061-T6 · units mm · two V stations per corner</text>
+<g transform="translate(115,123)"><rect class="v" x="0" y="0" width="178.5" height="254"/>
+<path class="axis" d="M89.25 -10v274M-10 127h198.5"/>
+<circle class="h" cx="89.25" cy="182.75" r="16.25"/><circle class="h" cx="89.25" cy="77.75" r="16.25"/>
+<circle class="h" cx="29" cy="127" r="26.75"/><circle class="h" cx="149.5" cy="127" r="26.75"/>
+<path class="dim" d="M-38 0v254m-8 0h16m-16 -254h16M0 278h178.5m0 -5v10m-178.5 -10v10"/>
+<text x="-83" y="134">50.80</text><text x="63" y="304">35.70</text><text x="0" y="-20" class="label">Rail face · V/H</text>
+</g>
+<g transform="translate(495,123)"><rect class="v" width="178.5" height="130.5"/>
+<path class="axis" d="M-10 41.25h198.5M25.75 -10v151M152.75 -10v151"/>
+<circle class="h" cx="25.75" cy="41.25" r="13.25"/><circle class="h" cx="152.75" cy="41.25" r="13.25"/>
+<path class="dim" d="M205 0v130.5m-6 -130.5h12m-12 130.5h12M25.75 -12h127m0 -4v8m-127 -8v8"/>
+<text x="220" y="70">26.10</text><text x="62" y="-22">25.40</text><text x="0" y="-43" class="label">Top · V/U</text><text x="0" y="160">Outside rail face at bottom</text><text x="0" y="187">Hole axis 17.85 inboard</text><text x="0" y="212">2 × Ø5.30 through vertically</text></g>
+<text x="33" y="462">Rail clamp holes: 2 × Ø6.50 at V = 17.85 from left, H = 14.25 / 35.25 from bottom.</text>
+<text x="33" y="493">Reliefs: 2 × Ø10.70 at V = 5.80 / 29.90 from left, H = 25.40 from bottom.</text>
+<text x="33" y="524">Vertical tab holes: V = 5.15 / 30.55 from left. Machine the fitted faces and gauge the actual matched module.</text></svg>

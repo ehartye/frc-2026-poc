@@ -28,7 +28,7 @@
   "appearances": {
     "file": "cad/tower-lift/appearances.json",
     "sha256": "cc01d3c7659aead2fc97fe96b40376643b44ec6b74ac892f801ae578b2d3b8b4",
-    "paletteSha256": "9bf9133afb015d9ff023ac1810f5e570cdb96b0855d931c3cf187b4d2d0c9c74",
+    "paletteSha256": "e2835f4e6122fd49ac68477163fc1e1543481e73d9089f61aa09a54beae93ded",
     "groups": [
       {
         "role": "structure",
