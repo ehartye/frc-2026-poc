@@ -9,18 +9,20 @@ import {setTimeout as wait} from 'node:timers/promises';
 const [site, chromium] = process.argv.slice(2);
 if (!site || !chromium) throw Error('Usage: node scripts/check-tower-playback.mjs SITE_URL CHROMIUM');
 const profile = await mkdtemp(path.join(tmpdir(), 'tower-playback-'));
-const chrome = spawn(chromium, ['--headless=new', '--remote-debugging-port=0', '--use-angle=swiftshader',
+const chrome = spawn(chromium, ['--headless=new', '--disable-dev-shm-usage', '--remote-debugging-port=0', '--use-angle=swiftshader',
   '--enable-unsafe-swiftshader', '--no-first-run', '--no-default-browser-check', '--user-data-dir='+profile,
-  'about:blank'], {windowsHide:true, stdio:'ignore'});
+  'about:blank'], {windowsHide:true, stdio:['ignore','ignore','pipe']});
+let diagnostics='';
+chrome.stderr.on('data',chunk=>{diagnostics=(diagnostics+chunk.toString()).slice(-1500);});
 const closed = new Promise(resolve => chrome.once('close',resolve));
 let socket;
 try {
   let port;
-  for (let i=0; i<100 && !port; i++) {
+  for (let i=0; i<450 && !port && chrome.exitCode===null; i++) {
     try {port=(await readFile(path.join(profile,'DevToolsActivePort'),'utf8')).split(/\r?\n/)[0];}
     catch {await wait(100);}
   }
-  assert.ok(port,'Chromium did not expose its debugging port');
+  assert.ok(port,'Chromium did not expose its debugging port: '+diagnostics);
   const targets = await (await fetch('http://127.0.0.1:'+port+'/json')).json();
   socket = new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);
   await new Promise((resolve,reject)=>{socket.onopen=resolve;socket.onerror=reject;});
