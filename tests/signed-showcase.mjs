@@ -49,6 +49,8 @@ try{
     modelFiles:[...sourceFiles,'public-selectors/'+selector]});
   json('approved/.github/staged-model-policy.json',{schema:'agent-frc/staged-model-policy@1',project,
     mutableFieldPages:['field.html'],modelFiles:[...stageFiles,selector]});
+  put('project/.github/staged-model-policy.json',read(path.join(folder,'approved/.github/staged-model-policy.json')));
+  mkdirSync(path.join(folder,'runner/field'),{recursive:true});
   for(const name of [...sourceFiles,'public-selectors/'+selector])put('project/'+name,'original '+name);
   for(const root of ['runner/approved','runner/showcase']){
     for(const name of [...stageFiles,selector])put(root+'/'+name,'original '+name);
@@ -58,7 +60,10 @@ try{
   git('-c','user.name=Local Test','-c','user.email=local-test@example.invalid','commit','-qm','Synthetic baseline');
   const shell=read(workflow).toString().replaceAll('\r\n','\n').split('      - name: Check the source inventory and every final public byte\n')[1]
     .split('      - if:')[0].split('        run: |\n')[1].trimEnd().split('\n').map(l=>l.slice(10)).join('\n');
-  put('gate.sh',shell.replace('9b6940ab02c2c7ab3189c842bf0c1461e5a1a049',git('rev-parse','HEAD'))+'\n');
+  const approvedFingerprint=run(process.execPath,[path.resolve(verifier,'scripts/local-showcase-release.mjs'),'digest','runner/approved']);
+  assert.equal(approvedFingerprint.status,0,approvedFingerprint.stderr);
+  put('gate.sh',shell.replace('9b6940ab02c2c7ab3189c842bf0c1461e5a1a049',git('rev-parse','HEAD'))
+    .replace('e5e7c3bc2082e87a91e651ccc310cb850bab136e4ac193f6ecdc619fa46d64d8',approvedFingerprint.stdout.trim())+'\n');
   cpSync(path.join(verifier,'scripts'),path.join(folder,'verifier/scripts'),{recursive:true});
   check('Unchanged historical fixture',true);
   put('runner/showcase/field.html','new field');put('runner/field/field.html','new field');
