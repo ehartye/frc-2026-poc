@@ -51,6 +51,9 @@ jobs:
 
   mechanical:
     name: Mechanical model eligibility
+    env:
+      FRC_REQUIRE_ACTIVE_MODEL_SELECTION: "true"
+      FRC_ACTIVE_MODEL_SELECTION: ${{ vars.FRC_ACTIVE_MODEL_SELECTION }}
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -139,6 +142,7 @@ jobs:
           if [[ -n "$REVIEW_PUBLIC_KEY" ]]; then
             printf '%s\n' "$REVIEW_PUBLIC_KEY" > "$RUNNER_TEMP/mechanical-review-public.pem"
           fi
+          node --input-type=module -e "import {selectActive, verifyCurrent} from './verifier/scripts/public-model-release.mjs'"
           node verifier/scripts/local-showcase-release.mjs check "$RUNNER_TEMP/verification.json" project "$RUNNER_TEMP/showcase"
       - if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
