@@ -1,0 +1,109 @@
+{
+  "schema": "agent-frc/staged-model-policy@1",
+  "project": "frc-2026-poc",
+  "mutableFieldPages": [
+    "alliance-roles.html",
+    "depot-lanes/index.html",
+    "field-lab.html"
+  ],
+  "mutableFieldData": {
+    "match-profile.json": {
+      "keys": [
+        "edition",
+        "field",
+        "fieldFeatures",
+        "game",
+        "geometrySource",
+        "landmarks",
+        "levels",
+        "limits",
+        "manual",
+        "manualBinding",
+        "manualEdition",
+        "manualSha256",
+        "omissions",
+        "rehearsal",
+        "routeHypotheses",
+        "ruleRegister",
+        "ruleRegisterSha256",
+        "scoring",
+        "season",
+        "trial",
+        "units"
+      ]
+    },
+    "match-series.json": {
+      "keys": [
+        "matches",
+        "modelSeconds",
+        "playbackRate",
+        "playbackSeconds",
+        "profileSha256",
+        "schema",
+        "stepS"
+      ],
+      "schema": "agent-frc/rehearsal-series@1"
+    },
+    "match-summary.json": {
+      "keys": [
+        "matches",
+        "modelSeconds",
+        "playbackSeconds",
+        "profileSha256"
+      ]
+    },
+    "depot-lanes/results.json": {
+      "keys": [
+        "matches",
+        "rulesProfileSha256",
+        "secondsPerMatch"
+      ]
+    }
+  },
+  "modelFiles": [
+    "assembly-view.js",
+    "assembly/assembly.png",
+    "assembly/display.f3d",
+    "assembly/display.glb",
+    "assembly/display.step",
+    "assembly/provenance.json",
+    "chassis/assembly.png",
+    "chassis/assembly.stl.gz",
+    "chassis/index.html",
+    "chassis/receipt.json",
+    "evidence/evidence/7c4a6210bcd23540999d3412107e6a8cf72f30596250f113314b35cbf66eb941.f3d",
+    "evidence/index.html",
+    "fixture/assembly.png",
+    "fixture/assembly.stl.gz",
+    "fixture/index.html",
+    "fixture/receipt.json",
+    "foundation/assembly.png",
+    "foundation/foundation-student.f3d",
+    "foundation/index.html",
+    "foundation/receipt.json",
+    "index.html",
+    "robot/assembly.png",
+    "robot/assembly.stl.gz",
+    "robot/batch-data.json",
+    "robot/batch.html",
+    "robot/batch.js",
+    "robot/chapter-controls.js",
+    "robot/chapters.json",
+    "robot/index.html",
+    "robot/loading-data.json",
+    "robot/loading.js",
+    "robot/motion.js",
+    "robot/orbit.html",
+    "robot/own-zone.glb",
+    "robot/r2c-assembly.png",
+    "robot/receipt.json",
+    "robot/tower-climb.glb",
+    "robot/tower.html",
+    "robot/tower.js",
+    "rule-register.json",
+    "study.js",
+    "style.css",
+    "vendor/model-viewer-4.1.0.min.js",
+    "vendor/model-viewer-LICENSE.txt"
+  ]
+}
