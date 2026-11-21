@@ -1,0 +1,40 @@
+{
+  "schema": "agent-frc/project-checks@1",
+  "checks": [
+    {
+      "name": "Pinned evidence and public content",
+      "argv": ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],
+      "inputs": []
+    },
+    {
+      "name": "CAD views and README coverage",
+      "argv": ["python", "scripts/cad-readmes.py", ".", "--template", "scripts/cad-orbit.html"],
+      "inputs": []
+    },
+    {
+      "name": "Named robot motion and model identities",
+      "argv": ["node", "scripts/check-robot-motion.mjs"],
+      "inputs": ["cad/", "docs/", "experiments/", "highlights.json", "cad-showcase.json", "scripts/check-robot-motion.mjs"]
+    },
+    {
+      "name": "Batch, loading and transfer evidence",
+      "argv": ["node", "scripts/check-batch.mjs"],
+      "inputs": ["cad/", "experiments/", "docs/", "scripts/check-batch.mjs"]
+    },
+    {
+      "name": "Selected kickoff strategy",
+      "argv": ["node", "scripts/check-strategy.mjs"],
+      "inputs": ["kickoff/", "scripts/check-strategy.mjs"]
+    },
+    {
+      "name": "Six-robot rehearsal evidence",
+      "argv": ["node", "scripts/check-match-series.mjs"],
+      "inputs": ["kickoff/", "scripts/check-match-series.mjs"]
+    },
+    {
+      "name": "Endgame model and terminal evidence",
+      "argv": ["node", "scripts/check-tower.mjs"],
+      "inputs": ["cad/", "docs/", "experiments/", "kickoff/", "scripts/check-tower.mjs"]
+    }
+  ]
+}
