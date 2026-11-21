@@ -37,7 +37,13 @@ function promote(){
   put(sourcePacket,read(sourcePath));put(stagePacket,read(stagePath));
 }
 const selector='model-selector.html';
-function check(label,success,fragment='',reviewKey=key){
+function check(label,success,fragment='',reviewKey=key,commitSource=true){
+  if(commitSource){
+    git('add','-A');
+    if(git('diff','--cached','--name-only')){
+      git('-c','user.name=Local Test','-c','user.email=local-test@example.invalid','commit','-qm',label);
+    }
+  }
   const r=run(bash,['gate.sh'],{env:{...process.env,REVIEW_PUBLIC_KEY:reviewKey,
     RUNNER_TEMP:'runner',FRC_VERIFIED_FIELD_ROOT:'runner/field'}});
   const output=r.stdout+r.stderr;assert.equal(r.status===0,success,label+'\n'+output);
@@ -69,6 +75,7 @@ try{
   put('runner/showcase/field.html','new field');put('runner/field/field.html','new field');
   check('Independently generated field',true);
   for(const name of sourceFiles)put('project/'+name,read(path.join(sourceRoot,name)));
+  check('Uncommitted CAD replacement',false,'differs from committed bytes',key,false);
   check('Unsigned source model change',false,'without matching approved issue');
   put(sourcePacket,read(sourcePath));check('Missing staged issue',false);
   promote();check('Ordinary signed source and renamed staged model',true);
