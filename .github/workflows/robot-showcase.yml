@@ -36,6 +36,109 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           node project/scripts/check-tower-playback.mjs http://127.0.0.1:8765/ google-chrome
+      - name: Hand the final output to an isolated verification runner
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: candidate-showcase
+          path: ${{ runner.temp }}/showcase
+          include-hidden-files: true
+          if-no-files-found: error
+
+  mechanical:
+    name: Mechanical model eligibility
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the candidate source for static comparison
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: project
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check out the approved public presentation
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: 9b6940ab02c2c7ab3189c842bf0c1461e5a1a049
+          path: approved
+          persist-credentials: false
+      - name: Get the original field and presentation builder
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ehartye/agent-frc
+          ref: 1751f86b5bf69305b775415991cf48191549b53d
+          path: builder
+          persist-credentials: false
+      - name: Verify the mechanical reviewer has an immutable release
+        env:
+          RELEASE: ${{ vars.MECHANICAL_REVIEW_PLUGIN_SHA }}
+        run: '[[ "$RELEASE" =~ ^[0-9a-f]{40}$ ]]'
+      - name: Get the separately reviewed private-issue verifier
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ehartye/agent-frc
+          ref: ${{ vars.MECHANICAL_REVIEW_PLUGIN_SHA }}
+          path: verifier
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Download the exact output produced by the project publisher
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: candidate-showcase
+          path: ${{ runner.temp }}/showcase
+      - name: Reproduce the full approved showcase and the independently generated rehearsal
+        run: |
+          set -euo pipefail
+          # The pinned role generator records root-relative project input paths in its downloadable role selection.
+          # Both independent builds use the same portable directory layout as the approved hosted edition.
+          approved_root="$RUNNER_TEMP/frozen-layout"
+          approved_project="$approved_root/frc-2026-poc/frc-2026-poc/project"
+          mkdir -p "$(dirname "$approved_project")" "$approved_root/_temp"
+          cp -a approved "$approved_project"
+          (cd "$approved_root" && node "$approved_project/scripts/build-showcase.mjs" "$GITHUB_WORKSPACE/builder" "_temp/showcase")
+          mv "$approved_root/_temp/showcase" "$RUNNER_TEMP/approved"
+          field_root="$RUNNER_TEMP/rehearsal-layout"
+          bridge="$field_root/frc-2026-poc/frc-2026-poc/project"
+          mkdir -p "$bridge"
+          for script in kickoff/rehearsal/{build,profile,check-match}.mjs experiments/role-and-support/{replay-lanes,peer-lanes}.mjs; do
+            install -D -m 0644 "approved/$script" "$bridge/$script"
+          done
+          for data in kickoff/rules-model.json experiments/depot-loading/stock-register.json experiments/role-and-support/study.json kickoff/rehearsal/match-summary.json kickoff/field-lab.html; do
+            test "$(git -C project ls-tree HEAD -- "$data" | cut -f 1 | cut -d ' ' -f 1)" = '100644'
+            mkdir -p "$bridge/$(dirname "$data")"
+            git -C project show "HEAD:$data" > "$bridge/$data"
+          done
+          (cd "$field_root" && node "$bridge/kickoff/rehearsal/build.mjs" "$GITHUB_WORKSPACE/builder" "_temp/showcase")
+          mv "$field_root/_temp/showcase" "$RUNNER_TEMP/field"
+      - name: Check the source inventory and every final public byte
+        env:
+          FRC_VERIFIED_FIELD_ROOT: ${{ runner.temp }}/field
+          REVIEW_PUBLIC_KEY: ${{ vars.MECHANICAL_REVIEW_PUBLIC_KEY }}
+        run: |
+          set -euo pipefail
+          source_packet=project/.github/model-release/source.json
+          stage_packet=project/.github/model-release/staged.json
+          source_args=()
+          stage_args=()
+          if [[ -e "$source_packet" || -e "$stage_packet" || -L "$source_packet" || -L "$stage_packet" ]]; then
+            node --input-type=module - "$source_packet" "$stage_packet" <<'JS'
+          import { realpathSync } from 'node:fs';
+          import { resolve } from 'node:path';
+          for (const file of process.argv.slice(2)) {
+            if (realpathSync(file) !== resolve(file)) throw Error('Redirected release packet');
+          }
+          JS
+            test -n "$REVIEW_PUBLIC_KEY"
+            key="$RUNNER_TEMP/mechanical-review-public.pem"
+            printf '%s\n' "$REVIEW_PUBLIC_KEY" > "$key"
+            project_id=$(node -p "require('./approved/.github/staged-model-policy.json').project")
+            node verifier/scripts/public-model-release.mjs verify-pair project "$source_packet" "$RUNNER_TEMP/showcase" "$stage_packet" "$key" "$project_id"
+            source_args=("$source_packet" "$key")
+            stage_args=("$stage_packet" "$key")
+          fi
+          node verifier/scripts/public-model-release.mjs audit project 9b6940ab02c2c7ab3189c842bf0c1461e5a1a049 .github/public-model-policy.json "${source_args[@]}"
+          node verifier/scripts/public-model-release.mjs audit-staged "$RUNNER_TEMP/approved" "$RUNNER_TEMP/showcase" approved/.github/staged-model-policy.json "${stage_args[@]}"
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
@@ -43,7 +146,7 @@ jobs:
 
   deploy:
     if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
-    needs: build
+    needs: mechanical
     runs-on: ubuntu-latest
     permissions:
       pages: write
