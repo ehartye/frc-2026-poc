@@ -17,5 +17,5 @@
     "file": "rehearsal/comparison.json",
     "sha256": "ed96d15502314e4a66eab99e677fb1ee4748c15e7a696848725305016a48e5d1"
   },
-  "basis": "The robust shot band at 62 degrees starts at 2.4 m release distance"
+  "basis": "The robust shot band at 62 degrees is 0.15 m/s wide from 2.4 m release distance"
 }

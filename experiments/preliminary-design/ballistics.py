@@ -82,11 +82,12 @@ def robust(deg, h0, d, conditions):
 
 
 CONDITIONS = [(0.215, cd, cl) for cd in (0.35, 0.6) for cl in (0.0, 0.3)]
+R3_RELEASE_M = 0.267  # release height of the launch trial (field-trials.json chain.release.z); build_package.py checks it
 
 
 def study():
     rows = []
-    cases = [("R3 floor-fed hood (release 0.232 m)", 0.2325, deg) for deg in (60, 62)]
+    cases = [(f"R3 floor-fed hood (release {R3_RELEASE_M:.3f} m)", R3_RELEASE_M, deg) for deg in (60, 62)]
     cases += [(f"release {h:.2f} m", h, 60) for h in (0.43, 0.60, 0.70)]
     for label, h0, deg in cases:
         for d in (1.6, 2.0, 2.2, 2.4, 2.8, 3.6):

@@ -1,9 +1,16 @@
-"""Physics trials for R3's mission-critical field interactions: acquisition, delivery into the HUB and the Level 1 hang.
+"""Physics trials for R3's mission-critical field interactions: acquisition, hopper entry, launch, delivery into the
+HUB and the Level 1 hang.
 
 Each trial integrates the free FUEL or the supported robot with penalty contact and regularized Coulomb
-friction (explicit semi-implicit Euler). Actuator inputs are stated per trial: a belt surface speed is
+friction (explicit semi-implicit Euler). Actuator inputs are stated per trial: a belt or wheel surface speed is
 imposed (transport at that speed, not proof the motor sustains it); the winch follows a DC motor line with
-a current limit and bus voltage. Units are SI. Run from the project root:
+a current limit and bus voltage. Units are SI. The mechanism geometry comes from dimensions.py, the same module
+the placed solids are built from, so the bumper, intake, floor lane and shooter surfaces have one definition.
+The HUB, the TOWER and the hook are written here separately.
+
+The tracked FUEL is one chain: acquire-nominal ends at capture, entry-nominal starts from that state and ends at
+rest in the seat, launch-nominal starts from that seat and ends at release, and deliver-nominal starts from that
+release state. build_package.py turns those four traces into the package's FUEL cases.
 
     python -I -B experiments/preliminary-design/field_trials.py
 
@@ -12,19 +19,44 @@ Writes experiments/preliminary-design/field-trials.json and experiments/prelimin
 import hashlib
 import json
 import math
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import dimensions as D
+
 ROOT = HERE.parents[1]
 RULES = json.loads((HERE / "construction-rules.json").read_text(encoding="utf-8"))
-FACTS = json.loads((HERE / "package-facts.json").read_text(encoding="utf-8"))
 G = 9.81
 R = RULES["fuel"]["diameterMm"] / 2000
+assert abs(R - D.R_BALL / 1000) < 1e-12
 RHO = 1.2
+MM = 0.001
 
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class Contacts:
+    """Per-surface contact record: rows [t_on, t_off, mm] with the deepest indentation seen in each row.
+    A continuous contact is cut into rows no longer than `window` seconds, so the depth is resolved in time."""
+    def __init__(self, window=0.05):
+        self.rows, self.open, self.window = {}, {}, window
+
+    def step(self, t, touching):
+        for label, pen in touching.items():
+            row = self.open.get(label)
+            if row is None or t - row[0] >= self.window:
+                row = self.open[label] = [round(t, 4), round(t, 4), 0.0]
+                self.rows.setdefault(label, []).append(row)
+            row[1] = round(t, 4); row[2] = max(row[2], pen * 1000)
+        for label in [k for k in self.open if k not in touching]:
+            del self.open[label]
+
+    def result(self):
+        return {k: [[a, b, round(c, 3)] for a, b, c in v] for k, v in self.rows.items()}
 
 
 # ------------------------------------------------------------------ 2D contact helpers (XZ plane)
@@ -46,40 +78,49 @@ def friction(Fn, vt, mu, eps=0.01):
 
 
 # ------------------------------------------------------------------ acquisition (side view, robot frame)
-def acquisition(name, u=3.0, comp_back=0.020, comp_pulley=0.020, mu_belt=0.9, mu_bumper=0.4, mu_carpet=0.6,
-                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=1.5, locked=False):
+def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_bumper=0.4, mu_carpet=0.6,
+                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=1.5, locked=False, every=40):
     """FUEL on the carpet; the robot drives at v_robot; the bottom pulley pulls it under, the back run lifts it
-    against the bumper face and the top roller pushes it over the bumper. Compression is the detailed setting
-    the layout leaves undrawn (it draws a 3 mm undeformed reserve)."""
+    against the bumper face and the top roller pushes it over the bumper. The belt, pulleys and roller stand where
+    dimensions.py puts them (the layout draws the same squeeze); comp_back and comp_pulley bracket that setting."""
+    I_ = D.INTAKE
+    u = I_["belt_mps"] if u is None else u
+    comp_back = I_["pinch_squeeze"] * MM if comp_back is None else comp_back
+    comp_pulley = I_["pulley_squeeze"] * MM if comp_pulley is None else comp_pulley
+    ip = D.intake_points(comp_back * 1000, comp_pulley * 1000)
+    B = D.BUMPER
     c = 2 * zeta * math.sqrt(k * mass)
     inertia = 0.4 * mass * R * R
-    rp = 0.0185
-    xk = 0.4175 + 2 * R - comp_back            # belt back run, pressing the FUEL into the bumper cover
-    xp = xk + rp
-    zb = 2 * R - comp_pulley + rp              # bottom pulley centre: its underside compresses the FUEL top
-    zt = 0.300 - rp
-    roller = (0.4175 + R + 0.003, 0.270 + R + 0.003 + 0.0381 - 0.020)  # top roller lowered 20 mm into the FUEL path
+    rp = ip["pulley_r"] * MM
+    xk = ip["belt_x"] * MM                     # belt back run, pressing the FUEL into the bumper cover
+    xp = ip["pulley_x"] * MM
+    zb = ip["bottom_z"] * MM                   # bottom pulley centre: its underside compresses the FUEL top
+    zt = ip["top_z"] * MM
+    rr_ = ip["roller_r"] * MM
+    roller = (ip["roller"][0] * MM, ip["roller"][1] * MM)
     belt_u = 0.0 if locked else u
     omega_p = -belt_u / rp
-    omega_r = -belt_u / 0.0381
+    omega_r = -belt_u / rr_
     prims = [  # (kind, geometry, surface velocity function or angular speed, mu, label)
         ("seg", ((-1.0, 0.0), (2.0, 0.0)), (-v_robot, 0.0), mu_carpet, "carpet"),
-        ("seg", ((0.4175, 0.048), (0.4175, 0.168)), (0.0, 0.0), mu_bumper, "bumper face"),
-        ("seg", ((0.3415, 0.168), (0.4175, 0.168)), (0.0, 0.0), mu_bumper, "bumper top"),
+        ("seg", ((B["x1"] * MM, B["z0"] * MM), (B["x1"] * MM, B["z1"] * MM)), (0.0, 0.0), mu_bumper, "bumper face"),
+        ("seg", ((B["x0"] * MM, B["z1"] * MM), (B["x1"] * MM, B["z1"] * MM)), (0.0, 0.0), mu_bumper, "bumper top"),
         ("seg", ((xk, zb), (xk, zt)), (0.0, belt_u), mu_belt, "belt back run"),
         ("seg", ((xp + rp, zb), (xp + rp, zt)), (0.0, -belt_u), mu_belt, "belt front run"),
         ("circ", ((xp, zb), rp), omega_p, mu_belt, "bottom pulley"),
         ("circ", ((xp, zt), rp), omega_p, mu_belt, "top pulley"),
-        ("circ", (roller, 0.0381), omega_r, mu_belt, "top roller"),
+        ("circ", (roller, rr_), omega_r, mu_belt, "top roller"),
     ]
     x, z, vx, vz, w = 0.72, R, -v_robot, 0.0, 0.0
-    t, frames, events, first = 0.0, [], [], {}
+    t, frames, events, first = 0.0, [[0.0, round(x, 5), round(z, 5), 0.0]], [], {}
     max_belt_force, belt_power = 0.0, 0.0
     captured = None
     step = 0
+    contacts = Contacts(0.001 if every <= 10 else 0.05)
     while t < t_end:
         fx, fz, tq = 0.0, -mass * G, 0.0
         belt_now = 0.0
+        touching = {}
         for kind, geom, sv, mu, label in prims:
             if kind == "seg":
                 d, nx, nz, qx, qz = seg_contact(x, z, *geom)
@@ -96,6 +137,7 @@ def acquisition(name, u=3.0, comp_back=0.020, comp_pulley=0.020, mu_belt=0.9, mu
             pen = rad - d
             if pen <= 0:
                 continue
+            touching[label] = max(touching.get(label, 0.0), pen)
             if label not in first:
                 first[label] = round(t, 4)
                 events.append(dict(t=round(t, 4), event=f"first contact: {label}"))
@@ -112,20 +154,23 @@ def acquisition(name, u=3.0, comp_back=0.020, comp_pulley=0.020, mu_belt=0.9, mu
             fx += Fx; fz += Fz
             tq += rx * Fz - rz * Fx
             if label.startswith(("belt", "bottom", "top")):
-                belt_now += abs(Ft) * u
+                belt_now += abs(Ft) * belt_u
                 max_belt_force = max(max_belt_force, Fn)
+        contacts.step(t, touching)
         belt_power = max(belt_power, belt_now)
         vx += fx / mass * dt; vz += fz / mass * dt; w += tq / inertia * dt
         x += vx * dt; z += vz * dt; t += dt; step += 1
-        if step % 20 == 0:
+        if step % round(every * 1e-4 / dt) == 0:
             frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
-        if captured is None and x < 0.340 and z > 0.168 + R * 0.5:
+        if captured is None and x < D.FRONT_RAIL["x1"] * MM and z > B["z1"] * MM + R * 0.5:
             captured = round(t, 4)
             events.append(dict(t=captured, event="FUEL over the bumper and inside the frame: captured"))
             break
         if z < -0.05 or x > 1.2:
             events.append(dict(t=round(t, 4), event="FUEL lost"))
             break
+    if frames[-1][0] != round(t, 4):
+        frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
     ok = captured is not None and captured <= 1.0
     return dict(name=name, kind="acquisition", passed=ok,
                 metric=dict(name="capture time (s)", value=captured, requirement="captured within 1.0 s of first contact"),
@@ -136,9 +181,249 @@ def acquisition(name, u=3.0, comp_back=0.020, comp_pulley=0.020, mu_belt=0.9, mu
                                 note="Power the belt must supply at the imposed speed; compare with the selected motor before claiming it sustains the speed"),
                 params=dict(u=u, compBack=comp_back, compPulley=comp_pulley, muBelt=mu_belt, muBumper=mu_bumper, muCarpet=mu_carpet,
                             k=k, zeta=zeta, mass=mass, vRobot=v_robot, dt=dt, locked=locked),
-                geometry=dict(beltBackX=xk, pulley=[xp, zb, rp], topPulley=[xp, zt, rp], roller=[roller[0], roller[1], 0.0381],
-                              bumper=[0.3415, 0.048, 0.4175, 0.168]),
+                geometry=dict(beltBackX=xk, pulley=[xp, zb, rp], topPulley=[xp, zt, rp], roller=[roller[0], roller[1], rr_],
+                              bumper=[B["x0"] * MM, B["z0"] * MM, B["x1"] * MM, B["z1"] * MM]),
+                contacts=contacts.result(), final=dict(t=t, x=x, z=z, vx=vx, vz=vz, w=w),
                 events=events, frames=frames)
+
+
+# ------------------------------------------------------------------ hopper lane (side view, robot frame)
+def lane_scene(squeeze=None, cleat=None):
+    """Static side-view surfaces of the floor lane behind the bumper, from dimensions.py (metres)."""
+    K = D.frame_constants("R3", squeeze)
+    B, L, RL = D.BUMPER, D.FRONT_LIP, D.FRONT_RAIL
+    bt = K["belt_top"] * MM
+    pan = K["floor"] * MM
+    cx, cz = K["c"][0] * MM, K["c"][1] * MM
+    a0, a1 = (math.radians(v) for v in K["hood_span_deg"])
+    segs = [
+        ((B["x0"] * MM, B["z1"] * MM), (B["x1"] * MM, B["z1"] * MM), "hard", "bumper front"),
+        ((B["x0"] * MM, B["z0"] * MM), (B["x0"] * MM, B["z1"] * MM), "hard", "bumper front"),
+        ((RL["x0"] * MM, RL["z1"] * MM), (RL["x1"] * MM, RL["z1"] * MM), "hard", "frame rail front"),
+        ((L["x1"] * MM, L["z0"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
+        ((L["x0"] * MM, L["z1"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
+        ((L["x0"] * MM, L["z0"] * MM), (L["x0"] * MM, L["z1"] * MM), "hard", "front lip"),
+        ((D.FLOOR_BELT_FRONT["x0"] * MM, bt), (D.FLOOR_BELT_FRONT["x1"] * MM, bt), "belt", "floor belt front"),
+        ((D.FLOOR_BELT_MAIN["x0"] * MM, bt), (D.FLOOR_BELT_MAIN["x1"] * MM, bt), "belt", "floor belt main"),
+        ((D.FLOOR_PAN["x0"] * MM, pan), (D.FLOOR_PAN["x1"] * MM, pan), "hard", "floor pan"),
+        ((D.FLOOR_TONGUE["x0"] * MM, pan), (D.FLOOR_TONGUE["x1"] * MM, pan), "hard", "floor pan front tongue"),
+    ]
+    if cleat:  # the superseded belt cleat, kept as a control
+        x0, x1, z0, z1 = cleat
+        segs += [((x1, z0), (x1, z1), "hard", "indexer cleat"), ((x0, z1), (x1, z1), "hard", "indexer cleat"),
+                 ((x0, z0), (x0, z1), "hard", "indexer cleat")]
+    return dict(segs=segs, wheel=((cx, cz), D.FLYWHEEL_R * MM), hood=((cx, cz), K["hood_in"] * MM, a0, a1), beltTop=bt, K=K)
+
+
+def scene_record(scene):
+    """The lane surfaces for the player (metres)."""
+    (cx, cz), rw = scene["wheel"]
+    (_, _), rin, a0, a1 = scene["hood"]
+    return dict(segs=[[a[0], a[1], b[0], b[1], label] for a, b, _, label in scene["segs"]],
+                circles=[[cx, cz, rw, "flywheel"]], arcs=[[cx, cz, rin, a0, a1, "hood"]])
+
+
+def lane(state, belt, wheel, scene, crr=0.03, mu_belt=0.9, mu_wheel=0.9, mu_hard=0.4, mu_hood=0.6, k=15000.0, zeta=0.3,
+         mass=0.215, dt=1e-4, t_end=4.0, every=50, settle=False, release=False):
+    """Integrate one free FUEL in the floor lane. belt(t) is the floor belt surface speed toward the flywheel and
+    wheel(t) the flywheel surface speed in the launching direction; both are imposed. Rolling resistance is a
+    couple crr * N * R opposing rolling on each surface (regularized at 0.2 rad/s)."""
+    (cx, cz), rw = scene["wheel"]
+    (_, _), rin, a0, a1 = scene["hood"]
+    c = 2 * zeta * math.sqrt(k * mass)
+    inertia = 0.4 * mass * R * R
+    mus = dict(hard=mu_hard, belt=mu_belt)
+    x, z, vx, vz, w = (state[q] for q in ("x", "z", "vx", "vz", "w"))
+    t, step = 0.0, 0
+    frames, events, first = [[0.0, round(x, 5), round(z, 5), round(w, 2)]], [], {}
+    contacts = Contacts(0.001 if every <= 10 else 0.05)
+    recent, outcome, released = [], None, None
+    peak_wheel_power, wheel_energy = 0.0, 0.0
+    while t < t_end:
+        vb, uw = belt(t), wheel(t)
+        fx, fz, tq = 0.0, -mass * G, 0.0
+        touching = {}
+        rows = []
+        for a, b, kind, label in scene["segs"]:
+            d, nx, nz, _, _ = seg_contact(x, z, a, b)
+            if R - d > 0:
+                rows.append((R - d, nx, nz, (-vb, 0.0) if kind == "belt" else (0.0, 0.0), mus[kind], label))
+        d0 = math.hypot(x - cx, z - cz)
+        if R - (d0 - rw) > 0:
+            nx, nz = (x - cx) / d0, (z - cz) / d0
+            rows.append((R - (d0 - rw), nx, nz, (uw * nz, -uw * nx), mu_wheel, "flywheel"))
+        ang = math.atan2(z - cz, x - cx)
+        if a0 <= ang <= a1:
+            if d0 + R - rin > 0:
+                rows.append((d0 + R - rin, -(x - cx) / d0, -(z - cz) / d0, (0.0, 0.0), mu_hood, "hood"))
+        else:  # past either end the hood acts through its end edge
+            e = a0 if ang < a0 else a1
+            ex, ez = cx + rin * math.cos(e), cz + rin * math.sin(e)
+            d = math.hypot(x - ex, z - ez)
+            if 0 < d < R:
+                rows.append((R - d, (x - ex) / d, (z - ez) / d, (0.0, 0.0), mu_hood, "hood"))
+        wheel_now = 0.0
+        for pen, nx, nz, (svx, svz), mu, label in rows:
+            touching[label] = max(touching.get(label, 0.0), pen)
+            if label not in first:
+                first[label] = round(t, 4)
+                events.append(dict(t=round(t, 4), event=f"first contact: {label}"))
+            rx, rz = -nx * R, -nz * R
+            rvx, rvz = vx - w * rz - svx, vz + w * rx - svz
+            vn = rvx * nx + rvz * nz
+            Fn = max(0.0, k * pen - c * vn)
+            tx, tz = -nz, nx
+            Ft = friction(Fn, rvx * tx + rvz * tz, mu)
+            Fx, Fz = Fn * nx + Ft * tx, Fn * nz + Ft * tz
+            fx += Fx; fz += Fz
+            tq += rx * Fz - rz * Fx
+            roll = (nx * (vz - svz) - nz * (vx - svx)) / R
+            tq -= crr * Fn * R * roll / math.sqrt(roll * roll + 0.2 ** 2)
+            if label == "flywheel":
+                wheel_now += abs(Ft * uw)
+        peak_wheel_power = max(peak_wheel_power, wheel_now)
+        wheel_energy += wheel_now * dt
+        contacts.step(t, touching)
+        vx += fx / mass * dt; vz += fz / mass * dt; w += tq / inertia * dt
+        x += vx * dt; z += vz * dt; t += dt; step += 1
+        if step % round(every * 1e-4 / dt) == 0:
+            frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
+        if step % round(1e-3 / dt) == 0:
+            recent.append((x, z))
+            if len(recent) > 300:
+                recent.pop(0)
+        # Past the hood end and touching neither the wheel nor the end edge, the FUEL has left the shooter. The hood
+        # is a surface without thickness in this model, so the run ends here.
+        d0 = math.hypot(x - cx, z - cz)
+        ang = math.atan2(z - cz, x - cx)
+        ex, ez = cx + rin * math.cos(a0), cz + rin * math.sin(a0)
+        if ang < a0 and x < cx and d0 - rw - R > 0 and math.hypot(x - ex, z - ez) > R:
+            speed = math.hypot(vx, vz)
+            if release:
+                outcome = "released"
+                released = dict(t=t, x=x, z=z, vx=vx, vz=vz, w=w, speedMps=speed, elevationDeg=math.degrees(math.atan2(vz, -vx)),
+                                spinRatio=w * R / speed)
+                events.append(dict(t=round(t, 4), event=f"FUEL clear of the flywheel and the hood end: released at {speed:.2f} m/s"))
+            else:
+                outcome = "through the shooter"
+                events.append(dict(t=round(t, 4), event=f"FUEL rolls up the hood and out of its end at {speed:.2f} m/s with the flywheel stopped"))
+            break
+        if settle and len(recent) == 300 and max(math.hypot(x - p, z - q) for p, q in recent) < 0.0005:
+            outcome = "at rest"
+            events.append(dict(t=round(t, 4), event="FUEL at rest (under 0.5 mm of travel in 0.3 s)"))
+            break
+        if z < 0 or x > 1.2 or x < -0.6:
+            outcome = "lost"
+            events.append(dict(t=round(t, 4), event="FUEL left the lane"))
+            break
+    if frames[-1][0] != round(t, 4):
+        frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
+    return dict(outcome=outcome, final=dict(t=t, x=x, z=z, vx=vx, vz=vz, w=w), released=released, events=events, frames=frames,
+                contacts=contacts.result(), first=first, peakWheelFrictionPowerW=round(peak_wheel_power, 1), wheelEnergyJ=wheel_energy)
+
+
+FLYWHEEL_INERTIA = D.SHOOTER["inertia_kgm2"]
+SEAT_CLEAR_X = (D.FRONT_LIP["x0"] - 3 * D.R_BALL) * MM   # a seated FUEL leaves one diameter free behind the lip
+WEDGE_LIMIT_MM = 1.0                                     # resting indentation into the stopped flywheel
+
+
+def hopper_entry(name, start, belt=0.0, crr=0.03, mu_belt=0.9, mu_hard=0.4, squeeze=None, cleat=None, k=15000.0, zeta=0.3,
+                 mass=0.215, dt=1e-4, t_end=6.0, every=50, start_note="the acquire-nominal capture state"):
+    """Captured FUEL to its seat. It leaves the intake top roller with the capture state of the acquisition trial,
+    crosses the bumper top and front lip, lands on the floor belts and rolls aft to the stopped flywheel.
+    The floor belts and the flywheel are stopped unless a variant drives them."""
+    scene = lane_scene(squeeze, cleat)
+    run = lane(start, lambda t: belt, lambda t: 0.0, scene, crr=crr, mu_belt=mu_belt, mu_hard=mu_hard, k=k, zeta=zeta, mass=mass,
+               dt=dt, t_end=t_end, every=every, settle=True)
+    f = run["final"]
+    rest_wheel = 0.0
+    (cx, cz), rw = scene["wheel"]
+    if run["outcome"] == "at rest":
+        rest_wheel = max(0.0, R - (math.hypot(f["x"] - cx, f["z"] - cz) - rw)) * 1000
+    on_belt = abs(f["z"] - (scene["beltTop"] + R)) < 0.003
+    unmet = None
+    if run["outcome"] == "through the shooter":
+        unmet = "not stopped by the stopped flywheel: the FUEL rolls up the hood and out of the shooter"
+    elif run["outcome"] != "at rest":
+        unmet = "not at rest within %.1f s" % t_end if run["outcome"] is None else "FUEL left the lane"
+    elif rest_wheel > WEDGE_LIMIT_MM:
+        unmet = f"driven {rest_wheel:.1f} mm into the stopped flywheel: wedged in the pinch, so a spin-up would feed it early"
+    elif f["x"] > SEAT_CLEAR_X or not on_belt:
+        unmet = "at rest in the entry throat or off the belt: the next FUEL cannot enter"
+    elif f["t"] > 5.0:
+        unmet = "at rest later than 5.0 s after capture"
+    ok = unmet is None
+    return dict(name=name, kind="entry", passed=ok,
+                metric=dict(name="seat time after capture (s)", value=round(f["t"], 4) if run["outcome"] == "at rest" else None,
+                            requirement=f"at rest on the floor belt within 5.0 s, centre aft of x = {SEAT_CLEAR_X:.3f} m, and no more than "
+                                        f"{WEDGE_LIMIT_MM:.0f} mm into the stopped flywheel"),
+                firstUnmet=unmet,
+                imposed=f"start from {start_note}; floor belt surface {belt} m/s toward the flywheel; flywheel stopped",
+                solved="FUEL translation and spin with penalty contact, Coulomb friction, gravity and rolling resistance",
+                seat=dict(xM=round(f["x"], 5), zM=round(f["z"], 5), flywheelIndentationMm=round(rest_wheel, 3),
+                          clearOfFlywheelMm=round(max(0.0, math.hypot(f["x"] - cx, f["z"] - cz) - rw - R) * 1000, 2)),
+                params=dict(belt=belt, crr=crr, muBelt=mu_belt, muHard=mu_hard, squeezeMm=scene["K"]["squeeze"], k=k, zeta=zeta, mass=mass, dt=dt,
+                            start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}, cleat=list(cleat) if cleat else None),
+                scene=scene_record(scene), contacts=run["contacts"], final=f, events=run["events"], frames=run["frames"])
+
+
+def launch(name, start, back_mps=0.3, back_s=0.5, spin_s=None, wheel_mps=None, feed_mps=None, squeeze=None, crr=0.03, mu_wheel=0.9,
+           mu_belt=0.9, mu_hood=0.6, k=15000.0, zeta=0.3, mass=0.215, dt=1e-4, t_end=5.0, every=50, band=None,
+           start_note="the entry-nominal seat"):
+    """Seated FUEL to release. The floor belt backs the FUEL off the stopped flywheel, the flywheel spins up while the
+    belt is stopped, then the belt feeds the FUEL into the wheel, which rolls it up the hood and releases it.
+    Belt and wheel speeds are imposed schedules."""
+    wheel_mps = D.SHOOTER["wheel_surface_mps"] if wheel_mps is None else wheel_mps
+    feed_mps = D.FLOOR_BELT_MPS if feed_mps is None else feed_mps
+    spin_s = D.SHOOTER["spin_up_s"] if spin_s is None else spin_s
+    scene = lane_scene(squeeze)
+    t_spin = back_s
+    t_feed = back_s + spin_s
+
+    def belt(t):
+        return -back_mps if t < t_spin else (0.0 if t < t_feed else feed_mps)
+
+    def wheel(t):
+        return 0.0 if t < t_spin else wheel_mps * min(1.0, (t - t_spin) / spin_s)
+
+    (wx, wz), rw = scene["wheel"]
+    start_depth = max(0.0, R - (math.hypot(start["x"] - wx, start["z"] - wz) - rw)) * 1000   # how far the FUEL starts into the stopped wheel
+    run = lane(start, belt, wheel, scene, crr=crr, mu_belt=mu_belt, mu_wheel=mu_wheel, mu_hood=mu_hood, k=k, zeta=zeta, mass=mass,
+               dt=dt, t_end=t_end, every=every, release=True)
+    rel = run["released"]
+    events = sorted(run["events"] + [dict(t=round(t_spin, 4), event="back-off ends; belt stopped; flywheel spin-up starts"),
+                                     dict(t=round(t_feed, 4), event=f"flywheel at {wheel_mps} m/s; belt feeds at {feed_mps} m/s")],
+                    key=lambda e: e["t"])
+    # The first flywheel contact while the wheel is turning decides whether it was at speed.
+    grabbed = next((max(a, t_spin) for a, b, _ in run["contacts"].get("flywheel", []) if b > t_spin + 1e-9), None)
+    unmet = None
+    if rel is None:
+        unmet = "not released within %.1f s" % t_end
+    elif grabbed is not None and grabbed < t_feed - 1e-9:
+        unmet = f"the flywheel takes the FUEL at {grabbed:.3f} s, before it reaches speed at {t_feed:.3f} s"
+    elif band and not (band[0] <= rel["speedMps"] <= band[1]):
+        unmet = f"release {rel['speedMps']:.2f} m/s is outside the delivery trials' scoring band {band[0]:.2f}-{band[1]:.2f} m/s"
+    ok = unmet is None
+    return dict(name=name, kind="launch", passed=ok,
+                metric=dict(name="release speed (m/s)", value=None if rel is None else round(rel["speedMps"], 3),
+                            requirement="released after the flywheel reaches speed, inside the delivery trials' scoring band"
+                                        + (f" ({band[0]:.2f}-{band[1]:.2f} m/s)" if band else "")),
+                firstUnmet=unmet,
+                imposed=(f"start from {start_note}; floor belt {-back_mps} m/s for {back_s} s, stopped for {spin_s} s, then {feed_mps} m/s; "
+                         f"flywheel surface ramps 0 to {wheel_mps} m/s over the stopped interval and is then held"),
+                solved="FUEL translation and spin with penalty contact, Coulomb friction, gravity and rolling resistance",
+                release=None if rel is None else {q: round(v, 5) for q, v in rel.items()},
+                wheelDemand=dict(peakFrictionPowerW=run["peakWheelFrictionPowerW"], energyJ=round(run["wheelEnergyJ"], 2),
+                                 spinUpPeakW=round(FLYWHEEL_INERTIA * (wheel_mps / (D.FLYWHEEL_R * MM)) ** 2 / spin_s, 1),
+                                 speedDropPercent=round(100 * (1 - math.sqrt(max(0.0, 1 - run["wheelEnergyJ"] / (0.5 * FLYWHEEL_INERTIA * (wheel_mps / (D.FLYWHEEL_R * MM)) ** 2)))), 2),
+                                 note=f"Work done by the wheel surface at the imposed speed, the speed a free {FLYWHEEL_INERTIA} kg m2 wheel "
+                                      "would lose supplying it (the trial itself holds the wheel speed), and the peak power of the imposed "
+                                      "linear spin-up of that wheel"),
+                schedule=dict(backOffEndS=t_spin, feedStartS=t_feed, flywheelTakesS=grabbed), startFlywheelIndentationMm=round(start_depth, 3),
+                params=dict(backMps=back_mps, backS=back_s, spinS=spin_s, wheelMps=wheel_mps, feedMps=feed_mps, squeezeMm=scene["K"]["squeeze"],
+                            crr=crr, muWheel=mu_wheel, muBelt=mu_belt, muHood=mu_hood, k=k, zeta=zeta, mass=mass, dt=dt,
+                            start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}),
+                scene=scene_record(scene), contacts=run["contacts"], final=run["final"], released=rel, events=events, frames=run["frames"])
 
 
 # ------------------------------------------------------------------ delivery (3D, shot pose)
@@ -178,7 +463,7 @@ def ring_closest_xy(x, y):
 def hub_contacts(p):
     """Penalty contacts of a FUEL centre p against the HUB body, top plate and cavity floor."""
     out = []
-    for z0, z1, region in ((0.0, 1.777, "ring"), (1.779, 1.8288, "ring"), (0.990, 1.000, "floor")):
+    for z0, z1, region, label in ((0.0, 1.777, "ring", "hub body"), (1.779, 1.8288, "ring", "hub top"), (0.990, 1.000, "floor", "hub body")):
         if region == "ring":
             qx, qy = ring_closest_xy(p[0], p[1])
         else:
@@ -186,7 +471,7 @@ def hub_contacts(p):
         qz = min(max(p[2], z0), z1)
         d = math.dist(p, (qx, qy, qz))
         if d < R and d > 0:
-            out.append(((p[0] - qx) / d, (p[1] - qy) / d, (p[2] - qz) / d, R - d))
+            out.append(((p[0] - qx) / d, (p[1] - qy) / d, (p[2] - qz) / d, R - d, label))
     return out
 
 
@@ -194,21 +479,26 @@ def cross(a, b):
     return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
 
 
-def delivery(name, v=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0.215, dt=1e-4, t_end=1.6, elevation=62.0):
-    v = FACTS["flight"]["speedMps"] if v is None else v
-    ex, ez = FACTS["flight"]["arcs"][0]["start"]
-    p = [ex / 1000, 0.0825, ez / 1000]
-    e = math.radians(elevation)
-    vel = [-v * math.cos(e), 0.0, v * math.sin(e)]
-    omega = [0.0, -v / R, 0.0]  # rolling off the fixed hood: spin ratio 1, Magnus toward the lower side of the path
+def delivery(name, release, speed=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0.215, dt=1e-4, t_end=1.6, every=40,
+             release_note="the launch-nominal release state"):
+    """Released FUEL to the HUB sensor plane. The start is the release state of a launch trial: position, velocity
+    and spin. speed rescales that velocity and spin together, holding the release point and direction."""
+    v0 = math.hypot(release["vx"], release["vz"])
+    scale = 1.0 if speed is None else speed / v0
+    p = [release["x"], D.TRACK_Y * MM, release["z"]]
+    vel = [release["vx"] * scale, 0.0, release["vz"] * scale]
+    omega = [0.0, -release["w"] * scale, 0.0]  # the side view's positive spin is about -Y: Magnus toward the lower side of the path
+    v = v0 * scale
     area = math.pi * R * R
     kd = 0.5 * RHO * cd * area
     kl = 0.5 * RHO * cl * area
     inertia = 0.4 * mass * R * R
     c = 2 * zeta * math.sqrt(k * mass)
-    t, frames, events, scored, touched = 0.0, [], [], None, False
+    t, events, scored, touched = 0.0, [], None, False
+    frames = [[0.0, round(p[0], 5), round(p[1], 5), round(p[2], 5)]]
     step = 0
     sensor = 1.50
+    contacts = Contacts(0.001 if every <= 10 else 0.05)
     while t < t_end:
         sp = math.sqrt(sum(q * q for q in vel)) or 1e-9
         F = [-kd * sp * vel[0], -kd * sp * vel[1], -kd * sp * vel[2] - mass * G]
@@ -216,7 +506,9 @@ def delivery(name, v=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0
         mg = cross([q / wn for q in omega], vel)
         F = [F[i] + kl * sp * mg[i] for i in range(3)]
         Tq = [0.0, 0.0, 0.0]
-        for nx, ny, nz, pen in hub_contacts(p):
+        touching = {}
+        for nx, ny, nz, pen, label in hub_contacts(p):
+            touching[label] = max(touching.get(label, 0.0), pen)
             n = (nx, ny, nz)
             r = (-nx * R, -ny * R, -nz * R)
             vc = [vel[i] + cross(omega, r)[i] for i in range(3)]
@@ -231,14 +523,15 @@ def delivery(name, v=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0
             Tq = [Tq[i] + tq[i] for i in range(3)]
             if not touched:
                 touched = True
-                events.append(dict(t=round(t, 4), event="first HUB contact", at=[round(q, 3) for q in p]))
+                events.append(dict(t=round(t, 4), event=f"first HUB contact: {label}", at=[round(q, 3) for q in p]))
+        contacts.step(t, touching)
         vel = [vel[i] + F[i] / mass * dt for i in range(3)]
         omega = [omega[i] + Tq[i] / inertia * dt for i in range(3)]
         prev = p[2]
         p = [p[i] + vel[i] * dt for i in range(3)]
         t += dt; step += 1
-        if step % 20 == 0:
-            frames.append([round(t, 4), round(p[0], 4), round(p[1], 4), round(p[2], 4)])
+        if step % round(every * 1e-4 / dt) == 0:
+            frames.append([round(t, 4), round(p[0], 5), round(p[1], 5), round(p[2], 5)])
         if prev >= sensor > p[2] and in_hex(p[0], p[1]) and scored is None:
             scored = round(t, 4)
             events.append(dict(t=scored, event="FUEL crosses the HUB sensor plane inside the opening: scored"))
@@ -246,18 +539,23 @@ def delivery(name, v=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0
         if p[2] < 0.2 and not in_hex(p[0], p[1]):
             events.append(dict(t=round(t, 4), event="FUEL on the carpet outside the HUB: missed"))
             break
+    if frames[-1][0] != round(t, 4):
+        frames.append([round(t, 4), round(p[0], 5), round(p[1], 5), round(p[2], 5)])
     ok = scored is not None
+    elev = math.degrees(math.atan2(release["vz"], -release["vx"]))
     return dict(name=name, kind="delivery", passed=ok,
                 metric=dict(name="scored at sensor (s)", value=scored, requirement="cross the sensor plane inside the opening"),
                 firstUnmet=None if ok else "did not reach the sensor plane inside the opening",
-                imposed=f"release state from the layout hood exit: {v} m/s at {elevation} deg with spin ratio 1 (designed, not measured)",
+                imposed=f"start from {release_note}: {v:.3f} m/s at {elev:.2f} deg, spin ratio {release['w'] * R / v0:.3f}"
+                        + ("" if speed is None else " (speed and spin rescaled together; point and direction held)"),
                 solved="free FUEL translation and spin under drag, spin lift and penalty contact with the HUB",
-                params=dict(v=v, cd=cd, cl=cl, k=k, zeta=zeta, mu=mu, mass=mass, dt=dt, elevationDeg=elevation, sensorZ=sensor),
-                hub=dict(center=HUB, half=HALF, hex=HEX), events=events, frames=frames)
+                params=dict(v=round(v, 4), cd=cd, cl=cl, k=k, zeta=zeta, mu=mu, mass=mass, dt=dt, elevationDeg=round(elev, 3), sensorZ=sensor,
+                            release=[round(q, 5) for q in (release["x"], D.TRACK_Y * MM, release["z"])]),
+                hub=dict(center=HUB, half=HALF, hex=HEX), contacts=contacts.result(), events=events, frames=frames)
 
 
 # ------------------------------------------------------------------ elevation (side view, berth)
-def elevation(name, mass=67.6, cg=(-0.01, 0.28), bus_v=10.0, brake=True, mu_up=0.4, dt=1e-4, t_end=8.0,
+def elevation(name, mass=D.HANG_MASS_KG, cg=(-0.01, 0.28), bus_v=10.0, brake=True, mu_up=0.4, dt=1e-4, t_end=8.0,
               stroke=0.070, i_limit=40.0):
     """Robot rigid body (x, z, pitch) on unilateral wheel and bumper contacts; hooks seated on the low rung pull
     down by a winch with a DC motor line (NEO, 25:1, 12.5 mm spool, both cables), then a brake holds with power
@@ -342,7 +640,7 @@ def elevation(name, mass=67.6, cg=(-0.01, 0.28), bus_v=10.0, brake=True, mu_up=0
         lowest = min(world(px, pz - 0.0381)[1] for px, pz in wheels)
         bumper_low = min(world(px, pz)[1] - (0.008 if world(px, pz)[0] >= 0.4179 else 0.0) for px, pz in bumper_pts)
         clear = min(lowest, bumper_low)
-        if step % 50 == 0:
+        if step % round(100 * 1e-4 / dt) == 0:
             frames.append([round(t, 4), round(x, 5), round(z, 5), round(th, 5), round(s, 5), round(T, 1)])
         if t_hold is not None and t >= t_hold:
             min_clear = clear if min_clear is None else min(min_clear, clear)
@@ -356,37 +654,130 @@ def elevation(name, mass=67.6, cg=(-0.01, 0.28), bus_v=10.0, brake=True, mu_up=0
                 firstUnmet=None if ok else ("stroke never completed" if t_hold is None else "robot touches the carpet or TOWER BASE during assessment"),
                 imposed="winch follows a DC motor line (NEO, 25:1, 12.5 mm spool) at the stated bus voltage and current limit",
                 solved="robot translation and pitch with unilateral wheel, bumper, upright and hook contacts",
-                limits="Side view: both hooks and both uprights act in one plane. The 6.4 mm lateral bumper-to-upright overlap and any roll are not represented (open F4).",
+                limits="Side view: both hooks and both uprights act in one plane. The 23.9 mm lateral bumper-to-upright overlap and any roll are not represented (gate G3).",
+                cable=dict(liftPeakN=max((f[5] for f in frames if t_hold is None or f[0] <= t_hold), default=None),
+                           holdN=None if t_hold is None else [min(f[5] for f in frames if f[0] > t_hold + 0.2), max(f[5] for f in frames if f[0] > t_hold + 0.2)],
+                           note="Cable load summed over both hooks: the peak while the winch lifts, and the range once the brake holds"),
                 params=dict(mass=mass, cg=cg, busV=bus_v, brake=brake, muUpright=mu_up, dt=dt, stroke=stroke, currentLimitA=i_limit,
                             stallForceN=f_stall12, freeSpeedMps=v_free12, wheelK=kw, hookK=kh),
                 rung=rung, uprightX=upright_x, events=events, frames=frames)
 
 
-def main():
+def state(final):
+    return {q: final[q] for q in ("x", "z", "vx", "vz", "w")}
+
+
+def at_rest(final, dx=0.0):
+    s = state(final)
+    s.update(x=s["x"] + dx, vx=0.0, vz=0.0, w=0.0)
+    return s
+
+
+CLEAT_AS_DRAWN = (0.218057, 0.226057, 0.1105, 0.187057)  # the earlier belt cleat this revision removes (x0, x1, z0, z1)
+RESERVE_PINCH = -2 * D.GAP                               # the earlier pinch: 3 mm clear of the FUEL on the wheel and on the hood
+CORNERS = [(0.35, 0.0), (0.35, 0.30), (0.60, 0.0), (0.60, 0.30)]  # the drag and spin-lift corners of ballistics.py
+SPEEDS = [6.40, 6.55, 6.70, 6.85, 7.00, 7.15, 7.30, 7.45, 7.60]
+
+
+def run_trials():
+    fine = dict(every=10)  # 1 ms frames and contact rows for the four traces the layout's FUEL cases are fitted to
+    acq = acquisition("acquire-nominal", **fine)
+    capture = state(acq["final"])
+    slow = acquisition("acquire-belt-2.5mps", u=2.5)
+    # The entry runs at half the others' timestep: its rest time is not converged at 1e-4 s.
+    entry = hopper_entry("entry-nominal", capture, dt=5e-5, **fine)
+    seat = at_rest(entry["final"])  # the FUEL waits in the seat through the loaded transit
+    rel = launch("launch-nominal", seat)["released"]
+    assert acq["passed"] and entry["passed"] and rel, "the nominal chain must reach a release"
+    # A release speed scores only if it scores at the nominal drag and spin lift and at all four corners.
+    scan = {v: delivery(f"deliver-{v:.2f}", rel, speed=v) for v in SPEEDS}
+    rows = []
+    for v in SPEEDS:
+        corners = {f"cd{cd}-cl{cl}": delivery("corner", rel, speed=v, cd=cd, cl=cl)["passed"] for cd, cl in CORNERS}
+        rows.append(dict(speedMps=v, nominal=scan[v]["passed"], corners=corners, scores=scan[v]["passed"] and all(corners.values())))
+    near = min(range(len(rows)), key=lambda i: abs(rows[i]["speedMps"] - rel["speedMps"]))
+    assert rows[near]["scores"], "the nominal release speed does not score at every drag and spin corner"
+    lo = hi = near
+    while lo > 0 and rows[lo - 1]["scores"]:
+        lo -= 1
+    while hi < len(rows) - 1 and rows[hi + 1]["scores"]:
+        hi += 1
+    band = [rows[lo]["speedMps"], rows[hi]["speedMps"]]
+    lch = launch("launch-nominal", seat, band=band, **fine)
+    rel = lch["released"]
+
+    def rest(**kw):
+        return at_rest(hopper_entry("x", capture, **kw)["final"])
+    wedged, pressed = rest(belt=D.FLOOR_BELT_MPS), rest(belt=0.05)
+    bouncy = hopper_entry("entry-contact-damping-0.10", capture, zeta=0.10)
     trials = [
-        acquisition("acquire-nominal"),
+        acq,
         acquisition("acquire-belt-locked (cause isolation)", locked=True),
         acquisition("acquire-low-friction-light-compression (adverse)", mu_belt=0.5, comp_back=0.010, comp_pulley=0.010),
         acquisition("acquire-nominal-half-step", dt=5e-5),
         acquisition("acquire-belt-friction-0.7", mu_belt=0.7),
         acquisition("acquire-belt-friction-0.5", mu_belt=0.5),
+        acquisition("acquire-bumper-friction-0.3", mu_bumper=0.3),
+        acquisition("acquire-bumper-friction-0.2", mu_bumper=0.2),
         acquisition("acquire-compression-15mm", comp_back=0.015, comp_pulley=0.015),
         acquisition("acquire-compression-10mm", comp_back=0.010, comp_pulley=0.010),
         acquisition("acquire-compression-17.5mm", comp_back=0.0175, comp_pulley=0.0175),
         acquisition("acquire-compression-25mm", comp_back=0.025, comp_pulley=0.025),
-        acquisition("acquire-belt-2.5mps", u=2.5),
+        slow,
         acquisition("acquire-belt-2.0mps", u=2.0),
         acquisition("acquire-belt-1.5mps", u=1.5),
         acquisition("acquire-approach-1.0mps", v_robot=1.0),
-        delivery("deliver-nominal"),
-        delivery("deliver-slow-6.70 (adverse)", v=6.70),
-        delivery("deliver-strong-spin-CL0.30 (adverse)", cl=0.30),
-        delivery("deliver-stiff-contact-30k (sensitivity)", k=30000.0),
-        delivery("deliver-nominal-half-step", dt=5e-5),
-        delivery("deliver-6.40", v=6.40),
-        delivery("deliver-6.55", v=6.55),
-        delivery("deliver-7.10", v=7.10),
-        delivery("deliver-7.30", v=7.30),
+        entry,
+        hopper_entry("entry-nominal-half-step", capture, dt=2.5e-5),
+        hopper_entry("entry-nominal-double-step", capture, dt=1e-4),
+        hopper_entry("entry-released-at-rest-behind-the-lip (cause isolation)", dict(x=0.236, z=0.109 + R, vx=0.0, vz=0.0, w=0.0),
+                     start_note="a FUEL set down at rest behind the lip, without the intake's capture velocity"),
+        hopper_entry("entry-floor-belt-running-0.6 (adverse)", capture, belt=D.FLOOR_BELT_MPS),
+        hopper_entry("entry-floor-belt-running-0.2", capture, belt=0.2),
+        hopper_entry("entry-floor-belt-running-0.05", capture, belt=0.05),
+        hopper_entry("entry-superseded-cleat (control)", capture, cleat=CLEAT_AS_DRAWN),
+        hopper_entry("entry-superseded-3mm-reserve-pinch (control)", capture, squeeze=RESERVE_PINCH),
+        hopper_entry("entry-from-2.5mps-intake-belt", state(slow["final"]), start_note="the acquire-belt-2.5mps capture state"),
+        hopper_entry("entry-rolling-resistance-0.01", capture, crr=0.01),
+        hopper_entry("entry-rolling-resistance-0.20", capture, crr=0.20),
+        hopper_entry("entry-belt-friction-0.5", capture, mu_belt=0.5),
+        hopper_entry("entry-contact-damping-0.20", capture, zeta=0.20),
+        bouncy,
+        lch,
+        launch("launch-nominal-half-step", seat, band=band, dt=5e-5),
+        launch("launch-no-back-off (control)", seat, band=band, back_mps=0.0),
+        launch("launch-no-back-off-seat-0.5mm-aft", at_rest(entry["final"], -0.0005), band=band, back_mps=0.0,
+               start_note="the entry-nominal seat moved 0.5 mm along the belt toward the flywheel, at rest"),
+        launch("launch-no-back-off-seat-1.0mm-aft", at_rest(entry["final"], -0.0010), band=band, back_mps=0.0,
+               start_note="the entry-nominal seat moved 1.0 mm along the belt toward the flywheel, at rest"),
+        launch("launch-from-pressed-seat-no-back-off (cause isolation)", pressed, band=band, back_mps=0.0,
+               start_note="the entry-floor-belt-running-0.05 rest, pressed 3.2 mm into the stopped flywheel"),
+        launch("launch-from-pressed-seat", pressed, band=band,
+               start_note="the entry-floor-belt-running-0.05 rest, pressed 3.2 mm into the stopped flywheel"),
+        launch("launch-from-wedged-seat (adverse)", wedged, band=band,
+               start_note="the entry-floor-belt-running-0.6 rest, wedged in the pinch"),
+        launch("launch-from-forward-seat", at_rest(bouncy["final"]), band=band,
+               start_note="the entry-contact-damping-0.10 rest, forward of the flywheel"),
+        launch("launch-belt-stopped-feed (cause isolation)", seat, band=band, feed_mps=0.0, t_end=3.5),
+        launch("launch-spin-up-0.5s", seat, band=band, spin_s=0.5),
+        launch("launch-squeeze-6mm", seat, band=band, squeeze=6.0),
+        launch("launch-squeeze-8mm", seat, band=band, squeeze=8.0),
+        launch("launch-squeeze-16mm", seat, band=band, squeeze=16.0),
+        launch("launch-squeeze-20mm", seat, band=band, squeeze=20.0),
+        launch("launch-wheel-friction-0.5", seat, band=band, mu_wheel=0.5),
+        launch("launch-wheel-friction-0.3", seat, band=band, mu_wheel=0.3),
+        launch("launch-contact-stiffness-7.5k", seat, band=band, k=7500.0),
+        launch("launch-contact-stiffness-10k", seat, band=band, k=10000.0),
+        launch("launch-contact-stiffness-30k", seat, band=band, k=30000.0),
+        launch("launch-wheel-13.0mps", seat, band=band, wheel_mps=13.0),
+        launch("launch-wheel-13.1mps", seat, band=band, wheel_mps=13.1),
+        launch("launch-wheel-13.6mps", seat, band=band, wheel_mps=13.6),
+        launch("launch-wheel-13.8mps", seat, band=band, wheel_mps=13.8),
+        delivery("deliver-nominal", rel, **fine),
+        delivery("deliver-nominal-half-step", rel, dt=5e-5),
+        *[delivery(f"deliver-corner-cd{cd}-cl{cl}", rel, cd=cd, cl=cl) for cd, cl in CORNERS],
+        delivery("deliver-stiff-contact-30k (sensitivity)", rel, k=30000.0),
+        *[scan[v] for v in SPEEDS],
         elevation("hang-nominal"),
         elevation("hang-no-brake (disabled control)", brake=False),
         elevation("hang-weak-battery-8V-low-upright-friction (adverse)", bus_v=8.0, mu_up=0.2),
@@ -397,31 +788,75 @@ def main():
         elevation("hang-current-limit-10A", i_limit=10.0),
         elevation("hang-current-limit-8A", i_limit=8.0),
     ]
-    layout = HERE / "layout.json"
-    out = dict(schema="frc-2026-poc/field-trials@1", issue="R3-PD2",
-               layout={"file": "experiments/preliminary-design/layout.json", "sha256": sha(layout)},
-               rules={"file": "experiments/preliminary-design/construction-rules.json", "sha256": sha(HERE / "construction-rules.json")},
-               solver="Semi-implicit Euler; penalty normal contact k with damping ratio zeta; Coulomb friction regularized at 0.01 m/s",
-               scenarioNotes=[
-                   "Acquisition: side view at the front bumper; compression of the belt and pulley is the detailed setting the layout reserves as 3 mm undeformed.",
-                   "Delivery: release state from the layout's hood exit at the 2.7 m shot pose; HUB body, top plate and cavity from V0 dimensions; the sensor plane at 1.50 m inside the opening is an assumption (V0 does not locate it).",
-                   "Elevation: rung centred in the upright depth (V0), uprights 5 mm ahead of the bumper, TOWER BASE edge 0.4 mm ahead of the bumper face.",
-                   "Contact stiffness, damping and friction are estimates, not measured; the FUEL release speed and spin are designed, not measured."],
-               trials=trials)
+    for tr in trials:
+        tr.pop("released", None)
+    chain = dict(capture={q: round(v, 6) for q, v in capture.items()}, seat={q: round(v, 6) for q, v in seat.items()},
+                 release={q: round(v, 6) for q, v in rel.items()}, scoringBandMps=band, scoringScan=rows,
+                 note="acquire-nominal ends at capture; entry-nominal starts there and ends at the seat; launch-nominal starts at the seat "
+                      "(at rest) and ends at release; deliver-nominal starts at that release. A release speed counts as scoring only if the "
+                      "delivery scores at the nominal drag and spin lift (Cd 0.47, CL 0.15) and at all four corners (Cd 0.35 and 0.60, CL 0 and "
+                      "0.30). The scoring band is the contiguous run of such speeds in the 0.15 m/s scan around the nominal release.")
+    return trials, chain
+
+
+SOLVER = ("Semi-implicit Euler; penalty normal contact k with damping ratio zeta; Coulomb friction regularized at 0.01 m/s; "
+          "rolling resistance couple crr N R in the hopper lane")
+NOTES = [
+    "Acquisition: side view at the front bumper. The belt back run, bottom pulley and top roller stand at the squeeze the layout draws (dimensions.py); variants bracket it.",
+    "Hopper entry: side view of the floor lane from the capture state to rest. Floor belts and flywheel are stopped in the nominal; the bumper top, front rail, lip, belts, floor pan, stopped flywheel and hood are the layout's surfaces. One FUEL in an empty lane; neighbours are not represented.",
+    "Launch: the same lane. The belt backs the seated FUEL off the stopped wheel, the wheel spins up with the belt stopped, then the belt feeds. Belt and wheel speeds are imposed; the wheel does not slow under load in the model. The hood is a surface without thickness, and a run ends when the FUEL passes its end.",
+    "Scoring band: a release speed counts only if the delivery scores at the nominal drag and spin lift and at all four drag and spin corners (chain.scoringScan).",
+    "Delivery: starts from the launch trial's release state at the 2.7 m shot pose; HUB body, top plate and cavity from V0 dimensions; the sensor plane at 1.50 m inside the opening is an assumption (V0 does not locate it).",
+    "Elevation: rung centred in the upright depth (V0), uprights 5 mm ahead of the bumper, TOWER BASE edge 0.4 mm ahead of the bumper face.",
+    "Contact stiffness, damping, friction and rolling resistance are estimates, not measured. No FUEL force-deflection curve is available, so every indentation here is a model result, not a material limit."]
+
+
+def render_player(out, path, release=False):
+    """Write the self-contained player. The release copy carries the plugin's CSP and the work-in-progress label."""
+    page = (HERE / "field-interaction-template.html").read_text(encoding="utf-8")
+    if release:
+        csp = ("<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; "
+               "style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; base-uri 'none'; form-action 'none'\">")
+        label = ('<body><p class="wip-label" style="margin:0;padding:.4rem 1rem;background:#ffd078;color:#142f63;font-weight:700">'
+                 "Work-in-progress preliminary design</p>")
+        assert page.count("<head>") == 1 and page.count("<body>") == 1
+        page = page.replace("<head>", csp).replace("<body>", label)
+    page = page.replace("TRIAL_DATA", json.dumps(out, separators=(",", ":")).replace("<", "\\u003c"))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(page, encoding="utf-8", newline="\n")
+
+
+def player_data(trials_file, rel):
+    """The trace file plus its own pin, as the player embeds it. rel is the trace's project-relative name."""
+    out = json.loads(trials_file.read_text(encoding="utf-8"))
+    out["trace"] = {"file": rel, "sha256": sha(trials_file)}
+    return out
+
+
+def main():
+    trials, chain = run_trials()
+    out = dict(schema="frc-2026-poc/field-trials@2", issue="R3-PD2",
+               dimensions={"file": "dimensions.py", "sha256": sha(HERE / "dimensions.py")},
+               rules={"file": "construction-rules.json", "sha256": sha(HERE / "construction-rules.json")},
+               solver=SOLVER, scenarioNotes=NOTES, chain=chain, trials=trials)
     text = json.dumps(out, separators=(",", ":"))
     (HERE / "field-trials.json").write_text(text + "\n", encoding="utf-8", newline="\n")
-    out["trace"] = {"file": "experiments/preliminary-design/field-trials.json", "sha256": sha(HERE / "field-trials.json")}
-    template = (HERE / "field-interaction-template.html").read_text(encoding="utf-8")
-    page = template.replace("TRIAL_DATA", json.dumps(out, separators=(",", ":")).replace("<", "\\u003c"))
-    (HERE / "review" / "field-interaction.html").write_text(page, encoding="utf-8", newline="\n")
+    render_player(player_data(HERE / "field-trials.json", "experiments/preliminary-design/field-trials.json"), HERE / "review" / "field-interaction.html")
     for tr in trials:
         print(f"{tr['name']:58s} {'PASS' if tr['passed'] else 'FAIL'}  {tr['metric']['name']}={tr['metric']['value']}  {tr.get('firstUnmet') or ''}")
         if tr["kind"] == "acquisition":
             print("   ", tr["beltDemand"])
+        if tr["kind"] in ("entry", "launch", "acquisition", "delivery"):
+            print("    peak indentation mm", {k: max(r[2] for r in v) for k, v in tr["contacts"].items()})
+        if tr["kind"] == "entry":
+            print("   ", tr["seat"], [e["event"] for e in tr["events"]])
+        if tr["kind"] == "launch":
+            print("   ", tr["release"], tr["schedule"])
         if tr["kind"] == "delivery":
             print("   ", [e["event"] + " " + str(e.get("at", "")) for e in tr["events"]])
         if tr["kind"] == "elevation":
             print("    max pitch deg", round(max(abs(f[3]) for f in tr["frames"]) * 57.3, 2), "peak cable N", max(f[5] for f in tr["frames"]), [e["event"] for e in tr["events"]])
+    print("chain", json.dumps(chain))
 
 
 if __name__ == "__main__":

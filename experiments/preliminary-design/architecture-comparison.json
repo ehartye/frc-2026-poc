@@ -3,7 +3,7 @@
   "issue": "R3-PD2",
   "decision": "Select R3, the tall floor-fed hooded-flywheel robot, on the carried-forward 680 mm swerve foundation. Switch to R3L if the BUMP crossing premise (F5) fails.",
   "decidedBy": "Whole-robot preliminary designer under delegated owner authority; students may reopen it with the listed evidence",
-  "commonConditions": "Same frame (680 mm long; R3-PD2 widens it to 714 mm), four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.44 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
+  "commonConditions": "Same frame (680 mm long; R3-PD2 widens it to 714 mm), four MAXSwerve corners at +/-265 mm along and +/-282 mm across the frame, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.43 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
   "candidates": [
     {
       "id": "A",
@@ -28,18 +28,19 @@
       "id": "B",
       "name": "R3 tall floor-fed hood shooter (selected)",
       "evidence": [
-        "design/preliminary/receipt.json",
-        "design/preliminary/budgets.json",
-        "design/preliminary/package-facts.json",
-        "design/preliminary/measurements.json"
+        "experiments/preliminary-design/receipt.json",
+        "experiments/preliminary-design/budgets.json",
+        "experiments/preliminary-design/package-facts.json",
+        "experiments/preliminary-design/measurements.json",
+        "experiments/preliminary-design/field-trials.json"
       ],
-      "custody": "Three handoffs (belt pinch on the bumper face, floor belt, flywheel pinch). The tracked FUEL passes 18 checked cycle cases from carpet to HUB cavity.",
-      "shot": "Release 0.236 m at 62 deg, 2.44 m from the HUB centre. Nominal band 6.74-7.03 m/s (Cd 0.47, CL 0.15); 6.82-6.96 m/s enters under all four drag and spin corners. 6.88 m/s clears the rim edges by 87 mm. No robust band closer than 2.4 m, so the delivery pose moves to 2.7 m.",
-      "massKg": "R103 35.6-47.8 kg against 52.16 (4.36 kg reserve); at most 55.3 with bumpers against R408's 61.23; running 51.5-67.6 kg.",
+      "custody": "Three handoffs (belt pinch on the bumper face, floor belt, flywheel pinch). The tracked FUEL passes 36 checked cycle cases from carpet to HUB cavity; its 28 strokes are fitted within 1.5 mm to the solved acquisition, entry, launch and delivery trials.",
+      "shot": "The launch trial releases at 0.267 m, 6.86 m/s and 61.9 deg, 2.43 m from the HUB centre, from a 13.4 m/s wheel surface and a 12 mm wheel-to-hood squeeze. Delivery trials from that state score from 6.70 to 7.00 m/s at every drag and spin corner. The point-mass screen at that release gives 6.68-6.99 m/s nominal and 6.76-6.93 m/s under all four drag and spin corners. No robust band closer than 2.4 m, so the delivery pose moves to 2.7 m.",
+      "massKg": "R103 37.2-50.4 kg against 52.16 (1.76 kg reserve); at most 57.9 with bumpers against R408's 61.23; running 53.1-70.2 kg.",
       "voltage": "Weak-pack minimum 7.66 V in loaded transit against 7.5 V required; launch 8.34 V against 8.0 V.",
-      "packaging": "All 18 cycle cases and 2 service withdrawals pass; displaced-hood control rejected. Swept through every case: 750 mm tall, front extension 270.6 mm, no rear or side extension, one side at a time, no start overhang.",
-      "capacity": "Free volume gives 37.7-46.1 FUEL at 0.45-0.55 packing.",
-      "loads": "Hang at 67.6 kg: about 332 N per hook and about 610 N bumper-to-upright reaction, now on 23.9 mm of overlap per upright with the 714 mm frame; the side-view hang trial holds 37.8 mm (gate G3).",
+      "packaging": "All 36 cycle cases and 2 service withdrawals pass; displaced-hood control rejected. Swept through every case: 750 mm tall, front extension 244.6 mm, no rear or side extension, one side at a time, no start overhang. The shooter withdrawal is checked with the floor lane empty.",
+      "capacity": "Free volume gives 37.7-46.0 FUEL at 0.45-0.55 packing.",
+      "loads": "Hang at 70.3 kg: about 345 N per hook and about 634 N bumper-to-upright reaction, on 23.9 mm of overlap per upright with the 714 mm frame; the side-view hang trial holds 37.5 mm (gate G3).",
       "fieldAccess": "Own zone; BUMP crossing screen gives 8.7 mm least clearance (front bumper corner) and 24.3 mm at the belly with the 100 mm floor (gate G6).",
       "givesUp": "TRENCH passage and a higher release point."
     },
@@ -47,17 +48,17 @@
       "id": "C",
       "name": "R3L low trench-runner, same allocation under 535 mm",
       "evidence": [
-        "design/preliminary/package-facts.json"
+        "experiments/preliminary-design/package-facts.json"
       ],
       "custody": "Same three handoffs as B.",
-      "shot": "Same floor-fed hood; release 49 mm lower.",
+      "shot": "Same floor-fed hood; release 68 mm lower.",
       "massKg": "About 1 kg lighter than B (shorter walls and tubes).",
       "voltage": "As B.",
       "packaging": "Hook top 534 mm passes the 565.15 mm TRENCH with 31 mm. Its climber needs about a 200 mm telescoping raise before the swing, one more motion than B.",
-      "capacity": "Free volume 110.0 L deployed: 28.0-34.2 FUEL at 0.45-0.55 packing. Meets 24 with less margin.",
+      "capacity": "Free volume 115.7 L deployed: 29.4-35.9 FUEL at 0.45-0.55 packing. Meets 24 with less margin.",
       "loads": "As B.",
       "fieldAccess": "Own zone plus both TRENCHES; no BUMP crossing (26 mm belly).",
-      "givesUp": "About 9-11 FUEL of capacity, one climber motion and the BUMP crossing option."
+      "givesUp": "About 8-10 FUEL of capacity, one climber motion and the BUMP crossing option."
     },
     {
       "id": "D",
@@ -95,7 +96,7 @@
     "sensitivity": "B leads C on capacity margin and one fewer climber motion. C's TRENCH access is geometric fact, while B's neutral-zone access rests on a 4 mm BUMP breakover margin. If F5 fails, rank C first on risk and select it.",
     "releaseHeightTradeoff": "A 0.60-0.70 m release (a vertical kicker into a top flywheel) still enters from 2.0 m, so it keeps the rehearsed 2.16 m delivery pose at the cost of one more transfer. Choose it if the reopened rehearsal shows the 2.7 m pose costs more cycle time than that transfer risks."
   },
-  "capacityMethod": "free_volume() subtracts every robot solid from the walled hopper envelope with exact booleans and divides by the FUEL volume at 0.45-0.55 packing (wall effects at a container-to-piece ratio near 4). A rigid stacked lattice (capacity()) finds only 10 in both variants and is reported as a lower bound, not a decision measure. Neither is a dynamic fill.",
+  "capacityMethod": "free_volume() subtracts every robot solid from the walled hopper envelope with exact booleans and divides by the FUEL volume at 0.45-0.55 packing (wall effects at a container-to-piece ratio near 4). A rigid stacked lattice (capacity()) finds only 8 in R3 and 7 in R3L and is reported as a lower bound, not a decision measure. Neither is a dynamic fill.",
   "invalidates": [
     "cad/own-zone-upper (R2C intake, elevator shelves, hopper, diverter and scoring wheels): superseded for detailing",
     "cad/tower-lift and the experiments/tower-climb head-support, brake and mast studies (R2C-T1 screw lift): retained as history, not carried into R3",
@@ -103,7 +104,7 @@
     "kickoff field rehearsal delivery steps at about 2.16 m from the HUB centre: R3 delivers from 2.7 m (delivery-pose premise reopens conceptual design)"
   ],
   "carriedForward": [
-    "680 x 680 mm frame outline and rails, module saddles at +/-265 mm and their supplier-fit checks (provisional until the R3 mounts are drawn)",
+    "680 mm frame length and rails, module saddles at +/-265 mm along the frame (the 714 mm width moves them to +/-282 mm across, to be redrawn) and their supplier-fit checks (provisional until the R3 mounts are drawn)",
     "Bumper zone 48-168 mm and 76 mm section"
   ],
   "mostLikelyInvalidatingPremise": {

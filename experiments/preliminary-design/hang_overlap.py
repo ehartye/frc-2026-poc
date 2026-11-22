@@ -38,7 +38,7 @@ def table(half_w):
 
 if __name__ == "__main__":
     out = dict(schema="frc-2026-poc/hang-overlap@1",
-               basis="Plan view at the berth. Both uprights must bear on the front bumper so the hang moment (about 610 N horizontal at 67.6 kg) is shared; a yawed robot closes its trailing gap only by bumper compliance or a further yaw correction.",
+               basis="Plan view at the berth. Both uprights must bear on the front bumper so the hang moment (about 634 N horizontal at 70.3 kg) is shared; a yawed robot closes its trailing gap only by bumper compliance or a further yaw correction.",
                r3pd1_680mm=table(340 + 76.5), r3pd2_714mm=table(357 + 76.5))
     (HERE / "hang-overlap.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8", newline="\n")
     for k in ("r3pd1_680mm", "r3pd2_714mm"):

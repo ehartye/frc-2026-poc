@@ -1,9 +1,9 @@
 """Labeled representative solids for the R3 preliminary package, in the robot STEP frame.
 
 Robot frame: origin on the carpet at the frame center, +X forward (intake), +Y left, +Z up, millimetres.
-Every dimension below is a preliminary allocation, not a fabrication dimension. Variant "R3" is the
-selected tall floor-fed robot. Variant "R3L" lowers the same arrangement under the TRENCH for the
-capacity comparison only.
+Every dimension is a preliminary allocation, not a fabrication dimension, and comes from dimensions.py, which the
+physics trials read too. Variant "R3" is the selected tall floor-fed robot. Variant "R3L" lowers the same
+arrangement under the TRENCH for the capacity comparison only.
 """
 import math
 
@@ -12,19 +12,13 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace, BRepBuilderAPI_MakePolyg
 from OCP.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeCylinder, BRepPrimAPI_MakePrism, BRepPrimAPI_MakeSphere
 from OCP.TopAbs import TopAbs_SOLID
 from OCP.TopExp import TopExp_Explorer
-from OCP.gp import gp_Ax1, gp_Ax2, gp_Dir, gp_Pnt, gp_Trsf, gp_Vec
+from OCP.gp import gp_Ax2, gp_Dir, gp_Pnt, gp_Trsf, gp_Vec
 
-R_BALL = 150.114 / 2
-GAP = 3.0
-HALF_W = 357.0       # frame half-width in Y: a 714 mm wide, 680 mm long frame (2788 mm perimeter of 2794)
-DY = HALF_W - 340.0  # outboard shift of every side feature relative to the 680 mm square foundation            # undeformed reserve between a moving FUEL and the surfaces that guide it
-FLYWHEEL_R = 50.8    # 4 in flywheel
-EXIT_DEG = 62        # release elevation from the hood end
-VARIANTS = {
-    # floor: top of the hopper floor pan; wall: hopper wall top; hook: hook arm top (stowed)
-    "R3": dict(floor=100.0, wall=715.0, hook=750.0, label="Tall floor-fed robot (selected)"),
-    "R3L": dict(floor=32.0, wall=530.0, hook=534.0, label="Low trench-runner comparison"),
-}
+from dimensions import (BUMPER, DY, EXIT_DEG, FLOOR_BELT_FRONT, FLOOR_BELT_MAIN, FLOOR_PAN, FLOOR_TONGUE, FLYWHEEL_R, FRONT_LIP,
+                        FRONT_RAIL, GAP, HALF_W, INTAKE, R_BALL, VARIANTS, frame_constants, intake_points)
+
+BATTERY_CLEATS = {"battery retention cleat aft": ((-100.0, 255.0, 101.5), (-91.5, 327.0, 200.0)),
+                  "battery retention cleat fore": ((78.5, 255.0, 101.5), (80.5, 327.0, 200.0))}
 
 
 def single(shape):
@@ -80,49 +74,6 @@ def hexagon_prism(cx, cy, circumradius, z0, z1):
     return BRepPrimAPI_MakePrism(face, gp_Vec(0, 0, z1 - z0)).Shape()
 
 
-def bar_xz(p, q, half, y0, y1):
-    """Straight plate between two XZ points with a given half-width, extruded in Y."""
-    dx, dz = q[0] - p[0], q[1] - p[1]
-    n = math.hypot(dx, dz)
-    ox, oz = -dz / n * half, dx / n * half
-    ex, ez = dx / n * half, dz / n * half
-    return prism_xz([(p[0] + ox - ex, p[1] + oz - ez), (q[0] + ox + ex, q[1] + oz + ez),
-                     (q[0] - ox + ex, q[1] - oz + ez), (p[0] - ox - ex, p[1] - oz - ez)], y0, y1)
-
-
-def rotate(shape, origin, axis, deg):
-    t = gp_Trsf(); t.SetRotation(gp_Ax1(gp_Pnt(*origin), gp_Dir(*axis)), math.radians(deg))
-    return BRepBuilderAPI_Transform(shape, t, True).Shape()
-
-
-def frame_constants(variant):
-    v = VARIANTS[variant]
-    belt_top = v["floor"] + 9.0
-    z0 = belt_top + GAP + R_BALL                       # lower-layer FUEL center on the floor belts
-    rc = FLYWHEEL_R + R_BALL + GAP                     # FUEL center radius around the flywheel axis
-    c = (-150.0, z0 + rc)                              # flywheel axis (X, Z); the FUEL enters directly below it
-    hood_in = FLYWHEEL_R + 2 * R_BALL + 2 * GAP
-    a = math.radians(-90 - EXIT_DEG - 0.0)
-    exit_alpha = -(90 + 90 - (90 - EXIT_DEG))          # -150 deg for a 60 deg release
-    ea = math.radians(exit_alpha)
-    exit_point = (c[0] + rc * math.cos(ea), c[1] + rc * math.sin(ea))
-    return dict(v, belt_top=belt_top, z0=z0, rc=rc, c=c, hood_in=hood_in, hood_out=hood_in + 4,
-                exit_alpha=exit_alpha, exit_point=exit_point, pitch=2 * R_BALL + 4)
-
-
-# Intake in the deployed (installed STEP) pose. A vertical belt pinches the FUEL against the front bumper face
-# and lifts it; a top roller pushes it aft over the bumper. A two-stage slide translates the whole carriage.
-INTAKE = dict(shift=(280.0, 0.0, -62.0), half_width=258.0, plate_y=(262.0, 272.0), rail_y=(274.0, 282.0),
-              belt_bottom=156.0, belt_top=320.0, belt_depth=37.0, climb_top=270.0, roller_r=38.1)
-
-
-def intake_points():
-    ball_x = 417.5 + GAP + R_BALL                      # FUEL centre while it climbs the bumper face
-    belt_x = ball_x + R_BALL + GAP                     # belt face
-    roller = (ball_x, INTAKE["climb_top"] + R_BALL + GAP + INTAKE["roller_r"])
-    return dict(ball_x=ball_x, belt_x=belt_x, roller=roller)
-
-
 def robot_bodies(variant="R3", intake_stowed=False):
     """Return {name: (shape, group)} for one variant in its installed pose."""
     k = frame_constants(variant)
@@ -133,13 +84,13 @@ def robot_bodies(variant="R3", intake_stowed=False):
         B[name] = (single(shape), group)
 
     # Frame rails (2 x 1 in tube allocation) split so that bounding-box culling works.
-    add("frame rail front", box((314.6, -338 - DY, 69.85), (340, 338 + DY, 120.65)), "frame")
+    add("frame rail front", box((FRONT_RAIL["x0"], -338 - DY, FRONT_RAIL["z0"]), (FRONT_RAIL["x1"], 338 + DY, FRONT_RAIL["z1"])), "frame")
     add("frame rail rear", box((-340, -338 - DY, 69.85), (-314.6, 338 + DY, 120.65)), "frame")
     add("frame rail left", box((-313, 314.6 + DY, 69.85), (313, HALF_W, 120.65)), "frame")
     add("frame rail right", box((-313, -HALF_W, 69.85), (313, -314.6 - DY, 120.65)), "frame")
-    add("floor pan", box((-176, -313 - DY, fl - 6), (176, 313 + DY, fl)), "frame")
-    add("floor pan front tongue", box((177.5, -183, fl - 6), (312, 183, fl)), "frame")
-    add("front lip", box((311, -183, 123), (313, 183, 170)), "frame")
+    add("floor pan", box((FLOOR_PAN["x0"], -313 - DY, fl - 6), (FLOOR_PAN["x1"], 313 + DY, fl)), "frame")
+    add("floor pan front tongue", box((FLOOR_TONGUE["x0"], -183, fl - 6), (FLOOR_TONGUE["x1"], 183, fl)), "frame")
+    add("front lip", box((FRONT_LIP["x0"], -183, FRONT_LIP["z0"]), (FRONT_LIP["x1"], 183, FRONT_LIP["z1"])), "frame")
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * INTAKE["rail_y"][0], s * INTAKE["rail_y"][1]))
         add(f"intake slide rail {side}", box((160, y[0], 345), (336, y[1], 480)), "frame")
@@ -156,7 +107,7 @@ def robot_bodies(variant="R3", intake_stowed=False):
             add(f"{fx} {side} module motors", cyl((cx, cy, 127), (0, 0, 1), 32, 88), "drivetrain")
 
     # Bumpers in the bumper zone used by the foundation.
-    add("bumper front", box((341.5, -416 - DY, 48), (417.5, 416 + DY, 168)), "bumpers")
+    add("bumper front", box((BUMPER["x0"], -416 - DY, BUMPER["z0"]), (BUMPER["x1"], 416 + DY, BUMPER["z1"])), "bumpers")
     add("bumper rear", box((-417.5, -416 - DY, 48), (-341.5, 416 + DY, 168)), "bumpers")
     add("bumper left", box((-340, 341.5 + DY, 48), (340, 417.5 + DY, 168)), "bumpers")
     add("bumper right", box((-340, -417.5 - DY, 48), (340, -341.5 - DY, 168)), "bumpers")
@@ -168,15 +119,16 @@ def robot_bodies(variant="R3", intake_stowed=False):
     add("hopper rear wall", box((-96, -314 - DY, k["z0"] + R_BALL + 7), (-93, 314 + DY, wall)), "hopper")
 
     # Floor belts: static envelopes of moving belt surfaces.
-    add("floor belt main", box((-140, -279 - DY, fl + 1.5), (174, 231 + DY, k["belt_top"])), "floor belts")
-    add("floor belt front", box((177.5, -180, fl + 1.5), (300, 180, k["belt_top"])), "floor belts")
+    add("floor belt main", box((FLOOR_BELT_MAIN["x0"], -279 - DY, fl + 1.5), (FLOOR_BELT_MAIN["x1"], 231 + DY, k["belt_top"])), "floor belts")
+    add("floor belt front", box((FLOOR_BELT_FRONT["x0"], -180, fl + 1.5), (FLOOR_BELT_FRONT["x1"], 180, k["belt_top"])), "floor belts")
 
     # Shooter: floor-fed flywheel, hood sector, side plates and motor.
     cx, cz = k["c"]
     add("flywheel", cyl((cx, -170, cz), (0, 1, 0), FLYWHEEL_R, 340), "shooter")
-    a0 = math.radians(k["exit_alpha"] - 1)            # hood ends 1 degree past the release, inside the rear perimeter
+    end_deg, start_deg = k["hood_span_deg"]            # the launch trial rolls the FUEL off this end
+    a0 = math.radians(end_deg)
     xdir = (math.cos(a0), 0, math.sin(a0))
-    span = math.radians(-88 - (k["exit_alpha"] - 1))
+    span = math.radians(start_deg - end_deg)
     outer = cyl((cx, 170, cz), (0, -1, 0), k["hood_out"], 340, xdir, span)
     inner = cyl((cx, 171, cz), (0, -1, 0), k["hood_in"], 342)
     add("hood", cut(outer, inner), "shooter")
@@ -188,6 +140,9 @@ def robot_bodies(variant="R3", intake_stowed=False):
 
     # Battery on its end, left side, withdrawn upward through the open hopper.
     add("battery", box((-90, 236 + DY, fl + 2), (77, 312 + DY, fl + 2 + 181)), "battery")
+    for name, (lo, hi) in BATTERY_CLEATS.items():      # 6061 cleats on the floor pan at the battery's X ends
+        dz = fl - 100.0
+        add(name, box((lo[0], lo[1], lo[2] + dz), (hi[0], hi[1], hi[2] + dz)), "battery retention")
     add("electronics panel", box((-90, -312 - DY, fl + 2), (170, -282 - DY, fl + 182)), "electrical")
     add("electronics panel left", box((82, 282 + DY, fl + 2), (170, 312 + DY, fl + 182)), "electrical")
     add("entry sensor", box((300, -183, 123), (309, -175, 140)), "electrical")
@@ -207,13 +162,16 @@ def robot_bodies(variant="R3", intake_stowed=False):
     # Intake carriage in its deployed pose; the start fold is the same carriage translated back by the slide.
     ip = intake_points()
     hw = INTAKE["half_width"]
-    bx = ip["belt_x"]
+    bx, px, rp = ip["belt_x"], ip["pulley_x"], ip["pulley_r"]
     rx, rz = ip["roller"]
-    pieces = {"intake belt module": box((bx, -hw, INTAKE["belt_bottom"]), (bx + INTAKE["belt_depth"], hw, INTAKE["belt_top"])),
+    # The belt module is the belt's own outline: two pulleys joined by the back and front runs.
+    belt = fuse(box((bx, -hw, ip["bottom_z"]), (ip["front_x"], hw, ip["top_z"])),
+                cyl((px, -hw, ip["bottom_z"]), (0, 1, 0), rp, 2 * hw), cyl((px, -hw, ip["top_z"]), (0, 1, 0), rp, 2 * hw))
+    pieces = {"intake belt module": belt,
               "intake top roller": cyl((rx, -hw, rz), (0, 1, 0), INTAKE["roller_r"], 2 * hw)}
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * INTAKE["plate_y"][0], s * INTAKE["plate_y"][1]))
-        pieces[f"intake carriage plate {side}"] = box((455, y[0], 290), (bx + INTAKE["belt_depth"], y[1], 410))
+        pieces[f"intake carriage plate {side}"] = box((455, y[0], INTAKE["plate_z"][0]), (ip["front_x"], y[1], INTAKE["plate_z"][1]))
     dx, dy, dz = INTAKE["shift"]
     for name, shape in pieces.items():
         if intake_stowed:

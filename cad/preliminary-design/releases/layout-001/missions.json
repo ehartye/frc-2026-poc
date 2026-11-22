@@ -7,7 +7,7 @@
       "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
     },
     {
-      "case": "acquire-drop",
+      "case": "hopper-roll-5",
       "kind": "operating-case",
       "accomplishes": "acquired",
       "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"

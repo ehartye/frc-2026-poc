@@ -9,7 +9,7 @@
       "test": "Bench rig: two floor belts, two pinch lanes and the hood at R3 positions; 24 FUEL loaded as a heap",
       "pass": "At least 22 pinch-sensor crossings within 12 s, with at most one jam, in each of 5 trials",
       "adverse": "30 FUEL with the rig tilted 10 degrees toward a side plate: no jam needs a reversal longer than 0.5 s",
-      "byCalculation": "Two lanes at 0.6 m/s belt and 154 mm spacing feed 7.8 FUEL/s; two flywheel motors recover a 2% speed drop in about 0.03 s",
+      "byCalculation": "At belt speed, two lanes at 0.6 m/s and 154 mm spacing would feed 7.8 FUEL/s. The launch trial's single free FUEL rolls on that belt at 0.22 m/s from rest, which is 1.4 FUEL/s per lane and 2.8 for two lanes against 2.00, so the rate depends on how a stacked batch rides the belt. The launch trial's wheel does 28 J of work per FUEL, which two flywheel motors replace between shots; the speed drop inside one shot is gate G5",
       "onFail": "Rotating indexer or a third lane; reopen the whole-robot comparison if that also fails",
       "phase": "detailed-design"
     },
@@ -18,16 +18,16 @@
       "objective": "Keep possession through loaded driving",
       "test": "Robot loaded with 24 FUEL, ten stops from 3 m/s at 0.5 g and five 0.5 g turns",
       "pass": "At most one FUEL leaves the robot across all runs",
-      "byCalculation": "Front lip 77 mm above a floor FUEL's base exceeds its 75 mm radius; side and rear walls rise above the top layer",
+      "byCalculation": "Front lip 61 mm above the floor belts: by statics a floor FUEL needs about 5.2 g of horizontal deceleration to roll over it; side and rear walls rise above the top layer. The seated FUEL has no forward restraint (gate G7)",
       "onFail": "Passive one-way flap across the intake throat",
       "phase": "detailed-design"
     },
     {
       "id": "G3",
       "objective": "Level 1 hang",
-      "test": "Robot at 70 kg seated at 0, +25 and -25 mm lateral offset; lift 70 mm; remove power for 3 s",
-      "pass": "Hook slip under 5 mm, at least 5 mm clearance to carpet and TOWER BASE throughout, brake holds 1.5 x 663 N",
-      "byCalculation": "hang_overlap.py (plan view): both uprights bear for lateral offsets up to +/-23.9 mm with the 714 mm frame (+/-6.9 mm at 680 mm); 0.5 deg yaw leaves a 7.5 mm trailing gap, so the robot squares against both uprights before lifting. The side-view hang trial holds 37.8 mm with the brake and fails without it.",
+      "test": "Robot at 70.3 kg seated at 0, +25 and -25 mm lateral offset; lift 70 mm; remove power for 3 s",
+      "pass": "Hook slip under 5 mm, at least 5 mm clearance to carpet and TOWER BASE throughout, brake holds 1.5 x 690 N",
+      "byCalculation": "hang_overlap.py (plan view): both uprights bear for lateral offsets up to +/-23.9 mm with the 714 mm frame (+/-6.9 mm at 680 mm); 0.5 deg yaw leaves a 7.5 mm trailing gap, so the robot squares against both uprights before lifting. The side-view hang trial at 70.3 kg holds 37.5 mm with the brake and fails without it. The cable load peaks at 1043 N during the lift and settles at 690 N.",
       "onFail": "Spring latch under the rung or wider frame within the 2794 mm perimeter",
       "phase": "detailed-design"
     },
@@ -36,17 +36,17 @@
       "objective": "Acquisition pinch and belt drive",
       "test": "Bench intake at 17.5, 20 and 25 mm compression, belt driven by the selected motor",
       "pass": "20 of 20 floor FUEL captured within 1.0 s; loaded belt speed stays at or above 2.5 m/s",
-      "byCalculation": "Acquisition physics trials pass at 17.5 mm and 2.5 m/s and fail at 15 mm and 2.0 m/s; peak contact power 786 W at 3 m/s",
+      "byCalculation": "Acquisition physics trials pass at 17.5 mm and 2.5 m/s and fail at 15 mm and 2.0 m/s; bumper friction 0.3 passes and 0.2 fails; peak contact power 786 W at the imposed 3 m/s, above the intake's 30 A supply limit",
       "onFail": "Reselect the belt motor or gearing; revise the pinch",
       "phase": "detailed-design"
     },
     {
       "id": "G5",
       "objective": "Shot calibration at the 2.7 m pose",
-      "test": "Measure exit speed and spin off the hood; shoot 20 FUEL from the 2.7 m pose",
-      "pass": "Measured release inside the 6.78-6.94 m/s robust band at the 6.86 m/s setpoint, and at least 19 of 20 scored",
-      "byCalculation": "Delivery trials score from 6.55 to 7.10 m/s and miss at 6.40 and 7.30 m/s",
-      "onFail": "Adjust the hood angle or flywheel speed control",
+      "test": "Measure exit speed and spin off the hood and the wheel speed through each shot; shoot 20 FUEL from the 2.7 m pose",
+      "pass": "Measured release inside 6.70-7.00 m/s at the 6.86 m/s setpoint through every shot of a 24 FUEL batch, and at least 19 of 20 scored",
+      "byCalculation": "The launch trial releases at 6.86 m/s and 61.9 degrees from a 13.4 m/s wheel surface. Delivery trials from that release state score from 6.70 to 7.00 m/s (plus or minus 2.2%) at the nominal drag and spin lift and at all four corners; 6.55 m/s misses at the high-drag, high-spin corner and 7.15 m/s at both low-drag corners. Launch trials pass at 13.1 and 13.6 m/s wheel surface and fail at 13.0 and 13.8 m/s. The trial holds the wheel speed; its 28 J of wheel work per FUEL is a 6.8% speed drop for a free 0.006 kg m2 wheel, three times the band",
+      "onFail": "Speed feedforward and more flywheel current; adjust the hood end angle. More inertia does not fit the weight reserve: 2% droop needs about 0.020 kg m2, at least 7.7 kg at the rim, against 1.76 kg",
       "phase": "detailed-design"
     },
     {
@@ -56,6 +56,16 @@
       "pass": "No high-centering and no robot part other than wheels and bumpers touches the BUMP",
       "byCalculation": "bump_crossing.py: 8.7 mm least clearance (front bumper corner), 24 mm at the belly over a sharp crest",
       "onFail": "Select R3L and the TRENCH route",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G7",
+      "objective": "Stage the first FUEL and launch it with the flywheel at speed",
+      "test": "Bench lane with the floor belts, flywheel and hood at R3 positions: one FUEL thrown in at the intake's capture velocity with the belts stopped; then back-off, spin-up and feed. Repeat with the FUEL pressed 3 mm into the stopped wheel, and after a 0.5 g stop in each direction",
+      "pass": "With the back-off in the sequence: 10 of 10 FUEL at rest on the belt no more than 1 mm into the stopped wheel, and 10 of 10 released inside 6.70-7.00 m/s with the wheel at speed; wheel-to-hood squeeze between 8 and 16 mm",
+      "adverse": "Floor belt left running during entry: the FUEL must not be fed before the wheel reaches speed",
+      "byCalculation": "Entry trial: at rest against the stopped wheel, 0.02 mm into it, belts stopped; at lower contact damping it rests 7 to 62 mm clear. A belt running at 0.05 m/s or more presses it 3.2 to 5.9 mm in (fail). Launch trials: back-off, spin-up and feed release at 6.86 m/s. Without the back-off a FUEL at rest 0.02 or 0.23 mm into the stopped wheel still scores; at 0.44 mm or 3.2 mm in, the wheel takes it during spin-up and releases near 1.5 m/s (the 0.23/0.44 mm threshold is a penalty-contact property, not a measurement). With the back-off the 3.2 mm seat scores. A FUEL wedged 5.9 mm in is not freed by the back-off. Squeeze 8 and 16 mm pass, 6 and 20 mm fail; wheel friction 0.5 passes, 0.3 fails; contact stiffness 10 and 30 kN/m pass, 7.5 kN/m fails",
+      "onFail": "Add a hold-back (a gate or feeder ahead of the flywheel); that moves the pinch forward and reopens the hopper layout",
       "phase": "detailed-design"
     }
   ]

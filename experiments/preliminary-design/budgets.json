@@ -2,11 +2,11 @@
   "issue": "R3-PD2",
   "step": {
     "file": "experiments/preliminary-design/package.step",
-    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+    "sha256": "c0f9831d1e10458f2c2aad7dc8d867d0757f974e00c1f14741e89df7e41182f3"
   },
   "motion": {
     "file": "experiments/preliminary-design/paths.json",
-    "sha256": "b356c8a3de1383c21694400b65c874e830cb67bb8f4011c1966ca879f87866f6"
+    "sha256": "37c6815e4df468b34e89ffb0580cbbda6828270862b2e3f11fe028c759ee5da4"
   },
   "design": {
     "file": "experiments/preliminary-design/design.json",
@@ -14,7 +14,7 @@
   },
   "requirements": {
     "file": "experiments/preliminary-design/package-limits.json",
-    "sha256": "99ae38bbb8a6ac694b41768157af656a154cc1f4ce6822ff22ca9ba8389d39f4"
+    "sha256": "c678ef8d5c528d336b286fb37191e89ec83396c6ad1cbbe56fea7f54b63741de"
   },
   "runningPayloadKg": [
     15.872,
@@ -83,14 +83,13 @@
       "id": "floor indexer",
       "members": [
         "floor belt front",
-        "floor belt main",
-        "indexer cleat"
+        "floor belt main"
       ],
       "kg": [
         1.5,
         2.3
       ],
-      "basis": "Two belt runs, rollers, cleats, one motor and gearbox"
+      "basis": "Two flat belt runs, rollers, one reversible motor and gearbox. The belt cleat of the earlier issue is removed; its mass was inside this range and the range is kept"
     },
     {
       "id": "shooter",
@@ -103,10 +102,10 @@
         "shooter side plate right"
       ],
       "kg": [
-        5.0,
-        6.8
+        6.5,
+        9.2
       ],
-      "basis": "Flywheel shaft with 0.006 kg m2 inertia, hood, two side plates, two flywheel motors, bearings"
+      "basis": "Flywheel with 0.006 kg m2 on a 50.8 mm radius: 2.74-3.58 kg (a tube with 85% to 65% of its mass at the rim; I / r2 is the floor). Two 6 mm aluminum side plates 3.06 kg as drawn, 60% of that if lightened. Hood 0.75 kg. Two flywheel motors 0.9-1.2 kg. Shaft, bearings and fasteners 0.3-0.6 kg"
     },
     {
       "id": "intake",
@@ -202,14 +201,26 @@
         5.0
       ],
       "basis": "Fasteners, brackets, cable chain, camera and spares not yet drawn"
+    },
+    {
+      "id": "battery retention",
+      "members": [
+        "battery retention cleat aft",
+        "battery retention cleat fore"
+      ],
+      "kg": [
+        0.101,
+        0.201
+      ],
+      "basis": "Two cleat envelopes, 74.5 cm3: high as solid 6061 at 2.70 g/cm3, low at half fill for formed angle; rivets inside"
     }
   ],
   "electricalCases": {
     "intake-deploy-nominal": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -253,8 +264,8 @@
     "intake-deploy-weak": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -295,11 +306,11 @@
         0.026
       ]
     },
-    "acquire-approach-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-approach-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -340,11 +351,11 @@
         0.016
       ]
     },
-    "acquire-approach-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-approach-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -385,11 +396,11 @@
         0.026
       ]
     },
-    "acquire-climb-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -430,11 +441,11 @@
         0.016
       ]
     },
-    "acquire-climb-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -475,11 +486,11 @@
         0.026
       ]
     },
-    "acquire-over-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -520,11 +531,11 @@
         0.016
       ]
     },
-    "acquire-over-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -565,11 +576,11 @@
         0.026
       ]
     },
-    "acquire-drop-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-3-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -610,11 +621,1181 @@
         0.016
       ]
     },
-    "acquire-drop-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
+    "acquire-climb-3-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-climb-4-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-climb-4-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-climb-5-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-climb-5-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-climb-6-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-climb-6-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-climb-7-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-climb-7-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-over-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-over-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-throw-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-throw-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-drop-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-drop-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-drop-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-drop-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-roll-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-roll-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-roll-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-roll-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-roll-3-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-roll-3-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-roll-4-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-roll-4-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-roll-5-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          10
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-roll-5-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake's 30 A is its supply limit; the acquisition trial's contacts dissipate up to 786 W at the imposed belt speed, so the belt slows under that peak unless the limit rises (gate G4)",
+      "loadedKg": [
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -658,8 +1839,8 @@
     "loaded-transit-nominal": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -703,8 +1884,8 @@
     "loaded-transit-weak": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -745,101 +1926,11 @@
         0.026
       ]
     },
-    "index-nominal": {
-      "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
+    "launch-back-off-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
-      ],
-      "batterySideA": {
-        "drive": [
-          0,
-          40
-        ],
-        "steer": [
-          0,
-          6
-        ],
-        "intake": [
-          0,
-          10
-        ],
-        "indexer": [
-          5,
-          15
-        ],
-        "flywheel": [
-          10,
-          30
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        12.4,
-        12.8
-      ],
-      "resistanceOhm": [
-        0.012,
-        0.016
-      ]
-    },
-    "index-weak": {
-      "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        51.472,
-        67.648
-      ],
-      "batterySideA": {
-        "drive": [
-          0,
-          40
-        ],
-        "steer": [
-          0,
-          6
-        ],
-        "intake": [
-          0,
-          10
-        ],
-        "indexer": [
-          5,
-          15
-        ],
-        "flywheel": [
-          10,
-          30
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        11.9,
-        12.2
-      ],
-      "resistanceOhm": [
-        0.02,
-        0.026
-      ]
-    },
-    "launch-wrap-nominal": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -880,11 +1971,551 @@
         0.016
       ]
     },
-    "launch-wrap-weak": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+    "launch-back-off-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-coast-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-coast-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-feed-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-feed-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-wrap-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-wrap-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-wrap-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-wrap-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-wrap-3-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-wrap-3-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-wrap-4-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          20,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-wrap-4-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
+      "loadedKg": [
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -926,10 +2557,10 @@
       ]
     },
     "flight-1-nominal": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -971,10 +2602,10 @@
       ]
     },
     "flight-1-weak": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1016,10 +2647,10 @@
       ]
     },
     "flight-2-nominal": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1061,10 +2692,10 @@
       ]
     },
     "flight-2-weak": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1106,10 +2737,10 @@
       ]
     },
     "flight-3-nominal": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1151,10 +2782,10 @@
       ]
     },
     "flight-3-weak": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1196,10 +2827,10 @@
       ]
     },
     "flight-4-nominal": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1241,10 +2872,10 @@
       ]
     },
     "flight-4-weak": {
-      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers the imposed 1.25 s spin-up: 334 W peak for the 0.006 kg m2 wheel, which is 47 A at the 8.34 V weak-pack launch bus with 85% drive efficiency (the efficiency is an assumption). The 1516 W friction peak during a shot is drawn from the wheel's inertia",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1288,8 +2919,8 @@
     "tower-lateral-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1333,8 +2964,8 @@
     "tower-lateral-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1378,8 +3009,8 @@
     "tower-forward-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1423,8 +3054,8 @@
     "tower-forward-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1468,8 +3099,8 @@
     "climb-reach-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1513,8 +3144,8 @@
     "climb-reach-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1558,8 +3189,8 @@
     "climb-seat-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1603,8 +3234,8 @@
     "climb-seat-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1648,8 +3279,8 @@
     "climb-lift-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1693,8 +3324,8 @@
     "climb-lift-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1738,8 +3369,8 @@
     "park-lower-nominal": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [
@@ -1783,8 +3414,8 @@
     "park-lower-weak": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        53.073,
+        70.249
       ],
       "batterySideA": {
         "drive": [

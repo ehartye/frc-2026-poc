@@ -2,13 +2,13 @@
   "schema": "frc-2026-poc/retention-review@1",
   "issue": "R3-PD2",
   "piece": "FUEL tracked (0.203-0.227 kg, 150.114 mm)",
-  "method": "At each change of support: gravity in the holder frame, the contacts that can push back, the open direction of escape, and the result with power removed. Animated paths are prescribed; this review does not replace a free-piece simulation.",
+  "method": "At each change of support: gravity in the holder frame, the contacts that can push back, the open direction of escape, and the result with power removed. The tracked FUEL's path is now fitted to the free-piece trials in field-trials.json, which solve capture, entry, launch and delivery; this review still covers what those single-piece trials do not: power removed and loaded driving.",
   "rows": [
     {
       "id": "R-1",
       "support": "Carpet in front of the bumper, under the belt module",
       "gravity": "Into the carpet",
-      "resisting": "Carpet; belt module bottom 3 mm above the undeformed piece",
+      "resisting": "Carpet; the bottom pulley stands 20 mm into the top of a floor FUEL, so the belt takes it as the robot drives on",
       "escape": "Rolls away when bumped",
       "powerOff": "Not yet in custody",
       "disposition": "accepted: no custody is claimed before the belt grips"
@@ -17,16 +17,16 @@
       "id": "R-2",
       "support": "Vertical belt pinch against the bumper face",
       "gravity": "Straight down the pinch",
-      "resisting": "Belt in front and bumper cover behind, both 3 mm from the undeformed piece; grip needs compression",
+      "resisting": "Belt back run in front and bumper cover behind, 20 mm inside one FUEL diameter apart; the acquisition trial presses the FUEL 11.2 mm into the bumper and 11.0 mm into the belt",
       "escape": "Down to the carpet",
       "powerOff": "Drops back to the carpet outside the robot, the safe direction",
-      "disposition": "gate G4: the belt's bottom pulley must start the lift by compressing the piece's top-front; measure compression, cover friction and lift speed"
+      "disposition": "gate G4: the acquisition trial captures at 17.5 mm squeeze and fails at 15 mm; measure compression, cover friction and lift speed"
     },
     {
       "id": "R-3",
       "support": "Top of the climb, under the top roller",
       "gravity": "Down the pinch",
-      "resisting": "Top roller 3 mm above, belt in front, bumper behind",
+      "resisting": "Top roller lowered 20 mm into the FUEL's path, belt in front, bumper behind",
       "escape": "Back down the pinch if the roller stalls",
       "powerOff": "Drops to the carpet",
       "disposition": "gate G4: the roller must carry the piece over the bumper's top edge"
@@ -42,25 +42,25 @@
     },
     {
       "id": "R-5",
-      "support": "Cleat on the floor belt",
+      "support": "Seat on the stopped floor belt against the stopped flywheel",
       "gravity": "Into the belt",
-      "resisting": "Cleat behind, belt below, neighbouring pieces",
-      "escape": "Forward if the cleat reverses",
+      "resisting": "Flywheel above and behind (0.02 mm indentation at rest in the entry trial), belt below; nothing in front",
+      "escape": "Forward along the lane under braking; into the pinch if the belt runs toward the stopped wheel (3.2 to 5.9 mm in the entry trials)",
       "powerOff": "Retained in the hopper",
-      "disposition": "restrained"
+      "disposition": "gate G7: no hold-back is designed; the belt backs the FUEL off before spin-up, which the launch trials need once the FUEL is at rest 0.44 mm or more into the wheel (0.23 mm launches without it; a penalty-contact threshold, not a measurement); loaded stops are gate G2"
     },
     {
       "id": "R-6",
       "support": "Flywheel pinch and hood",
       "gravity": "Into the hood lip",
-      "resisting": "Hood below and behind, flywheel above",
+      "resisting": "Hood below and behind, flywheel above; the gap is the FUEL diameter less 12 mm",
       "escape": "Back toward the floor belt",
-      "powerOff": "Rests on the hood lip inside the robot; the hood begins inboard of the pinch, so the lowest point of the lane is inside",
-      "disposition": "restrained; the F2 compression setting decides launch, not retention"
+      "powerOff": "A FUEL in the wrap stays squeezed between the stopped wheel and the hood inside the robot",
+      "disposition": "restrained; launch trials pass from 8 to 16 mm squeeze and fail at 6 and 20 mm (gate G7)"
     },
     {
       "id": "R-7",
-      "support": "Hood wrap to release at -152 deg",
+      "support": "Hood wrap to release at the hood end, -149.5 deg about the wheel axis",
       "gravity": "Along the hood toward the pinch",
       "resisting": "Hood and wheel",
       "escape": "Released by design at the hood end",
@@ -71,10 +71,10 @@
       "id": "R-8",
       "support": "Robot hanging on two hooks at 70 mm",
       "gravity": "Robot pitches rear-down about the rung",
-      "resisting": "Jaws on the rung's far side and the front bumper on both uprights (about 610 N horizontal at 67.6 kg) across 23.9 mm of overlap per upright",
+      "resisting": "Jaws on the rung's far side and the front bumper on both uprights (about 634 N horizontal at 70.3 kg) across 23.9 mm of overlap per upright",
       "escape": "A lateral offset beyond 23.9 mm loses one upright; the rung leaves the throat if the jaw does not reach below its equator",
-      "powerOff": "The winch must hold 663 N without power",
-      "disposition": "gate G3: test at 0 and +/-25 mm offset with the brake holding 1.5 x 663 N; add a spring latch under the rung if the jaw slips"
+      "powerOff": "The winch must hold 690 N without power; the cable load peaks at 1043 N during the lift in the hang trial",
+      "disposition": "gate G3: test at 0 and +/-25 mm offset with the brake holding 1.5 x 690 N; add a spring latch under the rung if the jaw slips"
     }
   ]
 }

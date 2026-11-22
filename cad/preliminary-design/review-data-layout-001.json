@@ -5,7 +5,7 @@
  "runningAdditions": {
   "source": {
    "file": "budgets.json",
-   "sha256": "3d4a4704e80837aa26cf43cbd3678a9f33f9a67a7d93adbc555bf5e84c281ce0"
+   "sha256": "5df1e1e8dc59020aae8e96414ed8168fe8fde35dc61c003c17657dd82e4fdc68"
   },
   "basis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
   "items": [
@@ -45,7 +45,7 @@
      "FUEL stored 2",
      "FUEL tracked"
     ],
-    "basis": "24 FUEL at 0.203-0.227 kg each (budgets.json); the three placed FUEL represent the carried stock"
+    "basis": "24 FUEL at 0.203-0.227 kg each (budgets.json); the 3 placed FUEL represent the carried stock"
    }
   ],
   "totalKg": [
@@ -54,12 +54,15 @@
   ]
  },
  "support": {
-  "source": "layout.json mounts (group-level datums); structure-to-frame joints beyond these datums are not registered",
+  "source": "layout.json mounts (group-level datums) and stages[].transportedBy; structure-to-frame joints beyond these datums are not registered",
   "members": {
    "FUEL tracked": {
-    "path": [],
-    "supplied": false,
-    "reason": "Not bound with transportedBy: the package path is a constructed waypoint path (build_package.py tracked_path and the ballistics flight arcs), not a trace of the acquire or deliver trials. The checker requires the pinned trial to record this exact case path, so binding it would assert evidence the trials do not provide. To close: generate the acquire, launch and flight case moves from the field_trials.py traces and write one transport record per case, as the 2025 package does."
+    "path": [
+     "Moved by contact transport (floor belts, intake, shooter) in 14 cases, each bound to its trial window by a pinned transport record: acquire-climb-1, acquire-climb-2, acquire-climb-3, acquire-climb-4, acquire-climb-5, acquire-climb-6, acquire-climb-7, acquire-over-1, launch-back-off-1, launch-feed-1, launch-wrap-1, launch-wrap-2, launch-wrap-3, launch-wrap-4",
+     "No mechanism moves it in 18 cases (carpet approach, free flight, rolling on stopped belts, and riding with the field): acquire-approach-1, acquire-throw-1, hopper-drop-1, hopper-drop-2, hopper-roll-1, hopper-roll-2, hopper-roll-3, hopper-roll-4, hopper-roll-5, launch-coast-1, flight-1, flight-2, flight-3, flight-4, tower-lateral, tower-forward, climb-lift, park-lower. Those strokes carry no transportedBy and rest on the pinned field-trials.json trace named in each case basis"
+    ],
+    "supplied": true,
+    "source": "layout.json stages[].transportedBy and paths.json case bases"
    },
    "battery": {
     "path": [
@@ -152,15 +155,6 @@
     "supplied": true,
     "source": "layout.json mounts"
    },
-   "indexer cleat": {
-    "path": [
-     "Group datum: floor indexer mounts on floor belt main at (0, 82.5, 109) mm: Cleat rides the main belt",
-     "floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
-     "floor pan is a frame structure member"
-    ],
-    "supplied": true,
-    "source": "layout.json mounts"
-   },
    "intake belt module": {
     "path": [
      "Group datum: intake mounts on intake slide rail left at (300, 278, 400) mm: Carriage plates run on the two-stage slide; the fixed stage is drawn",
@@ -212,113 +206,269 @@
   }
  },
  "modelNotes": [
-  "What it is: the R3-PD2 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter on a 680 x 714 mm four-module swerve base), layout-checked by Agent FRC. Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
-  "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are two panel blocks; belts and rollers are rigid reserves (3 mm undeformed reserve for guided FUEL paths); the HUB and TOWER are V0-dimension fixtures, not the official field model.",
-  "Prescribed, not simulated, in the package: every case motion, including the carried FUEL path. Free-piece contact physics is in the field-interaction trials (field-trials.json), whose contact stiffness, damping, friction and FUEL release speed and spin are estimates, not measurements.",
-  "Unverified: verification gates G1-G6 (verification-gates.json) carry the physical tests; hopper capacity is a free-volume premise; dynamic BUMP crossing and robot-to-robot contact are not evaluated.",
+  "What it is: the R3-PD2 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
+  "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are two panel blocks; belts and rollers are rigid outlines; the HUB and TOWER are V0-dimension fixtures, not the official field model. The intake belt, top roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is declared as payload compression in its case.",
+  "Tracked FUEL motion: every one of its 28 cases is a stroke fitted within 1.50 mm (limit 1.5 mm) to the solved acquire, entry, launch and deliver trials in field-trials.json. Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's; the trial window is in caseTimes. Contact stiffness, damping, friction and rolling resistance are estimates, not measurements, and no FUEL force-deflection curve is available.",
+  "Imposed in the trials: robot approach speed, intake belt speed (3.0 m/s), the floor belt schedule (stopped during entry; 0.3 m/s back-off, then 0.6 m/s feed) and the flywheel surface speed (13.4 m/s). Whether the motors sustain them under load is not solved.",
+  "Prescribed, not simulated, in the package: the intake slide, the field moving in the robot frame (transit and TOWER approach), and the climb strokes.",
+  "Unverified: verification gates G1-G7 (verification-gates.json) carry the physical tests; hopper capacity is a free-volume premise; dynamic BUMP crossing and robot-to-robot contact are not evaluated.",
   "Sources and cutoff: FRC REBUILT kickoff manual V0 with Team Update 00, cutoff 2026-01-10 23:59:59 America/New_York (construction-rules.json); field dimensions from the V0 description (geometry.py field_bodies).",
-  "Open items: see openItems (unregistered structure joints and undesigned retention)."
+  "Open items: see openItems."
  ],
  "focus": {
   "component": "FUEL tracked",
-  "basis": "The mission cases (acquire-drop, flight-4) follow this FUEL from the carpet into the HUB"
+  "basis": "The mission cases follow this FUEL from the carpet into the HUB"
  },
  "caseTimes": {
   "source": {
    "file": "field-trials.json",
-   "sha256": "77ea722c41f0d9bd67400367de8efb3d122f2d7820b6c119c45e07adb63c311c"
+   "sha256": "e126dbf498d91b0caf122291b9b385c12f57f0f6f765353c7d3cca8c671d11cf"
   },
-  "note": "Package cases are prescribed 25-frame geometric paths. Times come from the nominal field trials; a case group shares its trial interval.",
+  "note": "Trial seconds are on each trial's own clock (acquire, entry, launch and deliver each start at 0). A FUEL case plays its fitted stroke uniformly.",
+  "chain": {
+   "captureS": 0.5254,
+   "seatS": 3.028,
+   "releaseS": 2.2574,
+   "scoredS": 0.9609
+  },
   "cases": {
-   "acquire-approach": {
+   "acquire-approach-1": {
     "seconds": [
      0.0,
+     0.193
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.18 mm"
+   },
+   "acquire-climb-1": {
+    "seconds": [
+     0.193,
+     0.274
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.28 mm"
+   },
+   "acquire-climb-2": {
+    "seconds": [
+     0.274,
+     0.283
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.61 mm"
+   },
+   "acquire-climb-3": {
+    "seconds": [
+     0.283,
+     0.295
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.08 mm"
+   },
+   "acquire-climb-4": {
+    "seconds": [
+     0.295,
+     0.314
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.84 mm"
+   },
+   "acquire-climb-5": {
+    "seconds": [
+     0.314,
+     0.336
+    ],
+    "trial": "acquire-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.21 mm"
+   },
+   "acquire-climb-6": {
+    "seconds": [
+     0.336,
+     0.383
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.28 mm"
+   },
+   "acquire-climb-7": {
+    "seconds": [
+     0.383,
+     0.434
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.44 mm"
+   },
+   "acquire-over-1": {
+    "seconds": [
+     0.434,
+     0.444
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.17 mm"
+   },
+   "acquire-throw-1": {
+    "seconds": [
+     0.444,
      0.5254
     ],
     "trial": "acquire-nominal",
-    "basis": "first carpet contact to capture"
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.01 mm"
    },
-   "acquire-climb": {
+   "hopper-drop-1": {
     "seconds": [
      0.0,
-     0.5254
+     0.034
     ],
-    "trial": "acquire-nominal",
-    "basis": "first carpet contact to capture"
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.01 mm"
    },
-   "acquire-over": {
+   "hopper-drop-2": {
+    "seconds": [
+     0.034,
+     0.133
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.22 mm"
+   },
+   "hopper-roll-1": {
+    "seconds": [
+     0.133,
+     0.153
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.49 mm"
+   },
+   "hopper-roll-2": {
+    "seconds": [
+     0.153,
+     0.244
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.36 mm"
+   },
+   "hopper-roll-3": {
+    "seconds": [
+     0.244,
+     0.317
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.20 mm"
+   },
+   "hopper-roll-4": {
+    "seconds": [
+     0.317,
+     1.004
+    ],
+    "trial": "entry-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 1.50 mm"
+   },
+   "hopper-roll-5": {
+    "seconds": [
+     1.004,
+     3.028
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.01 mm"
+   },
+   "launch-back-off-1": {
     "seconds": [
      0.0,
-     0.5254
+     0.5
     ],
-    "trial": "acquire-nominal",
-    "basis": "first carpet contact to capture"
+    "trial": "launch-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.02 mm"
    },
-   "acquire-drop": {
+   "launch-coast-1": {
     "seconds": [
-     0.0,
-     0.5254
+     0.5,
+     1.75
     ],
-    "trial": "acquire-nominal",
-    "basis": "first carpet contact to capture"
+    "trial": "launch-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.00 mm"
    },
-   "launch-wrap": {
+   "launch-feed-1": {
     "seconds": [
-     0.0,
-     0.9303
+     1.75,
+     2.204
     ],
-    "trial": "deliver-nominal",
-    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+    "trial": "launch-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.01 mm"
+   },
+   "launch-wrap-1": {
+    "seconds": [
+     2.204,
+     2.226
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.09 mm"
+   },
+   "launch-wrap-2": {
+    "seconds": [
+     2.226,
+     2.24
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.45 mm"
+   },
+   "launch-wrap-3": {
+    "seconds": [
+     2.24,
+     2.257
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.34 mm"
+   },
+   "launch-wrap-4": {
+    "seconds": [
+     2.257,
+     2.2574
+    ],
+    "trial": "launch-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.00 mm"
    },
    "flight-1": {
     "seconds": [
      0.0,
-     0.9303
+     0.657
     ],
     "trial": "deliver-nominal",
-    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.49 mm"
    },
    "flight-2": {
     "seconds": [
-     0.0,
-     0.9303
+     0.657,
+     0.897
     ],
     "trial": "deliver-nominal",
-    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.29 mm"
    },
    "flight-3": {
     "seconds": [
-     0.0,
-     0.9303
+     0.897,
+     0.904
     ],
     "trial": "deliver-nominal",
-    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.29 mm"
    },
    "flight-4": {
     "seconds": [
-     0.0,
-     0.9303
+     0.904,
+     0.9609
     ],
     "trial": "deliver-nominal",
-    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.50 mm"
    },
    "climb-lift": {
     "seconds": [
      0.0,
-     0.4548
+     0.4662
     ],
     "trial": "hang-nominal",
-    "basis": "lift stroke complete; then a 3 s brake hold to 3.4548 s"
+    "basis": "lift stroke complete; then a 3 s brake hold to 3.4662 s"
    },
    "intake-deploy": {
     "supplied": false,
     "reason": "No trial or rehearsal times this prescribed case"
    },
    "loaded-transit": {
-    "supplied": false,
-    "reason": "No trial or rehearsal times this prescribed case"
-   },
-   "index": {
     "supplied": false,
     "reason": "No trial or rehearsal times this prescribed case"
    },
@@ -409,6 +559,15 @@
   }
  },
  "openItems": [
+  "No hold-back for the seated FUEL. Nothing restrains the seated FUEL forward. Without the belt's back-off, a FUEL at rest 0.23 mm into the stopped wheel still launches at speed and one 0.44 mm in is fed early at spin-up; that threshold comes from the penalty contact springing a lightly pressed FUEL clear and is not a measured limit. With the back-off a FUEL pressed 3.2 mm in launches at speed; one wedged 5.9 mm in by a running belt does not. No hold-back is designed.",
+  "Batch collection is not evaluated: the entry trial is one FUEL in an empty lane with the floor belts stopped; a running belt wedges the FUEL into the stopped pinch (entry-floor-belt-running trials).",
+  "Feed rate: a free FUEL rolls at about a third of the belt speed in the launch trial, so the sustained 2.00 FUEL/s objective rests on gate G1, not on the belt-speed calculation.",
+  "Launch inputs are imposed: flywheel surface speed, belt schedule and the squeeze. The wheel does 28 J of work per FUEL in the trial, a 6.8% speed drop for a free 0.006 kg m2 wheel, which the trial does not apply. Motor sizing and the FUEL's force-deflection curve are not measured.",
+  "The seat position depends on contact damping, which is an estimate: at damping ratio 0.3 the FUEL rests against the wheel; at 0.20 and 0.10 it rebounds and rests 7 and 62 mm clear of it (still seated, and the launch from there still scores, later). Rest time is 3.0 s; it needed a 0.05 ms timestep to converge.",
+  "Contact stiffness is an estimate and decides the launch: 10 and 30 kN/m score, 7.5 kN/m releases too slowly. The 8 to 16 mm squeeze bracket is a force bracket at 15 kN/m.",
+  "Scoring band: only 6.70 to 7.00 m/s scores at the nominal drag and spin lift and at all four corners. 6.55 m/s misses at the high-drag, high-spin corner and 7.15 m/s at both low-drag corners. The band's ends score off the HUB top plate or cavity wall; the point-mass screen's clean band at this release is narrower (package-facts.json shot.pointMassBands in the experiment folder).",
+  "Intake belt load: the acquisition trial's contacts dissipate up to 786 W at the imposed 3 m/s, above the intake's 30 A supply limit; the trial fails at 2.0 m/s.",
+  "A carrier-free FUEL stroke (carpet approach, free flight, rolling on stopped belts) has no evidence slot in the layout schema; its trial window is recorded in the case basis and in caseTimes.",
   "No registered structure-to-frame joint: hopper walls (hopper front upper wall, hopper rear wall, hopper wall left, hopper wall right).",
   "No registered structure-to-frame joint: climber tubes and winch (climber tube left, climber tube right, climber winch) to the climber tube mounts.",
   "Frame-internal joints are not registered: frame rails, floor pan, floor pan front tongue, front lip, climber tube mounts and intake slide rails.",

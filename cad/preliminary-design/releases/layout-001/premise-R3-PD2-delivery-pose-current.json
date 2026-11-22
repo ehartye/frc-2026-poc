@@ -5,10 +5,10 @@
   "value": 48.64905857259726,
   "issue": "R3-PD2",
   "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
-  "stepSha256": "33f505712317acc3c36180becdabc56096a375e668c1130077939ee88c2ac0a2",
+  "stepSha256": "c0f9831d1e10458f2c2aad7dc8d867d0757f974e00c1f14741e89df7e41182f3",
   "source": {
     "file": "measurements.json",
-    "sha256": "d9920f313198cce49715f9d2100db410468fca050b4c49a5e09c63dda86165e0"
+    "sha256": "e3aa3e0ee400297c4e6d4a2ad4e229b8af609954cc71e114370e637d8027056b"
   },
   "valueField": "deliveryStandoffIn"
 }
