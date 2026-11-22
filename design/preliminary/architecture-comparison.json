@@ -1,16 +1,21 @@
 {
   "schema": "frc-2026-poc/architecture-comparison@1",
   "issue": "R3-PD1",
-  "decision": "Select R3, the tall floor-fed hooded-flywheel robot. Detail it on the carried-forward 680 mm swerve foundation.",
+  "decision": "Select R3, the tall floor-fed hooded-flywheel robot, on the carried-forward 680 mm swerve foundation. Switch to R3L if the BUMP crossing premise (F5) fails.",
   "decidedBy": "Whole-robot preliminary designer under delegated owner authority; students may reopen it with the listed evidence",
-  "commonConditions": "Same 680 x 680 mm frame, four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.34 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
+  "commonConditions": "Same 680 x 680 mm frame, four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.44 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
   "candidates": [
     {
       "id": "A",
       "name": "R2C-T1 incumbent: serial shelf elevator, top wheel pair, rear screw lift",
-      "evidence": ["cad/own-zone-upper/design.md", "experiments/batch-port/study.md", "experiments/tower-climb/head-support/study.md", "cad/assembly-release/engineering.md"],
+      "evidence": [
+        "cad/own-zone-upper/design.md",
+        "experiments/batch-port/study.md",
+        "experiments/tower-climb/head-support/study.md",
+        "cad/assembly-release/engineering.md"
+      ],
       "custody": "Five handoffs (intake, cross-feed deck, shelf elevator, diverter and guide, scoring wheels). Measured: 24 released in 11.953 s but 3 scored; the closed hopper delivered 0 of 24.",
-      "shot": "7 of 9 contact-stiffness cases fall short; peaks 0.974-1.390 m against the 1.829 m opening. ballistics.json shows every exit height needs 5.6-8.3 m/s, so the wheel pair must be replaced.",
+      "shot": "7 of 9 contact-stiffness cases fall short; peaks 0.974-1.390 m against the 1.829 m opening. ballistics.json gives 5.8-7.8 m/s entry bands from 2.0-3.6 m at 0.43-0.70 m release, far above what the wheel pair produced.",
       "massKg": "No complete ledger. The climb model uses 62 kg gross; native CAD mass unresolved (325 kg with placeholder materials).",
       "voltage": "Not commissioned; screw lift registered at 23 A.",
       "packaging": "754 mm stowed, 8 mm under R107; the engineering review found intake-roller/elevator interference and isolated parts.",
@@ -22,49 +27,80 @@
     {
       "id": "B",
       "name": "R3 tall floor-fed hood shooter (selected)",
-      "evidence": ["design/preliminary/receipt.json", "design/preliminary/budgets.json", "design/preliminary/package-facts.json"],
-      "custody": "Three handoffs (intake ramp, floor belt, flywheel pinch). The tracked FUEL passes 20 checked cycle cases from carpet to HUB cavity.",
-      "shot": "Release at 0.232 m and 60 deg; 6.80-7.05 m/s entry window at Cd 0.47; the selected 6.91 m/s clears the rim edge by 57 mm and lands 370 mm from centre. Arc fit within 2.5 mm.",
-      "massKg": "R103 32.6-44.6 kg against 52.16 (7.56 kg reserve); at most 52.1 with bumpers against R408's 61.23; running 49.1-63.7 kg.",
+      "evidence": [
+        "design/preliminary/receipt.json",
+        "design/preliminary/budgets.json",
+        "design/preliminary/package-facts.json",
+        "design/preliminary/measurements.json"
+      ],
+      "custody": "Three handoffs (belt pinch on the bumper face, floor belt, flywheel pinch). The tracked FUEL passes 18 checked cycle cases from carpet to HUB cavity.",
+      "shot": "Release 0.236 m at 62 deg, 2.44 m from the HUB centre. Nominal band 6.74-7.03 m/s (Cd 0.47, CL 0.15); 6.82-6.96 m/s enters under all four drag and spin corners. 6.88 m/s clears the rim edges by 87 mm. No robust band closer than 2.4 m, so the delivery pose moves to 2.7 m.",
+      "massKg": "R103 35.6-47.8 kg against 52.16 (4.36 kg reserve); at most 55.3 with bumpers against R408's 61.23; running 51.5-67.6 kg.",
       "voltage": "Weak-pack minimum 7.66 V in loaded transit against 7.5 V required; launch 8.34 V against 8.0 V.",
-      "packaging": "layout-checked: 20 cycle cases, 2 service withdrawals, displaced-hood control rejected. 750 mm tall (12 mm under R107); intake reach 266.9 mm (R105 304.8).",
-      "capacity": "30 with the intake deployed, 23 in the starting fold (greedy non-overlap screen).",
-      "loads": "Hang at 63.7 kg: about 312 N per hook and about 575 N bumper-to-upright reaction (estimate, open F4).",
-      "fieldAccess": "Own zone; 75 mm belly against a 71 mm BUMP breakover requirement (premise, no motion case).",
+      "packaging": "All 18 cycle cases and 2 service withdrawals pass; displaced-hood control rejected. Swept through every case: 750 mm tall, front extension 270.6 mm, no rear or side extension, one side at a time, no start overhang.",
+      "capacity": "Free volume 145.2 L deployed: 36.9-45.1 FUEL at 0.45-0.55 packing (36.4-44.4 in the start fold).",
+      "loads": "Hang at 67.6 kg: about 332 N per hook and about 610 N bumper-to-upright reaction on 6.4 mm of overlap per upright (open F4).",
+      "fieldAccess": "Own zone; 75 mm belly against a 71 mm BUMP breakover requirement, intake retracted (premise, no motion case).",
       "givesUp": "TRENCH passage and a higher release point."
     },
     {
       "id": "C",
       "name": "R3L low trench-runner, same allocation under 535 mm",
-      "evidence": ["design/preliminary/package-facts.json"],
+      "evidence": [
+        "design/preliminary/package-facts.json"
+      ],
       "custody": "Same three handoffs as B.",
       "shot": "Same floor-fed hood; release 49 mm lower.",
       "massKg": "About 1 kg lighter than B (shorter walls and tubes).",
       "voltage": "As B.",
-      "packaging": "Hook top 534 mm passes the 565.15 mm TRENCH with 31 mm. Its climber needs a 200 mm telescoping raise before the swing.",
-      "capacity": "20 deployed, 18 in the starting fold. Fails the 24-piece batch; meeting it needs an expanding hopper, another mechanism.",
+      "packaging": "Hook top 534 mm passes the 565.15 mm TRENCH with 31 mm. Its climber needs about a 200 mm telescoping raise before the swing, one more motion than B.",
+      "capacity": "Free volume 110.0 L deployed: 28.0-34.2 FUEL at 0.45-0.55 packing. Meets 24 with less margin.",
       "loads": "As B.",
       "fieldAccess": "Own zone plus both TRENCHES; no BUMP crossing (26 mm belly).",
-      "givesUp": "Four to ten pieces of capacity and the BUMP crossing option."
+      "givesUp": "About 9-11 FUEL of capacity, one climber motion and the BUMP crossing option."
     },
     {
       "id": "D",
       "name": "Direct deposit (raise the hopper to the opening)",
-      "rejectedBy": "R107 limits height to 762 mm at all times; the opening edge is 1828.8 mm. Infeasible without launching."
+      "rejectedBy": "R107 limits the robot's own height to 762 mm; the opening edge is 1828.8 mm. Infeasible without launching."
     }
   ],
   "rankings": {
-    "note": "1 is best. Time means time to a robot that meets the selected role.",
-    "time": {"B": 1, "C": 2, "A": 3},
-    "risk": {"B": 1, "C": 2, "A": 3},
-    "complexity": {"B": 1, "C": 2, "A": 3},
-    "bestPractice": {"B": 1, "C": 2, "A": 3},
-    "maintainability": {"B": 1, "C": 2, "A": 3}
+    "note": "1 is best; equal numbers are ties. Time means time to a robot that meets the selected role.",
+    "time": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "risk": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "complexity": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "bestPractice": {
+      "B": 1,
+      "C": 1,
+      "A": 3
+    },
+    "maintainability": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "sensitivity": "B leads C on capacity margin and one fewer climber motion. C's TRENCH access is geometric fact, while B's neutral-zone access rests on a 4 mm BUMP breakover margin. If F5 fails, rank C first on risk and select it.",
+    "releaseHeightTradeoff": "A 0.60-0.70 m release (a vertical kicker into a top flywheel) still enters from 2.0 m, so it keeps the rehearsed 2.16 m delivery pose at the cost of one more transfer. Choose it if the reopened rehearsal shows the 2.7 m pose costs more cycle time than that transfer risks."
   },
+  "capacityMethod": "free_volume() subtracts every robot solid from the walled hopper envelope with exact booleans and divides by the FUEL volume at 0.45-0.55 packing (wall effects at a container-to-piece ratio near 4). A rigid stacked lattice (capacity()) finds only 10 in both variants and is reported as a lower bound, not a decision measure. Neither is a dynamic fill.",
   "invalidates": [
     "cad/own-zone-upper (R2C intake, elevator shelves, hopper, diverter and scoring wheels): superseded for detailing",
     "cad/tower-lift and the experiments/tower-climb head-support, brake and mast studies (R2C-T1 screw lift): retained as history, not carried into R3",
-    "cad/assembly-release battery cradle and electronics deck positions: R3 moves the battery to the left side on its end and the electronics to the right side"
+    "cad/assembly-release battery cradle and electronics deck positions: R3 moves the battery to the left side on its end and the electronics to both side strips",
+    "kickoff field rehearsal delivery steps at about 2.16 m from the HUB centre: R3 delivers from 2.7 m (delivery-pose premise reopens conceptual design)"
   ],
   "carriedForward": [
     "680 x 680 mm frame outline and rails, module saddles at +/-265 mm and their supplier-fit checks (provisional until the R3 mounts are drawn)",

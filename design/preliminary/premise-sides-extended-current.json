@@ -1,0 +1,14 @@
+{
+  "id": "sides-extended",
+  "unit": "sides",
+  "scenario": "Sides extended at once in any sampled pose",
+  "value": 1.0,
+  "issue": "R3-PD1",
+  "designSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
+  "stepSha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3",
+  "source": {
+    "file": "design/preliminary/measurements.json",
+    "sha256": "3d03d7a6d1855567901d5ac0eb3cc198d6157adf6267d4de4c9ba99a4cbdb131"
+  },
+  "valueField": "sidesExtendedMax"
+}

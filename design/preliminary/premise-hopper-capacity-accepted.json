@@ -1,7 +1,7 @@
 {
   "id": "hopper-capacity",
   "unit": "FUEL",
-  "scenario": "Selected own-zone batch of 24 with the intake deployed",
+  "scenario": "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction",
   "criterion": {
     "range": [
       24.0,

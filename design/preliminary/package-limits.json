@@ -77,8 +77,8 @@
       "duty": "acquire duty during acquire-approach",
       "requiredMotionMinV": 7.5
     },
-    "acquire-ramp-nominal": {
-      "stage": "acquire-ramp",
+    "acquire-climb-nominal": {
+      "stage": "acquire-climb",
       "batteryCondition": "nominal",
       "sources": [
         "drive",
@@ -89,11 +89,11 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-ramp",
+      "duty": "acquire duty during acquire-climb",
       "requiredMotionMinV": 7.5
     },
-    "acquire-ramp-weak": {
-      "stage": "acquire-ramp",
+    "acquire-climb-weak": {
+      "stage": "acquire-climb",
       "batteryCondition": "weak",
       "sources": [
         "drive",
@@ -104,67 +104,7 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-ramp",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-crest-1-nominal": {
-      "stage": "acquire-crest-1",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-crest-1",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-crest-1-weak": {
-      "stage": "acquire-crest-1",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-crest-1",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-crest-2-nominal": {
-      "stage": "acquire-crest-2",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-crest-2",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-crest-2-weak": {
-      "stage": "acquire-crest-2",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-crest-2",
+      "duty": "acquire duty during acquire-climb",
       "requiredMotionMinV": 7.5
     },
     "acquire-over-nominal": {

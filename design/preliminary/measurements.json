@@ -1,15 +1,40 @@
 {
   "issue": "R3-PD1",
   "designSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
-  "stepSha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd",
-  "stowedTopMm": 750.0,
-  "deployedTopMm": 750.0,
-  "deployedReachMm": 266.938,
-  "capacityDeployed": 30.0,
-  "capacityStowed": 23.0,
-  "lowCapacityDeployed": 21.0,
-  "lowCapacityStowed": 18.0,
-  "shotDistanceM": 2.3384,
+  "stepSha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3",
+  "startOverhangMm": 0.0,
+  "sweptTopMm": 750.0,
+  "sweptFrontExtensionMm": 270.614,
+  "sweptOtherExtensionMm": 0.0,
+  "sidesExtendedMax": 1.0,
+  "sweptWorst": {
+    "front": {
+      "case": "intake-deploy",
+      "t": 1.0
+    },
+    "rear": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "side": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "top": {
+      "case": "intake-deploy",
+      "t": 0.0
+    }
+  },
+  "deployedReachMm": 270.614,
+  "capacityDeployed": 10.0,
+  "capacityStowed": 10.0,
+  "volumeEstimateDeployedLow": 36.9,
+  "volumeEstimateStowedLow": 36.4,
+  "lowCapacityDeployed": 10.0,
+  "lowCapacityStowed": 10.0,
+  "releaseDistanceM": 2.4362,
+  "deliveryPoseM": 2.7,
+  "withBumpersUpperKg": 55.3,
   "bellyClearanceMm": 75.0,
-  "basis": "Measured from the solids written to package.step by build_package.py; capacity is a greedy 22 mm lattice placement of undeformed FUEL with 1.5 mm clearance"
+  "basis": "Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. Capacity premises use free_volume() at a 0.45 packing fraction; capacity() is a rigid stacked-lattice lower bound."
 }

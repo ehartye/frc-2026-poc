@@ -2,11 +2,11 @@
   "issue": "R3-PD1",
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd"
+    "sha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3"
   },
   "motion": {
     "file": "design/preliminary/paths.json",
-    "sha256": "364eb4704f3a4dc1d1f8dfac4a5623f8f54cffc084c726c8d73f6931df0ed205"
+    "sha256": "e84b47b5fbf3a7b8b5de06224741801a6aff5a0f5822853a49acbec2fa7ff480"
   },
   "design": {
     "file": "design/preliminary/design.json",
@@ -14,17 +14,19 @@
   },
   "requirements": {
     "file": "design/preliminary/package-limits.json",
-    "sha256": "2a66f88f1565d7dd5e7c0039d0bc2034bf7d9d41d2cb5f303efc993a2fa4f9e8"
+    "sha256": "99ae38bbb8a6ac694b41768157af656a154cc1f4ce6822ff22ca9ba8389d39f4"
   },
   "runningPayloadKg": [
-    16.472,
-    19.148
+    15.872,
+    19.848
   ],
-  "runningPayloadBasis": "Bumpers 6.0-7.5 kg, battery 5.6-6.2 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing",
+  "runningPayloadBasis": "Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing",
   "masses": [
     {
       "id": "frame and floor",
       "members": [
+        "climber tube mount left",
+        "climber tube mount right",
         "floor pan",
         "floor pan front tongue",
         "frame rail front",
@@ -32,27 +34,28 @@
         "frame rail rear",
         "frame rail right",
         "front lip",
-        "intake pivot mount left",
-        "intake pivot mount right"
+        "intake slide rail left",
+        "intake slide rail right"
       ],
       "kg": [
-        4.2,
-        5.4
+        5.2,
+        6.6
       ],
-      "basis": "Four 2x1x0.125 in 6061 rails (2.72 m at 0.79 kg/m), 3 mm polycarbonate floor and lip, pivot mounts, gussets"
+      "basis": "Four 2x1x0.125 in 6061 rails (2.72 m at 1.20 kg/m), 3 mm polycarbonate floor (about 0.4 m2), lip, slide rails, tube mounts, gussets"
     },
     {
       "id": "hopper walls",
       "members": [
+        "hopper front upper wall",
         "hopper rear wall",
         "hopper wall left",
         "hopper wall right"
       ],
       "kg": [
-        1.6,
-        2.6
+        2.4,
+        3.4
       ],
-      "basis": "Three 2 mm polycarbonate panels about 1.05 m2 at 1.2 g/cm3 plus edge stiffeners"
+      "basis": "Four 2 mm polycarbonate panels (about 2.5 kg at 1.2 g/cm3) plus edge stiffeners"
     },
     {
       "id": "drivetrain",
@@ -93,7 +96,8 @@
       "id": "shooter",
       "members": [
         "flywheel",
-        "flywheel motor",
+        "flywheel motor left",
+        "flywheel motor right",
         "hood",
         "shooter side plate left",
         "shooter side plate right"
@@ -107,46 +111,47 @@
     {
       "id": "intake",
       "members": [
-        "intake arm left",
-        "intake arm right",
-        "intake ramp",
-        "intake roller",
-        "intake pivot drive"
+        "intake belt module",
+        "intake carriage plate left",
+        "intake carriage plate right",
+        "intake top roller"
       ],
       "kg": [
-        2.4,
-        3.4
+        2.8,
+        3.8
       ],
-      "basis": "Roller with internal motor, ramp, two arms and the coaxial pivot gearmotor"
+      "basis": "Vertical belt module with internal motor, top roller, carriage plates and slide moving stage"
     },
     {
       "id": "climber",
       "members": [
         "climber tube left",
         "climber tube right",
+        "climber winch",
         "climber inner tube left",
         "climber inner tube right",
         "climber hook left",
         "climber hook right"
       ],
       "kg": [
-        2.6,
-        3.6
+        3.0,
+        4.0
       ],
-      "basis": "Two telescoping tube pairs, hooks, winch motor, swing actuator"
+      "basis": "Two telescoping tube pairs, hooks with swing actuators inside the inner tubes, winch and cables"
     },
     {
       "id": "electrical and controls",
       "members": [
         "electronics panel",
+        "electronics panel left",
         "entry sensor",
         "pinch sensor"
       ],
       "kg": [
-        3.8,
-        5.0
+        4.2,
+        5.4
       ],
-      "basis": "Power distribution, controller, radio, 11 motor controllers, breaker, sensors, wiring"
+      "basis": "Power distribution, controller, radio, 15 motor controllers, breaker, sensors, wiring on two side panels"
     },
     {
       "id": "bumpers (excluded by R103)",
@@ -171,13 +176,14 @@
         0.0,
         0.0
       ],
-      "basis": "R103 excludes the battery and its connector half; 5.6-6.2 kg carried in the running payload"
+      "basis": "R103 excludes the battery and its connector half; 5.0-6.9 kg (V0 battery 4.99-6.57 kg plus leads) carried in the running payload"
     },
     {
       "id": "field fixtures (not robot)",
       "members": [
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right"
@@ -202,8 +208,8 @@
     "intake-deploy-nominal": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -216,7 +222,7 @@
         ],
         "intake": [
           5,
-          20
+          25
         ],
         "indexer": [
           0,
@@ -247,8 +253,8 @@
     "intake-deploy-weak": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -261,7 +267,7 @@
         ],
         "intake": [
           5,
-          20
+          25
         ],
         "indexer": [
           0,
@@ -292,8 +298,8 @@
     "acquire-approach-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -337,8 +343,8 @@
     "acquire-approach-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -379,11 +385,11 @@
         0.026
       ]
     },
-    "acquire-ramp-nominal": {
+    "acquire-climb-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -424,191 +430,11 @@
         0.016
       ]
     },
-    "acquire-ramp-weak": {
+    "acquire-climb-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          10
-        ],
-        "flywheel": [
-          0,
-          5
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        11.9,
-        12.2
-      ],
-      "resistanceOhm": [
-        0.02,
-        0.026
-      ]
-    },
-    "acquire-crest-1-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        49.072,
-        63.748000000000005
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          10
-        ],
-        "flywheel": [
-          0,
-          5
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        12.4,
-        12.8
-      ],
-      "resistanceOhm": [
-        0.012,
-        0.016
-      ]
-    },
-    "acquire-crest-1-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        49.072,
-        63.748000000000005
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          10
-        ],
-        "flywheel": [
-          0,
-          5
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        11.9,
-        12.2
-      ],
-      "resistanceOhm": [
-        0.02,
-        0.026
-      ]
-    },
-    "acquire-crest-2-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        49.072,
-        63.748000000000005
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          10
-        ],
-        "flywheel": [
-          0,
-          5
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        12.4,
-        12.8
-      ],
-      "resistanceOhm": [
-        0.012,
-        0.016
-      ]
-    },
-    "acquire-crest-2-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
-      "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -652,8 +478,8 @@
     "acquire-over-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -697,8 +523,8 @@
     "acquire-over-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -742,8 +568,8 @@
     "acquire-drop-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -787,8 +613,8 @@
     "acquire-drop-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -832,8 +658,8 @@
     "loaded-transit-nominal": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -877,8 +703,8 @@
     "loaded-transit-weak": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -922,8 +748,8 @@
     "index-nominal": {
       "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -967,8 +793,8 @@
     "index-weak": {
       "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1012,8 +838,8 @@
     "launch-wrap-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1057,8 +883,8 @@
     "launch-wrap-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1102,8 +928,8 @@
     "flight-1-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1147,8 +973,8 @@
     "flight-1-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1192,8 +1018,8 @@
     "flight-2-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1237,8 +1063,8 @@
     "flight-2-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1282,8 +1108,8 @@
     "flight-3-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1327,8 +1153,8 @@
     "flight-3-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1372,8 +1198,8 @@
     "flight-4-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1417,8 +1243,8 @@
     "flight-4-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1462,8 +1288,8 @@
     "tower-lateral-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1507,8 +1333,8 @@
     "tower-lateral-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1552,8 +1378,8 @@
     "tower-forward-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1597,8 +1423,8 @@
     "tower-forward-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1642,8 +1468,8 @@
     "climb-reach-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1687,8 +1513,8 @@
     "climb-reach-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1732,8 +1558,8 @@
     "climb-seat-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1777,8 +1603,8 @@
     "climb-seat-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1822,8 +1648,8 @@
     "climb-lift-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1867,8 +1693,8 @@
     "climb-lift-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1912,8 +1738,8 @@
     "park-lower-nominal": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [
@@ -1957,8 +1783,8 @@
     "park-lower-weak": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        49.072,
-        63.748000000000005
+        51.472,
+        67.648
       ],
       "batterySideA": {
         "drive": [

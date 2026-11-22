@@ -1,7 +1,7 @@
 {
-  "id": "deployed-height",
+  "id": "swept-height",
   "unit": "mm",
-  "scenario": "Operating configuration with hooks stowed",
+  "scenario": "Robot height in every operating and park pose",
   "criterion": {
     "range": [
       0.0,
@@ -11,11 +11,12 @@
   "phase": "preliminary-design",
   "interfaces": [
     "climber hooks",
+    "intake",
     "hopper"
   ],
   "source": {
     "file": "design/preliminary/construction-rules.json",
-    "sha256": "2a4c023f42108454eba341b64f3f99a5ea822a62b0a2fd0277b16e6713640b1c"
+    "sha256": "f8910bcbf996861164fa0db9160b197dd38c77c031a31ff02be2df31de12813c"
   },
-  "basis": "R107 30 in at all times"
+  "basis": "R104/R107 30 in, measured as if on a flat floor"
 }

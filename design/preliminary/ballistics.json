@@ -1,760 +1,802 @@
 {
- "basis": "Point-mass flight with quadratic drag, no lift from spin. The ball must clear the near rim with its whole diameter and descend through the rim plane at least one radius inside the inscribed opening. Mass and diameter follow the V0 FUEL description; drag coefficients 0.35 and 0.60 bound a smooth-to-rough foam sphere near Re 1e5 (assumed, not measured).",
+ "basis": "Point-mass flight with quadratic drag (Cd 0.35-0.60) and a downward spin-lift band (CL 0-0.30) at 0.215 kg. A shot enters when it clears both rim edges by 3 mm, descends through the rim plane with the whole ball inside the inscribed opening, and is within the opening at 1.70 m. Nominal: Cd 0.47, CL 0.15. robustWindowMps is the speed band that enters under all four drag/lift corners, or null.",
  "inscribedRadiusM": 0.4586383935902009,
  "rimHeightM": 1.8288,
  "rows": [
   {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
    "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
   },
   {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.84,
+    6.97
+   ],
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.75,
+     6.9
+    ],
+    "cd0.35-cl0.3": [
+     6.85,
+     6.92
+    ],
+    "cd0.6-cl0.0": [
+     6.85,
+     7.02
+    ],
+    "cd0.6-cl0.3": [
+     6.94,
+     7.05
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.97,
+    7.28
+   ],
+   "robustWindowMps": [
+    7.06,
+    7.2
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.89,
+     7.2
+    ],
+    "cd0.35-cl0.3": [
+     6.95,
+     7.22
+    ],
+    "cd0.6-cl0.0": [
+     7.0,
+     7.36
+    ],
+    "cd0.6-cl0.3": [
+     7.06,
+     7.37
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.49,
+    7.93
+   ],
+   "robustWindowMps": [
+    7.59,
+    7.83
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.41,
+     7.83
+    ],
+    "cd0.35-cl0.3": [
+     7.44,
+     7.84
+    ],
+    "cd0.6-cl0.0": [
+     7.56,
+     8.04
+    ],
+    "cd0.6-cl0.3": [
+     7.59,
+     8.04
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
    "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
   },
   {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.35,
-    6.6
-   ]
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
   },
   {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.7,
+    6.84
+   ],
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.62,
+     6.77
+    ],
+    "cd0.35-cl0.3": [
+     6.71,
+     6.79
+    ],
+    "cd0.6-cl0.0": [
+     6.71,
+     6.9
+    ],
+    "cd0.6-cl0.3": [
+     6.79,
+     6.91
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
    "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.45,
+   "nominalWindowMps": [
+    6.73,
+    7.0
+   ],
+   "robustWindowMps": [
+    6.81,
+    6.93
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.65,
+     6.93
+    ],
+    "cd0.35-cl0.3": [
+     6.72,
+     6.94
+    ],
+    "cd0.6-cl0.0": [
+     6.75,
+     7.07
+    ],
+    "cd0.6-cl0.3": [
+     6.81,
+     7.08
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.93,
+    7.34
+   ],
+   "robustWindowMps": [
+    7.01,
+    7.27
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.86,
+     7.27
+    ],
+    "cd0.35-cl0.3": [
+     6.9,
+     7.27
+    ],
+    "cd0.6-cl0.0": [
+     6.98,
+     7.43
+    ],
+    "cd0.6-cl0.3": [
+     7.01,
+     7.42
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.232 m)",
+   "exitHeightM": 0.2325,
+   "elevationDeg": 62,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.53,
+    8.02
+   ],
+   "robustWindowMps": [
+    7.62,
+    7.92
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.45,
+     7.93
+    ],
+    "cd0.35-cl0.3": [
+     7.46,
+     7.92
+    ],
+    "cd0.6-cl0.0": [
+     7.62,
+     8.16
+    ],
+    "cd0.6-cl0.3": [
+     7.62,
+     8.13
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": [
+     6.43,
+     6.47
+    ],
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.4,
+    6.59
+   ],
+   "robustWindowMps": [
+    6.48,
+    6.53
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.33,
+     6.53
+    ],
+    "cd0.35-cl0.3": [
+     6.41,
+     6.55
+    ],
+    "cd0.6-cl0.0": [
+     6.41,
+     6.65
+    ],
+    "cd0.6-cl0.3": [
+     6.48,
+     6.66
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.46,
+    6.76
+   ],
+   "robustWindowMps": [
+    6.53,
     6.7
-   ]
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.39,
+     6.7
+    ],
+    "cd0.35-cl0.3": [
+     6.45,
+     6.71
+    ],
+    "cd0.6-cl0.0": [
+     6.48,
+     6.82
+    ],
+    "cd0.6-cl0.3": [
+     6.53,
+     6.84
+    ]
+   }
   },
   {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.05,
-    7.5
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.2,
-    7.65
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.2,
-    6.65
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.25,
-    6.75
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.15,
-    7.65
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.3,
-    7.85
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    5.75,
-    6.05
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    5.8,
-    6.15
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.25,
-    6.85
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.35,
-    7.0
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.4,
-    8.0
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 65,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.6,
-    8.2
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    5.65,
-    6.35
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    5.7,
-    6.5
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.55,
-    7.3
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.65,
-    7.5
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.9,
-    8.6
-   ]
-  },
-  {
-   "exit": "incumbent R2C scoring wheels (measured handoff 540 mm, wheel top 641 mm)",
-   "exitHeightM": 0.6,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    8.15,
-    8.9
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.15,
-    6.5
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.25,
-    6.6
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.95,
-    7.4
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.1,
-    7.55
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.05,
-    6.55
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.15,
-    6.65
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.05,
-    7.55
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.2,
-    7.75
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    5.5,
-    5.95
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    5.55,
-    6.05
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.15,
-    6.8
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.25,
-    6.9
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.35,
-    7.95
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 65,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.5,
-    8.15
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    5.5,
-    6.3
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    5.55,
-    6.4
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.45,
-    7.25
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.6,
-    7.4
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.85,
-    8.6
-   ]
-  },
-  {
-   "exit": "tall hooded flywheel above the 3-layer hopper",
-   "exitHeightM": 0.7,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    8.1,
-    8.85
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.75,
-    6.8
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.85,
-    6.95
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.25,
-    7.65
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 55,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.4,
-    7.8
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
+   "release": "release 0.43 m",
    "exitHeightM": 0.43,
    "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 60,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.45,
-    6.8
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 60,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.55,
-    6.9
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.3,
-    7.75
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 60,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.45,
-    7.95
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": null
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 65,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.35,
-    6.35
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.45,
-    7.0
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 65,
-   "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.55,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.69,
     7.1
-   ]
+   ],
+   "robustWindowMps": [
+    6.77,
+    7.03
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.62,
+     7.03
+    ],
+    "cd0.35-cl0.3": [
+     6.66,
+     7.04
+    ],
+    "cd0.6-cl0.0": [
+     6.73,
+     7.18
+    ],
+    "cd0.6-cl0.3": [
+     6.77,
+     7.18
+    ]
+   }
   },
   {
-   "exit": "low trench-runner hooded flywheel",
+   "release": "release 0.43 m",
    "exitHeightM": 0.43,
-   "elevationDeg": 65,
+   "elevationDeg": 60,
    "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    7.5,
-    8.1
-   ]
+   "nominalWindowMps": [
+    7.3,
+    7.79
+   ],
+   "robustWindowMps": [
+    7.39,
+    7.69
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.22,
+     7.69
+    ],
+    "cd0.35-cl0.3": [
+     7.24,
+     7.69
+    ],
+    "cd0.6-cl0.0": [
+     7.38,
+     7.9
+    ],
+    "cd0.6-cl0.3": [
+     7.39,
+     7.89
+    ]
+   }
   },
   {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 65,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    7.7,
-    8.3
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
    "distanceM": 1.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    5.9,
-    6.5
-   ]
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
   },
   {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
-   "distanceM": 1.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    5.95,
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": [
+    6.01,
+    6.24
+   ],
+   "robustWindowMps": [
+    6.07,
+    6.19
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.95,
+     6.19
+    ],
+    "cd0.35-cl0.3": [
+     6.01,
+     6.2
+    ],
+    "cd0.6-cl0.0": [
+     6.01,
+     6.28
+    ],
+    "cd0.6-cl0.3": [
+     6.07,
+     6.29
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.07,
+    6.42
+   ],
+   "robustWindowMps": [
+    6.13,
+    6.36
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.01,
+     6.36
+    ],
+    "cd0.35-cl0.3": [
+     6.06,
+     6.37
+    ],
+    "cd0.6-cl0.0": [
+     6.09,
+     6.47
+    ],
+    "cd0.6-cl0.3": [
+     6.13,
+     6.48
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.18,
     6.6
-   ]
+   ],
+   "robustWindowMps": [
+    6.24,
+    6.54
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.13,
+     6.54
+    ],
+    "cd0.35-cl0.3": [
+     6.16,
+     6.55
+    ],
+    "cd0.6-cl0.0": [
+     6.21,
+     6.66
+    ],
+    "cd0.6-cl0.3": [
+     6.24,
+     6.67
+    ]
+   }
   },
   {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
-   "distanceM": 2.4,
-   "cd": 0.35,
-   "speedWindowMps": [
-    6.65,
-    7.4
-   ]
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.48,
+    6.96
+   ],
+   "robustWindowMps": [
+    6.54,
+    6.89
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.42,
+     6.89
+    ],
+    "cd0.35-cl0.3": [
+     6.44,
+     6.9
+    ],
+    "cd0.6-cl0.0": [
+     6.52,
+     7.04
+    ],
+    "cd0.6-cl0.3": [
+     6.54,
+     7.04
+    ]
+   }
   },
   {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.15,
+    7.66
+   ],
+   "robustWindowMps": [
+    7.23,
+    7.57
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.07,
+     7.58
+    ],
+    "cd0.35-cl0.3": [
+     7.08,
+     7.57
+    ],
+    "cd0.6-cl0.0": [
+     7.22,
+     7.78
+    ],
+    "cd0.6-cl0.3": [
+     7.23,
+     7.76
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": [
+    5.79,
+    6.13
+   ],
+   "robustWindowMps": [
+    5.85,
+    6.08
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.74,
+     6.08
+    ],
+    "cd0.35-cl0.3": [
+     5.78,
+     6.09
+    ],
+    "cd0.6-cl0.0": [
+     5.8,
+     6.18
+    ],
+    "cd0.6-cl0.3": [
+     5.85,
+     6.19
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    5.9,
+    6.32
+   ],
+   "robustWindowMps": [
+    5.95,
+    6.27
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.85,
+     6.27
+    ],
+    "cd0.35-cl0.3": [
+     5.88,
+     6.28
+    ],
+    "cd0.6-cl0.0": [
+     5.92,
+     6.38
+    ],
+    "cd0.6-cl0.3": [
+     5.95,
+     6.38
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
    "distanceM": 2.4,
-   "cd": 0.6,
-   "speedWindowMps": [
-    6.8,
+   "nominalWindowMps": [
+    6.04,
+    6.51
+   ],
+   "robustWindowMps": [
+    6.09,
+    6.45
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.99,
+     6.45
+    ],
+    "cd0.35-cl0.3": [
+     6.01,
+     6.46
+    ],
+    "cd0.6-cl0.0": [
+     6.07,
+     6.57
+    ],
+    "cd0.6-cl0.3": [
+     6.09,
+     6.57
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.36,
+    6.88
+   ],
+   "robustWindowMps": [
+    6.42,
+    6.81
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.31,
+     6.81
+    ],
+    "cd0.35-cl0.3": [
+     6.32,
+     6.81
+    ],
+    "cd0.6-cl0.0": [
+     6.41,
+     6.96
+    ],
+    "cd0.6-cl0.3": [
+     6.42,
+     6.95
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.06,
     7.6
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.35,
-   "speedWindowMps": [
-    8.0,
-    8.7
-   ]
-  },
-  {
-   "exit": "low trench-runner hooded flywheel",
-   "exitHeightM": 0.43,
-   "elevationDeg": 70,
-   "distanceM": 3.6,
-   "cd": 0.6,
-   "speedWindowMps": [
-    8.25,
-    9.0
-   ]
+   ],
+   "robustWindowMps": [
+    7.14,
+    7.5
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.99,
+     7.51
+    ],
+    "cd0.35-cl0.3": [
+     7.0,
+     7.5
+    ],
+    "cd0.6-cl0.0": [
+     7.14,
+     7.71
+    ],
+    "cd0.6-cl0.3": [
+     7.14,
+     7.7
+    ]
+   }
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "start-capacity",
   "unit": "FUEL",
-  "scenario": "AUTO preload of eight in the starting fold",
+  "scenario": "AUTO preload of eight in the starting fold, at a loose 0.45 packing fraction",
   "criterion": {
     "range": [
       8.0,

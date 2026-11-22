@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD1",
-  "planSha256": "912c5a54626069ffa140eee4c4a59fb7d1c020b59b6fbe55004d29dff89be5e2",
+  "planSha256": "3028d0e301d3b1ffbbbd1ae0cbc186941b19a65cd2cb93b5f0d954728d6741f6",
   "design": {
     "file": "design/preliminary/design.json",
     "sha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de"
@@ -35,8 +35,12 @@
       1
     ]
   },
-  "status": "layout-checked",
-  "missingInputs": [],
+  "status": "reopen",
+  "missingInputs": [
+    "Open narrative objective: Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+    "Open narrative objective: Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
+    "Open narrative objective: End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
+  ],
   "narrativeReview": {
     "source": {
       "file": "kickoff/selected-strategy.md",
@@ -46,17 +50,22 @@
       {
         "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
         "disposition": "represented",
-        "basis": "Seven stored preloads plus the tracked pocket fit the starting fold (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening. AUTO route timing stays with the field rehearsal."
+        "basis": "The starting fold holds 36 or more FUEL by free volume at 0.45 packing (start-capacity premise); the stored FUEL drawn are the supported pockets clear of every commissioned path; launch-wrap and flight cases carry a FUEL into the HUB opening. The AUTO route uses the delivery pose that the delivery-pose premise reopens."
       },
       {
         "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
         "disposition": "represented",
-        "basis": "acquire-* cases take a floor FUEL over the bumper into the hopper; hopper-capacity premise checks 24 with the intake deployed."
+        "basis": "acquire-* cases take a floor FUEL up the bumper face and into the hopper; hopper-capacity counts stable stacked positions for 24."
       },
       {
-        "objective": "Active shift: move loaded and score 24 by the end of the shift (2.00 FUEL/s with stock ready by second 5)",
+        "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
         "disposition": "represented",
-        "basis": "loaded-transit, index, launch-wrap and flight cases carry one FUEL through the single floor-to-flywheel transfer. The 24-piece rate depends on bulk feeding into two pinch lanes, recorded as open finding F1 with its bench test."
+        "basis": "loaded-transit, index, launch-wrap and flight cases carry the tracked FUEL from the floor lane into the HUB cavity."
+      },
+      {
+        "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+        "disposition": "open",
+        "basis": "F1: bulk convergence into two pinch lanes is unproven; the bench test and stop conditions are in architecture-comparison.json."
       },
       {
         "objective": "Fallback: score the available batch when supply or traffic consumes the window and return to collecting",
@@ -64,19 +73,19 @@
         "basis": "The cycle is piece-count independent; the intake stays deployed in every operating case."
       },
       {
-        "objective": "Traffic: remain in the own zone, preserve possession during an interrupted crossing and yield",
-        "disposition": "represented",
-        "basis": "Loaded-transit keeps stored FUEL inside walls that rise 85 mm above the top-layer centres; retention review R-6."
+        "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
+        "disposition": "open",
+        "basis": "F6: the loaded-transit case moves the field, not accelerations on the robot. Retention under 0.5 g stops is untested (retention R-4)."
       },
       {
         "objective": "Neutral collector alternative with two field crossings",
         "disposition": "out-of-scope",
-        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-breakover premise) but its route is not commissioned here."
+        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-breakover premise) with the intake retracted; its route is not commissioned here."
       },
       {
         "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
-        "disposition": "represented",
-        "basis": "tower-lateral, tower-forward, climb-reach, climb-seat (required 2 mm seat contact) and climb-lift raise the robot 70 mm."
+        "disposition": "open",
+        "basis": "Cases reach, seat (2 mm required contact) and lift 70 mm. F4: the hang moment rests on 6.4 mm of bumper overlap with each upright, and the jaw reaches 5.4 mm below the rung centre."
       },
       {
         "objective": "AUTO Level 1 TOWER (15 points, two-robot cap)",
@@ -97,11 +106,38 @@
   },
   "premises": [
     {
-      "id": "stowed-start-height",
+      "id": "start-overhang",
       "phase": "preliminary-design",
-      "scenario": "Starting configuration with the intake folded",
+      "scenario": "Starting fold: nothing but bumpers outside the frame projection",
       "interfaces": [
         "climber hooks",
+        "intake"
+      ],
+      "unit": "mm",
+      "criterion": {
+        "range": [
+          -500.0,
+          0.5
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-start-overhang-accepted.json",
+        "sha256": "6cd25b1f2ebbd37c5c74428d23818e2887ec4df501b0905bb5c4418e1c938f0b"
+      },
+      "status": "within",
+      "current": {
+        "file": "design/preliminary/premise-start-overhang-current.json",
+        "sha256": "4a35a4045597627af7e46d74560d746cc9ca8e0e387cd5ec23e7761930f29419"
+      },
+      "value": 0.0
+    },
+    {
+      "id": "swept-height",
+      "phase": "preliminary-design",
+      "scenario": "Robot height in every operating and park pose",
+      "interfaces": [
+        "climber hooks",
+        "hopper",
         "intake"
       ],
       "unit": "mm",
@@ -112,71 +148,124 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-stowed-start-height-accepted.json",
-        "sha256": "f629b5febab18ac73e30fa83d0acfb2b614dce9ab6f2e6b315395747ce1066cc"
+        "file": "design/preliminary/premise-swept-height-accepted.json",
+        "sha256": "2542f6f863313167d28ef1af9f1232a7c205cb5dfe5c497ce2489c8eb619ea94"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-stowed-start-height-current.json",
-        "sha256": "aa436d1bbae0ed5244a078c8f91dbbf05e280547b1a2bab192fba645b18dc63c"
+        "file": "design/preliminary/premise-swept-height-current.json",
+        "sha256": "ce3bd24e0ef0e44179b854e29ebf855f541e8cb746e3c743ba440c68c2d3d7d5"
       },
       "value": 750.0
     },
     {
-      "id": "deployed-height",
+      "id": "swept-front-extension",
       "phase": "preliminary-design",
-      "scenario": "Operating configuration with hooks stowed",
+      "scenario": "Front extension through every operating and park pose",
       "interfaces": [
         "climber hooks",
-        "hopper"
-      ],
-      "unit": "mm",
-      "criterion": {
-        "range": [
-          0.0,
-          762.0
-        ]
-      },
-      "accepted": {
-        "file": "design/preliminary/premise-deployed-height-accepted.json",
-        "sha256": "53b84a11b9b1d2bcbacb57f93f380270f4e06bebcecd97f495e98aebf58f2a96"
-      },
-      "status": "within",
-      "current": {
-        "file": "design/preliminary/premise-deployed-height-current.json",
-        "sha256": "f0c3ad7841613dce958236e78e7c2957258f8c1555df6013548012dac03172cc"
-      },
-      "value": 750.0
-    },
-    {
-      "id": "intake-reach",
-      "phase": "preliminary-design",
-      "scenario": "Deployed intake beyond the front frame perimeter",
-      "interfaces": [
         "intake"
       ],
       "unit": "mm",
       "criterion": {
         "range": [
-          0.0,
+          -500.0,
           304.8
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-intake-reach-accepted.json",
-        "sha256": "01c3775c6960da8089b40bff22b85ead971462efa315521d9f0c9ff44747055b"
+        "file": "design/preliminary/premise-swept-front-extension-accepted.json",
+        "sha256": "82c6b71b6b954bec0e1aa7b28c212520a3d5f2e2f8bcc6f5113e45266865dbde"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-intake-reach-current.json",
-        "sha256": "6e6e6d66ada58f36e584d50652ce8ad57412083bf72e6dfd86e80a1629fefdd4"
+        "file": "design/preliminary/premise-swept-front-extension-current.json",
+        "sha256": "cf8eb49602e08c9d5ae6c14b220a8f7334acbe322066b1a3e5361372a213fa2c"
       },
-      "value": 266.938
+      "value": 270.614
+    },
+    {
+      "id": "swept-other-extension",
+      "phase": "preliminary-design",
+      "scenario": "Rear and side extension through every operating and park pose",
+      "interfaces": [
+        "climber hooks",
+        "shooter"
+      ],
+      "unit": "mm",
+      "criterion": {
+        "range": [
+          -500.0,
+          0.5
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-swept-other-extension-accepted.json",
+        "sha256": "4540b1b93e969dbd9eb0f68c58fb569d553f3b7522b75401116d14b7c3be0794"
+      },
+      "status": "within",
+      "current": {
+        "file": "design/preliminary/premise-swept-other-extension-current.json",
+        "sha256": "0ef2d7fad46879f304e8427381b57b9f8b0132c82ed14768fe1ed0578a7934ec"
+      },
+      "value": 0.0
+    },
+    {
+      "id": "sides-extended",
+      "phase": "preliminary-design",
+      "scenario": "Sides extended at once in any sampled pose",
+      "interfaces": [
+        "climber hooks",
+        "intake"
+      ],
+      "unit": "sides",
+      "criterion": {
+        "range": [
+          0.0,
+          1.0
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-sides-extended-accepted.json",
+        "sha256": "0730ac74e96655e4459d691b3aa928d75262214a9449ed1e01f86bf1dc2b1f8e"
+      },
+      "status": "within",
+      "current": {
+        "file": "design/preliminary/premise-sides-extended-current.json",
+        "sha256": "53a2dd6aa1db0809ceb9c5305952d3bf9cb853e0c8277e0e5f198b25ce7d94a5"
+      },
+      "value": 1.0
+    },
+    {
+      "id": "with-bumpers-mass",
+      "phase": "preliminary-design",
+      "scenario": "Upper R103 estimate plus 7.5 kg bumpers",
+      "interfaces": [
+        "bumpers",
+        "frame"
+      ],
+      "unit": "kg",
+      "criterion": {
+        "range": [
+          0.0,
+          61.23
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-with-bumpers-mass-accepted.json",
+        "sha256": "3bb605a82e8e417dcbcedd244a3e81001d94c568430bff8a5797da0769554e9e"
+      },
+      "status": "within",
+      "current": {
+        "file": "design/preliminary/premise-with-bumpers-mass-current.json",
+        "sha256": "83868aaed444c2998fa6bcb7109b33eef75d58a43fd43558869f3fd77a8aefc3"
+      },
+      "value": 55.3
     },
     {
       "id": "hopper-capacity",
       "phase": "conceptual-design",
-      "scenario": "Selected own-zone batch of 24 with the intake deployed",
+      "scenario": "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction",
       "interfaces": [
         "floor belts",
         "hopper",
@@ -191,19 +280,19 @@
       },
       "accepted": {
         "file": "design/preliminary/premise-hopper-capacity-accepted.json",
-        "sha256": "21bd57e69754fef35fb68c28a8c2c73a53423a3cf92a5b088cd6a3170d23a839"
+        "sha256": "7d520639bdd23ce04b95871caa5a89bf8233e32f2e78ff8ec6e6c38d19300621"
       },
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-hopper-capacity-current.json",
-        "sha256": "a9acb1b93ddfb8be8a6cfe7f95fde7b356655f469f25990dcdeffc1abf4905c9"
+        "sha256": "5bafa4c1bd92b044d1a8160eab61d1fdb602793d4324c52db4eecd710d1f12a2"
       },
-      "value": 30.0
+      "value": 36.9
     },
     {
       "id": "start-capacity",
       "phase": "conceptual-design",
-      "scenario": "AUTO preload of eight in the starting fold",
+      "scenario": "AUTO preload of eight in the starting fold, at a loose 0.45 packing fraction",
       "interfaces": [
         "hopper",
         "intake"
@@ -217,39 +306,65 @@
       },
       "accepted": {
         "file": "design/preliminary/premise-start-capacity-accepted.json",
-        "sha256": "286bf4abee21e7fb6522caba5eaf25c822a840751c14222c9b0a0700df8c0ce4"
+        "sha256": "be9610a83af9d953f5afcd1d7af5f8250fd84c529aa24970db83fabcfda5c556"
       },
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-start-capacity-current.json",
-        "sha256": "867a9e10c07975e64aa57d9ef3b710ddcd8e3b5ece83bc9a3458f23034ced3ce"
+        "sha256": "437284aedf30fa60547de23aa908b37e9c26bb784c91a7d0cdd59b37e0279092"
       },
-      "value": 23.0
+      "value": 36.4
     },
     {
-      "id": "shot-distance",
-      "phase": "conceptual-design",
-      "scenario": "Delivery pose used by the field rehearsal (about 2.2 m from the HUB centre)",
+      "id": "shot-window",
+      "phase": "preliminary-design",
+      "scenario": "Release-to-HUB distance with an entry band under all drag and spin corners",
       "interfaces": [
         "shooter"
       ],
       "unit": "m",
       "criterion": {
         "range": [
-          1.6,
+          2.4,
           3.6
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-shot-distance-accepted.json",
-        "sha256": "eb089e682658c39325215ab7e796efbc58d9ba275646916757bcbf844aca437a"
+        "file": "design/preliminary/premise-shot-window-accepted.json",
+        "sha256": "70deae27e6bdd16b49e75e8ad7181246cfef3e60b38ed7485d775573f3cd4d5b"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-shot-distance-current.json",
-        "sha256": "d78b83fe707b682d0d179527251ba1b438e3d1acbd7605309794b241fbca7d9d"
+        "file": "design/preliminary/premise-shot-window-current.json",
+        "sha256": "05994da73918f76e3bccdfabbf01b12b61b458e7e0f4bfbd76ae992e91ab2f52"
       },
-      "value": 2.3384
+      "value": 2.4362
+    },
+    {
+      "id": "delivery-pose",
+      "phase": "conceptual-design",
+      "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
+      "interfaces": [
+        "drivetrain",
+        "shooter"
+      ],
+      "unit": "m",
+      "criterion": {
+        "range": [
+          1.9,
+          2.4
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-delivery-pose-accepted.json",
+        "sha256": "507a9a6eff70b9a6f160c3a183672928d4d755a3208910199f8f047ac232276d"
+      },
+      "status": "reopen",
+      "current": {
+        "file": "design/preliminary/premise-delivery-pose-current.json",
+        "sha256": "799f30a8c1c7e4cdec94df53d55d1e111e6b4b44372692c32f876df46de22f9d"
+      },
+      "value": 2.7
     },
     {
       "id": "bump-breakover",
@@ -268,32 +383,39 @@
       },
       "accepted": {
         "file": "design/preliminary/premise-bump-breakover-accepted.json",
-        "sha256": "29f8765c6cd58a119df9bde3fd4cba19a433239808ce2d5f13d01ac7d115660d"
+        "sha256": "dfdfe44be45c185c3d8e7711eba799adb747de45e6e57148bed184e47592efd7"
       },
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-bump-breakover-current.json",
-        "sha256": "cbb80bead8c81ceda1a56f18668340d77db705930162d428396a42eb1225e88a"
+        "sha256": "d6a8a1e00d02a0e371bb79f5a6e806a2c16b4f3605a864ff2d0f6608a6a477d5"
       },
       "value": 75.0
     }
   ],
-  "reopen": [],
+  "reopen": [
+    {
+      "phase": "conceptual-design",
+      "reason": "delivery-pose",
+      "affected": [
+        "drivetrain",
+        "shooter"
+      ]
+    }
+  ],
   "designId": "editable-blockout",
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd"
+    "sha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3"
   },
   "motion": {
     "file": "design/preliminary/paths.json",
-    "sha256": "364eb4704f3a4dc1d1f8dfac4a5623f8f54cffc084c726c8d73f6931df0ed205"
+    "sha256": "e84b47b5fbf3a7b8b5de06224741801a6aff5a0f5822853a49acbec2fa7ff480"
   },
   "cycle": [
     "intake-deploy",
     "acquire-approach",
-    "acquire-ramp",
-    "acquire-crest-1",
-    "acquire-crest-2",
+    "acquire-climb",
     "acquire-over",
     "acquire-drop",
     "loaded-transit",
@@ -313,21 +435,21 @@
   "budgets": {
     "source": {
       "file": "design/preliminary/budgets.json",
-      "sha256": "109f0b13e390c42b0a0a1aad678e3995cf61810b0ad2a23ea9f8e99ba7f12cd3"
+      "sha256": "4d0be5adead263bc0f53de2a9756641ac2739307e349e34cb6133e8d809b395e"
     },
     "limits": {
       "file": "design/preliminary/package-limits.json",
-      "sha256": "2a66f88f1565d7dd5e7c0039d0bc2034bf7d9d41d2cb5f303efc993a2fa4f9e8"
+      "sha256": "99ae38bbb8a6ac694b41768157af656a154cc1f4ce6822ff22ca9ba8389d39f4"
     },
     "inspectionKg": [
-      32.6,
-      44.6
+      35.6,
+      47.8
     ],
     "runningKg": [
-      49.072,
-      63.748000000000005
+      51.472,
+      67.648
     ],
-    "remainingKg": 7.559999999999995,
+    "remainingKg": 4.359999999999999,
     "massStatus": "pass",
     "electricalCases": [
       {
@@ -337,14 +459,14 @@
         "batteryCondition": "nominal",
         "batterySideA": [
           20,
-          104
+          109
         ],
         "loadedBusV": [
-          10.736,
+          10.656,
           12.56
         ],
         "requiredMinV": 7.5,
-        "marginV": 3.2360000000000007,
+        "marginV": 3.1560000000000006,
         "status": "pass"
       },
       {
@@ -354,14 +476,14 @@
         "batteryCondition": "weak",
         "batterySideA": [
           20,
-          104
+          109
         ],
         "loadedBusV": [
-          9.196000000000002,
+          9.066,
           11.799999999999999
         ],
         "requiredMinV": 7.5,
-        "marginV": 1.6960000000000015,
+        "marginV": 1.5660000000000007,
         "status": "pass"
       },
       {
@@ -399,9 +521,9 @@
         "status": "pass"
       },
       {
-        "case": "acquire-ramp-nominal",
-        "duty": "acquire duty during acquire-ramp",
-        "stage": "acquire-ramp",
+        "case": "acquire-climb-nominal",
+        "duty": "acquire duty during acquire-climb",
+        "stage": "acquire-climb",
         "batteryCondition": "nominal",
         "batterySideA": [
           37,
@@ -416,77 +538,9 @@
         "status": "pass"
       },
       {
-        "case": "acquire-ramp-weak",
-        "duty": "acquire duty during acquire-ramp",
-        "stage": "acquire-ramp",
-        "batteryCondition": "weak",
-        "batterySideA": [
-          37,
-          151
-        ],
-        "loadedBusV": [
-          7.974,
-          11.459999999999999
-        ],
-        "requiredMinV": 7.5,
-        "marginV": 0.4740000000000002,
-        "status": "pass"
-      },
-      {
-        "case": "acquire-crest-1-nominal",
-        "duty": "acquire duty during acquire-crest-1",
-        "stage": "acquire-crest-1",
-        "batteryCondition": "nominal",
-        "batterySideA": [
-          37,
-          151
-        ],
-        "loadedBusV": [
-          9.984,
-          12.356
-        ],
-        "requiredMinV": 7.5,
-        "marginV": 2.484,
-        "status": "pass"
-      },
-      {
-        "case": "acquire-crest-1-weak",
-        "duty": "acquire duty during acquire-crest-1",
-        "stage": "acquire-crest-1",
-        "batteryCondition": "weak",
-        "batterySideA": [
-          37,
-          151
-        ],
-        "loadedBusV": [
-          7.974,
-          11.459999999999999
-        ],
-        "requiredMinV": 7.5,
-        "marginV": 0.4740000000000002,
-        "status": "pass"
-      },
-      {
-        "case": "acquire-crest-2-nominal",
-        "duty": "acquire duty during acquire-crest-2",
-        "stage": "acquire-crest-2",
-        "batteryCondition": "nominal",
-        "batterySideA": [
-          37,
-          151
-        ],
-        "loadedBusV": [
-          9.984,
-          12.356
-        ],
-        "requiredMinV": 7.5,
-        "marginV": 2.484,
-        "status": "pass"
-      },
-      {
-        "case": "acquire-crest-2-weak",
-        "duty": "acquire duty during acquire-crest-2",
-        "stage": "acquire-crest-2",
+        "case": "acquire-climb-weak",
+        "duty": "acquire duty during acquire-climb",
+        "stage": "acquire-climb",
         "batteryCondition": "weak",
         "batterySideA": [
           37,
@@ -1014,7 +1068,7 @@
   },
   "view": {
     "file": "design/preliminary/review/package-motion.html",
-    "sha256": "5a66a9ac65e3fde718d9d5e9b2b4142923000cd88580fea8e09a96fd8c845fc7",
+    "sha256": "3604738ca7030410d33d69292ae66d9773523cf3ee7ede66c458bfc8fca17839",
     "verified": true
   },
   "control": {
@@ -1034,7 +1088,7 @@
       "witness": {
         "t": 0.0,
         "gapMm": 0.0,
-        "volumeMm3": 4594.824102377474
+        "volumeMm3": 4594.823918319637
       }
     }
   },
@@ -1042,6 +1096,8 @@
     "frame": {
       "role": "structure",
       "members": [
+        "climber tube mount left",
+        "climber tube mount right",
         "floor pan",
         "floor pan front tongue",
         "frame rail front",
@@ -1049,13 +1105,14 @@
         "frame rail rear",
         "frame rail right",
         "front lip",
-        "intake pivot mount left",
-        "intake pivot mount right"
+        "intake slide rail left",
+        "intake slide rail right"
       ]
     },
     "hopper": {
       "role": "structure",
       "members": [
+        "hopper front upper wall",
         "hopper rear wall",
         "hopper wall left",
         "hopper wall right"
@@ -1065,7 +1122,8 @@
       "role": "structure",
       "members": [
         "climber tube left",
-        "climber tube right"
+        "climber tube right",
+        "climber winch"
       ]
     },
     "bumpers": {
@@ -1104,6 +1162,7 @@
       "role": "other",
       "members": [
         "electronics panel",
+        "electronics panel left",
         "entry sensor",
         "pinch sensor"
       ]
@@ -1125,7 +1184,8 @@
       "role": "mechanism",
       "members": [
         "flywheel",
-        "flywheel motor",
+        "flywheel motor left",
+        "flywheel motor right",
         "hood",
         "shooter side plate left",
         "shooter side plate right"
@@ -1134,16 +1194,10 @@
     "intake": {
       "role": "mechanism",
       "members": [
-        "intake arm left",
-        "intake arm right",
-        "intake ramp",
-        "intake roller"
-      ]
-    },
-    "intake pivot drive": {
-      "role": "mechanism",
-      "members": [
-        "intake pivot drive"
+        "intake belt module",
+        "intake carriage plate left",
+        "intake carriage plate right",
+        "intake top roller"
       ]
     },
     "climber hooks": {
@@ -1170,12 +1224,7 @@
       "role": "payload",
       "members": [
         "FUEL stored 1",
-        "FUEL stored 2",
-        "FUEL stored 3",
-        "FUEL stored 4",
-        "FUEL stored 5",
-        "FUEL stored 6",
-        "FUEL stored 7"
+        "FUEL stored 2"
       ]
     },
     "field": {
@@ -1183,6 +1232,7 @@
       "members": [
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right"
@@ -1222,23 +1272,13 @@
     },
     {
       "group": "intake",
-      "on": "intake pivot mount left",
+      "on": "intake slide rail left",
       "pointMm": [
-        322,
+        300,
         278,
-        279
+        400
       ],
-      "basis": "Pivot axle bearing on the mount top"
-    },
-    {
-      "group": "intake pivot drive",
-      "on": "intake pivot mount left",
-      "pointMm": [
-        322,
-        274,
-        279
-      ],
-      "basis": "Gearmotor flange on the inboard face of the pivot mount"
+      "basis": "Carriage plates run on the two-stage slide; the fixed stage is drawn"
     },
     {
       "group": "climber inner tubes",
@@ -1302,13 +1342,13 @@
       338.0,
       120.65
     ],
-    "intake pivot mount left": [
-      313.5,
+    "intake slide rail left": [
+      160.0,
       274.0,
-      123.0,
+      345.0,
       336.0,
       282.0,
-      279.0
+      480.0
     ]
   },
   "stages": {
@@ -1328,23 +1368,7 @@
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids; guided FUEL paths keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits"
     },
-    "acquire-ramp": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids; guided FUEL paths keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits"
-    },
-    "acquire-crest-1": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids; guided FUEL paths keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits"
-    },
-    "acquire-crest-2": {
+    "acquire-climb": {
       "purpose": "operating",
       "movingGroups": [
         "tracked FUEL"
@@ -1508,13 +1532,13 @@
       "extracted": [],
       "status": "pass",
       "moving": [
-        "intake arm left",
-        "intake arm right",
-        "intake ramp",
-        "intake roller"
+        "intake belt module",
+        "intake carriage plate left",
+        "intake carriage plate right",
+        "intake top roller"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -1524,330 +1548,17 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 121.08807882717201,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 117.22356672829684,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 67.66597420695823,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 68.1356407257685,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 19.893302094272144,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 62.6534005752718,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 4.747092116786121,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 58.299376694091336,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 38.83035639092891,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 52.76344491844014,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 9.392792528153898,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "FUEL stored 6",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 57.258557361988494,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 6",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 8.669935345931453,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "FUEL stored 7",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 4.794711089847397,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "FUEL stored 7",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 66.4409891239099,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 7",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 8.543177015746668,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 10.816499465548674,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 93.32892606255226,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "battery",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 78.48538161777861,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "battery",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 78.46388266090355,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "battery",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 58.777871041000964,
-          "samples": 5
         },
         {
           "pair": [
             "bumper front",
-            "intake arm left"
+            "intake belt module"
           ],
           "status": "pass",
-          "lowerBoundMm": 44.172693526296044,
-          "samples": 17
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 44.172693526296044,
-          "samples": 17
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 3.4946816787599646,
-          "samples": 21
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 20.952783492137854,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "bumper rear",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 111.20116846541214,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "bumper rear",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 111.20116846541214,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "bumper rear",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 259.7862025852713,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "bumper rear",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 325.8000717952322,
-          "samples": 3
+          "method": "enclosed relative linear stroke"
         },
         {
           "pair": [
@@ -1899,204 +1610,6 @@
         },
         {
           "pair": [
-            "entry sensor",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 6.074159223577368,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "entry sensor",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 97.29301034221535,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor belt front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 46.302213608611254,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "floor belt front",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 143.8831973344099,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor belt main",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 99.93345093601309,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "floor belt main",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 43.26501010969213,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor belt main",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 183.63791247582637,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor pan",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 106.09037234461448,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "floor pan",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 106.09037234461448,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "floor pan",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 46.45178635555709,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor pan",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 192.07817801265642,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "floor pan front tongue",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 45.41790809383761,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "floor pan front tongue",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 145.35573638876198,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "flywheel",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.6151870481626247,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "flywheel",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 47.478786120759935,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "flywheel motor",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 142.65500487047098,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "flywheel motor",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 22.415187048162693,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "flywheel motor",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 68.27878612076,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 21.52346297521072,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 21.52346297521072,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 6.380991401115693,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 97.02644705471036,
-          "samples": 5
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -2109,534 +1622,36 @@
         },
         {
           "pair": [
-            "frame rail rear",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 95.5018747882873,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "frame rail rear",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 95.5018747882873,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "frame rail rear",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 244.85068271575585,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "frame rail rear",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 323.8414874702601,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 17.665879326422527,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 10.101236683366437,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 107.97754879178424,
-          "samples": 5
-        },
-        {
-          "pair": [
             "front left module motors",
-            "intake arm left"
+            "intake belt module"
           ],
           "status": "pass",
-          "lowerBoundMm": 2.72742439038673,
-          "samples": 29
-        },
-        {
-          "pair": [
-            "front left module motors",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 32.863841254881606,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "front left module motors",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 47.4723797417669,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "front left wheel azimuth envelope",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 66.73904766727784,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "front left wheel azimuth envelope",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 53.43156625187905,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "front left wheel azimuth envelope",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 152.9411087987588,
-          "samples": 5
+          "method": "enclosed relative linear stroke"
         },
         {
           "pair": [
             "front lip",
-            "intake ramp"
+            "intake belt module"
           ],
           "status": "pass",
-          "lowerBoundMm": 42.17197969336381,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "front lip",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 78.74631474516471,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 17.665879326422527,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 10.101236683366437,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 107.97754879178424,
-          "samples": 5
+          "method": "enclosed relative linear stroke"
         },
         {
           "pair": [
             "front right module motors",
-            "intake arm right"
+            "intake belt module"
           ],
           "status": "pass",
-          "lowerBoundMm": 2.72742439038673,
-          "samples": 29
-        },
-        {
-          "pair": [
-            "front right module motors",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 32.863841254881606,
-          "samples": 11
-        },
-        {
-          "pair": [
-            "front right module motors",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 47.4723797417669,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "front right wheel azimuth envelope",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 66.73904766727784,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "front right wheel azimuth envelope",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 53.43156625187905,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "front right wheel azimuth envelope",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 152.9411087987588,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "hood",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 92.0926019505007,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "hood",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 197.98865033449664,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "hopper rear wall",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 68.70203448952054,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "hopper rear wall",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 68.70203448952054,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "hopper rear wall",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 224.37420469821143,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "hopper rear wall",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 85.64184513866567,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "indexer cleat",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 13.966526449532864,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "indexer cleat",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 98.52454921754932,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "intake arm left",
-            "rear left module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 246.04774800181315,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "intake arm left",
-            "rear left module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 270.6635464621529,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "intake arm left",
-            "rear left wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 24.21349297608026,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake arm right",
-            "rear right module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 246.04774800181315,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "intake arm right",
-            "rear right module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 270.6635464621529,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "intake arm right",
-            "rear right wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 24.21349297608026,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake pivot drive",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 32.30213449271959,
-          "samples": 17
-        },
-        {
-          "pair": [
-            "intake pivot drive",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 68.19856817469842,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "pinch sensor"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 44.44552695122559,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear left module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 119.56169474952071,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear left module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 144.41891600076258,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear left wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 173.38947310167407,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear right module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 119.56169474952071,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear right module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 144.41891600076258,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "rear right wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 173.38947310167407,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "shooter side plate left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.4134686390792695,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake ramp",
-            "shooter side plate right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.4134686390792695,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "pinch sensor"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 99.20787942561805,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear left module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 211.32446895725758,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear left module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 207.69766035216622,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear left wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 271.83423450298943,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear right module body"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 211.32446895725758,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear right module motors"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 207.69766035216622,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "rear right wheel azimuth envelope"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 271.83423450298943,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "shooter side plate left"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 13.280637122445455,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "intake roller",
-            "shooter side plate right"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 13.280637122445455,
-          "samples": 3
+          "method": "enclosed relative linear stroke"
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 131,
-        "bounded": 109,
-        "constantPoseBroadPhase": 1765,
+        "broadPhase": 240,
+        "bounded": 4,
+        "constantPoseBroadPhase": 1830,
         "constantPoseReused": 0
       }
     },
@@ -2648,7 +1663,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -2658,111 +1673,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "method": "enclosed relative linear stroke"
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -2816,30 +1727,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -2849,51 +1736,27 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 62,
-        "bounded": 1,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 11
+        "broadPhase": 64,
+        "bounded": 0,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
-      "case": "acquire-ramp",
+      "case": "acquire-climb",
       "extracted": [],
       "status": "pass",
       "moving": [
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -2903,129 +1766,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "bumper front"
-          ],
-          "status": "pass",
-          "method": "enclosed relative linear stroke"
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.0428871528399708,
-          "samples": 129
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.0437788967726584,
-          "samples": 37
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -3079,30 +1820,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -3112,539 +1829,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 60,
-        "bounded": 3,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
-      }
-    },
-    {
-      "case": "acquire-crest-1",
-      "extracted": [],
-      "status": "pass",
-      "moving": [
-        "FUEL tracked"
-      ],
-      "removed": {},
-      "installedCount": 64,
-      "pairs": [
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 2"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "method": "enclosed relative linear stroke"
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake roller"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 2.9846513715870984,
-          "samples": 3
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber hook left",
-            "climber inner tube left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 2.0,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber hook right",
-            "climber inner tube right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 2.0,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber inner tube left",
-            "climber tube left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 1.9999999999999434,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber inner tube right",
-            "climber tube right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 1.9999999999999434,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail rear",
-            "hood"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 30.254318184623877,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        }
-      ],
-      "seats": [],
-      "requiredContacts": [],
-      "visibility": [],
-      "counts": {
-        "broadPhase": 61,
-        "bounded": 2,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
-      }
-    },
-    {
-      "case": "acquire-crest-2",
-      "extracted": [],
-      "status": "pass",
-      "moving": [
-        "FUEL tracked"
-      ],
-      "removed": {},
-      "installedCount": 64,
-      "pairs": [
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 2"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL tracked",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "method": "enclosed relative linear stroke"
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber hook left",
-            "climber inner tube left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 2.0,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber hook right",
-            "climber inner tube right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 2.0,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber inner tube left",
-            "climber tube left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 1.9999999999999434,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "climber inner tube right",
-            "climber tube right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 1.9999999999999434,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail rear",
-            "hood"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 30.254318184623877,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        }
-      ],
-      "seats": [],
-      "requiredContacts": [],
-      "visibility": [],
-      "counts": {
-        "broadPhase": 62,
-        "bounded": 1,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "broadPhase": 64,
+        "bounded": 0,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -3655,7 +1849,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -3665,121 +1859,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.4253851522772578,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 3.3026047923096797,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -3833,30 +1913,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -3866,40 +1922,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 61,
-        "bounded": 2,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "broadPhase": 64,
+        "bounded": 0,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -3910,7 +1942,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -3920,121 +1952,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.17070526507508,
-          "samples": 27
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 3.0459378167778226,
-          "samples": 21
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -4088,30 +2006,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -4121,40 +2015,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 61,
-        "bounded": 2,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "broadPhase": 64,
+        "bounded": 0,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -4164,12 +2034,13 @@
       "moving": [
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -4179,115 +2050,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 55.02558662335265,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -4341,30 +2104,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -4374,40 +2113,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 295,
+        "broadPhase": 354,
         "bounded": 0,
-        "constantPoseBroadPhase": 1702,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 1720,
+        "constantPoseReused": 6
       }
     },
     {
@@ -4419,7 +2134,7 @@
         "indexer cleat"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -4429,76 +2144,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 1.2143324324644311,
-          "samples": 45
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -4513,42 +2159,6 @@
         },
         {
           "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "climber hook left",
             "climber inner tube left"
           ],
@@ -4597,30 +2207,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -4630,40 +2216,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 122,
-        "bounded": 2,
-        "constantPoseBroadPhase": 1874,
-        "constantPoseReused": 18
+        "broadPhase": 125,
+        "bounded": 1,
+        "constantPoseBroadPhase": 1948,
+        "constantPoseReused": 6
       }
     },
     {
@@ -4674,7 +2236,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -4684,96 +2246,9 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 19.507811605476547,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 30.98218541525705,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 6",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 57.3757218428662,
-          "samples": 3
         },
         {
           "pair": [
@@ -4781,7 +2256,7 @@
             "bumper rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 5.972863383357321,
+          "lowerBoundMm": 3.069222325089676,
           "samples": 9
         },
         {
@@ -4790,7 +2265,7 @@
             "floor belt front"
           ],
           "status": "pass",
-          "lowerBoundMm": 187.76236307972803,
+          "lowerBoundMm": 185.23103549827843,
           "samples": 3
         },
         {
@@ -4799,7 +2274,7 @@
             "floor belt main"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.5872709478992686,
+          "lowerBoundMm": 1.5193000523495446,
           "samples": 23
         },
         {
@@ -4808,7 +2283,7 @@
             "floor pan"
           ],
           "status": "pass",
-          "lowerBoundMm": 2.529378866123956,
+          "lowerBoundMm": 2.6200906271511393,
           "samples": 17
         },
         {
@@ -4817,7 +2292,7 @@
             "floor pan front tongue"
           ],
           "status": "pass",
-          "lowerBoundMm": 189.98353758761274,
+          "lowerBoundMm": 187.46567552918154,
           "samples": 3
         },
         {
@@ -4826,7 +2301,7 @@
             "flywheel"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.902077896160433,
+          "lowerBoundMm": 1.8654804926991406,
           "samples": 257
         },
         {
@@ -4835,7 +2310,7 @@
             "frame rail rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 3.405975358287442,
+          "lowerBoundMm": 1.7223446081429188,
           "samples": 9
         },
         {
@@ -4844,7 +2319,7 @@
             "hood"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.9020778961603997,
+          "lowerBoundMm": 1.8654804926990922,
           "samples": 257
         },
         {
@@ -4853,7 +2328,7 @@
             "hopper rear wall"
           ],
           "status": "pass",
-          "lowerBoundMm": 6.407432099659829,
+          "lowerBoundMm": 5.640060938869496,
           "samples": 9
         },
         {
@@ -4862,44 +2337,8 @@
             "indexer cleat"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.8583530157979866,
+          "lowerBoundMm": 1.8202973051793134,
           "samples": 15
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
         },
         {
           "pair": [
@@ -4951,30 +2390,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -4984,40 +2399,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 50,
-        "bounded": 13,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "broadPhase": 54,
+        "bounded": 10,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -5028,7 +2419,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -5038,96 +2429,9 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 10.15551466058929,
-          "samples": 5
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 47.185915059163364,
-          "samples": 7
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 6",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "lowerBoundMm": 49.376522779765025,
-          "samples": 7
         },
         {
           "pair": [
@@ -5135,7 +2439,7 @@
             "bumper front"
           ],
           "status": "pass",
-          "lowerBoundMm": 398.45948184290455,
+          "lowerBoundMm": 392.5459469781157,
           "samples": 3
         },
         {
@@ -5144,8 +2448,17 @@
             "bumper rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.377676787423475,
+          "lowerBoundMm": 4.616006930170961,
           "samples": 11
+        },
+        {
+          "pair": [
+            "FUEL tracked",
+            "climber winch"
+          ],
+          "status": "pass",
+          "lowerBoundMm": 123.60409975574237,
+          "samples": 3
         },
         {
           "pair": [
@@ -5153,7 +2466,7 @@
             "floor belt front"
           ],
           "status": "pass",
-          "lowerBoundMm": 312.84835599831854,
+          "lowerBoundMm": 310.439585959719,
           "samples": 3
         },
         {
@@ -5162,7 +2475,7 @@
             "floor belt main"
           ],
           "status": "pass",
-          "lowerBoundMm": 100.38450255102725,
+          "lowerBoundMm": 103.85464172693969,
           "samples": 3
         },
         {
@@ -5171,7 +2484,7 @@
             "floor pan"
           ],
           "status": "pass",
-          "lowerBoundMm": 88.4850594638674,
+          "lowerBoundMm": 92.88842186508668,
           "samples": 3
         },
         {
@@ -5180,7 +2493,7 @@
             "floor pan front tongue"
           ],
           "status": "pass",
-          "lowerBoundMm": 318.7627666948339,
+          "lowerBoundMm": 316.50463143230513,
           "samples": 3
         },
         {
@@ -5189,7 +2502,7 @@
             "flywheel"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.455729134091671,
+          "lowerBoundMm": 1.4501737771022474,
           "samples": 33
         },
         {
@@ -5198,7 +2511,7 @@
             "frame rail front"
           ],
           "status": "pass",
-          "lowerBoundMm": 402.23845277597877,
+          "lowerBoundMm": 397.4586624830441,
           "samples": 3
         },
         {
@@ -5207,8 +2520,8 @@
             "frame rail rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 13.81457364173474,
-          "samples": 7
+          "lowerBoundMm": 4.326561598989713,
+          "samples": 5
         },
         {
           "pair": [
@@ -5216,7 +2529,7 @@
             "front lip"
           ],
           "status": "pass",
-          "lowerBoundMm": 377.14440218071627,
+          "lowerBoundMm": 366.0782076910041,
           "samples": 3
         },
         {
@@ -5225,8 +2538,17 @@
             "hood"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.2152508271159386,
-          "samples": 33
+          "lowerBoundMm": 1.120101556124386,
+          "samples": 31
+        },
+        {
+          "pair": [
+            "FUEL tracked",
+            "hopper front upper wall"
+          ],
+          "status": "pass",
+          "lowerBoundMm": 183.94434444932733,
+          "samples": 3
         },
         {
           "pair": [
@@ -5234,7 +2556,7 @@
             "hopper rear wall"
           ],
           "status": "pass",
-          "lowerBoundMm": 11.37366529110298,
+          "lowerBoundMm": 8.179343606451567,
           "samples": 7
         },
         {
@@ -5243,62 +2565,26 @@
             "indexer cleat"
           ],
           "status": "pass",
-          "lowerBoundMm": 80.20782230252087,
+          "lowerBoundMm": 80.89299872813683,
           "samples": 3
         },
         {
           "pair": [
             "FUEL tracked",
-            "intake ramp"
+            "intake belt module"
           ],
           "status": "pass",
-          "lowerBoundMm": 431.3685416015268,
+          "lowerBoundMm": 536.8743489219843,
           "samples": 3
         },
         {
           "pair": [
             "FUEL tracked",
-            "intake roller"
+            "intake top roller"
           ],
           "status": "pass",
-          "lowerBoundMm": 502.48156064797274,
+          "lowerBoundMm": 401.8922191379951,
           "samples": 3
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
         },
         {
           "pair": [
@@ -5350,30 +2636,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -5383,40 +2645,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 45,
-        "bounded": 18,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "broadPhase": 47,
+        "bounded": 17,
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -5427,7 +2665,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -5437,67 +2675,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -5507,44 +2685,8 @@
             "hopper rear wall"
           ],
           "status": "pass",
-          "lowerBoundMm": 903.946694961061,
+          "lowerBoundMm": 901.0474113292374,
           "samples": 3
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
         },
         {
           "pair": [
@@ -5596,30 +2738,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -5629,40 +2747,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 62,
+        "broadPhase": 63,
         "bounded": 1,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -5673,7 +2767,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -5683,67 +2777,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -5753,8 +2787,8 @@
             "hub body"
           ],
           "status": "pass",
-          "lowerBoundMm": 2.8818862039370146,
-          "samples": 9
+          "lowerBoundMm": 50.629021728443945,
+          "samples": 7
         },
         {
           "pair": [
@@ -5762,44 +2796,8 @@
             "hub top"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.1400147141410315,
-          "samples": 17
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
+          "lowerBoundMm": 23.48465252053684,
+          "samples": 9
         },
         {
           "pair": [
@@ -5851,30 +2849,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -5884,40 +2858,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 61,
+        "broadPhase": 62,
         "bounded": 2,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -5928,7 +2878,7 @@
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -5938,67 +2888,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -6008,8 +2898,8 @@
             "hub body"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.5388679781765333,
-          "samples": 9
+          "lowerBoundMm": 48.69944295723742,
+          "samples": 7
         },
         {
           "pair": [
@@ -6017,44 +2907,8 @@
             "hub top"
           ],
           "status": "pass",
-          "lowerBoundMm": 12.227703307768152,
-          "samples": 9
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
-            "volumeMm3": 0
-          }
+          "lowerBoundMm": 3.43786242293902,
+          "samples": 7
         },
         {
           "pair": [
@@ -6106,30 +2960,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -6139,40 +2969,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 61,
+        "broadPhase": 62,
         "bounded": 2,
-        "constantPoseBroadPhase": 1935,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
@@ -6182,6 +2988,7 @@
       "moving": [
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right",
@@ -6189,7 +2996,7 @@
         "indexer cleat"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -6199,67 +3006,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -6271,43 +3018,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.4031348085015,
             "volumeMm3": 0
           }
         },
@@ -6361,30 +3072,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -6394,40 +3081,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 405,
+        "broadPhase": 463,
         "bounded": 0,
-        "constantPoseBroadPhase": 1592,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 1610,
+        "constantPoseReused": 6
       }
     },
     {
@@ -6437,13 +3100,14 @@
       "moving": [
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right",
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -6453,67 +3117,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -6525,43 +3129,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.4031348085015,
             "volumeMm3": 0
           }
         },
@@ -6615,30 +3183,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -6648,40 +3192,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 348,
+        "broadPhase": 406,
         "bounded": 0,
-        "constantPoseBroadPhase": 1649,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 1667,
+        "constantPoseReused": 6
       }
     },
     {
@@ -6693,7 +3213,7 @@
         "climber hook right"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -6703,67 +3223,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -6775,43 +3235,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.40313480850105,
             "volumeMm3": 0
           }
         },
@@ -6958,30 +3382,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -6991,40 +3391,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 112,
+        "broadPhase": 114,
         "bounded": 13,
-        "constantPoseBroadPhase": 1874,
-        "constantPoseReused": 16
+        "constantPoseBroadPhase": 1948,
+        "constantPoseReused": 4
       }
     },
     {
@@ -7038,7 +3414,7 @@
         "climber inner tube right"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -7048,67 +3424,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -7120,43 +3436,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.40313480850105,
             "volumeMm3": 0
           }
         },
@@ -7220,30 +3500,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -7251,30 +3507,6 @@
           "witness": {
             "t": 0,
             "gapMm": 30.254318184623877,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
             "volumeMm3": 0
           }
         }
@@ -7312,10 +3544,10 @@
       ],
       "visibility": [],
       "counts": {
-        "broadPhase": 236,
+        "broadPhase": 240,
         "bounded": 4,
-        "constantPoseBroadPhase": 1759,
-        "constantPoseReused": 15
+        "constantPoseBroadPhase": 1831,
+        "constantPoseReused": 3
       }
     },
     {
@@ -7329,13 +3561,14 @@
         "climber inner tube right",
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right",
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -7345,67 +3578,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -7417,43 +3590,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.40313480850105,
             "volumeMm3": 0
           }
         },
@@ -7541,30 +3678,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -7574,40 +3687,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 536,
+        "broadPhase": 590,
         "bounded": 4,
-        "constantPoseBroadPhase": 1457,
-        "constantPoseReused": 15
+        "constantPoseBroadPhase": 1479,
+        "constantPoseReused": 3
       }
     },
     {
@@ -7621,13 +3710,14 @@
         "climber inner tube right",
         "hub body",
         "hub top",
+        "tower base",
         "tower low rung",
         "tower upright left",
         "tower upright right",
         "FUEL tracked"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -7637,67 +3727,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -7709,43 +3739,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 13.273583628234064,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 194.40313480850105,
             "volumeMm3": 0
           }
         },
@@ -7833,30 +3827,6 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
@@ -7866,40 +3836,16 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 536,
+        "broadPhase": 590,
         "bounded": 4,
-        "constantPoseBroadPhase": 1457,
-        "constantPoseReused": 14
+        "constantPoseBroadPhase": 1479,
+        "constantPoseReused": 2
       }
     },
     {
@@ -7912,7 +3858,7 @@
         "battery"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -7922,115 +3868,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 55.02558662335265,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -8079,30 +3917,6 @@
           "witness": {
             "t": 0,
             "gapMm": 1.9999999999999434,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
             "volumeMm3": 0
           }
         },
@@ -8117,47 +3931,24 @@
             "gapMm": 30.254318184623877,
             "volumeMm3": 0
           }
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 63,
+        "broadPhase": 64,
         "bounded": 0,
-        "constantPoseBroadPhase": 1934,
-        "constantPoseReused": 19
+        "constantPoseBroadPhase": 2010,
+        "constantPoseReused": 6
       }
     },
     {
       "case": "shooter-withdraw",
       "extracted": [
         "flywheel",
-        "flywheel motor",
+        "flywheel motor left",
+        "flywheel motor right",
         "hood",
         "shooter side plate left",
         "shooter side plate right"
@@ -8165,13 +3956,14 @@
       "status": "pass",
       "moving": [
         "flywheel",
-        "flywheel motor",
+        "flywheel motor left",
+        "flywheel motor right",
         "hood",
         "shooter side plate left",
         "shooter side plate right"
       ],
       "removed": {},
-      "installedCount": 64,
+      "installedCount": 65,
       "pairs": [
         {
           "pair": [
@@ -8181,115 +3973,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 6.997425427946893,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 1",
-            "FUEL stored 3"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 10.048417564254304,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 2",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612041549,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL stored 5"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 5.449491868618256,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 3",
-            "FUEL tracked"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 55.02558662335265,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 4",
-            "FUEL stored 6"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 21.711492869950508,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "FUEL stored 5",
-            "FUEL stored 7"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 8.53025612042499,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 116.67413015078596,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "bumper front",
-            "intake ramp"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 6.253048327199521,
+            "gapMm": 5.449491861040437,
             "volumeMm3": 0
           }
         },
@@ -8343,69 +4027,21 @@
         },
         {
           "pair": [
-            "frame rail front",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "frame rail front",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 162.93427931980924,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
             "frame rail rear",
             "hood"
           ],
           "status": "pass",
           "method": "enclosed relative linear stroke"
-        },
-        {
-          "pair": [
-            "front left module body",
-            "intake arm left"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
-        },
-        {
-          "pair": [
-            "front right module body",
-            "intake arm right"
-          ],
-          "status": "pass",
-          "witness": {
-            "t": 0,
-            "gapMm": 158.53234885837003,
-            "volumeMm3": 0
-          }
         }
       ],
       "seats": [],
       "requiredContacts": [],
       "visibility": [],
       "counts": {
-        "broadPhase": 294,
+        "broadPhase": 353,
         "bounded": 1,
-        "constantPoseBroadPhase": 1703,
-        "constantPoseReused": 18
+        "constantPoseBroadPhase": 1721,
+        "constantPoseReused": 5
       }
     }
   ]

@@ -17,8 +17,7 @@ from OCP.gp import gp_Ax1, gp_Ax2, gp_Dir, gp_Pnt, gp_Trsf, gp_Vec
 R_BALL = 150.114 / 2
 GAP = 3.0            # undeformed reserve between a moving FUEL and the surfaces that guide it
 FLYWHEEL_R = 50.8    # 4 in flywheel
-EXIT_DEG = 60        # release elevation from the hood end
-INTAKE_STOW_DEG = 135
+EXIT_DEG = 62        # release elevation from the hood end
 VARIANTS = {
     # floor: top of the hopper floor pan; wall: hopper wall top; hook: hook arm top (stowed)
     "R3": dict(floor=81.0, wall=715.0, hook=750.0, label="Tall floor-fed robot (selected)"),
@@ -109,23 +108,17 @@ def frame_constants(variant):
                 exit_alpha=exit_alpha, exit_point=exit_point, pitch=2 * R_BALL + 4)
 
 
-# Intake geometry in the deployed (installed STEP) pose, in the XZ plane.
-INTAKE = dict(pivot=(322.0, 296.0), ramp_front=(580.0, 20.0), ramp_back=(400.0, 200.0), roller_s=210.0,
-              roller_r=38.1, half_width=258.0, arm_y=(262.0, 272.0))
+# Intake in the deployed (installed STEP) pose. A vertical belt pinches the FUEL against the front bumper face
+# and lifts it; a top roller pushes it aft over the bumper. A two-stage slide translates the whole carriage.
+INTAKE = dict(shift=(280.0, 0.0, -62.0), half_width=258.0, plate_y=(262.0, 272.0), rail_y=(274.0, 282.0),
+              belt_bottom=156.0, belt_top=300.0, belt_depth=37.0, climb_top=250.0, roller_r=38.1)
 
 
 def intake_points():
-    f, b = INTAKE["ramp_front"], INTAKE["ramp_back"]
-    length = math.dist(f, b)
-    u = ((b[0] - f[0]) / length, (b[1] - f[1]) / length)
-    n = (-u[1], u[0]) if -u[1] > 0 else (u[1], -u[0])       # upward-forward normal of the ramp's carrying face
-    if n[1] < 0: n = (-n[0], -n[1])
-    s = INTAKE["roller_s"]
-    pt = (f[0] + s * u[0], f[1] + s * u[1])
-    offset = R_BALL + GAP + R_BALL + GAP + INTAKE["roller_r"]
-    centre_off = R_BALL + GAP
-    roller = (pt[0] + (centre_off + R_BALL + GAP + INTAKE["roller_r"]) * n[0], pt[1] + (centre_off + R_BALL + GAP + INTAKE["roller_r"]) * n[1])
-    return dict(u=u, n=n, length=length, roller=roller, centre_off=centre_off, offset=offset)
+    ball_x = 417.5 + GAP + R_BALL                      # FUEL centre while it climbs the bumper face
+    belt_x = ball_x + R_BALL + GAP                     # belt face
+    roller = (ball_x, INTAKE["climb_top"] + R_BALL + GAP + INTAKE["roller_r"])
+    return dict(ball_x=ball_x, belt_x=belt_x, roller=roller)
 
 
 def robot_bodies(variant="R3", intake_stowed=False):
@@ -144,10 +137,12 @@ def robot_bodies(variant="R3", intake_stowed=False):
     add("frame rail right", box((-313, -340, 69.85), (313, -314.6, 120.65)), "frame")
     add("floor pan", box((-176, -313, fl - 6), (176, 313, fl)), "frame")
     add("floor pan front tongue", box((177.5, -183, fl - 6), (312, 183, fl)), "frame")
-    add("front lip", box((311, -183, 123), (313, 183, 160)), "frame")
+    add("front lip", box((311, -183, 123), (313, 183, 170)), "frame")
     for side, s in (("left", 1), ("right", -1)):
-        y = sorted((s * 274, s * 282))
-        add(f"intake pivot mount {side}", box((313.5, y[0], 123), (336, y[1], 279)), "frame")
+        y = sorted((s * INTAKE["rail_y"][0], s * INTAKE["rail_y"][1]))
+        add(f"intake slide rail {side}", box((160, y[0], 345), (336, y[1], 480)), "frame")
+        y = sorted((s * 284, s * 314))
+        add(f"climber tube mount {side}", box((300, y[0], 127), (336, y[1], 222)), "frame")
 
     # Swerve corners: revolved wheel azimuth envelope, module body and motor envelope.
     for fx, sx in (("front", 1), ("rear", -1)):
@@ -167,6 +162,7 @@ def robot_bodies(variant="R3", intake_stowed=False):
     # Hopper walls.
     add("hopper wall left", box((-312, 316, 125), (312, 319, wall)), "hopper")
     add("hopper wall right", box((-312, -319, 125), (312, -316, wall)), "hopper")
+    add("hopper front upper wall", box((311, -282, 482), (313, 282, min(wall, hook_top - 44))), "hopper")  # 4 mm below the swinging jaws
     add("hopper rear wall", box((-96, -314, k["z0"] + R_BALL + 7), (-93, 314, wall)), "hopper")
 
     # Floor belts: static envelopes of moving belt surfaces.
@@ -176,22 +172,24 @@ def robot_bodies(variant="R3", intake_stowed=False):
     # Shooter: floor-fed flywheel, hood sector, side plates and motor.
     cx, cz = k["c"]
     add("flywheel", cyl((cx, -170, cz), (0, 1, 0), FLYWHEEL_R, 340), "shooter")
-    a0 = math.radians(-152)
+    a0 = math.radians(k["exit_alpha"] - 1)            # hood ends 1 degree past the release, inside the rear perimeter
     xdir = (math.cos(a0), 0, math.sin(a0))
-    span = math.radians(64)  # -152 to -88 degrees
+    span = math.radians(-88 - (k["exit_alpha"] - 1))
     outer = cyl((cx, 170, cz), (0, -1, 0), k["hood_out"], 340, xdir, span)
     inner = cyl((cx, 171, cz), (0, -1, 0), k["hood_in"], 342)
     add("hood", cut(outer, inner), "shooter")
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * 173, s * 181))
         add(f"shooter side plate {side}", box((-338, y[0], 125), (-100, y[1], cz + 125)), "shooter")
-    add("flywheel motor", cyl((cx, -184, cz), (0, -1, 0), 30, 79), "shooter")
+    add("flywheel motor right", cyl((cx, -184, cz), (0, -1, 0), 30, 79), "shooter")
+    add("flywheel motor left", cyl((cx, 184, cz), (0, 1, 0), 30, 79), "shooter")
 
     # Battery on its end, left side, withdrawn upward through the open hopper.
     add("battery", box((-90, 236, fl + 2), (77, 312, fl + 2 + 181)), "battery")
-    add("electronics panel", box((-90, -312, fl + 2), (150, -282, fl + 182)), "electrical")
+    add("electronics panel", box((-90, -312, fl + 2), (170, -282, fl + 182)), "electrical")
+    add("electronics panel left", box((82, 282, fl + 2), (170, 312, fl + 182)), "electrical")
     add("entry sensor", box((300, -183, 123), (309, -175, 140)), "electrical")
-    add("pinch sensor", box((-160, 182.5, cz - 45), (-140, 190, cz - 25)), "electrical")
+    add("pinch sensor", box((-160, -190, cz - 75), (-140, -182.5, cz - 55)), "electrical")
 
     # Climber: fixed round outer tubes, round telescoping inner tubes and swing hooks (stowed pointing aft).
     for side, s in (("left", 1), ("right", -1)):
@@ -202,24 +200,23 @@ def robot_bodies(variant="R3", intake_stowed=False):
         arm = box((87, yc - 11, hook_top - 12), (313, yc + 11, hook_top))
         jaw = box((87, yc - 11, hook_top - 40), (99, yc + 11, hook_top - 12))
         add(f"climber hook {side}", fuse(arm, jaw), "climber hooks")
+    add("climber winch", box((250, -150, wall - 60), (300, 150, wall - 15)), "climber tubes")
 
-    # Intake in its deployed pose.
+    # Intake carriage in its deployed pose; the start fold is the same carriage translated back by the slide.
     ip = intake_points()
-    f, b = INTAKE["ramp_front"], INTAKE["ramp_back"]
     hw = INTAKE["half_width"]
-    n = ip["n"]
-    ramp = prism_xz([f, b, (b[0] - 4 * n[0], b[1] - 4 * n[1]), (f[0] - 4 * n[0], f[1] - 4 * n[1])], -hw, hw)
-    pieces = {"intake ramp": ramp,
-              "intake roller": cyl((ip["roller"][0], -hw, ip["roller"][1]), (0, 1, 0), INTAKE["roller_r"], 2 * hw)}
-    p, r = INTAKE["pivot"], ip["roller"]
+    bx = ip["belt_x"]
+    rx, rz = ip["roller"]
+    pieces = {"intake belt module": box((bx, -hw, INTAKE["belt_bottom"]), (bx + INTAKE["belt_depth"], hw, INTAKE["belt_top"])),
+              "intake top roller": cyl((rx, -hw, rz), (0, 1, 0), INTAKE["roller_r"], 2 * hw)}
     for side, s in (("left", 1), ("right", -1)):
-        y = sorted((s * INTAKE["arm_y"][0], s * INTAKE["arm_y"][1]))
-        pieces[f"intake arm {side}"] = fuse(bar_xz(p, r, 12, y[0], y[1]), bar_xz(r, (566.0, 110.0), 12, y[0], y[1]))
-    # The roller motor runs inside the roller tube; the deploy gearmotor is coaxial with the pivot and does not translate.
-    add("intake pivot drive", cyl((p[0], 224, p[1]), (0, 1, 0), 24, 34), "intake pivot drive")
+        y = sorted((s * INTAKE["plate_y"][0], s * INTAKE["plate_y"][1]))
+        pieces[f"intake carriage plate {side}"] = box((455, y[0], 290), (bx + INTAKE["belt_depth"], y[1], 410))
+    dx, dy, dz = INTAKE["shift"]
     for name, shape in pieces.items():
         if intake_stowed:
-            shape = rotate(shape, (p[0], 0, p[1]), (0, -1, 0), INTAKE_STOW_DEG)
+            t = gp_Trsf(); t.SetTranslation(gp_Vec(-dx, -dy, -dz))
+            shape = BRepBuilderAPI_Transform(shape, t, True).Shape()
         add(name, shape, "intake")
     return B, k
 
@@ -237,7 +234,9 @@ def field_bodies(k, hub_center, tower_face_x, tower_y):
     gap = 819.15 / 2
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((tower_y + s * gap, tower_y + s * (gap + 38.1)))
-        F[f"tower upright {side}"] = single(box((tower_face_x, y[0], 0), (tower_face_x + 88.9, y[1], 1831.3)))
+        F[f"tower upright {side}"] = single(box((tower_face_x, y[0], 9.5), (tower_face_x + 88.9, y[1], 1831.3)))
     rung_x = tower_face_x + 88.9 / 2
     F["tower low rung"] = single(cyl((rung_x, tower_y - gap + 1.6, 685.8), (0, 1, 0), 42.164 / 2, 2 * gap - 3.2))
+    # TOWER BASE: 39.0 x 45.18 in plate whose front edge stands about 0.18 in ahead of the uprights; edges up to 8 mm.
+    F["tower base"] = single(box((tower_face_x - 4.6, tower_y - 495.3, 0), (tower_face_x - 4.6 + 1147.6, tower_y + 495.3, 8)))
     return F

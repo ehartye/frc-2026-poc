@@ -2,7 +2,7 @@
   "schema": "agent-frc/mechanical-motion@1",
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd"
+    "sha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3"
   },
   "layoutDesignSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
   "layoutDatum": {
@@ -30,161 +30,114 @@
     {
       "id": "intake-deploy",
       "stage": "operating",
-      "basis": "Unfold the intake from its legal starting fold through 135 degrees to the floor pickup pose",
+      "basis": "Slide the intake carriage 280 mm forward and 62 mm down from the legal start fold, over the bumper",
       "moves": {
-        "intake arm left": [
+        "intake belt module": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
+            "kind": "translation",
+            "travelMm": [
+              280.0,
               0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": -135.0
+              -62.0
+            ]
           }
         ],
-        "intake arm right": [
+        "intake carriage plate left": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
+            "kind": "translation",
+            "travelMm": [
+              280.0,
               0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": -135.0
+              -62.0
+            ]
           }
         ],
-        "intake ramp": [
+        "intake carriage plate right": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
+            "kind": "translation",
+            "travelMm": [
+              280.0,
               0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": -135.0
+              -62.0
+            ]
           }
         ],
-        "intake roller": [
+        "intake top roller": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
+            "kind": "translation",
+            "travelMm": [
+              280.0,
               0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": -135.0
+              -62.0
+            ]
           }
         ]
       },
       "minGapMm": 1.0,
       "initialPose": {
-        "intake ramp": [
+        "intake belt module": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
-              0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": 135.0
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
           }
         ],
-        "intake roller": [
+        "intake top roller": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
-              0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": 135.0
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
           }
         ],
-        "intake arm left": [
+        "intake carriage plate left": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
-              0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": 135.0
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
           }
         ],
-        "intake arm right": [
+        "intake carriage plate right": [
           {
-            "kind": "rotation",
-            "originMm": [
-              322.0,
-              0.0,
-              296.0
-            ],
-            "axis": [
-              0.0,
-              -1.0,
-              0.0
-            ],
-            "travelDeg": 135.0
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
           }
         ],
         "FUEL tracked": [
           {
             "kind": "translation",
             "travelMm": [
-              630.0,
+              560.0,
               0.0,
               -90.00000000000001
             ]
           }
         ]
-      }
+      },
+      "checkLinearEnvelope": true
     },
     {
       "id": "acquire-approach",
       "stage": "operating",
-      "basis": "Drive onto the FUEL; it reaches the ramp toe 3 mm clear of the carpet plane",
+      "basis": "Drive onto the FUEL; it passes under the belt module to the bumper face with 3 mm undeformed reserve",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "translation",
             "travelMm": [
-              -137.6677319618434,
+              -204.44299999999998,
               0.0,
               0.0
             ]
@@ -197,7 +150,7 @@
           {
             "kind": "translation",
             "travelMm": [
-              630.0,
+              560.0,
               0.0,
               -90.00000000000001
             ]
@@ -207,17 +160,17 @@
       "checkLinearEnvelope": true
     },
     {
-      "id": "acquire-ramp",
+      "id": "acquire-climb",
       "stage": "operating",
-      "basis": "The roller drives the FUEL up the 45 degree ramp with 3 mm undeformed reserve to ramp and roller",
+      "basis": "The vertical belt lifts the FUEL against the bumper face (pinch compression is a detailed-design setting)",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "translation",
             "travelMm": [
-              -177.1376340190783,
               0.0,
-              177.13763401907835
+              0.0,
+              171.94299999999998
             ]
           }
         ]
@@ -228,71 +181,9 @@
           {
             "kind": "translation",
             "travelMm": [
-              492.3322680381566,
+              355.557,
               0.0,
               -90.00000000000001
-            ]
-          }
-        ]
-      },
-      "checkLinearEnvelope": true
-    },
-    {
-      "id": "acquire-crest-1",
-      "stage": "operating",
-      "basis": "First chord over the ramp's rear edge at 82 mm centre radius",
-      "moves": {
-        "FUEL tracked": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              -23.81459256514097,
-              0.0,
-              20.563487646847165
-            ]
-          }
-        ]
-      },
-      "minGapMm": 1.0,
-      "initialPose": {
-        "FUEL tracked": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              315.1946340190783,
-              0.0,
-              87.13763401907832
-            ]
-          }
-        ]
-      },
-      "checkLinearEnvelope": true
-    },
-    {
-      "id": "acquire-crest-2",
-      "stage": "operating",
-      "basis": "Second chord to the crest above the ramp's rear edge",
-      "moves": {
-        "FUEL tracked": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              -31.380041453937338,
-              0.0,
-              6.241878334074499
-            ]
-          }
-        ]
-      },
-      "minGapMm": 1.0,
-      "initialPose": {
-        "FUEL tracked": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              291.38004145393734,
-              0.0,
-              107.70112166592548
             ]
           }
         ]
@@ -302,13 +193,13 @@
     {
       "id": "acquire-over",
       "stage": "operating",
-      "basis": "Carry the FUEL over the bumper, front rail and lip into the hopper",
+      "basis": "The top roller pushes the FUEL aft over the bumper, front rail and lip into the hopper",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "translation",
             "travelMm": [
-              -260.0,
+              -355.557,
               0.0,
               0.0
             ]
@@ -321,9 +212,9 @@
           {
             "kind": "translation",
             "travelMm": [
-              260.0,
+              355.557,
               0.0,
-              113.94299999999998
+              81.94299999999998
             ]
           }
         ]
@@ -338,7 +229,7 @@
         "FUEL tracked": [
           {
             "kind": "gravity-drop",
-            "fallMm": 113.94299999999998,
+            "fallMm": 81.94299999999998,
             "quadraticFraction": 1.0
           }
         ]
@@ -351,7 +242,7 @@
             "travelMm": [
               0.0,
               0.0,
-              113.94299999999998
+              81.94299999999998
             ]
           }
         ]
@@ -373,6 +264,16 @@
           }
         ],
         "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
           {
             "kind": "translation",
             "travelMm": [
@@ -493,6 +394,16 @@
               0.0
             ]
           }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
         ]
       },
       "checkLinearEnvelope": true
@@ -500,7 +411,7 @@
     {
       "id": "launch-wrap",
       "stage": "operating",
-      "basis": "The FUEL rolls 60 degrees around the flywheel against the hood and releases at 60 degrees elevation",
+      "basis": "The FUEL rolls 62 degrees around the flywheel against the hood and releases at 62 degrees elevation",
       "moves": {
         "FUEL tracked": [
           {
@@ -515,7 +426,7 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           }
         ]
       },
@@ -562,6 +473,16 @@
           }
         ],
         "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
           {
             "kind": "translation",
             "travelMm": [
@@ -596,22 +517,22 @@
     {
       "id": "flight-1",
       "stage": "operating",
-      "basis": "Ballistic arc 1 of 4 at 6.91 m/s toward the HUB opening (prescribed; drag Cd 0.47; circular fit within 2.5 mm)",
+      "basis": "Ballistic arc 1 of 4 at 6.88 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.7 mm)",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           }
         ]
       },
@@ -667,6 +588,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -688,7 +619,7 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           }
         ],
         "indexer cleat": [
@@ -706,22 +637,22 @@
     {
       "id": "flight-2",
       "stage": "operating",
-      "basis": "Ballistic arc 2 of 4 at 6.91 m/s toward the HUB opening (prescribed; drag Cd 0.47; circular fit within 2.5 mm)",
+      "basis": "Ballistic arc 2 of 4 at 6.88 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.7 mm)",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           }
         ]
       },
@@ -777,6 +708,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -798,21 +739,21 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           }
         ],
         "indexer cleat": [
@@ -830,22 +771,22 @@
     {
       "id": "flight-3",
       "stage": "operating",
-      "basis": "Ballistic arc 3 of 4 at 6.91 m/s toward the HUB opening (prescribed; drag Cd 0.47; circular fit within 2.5 mm)",
+      "basis": "Ballistic arc 3 of 4 at 6.88 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.7 mm)",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           }
         ]
       },
@@ -901,6 +842,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -922,35 +873,35 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           }
         ],
         "indexer cleat": [
@@ -968,22 +919,22 @@
     {
       "id": "flight-4",
       "stage": "operating",
-      "basis": "Ballistic arc 4 of 4 at 6.91 m/s toward the HUB opening (prescribed; drag Cd 0.47; circular fit within 2.5 mm)",
+      "basis": "Ballistic arc 4 of 4 at 6.88 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.7 mm)",
       "moves": {
         "FUEL tracked": [
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           }
         ]
       },
@@ -1039,6 +990,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -1060,49 +1021,49 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           }
         ],
         "indexer cleat": [
@@ -1133,6 +1094,16 @@
           }
         ],
         "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
           {
             "kind": "translation",
             "travelMm": [
@@ -1245,6 +1216,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -1266,63 +1247,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           }
         ],
         "indexer cleat": [
@@ -1354,6 +1335,16 @@
           }
         ],
         "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
           {
             "kind": "translation",
             "travelMm": [
@@ -1496,6 +1487,24 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -1517,63 +1526,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           },
           {
             "kind": "translation",
@@ -1775,6 +1784,32 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -1796,63 +1831,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           },
           {
             "kind": "translation",
@@ -2101,6 +2136,32 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -2122,63 +2183,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           },
           {
             "kind": "translation",
@@ -2311,6 +2372,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
         "tower low rung": [
           {
             "kind": "translation",
@@ -2552,6 +2623,32 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -2573,63 +2670,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           },
           {
             "kind": "translation",
@@ -2734,6 +2831,16 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
         "tower low rung": [
           {
             "kind": "translation",
@@ -3047,6 +3154,40 @@
             ]
           }
         ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
         "FUEL tracked": [
           {
             "kind": "translation",
@@ -3068,63 +3209,63 @@
               1.0,
               0.0
             ],
-            "travelDeg": 60.0
+            "travelDeg": 62.0
           },
           {
             "kind": "rotation",
             "originMm": [
-              -5781.916974372328,
+              -5768.00281219098,
               0.0,
-              -2860.1221907581635
+              -2597.2661289711755
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -11.087457050795479
+            "travelDeg": -11.423737121333176
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2885.692752832169,
+              -2795.7816336546393,
               0.0,
-              -366.3651589914417
+              -183.46111507324719
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -20.481366097066115
+            "travelDeg": -21.446533798723152
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2228.892647419981,
+              -2136.4844090832316,
               0.0,
-              771.0379786279279
+              921.8776826069983
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -33.49328575775522
+            "travelDeg": -36.25645539534523
           },
           {
             "kind": "rotation",
             "originMm": [
-              -2169.7869423475986,
+              -2060.126237166731,
               0.0,
-              640.0592470384535
+              727.5259944100519
             ],
             "axis": [
               0.0,
               1.0,
               0.0
             ],
-            "travelDeg": -30.907585736937932
+            "travelDeg": -31.970744271967277
           },
           {
             "kind": "translation",
@@ -3197,7 +3338,7 @@
     {
       "id": "shooter-withdraw",
       "stage": "service",
-      "basis": "Lift the flywheel, hood, side plates and motor out as one module",
+      "basis": "Lift the flywheel, hood, side plates and both motors out as one module",
       "moves": {
         "flywheel": [
           {
@@ -3209,7 +3350,17 @@
             ]
           }
         ],
-        "flywheel motor": [
+        "flywheel motor left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "flywheel motor right": [
           {
             "kind": "translation",
             "travelMm": [
@@ -3253,7 +3404,8 @@
       "minGapMm": 1.0,
       "extract": [
         "flywheel",
-        "flywheel motor",
+        "flywheel motor left",
+        "flywheel motor right",
         "hood",
         "shooter side plate left",
         "shooter side plate right"
