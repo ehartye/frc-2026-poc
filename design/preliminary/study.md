@@ -101,7 +101,7 @@ Intake, indexer and flywheel can run together while driving. The climb cannot ov
 
 ## Check status
 
-`node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --require-checked --write-view` returns **reopen**. With `--require-checked` it exits 1:
+`node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --require-checked --write-view` returns **reopen** on Agent FRC 0.81.2, with the same receipt content as on 0.80.0. With `--require-checked` it exits 1:
 
 - **Cases:** all 18 cycle cases and both service withdrawals pass in 10.4 s. climb-reach takes 4.4 s; every other case takes under 1 s.
 - **Control:** raising the hood 8 mm makes it overlap the piece by 4,595 mm³, and the check rejects it.
@@ -123,15 +123,32 @@ The smallest certified clearance lower bounds are 1.07–1.5 mm against the 1 mm
 
 The [package player](review/package-motion.html) is 31 MB, so it is not committed. To regenerate it from the committed files, run `node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --write-view` with `PYTHON` set to the CAD environment.
 
+## Field interactions (Agent FRC 0.81.2)
+
+[field_trials.py](field_trials.py) integrates each mission-critical interaction on this revision. It writes the [trace](field-trials.json) and a [player](review/field-interaction.html): pick a trial, scrub its run timestamps, and read the outcome, events, imposed and solved quantities, and solver settings. All trials use penalty contact with Coulomb friction, and their stiffness and friction values are estimates. Every trial gives the same result at half the timestep.
+
+| Interaction | Nominal result | Control | Bracket (pass / fail), other inputs held |
+|---|---|---|---|
+| Acquisition: belt pulls the FUEL under its bottom pulley, lifts it against the bumper face, top roller pushes it over | Captured in 0.50 s | Belt and roller locked: not captured, so the belt does the transfer | Compression: 17.5 mm passes, 15 mm fails. Belt speed: 2.5 m/s passes, 2.0 m/s fails. Belt friction: 0.5 passes. |
+| Delivery: free FUEL from the designed hood exit (6.88 m/s, 62°, spin ratio 1) through HUB contact to an assumed sensor plane at 1.50 m | Scored at 0.93 s, after one contact with the far cavity wall | Spin lift CL 0.30 and 30 kN/m contact: both still score | 6.70 and 7.10 m/s score. 6.55 and 7.30 m/s strike the rim and miss. |
+| Hang: robot with wheel, bumper-upright and hook contacts; winch on a DC motor line, then 3 s with power removed | 37.8 mm minimum clearance through assessment; 2.2° pitch | No brake: the robot settles onto the carpet, so the hold depends on the brake | Winch current limit: 20 A passes, 15 A stalls before the stroke ends. An 8 V bus with 0.2 upright friction passes. |
+
+What these results change:
+
+- **Acquisition window (F2).** The window is narrow, and the belt speed is imposed. At 3 m/s the contacts dissipate up to 786 W at peak. Predicting whether a motor holds that speed under load needs a loaded drive model or a bench measurement. These belong to the F2 compression and drive-sizing work.
+- **Delivery release (F2).** The release state is designed, not measured. The sensor location is an assumption.
+- **Hang plane (F4).** The hang trial is a side view, so it cannot show the 6.4 mm lateral bumper overlap or roll.
+
 ## Open findings
 
 1. **F1, bulk feed (the premise most likely to invalidate the role).** Twenty-four FUEL must converge into two pinch lanes at 2 FUEL/s or faster. The bench plan, stop conditions and fallback are in the [comparison](architecture-comparison.json).
-2. **F2, contact settings.** Belt-to-bumper pinch, top roller and hood/flywheel compression are not drawn; the layout reserves the undeformed path.
+2. **F2, contact settings and drives.** The acquisition trials need at least 17.5 mm of compression and 2.5 m/s of belt speed. Size the belt motor for its loaded speed. Belt-to-bumper pinch, top roller and hood/flywheel compression are not drawn; the layout reserves the undeformed path.
    - The robust speed band at 2.44 m is 6.82–6.96 m/s, so the flywheel must hold speed within about ±0.9%.
    - Flywheel inertia of at least 0.006 kg m² limits the speed drop per shot to about 1.6–2%, which is more than that band.
    - Recovery between shots is part of F1.
 3. **F3, weak-pack margin.** Loaded transit keeps 0.16 V. The drive supply limit of 25 A per module (battery side) is required.
 4. **F4, hang.**
+   - The winch needs a current limit of at least 20 A (the trial stalls at 15 A).
    - At 67.6 kg the hang puts about 610 N of horizontal reaction on 6.4 mm of bumper overlap per upright.
    - The jaw reaches only 5.4 mm below the rung centre.
    - Options: a 714 mm wide frame within the 2794 mm perimeter, or lateral guidance, plus a longer jaw.
@@ -150,6 +167,7 @@ $env:PYTHON = '<cad python>'; $env:AGENT_FRC = '<agent-frc checkout>'
 python -I -B design/preliminary/ballistics.py
 python -I -B design/preliminary/build_package.py --check --fail-fast   # quick revision loop
 python -I -B design/preliminary/build_package.py --check               # issued receipt and player
+python -I -B design/preliminary/field_trials.py                        # field-interaction trials and player
 ```
 
 The STEP header carries a fixed timestamp, so an unchanged rebuild reproduces every pinned hash.

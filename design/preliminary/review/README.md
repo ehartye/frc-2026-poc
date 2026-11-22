@@ -1,6 +1,6 @@
 # R3-PD1 LAN review bundle
 
-This folder holds only the review page for issue R3-PD1 (`package-motion.html`, about 31 MB, not committed). The page is self-contained: it loads no external scripts. Private CAD and supplier models are not in it.
+This folder holds only the review pages for issue R3-PD1: `package-motion.html`, the geometric clearance player (about 31 MB, not committed), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B design/preliminary/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
 
 ## Build the page
 
@@ -27,6 +27,7 @@ Open `http://<host LAN address>:8765/package-motion.html` on the host and then o
 2. Play `intake-deploy` through `park-lower` in order. Then scrub `launch-wrap` and the four flight arcs into the HUB cavity.
 3. Select a component and read its purpose and rationale.
 4. Open the mass and power ledgers.
-5. Open the displaced-hood control (`package-displacement-control`). It shows a known failing case.
+5. In `field-interaction.html`, play `hang-nominal` and the failing `hang-no-brake` control, then `deliver-6.55` (a rim miss) and `acquire-belt-locked`.
+6. Open the displaced-hood control (`package-displacement-control`). It shows a known failing case.
 
 Expected scope: the represented package, cases and reserves. The issue's status is `reopen`; read why in [the study](../study.md).
