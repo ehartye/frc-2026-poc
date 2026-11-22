@@ -66,7 +66,7 @@ jobs:
       - name: Check out the approved public presentation
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          ref: 9b6940ab02c2c7ab3189c842bf0c1461e5a1a049
+          ref: 9ce4168a2bea21e0fcea97455460bca070620fda
           path: approved
           persist-credentials: false
       - name: Get the original field and presentation builder
@@ -128,7 +128,7 @@ jobs:
           {
             "schema": "agent-frc/local-showcase-release@1",
             "layout": "built",
-            "approvedCommit": "9b6940ab02c2c7ab3189c842bf0c1461e5a1a049",
+            "approvedCommit": "9ce4168a2bea21e0fcea97455460bca070620fda",
             "sourcePolicy": ".github/public-model-policy.json",
             "stagePolicy": ".github/staged-model-policy.json",
             "approvedSite": "approved",
