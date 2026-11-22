@@ -2,6 +2,7 @@
   "publicFusionHandoff": "cad/tower-lift/public-handoff.json",
   "toolchainFiles": [
     "config.json",
-    "PROVENANCE.json"
+    "PROVENANCE.json",
+    "README.draft-001.md"
   ]
 }

@@ -78,5 +78,24 @@
   ],
   "preliminaryInputs": {
     "root": "cad/preliminary-design/releases"
+  },
+  "detailedDesigns": {
+    "index": "docs/detailed-design/designs.json",
+    "withdrawn": [
+      {
+        "design": "draft-001",
+        "reason": "Rough-draft showcase published before the design-status process.",
+        "files": {
+          "scripts/build-showcase.mjs": "scripts/withdrawn/draft-001/build-showcase.mjs"
+        }
+      }
+    ]
+  },
+  "preliminaryReadmeArchive": {
+    "readmeSha256": "a415173c2f9ce2b98c0b47a2ea0c5113429cac5e77b367cd91b3e205f2d2f917",
+    "archive": "README.draft-001.md",
+    "archivedSha256": "46ba8cb9382179c235473b640db3efdf86d964de54709d62e9562df7a3d4d398",
+    "image": "docs/robot/preliminary-layout-001.png",
+    "imageSha256": "477fe170af838e728a9f120f382a303c95feba1c659f5e77ac4e5e4a973a1d0a"
   }
 }
