@@ -20,3 +20,7 @@ cad/assembly-release/foundation-still.png binary
 cad/showcase-red/display.step -whitespace
 cad/showcase-red/*.png binary
 experiments/tower-climb/head-support/*.step -text -whitespace
+
+# Compressed preliminary design scenes and pinned release copies must keep their exact bytes.
+docs/preliminary-design/releases/*/scene.json.gz binary
+docs/preliminary-design/releases/** -text

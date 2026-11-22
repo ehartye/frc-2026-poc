@@ -1,0 +1,51 @@
+{
+  "schema": "agent-frc/preliminary-review-release@1",
+  "id": "001",
+  "season": "2026",
+  "title": "R3 floor-fed hood shooter",
+  "status": "Preliminary design · layout-checked (R3-PD2)",
+  "defaultCase": "operating-cycle",
+  "output": "docs/preliminary-design/releases/001",
+  "package": {
+    "layout": "experiments/preliminary-design/layout.json",
+    "receipt": "experiments/preliminary-design/receipt.json",
+    "budgets": "experiments/preliminary-design/budgets.json",
+    "view": "experiments/preliminary-design/review/package-motion.html",
+    "evidence": {
+      "fieldTrials": "experiments/preliminary-design/field-trials.json",
+      "fieldTrialSource": "experiments/preliminary-design/field_trials.py",
+      "heldReceipt": "experiments/preliminary-design/receipt-R3-PD1-held.json",
+      "verificationGates": "experiments/preliminary-design/verification-gates.json",
+      "study": "experiments/preliminary-design/study.md"
+    }
+  },
+  "copy": {
+    "field-interaction.html": "experiments/preliminary-design/review/field-interaction.html"
+  },
+  "fixtureGroups": ["field"],
+  "categoryAliases": {
+    "drivetrain": "drive",
+    "field": "reference",
+    "battery": "electrical",
+    "bumper": "bumper-blue",
+    "payload": "game-piece",
+    "other": "electrical"
+  },
+  "cycleCase": {
+    "key": "operating-cycle",
+    "label": "Main operating cycle · intake to park",
+    "duty": "loaded-transit-weak",
+    "basis": "The registered R3 operating cycle: deploy the intake, acquire a floor FUEL over the bumper, carry it through the hopper, index it, wrap it under the hood and fly it into the HUB, then align at the TOWER, climb and lower to park."
+  },
+  "scope": "R3-PD2 preliminary blockout. Twenty prescribed cases pass the layout check against the held R3-PD1 receipt, and the displaced-hood control fails as expected. Free-piece acquisition, delivery and hang trials are in the linked field review. Verification gates G1-G6 carry the physical tests.",
+  "fixtureRepresentation": "The HUB and TOWER are V0-dimension field blocks placed in the robot datum by each case. They are nominal planning solids, not the official field model.",
+  "focus": "Open the field review to see the free-piece trials. Select the displaced-hood control to see the failing case that the same check catches.",
+  "notes": [
+    "Geometry: the meshes and rigid motion come from the package player that the R3-PD2 layout check verified. Each body is drawn once, and its per-case placement is a rigid transform of that mesh. Volumes are measured from the closed meshes and compared with the STEP solid volumes.",
+    "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres. The grid squares are 250 mm.",
+    "Every case starts from the installed pose. The main operating cycle plays the registered cycle stages in order, so the playback steps between stages rather than blending them.",
+    "Battery-side currents are independent bounds per load, so the ranges can be conservative. The pack model uses the weak-battery open-circuit voltage and the high series resistance."
+  ],
+  "forbid": ["[A-Za-z]:[\\\\/]", "/Users/", "agent-frc-poc-assets", "\\.f3d\\b"],
+  "scrub": []
+}
