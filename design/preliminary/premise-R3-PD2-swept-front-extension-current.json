@@ -1,0 +1,14 @@
+{
+  "id": "swept-front-extension",
+  "unit": "mm",
+  "scenario": "Front extension through every operating and park pose",
+  "value": 270.614,
+  "issue": "R3-PD2",
+  "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
+  "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
+  "source": {
+    "file": "design/preliminary/measurements.json",
+    "sha256": "c3df0e0409ee39502961f4180582e4ea838ffa7a3843e8699a7ef2b036d9ee64"
+  },
+  "valueField": "sweptFrontExtensionMm"
+}

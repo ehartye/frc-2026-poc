@@ -1,0 +1,63 @@
+{
+  "premise": "delivery-pose",
+  "phase": "conceptual-design",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+  "issue": "R3-PD2",
+  "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
+  "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
+  "fieldReplay": {
+    "profile": {
+      "file": "design/preliminary/rehearsal/r3-2p7m-profile.json",
+      "sha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951"
+    },
+    "result": {
+      "file": "design/preliminary/rehearsal/r3-2p7m-series.json",
+      "sha256": "4eb379aadc9e0d2a7e1cc010a7b4bbabb1ab361a43bd93a1015a8600f47d71ac"
+    },
+    "match": "Own-zone supply",
+    "actor": "B2",
+    "period": "Shift 1",
+    "input": "stepPosition",
+    "program": "shift-depot",
+    "stepIndex": 3,
+    "stepLabel": "Attempt HUB delivery; credited"
+  },
+  "steps": [
+    {
+      "program": "shift-depot",
+      "stepIndex": 3,
+      "stepLabel": "Attempt HUB delivery; credited",
+      "atIn": [
+        84.78,
+        201.6
+      ],
+      "standOffM": 2.6999,
+      "bearingDeg": 23.71,
+      "actor": "B2/R2 (mirrored)",
+      "periods": "Transition through End game"
+    },
+    {
+      "program": "auto-2-credited",
+      "stepIndex": 1,
+      "stepLabel": "Attempt HUB delivery; credited",
+      "atIn": [
+        75.8,
+        159.01
+      ],
+      "standOffM": 2.7,
+      "bearingDeg": 0.09,
+      "actor": "B2/R2 (mirrored)",
+      "periods": "AUTO"
+    }
+  ],
+  "frame": "Blue field inches; HUB centre (182.1, 158.85); bearing measured from the -X HUB axis toward +Y",
+  "comparison": {
+    "file": "design/preliminary/rehearsal/comparison.json",
+    "sha256": "85c225fa92af36044964cbf750b2a34a33560967ea29c95b923a567409a67280"
+  },
+  "outcome": "Slot 2 credits 96 FUEL over the three matches against the baseline's 104: the 2.70 m pose costs 8 FUEL (one 4-piece delivery in each of two matches); R3L credits 96 on the depot route and 40 on the TRENCH route.",
+  "heldReceipt": {
+    "file": "design/preliminary/receipt-R3-PD1-held.json",
+    "sha256": "40cb3dde2a85f2ee11bd270fded845f3405124ad926e5a3b89507f3f57d9d5b1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "delivery-pose",
+  "unit": "m",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+  "criterion": {
+    "range": [
+      2.6,
+      2.8
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "shooter",
+    "drivetrain"
+  ],
+  "source": {
+    "file": "design/preliminary/rehearsal/delivery-pose-evidence.json",
+    "sha256": "5d23adc4acbf83b2bc340c34a17c6b646432cc8c390a6e749cd0a08479987f08"
+  },
+  "basis": "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches (2.70 m costs 8 FUEL); R3L on the TRENCH route credits 40",
+  "fieldInput": {
+    "match": "Own-zone supply",
+    "actor": "B2",
+    "period": "Shift 1",
+    "input": "stepPosition",
+    "program": "shift-depot",
+    "stepIndex": 3,
+    "stepLabel": "Attempt HUB delivery; credited"
+  },
+  "repeat": {
+    "previousPlanSha256": "3028d0e301d3b1ffbbbd1ae0cbc186941b19a65cd2cb93b5f0d954728d6741f6",
+    "input": "stepPosition"
+  }
+}

@@ -565,13 +565,40 @@ def main():
                     bumpCrossingClearanceMm=bump["minClearanceMm"], bumpCrossingLimit=bump["limitingFeature"],
                     bumperUprightOverlapMm=round(G.HALF_W + 76.5 - 819.15 / 2, 2),
                     basis="Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. Capacity premises use free_volume() at a 0.45 packing fraction; capacity() is a rigid stacked-lattice lower bound.")
-    for old in HERE.glob("premise-*.json"):
+    for old in HERE.glob(f"premise-{ISSUE}-*.json"):  # earlier issues keep their pinned premise files
         old.unlink()
     write("measurements.json", measured)
     current_src = pin("measurements.json")
     rules = pin("construction-rules.json")
     strategy = {"file": "kickoff/selected-strategy.json", "sha256": hashlib.sha256((ROOT / "kickoff/selected-strategy.json").read_bytes()).hexdigest()}
     profile = {"file": "kickoff/field-profile.json", "sha256": hashlib.sha256((ROOT / "kickoff/field-profile.json").read_bytes()).hexdigest()}
+    # Replay input for the held delivery-pose premise: the named depot-shift step of slot 2 in the re-run series.
+    held = HERE / "receipt-R3-PD1-held.json"
+    held_plan = json.loads(held.read_text(encoding="utf-8"))["planSha256"] if held.exists() else None
+    rprof = HERE / "rehearsal" / "r3-2p7m-profile.json"
+    rsteps = json.loads(rprof.read_text(encoding="utf-8"))["rehearsal"]["programs"]
+    hub_in = (182.1, 158.85)
+
+    def step_record(program, label):
+        idx, st = next((i, x) for i, x in enumerate(rsteps[program]["steps"]) if x.get("label") == label)
+        dx, dy = st["at"][0] - hub_in[0], st["at"][1] - hub_in[1]
+        return dict(program=program, stepIndex=idx, stepLabel=label, atIn=st["at"],
+                    standOffM=round(math.hypot(dx, dy) * 0.0254, 4), bearingDeg=round(math.degrees(math.atan2(dy, -dx)), 2))
+    depot_step = step_record("shift-depot", "Attempt HUB delivery; credited")
+    auto_step = step_record("auto-2-credited", "Attempt HUB delivery; credited")
+    field_input = dict(match="Own-zone supply", actor="B2", period="Shift 1", input="stepPosition",
+                       program=depot_step["program"], stepIndex=depot_step["stepIndex"], stepLabel=depot_step["stepLabel"])
+    delivery_evidence = write("rehearsal/delivery-pose-evidence.json", dict(
+        premise="delivery-pose", phase="conceptual-design", scenario="Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+        issue=ISSUE, designSha256=design["sha256"], stepSha256=step["sha256"],
+        fieldReplay=dict(profile={"file": f"{REL}/rehearsal/r3-2p7m-profile.json", "sha256": hashlib.sha256(rprof.read_bytes()).hexdigest()},
+                         result={"file": f"{REL}/rehearsal/r3-2p7m-series.json", "sha256": hashlib.sha256((HERE / "rehearsal" / "r3-2p7m-series.json").read_bytes()).hexdigest()},
+                         **field_input),
+        steps=[dict(depot_step, actor="B2/R2 (mirrored)", periods="Transition through End game"), dict(auto_step, actor="B2/R2 (mirrored)", periods="AUTO")],
+        frame="Blue field inches; HUB centre (182.1, 158.85); bearing measured from the -X HUB axis toward +Y",
+        comparison=pin("rehearsal/comparison.json"),
+        outcome="Slot 2 credits 96 FUEL over the three matches against the baseline's 104: the 2.70 m pose costs 8 FUEL (one 4-piece delivery in each of two matches); R3L credits 96 on the depot route and 40 on the TRENCH route.",
+        heldReceipt={"file": f"{REL}/receipt-R3-PD1-held.json", "sha256": hashlib.sha256(held.read_bytes()).hexdigest()} if held.exists() else None))
     specs = [
         ("start-overhang", "mm", [-500.0, 0.5], "startOverhangMm", "Starting fold: nothing but bumpers outside the frame projection", "preliminary-design", ["intake", "climber hooks"], rules, "R102 no overhang in the starting configuration"),
         ("swept-height", "mm", [0.0, 762.0], "sweptTopMm", "Robot height in every operating and park pose", "preliminary-design", ["climber hooks", "intake", "hopper"], rules, "R104/R107 30 in, measured as if on a flat floor"),
@@ -582,15 +609,16 @@ def main():
         ("hopper-capacity", "FUEL", [24.0, 200.0], "volumeEstimateDeployedLow", "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake", "floor belts"], strategy, "24-piece serial batch"),
         ("start-capacity", "FUEL", [8.0, 200.0], "volumeEstimateStowedLow", "AUTO preload of eight in the starting fold, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake"], strategy, "Begin legally preloaded with at most eight"),
         ("shot-window", "m", [2.4, 3.6], "releaseDistanceM", "Release-to-HUB distance with an entry band under all drag and spin corners", "preliminary-design", ["shooter"], pin("ballistics.json"), "ballistics.json robust bands at 62 degrees start at 2.4 m"),
-        ("delivery-pose", "m", [2.6, 2.8], "deliveryPoseM", "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)", "conceptual-design", ["shooter", "drivetrain"], pin("rehearsal/comparison.json"), "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches; R3L on the TRENCH route credits 40"),
+        ("delivery-pose", "m", [2.6, 2.8], "deliveryPoseM", "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)", "conceptual-design", ["shooter", "drivetrain"], delivery_evidence, "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches (2.70 m costs 8 FUEL); R3L on the TRENCH route credits 40"),
         ("bump-crossing", "mm", [5.0, 500.0], "bumpCrossingClearanceMm", "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest", "conceptual-design", ["frame", "drivetrain", "bumpers"], pin("bump_crossing.py"), "Accepted margin 5 mm over a conservative sharp crest; bump_crossing.py"),
         ("hang-bumper-overlap", "mm", [20.0, 200.0], "bumperUprightOverlapMm", "Lateral overlap of the bumper with each TOWER upright face while hanging", "preliminary-design", ["bumpers", "frame", "climber hooks"], rules, "Uprights 819.15 mm apart; a 20 mm overlap tolerates driver alignment error"),
     ]
     premises = []
     for pid, unit, rng, field_name, scen, phase, ifaces, src, basis in specs:
         identity = dict(id=pid, unit=unit, scenario=scen)
-        acc = write(f"premise-{pid}-accepted.json", dict(**identity, criterion={"range": rng}, phase=phase, interfaces=ifaces, source=src, basis=basis))
-        cur = write(f"premise-{pid}-current.json", dict(**identity, value=measured[field_name], issue=ISSUE, designSha256=design["sha256"],
+        extra = dict(fieldInput=field_input, repeat=dict(previousPlanSha256=held_plan, input="stepPosition")) if pid == "delivery-pose" else {}
+        acc = write(f"premise-{ISSUE}-{pid}-accepted.json", dict(**identity, criterion={"range": rng}, phase=phase, interfaces=ifaces, source=src, basis=basis, **extra))
+        cur = write(f"premise-{ISSUE}-{pid}-current.json", dict(**identity, value=measured[field_name], issue=ISSUE, designSha256=design["sha256"],
                                                           stepSha256=step["sha256"], source=current_src, valueField=field_name))
         premises.append(dict(accepted=acc, current=cur))
 
@@ -598,7 +626,7 @@ def main():
     gates = "Verification gates are in verification-gates.json; the contract assigns physical performance, retention and actuator dynamics to their own commissioned evidence (docs/preliminary-design.md)."
     objectives = [
         ("AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active", "represented",
-         "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise)."),
+         "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m instead of 2.16 m costs 8 FUEL over the three rehearsed matches (96 against 104)."),
         ("Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner", "represented",
          "acquire-* cases take a floor FUEL up the bumper face into the hopper; the acquisition physics trial captures it in 0.50 s; hopper-capacity is 36 or more by free volume."),
         ("Active shift: carry each FUEL from storage through one transfer into the HUB", "represented",

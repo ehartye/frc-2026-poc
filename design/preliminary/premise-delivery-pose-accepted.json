@@ -1,11 +1,11 @@
 {
   "id": "delivery-pose",
   "unit": "m",
-  "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
   "criterion": {
     "range": [
-      2.6,
-      2.8
+      1.9,
+      2.4
     ]
   },
   "phase": "conceptual-design",
@@ -14,8 +14,8 @@
     "drivetrain"
   ],
   "source": {
-    "file": "design/preliminary/rehearsal/comparison.json",
-    "sha256": "85c225fa92af36044964cbf750b2a34a33560967ea29c95b923a567409a67280"
+    "file": "kickoff/field-profile.json",
+    "sha256": "98ecbc7f1701ade3e977340fbbb8ed113853beb4bf333f634497315e1f0ac0f0"
   },
-  "basis": "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches; R3L on the TRENCH route credits 40"
+  "basis": "Rehearsed delivery steps at field (108, 117) and (108, 202) in, plus or minus 0.25 m"
 }

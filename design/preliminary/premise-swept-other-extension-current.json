@@ -3,12 +3,12 @@
   "unit": "mm",
   "scenario": "Rear and side extension through every operating and park pose",
   "value": 0.0,
-  "issue": "R3-PD2",
-  "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
-  "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
+  "issue": "R3-PD1",
+  "designSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
+  "stepSha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3",
   "source": {
     "file": "design/preliminary/measurements.json",
-    "sha256": "c3df0e0409ee39502961f4180582e4ea838ffa7a3843e8699a7ef2b036d9ee64"
+    "sha256": "3d03d7a6d1855567901d5ac0eb3cc198d6157adf6267d4de4c9ba99a4cbdb131"
   },
   "valueField": "sweptOtherExtensionMm"
 }

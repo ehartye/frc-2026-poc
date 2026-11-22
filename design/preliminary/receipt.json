@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "c89c3c4d3ff495361e1395d7733a9683c754aa75a89876ded54ff5a091a73d22",
+  "planSha256": "65cc5979f400c297b75ad325fccfd428bf0bf44c778ae5de8d18c2ef47f969a1",
   "design": {
     "file": "design/preliminary/design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -48,7 +48,7 @@
       {
         "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
         "disposition": "represented",
-        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise)."
+        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m instead of 2.16 m costs 8 FUEL over the three rehearsed matches (96 against 104)."
       },
       {
         "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
@@ -119,12 +119,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-start-overhang-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-start-overhang-accepted.json",
         "sha256": "6cd25b1f2ebbd37c5c74428d23818e2887ec4df501b0905bb5c4418e1c938f0b"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-start-overhang-current.json",
+        "file": "design/preliminary/premise-R3-PD2-start-overhang-current.json",
         "sha256": "7540e83128e340444f33eea86ce8d99d5271d8229106dbdd630d43318e10803e"
       },
       "value": 0.0
@@ -146,12 +146,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-swept-height-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-height-accepted.json",
         "sha256": "2542f6f863313167d28ef1af9f1232a7c205cb5dfe5c497ce2489c8eb619ea94"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-swept-height-current.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-height-current.json",
         "sha256": "99db7ea917fa81d70c77e72ff8c9099141f54992a797b46975baa4916a4f8a9c"
       },
       "value": 750.0
@@ -172,12 +172,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-swept-front-extension-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-front-extension-accepted.json",
         "sha256": "82c6b71b6b954bec0e1aa7b28c212520a3d5f2e2f8bcc6f5113e45266865dbde"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-swept-front-extension-current.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-front-extension-current.json",
         "sha256": "a67a92409bf2c0c3c8153926d3dcd07aa1c3bed72878b7b4abb3bc31c3595ec0"
       },
       "value": 270.614
@@ -198,12 +198,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-swept-other-extension-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-other-extension-accepted.json",
         "sha256": "4540b1b93e969dbd9eb0f68c58fb569d553f3b7522b75401116d14b7c3be0794"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-swept-other-extension-current.json",
+        "file": "design/preliminary/premise-R3-PD2-swept-other-extension-current.json",
         "sha256": "a0ada7467a4715913c021faed247c9aebeca4a4dd34ef6f7ee7c3389599caaa9"
       },
       "value": 0.0
@@ -224,12 +224,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-sides-extended-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-sides-extended-accepted.json",
         "sha256": "0730ac74e96655e4459d691b3aa928d75262214a9449ed1e01f86bf1dc2b1f8e"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-sides-extended-current.json",
+        "file": "design/preliminary/premise-R3-PD2-sides-extended-current.json",
         "sha256": "c21f973680dc26ea3c1dd82abdff6adf2bc16ae419d2ea2e6668c33e81baf644"
       },
       "value": 1.0
@@ -250,12 +250,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-with-bumpers-mass-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-with-bumpers-mass-accepted.json",
         "sha256": "3bb605a82e8e417dcbcedd244a3e81001d94c568430bff8a5797da0769554e9e"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-with-bumpers-mass-current.json",
+        "file": "design/preliminary/premise-R3-PD2-with-bumpers-mass-current.json",
         "sha256": "74cf9f2f4c5bfd3f61385c9683fef5400624f87ae395e36f29eba1ab59506e4f"
       },
       "value": 55.3
@@ -277,12 +277,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-hopper-capacity-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-hopper-capacity-accepted.json",
         "sha256": "7d520639bdd23ce04b95871caa5a89bf8233e32f2e78ff8ec6e6c38d19300621"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-hopper-capacity-current.json",
+        "file": "design/preliminary/premise-R3-PD2-hopper-capacity-current.json",
         "sha256": "81ee030c44d4e83ed0c02bb9c73da556524ef6796cd5126c8f879a0cce00184f"
       },
       "value": 37.7
@@ -303,12 +303,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-start-capacity-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-start-capacity-accepted.json",
         "sha256": "be9610a83af9d953f5afcd1d7af5f8250fd84c529aa24970db83fabcfda5c556"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-start-capacity-current.json",
+        "file": "design/preliminary/premise-R3-PD2-start-capacity-current.json",
         "sha256": "342158fc31d6feeac530d65b517311c205e0d8435933546865c5ea0eb2c0a269"
       },
       "value": 37.2
@@ -328,12 +328,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-shot-window-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-shot-window-accepted.json",
         "sha256": "70deae27e6bdd16b49e75e8ad7181246cfef3e60b38ed7485d775573f3cd4d5b"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-shot-window-current.json",
+        "file": "design/preliminary/premise-R3-PD2-shot-window-current.json",
         "sha256": "7372610838f921c7289c6d741f2a233bf135550869bbf8259caafa2880e25731"
       },
       "value": 2.4362
@@ -354,12 +354,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-delivery-pose-accepted.json",
-        "sha256": "ec0edccd9a86d412649938660275b3745f587d748d8c8123520e626171984fff"
+        "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
+        "sha256": "0acebf1e7eff410767ac7dacec8a667f7e2e036edea1126ae3e7bccefdb45ff7"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-delivery-pose-current.json",
+        "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
         "sha256": "04845de40358f3ce84093330016e742a341c30c5ec27a93db11bc971e4facdab"
       },
       "value": 2.7
@@ -381,12 +381,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-bump-crossing-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-bump-crossing-accepted.json",
         "sha256": "a129b576a2f22f8ed9e9d245a89c26792c6a6bdca784cadffdec9e46e7e09c90"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-bump-crossing-current.json",
+        "file": "design/preliminary/premise-R3-PD2-bump-crossing-current.json",
         "sha256": "f40251be0a5266e02d48fa5f05fa8e70c477540fe641eb0b716d716d3c0dce1a"
       },
       "value": 8.68
@@ -408,12 +408,12 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-hang-bumper-overlap-accepted.json",
+        "file": "design/preliminary/premise-R3-PD2-hang-bumper-overlap-accepted.json",
         "sha256": "595d78957f54ae725a568b0cc5344480909e1043c1118015d1dccd764801bc99"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-hang-bumper-overlap-current.json",
+        "file": "design/preliminary/premise-R3-PD2-hang-bumper-overlap-current.json",
         "sha256": "e13960422c199af0f66238e56898724630aa61c9f5432b1bdb288ade7027d170"
       },
       "value": 23.93
@@ -1095,7 +1095,7 @@
   },
   "view": {
     "file": "design/preliminary/review/package-motion.html",
-    "sha256": "d61d64a70647a6355a2dd8053e4d7bd74e224b00d57bfaa734105c0ddf2b9cbd",
+    "sha256": "26f7b6d93bf11de8e200f714abf23d9dd2a298ee60f6dd1bf6620f23bc68326f",
     "verified": true
   },
   "control": {
