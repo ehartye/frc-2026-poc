@@ -1,6 +1,6 @@
-# R3-PD1 LAN review bundle
+# R3-PD2 LAN review bundle
 
-This folder holds only the review pages for issue R3-PD1: `package-motion.html`, the geometric clearance player (about 31 MB, not committed), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B design/preliminary/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
+This folder holds only the review pages for issue R3-PD2: `package-motion.html`, the geometric clearance player (about 31 MB, not committed), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B design/preliminary/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
 
 ## Build the page
 
@@ -19,7 +19,7 @@ The receipt records the page's SHA-256 (`view.sha256` in [receipt.json](../recei
 python -m http.server 8765 --bind <host LAN address> --directory design/preliminary/review
 ```
 
-Open `http://<host LAN address>:8765/package-motion.html` on the host and then on a second device. Stop the server with Ctrl+C. The folder stays usable as a static bundle after the host shuts down.
+Open `http://<host LAN address>:8765/index.html` on the host and then on a second device. Stop the server with Ctrl+C. The folder stays usable as a static bundle after the host shuts down.
 
 ## What to check
 

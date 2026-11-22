@@ -33,7 +33,7 @@ from OCP.XCAFDoc import XCAFDoc_DocumentTool
 import geometry as G
 import ballistics
 
-ISSUE = "R3-PD1"
+ISSUE = "R3-PD2"
 PLUGIN = Path(__import__("os").environ["AGENT_FRC"])  # the Agent FRC plugin checkout; required
 CLI = PLUGIN / "scripts" / "design.mjs"
 
@@ -118,7 +118,7 @@ def capacity(variant, stowed, extra_exclusions=(), limit=None, avoid=(), xmax=23
                     for j in range(-4, 5):
                         y = oy + sh + j * PITCH
                         q = (x, y, z)
-                        if abs(y) > 316 - r - clear:
+                        if abs(y) > 316 + G.DY - r - clear:
                             continue
                         if L > 0 and x < -93 + r + clear:
                             continue  # behind the rear wall only the floor lane feeds the pinch
@@ -160,7 +160,7 @@ def supported_positions(variant, stowed, extra_exclusions=(), avoid=(), limit=7)
                    key=lambda q: (q[2], q[0], abs(q[1]), q[1]))
     placed = []
     for q in cands:
-        if abs(q[1]) > 316 - r - 1.5 or (q[2] > k["z0"] + 10 and q[0] < -93 + r + 1.5):
+        if abs(q[1]) > 316 + G.DY - r - 1.5 or (q[2] > k["z0"] + 10 and q[0] < -93 + r + 1.5):
             continue
         if 170 + r < q[2] < 482 - r and q[0] > 160:
             continue
@@ -189,8 +189,8 @@ def free_volume(variant, stowed):
     """Hopper volume available to FUEL material: the walled envelope minus every robot solid inside it (exact booleans)."""
     from OCP.BRepAlgoAPI import BRepAlgoAPI_Cut
     bodies, k = G.robot_bodies(variant, intake_stowed=stowed)
-    env = G.box((-93, -316, k["belt_top"]), (311, 316, k["wall"]))
-    env = BRepAlgoAPI_Cut(env, G.box((236, -320, 170), (320, 320, 482))).Shape()  # the open throat holds nothing
+    env = G.box((-93, -316 - G.DY, k["belt_top"]), (311, 316 + G.DY, k["wall"]))
+    env = BRepAlgoAPI_Cut(env, G.box((236, -340 - G.DY, 170), (320, 340 + G.DY, 482))).Shape()  # the open throat holds nothing
     pinch = G.box((-150 - G.R_BALL, -173, k["belt_top"]), (-93, 173, k["z0"] + G.R_BALL))
     total = 0.0
     for region in (env, pinch):
@@ -280,7 +280,7 @@ def swept_envelope(cases, shapes, robot_members):
                 placed = transform(shapes[n], c.get("initialPose", {}).get(n, []), 1)
                 boxes[n] = bounds(transform(placed, c["moves"].get(n, []), t))
             ext = dict(front=max(b[3] for b in boxes.values()) - 340, rear=-340 - min(b[0] for b in boxes.values()),
-                       left=max(b[4] for b in boxes.values()) - 340, right=-340 - min(b[1] for b in boxes.values()),
+                       left=max(b[4] for b in boxes.values()) - G.HALF_W, right=-G.HALF_W - min(b[1] for b in boxes.values()),
                        top=max(b[5] for b in boxes.values()))
             ext["side"] = max(ext["left"], ext["right"])
             sides = sum(1 for key in ("front", "rear", "left", "right") if ext[key] > 0.5)
@@ -299,6 +299,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--fail-fast", action="store_true")
+    ap.add_argument("--previous", help="held checkpoint receipt, project-relative")
     args = ap.parse_args()
 
     bodies, k = G.robot_bodies("R3")
@@ -335,7 +336,7 @@ def main():
     cx, cz = k["c"]
     for i in range(41):
         path_samples.append((D[0] + (cx - D[0]) * i / 40, D[1], D[2]))
-    columns = [(-90, 236, 83, 77, 312, 4000), (-342, -263, 80, -99, 190, 4000), (-73, 22.5, 91.5, 227, 142.5, 168.1),
+    columns = [(-90, 236 + G.DY, 83, 77, 312 + G.DY, 4000), (-342, -263, 80, -99, 190, 4000), (-73, 22.5, 91.5, 227, 142.5, 168.1),
                (170, -275, 150, 620, 275, 480)]
     stored = supported_positions("R3", True, extra_exclusions=columns, avoid=path_samples, limit=7)
     assert len(stored) >= 2, f"only {len(stored)} supported stored positions"
@@ -361,7 +362,7 @@ def main():
     subprocess.run(["node", str(CLI), "new", str(design_path)], check=True, stdout=subprocess.DEVNULL)
     d = json.loads(design_path.read_text(encoding="utf-8"))
     d["design"]["frameProfile"] = {"kind": "square"}
-    d["design"]["parameters"].update(frameLengthM=0.68, frameWidthM=0.68, trackM=0.53, bumperBottomM=0.048,
+    d["design"]["parameters"].update(frameLengthM=0.68, frameWidthM=0.714, trackM=0.564, bumperBottomM=0.048,
                                      bumperHeightM=0.12, bumperDepthM=0.0775, height=0.75, reach=0.274,
                                      toolHeight=0.25, opening=0.516, phase="deployed")
     design_path.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -457,7 +458,8 @@ def main():
          {n: [T((approach, 0, 0))] for n in world}, ["field", "tracked FUEL"])
     hooks = G_("climber hooks")
     hz = k["hook"] - 6
-    reach = {"climber hook left": [ROT((300, 299, hz), (0, 0, 1), 180)], "climber hook right": [ROT((300, -299, hz), (0, 0, 1), -180)]}
+    yc = 299 + G.DY
+    reach = {"climber hook left": [ROT((300, yc, hz), (0, 0, 1), 180)], "climber hook right": [ROT((300, -yc, hz), (0, 0, 1), -180)]}
     case("climb-reach", "operating", "Swing both hooks 180 degrees inboard above the rung so the jaws pass beyond it", reach, ["climber hooks"])
     rung_top = 685.8 + 42.164 / 2
     seat = -(k["hook"] - 12 - (rung_top + 1.5))
@@ -489,8 +491,8 @@ def main():
               dict(group="floor indexer", on="floor belt main", pointMm=[0, 82.5, k["belt_top"]], basis="Cleat rides the main belt"),
               dict(group="shooter", on="frame rail rear", pointMm=[-327, 0, 120.65], basis="Shooter side plates bolt to the rear rail top"),
               dict(group="intake", on="intake slide rail left", pointMm=[300, 278, 400], basis="Carriage plates run on the two-stage slide; the fixed stage is drawn"),
-              dict(group="climber inner tubes", on="climber tube left", pointMm=[300, 299, 500], basis="Inner tube runs in bushings in the fixed outer tube"),
-              dict(group="climber hooks", on="climber inner tube left", pointMm=[300, 299, k["hook"] - 14], basis="Swing joint on the inner tube top")]
+              dict(group="climber inner tubes", on="climber tube left", pointMm=[300, 299 + G.DY, 500], basis="Inner tube runs in bushings in the fixed outer tube"),
+              dict(group="climber hooks", on="climber inner tube left", pointMm=[300, 299 + G.DY, k["hook"] - 14], basis="Swing joint on the inner tube top")]
 
     # ---------------------------------------------------------- budgets
     requirements_cases = {}
@@ -547,6 +549,8 @@ def main():
         masses=[dict(id=i, members=m, kg=kg, basis=b) for i, m, kg, b in mass_rows], electricalCases=elec))
 
     # ---------------------------------------------------------- premises and measurements
+    import bump_crossing
+    bump = bump_crossing.screen(k["floor"])
     robot_members = [n for n, g in groups_of.items() if roles[g] not in ("payload", "other", "bumper")] + G_("electrical")
     sweep = swept_envelope(cases, shapes, robot_members)
     deployed_reach = max(bounds(s_)[3] for n, (s_, g) in bodies.items() if g != "bumpers") - 340.0
@@ -558,6 +562,8 @@ def main():
                     volumeEstimateDeployedLow=vol["R3"]["deployed"]["estimateAtPacking"]["0.45"], volumeEstimateStowedLow=vol["R3"]["stowed"]["estimateAtPacking"]["0.45"], lowCapacityDeployed=float(len(low_dep)), lowCapacityStowed=float(len(low_stow)),
                     releaseDistanceM=round(fly["distanceM"], 4), deliveryPoseM=round(-hub_shot[0] / 1000, 4),
                     withBumpersUpperKg=round(inspection[1] + 7.5, 3), bellyClearanceMm=k["floor"] - 6.0,
+                    bumpCrossingClearanceMm=bump["minClearanceMm"], bumpCrossingLimit=bump["limitingFeature"],
+                    bumperUprightOverlapMm=round(G.HALF_W + 76.5 - 819.15 / 2, 2),
                     basis="Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. Capacity premises use free_volume() at a 0.45 packing fraction; capacity() is a rigid stacked-lattice lower bound.")
     for old in HERE.glob("premise-*.json"):
         old.unlink()
@@ -576,8 +582,9 @@ def main():
         ("hopper-capacity", "FUEL", [24.0, 200.0], "volumeEstimateDeployedLow", "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake", "floor belts"], strategy, "24-piece serial batch"),
         ("start-capacity", "FUEL", [8.0, 200.0], "volumeEstimateStowedLow", "AUTO preload of eight in the starting fold, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake"], strategy, "Begin legally preloaded with at most eight"),
         ("shot-window", "m", [2.4, 3.6], "releaseDistanceM", "Release-to-HUB distance with an entry band under all drag and spin corners", "preliminary-design", ["shooter"], pin("ballistics.json"), "ballistics.json robust bands at 62 degrees start at 2.4 m"),
-        ("delivery-pose", "m", [1.9, 2.4], "deliveryPoseM", "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)", "conceptual-design", ["shooter", "drivetrain"], profile, "Rehearsed delivery steps at field (108, 117) and (108, 202) in, plus or minus 0.25 m"),
-        ("bump-breakover", "mm", [71.0, 500.0], "bellyClearanceMm", "BUMP crest crossing at 530 mm wheelbase needs 71 mm under the belly", "conceptual-design", ["frame", "drivetrain"], rules, "15 degree BUMP ramps meeting at the crest"),
+        ("delivery-pose", "m", [2.6, 2.8], "deliveryPoseM", "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)", "conceptual-design", ["shooter", "drivetrain"], pin("rehearsal/comparison.json"), "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches; R3L on the TRENCH route credits 40"),
+        ("bump-crossing", "mm", [5.0, 500.0], "bumpCrossingClearanceMm", "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest", "conceptual-design", ["frame", "drivetrain", "bumpers"], pin("bump_crossing.py"), "Accepted margin 5 mm over a conservative sharp crest; bump_crossing.py"),
+        ("hang-bumper-overlap", "mm", [20.0, 200.0], "bumperUprightOverlapMm", "Lateral overlap of the bumper with each TOWER upright face while hanging", "preliminary-design", ["bumpers", "frame", "climber hooks"], rules, "Uprights 819.15 mm apart; a 20 mm overlap tolerates driver alignment error"),
     ]
     premises = []
     for pid, unit, rng, field_name, scen, phase, ifaces, src, basis in specs:
@@ -588,23 +595,24 @@ def main():
         premises.append(dict(accepted=acc, current=cur))
 
     narrative = {"file": "kickoff/selected-strategy.md", "sha256": hashlib.sha256((ROOT / "kickoff/selected-strategy.md").read_bytes()).hexdigest()}
+    gates = "Verification gates are in verification-gates.json; the contract assigns physical performance, retention and actuator dynamics to their own commissioned evidence (docs/preliminary-design.md)."
     objectives = [
         ("AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active", "represented",
-         "The starting fold holds 36 or more FUEL by free volume at 0.45 packing (start-capacity premise); the stored FUEL drawn are the supported pockets clear of every commissioned path; launch-wrap and flight cases carry a FUEL into the HUB opening. The AUTO route uses the delivery pose that the delivery-pose premise reopens."),
+         "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise)."),
         ("Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner", "represented",
-         "acquire-* cases take a floor FUEL up the bumper face and into the hopper; hopper-capacity counts stable stacked positions for 24."),
+         "acquire-* cases take a floor FUEL up the bumper face into the hopper; the acquisition physics trial captures it in 0.50 s; hopper-capacity is 36 or more by free volume."),
         ("Active shift: carry each FUEL from storage through one transfer into the HUB", "represented",
-         "loaded-transit, index, launch-wrap and flight cases carry the tracked FUEL from the floor lane into the HUB cavity."),
-        ("Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5", "open",
-         "F1: bulk convergence into two pinch lanes is unproven; the bench test and stop conditions are in architecture-comparison.json."),
+         "loaded-transit, index, launch-wrap and flight cases carry the tracked FUEL into the HUB cavity; the delivery physics trial scores from 6.70 to 7.10 m/s."),
+        ("Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5", "represented",
+         "Two pinch lanes; by calculation each lane feeds 3.9 FUEL/s at 0.6 m/s belt speed and 154 mm spacing, and the flywheel recovers a 2% speed drop in about 0.03 s on two motors, so the layout supplies 7.8 FUEL/s against 2.00. Bulk convergence without jams is gate G1. " + gates),
         ("Fallback: score the available batch when supply or traffic consumes the window and return to collecting", "represented",
-         "The cycle is piece-count independent; the intake stays deployed in every operating case."),
-        ("Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield", "open",
-         "F6: the loaded-transit case moves the field, not accelerations on the robot. Retention under 0.5 g stops is untested (retention R-4)."),
+         "The cycle is piece-count independent; the intake stays deployed in every operating case; the re-run rehearsal keeps the depot loop."),
+        ("Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield", "represented",
+         "By geometry the front lip stands 77 mm above a floor FUEL's base, more than its 75 mm radius, so horizontal deceleration alone cannot roll it out; side and rear walls rise above the top layer; the open throat holds no counted FUEL. Loaded 0.5 g stops are gate G2. " + gates),
         ("Neutral collector alternative with two field crossings", "out-of-scope",
-         "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-breakover premise) with the intake retracted; its route is not commissioned here."),
-        ("End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service", "open",
-         "Cases reach, seat (2 mm required contact) and lift 70 mm. F4: the hang moment rests on 6.4 mm of bumper overlap with each upright, and the jaw reaches 5.4 mm below the rung centre."),
+         "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-crossing premise, 8.7 mm least clearance) with the intake retracted; the re-run TRENCH variant (R3L) credits fewer FUEL than the depot loop."),
+        ("End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service", "represented",
+         "Cases reach, seat (2 mm required contact) and lift 70 mm; the 714 mm frame gives 23.9 mm of bumper overlap with each upright (hang-bumper-overlap premise); the hang physics trial holds 37.8 mm with the brake and fails without it. Jaw capture under lateral offset and the brake hold are gate G3. " + gates),
         ("AUTO Level 1 TOWER (15 points, two-robot cap)", "out-of-scope",
          "The strategy keeps the eight-FUEL AUTO objective; no joined AUTO climb evidence is sought in this layout."),
         ("Reserve the depot entrance and partner lane", "out-of-scope",
@@ -636,6 +644,8 @@ def main():
                           sweep=sweep, reach=deployed_reach, inspection=inspection, running=running), indent=1))
     if args.check:
         flags = ["--fail-fast"] if args.fail_fast else ["--require-checked", "--write-view"]
+        if args.previous:
+            flags += ["--previous", args.previous]
         view_path = ROOT / view
         if not args.fail_fast and view_path.exists():
             view_path.unlink()
@@ -653,9 +663,9 @@ def component_explanations(shapes, groups_of):
             E[n] = dict(purpose=purpose, rationale=rationale, category=category, material=material)
     S = list(shapes)
     put([n for n in S if n.startswith("frame rail")], "Carry the drive corners, bumpers and every mechanism mount.",
-        "The verified 680 mm foundation outline is carried forward; its supplier-fit checks remain valid only at these rail positions.", "structure", "6061-T6 2x1x0.125 in tube")
+        "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.", "structure", "6061-T6 2x1x0.125 in tube")
     put(["floor pan", "floor pan front tongue"], "Support the floor belts, battery tray and electronics.",
-        "Sits 75 mm above the carpet so the belly clears the 71 mm BUMP breakover requirement.", "structure", "3 mm polycarbonate over aluminum stiffeners")
+        "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.", "structure", "3 mm polycarbonate over aluminum stiffeners")
     put(["front lip"], "Keep floor-level FUEL from rolling out over the front rail.", "Its 170 mm top stands 2 mm above the floor-layer centres and 5 mm below the entering FUEL.", "structure", "3 mm aluminum")
     put([n for n in S if n.startswith("intake slide rail")], "Guide the intake carriage between the start fold and the pickup pose.",
         "A straight slide never sweeps beyond the 304.8 mm R105 reach; the fixed stage of the two-stage slide is drawn.", "structure", "Aluminum drawer-slide stage")
@@ -664,7 +674,7 @@ def component_explanations(shapes, groups_of):
         "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.", "drivetrain", "Supplier wheel; envelope only")
     put([n for n in S if "module body" in n], "Represent the swerve module plates and gearing.", "Four-module swerve is the project default and the foundation already fits the supplier tabs.", "drivetrain", "Supplier module")
     put([n for n in S if "module motors" in n], "Reserve the drive and steering motors above each module.", "Their height limits the lowest hopper layer at the corners.", "drivetrain", "Supplier motors")
-    put([n for n in S if n.startswith("bumper")], "Protect the frame perimeter and back the intake pinch.", "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing and the hang bearing face.", "bumper", "Plywood backing, foam, fabric")
+    put([n for n in S if n.startswith("bumper")], "Protect the frame perimeter and back the intake pinch.", "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.", "bumper", "Plywood backing, foam, fabric")
     put(["hopper wall left", "hopper wall right"], "Contain stacked FUEL up to 715 mm.", "Walls rise 85 mm above the top-layer centres so a stable stack stays inside.", "structure", "2 mm polycarbonate")
     put(["hopper front upper wall"], "Close the hopper front above the intake throat.", "It starts at 482 mm, above the slide's swept path and the stowed carriage.", "structure", "2 mm polycarbonate")
     put(["hopper rear wall"], "Separate stored FUEL from the spinning flywheel.", "Only the floor-level lane may reach the pinch; upper layers would double-feed or jam on the wheel top.", "structure", "2 mm polycarbonate")

@@ -1,17 +1,17 @@
 {
   "schema": "agent-frc/preliminary-layout@1",
-  "issue": "R3-PD1",
+  "issue": "R3-PD2",
   "design": {
     "file": "design/preliminary/design.json",
-    "sha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de"
+    "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
   },
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3"
+    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
   },
   "motion": {
     "file": "design/preliminary/paths.json",
-    "sha256": "e84b47b5fbf3a7b8b5de06224741801a6aff5a0f5822853a49acbec2fa7ff480"
+    "sha256": "3f9b0b95a7d65da696aef1cdfd02050f796e9c4f32fa530e4d05cc4be8a35427"
   },
   "datum": {
     "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
@@ -188,7 +188,7 @@
       "pointMm": [
         0,
         0,
-        81.0
+        100.0
       ],
       "basis": "Belt bed rests on the floor pan"
     },
@@ -198,7 +198,7 @@
       "pointMm": [
         0,
         82.5,
-        90.0
+        109.0
       ],
       "basis": "Cleat rides the main belt"
     },
@@ -227,7 +227,7 @@
       "on": "climber tube left",
       "pointMm": [
         300,
-        299,
+        316.0,
         500
       ],
       "basis": "Inner tube runs in bushings in the fixed outer tube"
@@ -237,7 +237,7 @@
       "on": "climber inner tube left",
       "pointMm": [
         300,
-        299,
+        316.0,
         736.0
       ],
       "basis": "Swing joint on the inner tube top"
@@ -453,7 +453,7 @@
   "view": "design/preliminary/review/package-motion.html",
   "budgets": {
     "file": "design/preliminary/budgets.json",
-    "sha256": "4d0be5adead263bc0f53de2a9756641ac2739307e349e34cb6133e8d809b395e"
+    "sha256": "45d08dad9fc1266ab2ed43813f685edfa98fa27ac9a2db2f8736e94a707f1630"
   },
   "premises": [
     {
@@ -463,7 +463,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-start-overhang-current.json",
-        "sha256": "4a35a4045597627af7e46d74560d746cc9ca8e0e387cd5ec23e7761930f29419"
+        "sha256": "7540e83128e340444f33eea86ce8d99d5271d8229106dbdd630d43318e10803e"
       }
     },
     {
@@ -473,7 +473,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-swept-height-current.json",
-        "sha256": "ce3bd24e0ef0e44179b854e29ebf855f541e8cb746e3c743ba440c68c2d3d7d5"
+        "sha256": "99db7ea917fa81d70c77e72ff8c9099141f54992a797b46975baa4916a4f8a9c"
       }
     },
     {
@@ -483,7 +483,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-swept-front-extension-current.json",
-        "sha256": "cf8eb49602e08c9d5ae6c14b220a8f7334acbe322066b1a3e5361372a213fa2c"
+        "sha256": "a67a92409bf2c0c3c8153926d3dcd07aa1c3bed72878b7b4abb3bc31c3595ec0"
       }
     },
     {
@@ -493,7 +493,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-swept-other-extension-current.json",
-        "sha256": "0ef2d7fad46879f304e8427381b57b9f8b0132c82ed14768fe1ed0578a7934ec"
+        "sha256": "a0ada7467a4715913c021faed247c9aebeca4a4dd34ef6f7ee7c3389599caaa9"
       }
     },
     {
@@ -503,7 +503,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-sides-extended-current.json",
-        "sha256": "53a2dd6aa1db0809ceb9c5305952d3bf9cb853e0c8277e0e5f198b25ce7d94a5"
+        "sha256": "c21f973680dc26ea3c1dd82abdff6adf2bc16ae419d2ea2e6668c33e81baf644"
       }
     },
     {
@@ -513,7 +513,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-with-bumpers-mass-current.json",
-        "sha256": "83868aaed444c2998fa6bcb7109b33eef75d58a43fd43558869f3fd77a8aefc3"
+        "sha256": "74cf9f2f4c5bfd3f61385c9683fef5400624f87ae395e36f29eba1ab59506e4f"
       }
     },
     {
@@ -523,7 +523,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-hopper-capacity-current.json",
-        "sha256": "5bafa4c1bd92b044d1a8160eab61d1fdb602793d4324c52db4eecd710d1f12a2"
+        "sha256": "81ee030c44d4e83ed0c02bb9c73da556524ef6796cd5126c8f879a0cce00184f"
       }
     },
     {
@@ -533,7 +533,7 @@
       },
       "current": {
         "file": "design/preliminary/premise-start-capacity-current.json",
-        "sha256": "437284aedf30fa60547de23aa908b37e9c26bb784c91a7d0cdd59b37e0279092"
+        "sha256": "342158fc31d6feeac530d65b517311c205e0d8435933546865c5ea0eb2c0a269"
       }
     },
     {
@@ -543,27 +543,37 @@
       },
       "current": {
         "file": "design/preliminary/premise-shot-window-current.json",
-        "sha256": "05994da73918f76e3bccdfabbf01b12b61b458e7e0f4bfbd76ae992e91ab2f52"
+        "sha256": "7372610838f921c7289c6d741f2a233bf135550869bbf8259caafa2880e25731"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-delivery-pose-accepted.json",
-        "sha256": "507a9a6eff70b9a6f160c3a183672928d4d755a3208910199f8f047ac232276d"
+        "sha256": "ec0edccd9a86d412649938660275b3745f587d748d8c8123520e626171984fff"
       },
       "current": {
         "file": "design/preliminary/premise-delivery-pose-current.json",
-        "sha256": "799f30a8c1c7e4cdec94df53d55d1e111e6b4b44372692c32f876df46de22f9d"
+        "sha256": "04845de40358f3ce84093330016e742a341c30c5ec27a93db11bc971e4facdab"
       }
     },
     {
       "accepted": {
-        "file": "design/preliminary/premise-bump-breakover-accepted.json",
-        "sha256": "dfdfe44be45c185c3d8e7711eba799adb747de45e6e57148bed184e47592efd7"
+        "file": "design/preliminary/premise-bump-crossing-accepted.json",
+        "sha256": "a129b576a2f22f8ed9e9d245a89c26792c6a6bdca784cadffdec9e46e7e09c90"
       },
       "current": {
-        "file": "design/preliminary/premise-bump-breakover-current.json",
-        "sha256": "d6a8a1e00d02a0e371bb79f5a6e806a2c16b4f3605a864ff2d0f6608a6a477d5"
+        "file": "design/preliminary/premise-bump-crossing-current.json",
+        "sha256": "f40251be0a5266e02d48fa5f05fa8e70c477540fe641eb0b716d716d3c0dce1a"
+      }
+    },
+    {
+      "accepted": {
+        "file": "design/preliminary/premise-hang-bumper-overlap-accepted.json",
+        "sha256": "595d78957f54ae725a568b0cc5344480909e1043c1118015d1dccd764801bc99"
+      },
+      "current": {
+        "file": "design/preliminary/premise-hang-bumper-overlap-current.json",
+        "sha256": "e13960422c199af0f66238e56898724630aa61c9f5432b1bdb288ade7027d170"
       }
     }
   ],
@@ -576,42 +586,42 @@
       {
         "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
         "disposition": "represented",
-        "basis": "The starting fold holds 36 or more FUEL by free volume at 0.45 packing (start-capacity premise); the stored FUEL drawn are the supported pockets clear of every commissioned path; launch-wrap and flight cases carry a FUEL into the HUB opening. The AUTO route uses the delivery pose that the delivery-pose premise reopens."
+        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise)."
       },
       {
         "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
         "disposition": "represented",
-        "basis": "acquire-* cases take a floor FUEL up the bumper face and into the hopper; hopper-capacity counts stable stacked positions for 24."
+        "basis": "acquire-* cases take a floor FUEL up the bumper face into the hopper; the acquisition physics trial captures it in 0.50 s; hopper-capacity is 36 or more by free volume."
       },
       {
         "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
         "disposition": "represented",
-        "basis": "loaded-transit, index, launch-wrap and flight cases carry the tracked FUEL from the floor lane into the HUB cavity."
+        "basis": "loaded-transit, index, launch-wrap and flight cases carry the tracked FUEL into the HUB cavity; the delivery physics trial scores from 6.70 to 7.10 m/s."
       },
       {
         "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
-        "disposition": "open",
-        "basis": "F1: bulk convergence into two pinch lanes is unproven; the bench test and stop conditions are in architecture-comparison.json."
+        "disposition": "represented",
+        "basis": "Two pinch lanes; by calculation each lane feeds 3.9 FUEL/s at 0.6 m/s belt speed and 154 mm spacing, and the flywheel recovers a 2% speed drop in about 0.03 s on two motors, so the layout supplies 7.8 FUEL/s against 2.00. Bulk convergence without jams is gate G1. Verification gates are in verification-gates.json; the contract assigns physical performance, retention and actuator dynamics to their own commissioned evidence (docs/preliminary-design.md)."
       },
       {
         "objective": "Fallback: score the available batch when supply or traffic consumes the window and return to collecting",
         "disposition": "represented",
-        "basis": "The cycle is piece-count independent; the intake stays deployed in every operating case."
+        "basis": "The cycle is piece-count independent; the intake stays deployed in every operating case; the re-run rehearsal keeps the depot loop."
       },
       {
         "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
-        "disposition": "open",
-        "basis": "F6: the loaded-transit case moves the field, not accelerations on the robot. Retention under 0.5 g stops is untested (retention R-4)."
+        "disposition": "represented",
+        "basis": "By geometry the front lip stands 77 mm above a floor FUEL's base, more than its 75 mm radius, so horizontal deceleration alone cannot roll it out; side and rear walls rise above the top layer; the open throat holds no counted FUEL. Loaded 0.5 g stops are gate G2. Verification gates are in verification-gates.json; the contract assigns physical performance, retention and actuator dynamics to their own commissioned evidence (docs/preliminary-design.md)."
       },
       {
         "objective": "Neutral collector alternative with two field crossings",
         "disposition": "out-of-scope",
-        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-breakover premise) with the intake retracted; its route is not commissioned here."
+        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-crossing premise, 8.7 mm least clearance) with the intake retracted; the re-run TRENCH variant (R3L) credits fewer FUEL than the depot loop."
       },
       {
         "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
-        "disposition": "open",
-        "basis": "Cases reach, seat (2 mm required contact) and lift 70 mm. F4: the hang moment rests on 6.4 mm of bumper overlap with each upright, and the jaw reaches 5.4 mm below the rung centre."
+        "disposition": "represented",
+        "basis": "Cases reach, seat (2 mm required contact) and lift 70 mm; the 714 mm frame gives 23.9 mm of bumper overlap with each upright (hang-bumper-overlap premise); the hang physics trial holds 37.8 mm with the brake and fails without it. Jaw capture under lateral offset and the brake hold are gate G3. Verification gates are in verification-gates.json; the contract assigns physical performance, retention and actuator dynamics to their own commissioned evidence (docs/preliminary-design.md)."
       },
       {
         "objective": "AUTO Level 1 TOWER (15 points, two-robot cap)",
@@ -634,37 +644,37 @@
     "components": {
       "frame rail front": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
-        "rationale": "The verified 680 mm foundation outline is carried forward; its supplier-fit checks remain valid only at these rail positions.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
         "material": "6061-T6 2x1x0.125 in tube"
       },
       "frame rail rear": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
-        "rationale": "The verified 680 mm foundation outline is carried forward; its supplier-fit checks remain valid only at these rail positions.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
         "material": "6061-T6 2x1x0.125 in tube"
       },
       "frame rail left": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
-        "rationale": "The verified 680 mm foundation outline is carried forward; its supplier-fit checks remain valid only at these rail positions.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
         "material": "6061-T6 2x1x0.125 in tube"
       },
       "frame rail right": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
-        "rationale": "The verified 680 mm foundation outline is carried forward; its supplier-fit checks remain valid only at these rail positions.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
         "material": "6061-T6 2x1x0.125 in tube"
       },
       "floor pan": {
         "purpose": "Support the floor belts, battery tray and electronics.",
-        "rationale": "Sits 75 mm above the carpet so the belly clears the 71 mm BUMP breakover requirement.",
+        "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
         "category": "structure",
         "material": "3 mm polycarbonate over aluminum stiffeners"
       },
       "floor pan front tongue": {
         "purpose": "Support the floor belts, battery tray and electronics.",
-        "rationale": "Sits 75 mm above the carpet so the belly clears the 71 mm BUMP breakover requirement.",
+        "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
         "category": "structure",
         "material": "3 mm polycarbonate over aluminum stiffeners"
       },
@@ -772,25 +782,25 @@
       },
       "bumper front": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
-        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing and the hang bearing face.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
         "material": "Plywood backing, foam, fabric"
       },
       "bumper rear": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
-        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing and the hang bearing face.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
         "material": "Plywood backing, foam, fabric"
       },
       "bumper left": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
-        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing and the hang bearing face.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
         "material": "Plywood backing, foam, fabric"
       },
       "bumper right": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
-        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing and the hang bearing face.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
         "material": "Plywood backing, foam, fabric"
       },

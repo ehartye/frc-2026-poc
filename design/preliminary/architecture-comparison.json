@@ -1,9 +1,9 @@
 {
   "schema": "frc-2026-poc/architecture-comparison@1",
-  "issue": "R3-PD1",
+  "issue": "R3-PD2",
   "decision": "Select R3, the tall floor-fed hooded-flywheel robot, on the carried-forward 680 mm swerve foundation. Switch to R3L if the BUMP crossing premise (F5) fails.",
   "decidedBy": "Whole-robot preliminary designer under delegated owner authority; students may reopen it with the listed evidence",
-  "commonConditions": "Same 680 x 680 mm frame, four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.44 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
+  "commonConditions": "Same frame (680 mm long; R3-PD2 widens it to 714 mm), four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.44 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
   "candidates": [
     {
       "id": "A",
@@ -38,9 +38,9 @@
       "massKg": "R103 35.6-47.8 kg against 52.16 (4.36 kg reserve); at most 55.3 with bumpers against R408's 61.23; running 51.5-67.6 kg.",
       "voltage": "Weak-pack minimum 7.66 V in loaded transit against 7.5 V required; launch 8.34 V against 8.0 V.",
       "packaging": "All 18 cycle cases and 2 service withdrawals pass; displaced-hood control rejected. Swept through every case: 750 mm tall, front extension 270.6 mm, no rear or side extension, one side at a time, no start overhang.",
-      "capacity": "Free volume 145.2 L deployed: 36.9-45.1 FUEL at 0.45-0.55 packing (36.4-44.4 in the start fold).",
-      "loads": "Hang at 67.6 kg: about 332 N per hook and about 610 N bumper-to-upright reaction on 6.4 mm of overlap per upright (open F4).",
-      "fieldAccess": "Own zone; 75 mm belly against a 71 mm BUMP breakover requirement, intake retracted (premise, no motion case).",
+      "capacity": "Free volume gives 37.7-46.1 FUEL at 0.45-0.55 packing.",
+      "loads": "Hang at 67.6 kg: about 332 N per hook and about 610 N bumper-to-upright reaction, now on 23.9 mm of overlap per upright with the 714 mm frame; the side-view hang trial holds 37.8 mm (gate G3).",
+      "fieldAccess": "Own zone; BUMP crossing screen gives 8.7 mm least clearance (front bumper corner) and 24.3 mm at the belly with the 100 mm floor (gate G6).",
       "givesUp": "TRENCH passage and a higher release point."
     },
     {
@@ -113,5 +113,6 @@
     "nominal": "Pass if 24 FUEL loaded as a heap give at least 22 pinch-sensor crossings in 12 s with at most one jam in five trials",
     "adverse": "30 FUEL with the rig tilted 10 degrees toward a side plate; pass if no jam needs a reversal longer than 0.5 s",
     "onFail": "Revise to a rotating indexer or a third lane; if that also fails, reopen the whole-robot comparison"
-  }
+  },
+  "rehearsal": "Re-run at the 2.7 m delivery pose (design/preliminary/rehearsal/comparison.json): slot 2 credits 96 FUEL over three matches against the baseline's 104; R3L on the TRENCH route credits 40 and on the depot route 96. R3 stays selected."
 }

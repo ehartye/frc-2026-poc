@@ -24,13 +24,13 @@
       "bumperDepthM": 0.0775,
       "bumperHeightM": 0.12,
       "frameLengthM": 0.68,
-      "frameWidthM": 0.68,
+      "frameWidthM": 0.714,
       "height": 0.75,
       "opening": 0.516,
       "phase": "deployed",
       "reach": 0.274,
       "toolHeight": 0.25,
-      "trackM": 0.53
+      "trackM": 0.564
     },
     "requirementLinks": {
       "body-envelope": [

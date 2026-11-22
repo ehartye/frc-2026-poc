@@ -15,12 +15,14 @@ from OCP.TopExp import TopExp_Explorer
 from OCP.gp import gp_Ax1, gp_Ax2, gp_Dir, gp_Pnt, gp_Trsf, gp_Vec
 
 R_BALL = 150.114 / 2
-GAP = 3.0            # undeformed reserve between a moving FUEL and the surfaces that guide it
+GAP = 3.0
+HALF_W = 357.0       # frame half-width in Y: a 714 mm wide, 680 mm long frame (2788 mm perimeter of 2794)
+DY = HALF_W - 340.0  # outboard shift of every side feature relative to the 680 mm square foundation            # undeformed reserve between a moving FUEL and the surfaces that guide it
 FLYWHEEL_R = 50.8    # 4 in flywheel
 EXIT_DEG = 62        # release elevation from the hood end
 VARIANTS = {
     # floor: top of the hopper floor pan; wall: hopper wall top; hook: hook arm top (stowed)
-    "R3": dict(floor=81.0, wall=715.0, hook=750.0, label="Tall floor-fed robot (selected)"),
+    "R3": dict(floor=100.0, wall=715.0, hook=750.0, label="Tall floor-fed robot (selected)"),
     "R3L": dict(floor=32.0, wall=530.0, hook=534.0, label="Low trench-runner comparison"),
 }
 
@@ -111,7 +113,7 @@ def frame_constants(variant):
 # Intake in the deployed (installed STEP) pose. A vertical belt pinches the FUEL against the front bumper face
 # and lifts it; a top roller pushes it aft over the bumper. A two-stage slide translates the whole carriage.
 INTAKE = dict(shift=(280.0, 0.0, -62.0), half_width=258.0, plate_y=(262.0, 272.0), rail_y=(274.0, 282.0),
-              belt_bottom=156.0, belt_top=300.0, belt_depth=37.0, climb_top=250.0, roller_r=38.1)
+              belt_bottom=156.0, belt_top=320.0, belt_depth=37.0, climb_top=270.0, roller_r=38.1)
 
 
 def intake_points():
@@ -131,42 +133,42 @@ def robot_bodies(variant="R3", intake_stowed=False):
         B[name] = (single(shape), group)
 
     # Frame rails (2 x 1 in tube allocation) split so that bounding-box culling works.
-    add("frame rail front", box((314.6, -338, 69.85), (340, 338, 120.65)), "frame")
-    add("frame rail rear", box((-340, -338, 69.85), (-314.6, 338, 120.65)), "frame")
-    add("frame rail left", box((-313, 314.6, 69.85), (313, 340, 120.65)), "frame")
-    add("frame rail right", box((-313, -340, 69.85), (313, -314.6, 120.65)), "frame")
-    add("floor pan", box((-176, -313, fl - 6), (176, 313, fl)), "frame")
+    add("frame rail front", box((314.6, -338 - DY, 69.85), (340, 338 + DY, 120.65)), "frame")
+    add("frame rail rear", box((-340, -338 - DY, 69.85), (-314.6, 338 + DY, 120.65)), "frame")
+    add("frame rail left", box((-313, 314.6 + DY, 69.85), (313, HALF_W, 120.65)), "frame")
+    add("frame rail right", box((-313, -HALF_W, 69.85), (313, -314.6 - DY, 120.65)), "frame")
+    add("floor pan", box((-176, -313 - DY, fl - 6), (176, 313 + DY, fl)), "frame")
     add("floor pan front tongue", box((177.5, -183, fl - 6), (312, 183, fl)), "frame")
     add("front lip", box((311, -183, 123), (313, 183, 170)), "frame")
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * INTAKE["rail_y"][0], s * INTAKE["rail_y"][1]))
         add(f"intake slide rail {side}", box((160, y[0], 345), (336, y[1], 480)), "frame")
-        y = sorted((s * 284, s * 314))
+        y = sorted((s * (284 + DY), s * (314 + DY)))
         add(f"climber tube mount {side}", box((300, y[0], 127), (336, y[1], 222)), "frame")
 
     # Swerve corners: revolved wheel azimuth envelope, module body and motor envelope.
     for fx, sx in (("front", 1), ("rear", -1)):
         for side, sy in (("left", 1), ("right", -1)):
-            cx, cy = sx * 265, sy * 265
+            cx, cy = sx * 265, sy * (265 + DY)
             add(f"{fx} {side} wheel azimuth envelope", cyl((cx, cy, 0), (0, 0, 1), 40.3, 76.2), "drivetrain")
-            x = sorted((sx * 185, sx * 312)); y = sorted((sy * 185, sy * 312))
+            x = sorted((sx * 185, sx * 312)); y = sorted((sy * (185 + DY), sy * (312 + DY)))
             add(f"{fx} {side} module body", box((x[0], y[0], 80), (x[1], y[1], 125)), "drivetrain")
             add(f"{fx} {side} module motors", cyl((cx, cy, 127), (0, 0, 1), 32, 88), "drivetrain")
 
     # Bumpers in the bumper zone used by the foundation.
-    add("bumper front", box((341.5, -416, 48), (417.5, 416, 168)), "bumpers")
-    add("bumper rear", box((-417.5, -416, 48), (-341.5, 416, 168)), "bumpers")
-    add("bumper left", box((-340, 341.5, 48), (340, 417.5, 168)), "bumpers")
-    add("bumper right", box((-340, -417.5, 48), (340, -341.5, 168)), "bumpers")
+    add("bumper front", box((341.5, -416 - DY, 48), (417.5, 416 + DY, 168)), "bumpers")
+    add("bumper rear", box((-417.5, -416 - DY, 48), (-341.5, 416 + DY, 168)), "bumpers")
+    add("bumper left", box((-340, 341.5 + DY, 48), (340, 417.5 + DY, 168)), "bumpers")
+    add("bumper right", box((-340, -417.5 - DY, 48), (340, -341.5 - DY, 168)), "bumpers")
 
     # Hopper walls.
-    add("hopper wall left", box((-312, 316, 125), (312, 319, wall)), "hopper")
-    add("hopper wall right", box((-312, -319, 125), (312, -316, wall)), "hopper")
-    add("hopper front upper wall", box((311, -282, 482), (313, 282, min(wall, hook_top - 44))), "hopper")  # 4 mm below the swinging jaws
-    add("hopper rear wall", box((-96, -314, k["z0"] + R_BALL + 7), (-93, 314, wall)), "hopper")
+    add("hopper wall left", box((-312, 316 + DY, 125), (312, 319 + DY, wall)), "hopper")
+    add("hopper wall right", box((-312, -319 - DY, 125), (312, -316 - DY, wall)), "hopper")
+    add("hopper front upper wall", box((311, -282 - DY, 482), (313, 282 + DY, min(wall, hook_top - 44))), "hopper")  # 4 mm below the swinging jaws
+    add("hopper rear wall", box((-96, -314 - DY, k["z0"] + R_BALL + 7), (-93, 314 + DY, wall)), "hopper")
 
     # Floor belts: static envelopes of moving belt surfaces.
-    add("floor belt main", box((-140, -279, fl + 1.5), (174, 231, k["belt_top"])), "floor belts")
+    add("floor belt main", box((-140, -279 - DY, fl + 1.5), (174, 231 + DY, k["belt_top"])), "floor belts")
     add("floor belt front", box((177.5, -180, fl + 1.5), (300, 180, k["belt_top"])), "floor belts")
 
     # Shooter: floor-fed flywheel, hood sector, side plates and motor.
@@ -185,15 +187,15 @@ def robot_bodies(variant="R3", intake_stowed=False):
     add("flywheel motor left", cyl((cx, 184, cz), (0, 1, 0), 30, 79), "shooter")
 
     # Battery on its end, left side, withdrawn upward through the open hopper.
-    add("battery", box((-90, 236, fl + 2), (77, 312, fl + 2 + 181)), "battery")
-    add("electronics panel", box((-90, -312, fl + 2), (170, -282, fl + 182)), "electrical")
-    add("electronics panel left", box((82, 282, fl + 2), (170, 312, fl + 182)), "electrical")
+    add("battery", box((-90, 236 + DY, fl + 2), (77, 312 + DY, fl + 2 + 181)), "battery")
+    add("electronics panel", box((-90, -312 - DY, fl + 2), (170, -282 - DY, fl + 182)), "electrical")
+    add("electronics panel left", box((82, 282 + DY, fl + 2), (170, 312 + DY, fl + 182)), "electrical")
     add("entry sensor", box((300, -183, 123), (309, -175, 140)), "electrical")
     add("pinch sensor", box((-160, -190, cz - 75), (-140, -182.5, cz - 55)), "electrical")
 
     # Climber: fixed round outer tubes, round telescoping inner tubes and swing hooks (stowed pointing aft).
     for side, s in (("left", 1), ("right", -1)):
-        yc = s * 299
+        yc = s * (299 + DY)
         tube_top = hook_top - 116  # below the hook arm at the end of the 29.6 mm seat and 70 mm lift strokes
         add(f"climber tube {side}", cut(cyl((300, yc, 224), (0, 0, 1), 15, tube_top - 224), cyl((300, yc, 223), (0, 0, 1), 13, tube_top - 222)), "climber tubes")
         add(f"climber inner tube {side}", cyl((300, yc, 330 if variant == "R3" else 230), (0, 0, 1), 11, hook_top - 14 - (330 if variant == "R3" else 230)), "climber inner tubes")

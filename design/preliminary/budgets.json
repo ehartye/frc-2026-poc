@@ -1,16 +1,16 @@
 {
-  "issue": "R3-PD1",
+  "issue": "R3-PD2",
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "95831a0452345f3cccd0442394fd4d221dcc24ab490f53dcedb6bc2478ca9ee3"
+    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
   },
   "motion": {
     "file": "design/preliminary/paths.json",
-    "sha256": "e84b47b5fbf3a7b8b5de06224741801a6aff5a0f5822853a49acbec2fa7ff480"
+    "sha256": "3f9b0b95a7d65da696aef1cdfd02050f796e9c4f32fa530e4d05cc4be8a35427"
   },
   "design": {
     "file": "design/preliminary/design.json",
-    "sha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de"
+    "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
   },
   "requirements": {
     "file": "design/preliminary/package-limits.json",

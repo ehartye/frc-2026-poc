@@ -1,0 +1,208 @@
+{
+ "schema": "frc-2026-poc/rehearsal-comparison@1",
+ "runner": "agent-frc scripts/rehearsal-series.mjs",
+ "deliveryPoseM": 2.7,
+ "hubCentreIn": [
+  182.1,
+  158.85
+ ],
+ "basis": "Slot 2 (B2/R2) is the robot under design. Its AUTO and depot-shift delivery steps move to 2.7 m from the HUB centre, keeping their bearing unless the point would leave the profile's 52 in legal-pose screen (then the bearing turns toward the HUB axis); R3L variants also lower its height to 534 mm. The trench variant gives slot 2 a copy of the low-trench neutral program with the same 2.7 m delivery.",
+ "variants": [
+  {
+   "variant": "kickoff-baseline",
+   "profile": {
+    "file": "kickoff/field-profile.json",
+    "sha256": "98ecbc7f1701ade3e977340fbbb8ed113853beb4bf333f634497315e1f0ac0f0"
+   },
+   "result": {
+    "file": "design/preliminary/rehearsal/kickoff-baseline-series.json",
+    "sha256": "0d71d231586cc3fc1fe1d922e2521fe55bdc6903d26849132961dadb3ad7dc5e"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 48,
+      "red": 52
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 24
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 62,
+      "red": 40
+     },
+     "slot2Credited": {
+      "B2": 24,
+      "R2": 24
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3-2p7m",
+   "profile": {
+    "file": "design/preliminary/rehearsal/r3-2p7m-profile.json",
+    "sha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951"
+   },
+   "result": {
+    "file": "design/preliminary/rehearsal/r3-2p7m-series.json",
+    "sha256": "4eb379aadc9e0d2a7e1cc010a7b4bbabb1ab361a43bd93a1015a8600f47d71ac"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 48,
+      "red": 48
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 20
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 58,
+      "red": 40
+     },
+     "slot2Credited": {
+      "B2": 20,
+      "R2": 24
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3l-2p7m-depot",
+   "profile": {
+    "file": "design/preliminary/rehearsal/r3l-2p7m-depot-profile.json",
+    "sha256": "104bfb783669b2375f265ba93904273b0defddc60c6cfd6fc4504447e577c491"
+   },
+   "result": {
+    "file": "design/preliminary/rehearsal/r3l-2p7m-depot-series.json",
+    "sha256": "9c0b7531ab4f02b9b4017b5820778dcfb9c3268ed183a866dd40e922490738ed"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 48,
+      "red": 48
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 20
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 58,
+      "red": 40
+     },
+     "slot2Credited": {
+      "B2": 20,
+      "R2": 24
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3l-2p7m-trench",
+   "profile": {
+    "file": "design/preliminary/rehearsal/r3l-2p7m-trench-profile.json",
+    "sha256": "f69de297625577405ae4fa2440d86ae55ed9db5237f4916a20a893f4251809af"
+   },
+   "result": {
+    "file": "design/preliminary/rehearsal/r3l-2p7m-trench-series.json",
+    "sha256": "c9332b5ff31440ea67aec878c0520185eae431d086566687d34cedd68f6699e8"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 32,
+      "red": 36
+     },
+     "slot2Credited": {
+      "B2": 0,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 46,
+      "red": 24
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    }
+   ]
+  }
+ ]
+}

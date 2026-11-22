@@ -1,15 +1,22 @@
-# R3 preliminary design: a floor-fed hood shooter on the 680 mm swerve base
+# R3 preliminary design: a floor-fed hood shooter on a 680 × 714 mm swerve base
 
-**Issue R3-PD1 · status `reopen` (conceptual-design: delivery pose) · three narrative objectives open · robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres.**
+**Issue R3-PD2 · robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres.**
 
-Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It replaces the R2C upper and the R2C-T1 screw lift for detailing. The swerve foundation carries forward provisionally.
+Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It replaces the R2C upper and the R2C-T1 screw lift for detailing.
 
-All 18 cycle cases, both service withdrawals, the displaced control and both budgets pass. The issue is held by two things:
+**Status.** The issue is `layout-checked` on its own: every case, premise, control and budget passes, and no input is missing. Resubmitted against the held [R3-PD1 receipt](receipt-R3-PD1-held.json), as the contract requires, it stays `reopen`. The checker cannot verify a repeated *delivery position*; it replays only a step's dwell, speed, height, heading or pickup face. See [Why the held issue stays reopened](#why-the-held-issue-stays-reopened).
 
-- A conceptual premise: R3 must deliver from 2.7 m, not from the rehearsed 2.16 m.
-- Three narrative objectives whose evidence is a bench test or a load check, not layout geometry.
+[Checker receipt](receipt.json) · [Layout plan](layout.json) · [Placed STEP](package.step) · [Motion study](paths.json) · [Budgets](budgets.json) · [Measurements](measurements.json) · [Verification gates](verification-gates.json) · [Re-run rehearsal](rehearsal/comparison.json) · [Architecture comparison](architecture-comparison.json) · [Retention review](retention.json) · [Ballistics](ballistics.json) · [Rules addendum](construction-rules.json) · [Review index](review/index.html)
 
-[Checker receipt](receipt.json) · [Layout plan](layout.json) · [Placed STEP](package.step) · [Motion study](paths.json) · [Budgets](budgets.json) · [Measurements](measurements.json) · [Architecture comparison](architecture-comparison.json) · [Retention review](retention.json) · [Ballistics](ballistics.json) · [Rules addendum](construction-rules.json)
+## What changed from R3-PD1
+
+- **Field rehearsal re-run at the 2.7 m delivery pose** (the plugin's `rehearsal-series.mjs` on project variants of the kickoff profile).
+  - Slot 2's AUTO and depot-shift deliveries move to 2.70 m from the HUB centre. They stay inside the profile's 52 in legal-pose screen; the depot delivery bearing turns from 30° to 24°.
+  - Over the three matches, slot 2 credits 96 FUEL against the baseline's 104. Two matches each lose one 4-piece delivery, and the cycle legs barely change (2.85 s against 3.1 s).
+  - R3L on the depot route matches R3 (96). On the TRENCH route it credits only 40. R3 stays selected.
+- **Frame widened to 714 mm.** The perimeter becomes 2788 mm of the 2794 mm allowed. The bumper overlaps each TOWER upright by 23.9 mm instead of 6.4 mm. Module centres move to ±282 mm across; the foundation's side-rail saddles must be redrawn.
+- **Floor raised to 100 mm.** [bump_crossing.py](bump_crossing.py) rests both wheels on the BUMP profile across a sharp 15° crest. The least clearance is 8.7 mm, at the front bumper corner, which the bumper zone fixes; the belly keeps 24.3 mm.
+- **Narrative.** Every objective is represented or explicitly scoped out. The performance that geometry cannot show is carried by [verification gates](verification-gates.json) with pass/fail numbers, which the contract assigns to separate evidence: "Detailed seat geometry, loads, tolerances, retention, actuator dynamics and physical performance require their own commissioned evidence."
 
 ## What the robot has to do
 
@@ -17,11 +24,7 @@ The pinned narrative is the [own-zone scorer strategy](../../kickoff/selected-st
 
 The plan's narrative review gives each objective one of three dispositions:
 
-- **Represented (six).** AUTO, collection, single-transfer delivery, fallback, measurement, plus the carry from storage into the HUB.
-- **Open (three).**
-  - Sustaining 2 FUEL/s (F1).
-  - Keeping possession through loaded driving (F6).
-  - The hang (F4).
+- **Represented (eight).** AUTO, collection, single-transfer delivery, the 2 FUEL/s rate (gate G1), fallback, possession under traffic (gate G2), the hang (gate G3) and measurement.
 - **Out of scope (three).** The neutral-collector route, the AUTO climb and the depot-lane reservation.
 
 The V0 robot limits that the kickoff register left unmodeled now sit in [construction-rules.json](construction-rules.json). They come from the manual file whose SHA-256 the register already pins:
@@ -82,7 +85,7 @@ A rigid stacked-lattice screen finds only 10 in both. It is kept as a lower boun
 - The foundation's battery cradle and electronics deck positions.
 - The rehearsal's 2.16 m delivery steps.
 
-The 680 mm frame, the module saddles at ±265 mm and the bumper section carry forward. Their supplier-fit evidence holds only until the R3 mounts are drawn.
+The 680 mm frame length, the four MAXSwerve corners and the bumper section carry forward. The frame widens to 714 mm, so the side-rail module saddles must be redrawn before the supplier-fit evidence applies again.
 
 ## One FUEL through the cycle
 
@@ -101,27 +104,37 @@ Intake, indexer and flywheel can run together while driving. The climb cannot ov
 
 ## Check status
 
-`node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --require-checked --write-view` returns **reopen** on Agent FRC 0.81.2, with the same receipt content as on 0.80.0. With `--require-checked` it exits 1:
+`node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --require-checked --write-view` on Agent FRC 0.81.2:
 
-- **Cases:** all 18 cycle cases and both service withdrawals pass in 10.4 s. climb-reach takes 4.4 s; every other case takes under 1 s.
-- **Control:** raising the hood 8 mm makes it overlap the piece by 4,595 mm³, and the check rejects it.
+- **Without `--previous`:** `layout-checked`, exit 0.
+- **With `--previous design/preliminary/receipt-R3-PD1-held.json`:** `reopen`, exit 1. This is the issued [receipt](receipt.json). Its only missing item is "Repeat conceptual-design on this issue before resuming delivery-pose".
+
+What passes in both runs:
+
+- **Cases:** all 18 cycle cases and both service withdrawals pass in about 10 s.
+- **Control:** raising the hood 8 mm overlaps the FUEL by 4,595 mm³, and the check rejects it.
 - **Required contact:** both hooks seat within 1.5 mm of the rung.
-- **Budgets:** mass passes (4.36 kg reserve). Every electrical case passes; the smallest margin is 0.16 V in weak-pack loaded transit.
-- **Premises:** ten of eleven are within range. [build_package.py](build_package.py) measures each one from the solids and cases it writes.
+- **Budgets:** R103 mass is 35.6–47.8 kg (4.36 kg reserve). The weak-pack minimum is 7.66 V against 7.5 V.
+- **Premises:** all twelve are within range.
   - `start-overhang` 0 mm.
   - `swept-height` 750 mm.
   - `swept-front-extension` 270.6 mm.
   - `swept-other-extension` 0 mm.
   - `sides-extended` 1.
   - `with-bumpers-mass` 55.3 kg.
-  - `hopper-capacity` 36.9 and `start-capacity` 36.4.
+  - `hopper-capacity` 37.7 and `start-capacity` 37.2.
   - `shot-window` 2.436 m.
-  - `bump-breakover` 75 mm.
-  - **`delivery-pose` 2.70 m is outside the rehearsed 1.9–2.4 m and reopens conceptual design.**
+  - `delivery-pose` 2.70 m against the re-run rehearsal's 2.6–2.8 m.
+  - `bump-crossing` 8.7 mm.
+  - `hang-bumper-overlap` 23.9 mm.
 
-The smallest certified clearance lower bounds are 1.07–1.5 mm against the 1 mm reserve, on the guided FUEL paths and the hook sweep. Read them as nominal geometry, not tolerance-qualified fits.
+### Why the held issue stays reopened
 
-The [package player](review/package-motion.html) is 31 MB, so it is not committed. To regenerate it from the committed files, run `node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --write-view` with `PYTHON` set to the CAD environment.
+The contract requires passing the held receipt: "Keep the held receipt in project custody and pass it separately on resubmission." It then limits what can clear a held field premise: "Supported replay inputs include a named program step’s dwell, robot speed, height and heading, and a modeled front pickup mouth. … An unsupported repeat stays open." It also states that "An initial review without a supplied prior receipt cannot clear a historical hold."
+
+The held premise is a delivery *position*, which is none of the supported inputs. So `verify_reopens()` in `scripts/preliminary_design.py` reports `repeatVerified: false` however the rehearsal turns out. Clearing it needs either a plugin replay input for a program step's position, or an owner decision to accept the re-run rehearsal as the conceptual repeat.
+
+The [package player](review/package-motion.html) is 31 MB, so it is not committed; regenerate it with `--write-view`. The plugin's player has no field-interaction view, so the [review index](review/index.html) links it with the committed [field-interaction player](review/field-interaction.html).
 
 ## Field interactions (Agent FRC 0.81.2)
 
@@ -129,34 +142,31 @@ The [package player](review/package-motion.html) is 31 MB, so it is not committe
 
 | Interaction | Nominal result | Control | Bracket (pass / fail), other inputs held |
 |---|---|---|---|
-| Acquisition: belt pulls the FUEL under its bottom pulley, lifts it against the bumper face, top roller pushes it over | Captured in 0.50 s | Belt and roller locked: not captured, so the belt does the transfer | Compression: 17.5 mm passes, 15 mm fails. Belt speed: 2.5 m/s passes, 2.0 m/s fails. Belt friction: 0.5 passes. |
-| Delivery: free FUEL from the designed hood exit (6.88 m/s, 62°, spin ratio 1) through HUB contact to an assumed sensor plane at 1.50 m | Scored at 0.93 s, after one contact with the far cavity wall | Spin lift CL 0.30 and 30 kN/m contact: both still score | 6.70 and 7.10 m/s score. 6.55 and 7.30 m/s strike the rim and miss. |
+| Acquisition: belt pulls the FUEL under its bottom pulley, lifts it against the bumper face, top roller pushes it over | Captured in 0.53 s | Belt and roller locked: not captured, so the belt does the transfer | Compression: 17.5 mm passes, 15 mm fails. Belt speed: 2.5 m/s passes, 2.0 m/s fails. Belt friction: 0.5 passes. |
+| Delivery: free FUEL from the designed hood exit (6.86 m/s, 62°, spin ratio 1) through HUB contact to an assumed sensor plane at 1.50 m | Scored at 0.93 s | Spin lift CL 0.30 and 30 kN/m contact: both still score | 6.55 to 7.10 m/s score. 6.40 and 7.30 m/s strike the rim and miss. |
 | Hang: robot with wheel, bumper-upright and hook contacts; winch on a DC motor line, then 3 s with power removed | 37.8 mm minimum clearance through assessment; 2.2° pitch | No brake: the robot settles onto the carpet, so the hold depends on the brake | Winch current limit: 20 A passes, 15 A stalls before the stroke ends. An 8 V bus with 0.2 upright friction passes. |
 
 What these results change:
 
 - **Acquisition window (F2).** The window is narrow, and the belt speed is imposed. At 3 m/s the contacts dissipate up to 786 W at peak. Predicting whether a motor holds that speed under load needs a loaded drive model or a bench measurement. These belong to the F2 compression and drive-sizing work.
 - **Delivery release (F2).** The release state is designed, not measured. The sensor location is an assumption.
-- **Hang plane (F4).** The hang trial is a side view, so it cannot show the 6.4 mm lateral bumper overlap or roll.
+- **Hang plane (G3).** The hang trial is a side view, so it cannot show the lateral bumper overlap (now 23.9 mm) or roll; gate G3 tests ±25 mm offsets.
 
-## Open findings
+## Verification gates and remaining work
 
-1. **F1, bulk feed (the premise most likely to invalidate the role).** Twenty-four FUEL must converge into two pinch lanes at 2 FUEL/s or faster. The bench plan, stop conditions and fallback are in the [comparison](architecture-comparison.json).
-2. **F2, contact settings and drives.** The acquisition trials need at least 17.5 mm of compression and 2.5 m/s of belt speed. Size the belt motor for its loaded speed. Belt-to-bumper pinch, top roller and hood/flywheel compression are not drawn; the layout reserves the undeformed path.
-   - The robust speed band at 2.44 m is 6.82–6.96 m/s, so the flywheel must hold speed within about ±0.9%.
-   - Flywheel inertia of at least 0.006 kg m² limits the speed drop per shot to about 1.6–2%, which is more than that band.
-   - Recovery between shots is part of F1.
-3. **F3, weak-pack margin.** Loaded transit keeps 0.16 V. The drive supply limit of 25 A per module (battery side) is required.
-4. **F4, hang.**
-   - The winch needs a current limit of at least 20 A (the trial stalls at 15 A).
-   - At 67.6 kg the hang puts about 610 N of horizontal reaction on 6.4 mm of bumper overlap per upright.
-   - The jaw reaches only 5.4 mm below the rung centre.
-   - Options: a 714 mm wide frame within the 2794 mm perimeter, or lateral guidance, plus a longer jaw.
-   - The winch must hold 663 N without power.
-5. **F5, BUMP crossing.** The belly has 4 mm of breakover margin and no motion case, and the intake must retract to cross. If this fails, select R3L.
-6. **F6, retention.** Run loaded 0.5 g stops (R-4). The capacity figure is a volume estimate, not a settled fill.
-7. **F7, field rehearsal.** Re-run the delivery steps at 2.7 m and compare cycle time against a 0.6 m-release variant.
-8. **F8, native CAD.** Building the R3 skeleton in Fusion is a follow-up for the single-writer Fusion session.
+[verification-gates.json](verification-gates.json) records each gate's test, pass numbers, calculation basis and fallback:
+
+- **G1, bulk feed:** at least 22 of 24 crossings in 12 s, five trials. By calculation two lanes supply 7.8 FUEL/s against 2.00.
+- **G2, loaded stops:** at most one FUEL lost over ten 0.5 g stops. By geometry the lip stands 77 mm above a FUEL's base, more than its 75 mm radius.
+- **G3, hang:** at ±25 mm offset, under 5 mm slip and at least 5 mm clearance; the brake holds 1.5 × 663 N.
+- **G4, intake:** 20 of 20 captured within 1.0 s at 17.5–25 mm compression, with the loaded belt at 2.5 m/s or faster.
+- **G5, shot calibration:** release inside 6.78–6.94 m/s, and at least 19 of 20 scored from 2.7 m.
+- **G6, BUMP:** ten crossings each way with no high-centering.
+
+Remaining work outside these gates:
+
+- **Drive margin.** The drive supply limit of 25 A per module (battery side) keeps the 0.16 V weak-pack margin in loaded transit.
+- **Native CAD.** The R3 skeleton in Fusion (including the 714 mm frame saddles) is a follow-up for the single-writer Fusion session.
 
 ## Reproduce
 
@@ -168,6 +178,8 @@ python -I -B design/preliminary/ballistics.py
 python -I -B design/preliminary/build_package.py --check --fail-fast   # quick revision loop
 python -I -B design/preliminary/build_package.py --check               # issued receipt and player
 python -I -B design/preliminary/field_trials.py                        # field-interaction trials and player
+python -I -B design/preliminary/rehearsal/variants.py                  # field rehearsal re-run at 2.7 m
+python -I -B design/preliminary/build_package.py --check --previous design/preliminary/receipt-R3-PD1-held.json
 ```
 
 The STEP header carries a fixed timestamp, so an unchanged rebuild reproduces every pinned hash.

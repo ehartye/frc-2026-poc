@@ -1,0 +1,62 @@
+{
+  "schema": "frc-2026-poc/verification-gates@1",
+  "issue": "R3-PD2",
+  "basis": "docs/preliminary-design.md: 'Detailed seat geometry, loads, tolerances, retention, actuator dynamics and physical performance require their own commissioned evidence.' These gates hold that evidence. Each gate names its owner phase and the result that reopens preliminary design.",
+  "gates": [
+    {
+      "id": "G1",
+      "objective": "Sustain 2.00 FUEL/s",
+      "test": "Bench rig: two floor belts, two pinch lanes and the hood at R3 positions; 24 FUEL loaded as a heap",
+      "pass": "At least 22 pinch-sensor crossings within 12 s, with at most one jam, in each of 5 trials",
+      "adverse": "30 FUEL with the rig tilted 10 degrees toward a side plate: no jam needs a reversal longer than 0.5 s",
+      "byCalculation": "Two lanes at 0.6 m/s belt and 154 mm spacing feed 7.8 FUEL/s; two flywheel motors recover a 2% speed drop in about 0.03 s",
+      "onFail": "Rotating indexer or a third lane; reopen the whole-robot comparison if that also fails",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G2",
+      "objective": "Keep possession through loaded driving",
+      "test": "Robot loaded with 24 FUEL, ten stops from 3 m/s at 0.5 g and five 0.5 g turns",
+      "pass": "At most one FUEL leaves the robot across all runs",
+      "byCalculation": "Front lip 77 mm above a floor FUEL's base exceeds its 75 mm radius; side and rear walls rise above the top layer",
+      "onFail": "Passive one-way flap across the intake throat",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G3",
+      "objective": "Level 1 hang",
+      "test": "Robot at 70 kg seated at 0, +25 and -25 mm lateral offset; lift 70 mm; remove power for 3 s",
+      "pass": "Hook slip under 5 mm, at least 5 mm clearance to carpet and TOWER BASE throughout, brake holds 1.5 x 663 N",
+      "byCalculation": "714 mm frame gives 23.9 mm bumper-to-upright overlap per side; the side-view hang trial holds 37.8 mm with the brake and fails without it",
+      "onFail": "Spring latch under the rung or wider frame within the 2794 mm perimeter",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G4",
+      "objective": "Acquisition pinch and belt drive",
+      "test": "Bench intake at 17.5, 20 and 25 mm compression, belt driven by the selected motor",
+      "pass": "20 of 20 floor FUEL captured within 1.0 s; loaded belt speed stays at or above 2.5 m/s",
+      "byCalculation": "Acquisition physics trials pass at 17.5 mm and 2.5 m/s and fail at 15 mm and 2.0 m/s; peak contact power 786 W at 3 m/s",
+      "onFail": "Reselect the belt motor or gearing; revise the pinch",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G5",
+      "objective": "Shot calibration at the 2.7 m pose",
+      "test": "Measure exit speed and spin off the hood; shoot 20 FUEL from the 2.7 m pose",
+      "pass": "Measured release inside the 6.78-6.94 m/s robust band at the 6.86 m/s setpoint, and at least 19 of 20 scored",
+      "byCalculation": "Delivery trials score from 6.55 to 7.10 m/s and miss at 6.40 and 7.30 m/s",
+      "onFail": "Adjust the hood angle or flywheel speed control",
+      "phase": "detailed-design"
+    },
+    {
+      "id": "G6",
+      "objective": "BUMP crossing",
+      "test": "Cross the BUMP ten times in each direction with the intake retracted",
+      "pass": "No high-centering and no robot part other than wheels and bumpers touches the BUMP",
+      "byCalculation": "bump_crossing.py: 8.7 mm least clearance (front bumper corner), 24 mm at the belly over a sharp crest",
+      "onFail": "Select R3L and the TRENCH route",
+      "phase": "detailed-design"
+    }
+  ]
+}

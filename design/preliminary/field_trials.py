@@ -58,7 +58,7 @@ def acquisition(name, u=3.0, comp_back=0.020, comp_pulley=0.020, mu_belt=0.9, mu
     xp = xk + rp
     zb = 2 * R - comp_pulley + rp              # bottom pulley centre: its underside compresses the FUEL top
     zt = 0.300 - rp
-    roller = (0.4175 + R + 0.003, 0.250 + R + 0.003 + 0.0381 - 0.020)  # top roller lowered 20 mm into the FUEL path
+    roller = (0.4175 + R + 0.003, 0.270 + R + 0.003 + 0.0381 - 0.020)  # top roller lowered 20 mm into the FUEL path
     belt_u = 0.0 if locked else u
     omega_p = -belt_u / rp
     omega_r = -belt_u / 0.0381
@@ -194,7 +194,8 @@ def cross(a, b):
     return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
 
 
-def delivery(name, v=6.88, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0.215, dt=1e-4, t_end=1.6, elevation=62.0):
+def delivery(name, v=None, cd=0.47, cl=0.15, k=15000.0, zeta=0.3, mu=0.6, mass=0.215, dt=1e-4, t_end=1.6, elevation=62.0):
+    v = FACTS["flight"]["speedMps"] if v is None else v
     ex, ez = FACTS["flight"]["arcs"][0]["start"]
     p = [ex / 1000, 0.0825, ez / 1000]
     e = math.radians(elevation)
@@ -397,7 +398,7 @@ def main():
         elevation("hang-current-limit-8A", i_limit=8.0),
     ]
     layout = HERE / "layout.json"
-    out = dict(schema="frc-2026-poc/field-trials@1", issue="R3-PD1",
+    out = dict(schema="frc-2026-poc/field-trials@1", issue="R3-PD2",
                layout={"file": "design/preliminary/layout.json", "sha256": sha(layout)},
                rules={"file": "design/preliminary/construction-rules.json", "sha256": sha(HERE / "construction-rules.json")},
                solver="Semi-implicit Euler; penalty normal contact k with damping ratio zeta; Coulomb friction regularized at 0.01 m/s",
