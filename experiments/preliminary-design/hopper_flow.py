@@ -106,6 +106,8 @@ def surfaces(belt_mps, opt=None):
             rect((fx_, s * lane, pan), (front_end - fx_, 0, 0), (0, 0, fz_ - pan), "hopper channel wall " + side)
             rect((fx_, s * lane, fz_), (front_end - fx_, 0, 0), (0, s * (cheek - lane), fr_), "hopper front shelf " + side)
             rect((fx_, s * cheek, fz_), (cheek_end - fx_, 0, 0), (0, 0, wall - fz_), "hopper cheek " + side)
+            if front == "chute":   # the wall that closes the bay outboard of the cheek, above the shelf end
+                rect((fx_, min(s * cheek, s * hw), fz_), (0, hw - cheek, 0), (0, 0, wall - fz_), "hopper cheek " + side)
             if front == "throat":   # turns FUEL on the ramp in toward the channel
                 rect((417.5, s * 260, B["z1"]), (311 - 417.5, s * (200 - 260), 0), (0, 0, 482 - B["z1"]), "throat guide " + side)
         else:
@@ -348,7 +350,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                 contact(diffp[hit] / dp[hit][:, None], R - dp[hit], np.zeros((len(hit), 3)), np.full(len(hit), mu_hard), ids[hit], F, Tq)
         # feeder rollers (axis along Y)
         rollers = [(fx, fz, fr, y0, y1, uf[li], mu_feeder, ("left", "right")[li]) for li, (y0, y1) in enumerate(lane_y)] if feeders else []
-        rollers.append((ir[0], ir[1], ir[2], -0.258, 0.258, intake if running else 0.0, mu_belt, None))
+        rollers.append((ir[0], ir[1], ir[2], -D.INTAKE["half_width"] * MM, D.INTAKE["half_width"] * MM, intake if running else 0.0, mu_belt, None))
         for (rx, rz, rr, y0, y1, us, mu_r, store) in rollers:
             q = np.stack([np.full(len(p), rx), np.clip(p[:, 1], y0, y1), np.full(len(p), rz)], axis=1)
             diffp = p - q
@@ -503,7 +505,8 @@ def run_trials(only=None, throw=None):
         ("hopper-cycle-nominal", cyc(keep_frames=True)),
         ("hopper-cycle-nominal-half-step", cyc(dt=1e-4)),
         *[(f"hopper-cycle-pattern-{i}", cyc(seed=i)) for i in range(2, 17)],
-        ("hopper-cycle-open-throat-low-entry (control: the earlier issue's fill)", cyc(opt=OPEN_THROAT, throw=THROAT_THROW, nudge=(0.0, 0.3))),
+        ("hopper-collect-24-open-throat-low-entry (control: the earlier issue's fill)",
+         dict(n=24, arrive=24, feed_from=None, t_end=12.0, opt=OPEN_THROAT, throw=THROAT_THROW, nudge=(0.0, 0.3))),
         ("hopper-cycle-superseded-flat-floor-open-throat (control)", cyc(opt=SUPERSEDED, throw=THROAT_THROW, nudge=(0.0, 0.3), belt=0.6)),
         ("hopper-cycle-regularized-friction-law (control for the law)", cyc(stick=False)),
         ("hopper-cycle-belt-runs-while-staged (cause isolation)", cyc(belt_idle=False)),

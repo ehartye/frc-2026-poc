@@ -26,7 +26,7 @@ FRONT_RAIL = dict(x0=314.6, x1=340.0, z0=69.85, z1=120.65)
 # floor therefore stands on the driven belt, and the 31 mm of bumper top behind the back plate is too shallow to rest on.
 FLOOR_BELT_FRONT = dict(x0=177.5, x1=300.0)
 FLOOR_BELT_MAIN = dict(x0=-15.0, x1=174.0)                     # ends ahead of the staged FUEL, which stands on the lane deck alone
-LANE_DECK = dict(x0=-143.0, x1=-16.5, t=3.0)                  # fixed deck under the feeders and the flywheel, flush with the belt top
+LANE_DECK = dict(x0=-141.0, x1=-16.5, t=3.0)                  # fixed deck under the feeders and the flywheel, flush with the belt top
 FLOOR_BELT_MPS = 1.2                                          # floor belt surface speed toward the flywheel
 FLOOR_PAN = dict(x0=-176.0, x1=176.0)                         # floor pan under the main belt
 FLOOR_TONGUE = dict(x0=177.5, x1=312.0)                       # front tongue of the floor pan, between the front modules
@@ -40,18 +40,19 @@ HANG_MASS_KG = 70.3                                           # hang trial mass:
 # only while the measured wheel speed is within this fraction of the setpoint. motors, gear, stator_a, supply_a: two
 # brushless motors, one on each shaft end, direct, with these per-motor current limits.
 SHOOTER = dict(squeeze=12.0, wheel_surface_mps=13.6, hood_end_past_release_deg=-2.5, hood_start_deg=-88.0,
-               inertia_kgm2=0.0101, motors=2, gear=1.0, stator_a=40.0, supply_a=30.0, ready_band=0.01)
+               inertia_kgm2=0.0076, motors=2, gear=1.0, stator_a=40.0, supply_a=30.0, ready_band=0.01)
 
 # Flywheel build, for the mass line and the inertia: an aluminum tube roller with a compliant tread, and one steel
-# ring on an aluminum web outboard of the right side plate on the same shaft. A ring carries its mass at about 3.5
-# times the roller radius squared, so it buys inertia at a third of the roller weight. One ring is enough: the batch
-# trial holds the scoring band with 0.006 kg m2 and this build gives 0.0101.
+# ring on an aluminum web outboard of the right side plate on the same shaft. A ring carries its mass at about twice
+# the roller radius squared, so it buys inertia at half the roller weight. One ring is enough: the batch
+# trial holds the scoring band with 0.006 kg m2 and this build gives 0.0076. The ring stays 10 mm clear of the right
+# feeder shaft, which passes outboard of it.
 # rings: how many. ring: outer radius, inner radius, thickness (mm), steel. web: 3 mm aluminum disc to the ring inner
 # radius. roller: tube outer radius under the tread, wall, length (mm), aluminum; tread mass and mean radius.
 # ring_y: the span of the ring in Y (right side).
-FLYWHEEL_PARTS = dict(rings=1, ring=dict(ro=105.0, ri=85.0, t=8.0, density=7.85e-6), web=dict(t=3.0, density=2.70e-6),
+FLYWHEEL_PARTS = dict(rings=1, ring=dict(ro=80.0, ri=60.0, t=14.0, density=7.85e-6), web=dict(t=3.0, density=2.70e-6),
                       roller=dict(ro=FLYWHEEL_R - 6.0, wall=3.2, length=340.0, density=2.70e-6, tread_kg=0.45, tread_r=FLYWHEEL_R - 3.0),
-                      hub_kg=0.25, ring_y=(-191.0, -183.0))
+                      hub_kg=0.25, ring_y=(-197.0, -183.0))
 
 # Feeder: one compliant roller per lane ahead of the flywheel, pressing a FUEL into the floor belt, each with its own
 # small gearmotor so the two lanes feed the one flywheel in turn.
@@ -80,7 +81,7 @@ REAR_WALL_X = (-96.0, -93.0)                                  # hopper rear wall
 # to the edge the FUEL is pushed over that the earlier issue had to the bumper top.
 # roller_ratio: top roller surface speed over belt speed (the roller is belted to the belt drive at this ratio).
 BACK_TOP = 425.0
-INTAKE = dict(shift=(250.0, 0.0, -90.0), half_width=258.0, plate_y=(262.0, 272.0), plate_z=(180.0, 570.0), plate_x0=372.0, rail_y=(274.0, 282.0),
+INTAKE = dict(shift=(250.0, 0.0, -95.0), half_width=244.0, plate_y=(250.0, 260.0), plate_z=(190.0, 570.0), plate_x0=372.0, rail_y=(262.0, 270.0),
               pinch_squeeze=20.0, pulley_squeeze=20.0, roller_drop=20.0, pulley_r=18.5, back_top=BACK_TOP, back_z0=172.0, back_foot=45.0,
               back_t=3.0, belt_top=BACK_TOP + 132.0, climb_top=BACK_TOP + 102.0, roller_r=38.1, belt_mps=3.0, roller_ratio=2.0,
               # Belt drive: one brushless motor through gear:1 to the bottom pulley shaft, the top roller belted to it.
@@ -150,10 +151,11 @@ assert abs(flywheel_build()["inertia"] - SHOOTER["inertia_kgm2"]) < 2e-4, flywhe
 # (shelf_z at its inboard edge, shelf_deg) to the side wall; the battery stands under the left shelf and the
 # electronics under the right. The right shelf and its pocket start at shelf_x0_right, ahead of the inertia ring of
 # the flywheel. Ahead of front_x a low shelf (front_shelf_z rising front_rise to the cheek wall at cheek_y) passes
-# under the stowed intake carriage. The front is closed by the fixed lip and, above it, by the back plate of the
+# under the stowed intake carriage and under the straight path it deploys along; the cheeks stand inboard of the
+# front module motors. The front is closed by the fixed lip and, above it, by the back plate of the
 # deployed intake; FUEL come in over the back plate. A full-height lane divider gives FUEL an edge to perch on and
 # stalls the batch trial, so there is none.
-HOPPER = dict(lane_half=168.0, floor="trough", shelf_z=270.0, shelf_deg=30.0, front_x=118.0, shelf_x0_right=-40.0, front_shelf_z=170.0,
-              front_rise=46.0, cheek_y=258.0, divider=None)
+HOPPER = dict(lane_half=168.0, floor="trough", shelf_z=270.0, shelf_deg=30.0, front_x=118.0, shelf_x0_right=-40.0, front_shelf_z=140.0,
+              front_rise=36.0, cheek_y=246.0, divider=None)
 BATTERY_BOX = ((-90.0, 236.0 + DY, 102.0), (77.0, 312.0 + DY, 283.0))
 PANEL_RIGHT = ((-36.0, -312.0 - DY, 102.0), (115.0, -282.0 - DY, 282.0))

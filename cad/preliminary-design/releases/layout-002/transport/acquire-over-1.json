@@ -1,0 +1,259 @@
+{
+  "schema": "frc-2026-poc/trial-window@1",
+  "issue": "R3-PD3",
+  "transport": {
+    "case": "acquire-over-1",
+    "payload": "tracked FUEL",
+    "mechanisms": [
+      "intake"
+    ],
+    "moves": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            425.8342889096576,
+            82.5,
+            501.0509755585674
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -34.95688421990542
+        }
+      ]
+    },
+    "initialPose": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            643.7467754611109,
+            82.5,
+            18090.392786686672
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 0.30690559816486523
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            563.6467344615708,
+            82.5,
+            248.4192373262893
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 41.97831575377903
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            491.11142778390393,
+            82.5,
+            82.42380926130102
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 178.9955809610252
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            490.5742200990187,
+            82.5,
+            89.78735403733022
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -132.06880871813436
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            496.9310352282882,
+            82.5,
+            99.56518186443239
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 81.74564866987397
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            -7.689999999999998,
+            0.0,
+            27.440000000000012
+          ]
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            499.8989393941156,
+            82.5,
+            132.28500000005403
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 13.255770802518633
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            292.8773386254498,
+            82.5,
+            177.56882420299235
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -25.36821427445697
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            4898.534778265208,
+            82.5,
+            250.25381751870987
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 2.3370186451165593
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            363.0144260789708,
+            82.5,
+            421.687100161626
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -47.83223225268278
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            61.88318779204035,
+            82.5,
+            274.09781317965167
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -3.6056675589529146
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/layout-002/field-trials.json",
+    "sha256": "eb27be4881bd30a8f176585efd92a1bda1fd1bffcc9875aec0d4616aada4d3b5"
+  },
+  "trial": {
+    "name": "acquire-nominal",
+    "fromS": 0.595,
+    "toS": 0.605,
+    "fromPoseMm": [
+      447.35,
+      82.5,
+      520.77
+    ],
+    "toPoseMm": [
+      432.17,
+      82.5,
+      529.54
+    ],
+    "stroke": "arc",
+    "maxDeviationMm": 0.3145,
+    "toleranceMm": 1.5,
+    "peakIndentationMm": {
+      "intake top roller": 1.722
+    }
+  },
+  "qualification": {
+    "result": "pass",
+    "trial": "acquire-nominal",
+    "metric": {
+      "name": "capture time (s)",
+      "value": 0.6544,
+      "requirement": "over the back plate and inside the frame within 1.2 s of the start"
+    },
+    "control": {
+      "condition": "Intake belt locked",
+      "trial": "acquire-belt-locked (cause isolation)",
+      "rejected": true,
+      "firstUnmet": "not captured within 2 s"
+    },
+    "brackets": [
+      {
+        "input": "belt and bumper squeeze",
+        "unit": "mm",
+        "passing": 15.0,
+        "failing": 10.0,
+        "passingTrial": "acquire-compression-15mm",
+        "failingTrial": "acquire-compression-10mm",
+        "failingFirstUnmet": "not captured within 2 s"
+      },
+      {
+        "input": "intake belt speed",
+        "unit": "m/s",
+        "passing": 2.5,
+        "failing": 2.0,
+        "passingTrial": "acquire-belt-2.5mps",
+        "failingTrial": "acquire-belt-2.0mps",
+        "failingFirstUnmet": "not captured within 2 s"
+      },
+      {
+        "input": "bumper cover friction",
+        "unit": "coefficient",
+        "passing": 0.3,
+        "failing": 0.2,
+        "passingTrial": "acquire-bumper-friction-0.3",
+        "failingTrial": "acquire-bumper-friction-0.2",
+        "failingFirstUnmet": "not captured within 2 s"
+      }
+    ],
+    "timestep": {
+      "coarseS": 0.0001,
+      "fineS": 5e-05,
+      "sameOutcome": true,
+      "fineTrial": "acquire-nominal-half-step",
+      "coarseMetric": 0.6544,
+      "fineMetric": 0.6484
+    }
+  },
+  "basis": "The top roller pushes the FUEL aft over the top of the back plate. A circular arc fitted to the solved trace acquire-nominal 0.5950-0.6050 s of field-trials.json, within 0.31 mm of every traced sample (limit 1.5 mm); moved by contact with intake"
+}

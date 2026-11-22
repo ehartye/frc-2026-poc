@@ -14,8 +14,9 @@ from OCP.TopAbs import TopAbs_SOLID
 from OCP.TopExp import TopExp_Explorer
 from OCP.gp import gp_Ax2, gp_Dir, gp_Pnt, gp_Trsf, gp_Vec
 
-from dimensions import (BUMPER, DY, EXIT_DEG, FLOOR_BELT_FRONT, FLOOR_BELT_MAIN, FLOOR_PAN, FLOOR_TONGUE, FLYWHEEL_R, FRONT_LIP,
-                        FRONT_RAIL, GAP, HALF_W, INTAKE, R_BALL, VARIANTS, frame_constants, intake_points)
+from dimensions import (BATTERY_BOX, BUMPER, DY, EXIT_DEG, FEEDER, FLOOR_BELT_FRONT, FLOOR_BELT_MAIN, FLOOR_PAN, FLOOR_TONGUE, FLYWHEEL_PARTS,
+                        FLYWHEEL_R, FRONT_RAIL, GAP, HALF_W, HOPPER, INTAKE, LANE_DECK, PANEL_RIGHT, REAR_WALL_X, R_BALL, VARIANTS,
+                        frame_constants, intake_points)
 
 BATTERY_CLEATS = {"battery retention cleat aft": ((-100.0, 255.0, 101.5), (-91.5, 327.0, 200.0)),
                   "battery retention cleat fore": ((78.5, 255.0, 101.5), (80.5, 327.0, 200.0))}
@@ -64,6 +65,16 @@ def prism_xz(points, y0, y1):
     return BRepPrimAPI_MakePrism(face, gp_Vec(0, y1 - y0, 0)).Shape()
 
 
+def prism_yz(points, x0, x1):
+    """Closed polygon in the YZ plane extruded from x0 to x1."""
+    poly = BRepBuilderAPI_MakePolygon()
+    for y, z in points:
+        poly.Add(gp_Pnt(x0, y, z))
+    poly.Close()
+    face = BRepBuilderAPI_MakeFace(poly.Wire()).Face()
+    return BRepPrimAPI_MakePrism(face, gp_Vec(x1 - x0, 0, 0)).Shape()
+
+
 def hexagon_prism(cx, cy, circumradius, z0, z1):
     poly = BRepBuilderAPI_MakePolygon()
     for k in range(6):  # corners on +/-Y, flats facing +/-X
@@ -78,6 +89,9 @@ def robot_bodies(variant="R3", intake_stowed=False):
     """Return {name: (shape, group)} for one variant in its installed pose."""
     k = frame_constants(variant)
     fl, wall, hook_top = k["floor"], k["wall"], k["hook"]
+    H = HOPPER
+    lane, hw, cheek = H["lane_half"], HALF_W - 24.0, H["cheek_y"]
+    wx = REAR_WALL_X[1]
     B = {}
 
     def add(name, shape, group):
@@ -90,7 +104,7 @@ def robot_bodies(variant="R3", intake_stowed=False):
     add("frame rail right", box((-313, -HALF_W, 69.85), (313, -314.6 - DY, 120.65)), "frame")
     add("floor pan", box((FLOOR_PAN["x0"], -313 - DY, fl - 6), (FLOOR_PAN["x1"], 313 + DY, fl)), "frame")
     add("floor pan front tongue", box((FLOOR_TONGUE["x0"], -183, fl - 6), (FLOOR_TONGUE["x1"], 183, fl)), "frame")
-    add("front lip", box((FRONT_LIP["x0"], -183, FRONT_LIP["z0"]), (FRONT_LIP["x1"], 183, FRONT_LIP["z1"])), "frame")
+    add("lane deck", box((LANE_DECK["x0"], -lane + 2, k["belt_top"] - LANE_DECK["t"]), (LANE_DECK["x1"], lane - 2, k["belt_top"])), "frame")
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * INTAKE["rail_y"][0], s * INTAKE["rail_y"][1]))
         add(f"intake slide rail {side}", box((160, y[0], 345), (336, y[1], 480)), "frame")
@@ -112,17 +126,55 @@ def robot_bodies(variant="R3", intake_stowed=False):
     add("bumper left", box((-340, 341.5 + DY, 48), (340, 417.5 + DY, 168)), "bumpers")
     add("bumper right", box((-340, -417.5 - DY, 48), (340, -341.5 - DY, 168)), "bumpers")
 
-    # Hopper walls.
+    # Hopper: side walls, the two-lane channel, shelves over the battery and the electronics, cheeks beside the stowed intake.
     add("hopper wall left", box((-312, 316 + DY, 125), (312, 319 + DY, wall)), "hopper")
     add("hopper wall right", box((-312, -319 - DY, 125), (312, -316 - DY, wall)), "hopper")
-    add("hopper front upper wall", box((311, -282 - DY, 482), (313, 282 + DY, min(wall, hook_top - 44))), "hopper")  # 4 mm below the swinging jaws
-    add("hopper rear wall", box((-96, -314 - DY, k["z0"] + R_BALL + 7), (-93, 314 + DY, wall)), "hopper")
+    gate = k["z0"] + R_BALL + 7
+    add("hopper rear wall", box((REAR_WALL_X[0], -lane - 2, gate), (wx, 314 + DY, wall)), "hopper")
+    sz, fz = H["shelf_z"], H["front_shelf_z"]
+    rise = (hw - lane) * math.tan(math.radians(H["shelf_deg"]))
+    fr = H["front_rise"]
+    fx_, t, j = H["front_x"], 2.0, 1.5        # j: drawn split at a joint to a neighbouring solid
+    for side, s in (("left", 1), ("right", -1)):
+        # One formed liner per side: the channel wall, the shelf over the battery or the electronics, the low front
+        # shelf under the stowed intake, the step between them, the wall that closes the bay outboard of the cheek and
+        # the cheek. Shelf plates are 2 mm thick with their top faces at the trial surfaces. The right liner starts
+        # ahead of the inertia ring, behind a pocket wall.
+        x0 = wx + j if s > 0 else H["shelf_x0_right"]
+        y = lambda v: s * v
+        ys = lambda a, b: (min(y(a), y(b)), max(y(a), y(b)))
+        out = hw - j
+        top = lambda v: sz + (v - lane) / (hw - lane) * rise      # shelf top face height at |y| = v
+        plate = lambda xa, xb: prism_yz([(y(lane), sz), (y(out), top(out)), (y(out), top(out) - t), (y(lane), sz - t)], xa, xb)
+        panel_end = 84.0                          # the lift-out panel stops short of the stowed hook arm above it
+        parts = [
+            box((wx + j, ys(lane, lane + t)[0], fl + j), (fx_, ys(lane, lane + t)[1], sz if s < 0 else sz - t - j)),     # channel wall, rear
+            box((fx_ - t, ys(lane, lane + t)[0], fl + j), (313, ys(lane, lane + t)[1], fz)),                             # channel wall, front
+            prism_yz([(y(lane), fz), (y(cheek + t), fz + fr), (y(cheek + t), fz + fr - t), (y(lane), fz - t)], fx_ - t, FRONT_RAIL["x1"]),  # front shelf
+            prism_yz([(y(lane), fz - t), (y(cheek + t), fz + fr - t), (y(cheek + t), top(cheek + t)), (y(lane), sz)], fx_ - t, fx_),         # step
+            box((fx_ - t, ys(cheek, out)[0], fz + fr - t), (fx_, ys(cheek, out)[1], wall)),                              # bay wall
+            box((fx_ - t, ys(cheek, cheek + t)[0], fz + fr - t), (337, ys(cheek, cheek + t)[1], wall)),                  # cheek
+        ]
+        if s < 0:   # the right shelf is part of the liner, with the pocket walls ahead of the inertia ring
+            parts += [plate(x0, fx_), box((wx + j, -lane - t, sz - t), (x0, -lane, wall)), box((x0 - t, -out, sz - t), (x0, -lane, wall))]
+        else:       # the left shelf over the battery is a separate panel that lifts straight out for battery service
+            add("hopper shelf left", plate(x0, panel_end), "hopper shelf")
+            parts.append(plate(panel_end + j, fx_))
+        add(f"hopper liner {side}", fuse(*parts), "hopper")
 
-    # Floor belts: static envelopes of moving belt surfaces.
-    add("floor belt main", box((FLOOR_BELT_MAIN["x0"], -279 - DY, fl + 1.5), (FLOOR_BELT_MAIN["x1"], 231 + DY, k["belt_top"])), "floor belts")
-    add("floor belt front", box((FLOOR_BELT_FRONT["x0"], -180, fl + 1.5), (FLOOR_BELT_FRONT["x1"], 180, k["belt_top"])), "floor belts")
+    # Floor belts: static envelopes of moving belt surfaces, inside the channel.
+    add("floor belt main", box((FLOOR_BELT_MAIN["x0"], -lane + 2, fl + 1.5), (FLOOR_BELT_MAIN["x1"], lane - 2, k["belt_top"])), "floor belts")
+    add("floor belt front", box((FLOOR_BELT_FRONT["x0"], -lane + 2, fl + 1.5), (FLOOR_BELT_FRONT["x1"], lane - 2, k["belt_top"])), "floor belts")
 
-    # Shooter: floor-fed flywheel, hood sector, side plates and motor.
+    # Feeders: one roller per lane ahead of the flywheel, each with a gearmotor outboard of the channel wall. The 12 mm
+    # shaft between them passes the channel wall and the shelf's inboard edge and is not drawn.
+    fxc, fzc = k["feeder"]
+    y0, y1 = FEEDER["lane_y"]
+    for side, s in (("left", 1), ("right", -1)):
+        add(f"feeder roller {side}", cyl((fxc, s * y0, fzc), (0, s, 0), FEEDER["r"], y1 - y0), "feeders")
+        add(f"feeder motor {side}", cyl((fxc, s * 204, fzc), (0, s, 0), 17, 46), "feeders")
+
+    # Shooter: floor-fed flywheel, hood sector, side plates, a motor on each shaft end and the inertia ring.
     cx, cz = k["c"]
     add("flywheel", cyl((cx, -170, cz), (0, 1, 0), FLYWHEEL_R, 340), "shooter")
     end_deg, start_deg = k["hood_span_deg"]            # the launch trial rolls the FUEL off this end
@@ -135,18 +187,25 @@ def robot_bodies(variant="R3", intake_stowed=False):
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * 173, s * 181))
         add(f"shooter side plate {side}", box((-338, y[0], 125), (-100, y[1], cz + 125)), "shooter")
-    add("flywheel motor right", cyl((cx, -184, cz), (0, -1, 0), 30, 79), "shooter")
+    ry = FLYWHEEL_PARTS["ring_y"]
+    add("flywheel inertia ring", cyl((cx, ry[0], cz), (0, 1, 0), FLYWHEEL_PARTS["ring"]["ro"], ry[1] - ry[0]), "shooter")
+    add("flywheel motor right", cyl((cx, ry[0] - 2, cz), (0, -1, 0), 30, 79), "shooter")
     add("flywheel motor left", cyl((cx, 184, cz), (0, 1, 0), 30, 79), "shooter")
 
-    # Battery on its end, left side, withdrawn upward through the open hopper.
-    add("battery", box((-90, 236 + DY, fl + 2), (77, 312 + DY, fl + 2 + 181)), "battery")
+    # Battery on its end under the left shelf; its cleats and strap. Electronics under the right shelf and in the right bay.
+    (bx0, by0, bz0), (bx1, by1, bz1) = BATTERY_BOX
+    add("battery", box((bx0, by0, bz0 + (fl - 100)), (bx1, by1, bz1 + (fl - 100))), "battery")
     for name, (lo, hi) in BATTERY_CLEATS.items():      # 6061 cleats on the floor pan at the battery's X ends
         dz = fl - 100.0
         add(name, box((lo[0], lo[1], lo[2] + dz), (hi[0], hi[1], hi[2] + dz)), "battery retention")
-    add("electronics panel", box((-90, -312 - DY, fl + 2), (170, -282 - DY, fl + 182)), "electrical")
-    add("electronics panel left", box((82, 282 + DY, fl + 2), (170, 312 + DY, fl + 182)), "electrical")
-    add("entry sensor", box((300, -183, 123), (309, -175, 140)), "electrical")
-    add("pinch sensor", box((-160, -190, cz - 75), (-140, -182.5, cz - 55)), "electrical")
+    add("battery strap", box((-20, by0 - 2, bz1 + (fl - 100) + 1.5), (10, by1 + 2, bz1 + (fl - 100) + 4.5)), "battery strap")
+    (px0, py0, pz0), (px1, py1, pz1) = PANEL_RIGHT
+    add("electronics panel", box((px0, py0, pz0 + (fl - 100)), (px1, py1, pz1 + (fl - 100))), "electrical")
+    add("electronics panel left", box((82, 282 + DY, fl + 2), (fx_ - 4, 312 + DY, fl + 182)), "electrical")
+    add("electronics bay right", box((125, -314 - DY, 225), (280, -284, 340)), "electrical")
+    for side, s in (("left", 1), ("right", -1)):       # stage beams, one per lane, on the outside of the channel wall
+        y = sorted((s * (lane + 3), s * (lane + 10)))
+        add(f"stage sensor {side}", box((FEEDER["sensor_x"] - 6, y[0], k["belt_top"] + R_BALL - 8), (FEEDER["sensor_x"] + 6, y[1], k["belt_top"] + R_BALL + 8)), "electrical")
 
     # Climber: fixed round outer tubes, round telescoping inner tubes and swing hooks (stowed pointing aft).
     for side, s in (("left", 1), ("right", -1)):
@@ -157,26 +216,30 @@ def robot_bodies(variant="R3", intake_stowed=False):
         arm = box((87, yc - 11, hook_top - 12), (313, yc + 11, hook_top))
         jaw = box((87, yc - 11, hook_top - 40), (99, yc + 11, hook_top - 12))
         add(f"climber hook {side}", fuse(arm, jaw), "climber hooks")
-    add("climber winch", box((250, -150, wall - 60), (300, 150, wall - 15)), "climber tubes")
+    add("climber winch", box((130, 284, 230), (250, 314 + DY, 330)), "climber tubes")
 
     # Intake carriage in its deployed pose; the start fold is the same carriage translated back by the slide.
     ip = intake_points()
-    hw = INTAKE["half_width"]
+    half = INTAKE["half_width"]
     bx, px, rp = ip["belt_x"], ip["pulley_x"], ip["pulley_r"]
     rx, rz = ip["roller"]
     # The belt module is the belt's own outline: two pulleys joined by the back and front runs.
-    belt = fuse(box((bx, -hw, ip["bottom_z"]), (ip["front_x"], hw, ip["top_z"])),
-                cyl((px, -hw, ip["bottom_z"]), (0, 1, 0), rp, 2 * hw), cyl((px, -hw, ip["top_z"]), (0, 1, 0), rp, 2 * hw))
+    belt = fuse(box((bx, -half, ip["bottom_z"]), (ip["front_x"], half, ip["top_z"])),
+                cyl((px, -half, ip["bottom_z"]), (0, 1, 0), rp, 2 * half), cyl((px, -half, ip["top_z"]), (0, 1, 0), rp, 2 * half))
+    x1, z0, z1 = BUMPER["x1"], INTAKE["back_z0"], INTAKE["back_top"]
+    back = prism_xz([(x1 - INTAKE["back_foot"], z0), (x1, z0), (x1, z1), (x1 - INTAKE["back_t"], z1)], -half, half)
     pieces = {"intake belt module": belt,
-              "intake top roller": cyl((rx, -hw, rz), (0, 1, 0), INTAKE["roller_r"], 2 * hw)}
+              "intake top roller": cyl((rx, -half, rz), (0, 1, 0), INTAKE["roller_r"], 2 * half),
+              "intake back plate": back}
     for side, s in (("left", 1), ("right", -1)):
         y = sorted((s * INTAKE["plate_y"][0], s * INTAKE["plate_y"][1]))
-        pieces[f"intake carriage plate {side}"] = box((455, y[0], INTAKE["plate_z"][0]), (ip["front_x"], y[1], INTAKE["plate_z"][1]))
+        pieces[f"intake carriage plate {side}"] = box((INTAKE["plate_x0"], y[0], INTAKE["plate_z"][0]), (ip["front_x"], y[1], INTAKE["plate_z"][1]))
+    pieces["entry sensor"] = box((430, INTAKE["plate_y"][0], INTAKE["plate_z"][1] + 1.5), (439, INTAKE["plate_y"][1] - 1, INTAKE["plate_z"][1] + 18))
     dx, dy, dz = INTAKE["shift"]
     for name, shape in pieces.items():
         if intake_stowed:
-            t = gp_Trsf(); t.SetTranslation(gp_Vec(-dx, -dy, -dz))
-            shape = BRepBuilderAPI_Transform(shape, t, True).Shape()
+            t_ = gp_Trsf(); t_.SetTranslation(gp_Vec(-dx, -dy, -dz))
+            shape = BRepBuilderAPI_Transform(shape, t_, True).Shape()
         add(name, shape, "intake")
     return B, k
 

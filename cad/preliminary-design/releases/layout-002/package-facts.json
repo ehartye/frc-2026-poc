@@ -1,0 +1,746 @@
+{
+  "startVolume": {
+    "freeVolumeMm3": 54489654.0,
+    "ballVolumeMm3": 1771178.0,
+    "frontMm": 122.5,
+    "topMm": 520.0,
+    "estimateAtPacking": {
+      "0.45": 13.8,
+      "0.5": 15.4,
+      "0.55": 16.9
+    }
+  },
+  "stored": [
+    [
+      4,
+      -84,
+      187.05700000000002
+    ]
+  ],
+  "trackedFuel": {
+    "installedMm": [
+      720.0,
+      82.5,
+      75.06
+    ],
+    "seatMm": [
+      -57.58,
+      82.5,
+      177.0
+    ],
+    "toleranceMm": 1.5,
+    "fieldTrials": {
+      "file": "cad/preliminary-design/releases/layout-002/field-trials.json",
+      "sha256": "eb27be4881bd30a8f176585efd92a1bda1fd1bffcc9875aec0d4616aada4d3b5"
+    },
+    "cases": [
+      {
+        "case": "acquire-approach-1",
+        "phase": "acquire-approach",
+        "trial": "acquire-nominal",
+        "fromS": 0.0,
+        "toS": 0.193,
+        "stroke": "arc",
+        "maxDeviationMm": 0.1756,
+        "transportedBy": null,
+        "compression": {
+          "intake belt module": 0.69
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-approach-1.json"
+      },
+      {
+        "case": "acquire-climb-1",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.193,
+        "toS": 0.273,
+        "stroke": "arc",
+        "maxDeviationMm": 1.2681,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 3.23,
+          "intake belt module": 11.29
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-1.json"
+      },
+      {
+        "case": "acquire-climb-2",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.273,
+        "toS": 0.282,
+        "stroke": "arc",
+        "maxDeviationMm": 0.6615,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 5.48
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-2.json"
+      },
+      {
+        "case": "acquire-climb-3",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.282,
+        "toS": 0.294,
+        "stroke": "arc",
+        "maxDeviationMm": 1.2618,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 4.26,
+          "intake belt module": 4.0
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-3.json"
+      },
+      {
+        "case": "acquire-climb-4",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.294,
+        "toS": 0.311,
+        "stroke": "arc",
+        "maxDeviationMm": 0.7284,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 4.25,
+          "intake belt module": 4.41
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-4.json"
+      },
+      {
+        "case": "acquire-climb-5",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.311,
+        "toS": 0.333,
+        "stroke": "line",
+        "maxDeviationMm": 0.2139,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 11.45,
+          "intake back plate": 0.42,
+          "intake belt module": 7.25
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-5.json"
+      },
+      {
+        "case": "acquire-climb-6",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.333,
+        "toS": 0.336,
+        "stroke": "arc",
+        "maxDeviationMm": 0.0193,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 11.44,
+          "intake back plate": 0.88,
+          "intake belt module": 7.84
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-6.json"
+      },
+      {
+        "case": "acquire-climb-7",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.336,
+        "toS": 0.392,
+        "stroke": "arc",
+        "maxDeviationMm": 1.3982,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "bumper front": 12.81,
+          "intake back plate": 11.98,
+          "intake belt module": 15.74
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-7.json"
+      },
+      {
+        "case": "acquire-climb-8",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.392,
+        "toS": 0.511,
+        "stroke": "arc",
+        "maxDeviationMm": 1.4361,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "intake back plate": 11.94,
+          "intake belt module": 13.76
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-8.json"
+      },
+      {
+        "case": "acquire-climb-9",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.511,
+        "toS": 0.576,
+        "stroke": "arc",
+        "maxDeviationMm": 1.4516,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "intake back plate": 9.67,
+          "intake belt module": 15.96
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-9.json"
+      },
+      {
+        "case": "acquire-climb-10",
+        "phase": "acquire-climb",
+        "trial": "acquire-nominal",
+        "fromS": 0.576,
+        "toS": 0.595,
+        "stroke": "arc",
+        "maxDeviationMm": 0.0068,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "intake top roller": 0.21
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-climb-10.json"
+      },
+      {
+        "case": "acquire-over-1",
+        "phase": "acquire-over",
+        "trial": "acquire-nominal",
+        "fromS": 0.595,
+        "toS": 0.605,
+        "stroke": "arc",
+        "maxDeviationMm": 0.3145,
+        "transportedBy": [
+          "intake"
+        ],
+        "compression": {
+          "intake top roller": 2.24
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-over-1.json"
+      },
+      {
+        "case": "acquire-throw-1",
+        "phase": "acquire-throw",
+        "trial": "acquire-nominal",
+        "fromS": 0.605,
+        "toS": 0.6544,
+        "stroke": "drop",
+        "maxDeviationMm": 0.0072,
+        "transportedBy": null,
+        "compression": {
+          "intake top roller": 0.31
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/acquire-throw-1.json"
+      },
+      {
+        "case": "hopper-drop-1",
+        "phase": "hopper-drop",
+        "trial": "entry-nominal",
+        "fromS": 0.0,
+        "toS": 0.192,
+        "stroke": "drop",
+        "maxDeviationMm": 0.0157,
+        "transportedBy": null,
+        "compression": {
+          "hopper rear wall": 1.89
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-drop-1.json"
+      },
+      {
+        "case": "hopper-drop-2",
+        "phase": "hopper-drop",
+        "trial": "entry-nominal",
+        "fromS": 0.192,
+        "toS": 0.208,
+        "stroke": "arc",
+        "maxDeviationMm": 1.3099,
+        "transportedBy": null,
+        "compression": {
+          "hopper rear wall": 6.24
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-drop-2.json"
+      },
+      {
+        "case": "hopper-drop-3",
+        "phase": "hopper-drop",
+        "trial": "entry-nominal",
+        "fromS": 0.208,
+        "toS": 0.356,
+        "stroke": "drop",
+        "maxDeviationMm": 0.037,
+        "transportedBy": null,
+        "compression": {
+          "floor belt main": 2.26,
+          "hopper rear wall": 0.26
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-drop-3.json"
+      },
+      {
+        "case": "hopper-roll-1",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.356,
+        "toS": 0.362,
+        "stroke": "arc",
+        "maxDeviationMm": 0.9916,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "floor belt main": 6.84
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-1.json"
+      },
+      {
+        "case": "hopper-roll-2",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.362,
+        "toS": 0.458,
+        "stroke": "arc",
+        "maxDeviationMm": 1.4724,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "floor belt main": 7.15
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-2.json"
+      },
+      {
+        "case": "hopper-roll-3",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.458,
+        "toS": 0.567,
+        "stroke": "drop",
+        "maxDeviationMm": 1.2401,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "floor belt main": 3.95
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-3.json"
+      },
+      {
+        "case": "hopper-roll-4",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.567,
+        "toS": 0.663,
+        "stroke": "drop",
+        "maxDeviationMm": 1.4722,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "floor belt main": 4.18
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-4.json"
+      },
+      {
+        "case": "hopper-roll-5",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.663,
+        "toS": 0.785,
+        "stroke": "drop",
+        "maxDeviationMm": 1.498,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "floor belt main": 2.78
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-5.json"
+      },
+      {
+        "case": "hopper-roll-6",
+        "phase": "hopper-roll",
+        "trial": "entry-nominal",
+        "fromS": 0.785,
+        "toS": 0.99,
+        "stroke": "line",
+        "maxDeviationMm": 0.0,
+        "transportedBy": [
+          "floor belts"
+        ],
+        "compression": {
+          "feeder roller left": 0.32,
+          "floor belt main": 0.35,
+          "lane deck": 0.21
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/hopper-roll-6.json"
+      },
+      {
+        "case": "stage-1",
+        "phase": "stage",
+        "trial": "entry-nominal",
+        "fromS": 0.99,
+        "toS": 0.993,
+        "stroke": "arc",
+        "maxDeviationMm": 0.0065,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "compression": {
+          "feeder roller left": 0.58,
+          "floor belt main": 0.51,
+          "lane deck": 0.32
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/stage-1.json"
+      },
+      {
+        "case": "stage-2",
+        "phase": "stage",
+        "trial": "entry-nominal",
+        "fromS": 0.993,
+        "toS": 1.134,
+        "stroke": "arc",
+        "maxDeviationMm": 0.6614,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "compression": {
+          "feeder roller left": 7.75,
+          "floor belt main": 2.93,
+          "lane deck": 7.91
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/stage-2.json"
+      },
+      {
+        "case": "stage-3",
+        "phase": "stage",
+        "trial": "entry-nominal",
+        "fromS": 1.134,
+        "toS": 1.139,
+        "stroke": "line",
+        "maxDeviationMm": 0.004,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "compression": {
+          "feeder roller left": 7.12,
+          "lane deck": 7.27
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/stage-3.json"
+      },
+      {
+        "case": "stage-4",
+        "phase": "stage",
+        "trial": "entry-nominal",
+        "fromS": 1.139,
+        "toS": 1.437,
+        "stroke": "line",
+        "maxDeviationMm": 0.48,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "compression": {
+          "feeder roller left": 7.61,
+          "lane deck": 7.75
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/stage-4.json"
+      },
+      {
+        "case": "launch-feed-1",
+        "phase": "launch-feed",
+        "trial": "launch-nominal",
+        "fromS": 0.1,
+        "toS": 0.173,
+        "stroke": "arc",
+        "maxDeviationMm": 0.038,
+        "transportedBy": [
+          "feeders"
+        ],
+        "compression": {
+          "feeder roller left": 7.16,
+          "flywheel": 0.57,
+          "lane deck": 7.33
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/launch-feed-1.json"
+      },
+      {
+        "case": "launch-wrap-1",
+        "phase": "launch-wrap",
+        "trial": "launch-nominal",
+        "fromS": 0.173,
+        "toS": 0.187,
+        "stroke": "drop",
+        "maxDeviationMm": 0.1257,
+        "transportedBy": [
+          "shooter"
+        ],
+        "compression": {
+          "feeder roller left": 2.56,
+          "flywheel": 4.24,
+          "hood": 1.53,
+          "lane deck": 4.66
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/launch-wrap-1.json"
+      },
+      {
+        "case": "launch-wrap-2",
+        "phase": "launch-wrap",
+        "trial": "launch-nominal",
+        "fromS": 0.187,
+        "toS": 0.2,
+        "stroke": "arc",
+        "maxDeviationMm": 1.2204,
+        "transportedBy": [
+          "shooter"
+        ],
+        "compression": {
+          "flywheel": 9.16,
+          "hood": 11.17,
+          "lane deck": 6.02
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/launch-wrap-2.json"
+      },
+      {
+        "case": "launch-wrap-3",
+        "phase": "launch-wrap",
+        "trial": "launch-nominal",
+        "fromS": 0.2,
+        "toS": 0.216,
+        "stroke": "arc",
+        "maxDeviationMm": 1.2883,
+        "transportedBy": [
+          "shooter"
+        ],
+        "compression": {
+          "flywheel": 5.24,
+          "hood": 11.67,
+          "lane deck": 1.5
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/launch-wrap-3.json"
+      },
+      {
+        "case": "launch-wrap-4",
+        "phase": "launch-wrap",
+        "trial": "launch-nominal",
+        "fromS": 0.216,
+        "toS": 0.2174,
+        "stroke": "arc",
+        "maxDeviationMm": 0.0,
+        "transportedBy": [
+          "shooter"
+        ],
+        "compression": {
+          "flywheel": 2.49,
+          "hood": 4.84
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/launch-wrap-4.json"
+      },
+      {
+        "case": "flight-1",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.0,
+        "toS": 0.652,
+        "stroke": "drop",
+        "maxDeviationMm": 1.4862,
+        "transportedBy": null,
+        "compression": {
+          "flywheel": 1.92,
+          "hood": 1.92
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/flight-1.json"
+      },
+      {
+        "case": "flight-2",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.652,
+        "toS": 0.884,
+        "stroke": "drop",
+        "maxDeviationMm": 0.2508,
+        "transportedBy": null,
+        "compression": {
+          "hub body": 0.5
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/flight-2.json"
+      },
+      {
+        "case": "flight-3",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.884,
+        "toS": 0.89,
+        "stroke": "arc",
+        "maxDeviationMm": 0.5859,
+        "transportedBy": null,
+        "compression": {
+          "hub body": 8.59
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/flight-3.json"
+      },
+      {
+        "case": "flight-4",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.89,
+        "toS": 1.0037,
+        "stroke": "arc",
+        "maxDeviationMm": 0.8356,
+        "transportedBy": null,
+        "compression": {
+          "hub body": 8.75
+        },
+        "record": "cad/preliminary-design/releases/layout-002/transport/flight-4.json"
+      }
+    ]
+  },
+  "shot": {
+    "speedMps": 6.900235,
+    "elevationDeg": 61.59757,
+    "spinRatio": 0.976344,
+    "releaseMm": [
+      -272.06,
+      82.5,
+      267.01000000000005
+    ],
+    "distanceM": 2.42794,
+    "scoringBandMps": [
+      6.725,
+      7.1
+    ],
+    "flightS": 1.0037,
+    "source": "launch-nominal release state and deliver-nominal trace in field-trials.json"
+  },
+  "inspectionKg": [
+    40.091,
+    49.961
+  ],
+  "runningKg": [
+    55.963,
+    69.809
+  ],
+  "reserveKg": 2.198999999999998,
+  "sweep": {
+    "front": 244.61400000000003,
+    "rear": 0.0,
+    "side": 0.0,
+    "top": 756.2570000000001,
+    "maxSides": 1,
+    "startOverhang": 0.0,
+    "worst": {
+      "front": {
+        "case": "intake-deploy",
+        "t": 1.0
+      },
+      "rear": {
+        "case": "intake-deploy",
+        "t": 0.0
+      },
+      "side": {
+        "case": "intake-deploy",
+        "t": 0.0
+      },
+      "top": {
+        "case": "intake-deploy",
+        "t": 0.0
+      }
+    }
+  },
+  "volumesMm3": {
+    "frame rail front": 916127.2,
+    "frame rail rear": 916127.2,
+    "frame rail left": 807740.3,
+    "frame rail right": 807740.3,
+    "floor pan": 1393920.0,
+    "floor pan front tongue": 295362.0,
+    "lane deck": 124002.0,
+    "intake slide rail left": 190080.0,
+    "climber tube mount left": 102600.0,
+    "intake slide rail right": 190080.0,
+    "climber tube mount right": 102600.0,
+    "front left wheel azimuth envelope": 388789.9,
+    "front left module body": 725805.0,
+    "front left module motors": 283095.2,
+    "front right wheel azimuth envelope": 388789.9,
+    "front right module body": 725805.0,
+    "front right module motors": 283095.2,
+    "rear left wheel azimuth envelope": 388789.9,
+    "rear left module body": 725805.0,
+    "rear left module motors": 283095.2,
+    "rear right wheel azimuth envelope": 388789.9,
+    "rear right module body": 725805.0,
+    "rear right module motors": 283095.2,
+    "bumper front": 7897920.0,
+    "bumper rear": 7897920.0,
+    "bumper left": 6201600.0,
+    "bumper right": 6201600.0,
+    "hopper wall left": 1104480.0,
+    "hopper wall right": 1104480.0,
+    "hopper rear wall": 670166.7,
+    "hopper shelf left": 57388.5,
+    "hopper liner left": 478685.5,
+    "hopper liner right": 710948.6,
+    "floor belt main": 470610.0,
+    "floor belt front": 305025.0,
+    "feeder roller left": 331386.7,
+    "feeder motor left": 41764.3,
+    "feeder roller right": 331386.7,
+    "feeder motor right": 41764.3,
+    "flywheel": 2756488.7,
+    "hood": 278695.0,
+    "shooter side plate left": 567228.3,
+    "shooter side plate right": 567228.3,
+    "flywheel inertia ring": 281486.7,
+    "flywheel motor right": 223367.2,
+    "flywheel motor left": 223367.2,
+    "battery": 2297252.0,
+    "battery retention cleat aft": 60282.0,
+    "battery retention cleat fore": 14184.0,
+    "battery strap": 7200.0,
+    "electronics panel": 815400.0,
+    "electronics panel left": 172800.0,
+    "electronics bay right": 837775.0,
+    "stage sensor left": 1344.0,
+    "stage sensor right": 1344.0,
+    "climber tube left": 72131.0,
+    "climber inner tube left": 154333.9,
+    "climber hook left": 67056.0,
+    "climber tube right": 72131.0,
+    "climber inner tube right": 154333.9,
+    "climber hook right": 67056.0,
+    "climber winch": 564000.0,
+    "intake belt module": 7564484.1,
+    "intake top roller": 2225459.2,
+    "intake back plate": 2963136.0,
+    "intake carriage plate left": 807933.2,
+    "intake carriage plate right": 807933.2,
+    "entry sensor": 1336.5,
+    "hub body": 1966329242.6,
+    "hub top": 34685078.5,
+    "tower upright left": 6170600.6,
+    "tower upright right": 6170600.6,
+    "tower low rung": 1139297.2,
+    "tower base": 9094500.5,
+    "FUEL tracked": 1771178.0,
+    "FUEL stored 1": 1771178.0
+  }
+}

@@ -1,9 +1,11 @@
 {
   "releases": [
-    "layout-001"
+    "layout-001",
+    "layout-002"
   ],
   "designStatus": {
-    "layout-001": "in-progress"
+    "layout-001": "superseded",
+    "layout-002": "in-progress"
   },
-  "current": "layout-001"
+  "current": "layout-002"
 }

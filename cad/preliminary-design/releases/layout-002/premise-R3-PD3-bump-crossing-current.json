@@ -1,0 +1,14 @@
+{
+  "id": "bump-crossing",
+  "unit": "mm",
+  "scenario": "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest",
+  "value": 8.68,
+  "issue": "R3-PD3",
+  "designSha256": "0faa8f043e3127e282a6c132185ea118f9cf269cfea6895f1112bde11ef1f7eb",
+  "stepSha256": "7f2bbf9510a3fad0fd2e3a443d4d71114ecbc606700fcdaf4ec3ec5334a2a647",
+  "source": {
+    "file": "cad/preliminary-design/releases/layout-002/measurements.json",
+    "sha256": "f2c40761ceb639d992a4957b0fb1e5a11a30db3eee608a2cdcc3f8fe1b265dae"
+  },
+  "valueField": "bumpCrossingClearanceMm"
+}

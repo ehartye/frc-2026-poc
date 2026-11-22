@@ -1,5 +1,6 @@
-"""Physics trials for R3's mission-critical field interactions: acquisition, hopper entry, launch, delivery into the
-HUB and the Level 1 hang.
+"""Physics trials for R3's mission-critical field interactions: acquisition up the intake chute, entry to the stage,
+the hold-back, launch, the batch through the one flywheel, collecting, holding and feeding 24 FUEL in the hopper,
+delivery into the HUB and the Level 1 hang.
 
 Each trial integrates the free FUEL or the supported robot with penalty contact and regularized Coulomb
 friction (explicit semi-implicit Euler). Actuator inputs are stated per trial: a belt or wheel surface speed is
@@ -14,7 +15,8 @@ release state. build_package.py turns those four traces into the package's FUEL 
 
     python -I -B experiments/preliminary-design/field_trials.py
 
-Writes experiments/preliminary-design/field-trials.json and experiments/preliminary-design/review/field-interaction.html.
+Writes experiments/preliminary-design/field-trials.json. build_package.py fits the tracked FUEL's package cases to
+its traces and writes each trial's qualification record into the release.
 """
 import hashlib
 import json
@@ -108,6 +110,7 @@ class WheelDrive:
         self.motors = S["motors"] if motors is None else motors
         self.gear = S["gear"] if gear is None else gear
         self.stator_a = S["stator_a"] if stator_a is None else stator_a
+        supply_a = S["supply_a"] if supply_a is None else supply_a
         self.supply_a, self.bus_v, self.band, self.eff, self.drag, self.powered = supply_a, bus_v, band, efficiency, drag_nm, powered
         self.rw = D.FLYWHEEL_R * MM
         self.omega = (self.set if start_mps is None else start_mps) / self.rw
@@ -644,7 +647,7 @@ def launch(name, start, feed_mps=None, feeder_mps=None, feed_at=0.1, squeeze=Non
                          f"and {feed_at} s have passed, then feeder {feeder_mps} m/s and belt {feed_mps} m/s; "
                          + (f"flywheel surface held at {setpoint} m/s" if drive is None else
                             f"flywheel a free {drive.inertia} kg m2 body from {setpoint} m/s with {drive.motors} motors at {drive.gear:g}:1, {drive.stator_a:g} A stator "
-                            f"limit each, {drive.bus_v:g} V bus" + ("" if drive.powered else ", motors off"))),
+                            f"and {drive.supply_a:g} A supply limit each, {drive.bus_v:g} V bus" + ("" if drive.powered else ", motors off"))),
                 solved="FUEL translation and spin with penalty contact, Coulomb friction, gravity and rolling resistance"
                        + ("" if drive is None else "; flywheel speed under the FUEL's friction torque and the motor torque"),
                 release=None if rel is None else {q: round(v, 5) for q, v in rel.items()},
@@ -970,7 +973,7 @@ def at_rest(final, dx=0.0):
 CORNERS = [(0.35, 0.0), (0.35, 0.30), (0.60, 0.0), (0.60, 0.30)]  # the drag and spin-lift corners of ballistics.py
 SPEEDS = [6.40, 6.55, 6.70, 6.90, 7.10, 7.25, 7.40]         # delivery trials recorded with their traces
 SCAN = [round(6.50 + 0.025 * i, 3) for i in range(33)]    # the scoring scan: 6.500 to 7.300 m/s in 0.025 m/s steps
-SUPERSEDED_WHEEL = 0.006                                 # the layout-001 flywheel inertia, kept as a control
+BARE_WHEEL = 0.0026                                      # the roller without its inertia ring, kept as a control
 WEAK_V = 8.34                                            # weak-pack bus under the launch duty (budgets.json)
 
 
@@ -1008,6 +1011,9 @@ def run_trials():
         acquisition("acquire-belt-locked (cause isolation)", locked=True),
         acquisition("acquire-belt-speed-imposed (earlier issue's drive)", imposed=True),
         acquisition("acquire-low-friction-light-compression (adverse)", mu_belt=0.5, comp_back=0.010, comp_pulley=0.010),
+        acquisition("acquire-roller-at-belt-speed", roller_ratio=1.0),
+        acquisition("acquire-back-plate-friction-0.2", mu_back=0.2),
+        acquisition("acquire-back-plate-friction-0.1", mu_back=0.1),
         acquisition("acquire-nominal-half-step", dt=5e-5),
         acquisition("acquire-three-abreast", abreast=3),
         acquisition("acquire-three-abreast-9V-bus (adverse)", abreast=3, bus_v=9.0),
@@ -1041,6 +1047,7 @@ def run_trials():
         hopper_entry("entry-rolling-resistance-0.20", capture, crr=0.20),
         hopper_entry("entry-belt-friction-0.5", capture, mu_belt=0.5),
         hopper_entry("entry-feeder-friction-0.5", capture, mu_feeder=0.5),
+        hopper_entry("entry-feeder-squeeze-8mm", capture, feeder_squeeze=8.0),
         hopper_entry("entry-feeder-squeeze-4mm", capture, feeder_squeeze=4.0),
         hopper_entry("entry-feeder-squeeze-1mm", capture, feeder_squeeze=1.0),
         hopper_entry("entry-contact-damping-0.20", capture, zeta=0.20),
@@ -1050,9 +1057,9 @@ def run_trials():
         hold("hold-no-feeder (control)", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, feeder=False),
         hold("hold-regularized-friction-law (control for the law)", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, stick=False),
         hold("hold-braking-1.5g", seat, belt=D.FLOOR_BELT_MPS, accel_g=-1.5),
-        hold("hold-queue-push-60N", seat, belt=D.FLOOR_BELT_MPS, push_n=60.0),
-        hold("hold-queue-push-90N", seat, belt=D.FLOOR_BELT_MPS, push_n=90.0),
-        hold("hold-queue-push-120N", seat, belt=D.FLOOR_BELT_MPS, push_n=120.0),
+        hold("hold-queue-push-90N", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=90.0),
+        hold("hold-queue-push-120N", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=120.0),
+        hold("hold-queue-push-150N", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=150.0),
         hold("hold-feeder-friction-0.5-deck-0.3", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, mu_feeder=0.5, mu_deck=0.3),
         hold("hold-feeder-friction-0.2-deck-0.2", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, mu_feeder=0.2, mu_deck=0.2),
         lch,
@@ -1060,8 +1067,9 @@ def run_trials():
         launch("launch-feeder-stopped (cause isolation)", seat, band=band, feeder_mps=0.0, t_end=2.0),
         launch("launch-wheel-speed-imposed (earlier issue's drive)", seat, band=band, imposed_wheel=True),
         launch("launch-motors-off", seat, band=band, powered=False),
-        launch("launch-superseded-0.006-wheel-motors-off (control)", seat, band=band, inertia=SUPERSEDED_WHEEL, powered=False),
-        launch("launch-superseded-0.006-wheel", seat, band=band, inertia=SUPERSEDED_WHEEL),
+        launch("launch-bare-roller-motors-off (control)", seat, band=band, inertia=BARE_WHEEL, powered=False),
+        launch("launch-bare-roller-0.0026-wheel", seat, band=band, inertia=BARE_WHEEL),
+        launch("launch-layout-001-0.006-wheel", seat, band=band, inertia=0.006),
         launch("launch-weak-pack-8.34V", seat, band=band, bus_v=WEAK_V),
         launch("launch-two-abreast", seat, band=band, abreast=2),
         launch("launch-two-abreast-weak-pack-heavy-FUEL (adverse)", seat, band=band, abreast=2, bus_v=WEAK_V, mass=legal[2]),
@@ -1083,7 +1091,8 @@ def run_trials():
         batch("batch-nominal-half-step", seat, band=band, masses=legal, dt=5e-5),
         batch("batch-weak-pack-8.34V", seat, band=band, masses=legal, bus_v=WEAK_V),
         batch("batch-motors-off (cause isolation)", seat, band=band, masses=legal, powered=False),
-        batch("batch-superseded-0.006-wheel-weak-pack", seat, band=band, masses=legal, inertia=SUPERSEDED_WHEEL, bus_v=WEAK_V),
+        batch("batch-bare-roller-0.0026-wheel-weak-pack", seat, band=band, masses=legal, inertia=BARE_WHEEL, bus_v=WEAK_V),
+        batch("batch-bare-roller-weak-pack-stator-limit-20A", seat, band=band, masses=legal, inertia=BARE_WHEEL, bus_v=WEAK_V, stator_a=20.0),
         batch("batch-stator-limit-20A-weak-pack", seat, band=band, masses=legal, stator_a=20.0, bus_v=WEAK_V),
         batch("batch-stator-limit-5A-weak-pack", seat, band=band, masses=legal, stator_a=5.0, bus_v=WEAK_V),
         batch("batch-required-rate-0.5s-period", seat, band=band, masses=legal, period=0.5),
@@ -1103,7 +1112,7 @@ def run_trials():
         elevation("hang-current-limit-8A", i_limit=8.0),
     ]
     import hopper_flow
-    trials += hopper_flow.run_trials()
+    trials += hopper_flow.run_trials(throw=tuple(round(capture[q], 4) for q in ("x", "z", "vx", "vz", "w")))
     for tr in trials:
         tr.pop("released", None)
     spin = dict(nominal=spin_up(supply_a=D.SHOOTER["supply_a"]), weakPack=spin_up(bus_v=WEAK_V, supply_a=D.SHOOTER["supply_a"]),
@@ -1124,39 +1133,17 @@ SOLVER = ("Semi-implicit Euler; penalty normal contact k with damping ratio zeta
           "friction with a tangential spring, and a rolling resistance couple crr N R. Acquisition, delivery, hang and the 3-D hopper trial: "
           "Coulomb friction regularized at 0.01 m/s")
 NOTES = [
-    "Acquisition: side view at the front bumper. The belt back run, bottom pulley and top roller stand at the squeeze the layout draws (dimensions.py); variants bracket it. The belt is a free body under its motor and current limits; the throat ramp replaces the bumper top as the surface the FUEL crosses.",
-    "Hopper entry: side view of the floor lane from the capture state to the stage. The floor belt runs, the feeder roller turns at its staging speed until the FUEL centre crosses the stage beam, then both stop. The flywheel spins at its setpoint throughout. One FUEL in an empty lane.",
+    "Acquisition: side view at the front bumper. The belt back run, bottom pulley, top roller and chute back plate stand at the squeeze the layout draws (dimensions.py); variants bracket it. The belt is a free body under its motor and current limits; the FUEL climbs the bumper face and the back plate and is thrown over the top of the back plate.",
+    "Hopper entry: side view of the floor lane from the capture state to the stage. The FUEL falls from the chute to the floor belt, which carries it to the feeder roller; the roller turns at its staging speed until the FUEL centre crosses the stage beam, then both stop. The flywheel spins at its setpoint throughout. One FUEL in an empty lane.",
     "Hold: the staged FUEL with the feeder stopped, the floor belt running, the robot accelerating and queued FUEL pushing. Under the roller the floor is the fixed lane deck.",
     "Launch: the same lane. The flywheel is a free body: its inertia, two direct brushless motors with current limits and a speed loop. The feeder advances the FUEL only while the wheel is inside its ready band. The hood is a surface without thickness, and a run ends when the FUEL passes its end.",
     "Batch: 24 FUEL through the one flywheel, each launched from the stage, the wheel carried from shot to shot. Each lane's next FUEL is assumed staged in time; the hopper trials test that.",
-    "Hopper: 24 free FUEL in three dimensions from a settled heap to the feeders. A FUEL advanced to the flywheel is counted and removed. A FUEL pushed forward off the throat ramp is held in the intake pinch and thrown back with the acquisition trial's capture state while the intake runs. Outcomes vary from heap to heap, so eight heaps are run.",
+    "Hopper: 24 free FUEL in three dimensions. They arrive through the chute at 4 FUEL/s, each thrown in with the acquisition trial's capture state at a random lane position; the feeders stage and hold through a 0.5 g stop, start and turn; from 10 s the lanes feed in turn. A FUEL advanced to the flywheel is counted and removed. A FUEL that comes forward over the back plate, or arrives while the place it would be thrown to is taken, waits in the chute and is thrown in when there is room. Outcomes vary with the arrival pattern, so sixteen are run.",
     "Scoring band: a release speed counts only if the delivery scores at the nominal drag and spin lift and at all four drag and spin corners (chain.scoringScan).",
     "Delivery: starts from the launch trial's release state at the 2.7 m shot pose; HUB body, top plate and cavity from V0 dimensions; the sensor plane at 1.50 m inside the opening is an assumption (V0 does not locate it).",
     "Elevation: rung centred in the upright depth (V0), uprights 5 mm ahead of the bumper, TOWER BASE edge 0.4 mm ahead of the bumper face.",
     "Motor figures are a NEO-class brushless curve (5676 rpm free, 2.6 N m stall, 105 A stall at 12 V); drive efficiency 0.85 to 0.9 is an assumption.",
     "Contact stiffness, damping, friction and rolling resistance are estimates, not measured. No FUEL force-deflection curve is available, so every indentation here is a model result, not a material limit."]
-
-
-def render_player(out, path, release=False):
-    """Write the self-contained player. The release copy carries the plugin's CSP and the work-in-progress label."""
-    page = (HERE / "field-interaction-template.html").read_text(encoding="utf-8")
-    if release:
-        csp = ("<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; "
-               "style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; base-uri 'none'; form-action 'none'\">")
-        label = ('<body><p class="wip-label" style="margin:0;padding:.4rem 1rem;background:#ffd078;color:#142f63;font-weight:700">'
-                 "Work-in-progress preliminary design</p>")
-        assert page.count("<head>") == 1 and page.count("<body>") == 1
-        page = page.replace("<head>", csp).replace("<body>", label)
-    page = page.replace("TRIAL_DATA", json.dumps(out, separators=(",", ":")).replace("<", "\\u003c"))
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(page, encoding="utf-8", newline="\n")
-
-
-def player_data(trials_file, rel):
-    """The trace file plus its own pin, as the player embeds it. rel is the trace's project-relative name."""
-    out = json.loads(trials_file.read_text(encoding="utf-8"))
-    out["trace"] = {"file": rel, "sha256": sha(trials_file)}
-    return out
 
 
 def main():
@@ -1167,7 +1154,6 @@ def main():
                solver=SOLVER, scenarioNotes=NOTES, chain=chain, trials=trials)
     text = json.dumps(out, separators=(",", ":"))
     (HERE / "field-trials.json").write_text(text + "\n", encoding="utf-8", newline="\n")
-    render_player(player_data(HERE / "field-trials.json", "experiments/preliminary-design/field-trials.json"), HERE / "review" / "field-interaction.html")
     for tr in trials:
         print(f"{tr['name']:58s} {'PASS' if tr['passed'] else 'FAIL'}  {tr['metric']['name']}={tr['metric']['value']}  {tr.get('firstUnmet') or ''}")
         if tr["kind"] == "acquisition":
@@ -1181,7 +1167,7 @@ def main():
         if tr["kind"] == "batch":
             print("   ", {q: v for q, v in tr["batch"].items() if q not in ("shots", "drive")})
         if tr["kind"] == "hopper":
-            print("   ", {q: v for q, v in tr["feed"].items() if q != "times"})
+            print("   ", {q: v for q, v in tr["feed"].items() if q not in ("times", "remainingAtMm")})
         if tr["kind"] == "hold":
             print("    creep mm", tr["creepMm"])
         if tr["kind"] == "delivery":

@@ -40,8 +40,7 @@ SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-400-normal.wo
 SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-600-normal.woff2'] = '580c6561987cd9c704bc20c808c2aa7543cbdd4eaca8ec334ae4985e61971333'
 SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-700-normal.woff2'] = '1fc65bcc7790d534cf67a5e046f3f324aad8cc6dc364ec5ad296a18d42868464'
 SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-001/review-scene.json.gz'] = 'ff2533fd462ea183e6b3691c0fd9c8fc1860fd25baddb9b29ca294f4ae2e45eb'
-# R3 experiment review bundle: the checked package player's compressed display geometry (pinned by experiments/preliminary-design/receipt.json).
-SHOWCASE_ASSETS['experiments/preliminary-design/review/package-motion.geometry.json.gz'] = '25c36c57ca997c22b4fc5c6dfb5514ee2e0eafc28299626df3779ac6de606450'
+SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-002/review-scene.json.gz'] = '61f544b7e2437ae2089b5ac4b9166c5e895a5b5b94919c4b2794471cc3d9830c'
 
 
 def findings(data):
