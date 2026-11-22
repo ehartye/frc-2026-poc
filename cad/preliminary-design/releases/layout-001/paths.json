@@ -2,7 +2,7 @@
   "schema": "agent-frc/mechanical-motion@1",
   "step": {
     "file": "package.step",
-    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
+    "sha256": "33f505712317acc3c36180becdabc56096a375e668c1130077939ee88c2ac0a2"
   },
   "layoutDesignSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
   "layoutDatum": {

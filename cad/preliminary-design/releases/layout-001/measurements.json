@@ -1,7 +1,7 @@
 {
   "issue": "R3-PD2",
   "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
-  "stepSha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c",
+  "stepSha256": "33f505712317acc3c36180becdabc56096a375e668c1130077939ee88c2ac0a2",
   "startOverhangMm": 0.0,
   "sweptTopMm": 750.0,
   "sweptFrontExtensionMm": 270.614,
@@ -34,7 +34,7 @@
   "lowCapacityStowed": 12.0,
   "releaseDistanceM": 2.4362,
   "deliveryPoseM": 2.7,
-  "withBumpersUpperKg": 55.3,
+  "withBumpersUpperKg": 55.501,
   "bellyClearanceMm": 94.0,
   "bumpCrossingClearanceMm": 8.68,
   "bumpCrossingLimit": "bumper front",

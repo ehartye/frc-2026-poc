@@ -2,11 +2,11 @@
   "issue": "R3-PD2",
   "step": {
     "file": "package.step",
-    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
+    "sha256": "33f505712317acc3c36180becdabc56096a375e668c1130077939ee88c2ac0a2"
   },
   "motion": {
     "file": "paths.json",
-    "sha256": "5a48ec70122d6ce2f3b83347c1b696ab14ab1019faaf0dfe9b64bcf421e34dcd"
+    "sha256": "b23d90b41c8c0c37673d892a0d465423665850a8d86fb6091e10c91f5a5c376c"
   },
   "design": {
     "file": "design.json",
@@ -14,7 +14,7 @@
   },
   "requirements": {
     "file": "package-limits.json",
-    "sha256": "99ae38bbb8a6ac694b41768157af656a154cc1f4ce6822ff22ca9ba8389d39f4"
+    "sha256": "64fd029245bad83a526badc7d4351de15e610fa9b8f0f0c07b8d1b20bef76c69"
   },
   "runningPayloadKg": [
     15.872,
@@ -202,14 +202,26 @@
         5.0
       ],
       "basis": "Fasteners, brackets, cable chain, camera and spares not yet drawn"
+    },
+    {
+      "id": "battery retention",
+      "members": [
+        "battery retention cleat aft",
+        "battery retention cleat fore"
+      ],
+      "kg": [
+        0.101,
+        0.201
+      ],
+      "basis": "Two cleat envelopes, 74.5 cm3: high as solid 6061 at 2.70 g/cm3, low at half fill for formed angle; rivets inside"
     }
   ],
   "electricalCases": {
     "intake-deploy-nominal": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -253,8 +265,8 @@
     "intake-deploy-weak": {
       "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -298,8 +310,8 @@
     "acquire-approach-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -343,8 +355,8 @@
     "acquire-approach-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -388,8 +400,8 @@
     "acquire-climb-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -433,8 +445,8 @@
     "acquire-climb-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -478,8 +490,8 @@
     "acquire-over-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -523,8 +535,8 @@
     "acquire-over-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -568,8 +580,8 @@
     "acquire-drop-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -613,8 +625,8 @@
     "acquire-drop-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -658,8 +670,8 @@
     "loaded-transit-nominal": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -703,8 +715,8 @@
     "loaded-transit-weak": {
       "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -748,8 +760,8 @@
     "index-nominal": {
       "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -793,8 +805,8 @@
     "index-weak": {
       "basis": "Simultaneous battery-side bounds for the index duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -838,8 +850,8 @@
     "launch-wrap-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -883,8 +895,8 @@
     "launch-wrap-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -928,8 +940,8 @@
     "flight-1-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -973,8 +985,8 @@
     "flight-1-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1018,8 +1030,8 @@
     "flight-2-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1063,8 +1075,8 @@
     "flight-2-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1108,8 +1120,8 @@
     "flight-3-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1153,8 +1165,8 @@
     "flight-3-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1198,8 +1210,8 @@
     "flight-4-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1243,8 +1255,8 @@
     "flight-4-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1288,8 +1300,8 @@
     "tower-lateral-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1333,8 +1345,8 @@
     "tower-lateral-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1378,8 +1390,8 @@
     "tower-forward-nominal": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1423,8 +1435,8 @@
     "tower-forward-weak": {
       "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1468,8 +1480,8 @@
     "climb-reach-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1513,8 +1525,8 @@
     "climb-reach-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1558,8 +1570,8 @@
     "climb-seat-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1603,8 +1615,8 @@
     "climb-seat-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1648,8 +1660,8 @@
     "climb-lift-nominal": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1693,8 +1705,8 @@
     "climb-lift-weak": {
       "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1738,8 +1750,8 @@
     "park-lower-nominal": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [
@@ -1783,8 +1795,8 @@
     "park-lower-weak": {
       "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
       "loadedKg": [
-        51.472,
-        67.648
+        51.573,
+        67.84899999999999
       ],
       "batterySideA": {
         "drive": [

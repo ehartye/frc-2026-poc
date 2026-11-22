@@ -7,11 +7,11 @@
   },
   "step": {
     "file": "package.step",
-    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
+    "sha256": "33f505712317acc3c36180becdabc56096a375e668c1130077939ee88c2ac0a2"
   },
   "motion": {
     "file": "paths.json",
-    "sha256": "5a48ec70122d6ce2f3b83347c1b696ab14ab1019faaf0dfe9b64bcf421e34dcd"
+    "sha256": "b23d90b41c8c0c37673d892a0d465423665850a8d86fb6091e10c91f5a5c376c"
   },
   "datum": {
     "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
@@ -179,6 +179,13 @@
         "tower upright left",
         "tower upright right"
       ]
+    },
+    "battery retention": {
+      "role": "structure",
+      "members": [
+        "battery retention cleat aft",
+        "battery retention cleat fore"
+      ]
     }
   },
   "mounts": [
@@ -241,6 +248,26 @@
         736.0
       ],
       "basis": "Swing joint on the inner tube top"
+    },
+    {
+      "group": "battery",
+      "on": "battery retention cleat aft",
+      "pointMm": [
+        -95.0,
+        291.0,
+        150.0
+      ],
+      "basis": "Battery end face captured between the aft and fore cleats; hold-down strap over the top is undesigned"
+    },
+    {
+      "group": "battery retention",
+      "on": "floor pan",
+      "pointMm": [
+        -95.0,
+        291.0,
+        100.0
+      ],
+      "basis": "Cleat feet riveted to the floor pan top, which rests on the frame rails"
     }
   ],
   "stages": {
@@ -453,7 +480,7 @@
   "view": "package-motion.html",
   "budgets": {
     "file": "budgets.json",
-    "sha256": "76b084cfa5bf37cb30b98de4af7de98c62faaf32ad5ed0014c99edb5bde3f688"
+    "sha256": "3d4a4704e80837aa26cf43cbd3678a9f33f9a67a7d93adbc555bf5e84c281ce0"
   },
   "premises": [
     {
@@ -463,7 +490,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-start-overhang-current.json",
-        "sha256": "fb9307e10821b491bb312f38459919ec1b10077c912b0cd57659d3d9f93a6cc6"
+        "sha256": "ded51428e7f9d1d08b66fde3dadc263cfdeba7c29eca69aed4ec744d986d368d"
       }
     },
     {
@@ -473,7 +500,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-swept-height-current.json",
-        "sha256": "543d462e25bcacf4356c11818f238af41dd45781d6f326448d8327cf38578afe"
+        "sha256": "90a9ec956cd43cd4699b02e8a8f9792dba405c12a177adaeecc740f6e2d8c811"
       }
     },
     {
@@ -483,7 +510,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-swept-front-extension-current.json",
-        "sha256": "f871425f5fb8139dcc2f8dce71659fd295ca1a9977dd089cb10d25b673db8c25"
+        "sha256": "29edaafc327105846d27fa757fca56f6e256783043d45ef3a8baf430a0716a51"
       }
     },
     {
@@ -493,7 +520,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-swept-other-extension-current.json",
-        "sha256": "48ba2d6cc2edbd71fe3937d8a587d0c3501d14e4d7af903d32de64a5a1a398cf"
+        "sha256": "4130475b1d3b819d803618f5b205276347878f9233ae94e3e42c359bdbd804f1"
       }
     },
     {
@@ -503,7 +530,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-sides-extended-current.json",
-        "sha256": "a302ee9213c86cca7bec45639514bfe59fde59888d9a758807515fc36871e5c1"
+        "sha256": "d88e304d77ae4dd83b6b7a2153d67b36b949518a6f9ad35f066b8e5096cedafb"
       }
     },
     {
@@ -513,7 +540,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-with-bumpers-mass-current.json",
-        "sha256": "4aff3c9904fd11333c011d0c75468c2fc981687f4c6822ed18fe4fb4b9fef169"
+        "sha256": "fac9c986724f1a35a3d4654ba5e534c1f2495d2696becba76366436016740d8a"
       }
     },
     {
@@ -523,7 +550,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-hopper-capacity-current.json",
-        "sha256": "c8a8697096a985c933a7a61baca232f8eb450533bcd2d4bd21e7424840d4a9fd"
+        "sha256": "9b40cac3229562f0435ac20a0187b84ed87383c440e5be778e406abb23597a81"
       }
     },
     {
@@ -533,7 +560,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-start-capacity-current.json",
-        "sha256": "61c411a6ed340ab4b4cf72db90e0d7781834fc4f59a79aed8e1883d0ec1e89b3"
+        "sha256": "18b9dcc7799341419cff3d4ba01a723f5819aa6700b1f04a3ccf93c1b229f094"
       }
     },
     {
@@ -543,17 +570,17 @@
       },
       "current": {
         "file": "premise-R3-PD2-shot-window-current.json",
-        "sha256": "471ca37e4dfa32a07fd73bdf08c8183488842a41447def7b872813c51992ba2e"
+        "sha256": "77b5d223fa2dc12b1ed2011875adbb14c7ead502e11c847b76faec4c15c39187"
       }
     },
     {
       "accepted": {
         "file": "premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "c323b1036e85cb4bea8bfea0fbc1b97e00528de0df630fa0d525da5055ff08ff"
+        "sha256": "756649bfe9da77e4c0dc86ec94ae1fc8fa0b522aa9deea6de2b8011641712175"
       },
       "current": {
         "file": "premise-R3-PD2-delivery-pose-current.json",
-        "sha256": "8254004e74f6a656525fb82effcbc063e5752dc79af54e655f2b26218c6309e5"
+        "sha256": "7d2704339a6b791ff8188e420dad3853fe212eff8598f6a757a7c59a14cf599f"
       }
     },
     {
@@ -563,7 +590,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-delivery-hub-distance-current.json",
-        "sha256": "780fc5fdf9c5455e278b0f827357079773b7a76f45465191ba893c99b51e8213"
+        "sha256": "90dc9aa0676179c6c69c4d7bc4c9ba8d6f2e222ea2f97b1283736ff0fc2108ae"
       }
     },
     {
@@ -573,7 +600,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-bump-crossing-current.json",
-        "sha256": "4272ec6301f3547983d45661ec104a3faf52eb02e3d5e6c489c4a3eb34292e01"
+        "sha256": "cf707e2db67cfb63a6cefc88ce3c64f63b02a4ce6ec42816489ea2dc2a95367f"
       }
     },
     {
@@ -583,7 +610,7 @@
       },
       "current": {
         "file": "premise-R3-PD2-hang-bumper-overlap-current.json",
-        "sha256": "321271c8e439c8af9c8b387eba05518e5bc7bbc87d0a0f030bc271d4904ec897"
+        "sha256": "18633961b1df3362a7b124447c7b6c895df8bed94d7644563e75d329f82f8ad6"
       }
     }
   ],
@@ -1235,6 +1262,24 @@
         "material": "Field fixture (V0 dimensions)",
         "name": "Tower base",
         "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "battery retention cleat aft": {
+        "purpose": "Stop the battery sliding aft and carry its end load into the floor pan.",
+        "rationale": "The battery stands on the floor pan with no retention article; the R3 layout check found no mount for it.",
+        "category": "structure",
+        "material": "6061 aluminium formed cleat",
+        "name": "Battery retention cleat aft",
+        "subsystem": "battery retention",
+        "volumeType": "envelope"
+      },
+      "battery retention cleat fore": {
+        "purpose": "Stop the battery sliding forward toward the electronics panel.",
+        "rationale": "Paired with the aft cleat so the battery is captured in X while it still lifts straight out for service.",
+        "category": "structure",
+        "material": "6061 aluminium formed cleat",
+        "name": "Battery retention cleat fore",
+        "subsystem": "battery retention",
         "volumeType": "envelope"
       }
     },

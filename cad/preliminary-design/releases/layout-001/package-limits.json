@@ -14,7 +14,8 @@
     "bumpers (excluded by R103)",
     "battery (excluded by R103)",
     "field fixtures (not robot)",
-    "unmodeled robot hardware"
+    "unmodeled robot hardware",
+    "battery retention"
   ],
   "electricalCases": {
     "intake-deploy-nominal": {
