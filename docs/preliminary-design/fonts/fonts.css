@@ -1,0 +1,8 @@
+/* Review theme fonts, bundled for offline review.
+   Barlow Condensed: Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow). See OFL-BarlowCondensed.txt.
+   Source Sans 3: Copyright 2010-2020 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'. See OFL-SourceSans3.txt.
+   Both are licensed under the SIL Open Font License, Version 1.1. Latin subsets as distributed by Fontsource 5.2.5; see NOTICE.md. */
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url("barlow-condensed-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("barlow-condensed-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url("source-sans-3-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url("source-sans-3-latin-600-normal.woff2") format("woff2")}

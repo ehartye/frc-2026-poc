@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "db4c536b5a0ae57170b87cead416e7bbd0aa6f8a33e7b55ef04afa3639381ece",
+  "planSha256": "9b98ca4b4946991b53e91e0cb4c3b53825df397f13a890db668548fce14f7431",
   "design": {
     "file": "design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -473,6 +473,27 @@
     "climb-lift",
     "park-lower"
   ],
+  "control": {
+    "case": "launch-wrap",
+    "displaced": "hood",
+    "offsetMm": [
+      0,
+      0,
+      8
+    ],
+    "witness": {
+      "pair": [
+        "FUEL tracked",
+        "hood"
+      ],
+      "status": "fail",
+      "witness": {
+        "t": 0.0,
+        "gapMm": 0.0,
+        "volumeMm3": 4594.8239183197975
+      }
+    }
+  },
   "budgets": {
     "source": {
       "file": "budgets.json",
@@ -1109,28 +1130,12 @@
   },
   "view": {
     "file": "package-motion.html",
-    "sha256": "09ce56fb4b7450c52baea5a6e05d7dbef15d978a3310c193c75424902657c6f5",
-    "verified": true
-  },
-  "control": {
-    "case": "launch-wrap",
-    "displaced": "hood",
-    "offsetMm": [
-      0,
-      0,
-      8
-    ],
-    "witness": {
-      "pair": [
-        "FUEL tracked",
-        "hood"
-      ],
-      "status": "fail",
-      "witness": {
-        "t": 0.0,
-        "gapMm": 0.0,
-        "volumeMm3": 4594.8239183197975
-      }
+    "sha256": "b843d80017ebb8e5782e55e0b183df646ddb5a1ac21846e61b686c119a8a6cb0",
+    "verified": true,
+    "geometry": {
+      "file": "package-motion.geometry.json.gz",
+      "sha256": "1fc20fa409434c9d3696d1cf74df5f5438eda8e99427e5ebdbb49d257606d5a3",
+      "contentSha256": "8cefc11ef2d83797d8271ee8789142dba429d2523e9d94f183715ed607376f46"
     }
   },
   "groups": {
@@ -4093,5 +4098,9 @@
         "constantPoseReused": 5
       }
     }
-  ]
+  ],
+  "decision": {
+    "status": "layout-checked",
+    "firstUnmet": null
+  }
 }

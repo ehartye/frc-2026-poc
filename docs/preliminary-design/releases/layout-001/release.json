@@ -1,0 +1,40 @@
+{
+  "schema": "agent-frc/preliminary-release@1",
+  "release": "layout-001",
+  "issue": "R3-PD2",
+  "label": "Work-in-progress preliminary design",
+  "status": "layout-checked",
+  "receipt": {
+    "file": "receipt.json",
+    "sha256": "536a37b4f47e9f982ff0abee1480aa7f9018c6eb9d72492cefe498e64f0ff3f4"
+  },
+  "view": {
+    "file": "index.html",
+    "sha256": "b843d80017ebb8e5782e55e0b183df646ddb5a1ac21846e61b686c119a8a6cb0"
+  },
+  "scene": {
+    "file": "motion.json",
+    "sha256": "dfe3ef2b5cd9bd0576ca55e8f1ff70c8189bb7587f1a10ce3723eac6aeb0b243",
+    "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+  },
+  "missionCases": [
+    {
+      "case": "flight-4",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "acquire-drop",
+      "kind": "operating-case",
+      "accomplishes": "acquired",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "climb-lift",
+      "kind": "operating-case",
+      "accomplishes": "climb-held",
+      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
+    }
+  ]
+}

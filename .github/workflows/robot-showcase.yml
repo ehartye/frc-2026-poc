@@ -33,10 +33,29 @@ jobs:
           node-version: '22'
       - name: Build the registered public showcase
         run: node project/scripts/build-showcase.mjs builder "$RUNNER_TEMP/showcase"
+      - name: Get the preliminary release checker
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: ehartye/agent-frc
+          ref: 0b8e4d358943285dced2c21a3dcdc6762bc941ef # Agent FRC 0.89.0
+          path: preliminary-tools
+          persist-credentials: false
       - name: Add the checked preliminary design releases under preliminary-design/
         run: |
           python project/cad/preliminary-design/stage.py --check-index
+          node preliminary-tools/scripts/preliminary-release.mjs verify project/docs/preliminary-design/releases/layout-001
           cp -r project/docs/preliminary-design "$RUNNER_TEMP/showcase/preliminary-design"
+          # The one secondary, work-in-progress link the preliminary release class admits on the season index.
+          python - "$RUNNER_TEMP/showcase/index.html" <<'PY'
+          import sys
+          page = sys.argv[1]
+          text = open(page, encoding="utf-8").read()
+          anchor = '<a href="field-lab.html">Open the field lab</a>'
+          if text.count(anchor) != 1:
+              raise SystemExit("Expected one field lab link on the season index")
+          text = text.replace(anchor, anchor + ' <a href="preliminary-design/">Preliminary design (work in progress)</a>')
+          open(page, "w", encoding="utf-8", newline="").write(text)
+          PY
       - name: Replay role, architecture, load and replenishment studies
         run: python project/experiments/role-and-support/review.py builder "$RUNNER_TEMP/method-results"
       - name: Exercise terminal replay controls on phone and desktop

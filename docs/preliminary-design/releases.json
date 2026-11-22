@@ -2,8 +2,5 @@
   "releases": [
     "layout-001"
   ],
-  "current": "layout-001",
-  "fieldInteractions": {
-    "layout-001": "field-interaction-layout-001.html"
-  }
+  "current": "layout-001"
 }

@@ -1114,6 +1114,57 @@
         "electronics panel",
         "electronics panel left"
       ]
-    }
+    },
+    "architecture": "R3 · tall floor-fed hooded-flywheel shooter on a 680 × 714 mm four-module swerve base",
+    "caseKinds": {
+      "intake-deploy": "nominal",
+      "acquire-approach": "nominal",
+      "acquire-climb": "nominal",
+      "acquire-over": "nominal",
+      "acquire-drop": "nominal",
+      "loaded-transit": "nominal",
+      "index": "nominal",
+      "launch-wrap": "nominal",
+      "flight-1": "nominal",
+      "flight-2": "nominal",
+      "flight-3": "nominal",
+      "flight-4": "nominal",
+      "tower-lateral": "nominal",
+      "tower-forward": "nominal",
+      "climb-reach": "nominal",
+      "climb-seat": "nominal",
+      "climb-lift": "nominal",
+      "park-lower": "nominal",
+      "battery-withdraw": "nominal",
+      "shooter-withdraw": "nominal"
+    },
+    "uncoveredCases": [
+      {
+        "id": "bump-crossing-dynamic",
+        "condition": "Driving over the BUMP at speed with stored FUEL",
+        "reason": "Only the static two-wheel rest check (bump_crossing.py) is evaluated; dynamic loads and FUEL retention are not."
+      },
+      {
+        "id": "loaded-robot-contact",
+        "condition": "Robot-to-robot contact while carrying FUEL",
+        "reason": "No contact or pushing case is commissioned in this layout."
+      },
+      {
+        "id": "hopper-capacity-physical",
+        "condition": "Seating 36 or more FUEL in the starting fold",
+        "reason": "Capacity is a free-volume premise; packing is not simulated."
+      }
+    ],
+    "fieldInteractions": [
+      {
+        "title": "R3 field interactions: acquisition, delivery and hang trials",
+        "href": "../../../field-interactions/r3-layout-001.html",
+        "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
+        "evidence": {
+          "file": "field-trials.json",
+          "sha256": "77ea722c41f0d9bd67400367de8efb3d122f2d7820b6c119c45e07adb63c311c"
+        }
+      }
+    ]
   }
 }

@@ -1,0 +1,22 @@
+{
+  "missionCases": [
+    {
+      "case": "flight-4",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "acquire-drop",
+      "kind": "operating-case",
+      "accomplishes": "acquired",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "climb-lift",
+      "kind": "operating-case",
+      "accomplishes": "climb-held",
+      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
+    }
+  ]
+}
