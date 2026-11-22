@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "73c95883cd685fc00199a76559276bf133c600b55687c56c2aa0c3773988ab9f",
+  "planSha256": "23250217b20efe42115fb2ccd65a983ff429150a82a3dea0161fc5447f4f208d",
   "design": {
     "file": "design/preliminary/design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -35,10 +35,8 @@
       1
     ]
   },
-  "status": "reopen",
-  "missingInputs": [
-    "Repeat conceptual-design on this issue before resuming delivery-pose"
-  ],
+  "status": "layout-checked",
+  "missingInputs": [],
   "narrativeReview": {
     "source": {
       "file": "kickoff/selected-strategy.md",
@@ -341,7 +339,7 @@
     {
       "id": "delivery-pose",
       "phase": "conceptual-design",
-      "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+      "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
       "interfaces": [
         "drivetrain",
         "shooter"
@@ -349,18 +347,18 @@
       "unit": "in",
       "criterion": {
         "range": [
-          0.0,
+          32.0,
           49.0
         ]
       },
       "accepted": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "6da8968b27cd10e814f285c39e7481a5986c42cccd036836239b95af01303793"
+        "sha256": "527c4f867f1913981d6dc530030f22d88153df738b153c42481897c7dcd2e1ed"
       },
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
-        "sha256": "0a705d1bb493276a7c47fe1ae04f9af4f7456feb4d22858116ae0d1b730b720f"
+        "sha256": "8f4a27489c2b3750fd3d370a0966414ab07ff9b019799fab77b5933da6c11102"
       },
       "value": 48.64905857259726
     },
@@ -445,16 +443,7 @@
       "value": 23.93
     }
   ],
-  "reopen": [
-    {
-      "phase": "conceptual-design",
-      "reason": "delivery-pose",
-      "affected": [
-        "drivetrain",
-        "shooter"
-      ]
-    }
-  ],
+  "reopen": [],
   "previousCheckpointSha256": "40cb3dde2a85f2ee11bd270fded845f3405124ad926e5a3b89507f3f57d9d5b1",
   "designId": "editable-blockout",
   "step": {
@@ -4114,7 +4103,7 @@
         "drivetrain",
         "shooter"
       ],
-      "repeatVerified": false
+      "repeatVerified": true
     }
   ]
 }

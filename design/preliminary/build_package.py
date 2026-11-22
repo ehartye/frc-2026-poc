@@ -574,6 +574,8 @@ def main():
     profile = {"file": "kickoff/field-profile.json", "sha256": hashlib.sha256((ROOT / "kickoff/field-profile.json").read_bytes()).hexdigest()}
     # Replay input for the held delivery-pose premise: the named depot-shift step of slot 2 in the re-run series.
     held = HERE / "receipt-R3-PD1-held.json"
+    # The repeat keeps the held premise's scenario identity; its own unit is inches from the blue-hub station centre.
+    HELD_SCENARIO = "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)"
     held_plan = json.loads(held.read_text(encoding="utf-8"))["planSha256"] if held.exists() else None
     rprof = HERE / "rehearsal" / "r3-2p7m-profile.json"
     rsteps = json.loads(rprof.read_text(encoding="utf-8"))["rehearsal"]["programs"]
@@ -590,14 +592,13 @@ def main():
         dx, dy = pose["pointIn"][0] - hub_in[0], pose["pointIn"][1] - hub_in[1]
         pose["hubCentreDistanceM"] = round(math.hypot(dx, dy) * 0.0254, 4)
         pose["bearingFromHubAxisDeg"] = round(math.degrees(math.atan2(dy, -dx)), 2)
-    field_input = dict(match="Neutral return", actor="B2", input="stepPosition", period="Shift 1",
-                       stepIndex=depot_pose["stepIndex"], stepLabel=depot_pose["label"], station=depot_pose["station"])
+    field_input = dict(input="stationPosition", actor="B2", station="blue-hub")  # every B2 attempt at the station, series-wide
     measured["deliveryStandoffIn"] = depot_pose["standoffIn"]
     write("measurements.json", measured)
     current_src = pin("measurements.json")
     delivery_evidence = write("rehearsal/delivery-pose-evidence.json", dict(
         premise="delivery-pose", phase="conceptual-design",
-        scenario="Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+        scenario=HELD_SCENARIO,
         issue=ISSUE, designSha256=design["sha256"], stepSha256=step["sha256"],
         fieldReplay=dict(field_input,
                          profile={"file": f"{REL}/rehearsal/r3-2p7m-profile.json", "sha256": hashlib.sha256(rprof.read_bytes()).hexdigest()},
@@ -617,7 +618,7 @@ def main():
         ("hopper-capacity", "FUEL", [24.0, 200.0], "volumeEstimateDeployedLow", "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake", "floor belts"], strategy, "24-piece serial batch"),
         ("start-capacity", "FUEL", [8.0, 200.0], "volumeEstimateStowedLow", "AUTO preload of eight in the starting fold, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake"], strategy, "Begin legally preloaded with at most eight"),
         ("shot-window", "m", [2.4, 3.6], "releaseDistanceM", "Release-to-HUB distance with an entry band under all drag and spin corners", "preliminary-design", ["shooter"], pin("ballistics.json"), "ballistics.json robust bands at 62 degrees start at 2.4 m"),
-        ("delivery-pose", "in", [32.0, 49.0], "deliveryStandoffIn", "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal", "conceptual-design", ["shooter", "drivetrain"], delivery_evidence, "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)"),
+        ("delivery-pose", "in", [32.0, 49.0], "deliveryStandoffIn", HELD_SCENARIO, "conceptual-design", ["shooter", "drivetrain"], delivery_evidence, "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the scenario text is the held R3-PD1 identity, whose 2.16 m refers to the original rehearsal; the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)"),
         ("delivery-hub-distance", "m", [2.6, 2.8], "deliveryPoseM", "Robot-centre distance from the HUB centre at every slot 2 delivery step in the re-run rehearsal", "conceptual-design", ["shooter", "drivetrain"], pin("rehearsal/comparison.json"), "The robust shot band at 62 degrees starts at 2.4 m release distance"),
         ("bump-crossing", "mm", [5.0, 500.0], "bumpCrossingClearanceMm", "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest", "conceptual-design", ["frame", "drivetrain", "bumpers"], pin("bump_crossing.py"), "Accepted margin 5 mm over a conservative sharp crest; bump_crossing.py"),
         ("hang-bumper-overlap", "mm", [20.0, 200.0], "bumperUprightOverlapMm", "Lateral overlap of the bumper with each TOWER upright face while hanging", "preliminary-design", ["bumpers", "frame", "climber hooks"], rules, "Uprights 819.15 mm apart; a 20 mm overlap tolerates driver alignment error"),

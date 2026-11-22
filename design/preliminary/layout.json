@@ -549,11 +549,11 @@
     {
       "accepted": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "51bd814b13deaea95be495a22f1de0526471a8f100504055f469c972b7ffbfeb"
+        "sha256": "527c4f867f1913981d6dc530030f22d88153df738b153c42481897c7dcd2e1ed"
       },
       "current": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
-        "sha256": "0a705d1bb493276a7c47fe1ae04f9af4f7456feb4d22858116ae0d1b730b720f"
+        "sha256": "8f4a27489c2b3750fd3d370a0966414ab07ff9b019799fab77b5933da6c11102"
       }
     },
     {

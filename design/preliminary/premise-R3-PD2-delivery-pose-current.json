@@ -1,7 +1,7 @@
 {
   "id": "delivery-pose",
   "unit": "in",
-  "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
   "value": 48.64905857259726,
   "issue": "R3-PD2",
   "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",

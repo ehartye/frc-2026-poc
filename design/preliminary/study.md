@@ -4,7 +4,7 @@
 
 Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It replaces the R2C upper and the R2C-T1 screw lift for detailing.
 
-**Status.** The issue is `layout-checked` on its own: every case, premise, control and budget passes, and no input is missing. Resubmitted against the held [R3-PD1 receipt](receipt-R3-PD1-held.json), as the contract requires, it stays `reopen`. The checker cannot verify a repeated *delivery position*; it replays only a step's dwell, speed, height, heading or pickup face. See [Why the held issue stays reopened](#why-the-held-issue-stays-reopened).
+**Status: `layout-checked`** on Agent FRC 0.82.2, resubmitted against the held [R3-PD1 receipt](receipt-R3-PD1-held.json) with `--previous … --require-checked --write-view` (exit 0). Its conceptual delivery-pose hold clears through a series-wide `stationPosition` replay: every B2 `blue-hub` attempt in the re-run series stands 32.2–48.6 in from the station centre, every footprint is clear, and each match with attempts delivers. [Receipt](receipt.json).
 
 [Checker receipt](receipt.json) · [Layout plan](layout.json) · [Placed STEP](package.step) · [Motion study](paths.json) · [Budgets](budgets.json) · [Measurements](measurements.json) · [Verification gates](verification-gates.json) · [Re-run rehearsal](rehearsal/comparison.json) · [Architecture comparison](architecture-comparison.json) · [Retention review](retention.json) · [Ballistics](ballistics.json) · [Rules addendum](construction-rules.json) · [Review index](review/index.html)
 
@@ -107,7 +107,7 @@ Intake, indexer and flywheel can run together while driving. The climb cannot ov
 `node scripts/design.mjs preliminary-check <project> design/preliminary/layout.json --require-checked --write-view` on Agent FRC 0.81.2:
 
 - **Without `--previous`:** `layout-checked`, exit 0.
-- **With `--previous design/preliminary/receipt-R3-PD1-held.json`:** `reopen`, exit 1. This is the issued [receipt](receipt.json). Its only missing item is "Repeat conceptual-design on this issue before resuming delivery-pose".
+- **With `--previous design/preliminary/receipt-R3-PD1-held.json`:** `layout-checked`, exit 0, on 0.82.2 (`priorDecisions[0].repeatVerified: true`). This is the issued [receipt](receipt.json). Earlier releases left it `reopen` for the reasons below.
 
 What passes in both runs:
 

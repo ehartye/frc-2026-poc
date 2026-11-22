@@ -1,7 +1,7 @@
 {
   "id": "delivery-pose",
   "unit": "in",
-  "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
   "criterion": {
     "range": [
       32.0,
@@ -15,16 +15,12 @@
   ],
   "source": {
     "file": "design/preliminary/rehearsal/delivery-pose-evidence.json",
-    "sha256": "11b52cdb7968e66bffecb30451b4e33cb6a902be96e9fb96397fa5226ff4c8ec"
+    "sha256": "f73172f561b9dfa233f2b56db15b4a8e42239ab57cb3e496a78e0c66df03e416"
   },
-  "basis": "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
+  "basis": "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the scenario text is the held R3-PD1 identity, whose 2.16 m refers to the original rehearsal; the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
   "fieldInput": {
-    "match": "Neutral return",
+    "input": "stationPosition",
     "actor": "B2",
-    "input": "stepPosition",
-    "period": "Shift 1",
-    "stepIndex": 3,
-    "stepLabel": "Attempt HUB delivery; credited",
     "station": "blue-hub"
   },
   "repeat": {

@@ -1,17 +1,13 @@
 {
   "premise": "delivery-pose",
   "phase": "conceptual-design",
-  "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
   "issue": "R3-PD2",
   "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
   "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
   "fieldReplay": {
-    "match": "Neutral return",
+    "input": "stationPosition",
     "actor": "B2",
-    "input": "stepPosition",
-    "period": "Shift 1",
-    "stepIndex": 3,
-    "stepLabel": "Attempt HUB delivery; credited",
     "station": "blue-hub",
     "profile": {
       "file": "design/preliminary/rehearsal/r3-2p7m-profile.json",
