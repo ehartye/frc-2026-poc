@@ -1,7 +1,9 @@
 """Batch trial for the R3 hopper: free FUEL as spheres in three dimensions, from a settled heap to the two feeders.
 
-Every FUEL is a free body with penalty contact and regularized Coulomb friction against the hopper surfaces, the
-feeder rollers and each other (explicit semi-implicit Euler, the same contact law as field_trials.py). The floor
+Every FUEL is a free body with penalty contact against the hopper surfaces, the feeder rollers and each other
+(explicit semi-implicit Euler). Friction is regularized Coulomb, except on the two surfaces that clamp a staged FUEL,
+the lane deck and the feeder rollers: there it is stick-slip with a tangential spring, the law of the lane trials in
+field_trials.py, so a clamped FUEL holds until the load exceeds its friction instead of creeping. The floor
 belts and the feeder rollers carry imposed surface speeds; the lane controller below decides them from the stage
 beams, as the robot's would. A FUEL that a feeder advances to the flywheel is counted and leaves the model there:
 what the flywheel then does with it is the launch and batch trials' question (field_trials.py).
@@ -153,11 +155,12 @@ def heap(n, seed, trough, jitter=0.008):
 
 def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, mu_hard=0.4, mu_feeder=0.9, k=15000.0, zeta=0.3, mass=0.215,
          crr=0.03, dt=2e-4, settle_s=1.5, t_end=16.0, tilt_deg=0.0, opt=None, reverse=True, feeders=True,
-         mu_deck=0.6, intake=None, hold_eps=None, frames_every=0.04,
+         mu_deck=0.6, intake=None, stick=True, frames_every=0.04,
          keep_frames=False):
     """Heap of n FUEL to the flywheel. After the heap settles the belts run and the two lane feeders stage and feed in
     turn, no faster than one feed per period. If nothing reaches the flywheel for 1 s while FUEL remain, the belt
-    reverses for 0.3 s (an unjam cycle, counted). tilt_deg rolls gravity toward the right wall."""
+    reverses for 0.3 s (an unjam cycle, counted). tilt_deg rolls gravity toward the right wall. stick=False uses the
+    regularized friction law on the deck and feeders too (the control for the law: a clamped FUEL then creeps)."""
     F_ = D.FEEDER
     belt = D.FLOOR_BELT_MPS if belt is None else belt
     period = F_["period_s"] if period is None else period
@@ -182,8 +185,10 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     alive = np.ones(n, bool)
     P = posts()
     eps = 0.01
-    hold_eps = eps if hold_eps is None else hold_eps   # slip regularization on the surfaces that hold a staged FUEL (see field_trials.hold)
-    eps_s = np.where(np.array([q == "deck" for q in S["kind"]]), hold_eps, eps)
+    is_deck = np.array([q == "deck" for q in S["kind"]])
+    # tangential springs of the stick-slip contacts: one row per FUEL on the deck and on each feeder roller
+    spring = dict(deck=np.zeros((n, 3)), left=np.zeros((n, 3)), right=np.zeros((n, 3)))
+    peak_push, push_f = 0.0, np.zeros(n)
     lanes = [dict(mode="staging", ball=None), dict(mode="staging", ball=None)]
     delivered, unjams, last_feed, last_take, last_lane = [], 0, -1e9, 0.0, 1
     reverse_until, first_stall = -1.0, None
@@ -193,15 +198,27 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     PINCH_X = (D.BUMPER["x1"] + 45.0) * MM
     next_frame = 0.0
 
-    def contact(n_, pen, surf_v, mu, idx, F, Tq, eps=eps):
-        """Accumulate penalty and friction forces for contacts on balls idx with normals n_ (surface to ball)."""
+    def contact(n_, pen, surf_v, mu, idx, F, Tq, store=None):
+        """Accumulate penalty and friction forces for contacts on balls idx with normals n_ (surface to ball).
+        store names the tangential-spring table of a stick-slip surface; each ball may appear once per call."""
         r_ = -n_ * R
         vc = vel[idx] + np.cross(om[idx], r_) - surf_v
         vn = np.einsum("ij,ij->i", vc, n_)
         Fn = np.maximum(0.0, k * pen - c * vn)
         vt = vc - vn[:, None] * n_
-        vtm = np.sqrt(np.einsum("ij,ij->i", vt, vt) + eps * eps)
-        Ft = -(mu * Fn / vtm)[:, None] * vt
+        if store is None or not stick:
+            vtm = np.sqrt(np.einsum("ij,ij->i", vt, vt) + eps * eps)
+            Ft = -(mu * Fn / vtm)[:, None] * vt
+        else:
+            xi = spring[store][idx] + vt * dt
+            xi -= np.einsum("ij,ij->i", xi, n_)[:, None] * n_
+            Ft = -k * xi - c * vt
+            mag = np.sqrt(np.einsum("ij,ij->i", Ft, Ft))
+            lim = mu * Fn
+            over = mag > lim                              # sliding: the spring keeps only what the friction limit holds
+            Ft[over] *= (lim[over] / mag[over])[:, None]
+            xi[over] = -Ft[over] / k
+            fresh[store][idx] = xi
         np.add.at(F, idx, Fn[:, None] * n_ + Ft)
         w = om[idx]
         wm = np.sqrt(np.einsum("ij,ij->i", w, w) + 0.2 ** 2)
@@ -233,6 +250,8 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                         uf[li] = F_["mps"]
                         break
         F = np.tile(grav * mass, (n, 1)); Tq = np.zeros((n, 3))
+        fresh = {q: np.zeros((n, 3)) for q in spring}
+        push = np.zeros(n)
         ids = np.where(alive)[0]
         p = pos[ids]
         # rectangles
@@ -244,7 +263,10 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
         bi, mi = np.where((dist < R) & (dist > 1e-9))
         if len(bi):
             n_ = diff[bi, mi] / dist[bi, mi][:, None]
-            contact(n_, R - dist[bi, mi], S["vel"][mi] * vb, mu_s[mi], ids[bi], F, Tq, eps_s[mi])
+            dk = is_deck[mi]
+            contact(n_[~dk], R - dist[bi, mi][~dk], S["vel"][mi][~dk] * vb, mu_s[mi][~dk], ids[bi][~dk], F, Tq)
+            if dk.any():
+                contact(n_[dk], R - dist[bi, mi][dk], S["vel"][mi][dk] * vb, mu_s[mi][dk], ids[bi][dk], F, Tq, "deck")
         # vertical posts
         for (cx, cy, cr, z0, z1) in P:
             q = p.copy(); q[:, 2] = np.clip(p[:, 2], z0, z1)
@@ -257,9 +279,9 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
             if len(hit):
                 contact(diffp[hit] / dp[hit][:, None], R - dp[hit], np.zeros((len(hit), 3)), np.full(len(hit), mu_hard), ids[hit], F, Tq)
         # feeder rollers (axis along Y)
-        rollers = [(fx, fz, fr, y0, y1, uf[li], mu_feeder, hold_eps) for li, (y0, y1) in enumerate(lane_y)] if feeders else []
-        rollers.append((ir[0], ir[1], ir[2], -0.258, 0.258, intake if running else 0.0, mu_belt, eps))
-        for (rx, rz, rr, y0, y1, us, mu_r, eps_r) in rollers:
+        rollers = [(fx, fz, fr, y0, y1, uf[li], mu_feeder, ("left", "right")[li]) for li, (y0, y1) in enumerate(lane_y)] if feeders else []
+        rollers.append((ir[0], ir[1], ir[2], -0.258, 0.258, intake if running else 0.0, mu_belt, None))
+        for (rx, rz, rr, y0, y1, us, mu_r, store) in rollers:
             q = np.stack([np.full(len(p), rx), np.clip(p[:, 1], y0, y1), np.full(len(p), rz)], axis=1)
             diffp = p - q
             dax = np.sqrt(np.einsum("ij,ij->i", diffp, diffp))
@@ -267,7 +289,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
             if len(hit):
                 n_ = diffp[hit] / dax[hit][:, None]
                 surf = us * np.stack([n_[:, 2], np.zeros(len(hit)), -n_[:, 0]], axis=1)
-                contact(n_, R - (dax[hit] - rr), surf, np.full(len(hit), mu_r), ids[hit], F, Tq, eps_r)
+                contact(n_, R - (dax[hit] - rr), surf, np.full(len(hit), mu_r), ids[hit], F, Tq, store)
         # FUEL on FUEL
         dd = p[:, None, :] - p[None, :, :]
         dn = np.sqrt(np.einsum("ijk,ijk->ij", dd, dd))
@@ -285,6 +307,13 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
             Fij = Fn[:, None] * n_ + Ft
             np.add.at(F, gi, Fij); np.add.at(F, gj, -Fij)
             np.add.at(Tq, gi, np.cross(-n_ * R, Ft)); np.add.at(Tq, gj, np.cross(n_ * R, -Ft))
+            # force toward the flywheel on each FUEL from the FUEL around it, smoothed over 20 ms
+            np.add.at(push, gi, -Fij[:, 0]); np.add.at(push, gj, Fij[:, 0])
+        push_f += (push - push_f) * dt / 0.02
+        for ln in lanes:
+            if ln["mode"] == "staged" and ln["ball"] is not None:
+                peak_push = max(peak_push, float(push_f[ln["ball"]]))
+        spring = fresh
         vel[ids] += F[ids] / mass * dt
         om[ids] += Tq[ids] / inertia * dt
         pos[ids] += vel[ids] * dt
@@ -353,12 +382,12 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                          f"roller {F_['stage_mps']} m/s to the stage beam, stopped while staged, {F_['mps']} m/s on a feed command; intake top roller {intake} m/s; one feed per {period} s at "
                          f"most, lanes in turn; belt reversed 0.3 s after 1 s without a feed" + ("" if tilt_deg == 0 else f"; robot rolled {tilt_deg:g} degrees")),
                 solved="every FUEL's translation and spin in three dimensions with penalty contact and Coulomb friction against the hopper, the rollers and each other",
-                feed=dict(fed=len(good), within12s=within12, lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost, recirculated=recirculated, firstStallS=first_stall, lostAt=where,
+                feed=dict(fed=len(good), within12s=within12, peakPushOnStagedN=round(peak_push, 1), lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost, recirculated=recirculated, firstStallS=first_stall, lostAt=where,
                           uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), uncommandedAt=[d_ for d_ in delivered if d_.get("uncommanded")], remaining=int(alive.sum()), heldInPinch=int(held.sum()),
                           byLane={q: sum(1 for d_ in good if d_["lane"] == q) for q in ("left", "right")}, times=[d_["t"] for d_ in good]),
                 params=dict(n=n, seed=seed, belt=belt, periodS=period, muBall=mu_ball, muBelt=mu_belt, muHard=mu_hard, muFeeder=mu_feeder, k=k, zeta=zeta,
                             mass=mass, crr=crr, dt=dt, settleS=settle_s, tiltDeg=tilt_deg, layout=dict(opt or {}), reverse=reverse,
-                            feeders=feeders, muDeck=mu_deck),
+                            feeders=feeders, muDeck=mu_deck, stick=stick),
                 hopper=dict(rects=[[*[round(float(v), 4) for v in S["O"][i]], *[round(float(v), 4) for v in S["U"][i]], *[round(float(v), 4) for v in S["V"][i]], S["label"][i]]
                                    for i in range(len(S["label"]))] if keep_frames else [],
                             feeder=[fx, fz, fr], takeX=TAKE_X, radius=R),
@@ -412,5 +441,5 @@ if __name__ == "__main__":
     t0 = time.time()
     for tr in (run_trials() if not names else [feed("probe", **eval("dict(%s)" % a)) for a in names]):
         f = tr["feed"]
-        print(f"{tr['name']:48s} {'PASS' if tr['passed'] else 'FAIL'} fed {f['fed']} in12 {f['within12s']} last {f['lastFedS']} rate {f['ratePerS']} "
+        print(f"{tr['name']:48s} {'PASS' if tr['passed'] else 'FAIL'} fed {f['fed']} in12 {f['within12s']} last {f['lastFedS']} rate {f['ratePerS']} push {f['peakPushOnStagedN']} N "
               f"unjams {f['unjamCycles']} stall@{f['firstStallS']} recirc {f['recirculated']} lost {f['lost']} uncommanded {f['uncommanded']} lanes {f['byLane']}  {tr['firstUnmet'] or ''} {f['lostAt']} {f['uncommandedAt']} [{time.time() - t0:.0f}s]")

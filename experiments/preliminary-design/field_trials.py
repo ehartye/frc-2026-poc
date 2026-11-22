@@ -955,7 +955,8 @@ def at_rest(final, dx=0.0):
 
 
 CORNERS = [(0.35, 0.0), (0.35, 0.30), (0.60, 0.0), (0.60, 0.30)]  # the drag and spin-lift corners of ballistics.py
-SPEEDS = [6.40, 6.55, 6.70, 6.85, 7.00, 7.15, 7.30, 7.45, 7.60]
+SPEEDS = [6.40, 6.55, 6.70, 6.90, 7.10, 7.25, 7.40]         # delivery trials recorded with their traces
+SCAN = [round(6.50 + 0.025 * i, 3) for i in range(33)]    # the scoring scan: 6.500 to 7.300 m/s in 0.025 m/s steps
 SUPERSEDED_WHEEL = 0.006                                 # the layout-001 flywheel inertia, kept as a control
 WEAK_V = 8.34                                            # weak-pack bus under the launch duty (budgets.json)
 
@@ -973,9 +974,10 @@ def run_trials():
     # A release speed scores only if it scores at the nominal drag and spin lift and at all four corners.
     scan = {v: delivery(f"deliver-{v:.2f}", rel, speed=v) for v in SPEEDS}
     rows = []
-    for v in SPEEDS:
+    for v in SCAN:
+        nominal = delivery("scan", rel, speed=v)["passed"]
         corners = {f"cd{cd}-cl{cl}": delivery("corner", rel, speed=v, cd=cd, cl=cl)["passed"] for cd, cl in CORNERS}
-        rows.append(dict(speedMps=v, nominal=scan[v]["passed"], corners=corners, scores=scan[v]["passed"] and all(corners.values())))
+        rows.append(dict(speedMps=v, nominal=nominal, corners=corners, scores=nominal and all(corners.values())))
     near = min(range(len(rows)), key=lambda i: abs(rows[i]["speedMps"] - rel["speedMps"]))
     assert rows[near]["scores"], "the nominal release speed does not score at every drag and spin corner"
     lo = hi = near
@@ -1101,7 +1103,7 @@ def run_trials():
                  note="acquire-nominal ends at capture; entry-nominal starts there and ends clamped at the stage; launch-nominal starts at the stage "
                       "(at rest) and ends at release; deliver-nominal starts at that release. A release speed counts as scoring only if the "
                       "delivery scores at the nominal drag and spin lift (Cd 0.47, CL 0.15) and at all four corners (Cd 0.35 and 0.60, CL 0 and "
-                      "0.30). The scoring band is the contiguous run of such speeds in the 0.15 m/s scan around the nominal release.")
+                      "0.30). The scoring band is the contiguous run of such speeds in the 0.025 m/s scan around the nominal release.")
     return trials, chain
 
 

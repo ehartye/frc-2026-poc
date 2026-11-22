@@ -37,7 +37,7 @@ HANG_MASS_KG = 70.3                                           # hang trial mass:
 # from FLYWHEEL_PARTS and must agree). wheel_surface_mps: the speed setpoint. ready_band: a feeder advances a FUEL
 # only while the measured wheel speed is within this fraction of the setpoint. motors, gear, stator_a, supply_a: two
 # brushless motors, one on each shaft end, direct, with these per-motor current limits.
-SHOOTER = dict(squeeze=12.0, wheel_surface_mps=13.5, hood_end_past_release_deg=-2.5, hood_start_deg=-88.0,
+SHOOTER = dict(squeeze=12.0, wheel_surface_mps=13.6, hood_end_past_release_deg=-2.5, hood_start_deg=-88.0,
                inertia_kgm2=0.0176, motors=2, gear=1.0, stator_a=40.0, supply_a=30.0, ready_band=0.01)
 
 # Flywheel build, for the mass line and the inertia: an aluminum tube roller with a compliant tread, and one steel
