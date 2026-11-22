@@ -75,5 +75,8 @@
     "project-layout.json",
     "scripts/build-showcase.mjs",
     "scripts/showcase-navigation.mjs"
-  ]
+  ],
+  "preliminaryInputs": {
+    "root": "cad/preliminary-design/releases"
+  }
 }
