@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "6107fd29c414460ef7848e02b5dbdd04cda95478f63ca38c94f85ac6f3f05d44",
+  "planSha256": "e4e78392177e96d2df5c7080a650e68f95a1e0ea7bbab4dd132150f6783e1f01",
   "design": {
     "file": "design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -123,7 +123,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-start-overhang-current.json",
-        "sha256": "07b5b5b445ab855ed6aded157a2fc646b5bf3668ad0c7c91f22460051381377e"
+        "sha256": "fb9307e10821b491bb312f38459919ec1b10077c912b0cd57659d3d9f93a6cc6"
       },
       "value": 0.0
     },
@@ -150,7 +150,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-swept-height-current.json",
-        "sha256": "9e8f754c7aa3efdcbf6c8dab28809ef92c6546dc02de466c2b90abfa3bda552b"
+        "sha256": "543d462e25bcacf4356c11818f238af41dd45781d6f326448d8327cf38578afe"
       },
       "value": 750.0
     },
@@ -176,7 +176,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-swept-front-extension-current.json",
-        "sha256": "02ad011190c5104da50350cc42978df770d980e0d09148a21b5465897770b4d8"
+        "sha256": "f871425f5fb8139dcc2f8dce71659fd295ca1a9977dd089cb10d25b673db8c25"
       },
       "value": 270.614
     },
@@ -202,7 +202,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-swept-other-extension-current.json",
-        "sha256": "55a8ec00f325fcabde4390a600e5a10005294c5e23019578f4df9307e0e91197"
+        "sha256": "48ba2d6cc2edbd71fe3937d8a587d0c3501d14e4d7af903d32de64a5a1a398cf"
       },
       "value": 0.0
     },
@@ -228,7 +228,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-sides-extended-current.json",
-        "sha256": "8292bdfe147e7c5f4ceb65c43d674bc496754c008b8de0805443516dab684a1f"
+        "sha256": "a302ee9213c86cca7bec45639514bfe59fde59888d9a758807515fc36871e5c1"
       },
       "value": 1.0
     },
@@ -254,7 +254,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-with-bumpers-mass-current.json",
-        "sha256": "73b90cc990b26ca24685df11fe9bb6139fb2e448c9476ef40822fa9c8d5c95c4"
+        "sha256": "4aff3c9904fd11333c011d0c75468c2fc981687f4c6822ed18fe4fb4b9fef169"
       },
       "value": 55.3
     },
@@ -281,7 +281,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-hopper-capacity-current.json",
-        "sha256": "86bb87027977f24085e8e184c505fa87b46e09ec29fc6febacdb699070c777ad"
+        "sha256": "c8a8697096a985c933a7a61baca232f8eb450533bcd2d4bd21e7424840d4a9fd"
       },
       "value": 37.7
     },
@@ -307,7 +307,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-start-capacity-current.json",
-        "sha256": "1e1a9630ca927efa46095155869204f1e40f97386fb374b2c9ac78ad95f803a6"
+        "sha256": "61c411a6ed340ab4b4cf72db90e0d7781834fc4f59a79aed8e1883d0ec1e89b3"
       },
       "value": 37.2
     },
@@ -332,7 +332,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-shot-window-current.json",
-        "sha256": "59b529cc2c0ad2c02148627eba77ec8e44544ee85cda20a27e1166c7cd0323e3"
+        "sha256": "471ca37e4dfa32a07fd73bdf08c8183488842a41447def7b872813c51992ba2e"
       },
       "value": 2.4362
     },
@@ -353,12 +353,12 @@
       },
       "accepted": {
         "file": "premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "ff89f45384c44b6b8282e2cf93e15447677321cc28ec4d35355acffd84918dc8"
+        "sha256": "c323b1036e85cb4bea8bfea0fbc1b97e00528de0df630fa0d525da5055ff08ff"
       },
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-delivery-pose-current.json",
-        "sha256": "dd3f005031e1932c6352f3d382ce20de31681840b76253062a1e8d552e7ecbcc"
+        "sha256": "8254004e74f6a656525fb82effcbc063e5752dc79af54e655f2b26218c6309e5"
       },
       "value": 48.64905857259726
     },
@@ -384,7 +384,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-delivery-hub-distance-current.json",
-        "sha256": "27214fb0fd40985ed7d0f64d138375e77a8bcf6cb3e65f746823f8e8b75dce95"
+        "sha256": "780fc5fdf9c5455e278b0f827357079773b7a76f45465191ba893c99b51e8213"
       },
       "value": 2.7
     },
@@ -411,7 +411,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-bump-crossing-current.json",
-        "sha256": "708f577c24abe9317fae3be5e40d7325781e7ab6c6200ef4f96e395e35489924"
+        "sha256": "4272ec6301f3547983d45661ec104a3faf52eb02e3d5e6c489c4a3eb34292e01"
       },
       "value": 8.68
     },
@@ -438,7 +438,7 @@
       "status": "within",
       "current": {
         "file": "premise-R3-PD2-hang-bumper-overlap-current.json",
-        "sha256": "4830ffed632a2c83aef9d91ad2924796ea17503d156bc5b447030f202742acad"
+        "sha256": "321271c8e439c8af9c8b387eba05518e5bc7bbc87d0a0f030bc271d4904ec897"
       },
       "value": 23.93
     }
@@ -447,11 +447,11 @@
   "designId": "editable-blockout",
   "step": {
     "file": "package.step",
-    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
   },
   "motion": {
     "file": "paths.json",
-    "sha256": "dfe3ef2b5cd9bd0576ca55e8f1ff70c8189bb7587f1a10ce3723eac6aeb0b243"
+    "sha256": "5a48ec70122d6ce2f3b83347c1b696ab14ab1019faaf0dfe9b64bcf421e34dcd"
   },
   "cycle": [
     "intake-deploy",
@@ -497,7 +497,7 @@
   "budgets": {
     "source": {
       "file": "budgets.json",
-      "sha256": "ba1356e4f1bf5642fecc98be1288c7c115757e129c909eb0c4384c7b4516c554"
+      "sha256": "76b084cfa5bf37cb30b98de4af7de98c62faaf32ad5ed0014c99edb5bde3f688"
     },
     "limits": {
       "file": "package-limits.json",
@@ -1130,12 +1130,12 @@
   },
   "view": {
     "file": "package-motion.html",
-    "sha256": "9c289bd405c8a47512e50fd56fe6e9e6aa00834ba755d6d7d1fb1b4ac1cec6f8",
+    "sha256": "bdf3db755846ab5a8559a83bda4bdb5e082d7124763f5b860e7168aaecaa272e",
     "verified": true,
     "geometry": {
       "file": "package-motion.geometry.json.gz",
-      "sha256": "1fc20fa409434c9d3696d1cf74df5f5438eda8e99427e5ebdbb49d257606d5a3",
-      "contentSha256": "8cefc11ef2d83797d8271ee8789142dba429d2523e9d94f183715ed607376f46"
+      "sha256": "461b426e4b6832ffa1970bf9471fdb73c9461e978779595a44c9e2dbff6c3af7",
+      "contentSha256": "a827a7207c1b565868ac9a4efee5570e31f00c718ffc0463ba5e1d1f7bdea744"
     }
   },
   "groups": {

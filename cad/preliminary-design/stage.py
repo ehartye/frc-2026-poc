@@ -100,46 +100,88 @@ FIELD = re.compile(r"field/[a-z0-9][a-z0-9._-]{0,110}\.html")
 FIELD_PLAYER_POLICY = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; "
                        "font-src data:; media-src data: blob:; base-uri 'none'; form-action 'none'")
 RAW_TEXT = {"script", "style", "textarea", "title", "xmp", "iframe", "noembed", "noframes", "noscript", "plaintext"}
-BANNED_TAGS = {"iframe", "frame", "frameset", "object", "embed", "portal", "base", "link", "applet", "form", "area"}
+BANNED_TAGS = {"iframe", "frame", "frameset", "object", "embed", "portal", "base", "link", "applet", "form", "area", "math",
+               "foreignobject"}
 RESOURCE_ATTRS = {"src", "srcset", "poster", "background", "data", "action", "formaction", "ping", "xlink:href"}
 HEAD = re.compile(r'(?:<!doctype html>[ \t\n\r\f]*)?(?:<html(?: lang="[A-Za-z-]{1,16}")?>[ \t\n\r\f]*)?<head>[ \t\n\r\f]*', re.I)
 URL_SPACE = "".join(map(chr, range(33)))  # a browser strips C0 controls and spaces around a URL
 NETWORK = re.compile(r"\b(?:fetch|importScripts|sendBeacon)\s*\(|\b(?:XMLHttpRequest|WebSocket|EventSource|RTCPeerConnection)\b")
 
 
+BREAKOUT = {"b", "big", "blockquote", "body", "br", "center", "code", "dd", "div", "dl", "dt", "em", "embed", "h1", "h2", "h3",
+            "h4", "h5", "h6", "head", "hr", "i", "img", "li", "listing", "menu", "meta", "nobr", "ol", "p", "pre", "ruby", "s",
+            "small", "span", "strong", "strike", "sub", "sup", "table", "tt", "u", "ul", "var"}
+ASCII_LOWER = str.maketrans("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz")
+
+
 def start_tags(html):
-    """Mirror the gate's tokenizer: start tags and attributes as a browser reads them."""
-    tags, i, n = [], 0, len(html)
+    """Mirror the gate's tokenizer: comments, SVG foreign content, CDATA and raw text as a browser reads them."""
+    tags, i, n, svg = [], 0, len(html), 0
     space = lambda c: c in " \t\n\f\r"
     letter = lambda c: c.isascii() and c.isalpha()
+    lower = lambda s: s.translate(ASCII_LOWER)
+
+    def close(name, start):
+        p = html.find("</", start)
+        while p >= 0:
+            if lower(html[p + 2:p + 2 + len(name)]) == name:
+                return p
+            p = html.find("</", p + 2)
+        return n
+
+    def skip_to(token, start):
+        e = html.find(token, start)
+        return n if e < 0 else e + len(token)
+
     while i < n:
         if html[i] != "<":
             i += 1
             continue
         if html.startswith("<!--", i):
-            e = html.find("-->", i + 4)
-            i = n if e < 0 else e + 3
+            if html.startswith("<!-->", i):
+                i += 5
+            elif html.startswith("<!--->", i):
+                i += 6
+            else:
+                i = min(skip_to("-->", i + 4), skip_to("--!>", i + 4))
+            continue
+        if svg and html.startswith("<![CDATA[", i):
+            i = skip_to("]]>", i + 9)
             continue
         nxt = html[i + 1] if i + 1 < n else ""
+        if nxt == "/" and i + 2 < n and letter(html[i + 2]):
+            j = i + 2
+            while j < n and not space(html[j]) and html[j] not in "/>":
+                j += 1
+            name = lower(html[i + 2:j])
+            if svg and name == "svg":
+                svg -= 1
+            elif svg and name in ("p", "br"):
+                svg = 0
+            i = skip_to(">", j)
+            continue
         if nxt in ("!", "?", "/"):
-            e = html.find(">", i + 1)
-            i = n if e < 0 else e + 1
+            i = skip_to(">", i + 1)
             continue
         if not letter(nxt):
             i += 1
             continue
-        j = i + 1
+        j, self_closing = i + 1, False
         while j < n and not space(html[j]) and html[j] not in "/>":
             j += 1
-        name, attrs = html[i + 1:j].lower(), []
+        name, attrs = lower(html[i + 1:j]), []
         while j < n and html[j] != ">":
-            if space(html[j]) or html[j] == "/":
+            if space(html[j]):
+                j += 1
+                continue
+            if html[j] == "/":
+                self_closing = j + 1 < n and html[j + 1] == ">"
                 j += 1
                 continue
             k = j + 1
             while k < n and not space(html[k]) and html[k] not in "/>=":
                 k += 1
-            attr = html[j:k].lower()
+            attr = lower(html[j:k])
             while k < n and space(html[k]):
                 k += 1
             value = ""
@@ -159,9 +201,13 @@ def start_tags(html):
             j = k
         tags.append((name, attrs))
         i = j + 1
-        if name in RAW_TEXT:
-            close = html.lower().find("</" + name, i)
-            i = n if close < 0 else close
+        if svg and (name in BREAKOUT or name == "font" and any(a in ("color", "face", "size") for a, _ in attrs)):
+            svg = 0
+        if name == "svg" and not self_closing:
+            svg += 1
+            continue
+        if not svg and name in RAW_TEXT:
+            i = close(name, i)
     return tags
 
 

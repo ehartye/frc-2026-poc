@@ -2,11 +2,11 @@
   "issue": "R3-PD2",
   "step": {
     "file": "package.step",
-    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
   },
   "motion": {
     "file": "paths.json",
-    "sha256": "dfe3ef2b5cd9bd0576ca55e8f1ff70c8189bb7587f1a10ce3723eac6aeb0b243"
+    "sha256": "5a48ec70122d6ce2f3b83347c1b696ab14ab1019faaf0dfe9b64bcf421e34dcd"
   },
   "design": {
     "file": "design.json",

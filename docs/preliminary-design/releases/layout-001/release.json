@@ -6,16 +6,16 @@
   "status": "layout-checked",
   "receipt": {
     "file": "receipt.json",
-    "sha256": "54af662529d5497a85d751ffe9289c63362078d94becd3388bc23b968b9b334a"
+    "sha256": "7b3df5f7d04e738055c53979dedb0d45f41cfa5700c45353ca36b14c9fa2806a"
   },
   "view": {
     "file": "index.html",
-    "sha256": "9c289bd405c8a47512e50fd56fe6e9e6aa00834ba755d6d7d1fb1b4ac1cec6f8"
+    "sha256": "bdf3db755846ab5a8559a83bda4bdb5e082d7124763f5b860e7168aaecaa272e"
   },
   "scene": {
     "file": "motion.json",
-    "sha256": "dfe3ef2b5cd9bd0576ca55e8f1ff70c8189bb7587f1a10ce3723eac6aeb0b243",
-    "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+    "sha256": "5a48ec70122d6ce2f3b83347c1b696ab14ab1019faaf0dfe9b64bcf421e34dcd",
+    "stepSha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
   },
   "missionCases": [
     {

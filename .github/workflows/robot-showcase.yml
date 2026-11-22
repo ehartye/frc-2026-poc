@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: ehartye/agent-frc
-          ref: fff3d1f9e649dcefa4b1a38c6e95d1ef179ab6d3 # Agent FRC 0.92.0
+          ref: 78f092e263049cee3843659d3bf56525a41734f7 # Agent FRC 0.93.0
           path: preliminary-tools
           persist-credentials: false
       - name: Add the checked preliminary design releases under preliminary-design/

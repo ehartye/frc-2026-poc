@@ -2,7 +2,7 @@
   "schema": "agent-frc/mechanical-motion@1",
   "step": {
     "file": "package.step",
-    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+    "sha256": "3f1fee96c5e042ca5410c1ebab44a23c208b680557375e12bdddfec32f507b2c"
   },
   "layoutDesignSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
   "layoutDatum": {
@@ -126,7 +126,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "acquire-approach",
@@ -157,7 +213,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "acquire-climb",
@@ -188,7 +300,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "acquire-over",
@@ -219,7 +387,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "acquire-drop",
@@ -246,7 +470,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "loaded-transit",
@@ -315,7 +595,63 @@
         ]
       },
       "minGapMm": 1.0,
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "index",
@@ -406,7 +742,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "launch-wrap",
@@ -512,7 +904,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "flight-1",
@@ -632,7 +1080,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "flight-2",
@@ -766,7 +1270,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "flight-3",
@@ -914,7 +1474,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "flight-4",
@@ -1076,7 +1692,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "tower-lateral",
@@ -1317,7 +1989,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "tower-forward",
@@ -1612,7 +2340,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "climb-reach",
@@ -1924,7 +2708,63 @@
             ]
           }
         ]
-      }
+      },
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "climb-seat",
@@ -2305,7 +3145,63 @@
           ]
         }
       ],
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "climb-lift",
@@ -2764,7 +3660,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "park-lower",
@@ -3311,7 +4263,63 @@
           }
         ]
       },
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "battery-withdraw",
@@ -3333,7 +4341,63 @@
       "extract": [
         "battery"
       ],
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     },
     {
       "id": "shooter-withdraw",
@@ -3410,7 +4474,63 @@
         "shooter side plate left",
         "shooter side plate right"
       ],
-      "checkLinearEnvelope": true
+      "checkLinearEnvelope": true,
+      "fixtures": [
+        {
+          "id": "hub body",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub body",
+          "basis": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion."
+        },
+        {
+          "id": "hub top",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "hub top",
+          "basis": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body."
+        },
+        {
+          "id": "tower base",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower base",
+          "basis": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it."
+        },
+        {
+          "id": "tower low rung",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower low rung",
+          "basis": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright left",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright left",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        },
+        {
+          "id": "tower upright right",
+          "file": {
+            "file": "field-fixtures.step",
+            "sha256": "a3ae5374a003bfa0509279537450f379fd1ce500401c6a1d6748bc659bbad102"
+          },
+          "solid": "tower upright right",
+          "basis": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER."
+        }
+      ]
     }
   ]
 }
