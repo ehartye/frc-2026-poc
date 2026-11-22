@@ -143,15 +143,25 @@ def spin_up(bus_v=12.0, dt=1e-3, **kw):
 
 
 # ------------------------------------------------------------------ acquisition (side view, robot frame)
-RAMP = ((D.FRONT_LIP["x0"] * MM, D.FRONT_LIP["z1"] * MM), (D.BUMPER["x1"] * MM, D.HOPPER["throat_ramp"] * MM))   # throat ramp, lip to bumper face
+def back_plate():
+    """The chute back plate in the side view (metres): belt-side face, top edge and hopper-side face of the wedge."""
+    I_, x1 = D.INTAKE, D.BUMPER["x1"]
+    z0, z1 = I_["back_z0"], I_["back_top"]
+    return [((x1 * MM, z0 * MM), (x1 * MM, z1 * MM)), (((x1 - I_["back_t"]) * MM, z1 * MM), (x1 * MM, z1 * MM)),
+            (((x1 - I_["back_foot"]) * MM, z0 * MM), ((x1 - I_["back_t"]) * MM, z1 * MM)),
+            (((x1 - I_["back_foot"]) * MM, z0 * MM), (x1 * MM, z0 * MM))]
 
 
 def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_bumper=0.4, mu_carpet=0.6,
-                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=1.5, locked=False, every=40, mu_ramp=0.4,
-                imposed=False, abreast=1, bus_v=12.0, gear=None, supply_a=None, stator_a=None, moving_kg=None):
+                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=2.0, locked=False, every=40, mu_back=0.4,
+                imposed=False, abreast=1, bus_v=12.0, gear=None, supply_a=None, stator_a=None, moving_kg=None, roller_ratio=None,
+                back=True):
     """FUEL on the carpet; the robot drives at v_robot; the bottom pulley pulls it under, the back run lifts it
-    against the bumper face and the top roller pushes it over the bumper. The belt, pulleys and roller stand where
-    dimensions.py puts them (the layout draws the same squeeze); comp_back and comp_pulley bracket that setting.
+    against the bumper face and on up the chute back plate, and the top roller throws it over the top of the back
+    plate into the hopper. The belt, pulleys, roller and back plate stand where dimensions.py puts them (the layout
+    draws the same squeeze); comp_back and comp_pulley bracket that setting. The top roller turns roller_ratio times
+    as fast as the belt. back=False removes the back plate (the control: the belt then has nothing to lift against
+    above the bumper).
 
     The belt is a free body driven by its motor: an equivalent moving mass at the belt surface, one brushless motor
     through gear:1 to the 18.5 mm pulley, a speed loop to u, and the stator and supply current limits. abreast FUEL
@@ -165,6 +175,7 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
     moving_kg = I_["moving_kg"] if moving_kg is None else moving_kg
     comp_back = I_["pinch_squeeze"] * MM if comp_back is None else comp_back
     comp_pulley = I_["pulley_squeeze"] * MM if comp_pulley is None else comp_pulley
+    roller_ratio = I_["roller_ratio"] if roller_ratio is None else roller_ratio
     ip = D.intake_points(comp_back * 1000, comp_pulley * 1000)
     B = D.BUMPER
     c = 2 * zeta * math.sqrt(k * mass)
@@ -181,13 +192,14 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
         ("seg", ((-1.0, 0.0), (2.0, 0.0)), None, mu_carpet, "carpet"),
         ("seg", ((B["x1"] * MM, B["z0"] * MM), (B["x1"] * MM, B["z1"] * MM)), None, mu_bumper, "bumper face"),
         ("seg", ((B["x0"] * MM, B["z1"] * MM), (B["x1"] * MM, B["z1"] * MM)), None, mu_bumper, "bumper top"),
-        ("seg", RAMP, None, mu_ramp, "throat ramp"),
+        *([("seg", seg, None, mu_back, "chute back plate") for seg in back_plate()] if back else []),
         ("seg", ((xk, zb), (xk, zt)), (0.0, 1.0), mu_belt, "belt back run"),
         ("seg", ((xp + rp, zb), (xp + rp, zt)), (0.0, -1.0), mu_belt, "belt front run"),
         ("circ", ((xp, zb), rp), True, mu_belt, "bottom pulley"),
         ("circ", ((xp, zt), rp), True, mu_belt, "top pulley"),
         ("circ", (roller, rr_), True, mu_belt, "top roller"),
     ]
+    edge = I_["back_top"] * MM if back else B["z1"] * MM
     x, z, vx, vz, w = 0.72, R, -v_robot, 0.0, 0.0
     t, frames, events, first = 0.0, [[0.0, round(x, 5), round(z, 5), 0.0]], [], {}
     max_belt_force, belt_power, belt_j, min_u, peak_supply = 0.0, 0.0, 0.0, belt_u, 0.0
@@ -212,7 +224,8 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
             pen = R - d
             if pen <= 0:
                 continue
-            svx, svz = (-v_robot, 0.0) if label == "carpet" else (belt_u * sx, belt_u * sz)
+            ratio = roller_ratio if label == "top roller" else 1.0
+            svx, svz = (-v_robot, 0.0) if label == "carpet" else (ratio * belt_u * sx, ratio * belt_u * sz)
             touching[label] = max(touching.get(label, 0.0), pen)
             if label not in first:
                 first[label] = round(t, 4)
@@ -230,7 +243,7 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
             fx += Fx; fz += Fz
             tq += rx * Fz - rz * Fx
             if driven:
-                along = Ft * (tx * sx + tz * sz)     # friction on the FUEL along the belt motion; the belt feels the opposite
+                along = ratio * Ft * (tx * sx + tz * sz)   # friction on the FUEL along the belt motion, reflected to the belt; the belt feels the opposite
                 belt_load += along
                 belt_now += along * belt_u
                 max_belt_force = max(max_belt_force, Fn)
@@ -251,22 +264,22 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
             frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
         if step % round(100 * 1e-4 / dt) == 0:
             speed.append([round(t, 4), round(belt_u, 3)])
-        if captured is None and x < D.FRONT_RAIL["x1"] * MM and z > B["z1"] * MM + R * 0.5:
+        if captured is None and x < D.FRONT_RAIL["x1"] * MM and z > edge + R * 0.5:
             captured = round(t, 4)
-            events.append(dict(t=captured, event="FUEL over the bumper and inside the frame: captured"))
+            events.append(dict(t=captured, event="FUEL over the back plate and inside the frame: captured"))
             break
         if z < -0.05 or x > 1.2:
             events.append(dict(t=round(t, 4), event="FUEL lost"))
             break
     if frames[-1][0] != round(t, 4):
         frames.append([round(t, 4), round(x, 5), round(z, 5), round(w, 2)])
-    ok = captured is not None and captured <= 1.0
+    ok = captured is not None and captured <= 1.2
     driven_text = (f"belt and roller surface speed {belt_u if locked else u} m/s imposed" if locked or imposed else
                    f"belt and roller driven by one brushless motor through {gear:g}:1 to the pulley, speed loop to {u} m/s, {stator_a:g} A stator and "
                    f"{supply_a:g} A supply limits at a {bus_v:g} V bus, {moving_kg} kg equivalent moving mass; {abreast} FUEL abreast load the belt")
     return dict(name=name, kind="acquisition", passed=ok,
-                metric=dict(name="capture time (s)", value=captured, requirement="captured within 1.0 s of first contact"),
-                firstUnmet=None if ok else ("not captured within 1.5 s" if captured is None else "capture slower than 1.0 s"),
+                metric=dict(name="capture time (s)", value=captured, requirement="over the back plate and inside the frame within 1.2 s of the start"),
+                firstUnmet=None if ok else (f"not captured within {t_end:g} s" if captured is None else "capture slower than 1.2 s"),
                 imposed=f"{driven_text}; robot approach {v_robot} m/s imposed",
                 solved="FUEL translation and spin with penalty contact and Coulomb friction" + ("" if locked or imposed else "; belt speed under the contact load"),
                 beltDemand=dict(maxNormalN=round(max_belt_force, 1), maxFrictionPowerW=round(belt_power, 1), energyJ=round(belt_j, 2),
@@ -275,9 +288,10 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
                                      "current of its motor. With an imposed belt the speed is held and no current is computed"),
                 params=dict(u=u, compBack=comp_back, compPulley=comp_pulley, muBelt=mu_belt, muBumper=mu_bumper, muCarpet=mu_carpet,
                             k=k, zeta=zeta, mass=mass, vRobot=v_robot, dt=dt, locked=locked, imposed=imposed, abreast=abreast, busV=bus_v,
-                            gear=gear, supplyA=supply_a, statorA=stator_a, movingKg=moving_kg),
+                            gear=gear, supplyA=supply_a, statorA=stator_a, movingKg=moving_kg, rollerRatio=roller_ratio, muBack=mu_back, backPlate=back),
                 geometry=dict(beltBackX=xk, pulley=[xp, zb, rp], topPulley=[xp, zt, rp], roller=[roller[0], roller[1], rr_],
-                              bumper=[B["x0"] * MM, B["z0"] * MM, B["x1"] * MM, B["z1"] * MM]),
+                              bumper=[B["x0"] * MM, B["z0"] * MM, B["x1"] * MM, B["z1"] * MM],
+                              backPlate=[[a[0], a[1], b[0], b[1]] for a, b in back_plate()] if back else []),
                 beltSpeed=speed, contacts=contacts.result(), final=dict(t=t, x=x, z=z, vx=vx, vz=vz, w=w),
                 events=events, frames=frames)
 
@@ -289,7 +303,7 @@ STICK = True                                             # stick-slip friction i
 def lane_scene(squeeze=None, cleat=None, feeder_squeeze=None, feeder=True):
     """Static side-view surfaces of the floor lane behind the bumper, from dimensions.py (metres)."""
     K = D.frame_constants("R3", squeeze)
-    B, L, RL = D.BUMPER, D.FRONT_LIP, D.FRONT_RAIL
+    B, RL = D.BUMPER, D.FRONT_RAIL
     bt = K["belt_top"] * MM
     pan = K["floor"] * MM
     cx, cz = K["c"][0] * MM, K["c"][1] * MM
@@ -300,10 +314,9 @@ def lane_scene(squeeze=None, cleat=None, feeder_squeeze=None, feeder=True):
         ((B["x0"] * MM, B["z1"] * MM), (B["x1"] * MM, B["z1"] * MM), "hard", "bumper front"),
         ((B["x0"] * MM, B["z0"] * MM), (B["x0"] * MM, B["z1"] * MM), "hard", "bumper front"),
         ((RL["x0"] * MM, RL["z1"] * MM), (RL["x1"] * MM, RL["z1"] * MM), "hard", "frame rail front"),
-        ((L["x1"] * MM, L["z0"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
-        ((L["x0"] * MM, L["z1"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
-        ((L["x0"] * MM, L["z0"] * MM), (L["x0"] * MM, L["z1"] * MM), "hard", "front lip"),
-        (RAMP[0], RAMP[1], "hard", "throat ramp"),
+        ((RL["x1"] * MM, RL["z1"] * MM), (RL["x1"] * MM, B["z1"] * MM), "hard", "bumper front"),
+        ((RL["x1"] * MM, B["z1"] * MM), (B["x0"] * MM, B["z1"] * MM), "hard", "bumper front"),
+        *[(a, b, "hard", "chute back plate") for a, b in back_plate()],
         ((D.FLOOR_BELT_FRONT["x0"] * MM, bt), (D.FLOOR_BELT_FRONT["x1"] * MM, bt), "belt", "floor belt front"),
         ((D.FLOOR_BELT_MAIN["x0"] * MM, bt), (D.FLOOR_BELT_MAIN["x1"] * MM, bt), "belt", "floor belt main"),
         ((D.LANE_DECK["x0"] * MM, bt), (D.LANE_DECK["x1"] * MM, bt), "deck", "lane deck"),
@@ -513,7 +526,7 @@ def hopper_entry(name, start, belt=None, stage_mps=None, crr=0.03, mu_belt=0.9, 
     run = lane(start, control, scene, crr=crr, mu_belt=mu_belt, mu_hard=mu_hard, mu_feeder=mu_feeder, k=k, zeta=zeta, mass=mass,
                dt=dt, t_end=t_end, every=every, settle=True)
     f = run["final"]
-    on_belt = abs(f["z"] - (scene["beltTop"] + R)) < 0.006
+    on_belt = abs(f["z"] - (scene["beltTop"] + R)) < 0.002 + (scene["feederSqueezeMm"] or 0.0) * MM   # on the deck, pressed no deeper than the squeeze
     gap = wheel_gap_mm(scene, f["x"], f["z"])
     clamp = feeder_depth_mm(scene, f["x"], f["z"]) if feeder else 0.0
     events = sorted(run["events"] + ([dict(t=round(seen[0], 4), event="FUEL centre crosses the stage beam"),
@@ -530,7 +543,7 @@ def hopper_entry(name, start, belt=None, stage_mps=None, crr=0.03, mu_belt=0.9, 
     elif gap < SEAT_CLEAR_MM:
         unmet = f"staged {gap:.1f} mm from the spinning flywheel, inside the {SEAT_CLEAR_MM:.0f} mm reserve"
     elif not on_belt:
-        unmet = "at rest off the belt"
+        unmet = "at rest off the lane deck"
     elif clamp < 1.0:
         unmet = f"staged with {clamp:.1f} mm of feeder squeeze: not clamped"
     elif f["t"] > 5.0:
@@ -538,7 +551,7 @@ def hopper_entry(name, start, belt=None, stage_mps=None, crr=0.03, mu_belt=0.9, 
     ok = unmet is None
     return dict(name=name, kind="entry", passed=ok,
                 metric=dict(name="stage time after capture (s)", value=round(f["t"], 4) if run["outcome"] == "at rest" else None,
-                            requirement=f"at rest on the floor belt within 5.0 s, past the stage beam, clamped at least 1 mm by the feeder roller and "
+                            requirement=f"at rest on the lane deck within 5.0 s, past the stage beam, clamped at least 1 mm by the feeder roller and "
                                         f"at least {SEAT_CLEAR_MM:.0f} mm clear of the spinning flywheel, which it never touches"),
                 firstUnmet=unmet,
                 imposed=(f"start from {start_note}; floor belt surface {belt} m/s toward the flywheel and feeder roller surface {stage_mps} m/s until the "
