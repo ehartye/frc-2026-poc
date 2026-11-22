@@ -1,0 +1,609 @@
+{
+  "sourceHash": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "stageCount": 28,
+  "sides": {
+    "left": {
+      "brakeAxisXYmm": [
+        -317.60315715227057,
+        277
+      ],
+      "axisDistanceMm": 82.5,
+      "controls": {
+        "oldCheekAtEndPulleyOverlapMm3": 44.63574842219704,
+        "relievedCheekAtEndPulleyGapMm": 1.4999999888692126,
+        "beltMotorGapMm": 4.070846200155244,
+        "motorToBrakeGapMm": 30.395243913514655,
+        "motorToShaftPulleyGapMm": 40.89524391351463
+      },
+      "parkedOverlaps": [
+        [
+          "lower lead screw journal",
+          "left reduction envelope",
+          565.4867
+        ]
+      ],
+      "internalOverlaps": [],
+      "rootContacts": {
+        "-280": {
+          "originalLowerPlateGapMm": 3.0,
+          "newLowerSaddleGapMm": 0.0,
+          "newExternalCapGapMm": 0.0
+        },
+        "-180": {
+          "originalLowerPlateGapMm": 23.0,
+          "newLowerSaddleGapMm": 0.0,
+          "newExternalCapGapMm": 0.0
+        }
+      },
+      "nearFixedContacts": [
+        [
+          "belt outer envelope",
+          "left aft mast",
+          10.389
+        ],
+        [
+          "belt outer envelope",
+          "left lift motor envelope",
+          4.071
+        ],
+        [
+          "belt outer envelope",
+          "left reduction envelope",
+          2.4
+        ],
+        [
+          "screw-side pulley",
+          "left reduction envelope",
+          0.5
+        ],
+        [
+          "machined lower plate",
+          "hopper back panel",
+          1.0
+        ],
+        [
+          "machined lower plate",
+          "left hopper wall",
+          1.0
+        ],
+        [
+          "machined lower plate",
+          "left mast",
+          0.0
+        ],
+        [
+          "machined lower plate",
+          "left aft mast",
+          0.0
+        ],
+        [
+          "machined lower plate",
+          "left reduction envelope",
+          0.0
+        ],
+        [
+          "M4 clamp fastener at -296",
+          "left aft mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -264",
+          "left aft mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -264",
+          "left reduction envelope",
+          1.5
+        ],
+        [
+          "split external saddle cap -280",
+          "left aft mast",
+          0.0
+        ],
+        [
+          "M4 clamp fastener at -196",
+          "left mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -164",
+          "left mast",
+          4.0
+        ],
+        [
+          "split external saddle cap -180",
+          "left mast",
+          0.0
+        ]
+      ],
+      "continuousLiftBoundByArticle": [
+        [
+          "belt outer envelope",
+          1.3261698528348607,
+          "left aft carriage sleeve"
+        ],
+        [
+          "screw-side pulley",
+          0.7187499888692188,
+          "left crosshead cheek"
+        ],
+        [
+          "brake-side pulley",
+          17.65403147790876,
+          "left crosshead cheek"
+        ],
+        [
+          "SAB039-30 housing gauge",
+          6.103157152270569,
+          "left crosshead cheek"
+        ],
+        [
+          "machined lower plate",
+          9.0,
+          "crosshead lift bridge"
+        ],
+        [
+          "brake registration plate blank",
+          2.603157152270569,
+          "left crosshead cheek"
+        ],
+        [
+          "auxiliary 6mm shaft gauge",
+          25.591066924409525,
+          "left crosshead cheek"
+        ],
+        [
+          "bracket pillar 0",
+          46.65798618332987,
+          "left crosshead cheek"
+        ],
+        [
+          "bracket pillar 1",
+          32.38585794376304,
+          "left crosshead cheek"
+        ],
+        [
+          "bracket pillar 2",
+          32.98435499875359,
+          "left crosshead cheek"
+        ],
+        [
+          "M4 clamp fastener at -296",
+          14.5,
+          "left aft carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -264",
+          14.5,
+          "left aft carriage sleeve"
+        ],
+        [
+          "split external saddle cap -280",
+          10.0,
+          "left aft carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -196",
+          14.5,
+          "left forward carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -164",
+          13.5,
+          "crosshead lift bridge"
+        ],
+        [
+          "split external saddle cap -180",
+          10.0,
+          "left forward carriage sleeve"
+        ],
+        [
+          "upper pillar screw 0",
+          47.80455342069899,
+          "left crosshead cheek"
+        ],
+        [
+          "upper pillar screw 1",
+          33.06808925875989,
+          "left crosshead cheek"
+        ],
+        [
+          "upper pillar screw 2",
+          34.10315715227057,
+          "left crosshead cheek"
+        ],
+        [
+          "lower radial bush envelope",
+          36.94974655307688,
+          "left crosshead cheek"
+        ],
+        [
+          "upper radial bush envelope",
+          21.57043741644144,
+          "left crosshead cheek"
+        ],
+        [
+          "lower lead screw journal",
+          0.40937499999997307,
+          "left nut link"
+        ],
+        [
+          "transverse drive pin screw-side pulley",
+          0.6197304864072155,
+          "left crosshead cheek"
+        ],
+        [
+          "transverse drive pin brake-side pulley",
+          24.90963838840616,
+          "left crosshead cheek"
+        ]
+      ],
+      "service": {
+        "brake withdrawal +65mm": {
+          "parkedMinimumMm": 10.173585158586143,
+          "nearest": "left crosshead cheek",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 0": {
+          "parkedMinimumMm": 50.0,
+          "nearest": "hopper back panel",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 1": {
+          "parkedMinimumMm": 27.63561447026661,
+          "nearest": "left lift motor envelope",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 2": {
+          "parkedMinimumMm": 39.097680406576856,
+          "nearest": "left aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -296": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "left aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -264": {
+          "parkedMinimumMm": 3.0,
+          "nearest": "left reduction envelope",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -196": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "left mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -164": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "left mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "pin service punch screw-side pulley": {
+          "parkedMinimumMm": 10.149999999999977,
+          "nearest": "left aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "pin service punch brake-side pulley": {
+          "parkedMinimumMm": 38.14999999999998,
+          "nearest": "hopper back panel",
+          "interference": [],
+          "fixtureObstructions": []
+        }
+      },
+      "baseWingRootOverlapWithOriginalMm3": 896.0000000000001
+    },
+    "right": {
+      "brakeAxisXYmm": [
+        -317.60315715227057,
+        -277
+      ],
+      "axisDistanceMm": 82.5,
+      "controls": {
+        "oldCheekAtEndPulleyOverlapMm3": 44.63574842219704,
+        "relievedCheekAtEndPulleyGapMm": 1.4999999888692126,
+        "beltMotorGapMm": 4.070846200155251,
+        "motorToBrakeGapMm": 30.395243913514634,
+        "motorToShaftPulleyGapMm": 40.89524391351466
+      },
+      "parkedOverlaps": [
+        [
+          "lower lead screw journal",
+          "right reduction envelope",
+          565.4867
+        ]
+      ],
+      "internalOverlaps": [],
+      "rootContacts": {
+        "-280": {
+          "originalLowerPlateGapMm": 3.0,
+          "newLowerSaddleGapMm": 0.0,
+          "newExternalCapGapMm": 0.0
+        },
+        "-180": {
+          "originalLowerPlateGapMm": 23.0,
+          "newLowerSaddleGapMm": 0.0,
+          "newExternalCapGapMm": 0.0
+        }
+      },
+      "nearFixedContacts": [
+        [
+          "belt outer envelope",
+          "right aft mast",
+          10.389
+        ],
+        [
+          "belt outer envelope",
+          "right lift motor envelope",
+          4.071
+        ],
+        [
+          "belt outer envelope",
+          "right reduction envelope",
+          2.4
+        ],
+        [
+          "screw-side pulley",
+          "right reduction envelope",
+          0.5
+        ],
+        [
+          "machined lower plate",
+          "hopper back panel",
+          1.0
+        ],
+        [
+          "machined lower plate",
+          "right hopper wall",
+          1.0
+        ],
+        [
+          "machined lower plate",
+          "right mast",
+          0.0
+        ],
+        [
+          "machined lower plate",
+          "right aft mast",
+          0.0
+        ],
+        [
+          "machined lower plate",
+          "right reduction envelope",
+          0.0
+        ],
+        [
+          "M4 clamp fastener at -296",
+          "right aft mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -264",
+          "right aft mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -264",
+          "right reduction envelope",
+          1.5
+        ],
+        [
+          "split external saddle cap -280",
+          "right aft mast",
+          0.0
+        ],
+        [
+          "M4 clamp fastener at -196",
+          "right mast",
+          4.0
+        ],
+        [
+          "M4 clamp fastener at -164",
+          "right mast",
+          4.0
+        ],
+        [
+          "split external saddle cap -180",
+          "right mast",
+          0.0
+        ]
+      ],
+      "continuousLiftBoundByArticle": [
+        [
+          "belt outer envelope",
+          1.326169852834843,
+          "right aft carriage sleeve"
+        ],
+        [
+          "screw-side pulley",
+          0.7187499888692188,
+          "right crosshead cheek"
+        ],
+        [
+          "brake-side pulley",
+          17.65403147790876,
+          "right crosshead cheek"
+        ],
+        [
+          "SAB039-30 housing gauge",
+          6.103157152270569,
+          "right crosshead cheek"
+        ],
+        [
+          "machined lower plate",
+          9.0,
+          "crosshead lift bridge"
+        ],
+        [
+          "brake registration plate blank",
+          2.603157152270569,
+          "right crosshead cheek"
+        ],
+        [
+          "auxiliary 6mm shaft gauge",
+          25.591066924409525,
+          "right crosshead cheek"
+        ],
+        [
+          "bracket pillar 0",
+          46.65798618332987,
+          "right crosshead cheek"
+        ],
+        [
+          "bracket pillar 1",
+          32.38585794376304,
+          "right crosshead cheek"
+        ],
+        [
+          "bracket pillar 2",
+          32.98435499875359,
+          "right crosshead cheek"
+        ],
+        [
+          "M4 clamp fastener at -296",
+          14.5,
+          "right aft carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -264",
+          14.5,
+          "right aft carriage sleeve"
+        ],
+        [
+          "split external saddle cap -280",
+          10.0,
+          "right aft carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -196",
+          14.5,
+          "right forward carriage sleeve"
+        ],
+        [
+          "M4 clamp fastener at -164",
+          13.5,
+          "crosshead lift bridge"
+        ],
+        [
+          "split external saddle cap -180",
+          10.0,
+          "right forward carriage sleeve"
+        ],
+        [
+          "upper pillar screw 0",
+          47.80455342069899,
+          "right crosshead cheek"
+        ],
+        [
+          "upper pillar screw 1",
+          33.06808925875989,
+          "right crosshead cheek"
+        ],
+        [
+          "upper pillar screw 2",
+          34.10315715227057,
+          "right crosshead cheek"
+        ],
+        [
+          "lower radial bush envelope",
+          36.94974655307688,
+          "right crosshead cheek"
+        ],
+        [
+          "upper radial bush envelope",
+          21.57043741644144,
+          "right crosshead cheek"
+        ],
+        [
+          "lower lead screw journal",
+          0.40937499999997307,
+          "right nut link"
+        ],
+        [
+          "transverse drive pin screw-side pulley",
+          0.6197304864072155,
+          "right crosshead cheek"
+        ],
+        [
+          "transverse drive pin brake-side pulley",
+          24.90963838840616,
+          "right crosshead cheek"
+        ]
+      ],
+      "service": {
+        "brake withdrawal +65mm": {
+          "parkedMinimumMm": 10.173585158586143,
+          "nearest": "right crosshead cheek",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 0": {
+          "parkedMinimumMm": 50.0,
+          "nearest": "hopper back panel",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 1": {
+          "parkedMinimumMm": 27.635614470266606,
+          "nearest": "right lift motor envelope",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "8mm OD pillar driver 2": {
+          "parkedMinimumMm": 39.097680406576856,
+          "nearest": "right aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -296": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "right aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -264": {
+          "parkedMinimumMm": 3.0,
+          "nearest": "right reduction envelope",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -196": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "right mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "clamp driver at -164": {
+          "parkedMinimumMm": 8.94427190999916,
+          "nearest": "right mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "pin service punch screw-side pulley": {
+          "parkedMinimumMm": 10.149999999999977,
+          "nearest": "right aft mast",
+          "interference": [],
+          "fixtureObstructions": []
+        },
+        "pin service punch brake-side pulley": {
+          "parkedMinimumMm": 38.14999999999998,
+          "nearest": "hopper back panel",
+          "interference": [],
+          "fixtureObstructions": []
+        }
+      },
+      "baseWingRootOverlapWithOriginalMm3": 896.0000000000001
+    }
+  },
+  "scope": "Registered park, deploy, 100 mm lift, straight brake removal and provisional post-driver sweeps. Exact native fixed and moving robot products, conservative project-drawn vendor envelopes. Planned lower-plate and screw replacement excluded from old collision roster. Stock pulley has 4 mm pilot, project 6 mm bore. A short keyed or pinned shaft and positively secured pulley joints, the redesigned reducer, brake mounting pattern, bearing fits, fasteners, belt static rating/tensioner/guard, full height, dual-side racking and installed stop rating remain to establish."
+}

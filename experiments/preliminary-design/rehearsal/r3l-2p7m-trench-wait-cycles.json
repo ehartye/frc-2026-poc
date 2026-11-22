@@ -1,0 +1,350 @@
+{
+ "schema": "agent-frc/rehearsal-wait-cycles@1",
+ "profileSha256": "aac09c48657c75f75e5a6682fe56f43203522a9af6951b2e6cc59d74ee8a9daf",
+ "resultSha256": "4a87d93b07ab727c95d3d94931711cc4d48024ba61ce2ee54675cc29b81cfec7",
+ "waitCycles": "yield",
+ "cycleCount": 28,
+ "permanentCount": 21,
+ "matchesWithCycles": [
+  "Neutral return",
+  "Missed preload"
+ ],
+ "cycles": [
+  {
+   "match": "Neutral return",
+   "phase": "Transition",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 6.5,
+   "durationS": 3.5,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Transition",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 6.5,
+   "durationS": 3.5,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 1",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.1,
+   "durationS": 21.9,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 1",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 3.1,
+   "durationS": 21.9,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 2",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 0.35,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B2"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 2",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 7.95,
+   "durationS": 17.05,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 2",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.35,
+   "durationS": 24.65,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 3",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.05,
+   "durationS": 21.95,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 3",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 24.85,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 4",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 0.25,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B3"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 4",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 7.85,
+   "durationS": 17.15,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 4",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 24.85,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "End game",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.1,
+   "durationS": 3.9,
+   "ended": "cleared",
+   "yielded": null
+  },
+  {
+   "match": "Neutral return",
+   "phase": "End game",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 26.85,
+   "ended": "cleared",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Transition",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 6.5,
+   "durationS": 3.5,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Transition",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 6.5,
+   "durationS": 3.5,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 1",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.1,
+   "durationS": 21.9,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 1",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 3.1,
+   "durationS": 21.9,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 2",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 0.35,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 2",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 7.95,
+   "durationS": 17.05,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 2",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.35,
+   "durationS": 24.65,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 3",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.05,
+   "durationS": 21.95,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 3",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 24.85,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 4",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 0.25,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B3"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 4",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 7.85,
+   "durationS": 17.15,
+   "ended": "period-end",
+   "yielded": null
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 4",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 24.85,
+   "ended": "period-end",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "End game",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 0.15,
+   "durationS": 6.85,
+   "ended": "cleared",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "End game",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 3.1,
+   "durationS": 26.9,
+   "ended": "period-end",
+   "yielded": null
+  }
+ ]
+}

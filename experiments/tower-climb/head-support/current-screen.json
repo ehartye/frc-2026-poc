@@ -1,0 +1,178 @@
+{
+  "nominal": {
+    "23.0": {
+      "settings": {},
+      "cutS": 9.0,
+      "firstClearS": 4.89775,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 50.98543271658242,
+      "peakQuasistaticDemandA": 2.81454220260028,
+      "assessmentStrokeMm": 100.0
+    },
+    "4.5": {
+      "settings": {},
+      "cutS": 9.0,
+      "firstClearS": 4.89775,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 50.98543271658242,
+      "peakQuasistaticDemandA": 2.81454220260028,
+      "assessmentStrokeMm": 100.0
+    }
+  },
+  "soft-forward": {
+    "23.0": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "cutS": 9.0,
+      "firstClearS": 5.5512500000000005,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 37.04964482971587,
+      "peakQuasistaticDemandA": 3.0523696854096993,
+      "assessmentStrokeMm": 100.0
+    },
+    "4.5": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "cutS": 9.0,
+      "firstClearS": 5.5512500000000005,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 37.04964482971587,
+      "peakQuasistaticDemandA": 3.0523696854096993,
+      "assessmentStrokeMm": 100.0
+    }
+  },
+  "tilt": {
+    "23.0": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "cutS": 9.0,
+      "firstClearS": 4.98725,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 49.257959539789695,
+      "peakQuasistaticDemandA": 6.135497876746696,
+      "assessmentStrokeMm": 100.0
+    },
+    "4.5": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "cutS": 9.0,
+      "firstClearS": null,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 0,
+      "evaluatedGapMm": -0.44895998553382693,
+      "peakQuasistaticDemandA": 4.561116551662431,
+      "assessmentStrokeMm": 44.58292037643063
+    }
+  },
+  "low-thread-friction": {
+    "23.0": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "thread_mu": 0.035
+      },
+      "cutS": 9.0,
+      "firstClearS": 4.99925,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 33.64715384221925,
+      "peakQuasistaticDemandA": 1.5284488410782944,
+      "assessmentStrokeMm": 83.54003842758571
+    },
+    "4.5": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "thread_mu": 0.035
+      },
+      "cutS": 9.0,
+      "firstClearS": 4.99925,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 33.64715384221925,
+      "peakQuasistaticDemandA": 1.5284488410782944,
+      "assessmentStrokeMm": 83.54003842758571
+    }
+  },
+  "high-thread-friction": {
+    "23.0": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "thread_mu": 0.21
+      },
+      "cutS": 9.0,
+      "firstClearS": 5.5512500000000005,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 37.04964482971587,
+      "peakQuasistaticDemandA": 4.098409906647199,
+      "assessmentStrokeMm": 100.0
+    },
+    "4.5": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "thread_mu": 0.21
+      },
+      "cutS": 9.0,
+      "firstClearS": 5.5512500000000005,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 37.04964482971587,
+      "peakQuasistaticDemandA": 4.098409906647199,
+      "assessmentStrokeMm": 100.0
+    }
+  },
+  "tilt-high-friction": {
+    "23.0": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5,
+        "thread_mu": 0.21
+      },
+      "cutS": 9.0,
+      "firstClearS": 4.98725,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 10,
+      "evaluatedGapMm": 49.257959539789695,
+      "peakQuasistaticDemandA": 8.238119189974974,
+      "assessmentStrokeMm": 100.0
+    },
+    "4.5": {
+      "settings": {
+        "mass": 68.0,
+        "cog_x": 0.035,
+        "roll_deg": 1.5,
+        "thread_mu": 0.21
+      },
+      "cutS": 9.0,
+      "firstClearS": null,
+      "lostAfterCutS": null,
+      "pointsAt2sAfterCut": 0,
+      "evaluatedGapMm": -1.1197085289856092,
+      "peakQuasistaticDemandA": 4.585467822996621,
+      "assessmentStrokeMm": 39.36614925420918
+    }
+  }
+}

@@ -1,0 +1,287 @@
+{
+ "schema": "frc-2026-poc/rehearsal-comparison@1",
+ "runner": "agent-frc scripts/rehearsal-series.mjs",
+ "deliveryPoseM": 2.7,
+ "hubCentreIn": [
+  182.1,
+  158.85
+ ],
+ "basis": "All profiles opt into rehearsal.waitCycles = yield (Agent FRC 0.84.0) and share one partner deconfliction (deep reserve; neutral runner east of the depot lane, delivering south of the HUB axis); runs before 0.84 held permanent robot-to-robot wait cycles that froze slot 2. Slot 2 (B2/R2) is the robot under design. Its AUTO and depot-shift delivery steps move to 2.7 m from the HUB centre, keeping their bearing unless the point would leave the profile's 52 in legal-pose screen (then the bearing turns toward the HUB axis); R3L variants also lower its height to 534 mm. The trench variant gives slot 2 a copy of the low-trench neutral program with the same 2.7 m delivery.",
+ "variants": [
+  {
+   "variant": "kickoff-baseline-yield",
+   "waitCycles": {
+    "mode": "yield",
+    "count": 4,
+    "permanent": 0,
+    "report": "kickoff-baseline-yield-wait-cycles.json"
+   },
+   "profile": {
+    "file": "experiments/preliminary-design/rehearsal/kickoff-baseline-yield-profile.json",
+    "sha256": "4f6b608f0f068742e001921b20fd1bd9db91456274fb7cde3f7e8e7baad533d8"
+   },
+   "result": {
+    "file": "experiments/preliminary-design/rehearsal/kickoff-baseline-yield-series.json",
+    "sha256": "ecd6c07d7863b73ee4950a5a77f4017f0ceea064de8f0c6809e298b83c4740f9"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 54,
+      "red": 70
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 28
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 60,
+      "red": 60
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 20
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 70,
+      "red": 52
+     },
+     "slot2Credited": {
+      "B2": 20,
+      "R2": 24
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3-2p7m",
+   "waitCycles": {
+    "mode": "yield",
+    "count": 0,
+    "permanent": 0,
+    "report": "r3-2p7m-wait-cycles.json"
+   },
+   "profile": {
+    "file": "experiments/preliminary-design/rehearsal/r3-2p7m-profile.json",
+    "sha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6"
+   },
+   "result": {
+    "file": "experiments/preliminary-design/rehearsal/r3-2p7m-series.json",
+    "sha256": "2c98a351d2de885339ca2fd5d1dc1ff30e76114049d8a63e76cdb196224fc1f9"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 54,
+      "red": 70
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 28
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 68,
+      "red": 60
+     },
+     "slot2Credited": {
+      "B2": 20,
+      "R2": 16
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 70,
+      "red": 60
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 28
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3l-2p7m-depot",
+   "waitCycles": {
+    "mode": "yield",
+    "count": 0,
+    "permanent": 0,
+    "report": "r3l-2p7m-depot-wait-cycles.json"
+   },
+   "profile": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-depot-profile.json",
+    "sha256": "dcfc63bc876cb9bb15671201e4c075556dd0cfe2c21d1d9a5be33ac597d1cde0"
+   },
+   "result": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-depot-series.json",
+    "sha256": "3f73bef64e68bd4983e3df220741fbec84682aac5879b484f236ff895cc18d71"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 54,
+      "red": 70
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 28
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 68,
+      "red": 60
+     },
+     "slot2Credited": {
+      "B2": 20,
+      "R2": 16
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 70,
+      "red": 60
+     },
+     "slot2Credited": {
+      "B2": 16,
+      "R2": 28
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3l-2p7m-trench",
+   "waitCycles": {
+    "mode": "yield",
+    "count": 28,
+    "permanent": 21,
+    "report": "r3l-2p7m-trench-wait-cycles.json"
+   },
+   "profile": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-trench-profile.json",
+    "sha256": "aac09c48657c75f75e5a6682fe56f43203522a9af6951b2e6cc59d74ee8a9daf"
+   },
+   "result": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-trench-series.json",
+    "sha256": "4a87d93b07ab727c95d3d94931711cc4d48024ba61ce2ee54675cc29b81cfec7"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 36,
+      "red": 36
+     },
+     "slot2Credited": {
+      "B2": 0,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 46,
+      "red": 28
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    }
+   ]
+  },
+  {
+   "variant": "r3l-2p7m-trench-solo",
+   "waitCycles": {
+    "mode": "yield",
+    "count": 0,
+    "permanent": 0,
+    "report": "r3l-2p7m-trench-solo-wait-cycles.json"
+   },
+   "profile": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-trench-solo-profile.json",
+    "sha256": "07344c3f170b7b83b47925ccd24807b186c8364465a049246ff071fc28f7737e"
+   },
+   "result": {
+    "file": "experiments/preliminary-design/rehearsal/r3l-2p7m-trench-solo-series.json",
+    "sha256": "c51b8e8f923394e6d4074b56aca38a8d40cc5bbb56bdb24f8955ccade6d021ea"
+   },
+   "matches": [
+    {
+     "match": "Own-zone supply",
+     "score": {
+      "blue": 46,
+      "red": 50
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Neutral return",
+     "score": {
+      "blue": 32,
+      "red": 36
+     },
+     "slot2Credited": {
+      "B2": 0,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    },
+    {
+     "match": "Missed preload",
+     "score": {
+      "blue": 46,
+      "red": 24
+     },
+     "slot2Credited": {
+      "B2": 8,
+      "R2": 8
+     },
+     "slot2Terminal": null
+    }
+   ]
+  }
+ ]
+}

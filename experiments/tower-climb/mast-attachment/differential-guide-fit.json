@@ -1,0 +1,175 @@
+{
+  "sourceStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "mastRecipeSha256": "e7cef1c5189eb90a3d5536215dee42e46cb96c4818165d7524d1db64b441d280",
+  "symmetricAt100mmGapMm": {
+    "left forward carriage sleeve": 0.5,
+    "left aft carriage sleeve": 0.5,
+    "right forward carriage sleeve": 0.5,
+    "right aft carriage sleeve": 0.5
+  },
+  "heldSide": {
+    "left": {
+      "heldNutPivotMm": [
+        -240.0,
+        305.0,
+        618.0
+      ],
+      "screwSpacingMm": 610.0,
+      "firstAboveFiveThousandthsMm3BracketMm": [
+        8.46533203125,
+        8.465576171875
+      ],
+      "rolledDegrees": 0.7951759948877923,
+      "observedAtUpperBracketMm3": {
+        "left forward carriage sleeve": 0.005027672598594873,
+        "left aft carriage sleeve": 0.005027672598594873,
+        "right forward carriage sleeve": 0.0,
+        "right aft carriage sleeve": 0.0
+      },
+      "slipStatesMm": {
+        "0": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "1": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "2": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "4": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "8": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "12": {
+          "left forward carriage sleeve": 23.3478216476867,
+          "left aft carriage sleeve": 23.3478216476867,
+          "right forward carriage sleeve": 3.9480948034374554,
+          "right aft carriage sleeve": 3.9480948034374554
+        },
+        "16": {
+          "left forward carriage sleeve": 78.99014041302497,
+          "left aft carriage sleeve": 78.99014041302497,
+          "right forward carriage sleeve": 20.311710540338257,
+          "right aft carriage sleeve": 20.311710540338257
+        },
+        "24": {
+          "left forward carriage sleeve": 225.13048583796578,
+          "left aft carriage sleeve": 225.13048583796578,
+          "right forward carriage sleeve": 54.381131634357416,
+          "right aft carriage sleeve": 54.381131634357416
+        },
+        "32": {
+          "left forward carriage sleeve": 391.38322176715667,
+          "left aft carriage sleeve": 391.38322176715667,
+          "right forward carriage sleeve": 121.61757361773687,
+          "right aft carriage sleeve": 121.61757361773687
+        },
+        "48": {
+          "left forward carriage sleeve": 728.7269619661947,
+          "left aft carriage sleeve": 728.7269619661947,
+          "right forward carriage sleeve": 436.1164102036349,
+          "right aft carriage sleeve": 436.1164102036349
+        }
+      }
+    },
+    "right": {
+      "heldNutPivotMm": [
+        -240.0,
+        -305.0,
+        618.0
+      ],
+      "screwSpacingMm": 610.0,
+      "firstAboveFiveThousandthsMm3BracketMm": [
+        8.46533203125,
+        8.465576171875
+      ],
+      "rolledDegrees": 0.7951759948877923,
+      "observedAtUpperBracketMm3": {
+        "left forward carriage sleeve": 0.0,
+        "left aft carriage sleeve": 0.0,
+        "right forward carriage sleeve": 0.005027672598551965,
+        "right aft carriage sleeve": 0.005027672598551965
+      },
+      "slipStatesMm": {
+        "0": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "1": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "2": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "4": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "8": {
+          "left forward carriage sleeve": 0.0,
+          "left aft carriage sleeve": 0.0,
+          "right forward carriage sleeve": 0.0,
+          "right aft carriage sleeve": 0.0
+        },
+        "12": {
+          "left forward carriage sleeve": 3.9480948034372503,
+          "left aft carriage sleeve": 3.9480948034372503,
+          "right forward carriage sleeve": 23.347821647686015,
+          "right aft carriage sleeve": 23.347821647686015
+        },
+        "16": {
+          "left forward carriage sleeve": 20.311710540339238,
+          "left aft carriage sleeve": 20.311710540339238,
+          "right forward carriage sleeve": 78.99014041301942,
+          "right aft carriage sleeve": 78.99014041301942
+        },
+        "24": {
+          "left forward carriage sleeve": 54.381131634370945,
+          "left aft carriage sleeve": 54.381131634370945,
+          "right forward carriage sleeve": 225.13048583796922,
+          "right aft carriage sleeve": 225.13048583796922
+        },
+        "32": {
+          "left forward carriage sleeve": 121.61757361766081,
+          "left aft carriage sleeve": 121.61757361766081,
+          "right forward carriage sleeve": 391.3832217671632,
+          "right aft carriage sleeve": 391.3832217671632
+        },
+        "48": {
+          "left forward carriage sleeve": 436.1164102036405,
+          "left aft carriage sleeve": 436.1164102036405,
+          "right forward carriage sleeve": 728.7269619662023,
+          "right aft carriage sleeve": 728.7269619662023
+        }
+      }
+    }
+  },
+  "scope": "One screw axis stays at full working stroke. The other screw backdrives while a hypothetical rigid carriage remains free to roll about the held nut center. This favorable articulation measures sleeve/mast interference from differential displacement. Actual screw nuts, bearings, alignment, frame stiffness, brake loading, elastic contact, time to slip and posture after binding require additional evidence."
+}

@@ -1,0 +1,62 @@
+{
+ "schema": "agent-frc/rehearsal-wait-cycles@1",
+ "profileSha256": "4f6b608f0f068742e001921b20fd1bd9db91456274fb7cde3f7e8e7baad533d8",
+ "resultSha256": "ecd6c07d7863b73ee4950a5a77f4017f0ceea064de8f0c6809e298b83c4740f9",
+ "waitCycles": "yield",
+ "cycleCount": 4,
+ "permanentCount": 0,
+ "matchesWithCycles": [
+  "Neutral return",
+  "Missed preload"
+ ],
+ "cycles": [
+  {
+   "match": "Neutral return",
+   "phase": "Shift 1",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 12.15,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B2"
+  },
+  {
+   "match": "Neutral return",
+   "phase": "Shift 1",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 12.15,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "R2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 1",
+   "cycle": [
+    "B2",
+    "B3"
+   ],
+   "startS": 12.15,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "B2"
+  },
+  {
+   "match": "Missed preload",
+   "phase": "Shift 1",
+   "cycle": [
+    "R2",
+    "R3"
+   ],
+   "startS": 12.15,
+   "durationS": 1,
+   "ended": "cleared",
+   "yielded": "R2"
+  }
+ ]
+}

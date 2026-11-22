@@ -1,0 +1,872 @@
+{
+  "provenance": {
+    "experiments\\tower-climb\\support.py": "ac1316624ae589ba8ff495987450dfddd8ed3c5c66e66c083b0bc9d4328af8b0",
+    "experiments\\tower-climb\\field.json": "207087711375e9d905fb482e83bbaef2251a3c89b44c4e2fd44217df553193aa",
+    "experiments\\tower-climb\\head-support\\bumper-sensitivity.json": "19f6104b3051ee858146872f40141040415efc43931485f3dedb70d27161e39d",
+    "cad\\tower-lift\\recipe.py": "0c1ee07e846fc578b4aa042db6d738f6b95e284532999f7ffa0c49c2a48e9c50",
+    "cad\\assembly-release\\foundation-student.step": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e"
+  },
+  "cases": {
+    "baseline62": {
+      "inputs": {},
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 350.22838308361435,
+          "timeS": 4.8705
+        },
+        "hookPlus": {
+          "forceN": 350.22838308361435,
+          "timeS": 4.8705
+        },
+        "eitherHook": {
+          "forceN": 350.22838308361435,
+          "timeS": 4.8705
+        },
+        "bridgeMinus": {
+          "forceN": 350.22838308361435,
+          "timeS": 4.8705
+        },
+        "bridgePlus": {
+          "forceN": 350.22838308361435,
+          "timeS": 4.8705
+        },
+        "singleDriveProjection": {
+          "forceN": 700.4567661672287,
+          "timeS": 4.8705
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 2.81454220260028
+    },
+    "loaded68": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "hookPlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "eitherHook": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgeMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgePlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "singleDriveProjection": {
+          "forceN": 772.2901337728816,
+          "timeS": 4.973
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.103179638122948
+    },
+    "loaded68-k32000": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 32000
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 378.9024938742044,
+          "timeS": 5.4895000000000005
+        },
+        "hookPlus": {
+          "forceN": 378.9024938742044,
+          "timeS": 5.4895000000000005
+        },
+        "eitherHook": {
+          "forceN": 378.9024938742044,
+          "timeS": 5.4895000000000005
+        },
+        "bridgeMinus": {
+          "forceN": 378.9024938742044,
+          "timeS": 5.4895000000000005
+        },
+        "bridgePlus": {
+          "forceN": 378.9024938742044,
+          "timeS": 5.4895000000000005
+        },
+        "singleDriveProjection": {
+          "forceN": 757.8049877484088,
+          "timeS": 5.4895000000000005
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.0449761104166098
+    },
+    "loaded68-k96000": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 96000
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 388.9376691300816,
+          "timeS": 4.801
+        },
+        "hookPlus": {
+          "forceN": 388.9376691300816,
+          "timeS": 4.801
+        },
+        "eitherHook": {
+          "forceN": 388.9376691300816,
+          "timeS": 4.801
+        },
+        "bridgeMinus": {
+          "forceN": 388.9376691300816,
+          "timeS": 4.801
+        },
+        "bridgePlus": {
+          "forceN": 388.9376691300816,
+          "timeS": 4.801
+        },
+        "singleDriveProjection": {
+          "forceN": 777.8753382601632,
+          "timeS": 4.801
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.125621842265857
+    },
+    "loaded68-k128000": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 128000
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 390.37454290544997,
+          "timeS": 4.714
+        },
+        "hookPlus": {
+          "forceN": 390.37454290544997,
+          "timeS": 4.714
+        },
+        "eitherHook": {
+          "forceN": 390.37454290544997,
+          "timeS": 4.714
+        },
+        "bridgeMinus": {
+          "forceN": 390.37454290544997,
+          "timeS": 4.714
+        },
+        "bridgePlus": {
+          "forceN": 390.37454290544997,
+          "timeS": 4.714
+        },
+        "singleDriveProjection": {
+          "forceN": 780.7490858108999,
+          "timeS": 4.714
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.137168998567058
+    },
+    "loaded68-forward50": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 387.3757679773977,
+          "timeS": 4.992
+        },
+        "hookPlus": {
+          "forceN": 387.3757679773977,
+          "timeS": 4.992
+        },
+        "eitherHook": {
+          "forceN": 387.3757679773977,
+          "timeS": 4.992
+        },
+        "bridgeMinus": {
+          "forceN": 387.3757679773977,
+          "timeS": 4.992
+        },
+        "bridgePlus": {
+          "forceN": 387.3757679773977,
+          "timeS": 4.992
+        },
+        "singleDriveProjection": {
+          "forceN": 774.7515359547954,
+          "timeS": 4.992
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.1130699277927523
+    },
+    "loaded68-forward50-double": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 128000
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 391.73069478511593,
+          "timeS": 4.7250000000000005
+        },
+        "hookPlus": {
+          "forceN": 391.73069478511593,
+          "timeS": 4.7250000000000005
+        },
+        "eitherHook": {
+          "forceN": 391.73069478511593,
+          "timeS": 4.7250000000000005
+        },
+        "bridgeMinus": {
+          "forceN": 391.73069478511593,
+          "timeS": 4.7250000000000005
+        },
+        "bridgePlus": {
+          "forceN": 391.73069478511593,
+          "timeS": 4.7250000000000005
+        },
+        "singleDriveProjection": {
+          "forceN": 783.4613895702319,
+          "timeS": 4.7250000000000005
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.14806744907198
+    },
+    "loaded68-roll": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 763.4724747778528,
+          "timeS": 4.9742500000000005
+        },
+        "hookPlus": {
+          "forceN": 11.266923511093072,
+          "timeS": 4.923
+        },
+        "eitherHook": {
+          "forceN": 763.4724747778528,
+          "timeS": 4.9742500000000005
+        },
+        "bridgeMinus": {
+          "forceN": 494.2537592254521,
+          "timeS": 4.96575
+        },
+        "bridgePlus": {
+          "forceN": 276.7182770772614,
+          "timeS": 4.9535
+        },
+        "singleDriveProjection": {
+          "forceN": 770.6945179862064,
+          "timeS": 4.9605
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 6.135497876746696
+    },
+    "soft50-coarse": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 379.82251554332174,
+          "timeS": 5.5255
+        },
+        "hookPlus": {
+          "forceN": 379.82251554332174,
+          "timeS": 5.5255
+        },
+        "eitherHook": {
+          "forceN": 379.82251554332174,
+          "timeS": 5.5255
+        },
+        "bridgeMinus": {
+          "forceN": 379.82251554332174,
+          "timeS": 5.5255
+        },
+        "bridgePlus": {
+          "forceN": 379.82251554332174,
+          "timeS": 5.5255
+        },
+        "singleDriveProjection": {
+          "forceN": 759.6450310866435,
+          "timeS": 5.5255
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.0523696854096993
+    },
+    "soft50-refined": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "dt": 0.000125
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 88001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 379.82188034317653,
+          "timeS": 5.525625
+        },
+        "hookPlus": {
+          "forceN": 379.82188034317653,
+          "timeS": 5.525625
+        },
+        "eitherHook": {
+          "forceN": 379.82188034317653,
+          "timeS": 5.525625
+        },
+        "bridgeMinus": {
+          "forceN": 379.82188034317653,
+          "timeS": 5.525625
+        },
+        "bridgePlus": {
+          "forceN": 379.82188034317653,
+          "timeS": 5.525625
+        },
+        "singleDriveProjection": {
+          "forceN": 759.6437606863531,
+          "timeS": 5.525625
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.0523645807474216
+    },
+    "soft35-refined": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 32000,
+        "dt": 0.000125
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 88001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 378.9018686843224,
+          "timeS": 5.489375
+        },
+        "hookPlus": {
+          "forceN": 378.9018686843224,
+          "timeS": 5.489375
+        },
+        "eitherHook": {
+          "forceN": 378.9018686843224,
+          "timeS": 5.489375
+        },
+        "bridgeMinus": {
+          "forceN": 378.9018686843224,
+          "timeS": 5.489375
+        },
+        "bridgePlus": {
+          "forceN": 378.9018686843224,
+          "timeS": 5.489375
+        },
+        "singleDriveProjection": {
+          "forceN": 757.8037373686448,
+          "timeS": 5.489375
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.0449710861998622
+    },
+    "nominal-k-cg38": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.038
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 386.3922497726,
+          "timeS": 4.97675
+        },
+        "hookPlus": {
+          "forceN": 386.3922497726,
+          "timeS": 4.97675
+        },
+        "eitherHook": {
+          "forceN": 386.3922497726,
+          "timeS": 4.97675
+        },
+        "bridgeMinus": {
+          "forceN": 386.3922497726,
+          "timeS": 4.97675
+        },
+        "bridgePlus": {
+          "forceN": 386.3922497726,
+          "timeS": 4.97675
+        },
+        "singleDriveProjection": {
+          "forceN": 772.7844995452,
+          "timeS": 4.97675
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.1051660752549988
+    },
+    "nominal-k-cg40": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.04
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 386.55670869228726,
+          "timeS": 4.97925
+        },
+        "hookPlus": {
+          "forceN": 386.55670869228726,
+          "timeS": 4.97925
+        },
+        "eitherHook": {
+          "forceN": 386.55670869228726,
+          "timeS": 4.97925
+        },
+        "bridgeMinus": {
+          "forceN": 386.55670869228726,
+          "timeS": 4.97925
+        },
+        "bridgePlus": {
+          "forceN": 386.55670869228726,
+          "timeS": 4.97925
+        },
+        "singleDriveProjection": {
+          "forceN": 773.1134173845745,
+          "timeS": 4.97925
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.1064877173388825
+    },
+    "left-only": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "lateral_error": 0.23
+      },
+      "hooksLandingOnRung": [
+        true,
+        false
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "hookPlus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "eitherHook": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "bridgeMinus": {
+          "forceN": 494.64853491200523,
+          "timeS": 5.15975
+        },
+        "bridgePlus": {
+          "forceN": 273.12654472240496,
+          "timeS": 5.15975
+        },
+        "singleDriveProjection": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 0,
+      "peakCurrentReportedA": 6.170074922853785
+    },
+    "opposite-offset-two-contact": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "lateral_error": -0.23
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "hookPlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "eitherHook": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgeMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgePlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "singleDriveProjection": {
+          "forceN": 772.2901337728816,
+          "timeS": 4.973
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 3.103179638122948
+    },
+    "right-only": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "lateral_error": 0.07
+      },
+      "hooksLandingOnRung": [
+        false,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "hookPlus": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "eitherHook": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "bridgeMinus": {
+          "forceN": 273.12654472240496,
+          "timeS": 5.15975
+        },
+        "bridgePlus": {
+          "forceN": 494.64853491200523,
+          "timeS": 5.15975
+        },
+        "singleDriveProjection": {
+          "forceN": 767.7750796344102,
+          "timeS": 5.15975
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 0,
+      "peakCurrentReportedA": 6.170074922853785
+    },
+    "released-thread": {
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "thread_mu": 0.035
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "hookPlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "eitherHook": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgeMinus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "bridgePlus": {
+          "forceN": 386.1450668864408,
+          "timeS": 4.973
+        },
+        "singleDriveProjection": {
+          "forceN": 772.2901337728816,
+          "timeS": 4.973
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 10,
+      "peakCurrentReportedA": 1.5284488410782944
+    },
+    "disabled": {
+      "inputs": {
+        "disable": true
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 44001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "hookPlus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "eitherHook": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "bridgeMinus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "bridgePlus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "singleDriveProjection": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 0,
+      "peakCurrentReportedA": 0.0
+    },
+    "early-stop": {
+      "inputs": {
+        "powered_cut": 2.0
+      },
+      "hooksLandingOnRung": [
+        true,
+        true
+      ],
+      "sampleCount": 16001,
+      "peaks": {
+        "hookMinus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "hookPlus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "eitherHook": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "bridgeMinus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "bridgePlus": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "singleDriveProjection": {
+          "forceN": 0.0,
+          "timeS": 0.0
+        },
+        "reverseProjection": {
+          "forceN": -0.0,
+          "timeS": 0.0
+        }
+      },
+      "conditionalPoints": 0,
+      "peakCurrentReportedA": 0.0
+    }
+  },
+  "quasistaticHardStop": {
+    "0.035": {
+      "thrustPerAmpN": 252.6385290161378,
+      "hypothetical23AAtStopN": 5810.686167371169,
+      "ampsAtEzoBasicStatic": 9.658067633239504,
+      "ampsAtAstBasicStatic": 6.732939772188688,
+      "ampsAtHalfEzoBasicStatic": 4.829033816619752
+    },
+    "0.07": {
+      "thrustPerAmpN": 188.302757841261,
+      "hypothetical23AAtStopN": 4330.963430349003,
+      "ampsAtEzoBasicStatic": 12.957855891080028,
+      "ampsAtAstBasicStatic": 9.033324947019315,
+      "ampsAtHalfEzoBasicStatic": 6.478927945540014
+    },
+    "0.14": {
+      "thrustPerAmpN": 124.43529280180906,
+      "hypothetical23AAtStopN": 2862.0117344416085,
+      "ampsAtEzoBasicStatic": 19.608584872189308,
+      "ampsAtAstBasicStatic": 13.669755273604103,
+      "ampsAtHalfEzoBasicStatic": 9.804292436094654
+    },
+    "0.21": {
+      "thrustPerAmpN": 92.67558008955831,
+      "hypothetical23AAtStopN": 2131.538342059841,
+      "ampsAtEzoBasicStatic": 26.328402774949698,
+      "ampsAtAstBasicStatic": 18.3543496394219,
+      "ampsAtHalfEzoBasicStatic": 13.164201387474849
+    }
+  },
+  "assumptions": {
+    "rungContactUnit": "Newtons in world XZ transformed by same-step chassis pitch into chassis Z",
+    "bridge": "Two axial screw supports at robot Y +/-305 mm. Rung hooks at +/-88 mm. Unmodeled guide moments or carriage mass, friction, inertia, lopsided stiffness, jams or real three-axis dynamics can alter screw reactions. One-drive routing is a load allocation sensitivity, not a rigorous bound for a binding joint. Single-hook planar observations do not prove a stable hang.",
+    "hardStop": "Alternative quasi-static torque equilibrium at a blocked nut with 6:1 gear, constant efficiency 0.82, motor torque constant 2.6/105 Nm/A, 2 mm lead and 9 mm mean diameter. No mechanical stop compliance, torque limiter, driver current regulation, ramp, losses beyond model, thermal derating, impact or backlash modeled. The historical solver clamps speed when demand exceeds 23 A; it does not generate this force. Static catalog rating is a comparison point only, not an allowable service load. The opposed pair has one loaded thrust race for each direction."
+  }
+}

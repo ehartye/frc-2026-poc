@@ -1,0 +1,44 @@
+{
+  "issue": "R3-PD2",
+  "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
+  "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
+  "startOverhangMm": 0.0,
+  "sweptTopMm": 750.0,
+  "sweptFrontExtensionMm": 270.614,
+  "sweptOtherExtensionMm": 0.0,
+  "sidesExtendedMax": 1.0,
+  "sweptWorst": {
+    "front": {
+      "case": "intake-deploy",
+      "t": 1.0
+    },
+    "rear": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "side": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "top": {
+      "case": "intake-deploy",
+      "t": 0.0
+    }
+  },
+  "deployedReachMm": 270.614,
+  "capacityDeployed": 12.0,
+  "capacityStowed": 12.0,
+  "volumeEstimateDeployedLow": 37.7,
+  "volumeEstimateStowedLow": 37.2,
+  "lowCapacityDeployed": 12.0,
+  "lowCapacityStowed": 12.0,
+  "releaseDistanceM": 2.4362,
+  "deliveryPoseM": 2.7,
+  "withBumpersUpperKg": 55.3,
+  "bellyClearanceMm": 94.0,
+  "bumpCrossingClearanceMm": 8.68,
+  "bumpCrossingLimit": "bumper front",
+  "bumperUprightOverlapMm": 23.93,
+  "basis": "Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. Capacity premises use free_volume() at a 0.45 packing fraction; capacity() is a rigid stacked-lattice lower bound.",
+  "deliveryStandoffIn": 48.64905857259726
+}

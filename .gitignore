@@ -3,3 +3,5 @@ artifacts/
 **/.gradle/
 **/__pycache__/
 *.pyc
+experiments/preliminary-design/review/package-motion.html
+experiments/preliminary-design/receipt-partial.json

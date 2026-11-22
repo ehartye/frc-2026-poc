@@ -1,0 +1,10 @@
+{
+ "schema": "agent-frc/rehearsal-wait-cycles@1",
+ "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
+ "resultSha256": "2c98a351d2de885339ca2fd5d1dc1ff30e76114049d8a63e76cdb196224fc1f9",
+ "waitCycles": "yield",
+ "cycleCount": 0,
+ "permanentCount": 0,
+ "matchesWithCycles": [],
+ "cycles": []
+}

@@ -1,0 +1,883 @@
+{
+  "supportSha256": "ac1316624ae589ba8ff495987450dfddd8ed3c5c66e66c083b0bc9d4328af8b0",
+  "cases": [
+    {
+      "case": "baseline62",
+      "inputs": {},
+      "maximums": {
+        "foreN": 1420.8671436191507,
+        "aftCompressionN": 824.5968091158122,
+        "horizontalN": 506.294834170882,
+        "foreTimeS": 8.992750000000001
+      },
+      "factoredWorstWallMPa": 118.43051505580556,
+      "observation": {
+        "name": "baseline62",
+        "dt": 0.00025,
+        "massKg": 62.0,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.89775,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.05098543271658242,
+        "peak": {
+          "eachHookN": [
+            424.56630041484044,
+            424.56630041484044
+          ],
+          "uprightN": 490.7734780245682,
+          "currentA": 2.81454220260028,
+          "wheelN": 608.0123000000024,
+          "pitchDeg": 1.3590604428647874
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0013157234575409912,
+          "z": 0.05725941746952384,
+          "pitch": -0.023698334322541943,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -244.6162488899679,
+              304.00615394081757
+            ],
+            [
+              -244.6162488899679,
+              304.00615394081757
+            ]
+          ],
+          "uprightN": 489.2324685287914,
+          "wheelN": 0.0,
+          "tireGapM": 0.050988013696638156,
+          "baseGapM": 0.07519597733305829,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035
+      },
+      "maximums": {
+        "foreN": 1772.3535494464045,
+        "aftCompressionN": 1120.989559750365,
+        "horizontalN": 597.2533956420742,
+        "foreTimeS": 9.026250000000001
+      },
+      "factoredWorstWallMPa": 147.72721338835083,
+      "observation": {
+        "name": "loaded68",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.99925,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.04879495706898381,
+        "peak": {
+          "eachHookN": [
+            479.3185557176253,
+            479.3185557176253
+          ],
+          "uprightN": 578.1233696001102,
+          "currentA": 3.103179638122948,
+          "wheelN": 673.1230101171075,
+          "pitchDeg": 1.520837135427524
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.001953359451549938,
+          "z": 0.054877405523477085,
+          "pitch": -0.02652002203423149,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -288.2359662962033,
+              333.42608262116477
+            ],
+            [
+              -288.2359662962033,
+              333.42608262116477
+            ]
+          ],
+          "uprightN": 576.4718266946858,
+          "wheelN": 0.0,
+          "tireGapM": 0.04879809061404169,
+          "baseGapM": 0.07493477829195079,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-k32000",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 32000
+      },
+      "maximums": {
+        "foreN": 1808.6614358863626,
+        "aftCompressionN": 1166.1353569671069,
+        "horizontalN": 601.1087661058522,
+        "foreTimeS": 8.8545
+      },
+      "factoredWorstWallMPa": 150.75350737437358,
+      "observation": {
+        "name": "loaded68-k32000",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.51525,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.03777543831459714,
+        "peak": {
+          "eachHookN": [
+            476.1873333720223,
+            476.1873333720223
+          ],
+          "uprightN": 571.1331243830041,
+          "currentA": 3.0449761104166098,
+          "wheelN": 673.1246033670384,
+          "pitchDeg": 2.406188280225901
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.006806221596304122,
+          "z": 0.04731143237153501,
+          "pitch": -0.04197696347557022,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -285.17357227350834,
+              333.42551152362324
+            ],
+            [
+              -285.17357227350834,
+              333.42551152362324
+            ]
+          ],
+          "uprightN": 570.3461322606024,
+          "wheelN": 0.0,
+          "tireGapM": 0.03778199866255313,
+          "baseGapM": 0.0744796892938895,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-k96000",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 96000
+      },
+      "maximums": {
+        "foreN": 1759.906678724451,
+        "aftCompressionN": 1105.4611735348817,
+        "horizontalN": 595.9378095845798,
+        "foreTimeS": 8.9605
+      },
+      "factoredWorstWallMPa": 146.68975586316714,
+      "observation": {
+        "name": "loaded68-k96000",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.82875,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.052556341910007597,
+        "peak": {
+          "eachHookN": [
+            480.94680140121756,
+            480.94680140121756
+          ],
+          "uprightN": 580.5265228270129,
+          "currentA": 3.125621842265857,
+          "wheelN": 673.1211811648852,
+          "pitchDeg": 1.221033698320124
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.00033810330167170777,
+          "z": 0.057453899319882595,
+          "pitch": -0.02129069958782073,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -289.2730661892399,
+              333.4260926375006
+            ],
+            [
+              -289.2730661892399,
+              333.4260926375006
+            ]
+          ],
+          "uprightN": 578.546131570593,
+          "wheelN": 0.0,
+          "tireGapM": 0.05255743044912627,
+          "baseGapM": 0.07511952505931908,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-k128000",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 128000
+      },
+      "maximums": {
+        "foreN": 1753.5710422400196,
+        "aftCompressionN": 1097.5579501646066,
+        "horizontalN": 595.2722252616215,
+        "foreTimeS": 8.92125
+      },
+      "factoredWorstWallMPa": 146.16167503912445,
+      "observation": {
+        "name": "loaded68-k128000",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.743,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.05445331190543425,
+        "peak": {
+          "eachHookN": [
+            481.864877622702,
+            481.864877622702
+          ],
+          "uprightN": 581.7383179010828,
+          "currentA": 3.137168998567058,
+          "wheelN": 673.1192579476347,
+          "pitchDeg": 1.0702074801825558
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": 0.00046899669981678715,
+          "z": 0.058752601464704624,
+          "pitch": -0.018661254192292434,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -289.7947816344833,
+              333.42609916199416
+            ],
+            [
+              -289.7947816344833,
+              333.42609916199416
+            ]
+          ],
+          "uprightN": 579.5895626045934,
+          "wheelN": 0.0,
+          "tireGapM": 0.05445386494054757,
+          "baseGapM": 0.07521829822576272,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-forward50",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05
+      },
+      "maximums": {
+        "foreN": 1862.605420197962,
+        "aftCompressionN": 1212.0421327112085,
+        "horizontalN": 615.063641752969,
+        "foreTimeS": 9.034
+      },
+      "factoredWorstWallMPa": 155.24978549219415,
+      "observation": {
+        "name": "loaded68-forward50",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.018,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.048392427480769794,
+        "peak": {
+          "eachHookN": [
+            485.54490944195834,
+            485.54490944195834
+          ],
+          "uprightN": 595.4988864886702,
+          "currentA": 3.1130699277927523,
+          "wheelN": 679.4782036261535,
+          "pitchDeg": 1.553010446576576
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0020841657005378628,
+          "z": 0.054195278944719205,
+          "pitch": -0.027081132491673005,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -296.91085642520534,
+              333.4261773519835
+            ],
+            [
+              -296.91085642520534,
+              333.4261773519835
+            ]
+          ],
+          "uprightN": 593.821695492985,
+          "wheelN": 0.0,
+          "tireGapM": 0.04839567828966348,
+          "baseGapM": 0.07491587887292057,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-forward50-double",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 128000
+      },
+      "maximums": {
+        "foreN": 1843.0698267211028,
+        "aftCompressionN": 1187.5772474085625,
+        "horizontalN": 613.0413976924893,
+        "foreTimeS": 8.92675
+      },
+      "factoredWorstWallMPa": 153.62147674582383,
+      "observation": {
+        "name": "loaded68-forward50-double",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.7540000000000004,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.054218655802920145,
+        "peak": {
+          "eachHookN": [
+            488.0753027110317,
+            488.0753027110317
+          ],
+          "uprightN": 599.2401184226763,
+          "currentA": 3.14806744907198,
+          "wheelN": 679.4714982164271,
+          "pitchDeg": 1.0888595699535246
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": 0.0004155566962901619,
+          "z": 0.05830717541835223,
+          "pitch": -0.018986283669520966,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -298.5224403709513,
+              333.426100320859
+            ],
+            [
+              -298.5224403709513,
+              333.426100320859
+            ]
+          ],
+          "uprightN": 597.0448794625096,
+          "wheelN": 0.0,
+          "tireGapM": 0.05421922222870725,
+          "baseGapM": 0.0752058757222925,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "loaded68-roll",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "roll_deg": 1.5
+      },
+      "maximums": {
+        "foreN": 1771.791826161948,
+        "aftCompressionN": 1120.4795615383837,
+        "horizontalN": 597.6318804750262,
+        "foreTimeS": 9.49075
+      },
+      "factoredWorstWallMPa": 147.6803932629114,
+      "observation": {
+        "name": "loaded68-roll",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 4.98725,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.049257959539789696,
+        "peak": {
+          "eachHookN": [
+            816.0878497830614,
+            298.78140600024443
+          ],
+          "uprightN": 578.4913044575916,
+          "currentA": 6.135497876746696,
+          "wheelN": 689.0939313644917,
+          "pitchDeg": 1.5226732888052004
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0019509740916505147,
+          "z": 0.05535308891105001,
+          "pitch": -0.02655936214630565,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -279.838843029848,
+              658.958605838571
+            ],
+            [
+              -297.1348741306306,
+              7.893540048838667
+            ]
+          ],
+          "uprightN": 576.9736311151686,
+          "wheelN": 0.0,
+          "tireGapM": 0.04926490528570234,
+          "baseGapM": 0.07542848176927021,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "soft50-coarse",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000
+      },
+      "maximums": {
+        "foreN": 1900.4033536106379,
+        "aftCompressionN": 1259.1709700825181,
+        "horizontalN": 618.9347957835134,
+        "foreTimeS": 8.8605
+      },
+      "factoredWorstWallMPa": 158.4002761923353,
+      "observation": {
+        "name": "soft50-coarse",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.5512500000000005,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.037049644829715865,
+        "peak": {
+          "eachHookN": [
+            482.4292803663935,
+            482.4292803663935
+          ],
+          "uprightN": 588.3521627559343,
+          "currentA": 3.0523696854096993,
+          "wheelN": 679.4810849901285,
+          "pitchDeg": 2.465013381120366
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.007097061768298621,
+          "z": 0.04616786479470275,
+          "pitch": -0.04300129437309099,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -293.7449048524447,
+              333.42617173915824
+            ],
+            [
+              -293.7449048524447,
+              333.42617173915824
+            ]
+          ],
+          "uprightN": 587.4887128525722,
+          "wheelN": 0.0,
+          "tireGapM": 0.037057062980784226,
+          "baseGapM": 0.07445433363649469,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "soft50-refined",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.05,
+        "bumper_k": 32000,
+        "dt": 0.000125
+      },
+      "maximums": {
+        "foreN": 1900.4007034273484,
+        "aftCompressionN": 1259.1692277964942,
+        "horizontalN": 618.9338055094172,
+        "foreTimeS": 8.860625
+      },
+      "factoredWorstWallMPa": 158.40005529724783,
+      "observation": {
+        "name": "soft50-refined",
+        "dt": 0.000125,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.551125,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.03704966961192354,
+        "peak": {
+          "eachHookN": [
+            482.4285696225455,
+            482.4285696225455
+          ],
+          "uprightN": 588.3519522967962,
+          "currentA": 3.0523645807474216,
+          "wheelN": 679.4666386063942,
+          "pitchDeg": 2.4650094302549266
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.007097062271703897,
+          "z": 0.04616786389070027,
+          "pitch": -0.04300129609975249,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -293.7449120460696,
+              333.42617902117615
+            ],
+            [
+              -293.7449120460696,
+              333.42617902117615
+            ]
+          ],
+          "uprightN": 587.4887366523847,
+          "wheelN": 0.0,
+          "tireGapM": 0.03705706195562316,
+          "baseGapM": 0.07445433340535602,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "soft35-refined",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.035,
+        "bumper_k": 32000,
+        "dt": 0.000125
+      },
+      "maximums": {
+        "foreN": 1808.6590696566373,
+        "aftCompressionN": 1166.1338429565928,
+        "horizontalN": 601.1081127985555,
+        "foreTimeS": 8.854625
+      },
+      "factoredWorstWallMPa": 150.75331014706322,
+      "observation": {
+        "name": "soft35-refined",
+        "dt": 0.000125,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.515125,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.03777546046213633,
+        "peak": {
+          "eachHookN": [
+            476.1866154315425,
+            476.1866154315425
+          ],
+          "uprightN": 571.1332172909562,
+          "currentA": 3.0449710861998622,
+          "wheelN": 673.1172080991655,
+          "pitchDeg": 2.406184708929826
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.006806221716187017,
+          "z": 0.04731143210521749,
+          "pitch": -0.041976963960157786,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -285.1735744322806,
+              333.42551695103367
+            ],
+            [
+              -285.1735744322806,
+              333.42551695103367
+            ]
+          ],
+          "uprightN": 570.3461384548038,
+          "wheelN": 0.0,
+          "tireGapM": 0.037781998276365324,
+          "baseGapM": 0.07447968926363858,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "nominal-k-cg38",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.038
+      },
+      "maximums": {
+        "foreN": 1790.4022240116217,
+        "aftCompressionN": 1139.196791059819,
+        "horizontalN": 600.8169240954062,
+        "foreTimeS": 9.027750000000001
+      },
+      "factoredWorstWallMPa": 149.2315861472203,
+      "observation": {
+        "name": "nominal-k-cg38",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.003,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.048714430060800305,
+        "peak": {
+          "eachHookN": [
+            480.55755941870365,
+            480.55755941870365
+          ],
+          "uprightN": 581.5968529488938,
+          "currentA": 3.1051660752549988,
+          "wheelN": 674.2269300298293,
+          "pitchDeg": 1.527271273911493
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0019794733392183156,
+          "z": 0.05474231608333868,
+          "pitch": -0.02663224917996385,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -289.9710024155566,
+              333.4261010454989
+            ],
+            [
+              -289.9710024155566,
+              333.4261010454989
+            ]
+          ],
+          "uprightN": 579.9419042197635,
+          "wheelN": 0.0,
+          "tireGapM": 0.04871758946325707,
+          "baseGapM": 0.0749309838917155,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    },
+    {
+      "case": "nominal-k-cg40",
+      "inputs": {
+        "mass": 68,
+        "cog_x": 0.04
+      },
+      "maximums": {
+        "foreN": 1802.4351891727042,
+        "aftCompressionN": 1151.335900925679,
+        "horizontalN": 603.1922398430825,
+        "foreTimeS": 9.02875
+      },
+      "factoredWorstWallMPa": 150.23454428308492,
+      "observation": {
+        "name": "nominal-k-cg40",
+        "dt": 0.00025,
+        "massKg": 68,
+        "startDatumX": -6.7480382,
+        "startDatumY": 0.142875,
+        "rungX": -0.46045005,
+        "rungZ": 0.6858,
+        "cutS": 9.0,
+        "assessedS": 11.0,
+        "hasTwoContacts": [
+          true,
+          true
+        ],
+        "threadSelfLocks": true,
+        "firstClearS": 5.0055000000000005,
+        "lostAfterCutS": null,
+        "minimumAssessedClearanceM": 0.04866075093763824,
+        "peak": {
+          "eachHookN": [
+            481.38531125701485,
+            481.38531125701485
+          ],
+          "uprightN": 583.9130628981413,
+          "currentA": 3.1064877173388825,
+          "wheelN": 675.0101429136378,
+          "pitchDeg": 1.5315610109398494
+        },
+        "atAssessment": {
+          "t": 11.0,
+          "x": -0.0019968956939450527,
+          "z": 0.05465188534054971,
+          "pitch": -0.02670706591455331,
+          "deploy": 0.215,
+          "down": 0.1,
+          "hookXZ": [
+            [
+              -291.1276773958105,
+              333.42611422862467
+            ],
+            [
+              -291.1276773958105,
+              333.42611422862467
+            ]
+          ],
+          "uprightN": 582.2552614720939,
+          "wheelN": 0.0,
+          "tireGapM": 0.04866392718688103,
+          "baseGapM": 0.07492845832026519,
+          "qualified": true
+        },
+        "conditionalTeleopPoints": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "purchase": "MK ES17-12 F3",
+  "baseSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "cartToolAccess": {
+    "right battery sled mount 1 screw": {
+      "4mm key": {},
+      "18mm grip": {},
+      "head withdrawal": {}
+    },
+    "right battery sled mount 2 screw": {
+      "4mm key": {},
+      "18mm grip": {},
+      "head withdrawal": {}
+    },
+    "left battery sled mount 1 screw": {
+      "4mm key": {},
+      "18mm grip": {},
+      "head withdrawal": {}
+    },
+    "left battery sled mount 2 screw": {
+      "4mm key": {},
+      "18mm grip": {},
+      "head withdrawal": {}
+    }
+  },
+  "disconnectedHousing": {
+    "joined pair": {},
+    "23mm separation": {},
+    "unpinned housing lowered with tray": {},
+    "side grip section": {},
+    "source": "Anderson 992G1, DS-SB50 rev 9. Single body 48 x 35.1 x 15.9 mm; pair joined 81.3 mm. The named CAD volumes are clearance studies, and do not provide 6 AWG routing, connector mounts, cable strain relief or evidence of hand contact.",
+    "prematedPairCenterMm": [
+      83,
+      0,
+      82.95
+    ],
+    "separationMm": 23,
+    "projectedUnmatedGapMm": 8.3,
+    "editionAndReceivingEnvelope": {
+      "housingMaximumMm": [
+        48.5,
+        37.1,
+        16.4
+      ],
+      "matedPairLengthMm": [
+        80.8,
+        81.8
+      ],
+      "worstIndependentSeparationGapMm": 6.8,
+      "contactsMm3": {
+        "joined": {},
+        "23mm release sweep": {},
+        "pack-side 270mm drop": {}
+      },
+      "basis": "Anderson drawing 111923S1 Rev 2 and DS-SB50 Rev 9. Take the larger nominal from both editions on each perpendicular axis plus 0.5 mm. The finished mated length, lug, strain relief and wiring require separate receiving checks."
+    }
+  },
+  "sideDrawerSweeps": {
+    "left": {
+      "existingHeight": {
+        "left perimeter tube": 80760.6347,
+        "left blue side bumper": 24796.5,
+        "left floor sill": 8069.3905,
+        "left electronics deck": 258111.0,
+        "robot controller reserve": 529368.0,
+        "drive controller reserve 2": 60984.0,
+        "drive controller reserve 4": 85668.0,
+        "drive controller reserve 6": 63888.0,
+        "rear left crossmember backing plate": 2983.865,
+        "left side bumper padding": 1382839.5,
+        "left side bumper backer": 259043.2037,
+        "left side bumper mounting 2 angle": 11219.683,
+        "left side bumper mounting 2 a panel washer": 154.6528,
+        "left side bumper mounting 2 a panel screw": 496.6145,
+        "left side bumper mounting 2 b panel washer": 154.6528,
+        "left side bumper mounting 2 b panel screw": 496.6145,
+        "left side bumper mounting 2 frame boss": 1712.6707,
+        "left side bumper mounting 2 top screw": 971.7737
+      },
+      "raise68mmToClearRail": {
+        "left blue side bumper": 11666.25,
+        "left floor sill": 20144.5997,
+        "left electronics deck": 258111.0,
+        "robot controller reserve": 529368.0,
+        "drive controller reserve 2": 60984.0,
+        "drive controller reserve 4": 85668.0,
+        "drive controller reserve 6": 63888.0,
+        "left hopper wall": 38796.0,
+        "left cross feed deck": 204960.0,
+        "central fore-aft feed deck": 113460.0,
+        "rear left crossmember backing plate": 610.87,
+        "left side bumper padding": 598455.75,
+        "left side bumper backer": 110813.2037,
+        "left side bumper mounting 2 angle": 10163.4573,
+        "left side bumper mounting 2 a panel washer": 154.6528,
+        "left side bumper mounting 2 a panel screw": 496.6145,
+        "left side bumper mounting 2 b panel washer": 154.6528,
+        "left side bumper mounting 2 b panel screw": 496.6145,
+        "left side bumper mounting 2 top screw": 551.8998
+      }
+    },
+    "right": {
+      "existingHeight": {
+        "right perimeter tube": 80760.6347,
+        "right blue side bumper": 24796.5,
+        "right floor sill": 8069.3905,
+        "right electronics deck": 261954.0,
+        "field radio reserve": 310323.0,
+        "drive controller reserve 1": 60984.0,
+        "drive controller reserve 3": 85668.0,
+        "drive controller reserve 5": 63888.0,
+        "rear right crossmember backing plate": 2983.865,
+        "right side bumper padding": 1382839.5,
+        "right side bumper backer": 259043.2037,
+        "right side bumper mounting 2 angle": 11219.683,
+        "right side bumper mounting 2 a panel washer": 154.6528,
+        "right side bumper mounting 2 a panel screw": 496.6145,
+        "right side bumper mounting 2 b panel washer": 154.6528,
+        "right side bumper mounting 2 b panel screw": 496.6145,
+        "right side bumper mounting 2 frame boss": 1712.6707,
+        "right side bumper mounting 2 top screw": 971.7737
+      },
+      "raise68mmToClearRail": {
+        "right blue side bumper": 11666.25,
+        "right floor sill": 20144.5997,
+        "right electronics deck": 261954.0,
+        "field radio reserve": 310323.0,
+        "drive controller reserve 1": 60984.0,
+        "drive controller reserve 3": 85668.0,
+        "drive controller reserve 5": 63888.0,
+        "right hopper wall": 38796.0,
+        "right cross feed deck": 204960.0,
+        "central fore-aft feed deck": 117120.0,
+        "rear right crossmember backing plate": 610.87,
+        "right side bumper padding": 598455.75,
+        "right side bumper backer": 110813.2037,
+        "right side bumper mounting 2 angle": 10163.4573,
+        "right side bumper mounting 2 a panel washer": 154.6528,
+        "right side bumper mounting 2 a panel screw": 496.6145,
+        "right side bumper mounting 2 b panel washer": 154.6528,
+        "right side bumper mounting 2 b panel screw": 496.6145,
+        "right side bumper mounting 2 top screw": 551.8998
+      }
+    }
+  },
+  "cartAndSled": {
+    "staticRobotContactAreaMm2": 4608.0,
+    "cassetteRestBeforeScrewReleaseMm2": 14151.0,
+    "nominalInitialInterferenceMm3": {
+      "right fore chassis support pad": {},
+      "right aft chassis support pad": {},
+      "left fore chassis support pad": {},
+      "left aft chassis support pad": {},
+      "sled platform": {},
+      "sled lip or support 1": {},
+      "sled lip or support 2": {},
+      "sled lip or support 3": {},
+      "sled lip or support 4": {}
+    },
+    "floorDatumBelowCarpetPlaneMm": 380,
+    "lowestCartPlatformAfter270mmLoweringMm": -240,
+    "floorClearanceAtEndMm": 140,
+    "purpose": "Chassis is seated first on four support pads. Raise the independent lift platform into positive contact under the loaded sled before removing four underside screws. Lower 270 mm with tray kept between fore and aft lips. The entire assembly is then outside the robot. Dolly lift, bracing, load rating, connector/routing and installed operator access still require project verification."
+  },
+  "catalogMassKg": 5.86,
+  "maxCaseAssumedMm": [
+    183,
+    78,
+    169
+  ],
+  "centerDatumMm": [
+    -41.5,
+    2,
+    48
+  ],
+  "translationAxis": [
+    0,
+    0,
+    1
+  ],
+  "continuousExtractionTopZMm": 805,
+  "installedKeeperObstaclesMm3": {
+    "central fore-aft feed deck": 71370.0,
+    "extension bearing beam": 76860.0,
+    "extension rear bearing and stop": 10404.616,
+    "extension screw envelope": 9738.9372,
+    "battery center keeper": 12382.5
+  },
+  "removedKeeperObstaclesMm3": {
+    "central fore-aft feed deck": 71370.0,
+    "extension bearing beam": 76860.0,
+    "extension rear bearing and stop": 10404.616,
+    "extension screw envelope": 9738.9372
+  },
+  "parkedPartInterferencesMm3": {
+    "right battery sled mount 1": {
+      "right battery sled mount 1 screw": 73.1237
+    },
+    "right battery sled mount 1 screw": {
+      "right battery sled mount 1": 73.1237
+    },
+    "right battery sled mount 2": {
+      "right battery sled mount 2 screw": 73.1237
+    },
+    "right battery sled mount 2 screw": {
+      "right battery sled mount 2": 73.1237
+    },
+    "right battery hold-down post": {
+      "right battery hold-down screw": 50.0016
+    },
+    "right battery hold-down screw": {
+      "right battery hold-down post": 50.0016
+    },
+    "left battery sled mount 1": {
+      "left battery sled mount 1 screw": 73.1237
+    },
+    "left battery sled mount 1 screw": {
+      "left battery sled mount 1": 73.1237
+    },
+    "left battery sled mount 2": {
+      "left battery sled mount 2 screw": 73.1237
+    },
+    "left battery sled mount 2 screw": {
+      "left battery sled mount 2": 73.1237
+    },
+    "left battery hold-down post": {
+      "left battery hold-down screw": 50.0016
+    },
+    "left battery hold-down screw": {
+      "left battery hold-down post": 50.0016
+    }
+  },
+  "downwardSledWithdrawalHitsMm3": {},
+  "loweringDistanceMm": 270,
+  "requiredCartClearanceBelowSledMm": 270,
+  "nominalRoomMm": {
+    "foreAndAftEach": 1.825,
+    "left": 3,
+    "right": 4,
+    "above": 3
+  },
+  "dose": {
+    "caseInertialForceAt3gN": 172.4,
+    "keeperBendingMPaAt3gUsingMidpointPointLoad": 26.83
+  },
+  "restrictions": "One bare battery. Compare electrical connector and cable removal separately. The terminal shroud and lead loop can extend beyond the supplied case dimensions. Conservative fully swept upper case does not establish mechanic hand access. The housing material is ABS, while mass is charged once using the complete manufacturer-quoted pack."
+}

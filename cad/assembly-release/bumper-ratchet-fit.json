@@ -1,0 +1,36 @@
+{
+  "sourceSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "frame": "parked public assembly with passive revision in place, millimetres",
+  "tool": "Wera 05073230001 with a 5 x 50 mm bit from pack 05073060001, installed bit separately",
+  "receiving": "Accept the actual head within 24 mm width, 18 mm thickness and 12 mm behind the axis. Complete tool must fit at the declared seated height and face a 6 degree free return stroke. Maintain hand clearance to all wiring installed later.",
+  "cases": {
+    "rear bumper mounting 1 top screw": {
+      "loose bit enters from behind": {},
+      "bit lowered and extracted": {},
+      "head and lever approach horizontally": {},
+      "head seated through screw rise": {},
+      "lever work and tool lift": {},
+      "magnetic screw pickup": {},
+      "outside hand corridor": {}
+    },
+    "rear bumper mounting 2 top screw": {
+      "loose bit enters from behind": {},
+      "bit lowered and extracted": {},
+      "head and lever approach horizontally": {},
+      "head seated through screw rise": {},
+      "lever work and tool lift": {},
+      "magnetic screw pickup": {},
+      "outside hand corridor": {}
+    },
+    "rear bumper mounting 3 top screw": {
+      "loose bit enters from behind": {},
+      "bit lowered and extracted": {},
+      "head and lever approach horizontally": {},
+      "head seated through screw rise": {},
+      "lever work and tool lift": {},
+      "magnetic screw pickup": {},
+      "outside hand corridor": {}
+    }
+  },
+  "passed": true
+}

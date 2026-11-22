@@ -1,0 +1,369 @@
+{
+  "source": {
+    "supplierSha256": "11f8381810846a2e52a23dbbe07f8271b314967624eee53f56e59a3ece05c75e",
+    "supplierBodies": 72,
+    "sites": {
+      "front left": {
+        "supplierRobotIntersectionsMm3": {},
+        "serviceContactsMm3": {
+          "front left rail mount 1-1 key": {},
+          "front left rail mount 1-1 headWithdrawal": {},
+          "front left rail mount 1-2 key": {},
+          "front left rail mount 1-2 headWithdrawal": {},
+          "front left tab 1-1 bottomKey": {},
+          "front left tab 1-1 topSocket": {},
+          "front left tab 1-2 bottomKey": {},
+          "front left tab 1-2 topSocket": {},
+          "front left rail mount 2-1 key": {},
+          "front left rail mount 2-1 headWithdrawal": {},
+          "front left rail mount 2-2 key": {},
+          "front left rail mount 2-2 headWithdrawal": {},
+          "front left tab 2-1 bottomKey": {},
+          "front left tab 2-1 topSocket": {},
+          "front left tab 2-2 bottomKey": {},
+          "front left tab 2-2 topSocket": {}
+        }
+      },
+      "front right": {
+        "supplierRobotIntersectionsMm3": {},
+        "serviceContactsMm3": {
+          "front right rail mount 1-1 key": {},
+          "front right rail mount 1-1 headWithdrawal": {},
+          "front right rail mount 1-2 key": {},
+          "front right rail mount 1-2 headWithdrawal": {},
+          "front right tab 1-1 bottomKey": {},
+          "front right tab 1-1 topSocket": {},
+          "front right tab 1-2 bottomKey": {},
+          "front right tab 1-2 topSocket": {},
+          "front right rail mount 2-1 key": {},
+          "front right rail mount 2-1 headWithdrawal": {},
+          "front right rail mount 2-2 key": {},
+          "front right rail mount 2-2 headWithdrawal": {},
+          "front right tab 2-1 bottomKey": {},
+          "front right tab 2-1 topSocket": {},
+          "front right tab 2-2 bottomKey": {},
+          "front right tab 2-2 topSocket": {}
+        }
+      },
+      "rear left": {
+        "supplierRobotIntersectionsMm3": {},
+        "serviceContactsMm3": {
+          "rear left rail mount 1-1 key": {},
+          "rear left rail mount 1-1 headWithdrawal": {},
+          "rear left rail mount 1-2 key": {},
+          "rear left rail mount 1-2 headWithdrawal": {},
+          "rear left tab 1-1 bottomKey": {},
+          "rear left tab 1-1 topSocket": {},
+          "rear left tab 1-2 bottomKey": {},
+          "rear left tab 1-2 topSocket": {},
+          "rear left rail mount 2-1 key": {},
+          "rear left rail mount 2-1 headWithdrawal": {},
+          "rear left rail mount 2-2 key": {},
+          "rear left rail mount 2-2 headWithdrawal": {},
+          "rear left tab 2-1 bottomKey": {},
+          "rear left tab 2-1 topSocket": {},
+          "rear left tab 2-2 bottomKey": {},
+          "rear left tab 2-2 topSocket": {}
+        }
+      },
+      "rear right": {
+        "supplierRobotIntersectionsMm3": {},
+        "serviceContactsMm3": {
+          "rear right rail mount 1-1 key": {},
+          "rear right rail mount 1-1 headWithdrawal": {},
+          "rear right rail mount 1-2 key": {},
+          "rear right rail mount 1-2 headWithdrawal": {},
+          "rear right tab 1-1 bottomKey": {},
+          "rear right tab 1-1 topSocket": {},
+          "rear right tab 1-2 bottomKey": {},
+          "rear right tab 1-2 topSocket": {},
+          "rear right rail mount 2-1 key": {},
+          "rear right rail mount 2-1 headWithdrawal": {},
+          "rear right rail mount 2-2 key": {},
+          "rear right rail mount 2-2 headWithdrawal": {},
+          "rear right tab 2-1 bottomKey": {},
+          "rear right tab 2-1 topSocket": {},
+          "rear right tab 2-2 bottomKey": {},
+          "rear right tab 2-2 topSocket": {}
+        }
+      }
+    },
+    "nativeBinding": null,
+    "interpretation": "Volume over 0.02 cubic mm. Moving leaves use enclosing cylinders over their full axial intervals. Positive cylinder overlap requires exact angular investigation. Bottom key and top socket checks are against its non-chassis module before installation. The side driver and cap head are checked with the complete parked T1 robot."
+  },
+  "toolHits": {
+    "left side bumper mounting 1": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "left side bumper mounting 2": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "left side bumper mounting 3": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "left side bumper mounting 4": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right side bumper mounting 1": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right side bumper mounting 2": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right side bumper mounting 3": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right side bumper mounting 4": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "rear bumper mounting 1": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {
+        "hopper back panel": 655.9289,
+        "right cross feed deck": 714.4811
+      }
+    },
+    "rear bumper mounting 2": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {
+        "hopper back panel": 655.9289,
+        "central fore-aft feed deck": 714.4811
+      }
+    },
+    "rear bumper mounting 3": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {
+        "hopper back panel": 655.9289,
+        "left cross feed deck": 714.4811
+      }
+    },
+    "left front bumper mounting 1": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "left front bumper mounting 2": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right front bumper mounting 1": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    },
+    "right front bumper mounting 2": {
+      "cap withdrawal": {},
+      "long driver": {},
+      "driver handle": {}
+    }
+  },
+  "steppedWithdrawalHits": {
+    "left blue side bumper": {},
+    "right blue side bumper": {},
+    "rear blue bumper": {},
+    "left blue front bumper": {},
+    "right blue front bumper": {}
+  },
+  "continuousConservativeWithdrawalHits": {
+    "left blue side bumper": {},
+    "right blue side bumper": {},
+    "rear blue bumper": {},
+    "left blue front bumper": {},
+    "right blue front bumper": {}
+  },
+  "precedingStepSha256": "6b5bc9ee326ba83b2db1885ae0a4033d1a74a7efc35911fc44af69d24421e79e",
+  "cutList": [
+    {
+      "panel": "left blue side bumper",
+      "backerMm": [
+        680,
+        119,
+        12
+      ],
+      "foamDepthMm": 63.5,
+      "hardExtensionMm": 12,
+      "outerExtensionMm": 76,
+      "cutouts": 4,
+      "installedFrameStationsMm": [
+        -231.5,
+        -95,
+        90,
+        265
+      ],
+      "topScrewAxisMm": [
+        [
+          -231.5,
+          327.3,
+          121.15
+        ],
+        [
+          -95.0,
+          327.3,
+          121.15
+        ],
+        [
+          90.0,
+          327.3,
+          121.15
+        ],
+        [
+          265.0,
+          327.3,
+          121.15
+        ]
+      ]
+    },
+    {
+      "panel": "right blue side bumper",
+      "backerMm": [
+        680,
+        119,
+        12
+      ],
+      "foamDepthMm": 63.5,
+      "hardExtensionMm": 12,
+      "outerExtensionMm": 76,
+      "cutouts": 4,
+      "installedFrameStationsMm": [
+        -231.5,
+        -95,
+        90,
+        265
+      ],
+      "topScrewAxisMm": [
+        [
+          -231.5,
+          -327.3,
+          121.15
+        ],
+        [
+          -95.0,
+          -327.3,
+          121.15
+        ],
+        [
+          90.0,
+          -327.3,
+          121.15
+        ],
+        [
+          265.0,
+          -327.3,
+          121.15
+        ]
+      ]
+    },
+    {
+      "panel": "rear blue bumper",
+      "backerMm": [
+        680,
+        119,
+        12
+      ],
+      "foamDepthMm": 63.5,
+      "hardExtensionMm": 12,
+      "outerExtensionMm": 76,
+      "cutouts": 3,
+      "installedFrameStationsMm": [
+        -150,
+        0,
+        150
+      ],
+      "topScrewAxisMm": [
+        [
+          -327.3,
+          -150.0,
+          121.15
+        ],
+        [
+          -327.3,
+          0.0,
+          121.15
+        ],
+        [
+          -327.3,
+          150.0,
+          121.15
+        ]
+      ]
+    },
+    {
+      "panel": "left blue front bumper",
+      "backerMm": [
+        190,
+        119,
+        12
+      ],
+      "foamDepthMm": 63.5,
+      "hardExtensionMm": 12,
+      "outerExtensionMm": 76,
+      "cutouts": 2,
+      "installedFrameStationsMm": [
+        178,
+        274
+      ],
+      "topScrewAxisMm": [
+        [
+          327.3,
+          178.0,
+          121.15
+        ],
+        [
+          327.3,
+          274.0,
+          121.15
+        ]
+      ]
+    },
+    {
+      "panel": "right blue front bumper",
+      "backerMm": [
+        190,
+        119,
+        12
+      ],
+      "foamDepthMm": 63.5,
+      "hardExtensionMm": 12,
+      "outerExtensionMm": 76,
+      "cutouts": 2,
+      "installedFrameStationsMm": [
+        -274,
+        -178
+      ],
+      "topScrewAxisMm": [
+        [
+          327.3,
+          -274.0,
+          121.15
+        ],
+        [
+          327.3,
+          -178.0,
+          121.15
+        ]
+      ]
+    }
+  ],
+  "period": "Kickoff V0 + TU00; R401-R412",
+  "scope": "15 proposed mount stations. A top-access M6 screw, 5 mm driver and 16 mm handle are screened against the parked project shapes. All uncompressed foam is idealized. Tool hand/ratchet arc and installed wire clearance remain separate. No clock claim for changing covers."
+}

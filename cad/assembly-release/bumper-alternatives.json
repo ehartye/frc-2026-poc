@@ -1,0 +1,118 @@
+{
+  "firstHorizontalStud": {
+    "blocked": {
+      "left side bumper mounting 1": {
+        "handle": "no accepted six-degree operating sector"
+      },
+      "left side bumper mounting 4": {
+        "front left supplier 23:REV-21-3005-P11/": 4.6068
+      },
+      "right side bumper mounting 1": {
+        "rear right supplier 23:REV-21-3005-P11/": 4.6068
+      },
+      "right side bumper mounting 4": {
+        "handle": "no accepted six-degree operating sector"
+      },
+      "left front bumper mounting 2": {
+        "handle": "no accepted six-degree operating sector"
+      },
+      "right front bumper mounting 1": {
+        "front right supplier 23:REV-21-3005-P11/": 4.6068
+      }
+    },
+    "tool": "Bahco 10RM-10 short 95 mm ring wrench. At six stations the bounded wrench hits installed bodies."
+  },
+  "initialVertical": {
+    "blocked": {
+      "left side bumper mounting 1": {
+        "cap withdrawal": {
+          "left aft mast": 1.7976
+        },
+        "driver handle": {
+          "left aft mast": 918.0762
+        }
+      },
+      "right side bumper mounting 1": {
+        "cap withdrawal": {
+          "right aft mast": 1.7976
+        },
+        "driver handle": {
+          "right aft mast": 918.0762
+        }
+      },
+      "rear bumper mounting 1": {
+        "driver handle": {
+          "hopper back panel": 68.0185,
+          "right cross feed deck": 979.1487
+        }
+      },
+      "rear bumper mounting 2": {
+        "driver handle": {
+          "hopper back panel": 68.0185,
+          "central fore-aft feed deck": 979.1487
+        }
+      },
+      "rear bumper mounting 3": {
+        "driver handle": {
+          "hopper back panel": 68.0185,
+          "left cross feed deck": 979.1487
+        }
+      }
+    },
+    "withdrawal": {
+      "left blue side bumper": {
+        "left side bumper mounting 1 angle / left aft mast @ 0.5": 1118.6393,
+        "left side bumper mounting 1 a panel screw / left aft mast @ 0.5": 39.2699,
+        "left side bumper mounting 1 angle / left aft mast @ 3": 401.32,
+        "left side bumper mounting 1 a panel screw / left aft mast @ 3": 9.8175,
+        "left side bumper mounting 1 angle / left aft mast @ 10": 284.48
+      },
+      "right blue side bumper": {
+        "right side bumper mounting 1 a panel screw / right aft mast @ 0.5": 39.2699,
+        "right side bumper mounting 1 angle / right aft mast @ 0.5": 1118.6393,
+        "right side bumper mounting 1 a panel screw / right aft mast @ 3": 9.8175,
+        "right side bumper mounting 1 angle / right aft mast @ 3": 401.32,
+        "right side bumper mounting 1 angle / right aft mast @ 10": 284.48
+      }
+    }
+  },
+  "intermediateVertical": {
+    "blocked": {
+      "rear bumper mounting 1": {
+        "driver handle": {
+          "hopper back panel": 629.8342,
+          "right cross feed deck": 736.9048
+        }
+      },
+      "rear bumper mounting 2": {
+        "driver handle": {
+          "hopper back panel": 629.8342,
+          "central fore-aft feed deck": 736.9048
+        }
+      },
+      "rear bumper mounting 3": {
+        "driver handle": {
+          "hopper back panel": 629.8342,
+          "left cross feed deck": 736.9048
+        }
+      }
+    },
+    "withdrawal": {
+      "left blue side bumper": {
+        "left side bumper mounting 1 angle / left mast @ 0.5": 420.37,
+        "left side bumper mounting 1 angle / left mast @ 3": 248.92,
+        "left side bumper mounting 1 angle / left mast @ 10": 157.48
+      },
+      "right blue side bumper": {
+        "right side bumper mounting 1 angle / right mast @ 0.5": 420.37,
+        "right side bumper mounting 1 angle / right mast @ 3": 248.92,
+        "right side bumper mounting 1 angle / right mast @ 10": 157.48
+      }
+    }
+  },
+  "selectedVertical": {
+    "file": "bumper-service-fit.json",
+    "rearAlternative": "bumper-ratchet-fit.json"
+  },
+  "scope": "Design alternatives on predecessor geometry. Case names and finite tool envelopes are explicit. Their rejected mounts were never released as public student geometry."
+}

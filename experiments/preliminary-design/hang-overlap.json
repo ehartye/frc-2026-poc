@@ -1,0 +1,148 @@
+{
+ "schema": "frc-2026-poc/hang-overlap@1",
+ "basis": "Plan view at the berth. Both uprights must bear on the front bumper so the hang moment (about 610 N horizontal at 67.6 kg) is shared; a yawed robot closes its trailing gap only by bumper compliance or a further yaw correction.",
+ "r3pd1_680mm": {
+  "bumperHalfWidthMm": 416.5,
+  "lateralToleranceMm": 6.93,
+  "offsets": [
+   {
+    "offsetMm": 0,
+    "leftMm": 6.93,
+    "rightMm": 6.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 5,
+    "leftMm": 11.93,
+    "rightMm": 1.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 10,
+    "leftMm": 16.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 15,
+    "leftMm": 21.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 20,
+    "leftMm": 26.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 23,
+    "leftMm": 29.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 25,
+    "leftMm": 31.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 30,
+    "leftMm": 36.93,
+    "rightMm": 0.0,
+    "bothBear": false
+   }
+  ],
+  "yaw": [
+   {
+    "yawDeg": 0.25,
+    "trailingGapMm": 3.74
+   },
+   {
+    "yawDeg": 0.5,
+    "trailingGapMm": 7.48
+   },
+   {
+    "yawDeg": 1.0,
+    "trailingGapMm": 14.96
+   },
+   {
+    "yawDeg": 2.0,
+    "trailingGapMm": 29.94
+   }
+  ]
+ },
+ "r3pd2_714mm": {
+  "bumperHalfWidthMm": 433.5,
+  "lateralToleranceMm": 23.93,
+  "offsets": [
+   {
+    "offsetMm": 0,
+    "leftMm": 23.93,
+    "rightMm": 23.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 5,
+    "leftMm": 28.93,
+    "rightMm": 18.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 10,
+    "leftMm": 33.93,
+    "rightMm": 13.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 15,
+    "leftMm": 38.1,
+    "rightMm": 8.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 20,
+    "leftMm": 38.1,
+    "rightMm": 3.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 23,
+    "leftMm": 38.1,
+    "rightMm": 0.93,
+    "bothBear": true
+   },
+   {
+    "offsetMm": 25,
+    "leftMm": 38.1,
+    "rightMm": 0.0,
+    "bothBear": false
+   },
+   {
+    "offsetMm": 30,
+    "leftMm": 38.1,
+    "rightMm": 0.0,
+    "bothBear": false
+   }
+  ],
+  "yaw": [
+   {
+    "yawDeg": 0.25,
+    "trailingGapMm": 3.74
+   },
+   {
+    "yawDeg": 0.5,
+    "trailingGapMm": 7.48
+   },
+   {
+    "yawDeg": 1.0,
+    "trailingGapMm": 14.96
+   },
+   {
+    "yawDeg": 2.0,
+    "trailingGapMm": 29.94
+   }
+  ]
+ }
+}

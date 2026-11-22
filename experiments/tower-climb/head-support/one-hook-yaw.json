@@ -1,0 +1,45 @@
+{
+  "assumedRungMu": 0.14,
+  "postHalfWidthM": 0.015875,
+  "hookWidthM": 0.012,
+  "bracePositionM": [
+    -0.42500737247175085,
+    0.11493217827850938
+  ],
+  "cases": {
+    "two hooks": {
+      "longitudinalReactionResidualN": -0.00010589772080038529,
+      "longitudinalYawIntervalNm": [
+        -12.817579124872971,
+        12.817579124872971
+      ],
+      "minimumYawFromForeAftNm": 0,
+      "generousLateralFrictionYawBoundNm": 7.747743248792342,
+      "remainingLowerBoundNm": 0,
+      "minimumHookMuNecessary": 0.0
+    },
+    "left only": {
+      "longitudinalReactionResidualN": -0.00010589772080038529,
+      "longitudinalYawIntervalNm": [
+        37.9119509432588,
+        63.547109193004744
+      ],
+      "minimumYawFromForeAftNm": 37.9119509432588,
+      "generousLateralFrictionYawBoundNm": 7.747743248792342,
+      "remainingLowerBoundNm": 30.16420769446646,
+      "minimumHookMuNecessary": 0.6850605346122629
+    },
+    "right only": {
+      "longitudinalReactionResidualN": -0.00010589772080038529,
+      "longitudinalYawIntervalNm": [
+        -63.547109193004744,
+        -37.9119509432588
+      ],
+      "minimumYawFromForeAftNm": 37.9119509432588,
+      "generousLateralFrictionYawBoundNm": 7.747743248792342,
+      "remainingLowerBoundNm": 30.16420769446646,
+      "minimumHookMuNecessary": 0.6850605346122629
+    }
+  },
+  "scope": "Frozen pose and observed XZ reactions on a vertical flat contact face, centered parking, complete unloading of the other hook. Unilateral contacts with fixed YZ/XZ geometry and no other restraint. A different settled pose, external side capture or shifted upright contact requires its own history."
+}

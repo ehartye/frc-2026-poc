@@ -1,0 +1,118 @@
+{
+  "schema": "frc-2026-poc/architecture-comparison@1",
+  "issue": "R3-PD2",
+  "decision": "Select R3, the tall floor-fed hooded-flywheel robot, on the carried-forward 680 mm swerve foundation. Switch to R3L if the BUMP crossing premise (F5) fails.",
+  "decidedBy": "Whole-robot preliminary designer under delegated owner authority; students may reopen it with the listed evidence",
+  "commonConditions": "Same frame (680 mm long; R3-PD2 widens it to 714 mm), four MAXSwerve corners at +/-265 mm, V0 rules (construction-rules.json), own-zone role (kickoff/selected-strategy.md), 0.215 kg FUEL, HUB 2.44 m from the release point, weak pack 11.9-12.2 V at 0.020-0.026 ohm",
+  "candidates": [
+    {
+      "id": "A",
+      "name": "R2C-T1 incumbent: serial shelf elevator, top wheel pair, rear screw lift",
+      "evidence": [
+        "cad/own-zone-upper/design.md",
+        "experiments/batch-port/study.md",
+        "experiments/tower-climb/head-support/study.md",
+        "cad/assembly-release/engineering.md"
+      ],
+      "custody": "Five handoffs (intake, cross-feed deck, shelf elevator, diverter and guide, scoring wheels). Measured: 24 released in 11.953 s but 3 scored; the closed hopper delivered 0 of 24.",
+      "shot": "7 of 9 contact-stiffness cases fall short; peaks 0.974-1.390 m against the 1.829 m opening. ballistics.json gives 5.8-7.8 m/s entry bands from 2.0-3.6 m at 0.43-0.70 m release, far above what the wheel pair produced.",
+      "massKg": "No complete ledger. The climb model uses 62 kg gross; native CAD mass unresolved (325 kg with placeholder materials).",
+      "voltage": "Not commissioned; screw lift registered at 23 A.",
+      "packaging": "754 mm stowed, 8 mm under R107; the engineering review found intake-roller/elevator interference and isolated parts.",
+      "capacity": "24 by the 3 x 4 x 2 box screen.",
+      "loads": "Blocked-nut screw thrust 2.86-5.81 kN against a 2.44 kN thrust-bearing static rating (open).",
+      "fieldAccess": "Own zone only.",
+      "givesUp": "Nothing new; it is the baseline."
+    },
+    {
+      "id": "B",
+      "name": "R3 tall floor-fed hood shooter (selected)",
+      "evidence": [
+        "design/preliminary/receipt.json",
+        "design/preliminary/budgets.json",
+        "design/preliminary/package-facts.json",
+        "design/preliminary/measurements.json"
+      ],
+      "custody": "Three handoffs (belt pinch on the bumper face, floor belt, flywheel pinch). The tracked FUEL passes 18 checked cycle cases from carpet to HUB cavity.",
+      "shot": "Release 0.236 m at 62 deg, 2.44 m from the HUB centre. Nominal band 6.74-7.03 m/s (Cd 0.47, CL 0.15); 6.82-6.96 m/s enters under all four drag and spin corners. 6.88 m/s clears the rim edges by 87 mm. No robust band closer than 2.4 m, so the delivery pose moves to 2.7 m.",
+      "massKg": "R103 35.6-47.8 kg against 52.16 (4.36 kg reserve); at most 55.3 with bumpers against R408's 61.23; running 51.5-67.6 kg.",
+      "voltage": "Weak-pack minimum 7.66 V in loaded transit against 7.5 V required; launch 8.34 V against 8.0 V.",
+      "packaging": "All 18 cycle cases and 2 service withdrawals pass; displaced-hood control rejected. Swept through every case: 750 mm tall, front extension 270.6 mm, no rear or side extension, one side at a time, no start overhang.",
+      "capacity": "Free volume gives 37.7-46.1 FUEL at 0.45-0.55 packing.",
+      "loads": "Hang at 67.6 kg: about 332 N per hook and about 610 N bumper-to-upright reaction, now on 23.9 mm of overlap per upright with the 714 mm frame; the side-view hang trial holds 37.8 mm (gate G3).",
+      "fieldAccess": "Own zone; BUMP crossing screen gives 8.7 mm least clearance (front bumper corner) and 24.3 mm at the belly with the 100 mm floor (gate G6).",
+      "givesUp": "TRENCH passage and a higher release point."
+    },
+    {
+      "id": "C",
+      "name": "R3L low trench-runner, same allocation under 535 mm",
+      "evidence": [
+        "design/preliminary/package-facts.json"
+      ],
+      "custody": "Same three handoffs as B.",
+      "shot": "Same floor-fed hood; release 49 mm lower.",
+      "massKg": "About 1 kg lighter than B (shorter walls and tubes).",
+      "voltage": "As B.",
+      "packaging": "Hook top 534 mm passes the 565.15 mm TRENCH with 31 mm. Its climber needs about a 200 mm telescoping raise before the swing, one more motion than B.",
+      "capacity": "Free volume 110.0 L deployed: 28.0-34.2 FUEL at 0.45-0.55 packing. Meets 24 with less margin.",
+      "loads": "As B.",
+      "fieldAccess": "Own zone plus both TRENCHES; no BUMP crossing (26 mm belly).",
+      "givesUp": "About 9-11 FUEL of capacity, one climber motion and the BUMP crossing option."
+    },
+    {
+      "id": "D",
+      "name": "Direct deposit (raise the hopper to the opening)",
+      "rejectedBy": "R107 limits the robot's own height to 762 mm; the opening edge is 1828.8 mm. Infeasible without launching."
+    }
+  ],
+  "rankings": {
+    "note": "1 is best; equal numbers are ties. Time means time to a robot that meets the selected role.",
+    "time": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "risk": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "complexity": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "bestPractice": {
+      "B": 1,
+      "C": 1,
+      "A": 3
+    },
+    "maintainability": {
+      "B": 1,
+      "C": 2,
+      "A": 3
+    },
+    "sensitivity": "B leads C on capacity margin and one fewer climber motion. C's TRENCH access is geometric fact, while B's neutral-zone access rests on a 4 mm BUMP breakover margin. If F5 fails, rank C first on risk and select it.",
+    "releaseHeightTradeoff": "A 0.60-0.70 m release (a vertical kicker into a top flywheel) still enters from 2.0 m, so it keeps the rehearsed 2.16 m delivery pose at the cost of one more transfer. Choose it if the reopened rehearsal shows the 2.7 m pose costs more cycle time than that transfer risks."
+  },
+  "capacityMethod": "free_volume() subtracts every robot solid from the walled hopper envelope with exact booleans and divides by the FUEL volume at 0.45-0.55 packing (wall effects at a container-to-piece ratio near 4). A rigid stacked lattice (capacity()) finds only 10 in both variants and is reported as a lower bound, not a decision measure. Neither is a dynamic fill.",
+  "invalidates": [
+    "cad/own-zone-upper (R2C intake, elevator shelves, hopper, diverter and scoring wheels): superseded for detailing",
+    "cad/tower-lift and the experiments/tower-climb head-support, brake and mast studies (R2C-T1 screw lift): retained as history, not carried into R3",
+    "cad/assembly-release battery cradle and electronics deck positions: R3 moves the battery to the left side on its end and the electronics to both side strips",
+    "kickoff field rehearsal delivery steps at about 2.16 m from the HUB centre: R3 delivers from 2.7 m (delivery-pose premise reopens conceptual design)"
+  ],
+  "carriedForward": [
+    "680 x 680 mm frame outline and rails, module saddles at +/-265 mm and their supplier-fit checks (provisional until the R3 mounts are drawn)",
+    "Bumper zone 48-168 mm and 76 mm section"
+  ],
+  "mostLikelyInvalidatingPremise": {
+    "id": "F1",
+    "premise": "Bulk FUEL feeds from the hopper floor into the two flywheel pinch lanes at 2 FUEL/s or faster without jamming",
+    "budget": "One bench day with two belts, a flywheel lane pair and the hood at the R3 positions",
+    "nominal": "Pass if 24 FUEL loaded as a heap give at least 22 pinch-sensor crossings in 12 s with at most one jam in five trials",
+    "adverse": "30 FUEL with the rig tilted 10 degrees toward a side plate; pass if no jam needs a reversal longer than 0.5 s",
+    "onFail": "Revise to a rotating indexer or a third lane; if that also fails, reopen the whole-robot comparison"
+  },
+  "rehearsal": "Re-run on Agent FRC 0.84 with waitCycles yield and a shared partner deconfliction (rehearsal/comparison.json). Baseline, R3 and R3L depot have 0 permanent wait cycles. Slot 2 credits 124 FUEL in both the baseline and R3 at 2.7 m (alliance totals 366 and 382). R3L depot matches R3; R3L on the TRENCH credits 40 (21 permanent cycles sharing the corridor with the neutral runner; 0 when solo, still 40). R3 stays selected. Pre-0.84 results (96 vs 104) were understated by permanent wait cycles."
+}

@@ -1,0 +1,376 @@
+{
+  "headReceiptSha256": "fbd6ea42379bd2859b198629ceb604d38fe214af17efddfd34ca566f1304d16b",
+  "legalHeightMm": 762,
+  "verticalMachiningAllowanceMm": 0.5,
+  "cases": {
+    "0.0": {
+      "left mast upper plate key": {
+        "heightMm": 754.5,
+        "marginMm": 7.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "left aft mast upper plate key": {
+        "heightMm": 754.5,
+        "marginMm": 7.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right mast upper plate key": {
+        "heightMm": 754.5,
+        "marginMm": 7.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right aft mast upper plate key": {
+        "heightMm": 754.5,
+        "marginMm": 7.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "left project head journal": {
+        "heightMm": 758.5,
+        "marginMm": 3.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right project head journal": {
+        "heightMm": 758.5,
+        "marginMm": 3.5,
+        "wheelDeltaMm": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      }
+    },
+    "1.0": {
+      "left mast upper plate key": {
+        "heightMm": 757.4811320754717,
+        "marginMm": 4.518867924528308,
+        "wheelDeltaMm": [
+          1.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "left aft mast upper plate key": {
+        "heightMm": 757.8584905660377,
+        "marginMm": 4.141509433962256,
+        "wheelDeltaMm": [
+          1.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right mast upper plate key": {
+        "heightMm": 757.4811320754717,
+        "marginMm": 4.518867924528308,
+        "wheelDeltaMm": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right aft mast upper plate key": {
+        "heightMm": 757.8584905660377,
+        "marginMm": 4.141509433962256,
+        "wheelDeltaMm": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "left project head journal": {
+        "heightMm": 761.5754716981132,
+        "marginMm": 0.4245283018867667,
+        "wheelDeltaMm": [
+          1.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right project head journal": {
+        "heightMm": 761.5754716981132,
+        "marginMm": 0.4245283018867667,
+        "wheelDeltaMm": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      }
+    },
+    "2.0": {
+      "left mast upper plate key": {
+        "heightMm": 760.4622641509434,
+        "marginMm": 1.5377358490566166,
+        "wheelDeltaMm": [
+          2.0,
+          -2.0,
+          -2.0,
+          2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "left aft mast upper plate key": {
+        "heightMm": 761.2169811320755,
+        "marginMm": 0.7830188679245111,
+        "wheelDeltaMm": [
+          2.0,
+          -2.0,
+          -2.0,
+          2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right mast upper plate key": {
+        "heightMm": 760.4622641509434,
+        "marginMm": 1.5377358490566166,
+        "wheelDeltaMm": [
+          -2.0,
+          2.0,
+          2.0,
+          -2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right aft mast upper plate key": {
+        "heightMm": 761.2169811320755,
+        "marginMm": 0.7830188679245111,
+        "wheelDeltaMm": [
+          -2.0,
+          2.0,
+          2.0,
+          -2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "left project head journal": {
+        "heightMm": 764.6509433962265,
+        "marginMm": -2.6509433962264666,
+        "wheelDeltaMm": [
+          2.0,
+          -2.0,
+          -2.0,
+          2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right project head journal": {
+        "heightMm": 764.6509433962265,
+        "marginMm": -2.6509433962264666,
+        "wheelDeltaMm": [
+          -2.0,
+          2.0,
+          2.0,
+          -2.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      }
+    },
+    "3.0": {
+      "left mast upper plate key": {
+        "heightMm": 763.4433962264151,
+        "marginMm": -1.443396226415075,
+        "wheelDeltaMm": [
+          3.0,
+          -3.0,
+          -3.0,
+          3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "left aft mast upper plate key": {
+        "heightMm": 764.5754716981132,
+        "marginMm": -2.5754716981132333,
+        "wheelDeltaMm": [
+          3.0,
+          -3.0,
+          -3.0,
+          3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right mast upper plate key": {
+        "heightMm": 763.4433962264151,
+        "marginMm": -1.443396226415075,
+        "wheelDeltaMm": [
+          -3.0,
+          3.0,
+          3.0,
+          -3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "right aft mast upper plate key": {
+        "heightMm": 764.5754716981132,
+        "marginMm": -2.5754716981132333,
+        "wheelDeltaMm": [
+          -3.0,
+          3.0,
+          3.0,
+          -3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      },
+      "left project head journal": {
+        "heightMm": 767.7264150943396,
+        "marginMm": -5.726415094339586,
+        "wheelDeltaMm": [
+          3.0,
+          -3.0,
+          -3.0,
+          3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear right"
+        ]
+      },
+      "right project head journal": {
+        "heightMm": 767.7264150943396,
+        "marginMm": -5.726415094339586,
+        "wheelDeltaMm": [
+          -3.0,
+          3.0,
+          3.0,
+          -3.0
+        ],
+        "supporting": [
+          "front left",
+          "front right",
+          "rear left"
+        ]
+      }
+    }
+  },
+  "basis": "Four wheel datums from the selected module layout. Wheel delta is an assumed effective change in each loaded wheel support height on a common flat floor. The three-point plane uses the vertex cases of a bounded four-wheel interval. Positive local body height is left unshortened for a conservative small-tilt bound. This does not measure actual wheel or assembly tolerances or certify field-floor conditions."
+}

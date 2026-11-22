@@ -95,7 +95,7 @@ def check(prior, current, recipe):
             and row["centroidDeltaMm"] <= 0.002
             and row["boxDeltaMm"] <= 0.003
         )
-        if name.endswith(" socket screw"):
+        if name in plan and name.endswith(" socket screw"):
             shank = plan[name]["features"][0]["shape"]
             x, y, z = shank["a"]
             areas = []
