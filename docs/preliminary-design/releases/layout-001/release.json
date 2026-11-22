@@ -6,11 +6,11 @@
   "status": "layout-checked",
   "receipt": {
     "file": "receipt.json",
-    "sha256": "536a37b4f47e9f982ff0abee1480aa7f9018c6eb9d72492cefe498e64f0ff3f4"
+    "sha256": "0e0e31fbc12a79447fc8919767ca49288d12e83b1caf379600a552f055ef6e33"
   },
   "view": {
     "file": "index.html",
-    "sha256": "b843d80017ebb8e5782e55e0b183df646ddb5a1ac21846e61b686c119a8a6cb0"
+    "sha256": "9bd4737b9edfe5751806835ffe4ee3ba96935e54ba831f9c7ff46ea265b22cf3"
   },
   "scene": {
     "file": "motion.json",

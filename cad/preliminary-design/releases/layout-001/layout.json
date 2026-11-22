@@ -656,391 +656,586 @@
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
         "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
-        "material": "6061-T6 2x1x0.125 in tube"
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail front",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "frame rail rear": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
         "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
-        "material": "6061-T6 2x1x0.125 in tube"
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail rear",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "frame rail left": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
         "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
-        "material": "6061-T6 2x1x0.125 in tube"
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail left",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "frame rail right": {
         "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
         "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame widens to 714 mm (2788 mm perimeter) for hang overlap, so the side-rail saddle fits must be redrawn.",
         "category": "structure",
-        "material": "6061-T6 2x1x0.125 in tube"
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail right",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "floor pan": {
         "purpose": "Support the floor belts, battery tray and electronics.",
         "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
         "category": "structure",
-        "material": "3 mm polycarbonate over aluminum stiffeners"
+        "material": "3 mm polycarbonate over aluminum stiffeners",
+        "name": "Floor pan",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "floor pan front tongue": {
         "purpose": "Support the floor belts, battery tray and electronics.",
         "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
         "category": "structure",
-        "material": "3 mm polycarbonate over aluminum stiffeners"
+        "material": "3 mm polycarbonate over aluminum stiffeners",
+        "name": "Floor pan front tongue",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "front lip": {
         "purpose": "Keep floor-level FUEL from rolling out over the front rail.",
         "rationale": "Its 170 mm top stands 2 mm above the floor-layer centres and 5 mm below the entering FUEL.",
         "category": "structure",
-        "material": "3 mm aluminum"
+        "material": "3 mm aluminum",
+        "name": "Front lip",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "intake slide rail left": {
         "purpose": "Guide the intake carriage between the start fold and the pickup pose.",
         "rationale": "A straight slide never sweeps beyond the 304.8 mm R105 reach; the fixed stage of the two-stage slide is drawn.",
         "category": "structure",
-        "material": "Aluminum drawer-slide stage"
+        "material": "Aluminum drawer-slide stage",
+        "name": "Intake slide rail left",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "intake slide rail right": {
         "purpose": "Guide the intake carriage between the start fold and the pickup pose.",
         "rationale": "A straight slide never sweeps beyond the 304.8 mm R105 reach; the fixed stage of the two-stage slide is drawn.",
         "category": "structure",
-        "material": "Aluminum drawer-slide stage"
+        "material": "Aluminum drawer-slide stage",
+        "name": "Intake slide rail right",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "climber tube mount left": {
         "purpose": "Carry the climber tubes and the hang load into the front rail.",
         "rationale": "The hang reaction enters the frame next to the front modules.",
         "category": "structure",
-        "material": "6 mm aluminum bracket"
+        "material": "6 mm aluminum bracket",
+        "name": "Climber tube mount left",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "climber tube mount right": {
         "purpose": "Carry the climber tubes and the hang load into the front rail.",
         "rationale": "The hang reaction enters the frame next to the front modules.",
         "category": "structure",
-        "material": "6 mm aluminum bracket"
+        "material": "6 mm aluminum bracket",
+        "name": "Climber tube mount right",
+        "subsystem": "frame",
+        "volumeType": "material"
       },
       "front left wheel azimuth envelope": {
         "purpose": "Reserve the full steering sweep of each swerve wheel.",
         "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
         "category": "drivetrain",
-        "material": "Supplier wheel; envelope only"
+        "material": "Supplier wheel; envelope only",
+        "name": "Front left wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "front right wheel azimuth envelope": {
         "purpose": "Reserve the full steering sweep of each swerve wheel.",
         "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
         "category": "drivetrain",
-        "material": "Supplier wheel; envelope only"
+        "material": "Supplier wheel; envelope only",
+        "name": "Front right wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear left wheel azimuth envelope": {
         "purpose": "Reserve the full steering sweep of each swerve wheel.",
         "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
         "category": "drivetrain",
-        "material": "Supplier wheel; envelope only"
+        "material": "Supplier wheel; envelope only",
+        "name": "Rear left wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear right wheel azimuth envelope": {
         "purpose": "Reserve the full steering sweep of each swerve wheel.",
         "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
         "category": "drivetrain",
-        "material": "Supplier wheel; envelope only"
+        "material": "Supplier wheel; envelope only",
+        "name": "Rear right wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "front left module body": {
         "purpose": "Represent the swerve module plates and gearing.",
         "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
         "category": "drivetrain",
-        "material": "Supplier module"
+        "material": "Supplier module",
+        "name": "Front left module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "front right module body": {
         "purpose": "Represent the swerve module plates and gearing.",
         "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
         "category": "drivetrain",
-        "material": "Supplier module"
+        "material": "Supplier module",
+        "name": "Front right module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear left module body": {
         "purpose": "Represent the swerve module plates and gearing.",
         "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
         "category": "drivetrain",
-        "material": "Supplier module"
+        "material": "Supplier module",
+        "name": "Rear left module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear right module body": {
         "purpose": "Represent the swerve module plates and gearing.",
         "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
         "category": "drivetrain",
-        "material": "Supplier module"
+        "material": "Supplier module",
+        "name": "Rear right module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "front left module motors": {
         "purpose": "Reserve the drive and steering motors above each module.",
         "rationale": "Their height limits the lowest hopper layer at the corners.",
         "category": "drivetrain",
-        "material": "Supplier motors"
+        "material": "Supplier motors",
+        "name": "Front left module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "front right module motors": {
         "purpose": "Reserve the drive and steering motors above each module.",
         "rationale": "Their height limits the lowest hopper layer at the corners.",
         "category": "drivetrain",
-        "material": "Supplier motors"
+        "material": "Supplier motors",
+        "name": "Front right module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear left module motors": {
         "purpose": "Reserve the drive and steering motors above each module.",
         "rationale": "Their height limits the lowest hopper layer at the corners.",
         "category": "drivetrain",
-        "material": "Supplier motors"
+        "material": "Supplier motors",
+        "name": "Rear left module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "rear right module motors": {
         "purpose": "Reserve the drive and steering motors above each module.",
         "rationale": "Their height limits the lowest hopper layer at the corners.",
         "category": "drivetrain",
-        "material": "Supplier motors"
+        "material": "Supplier motors",
+        "name": "Rear right module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
       },
       "bumper front": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
         "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
-        "material": "Plywood backing, foam, fabric"
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper front",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
       },
       "bumper rear": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
         "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
-        "material": "Plywood backing, foam, fabric"
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper rear",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
       },
       "bumper left": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
         "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
-        "material": "Plywood backing, foam, fabric"
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper left",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
       },
       "bumper right": {
         "purpose": "Protect the frame perimeter and back the intake pinch.",
         "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing, and its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
         "category": "bumper",
-        "material": "Plywood backing, foam, fabric"
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper right",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
       },
       "hopper wall left": {
         "purpose": "Contain stacked FUEL up to 715 mm.",
         "rationale": "Walls rise 85 mm above the top-layer centres so a stable stack stays inside.",
         "category": "structure",
-        "material": "2 mm polycarbonate"
+        "material": "2 mm polycarbonate",
+        "name": "Hopper wall left",
+        "subsystem": "hopper",
+        "volumeType": "material"
       },
       "hopper wall right": {
         "purpose": "Contain stacked FUEL up to 715 mm.",
         "rationale": "Walls rise 85 mm above the top-layer centres so a stable stack stays inside.",
         "category": "structure",
-        "material": "2 mm polycarbonate"
+        "material": "2 mm polycarbonate",
+        "name": "Hopper wall right",
+        "subsystem": "hopper",
+        "volumeType": "material"
       },
       "hopper front upper wall": {
         "purpose": "Close the hopper front above the intake throat.",
         "rationale": "It starts at 482 mm, above the slide's swept path and the stowed carriage.",
         "category": "structure",
-        "material": "2 mm polycarbonate"
+        "material": "2 mm polycarbonate",
+        "name": "Hopper front upper wall",
+        "subsystem": "hopper",
+        "volumeType": "material"
       },
       "hopper rear wall": {
         "purpose": "Separate stored FUEL from the spinning flywheel.",
         "rationale": "Only the floor-level lane may reach the pinch; upper layers would double-feed or jam on the wheel top.",
         "category": "structure",
-        "material": "2 mm polycarbonate"
+        "material": "2 mm polycarbonate",
+        "name": "Hopper rear wall",
+        "subsystem": "hopper",
+        "volumeType": "material"
       },
       "floor belt main": {
         "purpose": "Move the bottom FUEL layer aft toward the flywheel pinch.",
         "rationale": "Feeding straight from the floor removes the incumbent's vertical elevator transfer.",
         "category": "mechanism",
-        "material": "Belt envelope; belt and rollers"
+        "material": "Belt envelope; belt and rollers",
+        "name": "Floor belt main",
+        "subsystem": "floor belts",
+        "volumeType": "material"
       },
       "floor belt front": {
         "purpose": "Move the bottom FUEL layer aft toward the flywheel pinch.",
         "rationale": "Feeding straight from the floor removes the incumbent's vertical elevator transfer.",
         "category": "mechanism",
-        "material": "Belt envelope; belt and rollers"
+        "material": "Belt envelope; belt and rollers",
+        "name": "Floor belt front",
+        "subsystem": "floor belts",
+        "volumeType": "material"
       },
       "indexer cleat": {
         "purpose": "Push one tracked FUEL along the floor lane into the pinch.",
         "rationale": "A cleated belt gives a positive drive path that a free-piece test can meter.",
         "category": "mechanism",
-        "material": "Urethane cleat on belt"
+        "material": "Urethane cleat on belt",
+        "name": "Indexer cleat",
+        "subsystem": "floor indexer",
+        "volumeType": "material"
       },
       "flywheel": {
         "purpose": "Accelerate the FUEL against the hood.",
         "rationale": "A 4 in floor-fed flywheel at 62 degrees enters from 2.4 to 3.6 m under every drag and spin corner; 0.006 kg m2 limits the speed drop per shot to about 1.6-2%.",
         "category": "mechanism",
-        "material": "Aluminum hub, compliant tread"
+        "material": "Aluminum hub, compliant tread",
+        "name": "Flywheel",
+        "subsystem": "shooter",
+        "volumeType": "material"
       },
       "hood": {
         "purpose": "Guide the FUEL 62 degrees around the flywheel and release it at 62 degrees elevation.",
         "rationale": "Its end stops 2 mm inside the rear perimeter, so the shooter never extends a second side.",
         "category": "mechanism",
-        "material": "Formed aluminum with friction liner"
+        "material": "Formed aluminum with friction liner",
+        "name": "Hood",
+        "subsystem": "shooter",
+        "volumeType": "material"
       },
       "shooter side plate left": {
         "purpose": "Carry the flywheel bearings and hood.",
         "rationale": "Plates stop 4 mm short of the rear modules and bound the two pinch lanes.",
         "category": "structure",
-        "material": "6 mm aluminum plate"
+        "material": "6 mm aluminum plate",
+        "name": "Shooter side plate left",
+        "subsystem": "shooter",
+        "volumeType": "material"
       },
       "shooter side plate right": {
         "purpose": "Carry the flywheel bearings and hood.",
         "rationale": "Plates stop 4 mm short of the rear modules and bound the two pinch lanes.",
         "category": "structure",
-        "material": "6 mm aluminum plate"
+        "material": "6 mm aluminum plate",
+        "name": "Shooter side plate right",
+        "subsystem": "shooter",
+        "volumeType": "material"
       },
       "flywheel motor left": {
         "purpose": "Drive the flywheel from both ends.",
         "rationale": "Outboard of each side plate, clear of the battery, the panels and the rear modules.",
         "category": "mechanism",
-        "material": "Brushless motor"
+        "material": "Brushless motor",
+        "name": "Flywheel motor left",
+        "subsystem": "shooter",
+        "volumeType": "envelope"
       },
       "flywheel motor right": {
         "purpose": "Drive the flywheel from both ends.",
         "rationale": "Outboard of each side plate, clear of the battery, the panels and the rear modules.",
         "category": "mechanism",
-        "material": "Brushless motor"
+        "material": "Brushless motor",
+        "name": "Flywheel motor right",
+        "subsystem": "shooter",
+        "volumeType": "envelope"
       },
       "battery": {
         "purpose": "Supply the robot bus.",
         "rationale": "Standing on its end at the left side lets it lift straight out between the hook arm and rear wall.",
         "category": "battery",
-        "material": "Sealed lead acid 12 V"
+        "material": "Sealed lead acid 12 V",
+        "name": "Battery",
+        "subsystem": "battery",
+        "volumeType": "material"
       },
       "electronics panel": {
         "purpose": "Hold power distribution, controller, radio, breaker and 15 motor controllers on both faces.",
         "rationale": "The side strips are outside the floor lanes and reachable from above.",
         "category": "electrical",
-        "material": "Polycarbonate panel"
+        "material": "Polycarbonate panel",
+        "name": "Electronics panel",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
       },
       "electronics panel left": {
         "purpose": "Hold power distribution, controller, radio, breaker and 15 motor controllers on both faces.",
         "rationale": "The side strips are outside the floor lanes and reachable from above.",
         "category": "electrical",
-        "material": "Polycarbonate panel"
+        "material": "Polycarbonate panel",
+        "name": "Electronics panel left",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
       },
       "entry sensor": {
         "purpose": "Observe each FUEL crossing the intake lip.",
         "rationale": "The strategy requires per-piece intake crossings on the match timebase.",
         "category": "electrical",
-        "material": "Beam-break sensor"
+        "material": "Beam-break sensor",
+        "name": "Entry sensor",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
       },
       "pinch sensor": {
         "purpose": "Observe each FUEL entering the flywheel lane.",
         "rationale": "Separates retained identity from release for the counting requirement.",
         "category": "electrical",
-        "material": "Beam-break sensor"
+        "material": "Beam-break sensor",
+        "name": "Pinch sensor",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
       },
       "climber tube left": {
         "purpose": "Guide the telescoping hooks.",
         "rationale": "Front corners above the modules give a straight load path into the frame for the hang.",
         "category": "structure",
-        "material": "30 mm round aluminum tube"
+        "material": "30 mm round aluminum tube",
+        "name": "Climber tube left",
+        "subsystem": "climber tubes",
+        "volumeType": "material"
       },
       "climber tube right": {
         "purpose": "Guide the telescoping hooks.",
         "rationale": "Front corners above the modules give a straight load path into the frame for the hang.",
         "category": "structure",
-        "material": "30 mm round aluminum tube"
+        "material": "30 mm round aluminum tube",
+        "name": "Climber tube right",
+        "subsystem": "climber tubes",
+        "volumeType": "material"
       },
       "climber winch": {
         "purpose": "Retract both inner tubes by cable to lift the robot.",
         "rationale": "One motor at the front top keeps both hooks synchronized; it must hold 625 N with power removed (F4).",
         "category": "mechanism",
-        "material": "Gearmotor and spool envelope"
+        "material": "Gearmotor and spool envelope",
+        "name": "Climber winch",
+        "subsystem": "climber tubes",
+        "volumeType": "envelope"
       },
       "climber inner tube left": {
         "purpose": "Telescope inside the outer tube to seat the hook and lift the robot 70 mm.",
         "rationale": "A round tube lets the hook swing on top without the tube rotating in its guide; the swing actuator sits inside it.",
         "category": "mechanism",
-        "material": "22 mm round aluminum tube"
+        "material": "22 mm round aluminum tube",
+        "name": "Climber inner tube left",
+        "subsystem": "climber inner tubes",
+        "volumeType": "material"
       },
       "climber inner tube right": {
         "purpose": "Telescope inside the outer tube to seat the hook and lift the robot 70 mm.",
         "rationale": "A round tube lets the hook swing on top without the tube rotating in its guide; the swing actuator sits inside it.",
         "category": "mechanism",
-        "material": "22 mm round aluminum tube"
+        "material": "22 mm round aluminum tube",
+        "name": "Climber inner tube right",
+        "subsystem": "climber inner tubes",
+        "volumeType": "material"
       },
       "climber hook left": {
         "purpose": "Swing over the low rung, seat and lift the robot 70 mm.",
         "rationale": "Stowed inside the perimeter for R106; a 180 degree inboard swing avoids a second-side extension.",
         "category": "mechanism",
-        "material": "Aluminum tube and hook plate"
+        "material": "Aluminum tube and hook plate",
+        "name": "Climber hook left",
+        "subsystem": "climber hooks",
+        "volumeType": "material"
       },
       "climber hook right": {
         "purpose": "Swing over the low rung, seat and lift the robot 70 mm.",
         "rationale": "Stowed inside the perimeter for R106; a 180 degree inboard swing avoids a second-side extension.",
         "category": "mechanism",
-        "material": "Aluminum tube and hook plate"
+        "material": "Aluminum tube and hook plate",
+        "name": "Climber hook right",
+        "subsystem": "climber hooks",
+        "volumeType": "material"
       },
       "intake belt module": {
         "purpose": "Lift a floor FUEL up the bumper face.",
         "rationale": "A vertical belt 3 mm off the undeformed FUEL pinches it against the bumper inside the 304.8 mm reach; compression is a detailed-design setting.",
         "category": "mechanism",
-        "material": "Belt module with internal motor"
+        "material": "Belt module with internal motor",
+        "name": "Intake belt module",
+        "subsystem": "intake",
+        "volumeType": "envelope"
       },
       "intake top roller": {
         "purpose": "Push the lifted FUEL aft over the bumper.",
         "rationale": "Placed 3 mm above the FUEL at the top of the climb.",
         "category": "mechanism",
-        "material": "2 in compliant wheels on hex shaft"
+        "material": "2 in compliant wheels on hex shaft",
+        "name": "Intake top roller",
+        "subsystem": "intake",
+        "volumeType": "material"
       },
       "intake carriage plate left": {
         "purpose": "Join the belt module and top roller to the slide.",
         "rationale": "Plates at 262-272 mm pass between the 819 mm TOWER uprights so the intake can stay deployed during the climb.",
         "category": "mechanism",
-        "material": "6 mm aluminum plate"
+        "material": "6 mm aluminum plate",
+        "name": "Intake carriage plate left",
+        "subsystem": "intake",
+        "volumeType": "material"
       },
       "intake carriage plate right": {
         "purpose": "Join the belt module and top roller to the slide.",
         "rationale": "Plates at 262-272 mm pass between the 819 mm TOWER uprights so the intake can stay deployed during the climb.",
         "category": "mechanism",
-        "material": "6 mm aluminum plate"
+        "material": "6 mm aluminum plate",
+        "name": "Intake carriage plate right",
+        "subsystem": "intake",
+        "volumeType": "material"
       },
       "FUEL tracked": {
         "purpose": "Follow one identifiable FUEL from the carpet into the HUB.",
         "rationale": "Its undeformed path carries the custody, clearance and ballistic checks.",
         "category": "game-piece",
-        "material": "Foam FUEL 150.114 mm, 0.203-0.227 kg"
+        "material": "Foam FUEL 150.114 mm, 0.203-0.227 kg",
+        "name": "FUEL tracked",
+        "subsystem": "tracked FUEL",
+        "volumeType": "material"
       },
       "FUEL stored 1": {
         "purpose": "Represent stored stock in the starting fold.",
         "rationale": "Supported pockets from the deposition screen that stay clear of every commissioned path; capacity itself is the free-volume premise.",
         "category": "game-piece",
-        "material": "Foam FUEL"
+        "material": "Foam FUEL",
+        "name": "FUEL stored 1",
+        "subsystem": "stored FUEL",
+        "volumeType": "material"
       },
       "FUEL stored 2": {
         "purpose": "Represent stored stock in the starting fold.",
         "rationale": "Supported pockets from the deposition screen that stay clear of every commissioned path; capacity itself is the free-volume premise.",
         "category": "game-piece",
-        "material": "Foam FUEL"
+        "material": "Foam FUEL",
+        "name": "FUEL stored 2",
+        "subsystem": "stored FUEL",
+        "volumeType": "material"
       },
       "hub body": {
         "purpose": "Locate the HUB and its hexagonal opening.",
         "rationale": "The flight cases must clear the near flat at 1828.8 mm and descend inside the conservative inscribed opening.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Hub body",
+        "subsystem": "field",
+        "volumeType": "envelope"
       },
       "hub top": {
         "purpose": "Locate the HUB and its hexagonal opening.",
         "rationale": "The flight cases must clear the near flat at 1828.8 mm and descend inside the conservative inscribed opening.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Hub top",
+        "subsystem": "field",
+        "volumeType": "envelope"
       },
       "tower upright left": {
         "purpose": "Locate the TOWER uprights.",
         "rationale": "Their 819 mm gap bounds the intake and the bumper approach.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Tower upright left",
+        "subsystem": "field",
+        "volumeType": "envelope"
       },
       "tower upright right": {
         "purpose": "Locate the TOWER uprights.",
         "rationale": "Their 819 mm gap bounds the intake and the bumper approach.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Tower upright right",
+        "subsystem": "field",
+        "volumeType": "envelope"
       },
       "tower low rung": {
         "purpose": "Locate the low rung at 685.8 mm.",
         "rationale": "The hooks must seat on it; the V0 text centres it in the upright depth.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Tower low rung",
+        "subsystem": "field",
+        "volumeType": "envelope"
       },
       "tower base": {
         "purpose": "Locate the TOWER BASE plate.",
         "rationale": "Level 1 requires clearing it; its 8 mm edge stands under the front bumper at the berth.",
         "category": "field",
-        "material": "Field fixture (V0 dimensions)"
+        "material": "Field fixture (V0 dimensions)",
+        "name": "Tower base",
+        "subsystem": "field",
+        "volumeType": "envelope"
       }
     },
     "required": {
