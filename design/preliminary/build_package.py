@@ -67,7 +67,7 @@ def pin(name):
 
 
 def write(name, obj):
-    (HERE / name).write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8")
+    (HERE / name).write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8", newline="\n")
     return pin(name)
 
 
@@ -252,7 +252,7 @@ def main():
     d["design"]["parameters"].update(frameLengthM=0.68, frameWidthM=0.68, trackM=0.53, bumperBottomM=0.048,
                                      bumperHeightM=0.12, bumperDepthM=0.0775, height=0.75, reach=0.274,
                                      toolHeight=0.25, opening=0.516, phase="deployed")
-    design_path.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8")
+    design_path.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8", newline="\n")
     chk = subprocess.run(["node", str(CLI), "validate", str(design_path)], capture_output=True, text=True)
     assert chk.returncode == 0, chk.stderr + chk.stdout
     design = pin("design.json")
@@ -535,7 +535,7 @@ def main():
         view_path.parent.mkdir(exist_ok=True)
         out = subprocess.run(["node", str(CLI), "preliminary-check", str(ROOT), rel("layout.json"), *flags], capture_output=True, text=True)
         sys.stderr.write(out.stderr)
-        (HERE / ("receipt-partial.json" if args.fail_fast else "receipt.json")).write_text(out.stdout, encoding="utf-8")
+        (HERE / ("receipt-partial.json" if args.fail_fast else "receipt.json")).write_text(out.stdout, encoding="utf-8", newline="\n")
         print("exit", out.returncode)
 
 

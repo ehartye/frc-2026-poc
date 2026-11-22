@@ -3,15 +3,15 @@
   "issue": "R3-PD1",
   "design": {
     "file": "design/preliminary/design.json",
-    "sha256": "87c6d40b34e33e619083c056ba64102bef67cd5d7e3cd7282d504507c91c7d06"
+    "sha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de"
   },
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "793bbec936d571750c1d3ae3521469ac01ed74912b2b69ff9065a023fee0f88e"
+    "sha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd"
   },
   "motion": {
     "file": "design/preliminary/paths.json",
-    "sha256": "a600441d2f48e5d6fd6bf80128eda50a73547d13c9ccff6d899cb771ec69d88d"
+    "sha256": "364eb4704f3a4dc1d1f8dfac4a5623f8f54cffc084c726c8d73f6931df0ed205"
   },
   "datum": {
     "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
@@ -485,77 +485,77 @@
   "view": "design/preliminary/review/package-motion.html",
   "budgets": {
     "file": "design/preliminary/budgets.json",
-    "sha256": "d60b401ee1347e0dfee95be55104ef1b00c00a1aff6101ad6ebb146d5ea0bd97"
+    "sha256": "109f0b13e390c42b0a0a1aad678e3995cf61810b0ad2a23ea9f8e99ba7f12cd3"
   },
   "premises": [
     {
       "accepted": {
         "file": "design/preliminary/premise-stowed-start-height-accepted.json",
-        "sha256": "934ce2b9145122df03045ec0c7cde3b9ca7eb4ee0253e1398d732384bd3e7581"
+        "sha256": "f629b5febab18ac73e30fa83d0acfb2b614dce9ab6f2e6b315395747ce1066cc"
       },
       "current": {
         "file": "design/preliminary/premise-stowed-start-height-current.json",
-        "sha256": "060ca09130b443fec5fbe2e63b91b94dc4cbc2245c37de1cbd7c0f9f9ca51311"
+        "sha256": "aa436d1bbae0ed5244a078c8f91dbbf05e280547b1a2bab192fba645b18dc63c"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-deployed-height-accepted.json",
-        "sha256": "29765ad4b680c6d9d319120a367ca506d6ab70326b37846f281501ea612f709f"
+        "sha256": "53b84a11b9b1d2bcbacb57f93f380270f4e06bebcecd97f495e98aebf58f2a96"
       },
       "current": {
         "file": "design/preliminary/premise-deployed-height-current.json",
-        "sha256": "ffe746c3832f5dc7a5ecb284ee9f3e4d967d847c1535eaae12e6cbbbd1df77a1"
+        "sha256": "f0c3ad7841613dce958236e78e7c2957258f8c1555df6013548012dac03172cc"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-intake-reach-accepted.json",
-        "sha256": "02e3f5e302f05be65ef8d17a9cd95a5912a9bd7d4daf74f61ed51eb055607645"
+        "sha256": "01c3775c6960da8089b40bff22b85ead971462efa315521d9f0c9ff44747055b"
       },
       "current": {
         "file": "design/preliminary/premise-intake-reach-current.json",
-        "sha256": "27b10d9f22dbba873ad6bc2f5efedece2a51445198d6230e40c082209466c426"
+        "sha256": "6e6e6d66ada58f36e584d50652ce8ad57412083bf72e6dfd86e80a1629fefdd4"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-hopper-capacity-accepted.json",
-        "sha256": "e753eb0f638589f602d88b8572121e078b98c3a6d73208985a60eb68b6b867ec"
+        "sha256": "21bd57e69754fef35fb68c28a8c2c73a53423a3cf92a5b088cd6a3170d23a839"
       },
       "current": {
         "file": "design/preliminary/premise-hopper-capacity-current.json",
-        "sha256": "bc434a59370c7ec55b87b6022b6d738cbd3db4a849250a51b474836a8b5b1a2d"
+        "sha256": "a9acb1b93ddfb8be8a6cfe7f95fde7b356655f469f25990dcdeffc1abf4905c9"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-start-capacity-accepted.json",
-        "sha256": "ef6864dba5221457091f12449b2a4492f25e073edefdad52032cede38728fb31"
+        "sha256": "286bf4abee21e7fb6522caba5eaf25c822a840751c14222c9b0a0700df8c0ce4"
       },
       "current": {
         "file": "design/preliminary/premise-start-capacity-current.json",
-        "sha256": "81bf80a701548b810c574f2b8203181429d5e05971236ede14fb6b03091b2d08"
+        "sha256": "867a9e10c07975e64aa57d9ef3b710ddcd8e3b5ece83bc9a3458f23034ced3ce"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-shot-distance-accepted.json",
-        "sha256": "30b884f39bba60f6277cb6bfa5741cfe44196ae98e6bfb03086f39e699e5a1a8"
+        "sha256": "eb089e682658c39325215ab7e796efbc58d9ba275646916757bcbf844aca437a"
       },
       "current": {
         "file": "design/preliminary/premise-shot-distance-current.json",
-        "sha256": "9b4a652426efe6b485172457320e7e5e82db680b984137a9063522460f1cdb38"
+        "sha256": "d78b83fe707b682d0d179527251ba1b438e3d1acbd7605309794b241fbca7d9d"
       }
     },
     {
       "accepted": {
         "file": "design/preliminary/premise-bump-breakover-accepted.json",
-        "sha256": "bdc5b9721543b9a3f010d406a78720ebff5c4298622e64602e30783ed5262634"
+        "sha256": "29f8765c6cd58a119df9bde3fd4cba19a433239808ce2d5f13d01ac7d115660d"
       },
       "current": {
         "file": "design/preliminary/premise-bump-breakover-current.json",
-        "sha256": "162ac4c34197bba2051599e87ddfe4a6637c2b08305f6a48311f86492dae1109"
+        "sha256": "cbb80bead8c81ceda1a56f18668340d77db705930162d428396a42eb1225e88a"
       }
     }
   ],

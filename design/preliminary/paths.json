@@ -2,9 +2,9 @@
   "schema": "agent-frc/mechanical-motion@1",
   "step": {
     "file": "design/preliminary/package.step",
-    "sha256": "793bbec936d571750c1d3ae3521469ac01ed74912b2b69ff9065a023fee0f88e"
+    "sha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd"
   },
-  "layoutDesignSha256": "87c6d40b34e33e619083c056ba64102bef67cd5d7e3cd7282d504507c91c7d06",
+  "layoutDesignSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
   "layoutDatum": {
     "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
     "robotToStepMm": [

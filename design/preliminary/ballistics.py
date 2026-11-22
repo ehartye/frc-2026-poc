@@ -74,7 +74,7 @@ def study():
 
 if __name__ == "__main__":
     out = study()
-    (HERE / "ballistics.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
+    (HERE / "ballistics.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8", newline="\n")
     for r in out["rows"]:
         if r["cd"] == 0.6 and r["elevationDeg"] in (60, 65):
             print(r["exit"][:28], r["elevationDeg"], r["distanceM"], r["speedWindowMps"])

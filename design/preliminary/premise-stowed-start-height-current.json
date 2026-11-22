@@ -4,11 +4,11 @@
   "scenario": "Starting configuration with the intake folded",
   "value": 750.0,
   "issue": "R3-PD1",
-  "designSha256": "87c6d40b34e33e619083c056ba64102bef67cd5d7e3cd7282d504507c91c7d06",
-  "stepSha256": "793bbec936d571750c1d3ae3521469ac01ed74912b2b69ff9065a023fee0f88e",
+  "designSha256": "09b0e5421ecb8e1e7aa862c49f3f4abaaebff7d6882f8dd7341ccbd67b0a19de",
+  "stepSha256": "dba0a50effd52a34dc0ff287231fc806e62745d2209f0edf5bf3b7c8a1e587fd",
   "source": {
     "file": "design/preliminary/measurements.json",
-    "sha256": "f782eb759a2a75ef75b1ab3d9a57a791e8fc7cab2aa816299e2055d0a8d30583"
+    "sha256": "f6d566c94dd2196d4f336674067c99f40ad84a39bf69bbfb118eb6f6527a03ce"
   },
   "valueField": "stowedTopMm"
 }
