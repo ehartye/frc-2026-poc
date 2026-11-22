@@ -12,4 +12,4 @@ This folder follows the Agent FRC 0.89.0 whole-robot review layout template. `re
 - Audit the index: `python cad/preliminary-design/stage.py --check-index`.
 - Review locally: `python cad/preliminary-design/serve.py`, then open `http://127.0.0.1:8000/`. For a LAN review, add `--bind LAN_ADDRESS --port PORT`.
 
-The free-piece acquisition, delivery and hang trials play in the [field-interaction player](../../docs/field-interactions/r3-layout-001.html). `pages-workflow.yml` is the template's starter workflow. It is not installed, because the season showcase already deploys Pages.
+The free-piece acquisition, delivery and hang trials play in the [field-interaction player](releases/layout-001/field/r3-field-trials.html), which ships inside the release. `pages-workflow.yml` is the template's starter workflow. It is not installed, because the season showcase already deploys Pages.

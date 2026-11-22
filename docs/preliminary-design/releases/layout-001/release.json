@@ -6,11 +6,11 @@
   "status": "layout-checked",
   "receipt": {
     "file": "receipt.json",
-    "sha256": "0e0e31fbc12a79447fc8919767ca49288d12e83b1caf379600a552f055ef6e33"
+    "sha256": "54af662529d5497a85d751ffe9289c63362078d94becd3388bc23b968b9b334a"
   },
   "view": {
     "file": "index.html",
-    "sha256": "9bd4737b9edfe5751806835ffe4ee3ba96935e54ba831f9c7ff46ea265b22cf3"
+    "sha256": "9c289bd405c8a47512e50fd56fe6e9e6aa00834ba755d6d7d1fb1b4ac1cec6f8"
   },
   "scene": {
     "file": "motion.json",
@@ -35,6 +35,17 @@
       "kind": "operating-case",
       "accomplishes": "climb-held",
       "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
+    }
+  ],
+  "fieldPlayers": [
+    {
+      "file": "field/r3-field-trials.html",
+      "sha256": "3cee9afadaf5bb13fead73812d8f9d883e73e282dc4836e8ba12bc1479fa2744",
+      "trial": {
+        "file": "field-trials.json",
+        "sha256": "77ea722c41f0d9bd67400367de8efb3d122f2d7820b6c119c45e07adb63c311c"
+      },
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
     }
   ]
 }
