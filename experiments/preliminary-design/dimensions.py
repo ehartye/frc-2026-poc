@@ -67,7 +67,7 @@ REAR_WALL_X = (-96.0, -93.0)                                  # hopper rear wall
 # pulley_squeeze: the bottom pulley underside stands this far below the top of a FUEL resting on the carpet.
 # roller_drop: the top roller is lowered this far into the path of a FUEL at the top of the climb.
 INTAKE = dict(shift=(280.0, 0.0, -90.0), half_width=258.0, plate_y=(262.0, 272.0), plate_z=(290.0, 385.0), rail_y=(274.0, 282.0),
-              pinch_squeeze=20.0, pulley_squeeze=20.0, roller_drop=50.0, pulley_r=18.5, belt_top=300.0,
+              pinch_squeeze=20.0, pulley_squeeze=20.0, roller_drop=20.0, pulley_r=18.5, belt_top=300.0,
               climb_top=270.0, roller_r=38.1, belt_mps=3.0,
               # Belt drive: one brushless motor through gear:1 to the bottom pulley shaft, the top roller belted to it.
               # moving_kg: belt, pulleys, roller and rotor as an equivalent mass at the belt surface.
@@ -139,6 +139,6 @@ assert abs(flywheel_build()["inertia"] - SHOOTER["inertia_kgm2"]) < 2e-4, flywhe
 # front_rise to the cheek wall at cheek_y) passes under the stowed belt module. throat_cover: forward lower edge (x, z)
 # of the fixed plate from the front upper wall's lower edge that closes the throat above the deployed top roller.
 HOPPER = dict(lane_half=168.0, floor="trough", shelf_z=270.0, shelf_deg=30.0, front_x=170.0, front_shelf_z=170.0, front_rise=46.0,
-              cheek_y=260.0, throat_cover=(440.0, 420.0), throat_ramp=188.0, divider=dict(half_t=1.5, x1=309.0, h=45.0), guides=(((62.0, 250.0), (REAR_WALL_X[1], 168.0)), ((120.0, -297.0), (REAR_WALL_X[1], -168.0))))
+              cheek_y=260.0, throat_cover=(440.0, 420.0), throat_ramp=188.0, throat_guide=((417.5, 260.0), (311.0, 200.0)), divider=None, guides=(((62.0, 250.0), (REAR_WALL_X[1], 168.0)), ((120.0, -297.0), (REAR_WALL_X[1], -168.0))))
 BATTERY_BOX = ((-25.0, 236.0 + DY, 102.0), (142.0, 312.0 + DY, 283.0))
 PANEL_RIGHT = ((-90.0, -312.0 - DY, 102.0), (170.0, -282.0 - DY, 282.0))

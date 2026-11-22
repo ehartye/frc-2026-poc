@@ -64,8 +64,8 @@ def surfaces(belt_mps, opt=None):
     by = (lane, lane) if floor in ("trough", "bin") else (279 + D.DY, 231 + D.DY)
     rect((m["x0"], -by[0], bt), (m["x1"] - m["x0"], 0, 0), (0, by[0] + by[1], 0), "floor belt main", "belt", (-belt_mps, 0, 0))
     rect((D.LANE_DECK["x0"], -lane, bt), (D.LANE_DECK["x1"] - D.LANE_DECK["x0"], 0, 0), (0, 2 * lane, 0), "lane deck", "deck")
-    if opt.get("divider", True):
-        dv = dict(H["divider"], **opt.get("divider_dims", {}))
+    if opt.get("divider", bool(H["divider"])):
+        dv = dict(H["divider"] or dict(half_t=1.5, x1=309.0), **opt.get("divider_dims", {}))
         gate_z_div = bt + dv.get("h", gate_z - bt)
         for y in (-dv["half_t"], dv["half_t"]):
             rect((D.LANE_DECK["x0"], y, bt + 2), (dv["x1"] - D.LANE_DECK["x0"], 0, 0), (0, 0, gate_z_div - bt - 2), "lane divider")
@@ -90,9 +90,11 @@ def surfaces(belt_mps, opt=None):
             rect((wx, s * lane, pan), (fx_ - wx, 0, 0), (0, 0, shelf_z - pan), "hopper channel wall " + side)
             rect((wx, s * lane, shelf_z), (fx_ - wx, 0, 0), (0, s * (hw - lane), rise), "hopper shelf " + side)
             rect((fx_, min(s * lane, s * hw), fz_), (0, hw - lane, 0), (0, 0, shelf_z + rise - fz_), "hopper shelf " + side)
-            rect((fx_, s * lane, pan), (337 - fx_, 0, 0), (0, 0, fz_ - pan), "hopper channel wall " + side)
-            rect((fx_, s * lane, fz_), (337 - fx_, 0, 0), (0, s * (cheek - lane), fr_), "hopper front shelf " + side)
+            rect((fx_, s * lane, pan), (L["x0"] - fx_, 0, 0), (0, 0, fz_ - pan), "hopper channel wall " + side)
+            rect((fx_, s * lane, fz_), (L["x0"] - fx_, 0, 0), (0, s * (cheek - lane), fr_), "hopper front shelf " + side)
             rect((fx_, s * cheek, fz_), (470 - fx_, 0, 0), (0, 0, wall - fz_), "hopper cheek " + side)
+            (gx0, gy0), (gx1, gy1) = H["throat_guide"]   # turns FUEL on the ramp in toward the channel
+            rect((gx0, s * gy0, D.BUMPER["z1"]), (gx1 - gx0, s * (gy1 - gy0), 0), (0, 0, 482 - D.BUMPER["z1"]), "throat guide " + side)
         else:
             box((185, min(s * (185 + D.DY), s * (312 + D.DY)), 80), (312, max(s * (185 + D.DY), s * (312 + D.DY)), 125), "module body", "zxy" if s > 0 else "zxY")
             rect((wx, min(s * lane, s * hw), pan), (0, hw - lane, 0), (0, 0, gate_z - pan), "hopper rear wall")
@@ -183,6 +185,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     reverse_until, first_stall = -1.0, None
     frames, t, step = [], -settle_s, 0
     lost, recirculated, pending, where = 0, 0, [], []
+    held = np.zeros(n, bool)
     PINCH_X = (D.BUMPER["x1"] + 45.0) * MM
     next_frame = 0.0
 
@@ -299,26 +302,29 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                     if ln["ball"] == b_:
                         ln["mode"], ln["ball"] = "staging", None
             last_take = t
-        # a FUEL that rolls forward off the bumper top drops into the intake pinch: the running intake lifts it and throws
-        # it back in with the acquisition trial's capture state; with the intake stopped it falls to the carpet
-        fell = alive & (pos[:, 0] > PINCH_X) & (pos[:, 2] < 0.30)
+        # A FUEL that rolls forward off the ramp drops into the intake pinch, between the belt and the bumper face. The
+        # pinch holds it there (20 mm squeeze); once the intake runs, the belt lifts it and the roller throws it back in
+        # with the acquisition trial's capture state, 0.4 s later. With the intake stopped it stays in the pinch.
+        fell = alive & ~held & (pos[:, 0] > PINCH_X) & (pos[:, 2] < 0.30)
         for b_ in np.where(fell)[0]:
-            if running and intake > 0:
-                pos[b_] = (0.5, float(np.clip(pos[b_, 1], -0.18, 0.18)), 5.0 + 0.5 * len(pending)); vel[b_] = 0; om[b_] = 0
-                pending.append((t + 0.4, b_))
-            else:
-                alive[b_] = False; lost += 1
+            held[b_] = True
+            pos[b_] = (0.5, float(np.clip(pos[b_, 1], -0.18, 0.18)), 5.0 + 0.5 * b_); vel[b_] = 0; om[b_] = 0
+            if intake > 0:
+                pending.append((max(t, 0.0) + 0.4, b_))
         for due, b_ in [q for q in pending if q[0] <= t]:
-            pending.remove((due, b_)); recirculated += 1
-            pos[b_] = (0.340, pos[b_, 1], 0.266); vel[b_] = (-1.17, 0.0, -0.46); om[b_] = (0.0, 24.0, 0.0)
-        parked = np.zeros(n, bool); parked[[q[1] for q in pending]] = True
-        vel[parked] = 0; pos[parked, 2] = 5.0 + 0.5 * np.arange(parked.sum())
-        out = alive & ~parked & ((pos[:, 2] < 0.0) | (pos[:, 0] > 0.60) | (np.abs(pos[:, 1]) > (D.HALF_W - 20) * MM) | (pos[:, 2] > 1.5))
+            spot = np.array([0.340, pos[b_, 1], 0.266])
+            free = alive & ~held
+            if free.any() and np.min(np.linalg.norm(pos[free] - spot, axis=1)) < 2 * R + 0.004:
+                continue                  # the throat is occupied: the pinch holds this one until it clears
+            pending.remove((due, b_)); recirculated += 1; held[b_] = False
+            pos[b_] = spot; vel[b_] = (-1.17, 0.0, -0.46); om[b_] = (0.0, 24.0, 0.0)
+        vel[held] = 0; om[held] = 0; pos[held, 2] = 5.0 + 0.5 * np.where(held)[0]
+        out = alive & ~held & ((pos[:, 2] < 0.0) | (pos[:, 0] > 0.60) | (np.abs(pos[:, 1]) > (D.HALF_W - 20) * MM) | (pos[:, 2] > 1.5))
         if out.any():
             where += [[round(t, 2)] + [round(float(v) * 1000) for v in pos[b_]] for b_ in np.where(out)[0]]
             lost += int(out.sum()); alive[out] = False
         if keep_frames and t >= next_frame - 1e-9:
-            frames.append([round(t, 3)] + [[round(float(v), 4) for v in pos[i]] if alive[i] else None for i in range(n)])
+            frames.append([round(t, 3)] + [[round(float(v), 4) for v in pos[i]] if alive[i] and not held[i] else None for i in range(n)])
             next_frame += frames_every
     good = [d_ for d_ in delivered if not d_.get("uncommanded")]
     within12 = sum(1 for d_ in good if d_["t"] <= 12.0)
@@ -344,7 +350,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                          f"most, lanes in turn; belt reversed 0.3 s after 1 s without a feed" + ("" if tilt_deg == 0 else f"; robot rolled {tilt_deg:g} degrees")),
                 solved="every FUEL's translation and spin in three dimensions with penalty contact and Coulomb friction against the hopper, the rollers and each other",
                 feed=dict(fed=len(good), within12s=within12, lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost, recirculated=recirculated, firstStallS=first_stall, lostAt=where,
-                          uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), remaining=int(alive.sum()),
+                          uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), remaining=int(alive.sum()), heldInPinch=int(held.sum()),
                           byLane={q: sum(1 for d_ in good if d_["lane"] == q) for q in ("left", "right")}, times=[d_["t"] for d_ in good]),
                 params=dict(n=n, seed=seed, belt=belt, periodS=period, muBall=mu_ball, muBelt=mu_belt, muHard=mu_hard, muFeeder=mu_feeder, k=k, zeta=zeta,
                             mass=mass, crr=crr, dt=dt, settleS=settle_s, tiltDeg=tilt_deg, layout=dict(opt or {}), reverse=reverse,
@@ -357,21 +363,43 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                 frames=frames)
 
 
-def run_trials():
-    return [
-        feed("hopper-feed-nominal", keep_frames=True),
-        feed("hopper-feed-nominal-half-step", dt=1e-4),
-        feed("hopper-feed-seed-2", seed=2),
-        feed("hopper-feed-seed-3", seed=3),
-        feed("hopper-feed-superseded-flat-floor-with-guides (control)", opt=dict(floor="guides", wall_x=-28.0)),
-        feed("hopper-feed-no-unjam-reverse (control)", reverse=False),
-        feed("hopper-feed-ball-friction-0.4", mu_ball=0.4),
-        feed("hopper-feed-ball-friction-1.0", mu_ball=1.0),
-        feed("hopper-feed-wall-friction-0.6", mu_hard=0.6),
-        feed("hopper-feed-period-0.5s", period=0.5),
-        feed("hopper-feed-30-tilted-10deg (adverse)", n=30, tilt_deg=10.0),
-        feed("hopper-feed-8-preload", n=8),
+SUPERSEDED = dict(floor="guides", wall_x=-28.0, divider=True, divider_dims=dict(x1=40.0), throat_ramp=0)
+
+
+def run_trials(only=None):
+    """The batch trials: nominal, timestep, seven more heaps, controls that remove one feature each, and brackets."""
+    specs = [
+        ("hopper-feed-nominal", dict(keep_frames=True)),
+        ("hopper-feed-nominal-half-step", dict(dt=1e-4)),
+        *[(f"hopper-feed-heap-{i}", dict(seed=i)) for i in range(2, 9)],
+        ("hopper-feed-superseded-flat-floor (control)", dict(opt=SUPERSEDED, belt=0.6)),
+        ("hopper-feed-full-height-divider (cause isolation)", dict(opt=dict(divider=True))),
+        ("hopper-feed-no-throat-ramp (cause isolation)", dict(opt=dict(throat_ramp=0))),
+        ("hopper-feed-rear-wall-ahead-of-feeders (cause isolation)", dict(opt=dict(wall_x=-28.0))),
+        ("hopper-feed-intake-stopped (cause isolation)", dict(intake=0.0)),
+        ("hopper-feed-no-unjam-reverse", dict(reverse=False)),
+        ("hopper-feed-belt-0.6mps", dict(belt=0.6)),
+        ("hopper-feed-belt-0.3mps", dict(belt=0.3)),
+        ("hopper-feed-ball-friction-0.4", dict(mu_ball=0.4)),
+        ("hopper-feed-ball-friction-1.0", dict(mu_ball=1.0)),
+        ("hopper-feed-ball-friction-1.3", dict(mu_ball=1.3)),
+        ("hopper-feed-wall-friction-0.6", dict(mu_hard=0.6)),
+        ("hopper-feed-wall-friction-0.8", dict(mu_hard=0.8)),
+        ("hopper-feed-period-0.5s", dict(period=0.5)),
+        ("hopper-feed-30-rolled-10deg (adverse)", dict(n=30, tilt_deg=10.0)),
+        ("hopper-feed-8-preload", dict(n=8)),
     ]
+    specs = [q for q in specs if only is None or q[0] in only]
+    try:
+        from concurrent.futures import ProcessPoolExecutor
+        with ProcessPoolExecutor(max_workers=8) as pool:
+            return list(pool.map(_one, specs))
+    except (ImportError, OSError):
+        return [_one(q) for q in specs]
+
+
+def _one(spec):
+    return feed(spec[0], **spec[1])
 
 
 if __name__ == "__main__":
