@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "65cc5979f400c297b75ad325fccfd428bf0bf44c778ae5de8d18c2ef47f969a1",
+  "planSha256": "73c95883cd685fc00199a76559276bf133c600b55687c56c2aa0c3773988ab9f",
   "design": {
     "file": "design/preliminary/design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -125,7 +125,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-start-overhang-current.json",
-        "sha256": "7540e83128e340444f33eea86ce8d99d5271d8229106dbdd630d43318e10803e"
+        "sha256": "ed91445d82af1a4dc761aae7e2379bfeea22443a780dfd89f4f09fe02ed664fb"
       },
       "value": 0.0
     },
@@ -152,7 +152,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-swept-height-current.json",
-        "sha256": "99db7ea917fa81d70c77e72ff8c9099141f54992a797b46975baa4916a4f8a9c"
+        "sha256": "c0eac0d50fad847e7c0fa22cc7f5ce500dcad4de9f561f41f43546b44f39d970"
       },
       "value": 750.0
     },
@@ -178,7 +178,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-swept-front-extension-current.json",
-        "sha256": "a67a92409bf2c0c3c8153926d3dcd07aa1c3bed72878b7b4abb3bc31c3595ec0"
+        "sha256": "f065c96cfe7d0663e604ce55afb5fb8de16f67951d31798d518a8edb9ec8da20"
       },
       "value": 270.614
     },
@@ -204,7 +204,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-swept-other-extension-current.json",
-        "sha256": "a0ada7467a4715913c021faed247c9aebeca4a4dd34ef6f7ee7c3389599caaa9"
+        "sha256": "ce53cc1b08f9b9398f644dedba3fe160143f419e36260195514c5bc6df23ab36"
       },
       "value": 0.0
     },
@@ -230,7 +230,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-sides-extended-current.json",
-        "sha256": "c21f973680dc26ea3c1dd82abdff6adf2bc16ae419d2ea2e6668c33e81baf644"
+        "sha256": "c3fed61321cd54eb1785b48e9ca0b5532211f58787175e1fb90f20faa67375c4"
       },
       "value": 1.0
     },
@@ -256,7 +256,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-with-bumpers-mass-current.json",
-        "sha256": "74cf9f2f4c5bfd3f61385c9683fef5400624f87ae395e36f29eba1ab59506e4f"
+        "sha256": "e03a115486e37da2cc156710dd393312e8e4ab88becc97e8ea052c39684bc592"
       },
       "value": 55.3
     },
@@ -283,7 +283,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-hopper-capacity-current.json",
-        "sha256": "81ee030c44d4e83ed0c02bb9c73da556524ef6796cd5126c8f879a0cce00184f"
+        "sha256": "bdc3281b2213863a0f6bcd8ec18876624208f138527864c4863914334a0e8ef9"
       },
       "value": 37.7
     },
@@ -309,7 +309,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-start-capacity-current.json",
-        "sha256": "342158fc31d6feeac530d65b517311c205e0d8435933546865c5ea0eb2c0a269"
+        "sha256": "c4525490f5e00f3b436c78893de7b18bb1e25e148bebeee921e621235f56ef6b"
       },
       "value": 37.2
     },
@@ -334,14 +334,40 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-shot-window-current.json",
-        "sha256": "7372610838f921c7289c6d741f2a233bf135550869bbf8259caafa2880e25731"
+        "sha256": "ebe7aad25d529a1a0092e31cc38e098397c1278cde5fe63c63b0fc13752729ac"
       },
       "value": 2.4362
     },
     {
       "id": "delivery-pose",
       "phase": "conceptual-design",
-      "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+      "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
+      "interfaces": [
+        "drivetrain",
+        "shooter"
+      ],
+      "unit": "in",
+      "criterion": {
+        "range": [
+          0.0,
+          49.0
+        ]
+      },
+      "accepted": {
+        "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
+        "sha256": "6da8968b27cd10e814f285c39e7481a5986c42cccd036836239b95af01303793"
+      },
+      "status": "within",
+      "current": {
+        "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
+        "sha256": "0a705d1bb493276a7c47fe1ae04f9af4f7456feb4d22858116ae0d1b730b720f"
+      },
+      "value": 48.64905857259726
+    },
+    {
+      "id": "delivery-hub-distance",
+      "phase": "conceptual-design",
+      "scenario": "Robot-centre distance from the HUB centre at every slot 2 delivery step in the re-run rehearsal",
       "interfaces": [
         "drivetrain",
         "shooter"
@@ -354,13 +380,13 @@
         ]
       },
       "accepted": {
-        "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "0acebf1e7eff410767ac7dacec8a667f7e2e036edea1126ae3e7bccefdb45ff7"
+        "file": "design/preliminary/premise-R3-PD2-delivery-hub-distance-accepted.json",
+        "sha256": "7ab55a5e5bbceb2b8b87cb139ec1e6914e0ba7acd0e49fb4ee1f7c78c48be2bf"
       },
       "status": "within",
       "current": {
-        "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
-        "sha256": "04845de40358f3ce84093330016e742a341c30c5ec27a93db11bc971e4facdab"
+        "file": "design/preliminary/premise-R3-PD2-delivery-hub-distance-current.json",
+        "sha256": "4a44bc6d2ece9d1fb377f7b35497397a9266c56f102c3a9d55f6365e9a6f45c5"
       },
       "value": 2.7
     },
@@ -387,7 +413,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-bump-crossing-current.json",
-        "sha256": "f40251be0a5266e02d48fa5f05fa8e70c477540fe641eb0b716d716d3c0dce1a"
+        "sha256": "be1600a9e1246ca2d422834372d67191e1e3a1a9ecf4d0564cef24eede346328"
       },
       "value": 8.68
     },
@@ -414,7 +440,7 @@
       "status": "within",
       "current": {
         "file": "design/preliminary/premise-R3-PD2-hang-bumper-overlap-current.json",
-        "sha256": "e13960422c199af0f66238e56898724630aa61c9f5432b1bdb288ade7027d170"
+        "sha256": "8fa82804faa99a6e2b405562179b7c85072c505c2eb55f1bb9d2c9ba8487e080"
       },
       "value": 23.93
     }

@@ -1,11 +1,18 @@
 {
   "premise": "delivery-pose",
   "phase": "conceptual-design",
-  "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+  "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
   "issue": "R3-PD2",
   "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
   "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
   "fieldReplay": {
+    "match": "Neutral return",
+    "actor": "B2",
+    "input": "stepPosition",
+    "period": "Shift 1",
+    "stepIndex": 3,
+    "stepLabel": "Attempt HUB delivery; credited",
+    "station": "blue-hub",
     "profile": {
       "file": "design/preliminary/rehearsal/r3-2p7m-profile.json",
       "sha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951"
@@ -13,44 +20,61 @@
     "result": {
       "file": "design/preliminary/rehearsal/r3-2p7m-series.json",
       "sha256": "4eb379aadc9e0d2a7e1cc010a7b4bbabb1ab361a43bd93a1015a8600f47d71ac"
-    },
-    "match": "Own-zone supply",
-    "actor": "B2",
-    "period": "Shift 1",
-    "input": "stepPosition",
-    "program": "shift-depot",
-    "stepIndex": 3,
-    "stepLabel": "Attempt HUB delivery; credited"
+    }
   },
-  "steps": [
+  "resolvedSteps": [
     {
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "Shift 1",
       "program": "shift-depot",
       "stepIndex": 3,
-      "stepLabel": "Attempt HUB delivery; credited",
-      "atIn": [
+      "label": "Attempt HUB delivery; credited",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
         84.78,
         201.6
       ],
-      "standOffM": 2.6999,
-      "bearingDeg": 23.71,
-      "actor": "B2/R2 (mirrored)",
-      "periods": "Transition through End game"
+      "standoffIn": 48.64905857259726,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.6999,
+      "bearingFromHubAxisDeg": 23.71
     },
     {
-      "program": "auto-2-credited",
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "AUTO",
+      "program": "auto-2-missed",
       "stepIndex": 1,
-      "stepLabel": "Attempt HUB delivery; credited",
-      "atIn": [
+      "label": "Attempt HUB delivery; missed",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
         75.8,
         159.01
       ],
-      "standOffM": 2.7,
-      "bearingDeg": 0.09,
-      "actor": "B2/R2 (mirrored)",
-      "periods": "AUTO"
+      "standoffIn": 32.20039751307428,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.7,
+      "bearingFromHubAxisDeg": 0.09
     }
   ],
-  "frame": "Blue field inches; HUB centre (182.1, 158.85); bearing measured from the -X HUB axis toward +Y",
+  "frame": "Blue field inches. The stand-off is measured to the blue-hub station centre (its chassis action datum at 108, 158.85); the HUB centre is (182.1, 158.85), so both steps stand 2.70 m from the HUB centre.",
   "comparison": {
     "file": "design/preliminary/rehearsal/comparison.json",
     "sha256": "85c225fa92af36044964cbf750b2a34a33560967ea29c95b923a567409a67280"

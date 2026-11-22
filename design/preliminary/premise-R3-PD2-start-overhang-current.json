@@ -8,7 +8,7 @@
   "stepSha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47",
   "source": {
     "file": "design/preliminary/measurements.json",
-    "sha256": "c3df0e0409ee39502961f4180582e4ea838ffa7a3843e8699a7ef2b036d9ee64"
+    "sha256": "823a9f28f59473adb885adcc958a2a28cbfe297fc16a7c972dcd6bfb79bf32f9"
   },
   "valueField": "startOverhangMm"
 }

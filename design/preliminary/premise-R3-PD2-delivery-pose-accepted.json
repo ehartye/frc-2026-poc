@@ -1,11 +1,11 @@
 {
   "id": "delivery-pose",
-  "unit": "m",
-  "scenario": "Robot-centre distance from the HUB centre at delivery in the re-run field rehearsal (2.70 m at every slot 2 delivery step)",
+  "unit": "in",
+  "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
   "criterion": {
     "range": [
-      2.6,
-      2.8
+      0.0,
+      49.0
     ]
   },
   "phase": "conceptual-design",
@@ -15,20 +15,19 @@
   ],
   "source": {
     "file": "design/preliminary/rehearsal/delivery-pose-evidence.json",
-    "sha256": "5d23adc4acbf83b2bc340c34a17c6b646432cc8c390a6e749cd0a08479987f08"
+    "sha256": "11b52cdb7968e66bffecb30451b4e33cb6a902be96e9fb96397fa5226ff4c8ec"
   },
-  "basis": "Re-run series r3-2p7m: slot 2 credits 96 of the baseline's 104 FUEL across six robot-matches (2.70 m costs 8 FUEL); R3L on the TRENCH route credits 40",
+  "basis": "Re-run series r3-2p7m credits deliveries within 49 in of the station centre (3 in inside its 52 in release radius); the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
   "fieldInput": {
-    "match": "Own-zone supply",
+    "match": "Neutral return",
     "actor": "B2",
-    "period": "Shift 1",
     "input": "stepPosition",
-    "program": "shift-depot",
+    "period": "Shift 1",
     "stepIndex": 3,
-    "stepLabel": "Attempt HUB delivery; credited"
+    "stepLabel": "Attempt HUB delivery; credited",
+    "station": "blue-hub"
   },
   "repeat": {
-    "previousPlanSha256": "3028d0e301d3b1ffbbbd1ae0cbc186941b19a65cd2cb93b5f0d954728d6741f6",
-    "input": "stepPosition"
+    "previousPlanSha256": "3028d0e301d3b1ffbbbd1ae0cbc186941b19a65cd2cb93b5f0d954728d6741f6"
   }
 }
