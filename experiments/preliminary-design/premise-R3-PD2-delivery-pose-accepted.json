@@ -15,9 +15,9 @@
   ],
   "source": {
     "file": "experiments/preliminary-design/rehearsal/delivery-pose-evidence.json",
-    "sha256": "2e4ece0a162ea865b3eec2447cada996567874ae69b2737c49c00af6b615f6a3"
+    "sha256": "50c7797b7bd623d8ecdc902f7d6fda3f52b9a451c5d97242b6e6dfe155b0970b"
   },
-  "basis": "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the scenario text is the held R3-PD1 identity, whose 2.16 m refers to the original rehearsal; the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
+  "basis": "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the scenario text is the held R3-PD1 identity, whose 2.16 m refers to the original rehearsal; the step stands 2.70 m from the HUB centre and costs no FUEL against the deconflicted baseline (124 vs 124)",
   "fieldInput": {
     "input": "stationPosition",
     "actor": "B2",

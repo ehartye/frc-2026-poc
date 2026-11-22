@@ -11,17 +11,17 @@
     "station": "blue-hub",
     "profile": {
       "file": "experiments/preliminary-design/rehearsal/r3-2p7m-profile.json",
-      "sha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951"
+      "sha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6"
     },
     "result": {
       "file": "experiments/preliminary-design/rehearsal/r3-2p7m-series.json",
-      "sha256": "4eb379aadc9e0d2a7e1cc010a7b4bbabb1ab361a43bd93a1015a8600f47d71ac"
+      "sha256": "2c98a351d2de885339ca2fd5d1dc1ff30e76114049d8a63e76cdb196224fc1f9"
     }
   },
   "resolvedSteps": [
     {
       "schema": "agent-frc/rehearsal-step-pose@1",
-      "profileSha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
       "match": "Neutral return",
       "actor": "B2",
       "period": "Shift 1",
@@ -46,7 +46,7 @@
     },
     {
       "schema": "agent-frc/rehearsal-step-pose@1",
-      "profileSha256": "ce1f23fd25ee46775c995cdbaaf24b8d0e0520043cb9101ada002a13454b0951",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
       "match": "Neutral return",
       "actor": "B2",
       "period": "AUTO",
@@ -73,9 +73,9 @@
   "frame": "Blue field inches. The stand-off is measured to the blue-hub station centre (its chassis action datum at 108, 158.85); the HUB centre is (182.1, 158.85), so both steps stand 2.70 m from the HUB centre.",
   "comparison": {
     "file": "experiments/preliminary-design/rehearsal/comparison.json",
-    "sha256": "85c225fa92af36044964cbf750b2a34a33560967ea29c95b923a567409a67280"
+    "sha256": "c2061d1451c8ece95f7befac4e1c86a7e85c4b8ba99280cf51335d08dcc15fa3"
   },
-  "outcome": "Slot 2 credits 96 FUEL over the three matches against the baseline's 104: the 2.70 m pose costs 8 FUEL (one 4-piece delivery in each of two matches); R3L credits 96 on the depot route and 40 on the TRENCH route.",
+  "outcome": "With waitCycles yield and the shared partner deconfliction (0 permanent cycles), slot 2 credits 124 FUEL in both the baseline and the 2.70 m series, so the pose costs nothing; R3L credits 124 on the depot route and 40 on the TRENCH route (0 permanent cycles when it has the corridor alone). Pre-0.84 results were understated by permanent wait cycles.",
   "heldReceipt": {
     "file": "experiments/preliminary-design/receipt-R3-PD1-held.json",
     "sha256": "40cb3dde2a85f2ee11bd270fded845f3405124ad926e5a3b89507f3f57d9d5b1"

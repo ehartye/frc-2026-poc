@@ -549,7 +549,7 @@
     {
       "accepted": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "63478fad3dd1799c1f90794cc60fe05ca3b01769e97fce64857a9c9e62e83f74"
+        "sha256": "4cdc2f3356ba79ec23a723f2c2761064f6a543514b6ffcfc4bbf8fd90733963b"
       },
       "current": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-pose-current.json",
@@ -559,7 +559,7 @@
     {
       "accepted": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-hub-distance-accepted.json",
-        "sha256": "cd95ee88554b9fec37bac8f0aee659398d141810566851a5e0172e962b700dfa"
+        "sha256": "60fd0486bdc3cd97a0594bcac2cccf9e68a9a0a460048973484af8a3cdef0272"
       },
       "current": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-hub-distance-current.json",
@@ -596,7 +596,7 @@
       {
         "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
         "disposition": "represented",
-        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m instead of 2.16 m costs 8 FUEL over the three rehearsed matches (96 against 104)."
+        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). With Agent FRC 0.84 wait-cycle yield and the shared partner deconfliction, delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series (alliance totals 366 and 382). Pre-0.84 results (96 against 104) were understated by permanent wait cycles."
       },
       {
         "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",

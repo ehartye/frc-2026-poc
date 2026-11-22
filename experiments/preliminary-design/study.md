@@ -12,8 +12,14 @@ Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It repl
 
 - **Field rehearsal re-run at the 2.7 m delivery pose** (the plugin's `rehearsal-series.mjs` on project variants of the kickoff profile).
   - Slot 2's AUTO and depot-shift deliveries move to 2.70 m from the HUB centre. They stay inside the profile's 52 in legal-pose screen; the depot delivery bearing turns from 30° to 24°.
-  - Over the three matches, slot 2 credits 96 FUEL against the baseline's 104, so the 2.70 m pose costs 8 FUEL. Two matches each lose one 4-piece delivery, and the cycle legs barely change (2.85 s against 3.1 s).
-  - R3L on the depot route matches R3 (96). On the TRENCH route it credits only 40. R3 stays selected.
+  - **Re-run on Agent FRC 0.84.** Rehearsal results from before 0.84 were understated by permanent robot-to-robot wait cycles: the earlier r3-2p7m series held 27 permanent cycles in which B2 or R2 sat frozen against slot 3 through every shift, and so did the kickoff baseline.
+  - Every series now opts into `waitCycles: "yield"` and shares one partner deconfliction. Slot 3's reserve moves to the role-and-support study's deep reserve, and the neutral runner routes east of the depot lane and delivers south of the HUB axis. Slot 2 is drawn at R3's 714 mm width. `--report-deadlocks` gives these wait-cycle counts:
+    - **Baseline:** 4 cycles, all cleared, 0 permanent.
+    - **R3 and R3L depot:** 0.
+    - **R3L trench, sharing the corridor with the neutral runner:** 28 cycles, 21 permanent. Slot 2 and slot 3 meet head-on in the single high-trench corridor and neither can detour.
+    - **R3L trench solo** (slot 3 holds the reserve): 0.
+  - Slot 2 credits **124 FUEL in both the baseline and the 2.70 m R3 series**, so the pose costs nothing. The alliance totals are 366 for the baseline and 382 for R3.
+  - R3L on the depot route matches R3. On the TRENCH route it credits 40 shared and 40 solo, with alliance totals of 242 and 234. **R3 stays selected**, and the 2.7 m pose conclusion holds.
 - **Frame widened to 714 mm.** The perimeter becomes 2788 mm of the 2794 mm allowed. The bumper overlaps each TOWER upright by 23.9 mm instead of 6.4 mm. [hang_overlap.py](hang_overlap.py) checks this in plan view: both uprights bear for lateral offsets up to ±23.9 mm (±6.9 mm at 680 mm), and a 0.5° yaw opens a 7.5 mm trailing gap, so the robot squares against both uprights before it lifts. Module centres move to ±282 mm across; the foundation's side-rail saddles must be redrawn.
 - **Floor raised to 100 mm.** [bump_crossing.py](bump_crossing.py) rests both wheels on the BUMP profile across a sharp 15° crest. The least clearance is 8.7 mm, at the front bumper corner, which the bumper zone fixes; the belly keeps 24.3 mm.
 - **Narrative.** Every objective is represented or explicitly scoped out. The performance that geometry cannot show is carried by [verification gates](verification-gates.json) with pass/fail numbers, which the contract assigns to separate evidence: "Detailed seat geometry, loads, tolerances, retention, actuator dynamics and physical performance require their own commissioned evidence."

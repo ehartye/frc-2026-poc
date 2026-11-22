@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "ea6e2727762d81c5eabcc94144630ba64d81eddb90ff7b554d7ccbd1599a00c2",
+  "planSha256": "0bd54f13ce9068eedb8b78c5e214b86419653f1b4d68b65e5be1bd76b049e3cb",
   "design": {
     "file": "experiments/preliminary-design/design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -46,7 +46,7 @@
       {
         "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
         "disposition": "represented",
-        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m instead of 2.16 m costs 8 FUEL over the three rehearsed matches (96 against 104)."
+        "basis": "The starting fold holds 36 or more FUEL by free volume (start-capacity premise); launch-wrap and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). With Agent FRC 0.84 wait-cycle yield and the shared partner deconfliction, delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series (alliance totals 366 and 382). Pre-0.84 results (96 against 104) were understated by permanent wait cycles."
       },
       {
         "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
@@ -353,7 +353,7 @@
       },
       "accepted": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "63478fad3dd1799c1f90794cc60fe05ca3b01769e97fce64857a9c9e62e83f74"
+        "sha256": "4cdc2f3356ba79ec23a723f2c2761064f6a543514b6ffcfc4bbf8fd90733963b"
       },
       "status": "within",
       "current": {
@@ -379,7 +379,7 @@
       },
       "accepted": {
         "file": "experiments/preliminary-design/premise-R3-PD2-delivery-hub-distance-accepted.json",
-        "sha256": "cd95ee88554b9fec37bac8f0aee659398d141810566851a5e0172e962b700dfa"
+        "sha256": "60fd0486bdc3cd97a0594bcac2cccf9e68a9a0a460048973484af8a3cdef0272"
       },
       "status": "within",
       "current": {
@@ -1110,7 +1110,7 @@
   },
   "view": {
     "file": "experiments/preliminary-design/review/package-motion.html",
-    "sha256": "37388be7ec2498bfe41b6c6866c06c15ffa49746b960acb11bd768880f943e02",
+    "sha256": "76fc37e8d390ac7b0e781b2daf864adca4cb54f03431f5bc351ac16d92c22be6",
     "verified": true
   },
   "control": {

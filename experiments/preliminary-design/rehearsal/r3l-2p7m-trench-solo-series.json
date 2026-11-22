@@ -1,6 +1,6 @@
 {
   "schema": "agent-frc/rehearsal-series@1",
-  "profileSha256": "98ecbc7f1701ade3e977340fbbb8ed113853beb4bf333f634497315e1f0ac0f0",
+  "profileSha256": "07344c3f170b7b83b47925ccd24807b186c8364465a049246ff071fc28f7737e",
   "stepS": 0.05,
   "playbackRate": 10,
   "modelSeconds": 480,
@@ -42,16 +42,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-credited",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -129,16 +129,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-credited",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -206,11 +206,11 @@
               "id": "B2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.2428447730823,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                82,
-                159
+                75.8,
+                159.01
               ]
             },
             {
@@ -239,11 +239,11 @@
               "id": "R2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.24284477308234,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                569.2,
-                158.7
+                575.4000000000001,
+                158.69
               ]
             },
             {
@@ -277,23 +277,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 9.9,
-              "travelIn": 7.199999999999976,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115167,
               "blocked": "Occupied by B3",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 9.950000000000001,
-              "travelIn": 3.60000000000001,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 66.00757532283701,
+              "blocked": "",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                109,
+                268
               ]
             },
             {
@@ -310,23 +310,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 9.9,
-              "travelIn": 7.19999999999998,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115176,
               "blocked": "Occupied by R3",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 9.950000000000001,
-              "travelIn": 3.599999999999979,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 66.007575322837,
+              "blocked": "",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -349,23 +349,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by B2",
+              "blocked": "",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                109,
+                268
               ]
             },
             {
@@ -382,23 +382,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by R2",
+              "blocked": "",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -421,23 +421,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by B2",
+              "blocked": "",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                109,
+                268
               ]
             },
             {
@@ -454,23 +454,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by R2",
+              "blocked": "",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -493,23 +493,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by B2",
+              "blocked": "",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                109,
+                268
               ]
             },
             {
@@ -526,23 +526,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by R2",
+              "blocked": "",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -565,23 +565,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                81.21565474552816,
-                166.15715044705553
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by B2",
+              "blocked": "",
               "position": [
-                105.25574131499158,
-                199.66996904103058
+                109,
+                268
               ]
             },
             {
@@ -598,23 +598,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 25,
-              "travelIn": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                569.9843452544719,
-                151.54284955294446
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 25,
+              "visits": 1,
+              "waitSeconds": 0,
               "travelIn": 0,
-              "blocked": "Occupied by R2",
+              "blocked": "",
               "position": [
-                545.9442586850084,
-                118.03003095896939
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -637,23 +637,23 @@
             {
               "id": "B2",
               "visits": 0,
-              "waitSeconds": 7,
-              "travelIn": 21.35281182644161,
+              "waitSeconds": 6.45,
+              "travelIn": 136.8,
               "blocked": "",
               "position": [
-                59.929205,
-                164.475
+                60.54774159272655,
+                165.0191669666766
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 29.8,
-              "travelIn": 14.40000000000004,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                94.27870657495791,
-                190.34984520515292
+                109,
+                268
               ]
             },
             {
@@ -670,23 +670,23 @@
             {
               "id": "R2",
               "visits": 0,
-              "waitSeconds": 7,
-              "travelIn": 21.35281182644156,
+              "waitSeconds": 6.45,
+              "travelIn": 136.80000000000072,
               "blocked": "",
               "position": [
-                591.270795,
-                153.225
+                590.6522584072741,
+                152.68083303332386
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 29.8,
-              "travelIn": 14.399999999999917,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                556.921293425042,
-                127.350154794847
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -3735,18 +3735,18 @@
               },
               "targetWitnesses": {},
               "interruptedAtS": 7,
-              "arrivedAtS": 7.300000000000001,
-              "serviceStartS": 7.300000000000001,
-              "completedAtS": 16.3,
+              "arrivedAtS": 8.4,
+              "serviceStartS": 8.4,
+              "completedAtS": 17.4,
               "fallbacks": [],
               "awardedAction": "tower-L1",
               "awardedTarget": "blue-tower",
               "outcome": "qualified",
               "points": 10,
-              "interruptedBehavior": "shift-depot",
+              "interruptedBehavior": "shift-neutral-slot2",
               "position": [
-                59.929205,
-                164.475
+                60.54774159272655,
+                165.0191669666766
               ]
             },
             {
@@ -3773,18 +3773,18 @@
               },
               "targetWitnesses": {},
               "interruptedAtS": 7,
-              "arrivedAtS": 7.300000000000001,
-              "serviceStartS": 7.300000000000001,
-              "completedAtS": 16.3,
+              "arrivedAtS": 8.4,
+              "serviceStartS": 8.4,
+              "completedAtS": 17.4,
               "fallbacks": [],
               "awardedAction": "tower-L1",
               "awardedTarget": "red-tower",
               "outcome": "qualified",
               "points": 10,
-              "interruptedBehavior": "shift-depot",
+              "interruptedBehavior": "shift-neutral-slot2",
               "position": [
-                591.270795,
-                153.225
+                590.6522584072741,
+                152.68083303332386
               ]
             }
           ],
@@ -3836,16 +3836,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-missed",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -3873,12 +3873,12 @@
           "slot": 3,
           "plans": {
             "AUTO": "auto-3-credited",
-            "Transition": "shift-neutral",
-            "Shift 1": "shift-neutral",
-            "Shift 2": "shift-neutral",
-            "Shift 3": "shift-neutral",
-            "Shift 4": "shift-neutral",
-            "End game": "shift-neutral"
+            "Transition": "shift-reserve",
+            "Shift 1": "shift-reserve",
+            "Shift 2": "shift-reserve",
+            "Shift 3": "shift-reserve",
+            "Shift 4": "shift-reserve",
+            "End game": "shift-reserve"
           },
           "length": 26,
           "width": 26,
@@ -3923,16 +3923,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-credited",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -3960,12 +3960,12 @@
           "slot": 3,
           "plans": {
             "AUTO": "auto-3-credited",
-            "Transition": "shift-neutral",
-            "Shift 1": "shift-neutral",
-            "Shift 2": "shift-neutral",
-            "Shift 3": "shift-neutral",
-            "Shift 4": "shift-neutral",
-            "End game": "shift-neutral"
+            "Transition": "shift-reserve",
+            "Shift 1": "shift-reserve",
+            "Shift 2": "shift-reserve",
+            "Shift 3": "shift-reserve",
+            "Shift 4": "shift-reserve",
+            "End game": "shift-reserve"
           },
           "length": 26,
           "width": 26,
@@ -4000,11 +4000,11 @@
               "id": "B2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.2428447730823,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                82,
-                159
+                75.8,
+                159.01
               ]
             },
             {
@@ -4033,11 +4033,11 @@
               "id": "R2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.24284477308234,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                569.2,
-                158.7
+                575.4000000000001,
+                158.69
               ]
             },
             {
@@ -4070,24 +4070,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 0,
-              "travelIn": 270.2220266419792,
-              "blocked": "",
+              "visits": 0,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115167,
+              "blocked": "Occupied by B3",
               "position": [
-                54.726545995397686,
-                226.26241682596594
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
+              "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 546.7998821721433,
+              "travelIn": 66.00757532283701,
               "blocked": "",
               "position": [
-                88.91987216099565,
-                239.10028535590573
+                109,
+                268
               ]
             },
             {
@@ -4103,24 +4103,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 0,
-              "travelIn": 270.2220266419797,
-              "blocked": "",
+              "visits": 0,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115176,
+              "blocked": "Occupied by R3",
               "position": [
-                596.4734540046022,
-                91.43758317403407
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
+              "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 546.7998821721424,
+              "travelIn": 66.007575322837,
               "blocked": "",
               "position": [
-                562.2801278390045,
-                78.5997146440944
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4142,24 +4142,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.65,
-              "travelIn": 224.094327093303,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.55,
-              "travelIn": 506.14416375345377,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                109,
+                268
               ]
             },
             {
@@ -4175,24 +4175,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.65,
-              "travelIn": 224.09432709330338,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.55,
-              "travelIn": 506.1441637534533,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4214,24 +4214,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249095,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                57.90818249424711,
-                224.57802103245743
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.5453425290491,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                91.17488015093343,
-                241.90651752116162
+                109,
+                268
               ]
             },
             {
@@ -4247,24 +4247,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249098,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                593.2918175057528,
-                93.1219789675426
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54534252904864,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                560.0251198490668,
-                75.7934824788385
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4286,24 +4286,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.700000000000001,
-              "travelIn": 221.7059370530508,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54446415775317,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                109,
+                268
               ]
             },
             {
@@ -4319,24 +4319,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.700000000000001,
-              "travelIn": 221.70593705305117,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54446415775266,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4358,24 +4358,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249095,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                57.90818249424711,
-                224.57802103245743
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.5453425290491,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                91.17488015093343,
-                241.90651752116162
+                109,
+                268
               ]
             },
             {
@@ -4391,24 +4391,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249098,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                593.2918175057528,
-                93.1219789675426
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54534252904864,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                560.0251198490668,
-                75.7934824788385
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4430,24 +4430,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 0.15000000000000002,
-              "travelIn": 258.09031586588657,
+              "visits": 0,
+              "waitSeconds": 6.45,
+              "travelIn": 136.8,
               "blocked": "",
               "position": [
-                59.90587890709342,
-                164.6865843271837
+                60.54774159272655,
+                165.0191669666766
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 19.8,
-              "travelIn": 556.3845643804008,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                80.83443215418454,
-                199.21209068063354
+                109,
+                268
               ]
             },
             {
@@ -4463,24 +4463,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 17.7,
-              "travelIn": 279.30593705305125,
+              "visits": 0,
+              "waitSeconds": 26.450000000000003,
+              "travelIn": 136.80000000000072,
               "blocked": "",
               "position": [
-                591.2543054422117,
-                152.39501061289712
+                590.6522584072741,
+                152.68083303332386
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 19.8,
-              "travelIn": 556.3845643804,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                570.3655678458156,
-                118.48790931936634
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -4516,14 +4516,240 @@
           "blue-preload-1": [],
           "blue-preload-2": [],
           "blue-preload-3": [],
-          "blue-depot": [],
+          "blue-depot": [
+            {
+              "id": "blue-depot/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/8",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/9",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/10",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/11",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/12",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/13",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/14",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/15",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/16",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/17",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/18",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/19",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/20",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/21",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/22",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/23",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/24",
+              "type": "FUEL"
+            }
+          ],
           "blue-outpost": [],
           "red-preload-1": [],
           "red-preload-2": [],
           "red-preload-3": [],
-          "red-depot": [],
+          "red-depot": [
+            {
+              "id": "red-depot/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/8",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/9",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/10",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/11",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/12",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/13",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/14",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/15",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/16",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/17",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/18",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/19",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/20",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/21",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/22",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/23",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/24",
+              "type": "FUEL"
+            }
+          ],
           "red-outpost": [],
           "neutral-north": [
+            {
+              "id": "neutral-north/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/8",
+              "type": "FUEL"
+            },
             {
               "id": "neutral-north/9",
               "type": "FUEL"
@@ -5277,22 +5503,6 @@
               "type": "FUEL"
             },
             {
-              "id": "blue-depot/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/4",
-              "type": "FUEL"
-            },
-            {
               "id": "blue-outpost/1",
               "type": "FUEL"
             },
@@ -5306,22 +5516,6 @@
             },
             {
               "id": "blue-outpost/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/8",
               "type": "FUEL"
             },
             {
@@ -5373,22 +5567,6 @@
               "type": "FUEL"
             },
             {
-              "id": "blue-depot/9",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/10",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/11",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/12",
-              "type": "FUEL"
-            },
-            {
               "id": "blue-outpost/17",
               "type": "FUEL"
             },
@@ -5419,57 +5597,41 @@
             {
               "id": "blue-outpost/24",
               "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/13",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/14",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/15",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/16",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/17",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/18",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/19",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/20",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/21",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/22",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/23",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/24",
-              "type": "FUEL"
             }
           ],
           "neutral-south": [
+            {
+              "id": "neutral-south/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/8",
+              "type": "FUEL"
+            },
             {
               "id": "neutral-south/9",
               "type": "FUEL"
@@ -6255,22 +6417,6 @@
               "type": "FUEL"
             },
             {
-              "id": "red-depot/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/4",
-              "type": "FUEL"
-            },
-            {
               "id": "red-outpost/1",
               "type": "FUEL"
             },
@@ -6284,22 +6430,6 @@
             },
             {
               "id": "red-outpost/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/8",
               "type": "FUEL"
             },
             {
@@ -6351,22 +6481,6 @@
               "type": "FUEL"
             },
             {
-              "id": "red-depot/9",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/10",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/11",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/12",
-              "type": "FUEL"
-            },
-            {
               "id": "red-outpost/17",
               "type": "FUEL"
             },
@@ -6397,54 +6511,6 @@
             {
               "id": "red-outpost/24",
               "type": "FUEL"
-            },
-            {
-              "id": "red-depot/13",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/14",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/15",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/16",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/17",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/18",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/19",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/20",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/21",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/22",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/23",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/24",
-              "type": "FUEL"
             }
           ]
         },
@@ -6465,76 +6531,10 @@
         "cargo": {
           "B1": [],
           "B2": [],
-          "B3": [
-            {
-              "id": "neutral-south/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/8",
-              "type": "FUEL"
-            }
-          ],
+          "B3": [],
           "R1": [],
           "R2": [],
-          "R3": [
-            {
-              "id": "neutral-north/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/8",
-              "type": "FUEL"
-            }
-          ]
+          "R3": []
         },
         "capacity": {
           "B1": 8,
@@ -6545,12 +6545,12 @@
           "R3": 8
         },
         "score": {
-          "blue": 48,
-          "red": 52
+          "blue": 32,
+          "red": 36
         },
         "attempts": {
-          "blue-hub": 72,
-          "red-hub": 72
+          "blue-hub": 48,
+          "red-hub": 48
         },
         "occupied": {
           "blue-hub": 0,
@@ -6741,34 +6741,6 @@
           },
           {
             "phase": "Transition",
-            "timeS": 3.5500000000000003,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/1",
-              "blue-depot/2",
-              "blue-depot/3",
-              "blue-depot/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 3.5500000000000003,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/1",
-              "red-depot/2",
-              "red-depot/3",
-              "red-depot/4"
-            ]
-          },
-          {
-            "phase": "Transition",
             "timeS": 3.7,
             "robot": "B1",
             "station": "blue-outpost",
@@ -6794,68 +6766,6 @@
               "red-outpost/3",
               "red-outpost/4"
             ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.25,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-south/1",
-              "neutral-south/2",
-              "neutral-south/3",
-              "neutral-south/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.25,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-north/1",
-              "neutral-north/2",
-              "neutral-north/3",
-              "neutral-north/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.65,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/1",
-              "blue-depot/2",
-              "blue-depot/3",
-              "blue-depot/4"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.65,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/1",
-              "red-depot/2",
-              "red-depot/3",
-              "red-depot/4"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -6892,62 +6802,6 @@
             "activity": "active"
           },
           {
-            "phase": "Transition",
-            "timeS": 9.8,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/5",
-              "blue-depot/6",
-              "blue-depot/7",
-              "blue-depot/8"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 9.8,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/5",
-              "red-depot/6",
-              "red-depot/7",
-              "red-depot/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 2.95,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/9",
-              "blue-depot/10",
-              "blue-depot/11",
-              "blue-depot/12"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 2.95,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/9",
-              "red-depot/10",
-              "red-depot/11",
-              "red-depot/12"
-            ]
-          },
-          {
             "phase": "Shift 1",
             "timeS": 3.95,
             "robot": "B1",
@@ -6977,68 +6831,6 @@
           },
           {
             "phase": "Shift 1",
-            "timeS": 5.8500000000000005,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-south/5",
-              "neutral-south/6",
-              "neutral-south/7",
-              "neutral-south/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 5.8500000000000005,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-north/5",
-              "neutral-north/6",
-              "neutral-north/7",
-              "neutral-north/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 6.050000000000001,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/5",
-              "blue-depot/6",
-              "blue-depot/7",
-              "blue-depot/8"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 6.050000000000001,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "red-depot/5",
-              "red-depot/6",
-              "red-depot/7",
-              "red-depot/8"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 1",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -7070,34 +6862,6 @@
             "points": 0,
             "prescribedOutcome": "credited",
             "activity": "inactive"
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 9.200000000000001,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/13",
-              "blue-depot/14",
-              "blue-depot/15",
-              "blue-depot/16"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 9.200000000000001,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/13",
-              "red-depot/14",
-              "red-depot/15",
-              "red-depot/16"
-            ]
           },
           {
             "phase": "Shift 1",
@@ -7225,34 +6989,6 @@
           },
           {
             "phase": "Shift 2",
-            "timeS": 2.85,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/17",
-              "blue-depot/18",
-              "blue-depot/19",
-              "blue-depot/20"
-            ]
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 2.85,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/17",
-              "red-depot/18",
-              "red-depot/19",
-              "red-depot/20"
-            ]
-          },
-          {
-            "phase": "Shift 2",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -7281,58 +7017,6 @@
           },
           {
             "phase": "Shift 2",
-            "timeS": 5.7,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.7,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.95,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "blue-depot/9",
-              "blue-depot/10",
-              "blue-depot/11",
-              "blue-depot/12"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.95,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/9",
-              "red-depot/10",
-              "red-depot/11",
-              "red-depot/12"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 2",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -7364,34 +7048,6 @@
             "points": 4,
             "prescribedOutcome": "credited",
             "activity": "active"
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 9.1,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/21",
-              "blue-depot/22",
-              "blue-depot/23",
-              "blue-depot/24"
-            ]
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 9.1,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/21",
-              "red-depot/22",
-              "red-depot/23",
-              "red-depot/24"
-            ]
           },
           {
             "phase": "Shift 2",
@@ -7493,24 +7149,6 @@
           },
           {
             "phase": "Shift 3",
-            "timeS": 2.9000000000000004,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 2.9000000000000004,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -7529,58 +7167,6 @@
           },
           {
             "phase": "Shift 3",
-            "timeS": 5.800000000000001,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 5.800000000000001,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 6,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/13",
-              "blue-depot/14",
-              "blue-depot/15",
-              "blue-depot/16"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 6,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "red-depot/13",
-              "red-depot/14",
-              "red-depot/15",
-              "red-depot/16"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 3",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -7595,24 +7181,6 @@
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 9.15,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 9.15,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -7689,24 +7257,6 @@
           },
           {
             "phase": "Shift 4",
-            "timeS": 2.85,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 2.85,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -7725,58 +7275,6 @@
           },
           {
             "phase": "Shift 4",
-            "timeS": 5.7,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.7,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.95,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "blue-depot/17",
-              "blue-depot/18",
-              "blue-depot/19",
-              "blue-depot/20"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.95,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/17",
-              "red-depot/18",
-              "red-depot/19",
-              "red-depot/20"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 4",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -7791,24 +7289,6 @@
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 9.1,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 9.1,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -7885,24 +7365,6 @@
           },
           {
             "phase": "End game",
-            "timeS": 2.9000000000000004,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 2.9000000000000004,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -7921,58 +7383,6 @@
           },
           {
             "phase": "End game",
-            "timeS": 5.800000000000001,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 5.800000000000001,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 6,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/21",
-              "blue-depot/22",
-              "blue-depot/23",
-              "blue-depot/24"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "End game",
-            "timeS": 6,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/21",
-              "red-depot/22",
-              "red-depot/23",
-              "red-depot/24"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "End game",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -7987,15 +7397,6 @@
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 9.15,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -8145,18 +7546,18 @@
               },
               "targetWitnesses": {},
               "interruptedAtS": 7,
-              "arrivedAtS": 7.95,
-              "serviceStartS": 7.95,
-              "completedAtS": 16.95,
+              "arrivedAtS": 8.4,
+              "serviceStartS": 8.4,
+              "completedAtS": 17.4,
               "fallbacks": [],
               "awardedAction": null,
               "awardedTarget": null,
               "outcome": "unresolved",
               "points": 0,
-              "interruptedBehavior": "shift-depot",
+              "interruptedBehavior": "shift-neutral-slot2",
               "position": [
-                59.90587890709342,
-                164.6865843271837
+                60.54774159272655,
+                165.0191669666766
               ]
             },
             {
@@ -8183,25 +7584,25 @@
               },
               "targetWitnesses": {},
               "interruptedAtS": 27,
-              "arrivedAtS": 27.8,
-              "serviceStartS": 27.8,
+              "arrivedAtS": 28.400000000000002,
+              "serviceStartS": 28.400000000000002,
               "completedAtS": null,
               "fallbacks": [],
               "awardedAction": null,
               "awardedTarget": null,
               "outcome": "service-incomplete",
               "points": 0,
-              "interruptedBehavior": "shift-depot",
+              "interruptedBehavior": "shift-neutral-slot2",
               "position": [
-                591.2543054422117,
-                152.39501061289712
+                590.6522584072741,
+                152.68083303332386
               ]
             }
           ],
           "bonusAwards": [],
           "ordinaryScore": {
-            "blue": 48,
-            "red": 52
+            "blue": 32,
+            "red": 36
           },
           "terminalScore": {
             "blue": 0,
@@ -8265,16 +7666,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-credited",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": 0,
           "speed": 72,
@@ -8290,12 +7691,12 @@
           "slot": 3,
           "plans": {
             "AUTO": "auto-3-credited",
-            "Transition": "shift-neutral",
-            "Shift 1": "shift-neutral",
-            "Shift 2": "shift-neutral",
-            "Shift 3": "shift-neutral",
-            "Shift 4": "shift-neutral",
-            "End game": "shift-neutral"
+            "Transition": "shift-reserve",
+            "Shift 1": "shift-reserve",
+            "Shift 2": "shift-reserve",
+            "Shift 3": "shift-reserve",
+            "Shift 4": "shift-reserve",
+            "End game": "shift-reserve"
           },
           "length": 26,
           "width": 26,
@@ -8340,16 +7741,16 @@
           "slot": 2,
           "plans": {
             "AUTO": "auto-2-credited",
-            "Transition": "shift-depot",
-            "Shift 1": "shift-depot",
-            "Shift 2": "shift-depot",
-            "Shift 3": "shift-depot",
-            "Shift 4": "shift-depot",
-            "End game": "shift-depot"
+            "Transition": "shift-neutral-slot2",
+            "Shift 1": "shift-neutral-slot2",
+            "Shift 2": "shift-neutral-slot2",
+            "Shift 3": "shift-neutral-slot2",
+            "Shift 4": "shift-neutral-slot2",
+            "End game": "shift-neutral-slot2"
           },
           "length": 26.77165354330709,
-          "width": 26.77165354330709,
-          "height": 29.68503937007874,
+          "width": 28.11,
+          "height": 21.024,
           "bumper": 2.9921259842519685,
           "heading": -180,
           "speed": 72,
@@ -8377,12 +7778,12 @@
           "slot": 3,
           "plans": {
             "AUTO": "auto-3-unresolved",
-            "Transition": "shift-neutral",
-            "Shift 1": "shift-neutral",
-            "Shift 2": "shift-neutral",
-            "Shift 3": "shift-neutral",
-            "Shift 4": "shift-neutral",
-            "End game": "shift-neutral"
+            "Transition": "shift-reserve",
+            "Shift 1": "shift-reserve",
+            "Shift 2": "shift-reserve",
+            "Shift 3": "shift-reserve",
+            "Shift 4": "shift-reserve",
+            "End game": "shift-reserve"
           },
           "length": 26,
           "width": 26,
@@ -8417,11 +7818,11 @@
               "id": "B2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.2428447730823,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                82,
-                159
+                75.8,
+                159.01
               ]
             },
             {
@@ -8450,11 +7851,11 @@
               "id": "R2",
               "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 141.24284477308234,
+              "travelIn": 141.01027023325884,
               "blocked": "",
               "position": [
-                569.2,
-                158.7
+                575.4000000000001,
+                158.69
               ]
             },
             {
@@ -8487,24 +7888,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 0,
-              "travelIn": 270.2220266419792,
-              "blocked": "",
+              "visits": 0,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115167,
+              "blocked": "Occupied by B3",
               "position": [
-                54.726545995397686,
-                226.26241682596594
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
+              "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 546.7998821721433,
+              "travelIn": 66.00757532283701,
               "blocked": "",
               "position": [
-                88.91987216099565,
-                239.10028535590573
+                109,
+                268
               ]
             },
             {
@@ -8520,24 +7921,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 0,
-              "travelIn": 270.2220266419797,
-              "blocked": "",
+              "visits": 0,
+              "waitSeconds": 8.5,
+              "travelIn": 102.53129657115176,
+              "blocked": "Occupied by R3",
               "position": [
-                596.4734540046022,
-                91.43758317403407
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
+              "visits": 1,
               "waitSeconds": 0,
-              "travelIn": 546.7998821721424,
+              "travelIn": 66.007575322837,
               "blocked": "",
               "position": [
-                562.2801278390045,
-                78.5997146440944
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8559,24 +7960,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.65,
-              "travelIn": 224.094327093303,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.55,
-              "travelIn": 506.14416375345377,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                109,
+                268
               ]
             },
             {
@@ -8592,24 +7993,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.65,
-              "travelIn": 224.09432709330338,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.55,
-              "travelIn": 506.1441637534533,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8631,24 +8032,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249095,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                57.90818249424711,
-                224.57802103245743
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.5453425290491,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                91.17488015093343,
-                241.90651752116162
+                109,
+                268
               ]
             },
             {
@@ -8664,24 +8065,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249098,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                593.2918175057528,
-                93.1219789675426
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54534252904864,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                560.0251198490668,
-                75.7934824788385
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8703,24 +8104,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.700000000000001,
-              "travelIn": 221.7059370530508,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54446415775317,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                109,
+                268
               ]
             },
             {
@@ -8736,24 +8137,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.700000000000001,
-              "travelIn": 221.70593705305117,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                590.1101810069033,
-                94.80637476105113
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54446415775266,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                555.5151038691912,
-                70.18101814832669
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8775,24 +8176,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249095,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                57.90818249424711,
-                224.57802103245743
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.5453425290491,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                91.17488015093343,
-                241.90651752116162
+                109,
+                268
               ]
             },
             {
@@ -8808,24 +8209,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 15.75,
-              "travelIn": 216.1836760249098,
+              "visits": 0,
+              "waitSeconds": 24.450000000000003,
+              "travelIn": 36.00000000000006,
               "blocked": "Occupied by R3",
               "position": [
-                593.2918175057528,
-                93.1219789675426
+                514.9715235971559,
+                86.0995565466066
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 15.600000000000001,
-              "travelIn": 502.54534252904864,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                560.0251198490668,
-                75.7934824788385
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8847,24 +8248,24 @@
             },
             {
               "id": "B2",
-              "visits": 1,
-              "waitSeconds": 20.700000000000003,
-              "travelIn": 221.7059370530508,
+              "visits": 0,
+              "waitSeconds": 29.450000000000003,
+              "travelIn": 36.000000000000014,
               "blocked": "Occupied by B3",
               "position": [
-                61.08981899309653,
-                222.8936252389489
+                136.2284764028443,
+                231.60044345339338
               ]
             },
             {
               "id": "B3",
-              "visits": 0,
-              "waitSeconds": 20.6,
-              "travelIn": 502.54446415775317,
-              "blocked": "Occupied by B2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                95.68489613080897,
-                247.5189818516734
+                109,
+                268
               ]
             },
             {
@@ -8880,24 +8281,24 @@
             },
             {
               "id": "R2",
-              "visits": 1,
-              "waitSeconds": 0.15000000000000002,
-              "travelIn": 258.09031586588685,
+              "visits": 0,
+              "waitSeconds": 6.45,
+              "travelIn": 136.80000000000072,
               "blocked": "",
               "position": [
-                591.2941210929066,
-                153.01341567281614
+                590.6522584072741,
+                152.68083303332386
               ]
             },
             {
               "id": "R3",
-              "visits": 0,
-              "waitSeconds": 19.8,
-              "travelIn": 556.3845643804,
-              "blocked": "Occupied by R2",
+              "visits": 1,
+              "waitSeconds": 0,
+              "travelIn": 0,
+              "blocked": "",
               "position": [
-                570.3655678458156,
-                118.48790931936634
+                542.2,
+                49.69999999999999
               ]
             }
           ]
@@ -8933,14 +8334,240 @@
           "blue-preload-1": [],
           "blue-preload-2": [],
           "blue-preload-3": [],
-          "blue-depot": [],
+          "blue-depot": [
+            {
+              "id": "blue-depot/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/8",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/9",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/10",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/11",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/12",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/13",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/14",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/15",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/16",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/17",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/18",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/19",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/20",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/21",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/22",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/23",
+              "type": "FUEL"
+            },
+            {
+              "id": "blue-depot/24",
+              "type": "FUEL"
+            }
+          ],
           "blue-outpost": [],
           "red-preload-1": [],
           "red-preload-2": [],
           "red-preload-3": [],
-          "red-depot": [],
+          "red-depot": [
+            {
+              "id": "red-depot/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/8",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/9",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/10",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/11",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/12",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/13",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/14",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/15",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/16",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/17",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/18",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/19",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/20",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/21",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/22",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/23",
+              "type": "FUEL"
+            },
+            {
+              "id": "red-depot/24",
+              "type": "FUEL"
+            }
+          ],
           "red-outpost": [],
           "neutral-north": [
+            {
+              "id": "neutral-north/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-north/8",
+              "type": "FUEL"
+            },
             {
               "id": "neutral-north/9",
               "type": "FUEL"
@@ -9726,22 +9353,6 @@
               "type": "FUEL"
             },
             {
-              "id": "blue-depot/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/4",
-              "type": "FUEL"
-            },
-            {
               "id": "blue-outpost/1",
               "type": "FUEL"
             },
@@ -9755,22 +9366,6 @@
             },
             {
               "id": "blue-outpost/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/8",
               "type": "FUEL"
             },
             {
@@ -9822,22 +9417,6 @@
               "type": "FUEL"
             },
             {
-              "id": "blue-depot/9",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/10",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/11",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/12",
-              "type": "FUEL"
-            },
-            {
               "id": "blue-outpost/17",
               "type": "FUEL"
             },
@@ -9868,57 +9447,41 @@
             {
               "id": "blue-outpost/24",
               "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/13",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/14",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/15",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/16",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/17",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/18",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/19",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/20",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/21",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/22",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/23",
-              "type": "FUEL"
-            },
-            {
-              "id": "blue-depot/24",
-              "type": "FUEL"
             }
           ],
           "neutral-south": [
+            {
+              "id": "neutral-south/1",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/2",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/3",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/4",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/5",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/6",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/7",
+              "type": "FUEL"
+            },
+            {
+              "id": "neutral-south/8",
+              "type": "FUEL"
+            },
             {
               "id": "neutral-south/9",
               "type": "FUEL"
@@ -10640,22 +10203,6 @@
               "type": "FUEL"
             },
             {
-              "id": "red-depot/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/4",
-              "type": "FUEL"
-            },
-            {
               "id": "red-outpost/1",
               "type": "FUEL"
             },
@@ -10669,22 +10216,6 @@
             },
             {
               "id": "red-outpost/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/8",
               "type": "FUEL"
             },
             {
@@ -10736,22 +10267,6 @@
               "type": "FUEL"
             },
             {
-              "id": "red-depot/9",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/10",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/11",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/12",
-              "type": "FUEL"
-            },
-            {
               "id": "red-outpost/17",
               "type": "FUEL"
             },
@@ -10782,54 +10297,6 @@
             {
               "id": "red-outpost/24",
               "type": "FUEL"
-            },
-            {
-              "id": "red-depot/13",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/14",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/15",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/16",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/17",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/18",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/19",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/20",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/21",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/22",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/23",
-              "type": "FUEL"
-            },
-            {
-              "id": "red-depot/24",
-              "type": "FUEL"
             }
           ]
         },
@@ -10850,76 +10317,10 @@
         "cargo": {
           "B1": [],
           "B2": [],
-          "B3": [
-            {
-              "id": "neutral-south/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-south/8",
-              "type": "FUEL"
-            }
-          ],
+          "B3": [],
           "R1": [],
           "R2": [],
-          "R3": [
-            {
-              "id": "neutral-north/1",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/2",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/3",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/4",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/5",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/6",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/7",
-              "type": "FUEL"
-            },
-            {
-              "id": "neutral-north/8",
-              "type": "FUEL"
-            }
-          ]
+          "R3": []
         },
         "capacity": {
           "B1": 8,
@@ -10930,12 +10331,12 @@
           "R3": 8
         },
         "score": {
-          "blue": 62,
-          "red": 40
+          "blue": 46,
+          "red": 24
         },
         "attempts": {
-          "blue-hub": 72,
-          "red-hub": 72
+          "blue-hub": 48,
+          "red-hub": 48
         },
         "occupied": {
           "blue-hub": 0,
@@ -11174,34 +10575,6 @@
           },
           {
             "phase": "Transition",
-            "timeS": 3.5500000000000003,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/1",
-              "blue-depot/2",
-              "blue-depot/3",
-              "blue-depot/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 3.5500000000000003,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/1",
-              "red-depot/2",
-              "red-depot/3",
-              "red-depot/4"
-            ]
-          },
-          {
-            "phase": "Transition",
             "timeS": 3.7,
             "robot": "B1",
             "station": "blue-outpost",
@@ -11227,68 +10600,6 @@
               "red-outpost/3",
               "red-outpost/4"
             ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.25,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-south/1",
-              "neutral-south/2",
-              "neutral-south/3",
-              "neutral-south/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.25,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-north/1",
-              "neutral-north/2",
-              "neutral-north/3",
-              "neutral-north/4"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.65,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/1",
-              "blue-depot/2",
-              "blue-depot/3",
-              "blue-depot/4"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Transition",
-            "timeS": 6.65,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/1",
-              "red-depot/2",
-              "red-depot/3",
-              "red-depot/4"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
           },
           {
             "phase": "Transition",
@@ -11325,62 +10636,6 @@
             "activity": "active"
           },
           {
-            "phase": "Transition",
-            "timeS": 9.8,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/5",
-              "blue-depot/6",
-              "blue-depot/7",
-              "blue-depot/8"
-            ]
-          },
-          {
-            "phase": "Transition",
-            "timeS": 9.8,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/5",
-              "red-depot/6",
-              "red-depot/7",
-              "red-depot/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 2.95,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/9",
-              "blue-depot/10",
-              "blue-depot/11",
-              "blue-depot/12"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 2.95,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/9",
-              "red-depot/10",
-              "red-depot/11",
-              "red-depot/12"
-            ]
-          },
-          {
             "phase": "Shift 1",
             "timeS": 3.95,
             "robot": "B1",
@@ -11410,68 +10665,6 @@
           },
           {
             "phase": "Shift 1",
-            "timeS": 5.8500000000000005,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-south/5",
-              "neutral-south/6",
-              "neutral-south/7",
-              "neutral-south/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 5.8500000000000005,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "neutral-north/5",
-              "neutral-north/6",
-              "neutral-north/7",
-              "neutral-north/8"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 6.050000000000001,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "blue-depot/5",
-              "blue-depot/6",
-              "blue-depot/7",
-              "blue-depot/8"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 6.050000000000001,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/5",
-              "red-depot/6",
-              "red-depot/7",
-              "red-depot/8"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 1",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -11503,34 +10696,6 @@
             "points": 4,
             "prescribedOutcome": "credited",
             "activity": "active"
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 9.200000000000001,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/13",
-              "blue-depot/14",
-              "blue-depot/15",
-              "blue-depot/16"
-            ]
-          },
-          {
-            "phase": "Shift 1",
-            "timeS": 9.200000000000001,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/13",
-              "red-depot/14",
-              "red-depot/15",
-              "red-depot/16"
-            ]
           },
           {
             "phase": "Shift 1",
@@ -11658,34 +10823,6 @@
           },
           {
             "phase": "Shift 2",
-            "timeS": 2.85,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/17",
-              "blue-depot/18",
-              "blue-depot/19",
-              "blue-depot/20"
-            ]
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 2.85,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/17",
-              "red-depot/18",
-              "red-depot/19",
-              "red-depot/20"
-            ]
-          },
-          {
-            "phase": "Shift 2",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -11714,58 +10851,6 @@
           },
           {
             "phase": "Shift 2",
-            "timeS": 5.7,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.7,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.95,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/9",
-              "blue-depot/10",
-              "blue-depot/11",
-              "blue-depot/12"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 5.95,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "red-depot/9",
-              "red-depot/10",
-              "red-depot/11",
-              "red-depot/12"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 2",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -11797,34 +10882,6 @@
             "points": 0,
             "prescribedOutcome": "credited",
             "activity": "inactive"
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 9.1,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "blue-depot/21",
-              "blue-depot/22",
-              "blue-depot/23",
-              "blue-depot/24"
-            ]
-          },
-          {
-            "phase": "Shift 2",
-            "timeS": 9.1,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "acquired",
-            "pieces": [
-              "red-depot/21",
-              "red-depot/22",
-              "red-depot/23",
-              "red-depot/24"
-            ]
           },
           {
             "phase": "Shift 2",
@@ -11926,24 +10983,6 @@
           },
           {
             "phase": "Shift 3",
-            "timeS": 2.9000000000000004,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 2.9000000000000004,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -11962,58 +11001,6 @@
           },
           {
             "phase": "Shift 3",
-            "timeS": 5.800000000000001,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 5.800000000000001,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 6,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "blue-depot/13",
-              "blue-depot/14",
-              "blue-depot/15",
-              "blue-depot/16"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 6,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/13",
-              "red-depot/14",
-              "red-depot/15",
-              "red-depot/16"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 3",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -12028,24 +11015,6 @@
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 9.15,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 3",
-            "timeS": 9.15,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -12122,24 +11091,6 @@
           },
           {
             "phase": "Shift 4",
-            "timeS": 2.85,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 2.85,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
             "timeS": 3.95,
             "robot": "B1",
             "station": "blue-outpost",
@@ -12158,58 +11109,6 @@
           },
           {
             "phase": "Shift 4",
-            "timeS": 5.7,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.7,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.95,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/17",
-              "blue-depot/18",
-              "blue-depot/19",
-              "blue-depot/20"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 5.95,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "inactive",
-            "pieces": [
-              "red-depot/17",
-              "red-depot/18",
-              "red-depot/19",
-              "red-depot/20"
-            ],
-            "points": 0,
-            "prescribedOutcome": "credited",
-            "activity": "inactive"
-          },
-          {
-            "phase": "Shift 4",
             "timeS": 7.65,
             "robot": "B1",
             "station": "blue-hub",
@@ -12224,24 +11123,6 @@
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 9.1,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "Shift 4",
-            "timeS": 9.1,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -12318,24 +11199,6 @@
           },
           {
             "phase": "End game",
-            "timeS": 2.9000000000000004,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 2.9000000000000004,
-            "robot": "R2",
-            "station": "red-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
             "timeS": 3.95,
             "robot": "R1",
             "station": "red-outpost",
@@ -12345,72 +11208,11 @@
           },
           {
             "phase": "End game",
-            "timeS": 5.800000000000001,
-            "robot": "B3",
-            "station": "neutral-south",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 5.800000000000001,
-            "robot": "R3",
-            "station": "neutral-north",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 6,
-            "robot": "B2",
-            "station": "blue-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "blue-depot/21",
-              "blue-depot/22",
-              "blue-depot/23",
-              "blue-depot/24"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "End game",
-            "timeS": 6,
-            "robot": "R2",
-            "station": "red-hub",
-            "operation": "attempt",
-            "outcome": "credited",
-            "pieces": [
-              "red-depot/21",
-              "red-depot/22",
-              "red-depot/23",
-              "red-depot/24"
-            ],
-            "points": 4,
-            "prescribedOutcome": "credited",
-            "activity": "active"
-          },
-          {
-            "phase": "End game",
             "timeS": 7.65,
             "robot": "R1",
             "station": "red-hub",
             "operation": "attempt",
             "outcome": "no-compatible-cargo",
-            "pieces": []
-          },
-          {
-            "phase": "End game",
-            "timeS": 9.15,
-            "robot": "B2",
-            "station": "blue-depot",
-            "operation": "acquire",
-            "outcome": "empty-or-full",
             "pieces": []
           },
           {
@@ -12560,25 +11362,25 @@
               },
               "targetWitnesses": {},
               "interruptedAtS": 7,
-              "arrivedAtS": 7.95,
-              "serviceStartS": 7.95,
-              "completedAtS": 16.95,
+              "arrivedAtS": 8.4,
+              "serviceStartS": 8.4,
+              "completedAtS": 17.4,
               "fallbacks": [],
               "awardedAction": null,
               "awardedTarget": null,
               "outcome": "failed",
               "points": 0,
-              "interruptedBehavior": "shift-depot",
+              "interruptedBehavior": "shift-neutral-slot2",
               "position": [
-                591.2941210929066,
-                153.01341567281614
+                590.6522584072741,
+                152.68083303332386
               ]
             }
           ],
           "bonusAwards": [],
           "ordinaryScore": {
-            "blue": 52,
-            "red": 40
+            "blue": 36,
+            "red": 24
           },
           "terminalScore": {
             "blue": 10,

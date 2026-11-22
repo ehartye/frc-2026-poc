@@ -74,7 +74,3 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 Run `python -m unittest discover -s tests` and `python scripts/check_public_content.py` after committing changes. The guard checks committed bytes, private paths/network addresses, unexplained machine aliases and binary additions. Reports identify file/category only. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
 
 [Follow the 24-piece packed service comparison in the student showcase](https://ehartye.github.io/frc-2026-poc/robot/batch.html).
-
-## Preliminary design R3 (layout-checked, not yet detailed)
-
-R3 is the forward design for detailing: a floor-fed hooded flywheel on a 680 × 714 mm swerve base, layout-checked as issue R3-PD2. It is not the current robot. The still, showcase model and downloads above remain the published robot. [Decision, comparison and checks](experiments/preliminary-design/study.md) · [Review bundle](experiments/preliminary-design/review/index.html)

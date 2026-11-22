@@ -114,5 +114,5 @@
     "adverse": "30 FUEL with the rig tilted 10 degrees toward a side plate; pass if no jam needs a reversal longer than 0.5 s",
     "onFail": "Revise to a rotating indexer or a third lane; if that also fails, reopen the whole-robot comparison"
   },
-  "rehearsal": "Re-run at the 2.7 m delivery pose (design/preliminary/rehearsal/comparison.json): slot 2 credits 96 FUEL over three matches against the baseline's 104; R3L on the TRENCH route credits 40 and on the depot route 96. R3 stays selected."
+  "rehearsal": "Re-run on Agent FRC 0.84 with waitCycles yield and a shared partner deconfliction (rehearsal/comparison.json). Baseline, R3 and R3L depot have 0 permanent wait cycles. Slot 2 credits 124 FUEL in both the baseline and R3 at 2.7 m (alliance totals 366 and 382). R3L depot matches R3; R3L on the TRENCH credits 40 (21 permanent cycles sharing the corridor with the neutral runner; 0 when solo, still 40). R3 stays selected. Pre-0.84 results (96 vs 104) were understated by permanent wait cycles."
 }

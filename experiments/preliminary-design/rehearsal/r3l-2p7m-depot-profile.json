@@ -1246,8 +1246,8 @@
     "steps": [
      {
       "at": [
-       110,
-       266
+       140,
+       214
       ],
       "label": "Join the high trench corridor",
       "dwell": 0
@@ -1300,16 +1300,16 @@
      },
      {
       "at": [
-       80,
-       228
+       140,
+       214
       ],
       "label": "Yield the depot lane",
       "dwell": 0
      },
      {
       "at": [
-       82,
-       159
+       95,
+       121
       ],
       "label": "Attempt HUB delivery; credited",
       "dwell": 2,
@@ -1329,8 +1329,8 @@
     "steps": [
      {
       "at": [
-       55,
-       157
+       109,
+       268
       ],
       "label": "Stage in the central reserve lane",
       "dwell": 0
@@ -1763,7 +1763,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685,
        "endgame": {
@@ -1797,7 +1797,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685,
        "endgame": {
@@ -1912,7 +1912,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685,
        "endgame": {
@@ -1946,7 +1946,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685,
        "endgame": {
@@ -2080,7 +2080,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685,
        "endgame": {
@@ -2114,7 +2114,7 @@
         "quantity": 8
        },
        "length": 26.77165354330709,
-       "width": 26.77165354330709,
+       "width": 28.11,
        "height": 21.024,
        "bumper": 2.9921259842519685
       },
@@ -2261,6 +2261,7 @@
     }
    ],
    "bonuses": []
-  }
+  },
+  "waitCycles": "yield"
  }
 }
