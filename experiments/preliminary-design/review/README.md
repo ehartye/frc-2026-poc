@@ -8,7 +8,7 @@
 
 The still above is the current published robot. This bundle reviews the preliminary R3 design, which is layout-checked but not yet detailed in Fusion.
 
-This folder holds only the review pages for issue R3-PD2: `package-motion.html`, the geometric clearance player (about 31 MB, not committed), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B experiments/preliminary-design/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
+This folder holds only the review pages for issue R3-PD2: `package-motion.html`, the geometric clearance player (about 31 MB, committed; its SHA-256 is pinned in `receipt.json`), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B experiments/preliminary-design/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
 
 ## Build the page
 
