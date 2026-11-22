@@ -891,6 +891,11 @@ def main():
     if not release:
         # Agent FRC 0.85.0: the held R3-PD1 premise moved, byte-identical, out of the disallowed design/ root.
         plan["relocations"] = {"design/preliminary/premise-delivery-pose-accepted.json": f"{REL}/premise-R3-PD1-delivery-pose-accepted.json"}
+    if release:   # the stock review page's scene fields come from the review data, so a rebuild reproduces them
+        import review_data
+        scene_data = review_data.build(OUT, plan, trial_data, fuel_index, measured)
+        plan["presentation"].update(review_data.presentation(scene_data))
+        review_data.save(OUT, scene_data)
     write("layout.json", plan)
     shot = dict(speedMps=rel_state["speedMps"], elevationDeg=rel_state["elevationDeg"], spinRatio=rel_state["spinRatio"],
                 releaseMm=list(xz(release_mm)), distanceM=release_distance, scoringBandMps=band, flightS=tr["deliver-nominal"]["metric"]["value"],
@@ -915,8 +920,6 @@ def main():
         write("missions.json", missions)
         import field_trials
         field_trials.render_player(field_trials.player_data(OUT / "field-trials.json", "field-trials.json"), OUT / "field" / "r3-field-trials.html", release=True)
-        import review_data
-        review_data.write(OUT, plan, trial_data, fuel_index, measured)
     print(json.dumps(dict(target=str(OUT), volume={v: {s_: x["estimateAtPacking"] for s_, x in y.items()} for v, y in vol.items()},
                           capacity={"R3": [len(dep), len(stow)], "R3L": [len(low_dep), len(low_stow)]}, stored=len(stored),
                           fuelCases=len(fuel_index), cycle=len(cycle), control=control_case, shot={q: shot[q] for q in ("speedMps", "elevationDeg", "distanceM", "scoringBandMps")},

@@ -1,7 +1,8 @@
 """Project-authored inputs for the standardized preliminary review scene of a release (review-data-RELEASE.json).
 
-build_package.py --release calls write() with the package it just built. Every value cites its source; anything
-without a source is recorded as not supplied.
+build_package.py --release calls build() with the package it is about to write, copies the scene fields that the
+stock review page reads into the layout's presentation (presentation()), and saves the data with save(). Every
+value cites its source; anything without a source is recorded as not supplied.
 """
 import hashlib
 import json
@@ -63,7 +64,7 @@ def support_paths(plan, motion, fixture_groups=("field",)):
     return out
 
 
-def write(release_dir, plan, trial_data, fuel_index, measured):
+def build(release_dir, plan, trial_data, fuel_index, measured):
     release_dir = Path(release_dir)
     sha = lambda f: hashlib.sha256((release_dir / f).read_bytes()).hexdigest()
     pin = lambda f: dict(file=f, sha256=sha(f))
@@ -135,6 +136,23 @@ def write(release_dir, plan, trial_data, fuel_index, measured):
             "Frame-internal joints are not registered: frame rails, floor pan, floor pan front tongue, front lip, climber tube mounts and intake slide rails.",
             "Battery hold-down strap over the battery top is undesigned; the cleats capture it in X only.",
             "Group-level mount datums: right-hand members (climber hook right, climber inner tube right, intake carriage plate right, shooter side plate right) cite the left-hand datum."])
+    return data
+
+
+def presentation(data):
+    """The review-scene fields of layout.json presentation, taken from the review data."""
+    def path(row):
+        return " -> ".join(row["path"]) if row.get("supplied") else "Not supplied: " + row["reason"]
+    return dict(title="Floor-fed hooded flywheel shooter", context="R3 \u00b7 Issue R3-PD2 \u00b7 preliminary layout",
+                focus=f"{data['focus']['component']}: {data['focus']['basis']}.",
+                notes=data["modelNotes"] + ["Open item: " + item for item in data["openItems"]],
+                runningAdditions=[dict(name=i["name"], kg=i["kg"], members=i["members"]) for i in data["runningAdditions"]["items"]],
+                runningBasis=data["runningAdditions"]["basis"],
+                loadPaths={member: path(row) for member, row in data["support"]["members"].items()})
+
+
+def save(release_dir, data):
+    release_dir = Path(release_dir)
     target = release_dir.parent.parent / f"review-data-{release_dir.name}.json"
     target.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return target
