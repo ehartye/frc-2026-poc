@@ -33,6 +33,13 @@ SHOWCASE_ASSETS = {
     "docs/robot/r1-chassis/assembly.stl.gz": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
     "docs/vendor/model-viewer-4.1.0.min.js": "8367184a607fbe07a78b650c0d359e5ebbd96f7e2b22f95f761f559b63430386"
 }
+# Agent FRC 0.89.0 preliminary release tree: the plugin's OFL template fonts and the checked release's compressed display geometry (pinned by its receipt).
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/barlow-condensed-latin-600-normal.woff2'] = '0b281bf2f4179c06ba68f0a427f2341287c41eacc2ce9d534c6f5c513ac633fb'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/barlow-condensed-latin-700-normal.woff2'] = '8320299532b4b81498d5b3714d49c9d5938883b55f4c2a1efe6f105bf4a942bd'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-400-normal.woff2'] = '6edbd48bf7fa0e34a5ad9f8da9e73a70d3ae7f51791deb8362c868fed9a7f68c'
+SHOWCASE_ASSETS['docs/preliminary-design/fonts/source-sans-3-latin-600-normal.woff2'] = '580c6561987cd9c704bc20c808c2aa7543cbdd4eaca8ec334ae4985e61971333'
+SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-001/package-motion.geometry.json.gz'] = '1fc20fa409434c9d3696d1cf74df5f5438eda8e99427e5ebdbb49d257606d5a3'
+
 
 def findings(data):
  text=data.decode('utf-8',errors='replace')
