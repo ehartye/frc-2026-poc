@@ -1,0 +1,22 @@
+{
+  "id": "hopper-capacity",
+  "unit": "FUEL",
+  "scenario": "Selected own-zone batch of 24 with the intake deployed, at a loose 0.45 packing fraction",
+  "criterion": {
+    "range": [
+      24.0,
+      200.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "hopper",
+    "intake",
+    "floor belts"
+  ],
+  "source": {
+    "file": "kickoff/selected-strategy.json",
+    "sha256": "587459be9767676b549228d5637f66d55be0abdb6c9252d25228cbc3148cb30a"
+  },
+  "basis": "24-piece serial batch"
+}

@@ -1,0 +1,3416 @@
+{
+  "schema": "agent-frc/mechanical-motion@1",
+  "step": {
+    "file": "package.step",
+    "sha256": "65b5cc96c03fe4ee8c8355bbb832b0193c0cffcaf8125549b05ec1a8b6025c47"
+  },
+  "layoutDesignSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
+  "layoutDatum": {
+    "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "id": "intake-deploy",
+      "stage": "operating",
+      "basis": "Slide the intake carriage 280 mm forward and 62 mm down from the legal start fold, over the bumper",
+      "moves": {
+        "intake belt module": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              280.0,
+              0.0,
+              -62.0
+            ]
+          }
+        ],
+        "intake carriage plate left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              280.0,
+              0.0,
+              -62.0
+            ]
+          }
+        ],
+        "intake carriage plate right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              280.0,
+              0.0,
+              -62.0
+            ]
+          }
+        ],
+        "intake top roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              280.0,
+              0.0,
+              -62.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "intake belt module": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
+          }
+        ],
+        "intake top roller": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
+          }
+        ],
+        "intake carriage plate left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
+          }
+        ],
+        "intake carriage plate right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -280.0,
+              -0.0,
+              62.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              560.0,
+              0.0,
+              -109.00000000000001
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "acquire-approach",
+      "stage": "operating",
+      "basis": "Drive onto the FUEL; it passes under the belt module to the bumper face with 3 mm undeformed reserve",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -204.44299999999998,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              560.0,
+              0.0,
+              -109.00000000000001
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "acquire-climb",
+      "stage": "operating",
+      "basis": "The vertical belt lifts the FUEL against the bumper face (pinch compression is a detailed-design setting)",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              191.94299999999998
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              355.557,
+              0.0,
+              -109.00000000000001
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "acquire-over",
+      "stage": "operating",
+      "basis": "The top roller pushes the FUEL aft over the bumper, front rail and lip into the hopper",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -355.557,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              355.557,
+              0.0,
+              82.94299999999998
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "acquire-drop",
+      "stage": "operating",
+      "basis": "Release onto the floor belts at the front of the indexer lane",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "gravity-drop",
+            "fallMm": 82.94299999999998,
+            "quadraticFraction": 1.0
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              82.94299999999998
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "loaded-transit",
+      "stage": "operating",
+      "basis": "Drive loaded from the DEPOT side of the alliance zone to the shot pose (robot frame: the field moves)",
+      "moves": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "index",
+      "stage": "operating",
+      "basis": "A floor-belt cleat carries the tracked FUEL 290 mm aft to the flywheel pinch",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "launch-wrap",
+      "stage": "operating",
+      "basis": "The FUEL rolls 62 degrees around the flywheel against the hood and releases at 62 degrees elevation",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "flight-1",
+      "stage": "operating",
+      "basis": "Ballistic arc 1 of 4 at 6.86 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.8 mm)",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "flight-2",
+      "stage": "operating",
+      "basis": "Ballistic arc 2 of 4 at 6.86 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.8 mm)",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "flight-3",
+      "stage": "operating",
+      "basis": "Ballistic arc 3 of 4 at 6.86 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.8 mm)",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "flight-4",
+      "stage": "operating",
+      "basis": "Ballistic arc 4 of 4 at 6.86 m/s toward the HUB opening (prescribed; drag Cd 0.47, spin lift CL 0.15; circular fit within 2.8 mm)",
+      "moves": {
+        "FUEL tracked": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tower-lateral",
+      "stage": "operating",
+      "basis": "Drive sideways to the TOWER line and reset the indexer cleat",
+      "moves": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "tower-forward",
+      "stage": "operating",
+      "basis": "Close to 5 mm from the uprights with the deployed intake between them",
+      "moves": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "climb-reach",
+      "stage": "operating",
+      "basis": "Swing both hooks 180 degrees inboard above the rung so the jaws pass beyond it",
+      "moves": {
+        "climber hook left": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": 180.0
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              -316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": -180.0
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "climb-seat",
+      "stage": "operating",
+      "basis": "Lower the hooks onto the low rung; a 2 mm seat contact is required at the end of the stroke",
+      "moves": {
+        "climber hook left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber inner tube left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber inner tube right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "climber hook left": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": 180.0
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              -316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": -180.0
+          }
+        ],
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "requiredContacts": [
+        {
+          "id": "left hook seats on low rung",
+          "pair": [
+            "climber hook left",
+            "tower low rung"
+          ],
+          "criterion": "Hook arm underside within 2 mm of the rung top",
+          "maxGapMm": 2.0,
+          "window": [
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "id": "right hook seats on low rung",
+          "pair": [
+            "climber hook right",
+            "tower low rung"
+          ],
+          "criterion": "Hook arm underside within 2 mm of the rung top",
+          "maxGapMm": 2.0,
+          "window": [
+            0.9,
+            1.0
+          ]
+        }
+      ],
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "climb-lift",
+      "stage": "operating",
+      "basis": "Retract the hooks 70 mm; in the robot frame the field and hooks move down together (Level 1 clears carpet and base)",
+      "moves": {
+        "climber hook left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber inner tube left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber inner tube right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "climber inner tube left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber hook left": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": 180.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber inner tube right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              -316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": -180.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          }
+        ],
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "park-lower",
+      "stage": "park",
+      "basis": "After the match, lower the robot back to the carpet",
+      "moves": {
+        "climber hook left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "climber inner tube left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "climber inner tube right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              70.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "initialPose": {
+        "climber inner tube left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber hook left": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": 180.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber inner tube right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "climber hook right": [
+          {
+            "kind": "rotation",
+            "originMm": [
+              300.0,
+              -316.0,
+              744.0
+            ],
+            "axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "travelDeg": -180.0
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -29.618000000000052
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "hub body": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "hub top": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower upright left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower upright right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower low rung": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "tower base": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              400.0,
+              2000.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "FUEL tracked": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -150.0,
+              0.0,
+              315.914
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": 62.0
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -5716.4303823567525,
+              0.0,
+              -2549.597906795813
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -11.542366804559947
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2763.5605878902506,
+              0.0,
+              -141.73545774202606
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -21.781955663982842
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2125.079049416931,
+              0.0,
+              943.9290628840735
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -36.50946957200526
+          },
+          {
+            "kind": "rotation",
+            "originMm": [
+              -2042.3497989550415,
+              0.0,
+              724.7409265360122
+            ],
+            "axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "travelDeg": -31.863434641357173
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              1250.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              -602.5,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          }
+        ],
+        "indexer cleat": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              -290.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "kind": "translation",
+            "travelMm": [
+              290.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "battery-withdraw",
+      "stage": "service",
+      "basis": "Lift the battery straight out through the open hopper with the intake deployed and hooks stowed; the 2 m stroke passes the field fixtures' envelope used by the checker",
+      "moves": {
+        "battery": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "extract": [
+        "battery"
+      ],
+      "checkLinearEnvelope": true
+    },
+    {
+      "id": "shooter-withdraw",
+      "stage": "service",
+      "basis": "Lift the flywheel, hood, side plates and both motors out as one module",
+      "moves": {
+        "flywheel": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "flywheel motor left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "flywheel motor right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "hood": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "shooter side plate left": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ],
+        "shooter side plate right": [
+          {
+            "kind": "translation",
+            "travelMm": [
+              0.0,
+              0.0,
+              2000.0
+            ]
+          }
+        ]
+      },
+      "minGapMm": 1.0,
+      "extract": [
+        "flywheel",
+        "flywheel motor left",
+        "flywheel motor right",
+        "hood",
+        "shooter side plate left",
+        "shooter side plate right"
+      ],
+      "checkLinearEnvelope": true
+    }
+  ]
+}

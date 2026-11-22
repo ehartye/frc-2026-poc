@@ -33,6 +33,10 @@ jobs:
           node-version: '22'
       - name: Build the registered public showcase
         run: node project/scripts/build-showcase.mjs builder "$RUNNER_TEMP/showcase"
+      - name: Add the checked preliminary design releases under preliminary-design/
+        run: |
+          python project/cad/preliminary-design/stage.py --check-index
+          cp -r project/docs/preliminary-design "$RUNNER_TEMP/showcase/preliminary-design"
       - name: Replay role, architecture, load and replenishment studies
         run: python project/experiments/role-and-support/review.py builder "$RUNNER_TEMP/method-results"
       - name: Exercise terminal replay controls on phone and desktop

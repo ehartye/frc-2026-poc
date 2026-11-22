@@ -1,10 +1,6 @@
 {
-  "latest": "001",
   "releases": [
-    {
-      "id": "001",
-      "title": "R3 floor-fed hood shooter",
-      "defaultCase": "operating-cycle"
-    }
-  ]
+    "layout-001"
+  ],
+  "current": "layout-001"
 }
