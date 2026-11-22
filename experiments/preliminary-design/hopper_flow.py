@@ -137,21 +137,23 @@ def posts():
 def heap(n, seed, trough, jitter=0.008):
     """n FUEL on a loose lattice above the floor, dropped together."""
     rng = np.random.default_rng(seed)
-    xs, ys = (0.055, 0.222), ((-0.082, 0.082) if trough else (-0.200, -0.035, 0.130))
+    xs = (0.055, 0.222)
     pts = []
     layer = 0
     while len(pts) < n:
+        # in the trough the two lowest layers stand in the channel; above the shelves a layer is four across
+        ys = (-0.200, -0.035, 0.130) if not trough else (-0.082, 0.082) if layer < 6 else (-0.246, 0.246)
         for x in xs:
             for y in ys:
                 if len(pts) < n:
-                    pts.append((x, y, 0.200 + 0.156 * layer))
+                    pts.append((x, y, 0.200 + 0.156 * layer if layer < 6 else 0.50 + 0.156 * (layer - 6)))
         layer += 1
     return np.array(pts) + rng.uniform(-jitter, jitter, (n, 3))
 
 
 def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, mu_hard=0.4, mu_feeder=0.9, k=15000.0, zeta=0.3, mass=0.215,
          crr=0.03, dt=2e-4, settle_s=1.5, t_end=16.0, tilt_deg=0.0, opt=None, reverse=True, feeders=True,
-         mu_deck=0.6, intake=None, frames_every=0.04,
+         mu_deck=0.6, intake=None, hold_eps=None, frames_every=0.04,
          keep_frames=False):
     """Heap of n FUEL to the flywheel. After the heap settles the belts run and the two lane feeders stage and feed in
     turn, no faster than one feed per period. If nothing reaches the flywheel for 1 s while FUEL remain, the belt
@@ -180,6 +182,8 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     alive = np.ones(n, bool)
     P = posts()
     eps = 0.01
+    hold_eps = eps if hold_eps is None else hold_eps   # slip regularization on the surfaces that hold a staged FUEL (see field_trials.hold)
+    eps_s = np.where(np.array([q == "deck" for q in S["kind"]]), hold_eps, eps)
     lanes = [dict(mode="staging", ball=None), dict(mode="staging", ball=None)]
     delivered, unjams, last_feed, last_take, last_lane = [], 0, -1e9, 0.0, 1
     reverse_until, first_stall = -1.0, None
@@ -189,7 +193,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     PINCH_X = (D.BUMPER["x1"] + 45.0) * MM
     next_frame = 0.0
 
-    def contact(n_, pen, surf_v, mu, idx, F, Tq):
+    def contact(n_, pen, surf_v, mu, idx, F, Tq, eps=eps):
         """Accumulate penalty and friction forces for contacts on balls idx with normals n_ (surface to ball)."""
         r_ = -n_ * R
         vc = vel[idx] + np.cross(om[idx], r_) - surf_v
@@ -240,7 +244,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
         bi, mi = np.where((dist < R) & (dist > 1e-9))
         if len(bi):
             n_ = diff[bi, mi] / dist[bi, mi][:, None]
-            contact(n_, R - dist[bi, mi], S["vel"][mi] * vb, mu_s[mi], ids[bi], F, Tq)
+            contact(n_, R - dist[bi, mi], S["vel"][mi] * vb, mu_s[mi], ids[bi], F, Tq, eps_s[mi])
         # vertical posts
         for (cx, cy, cr, z0, z1) in P:
             q = p.copy(); q[:, 2] = np.clip(p[:, 2], z0, z1)
@@ -253,9 +257,9 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
             if len(hit):
                 contact(diffp[hit] / dp[hit][:, None], R - dp[hit], np.zeros((len(hit), 3)), np.full(len(hit), mu_hard), ids[hit], F, Tq)
         # feeder rollers (axis along Y)
-        rollers = [(fx, fz, fr, y0, y1, uf[li], mu_feeder) for li, (y0, y1) in enumerate(lane_y)] if feeders else []
-        rollers.append((ir[0], ir[1], ir[2], -0.258, 0.258, intake if running else 0.0, mu_belt))
-        for (rx, rz, rr, y0, y1, us, mu_r) in rollers:
+        rollers = [(fx, fz, fr, y0, y1, uf[li], mu_feeder, hold_eps) for li, (y0, y1) in enumerate(lane_y)] if feeders else []
+        rollers.append((ir[0], ir[1], ir[2], -0.258, 0.258, intake if running else 0.0, mu_belt, eps))
+        for (rx, rz, rr, y0, y1, us, mu_r, eps_r) in rollers:
             q = np.stack([np.full(len(p), rx), np.clip(p[:, 1], y0, y1), np.full(len(p), rz)], axis=1)
             diffp = p - q
             dax = np.sqrt(np.einsum("ij,ij->i", diffp, diffp))
@@ -263,7 +267,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
             if len(hit):
                 n_ = diffp[hit] / dax[hit][:, None]
                 surf = us * np.stack([n_[:, 2], np.zeros(len(hit)), -n_[:, 0]], axis=1)
-                contact(n_, R - (dax[hit] - rr), surf, np.full(len(hit), mu_r), ids[hit], F, Tq)
+                contact(n_, R - (dax[hit] - rr), surf, np.full(len(hit), mu_r), ids[hit], F, Tq, eps_r)
         # FUEL on FUEL
         dd = p[:, None, :] - p[None, :, :]
         dn = np.sqrt(np.einsum("ijk,ijk->ij", dd, dd))
@@ -297,7 +301,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
         if early.any():   # reached the wheel with no feed commanded
             for b_ in np.where(early)[0]:
                 alive[b_] = False
-                delivered.append(dict(t=round(t, 4), lane="left" if pos[b_, 1] > 0 else "right", uncommanded=True))
+                delivered.append(dict(t=round(t, 4), lane="left" if pos[b_, 1] > 0 else "right", uncommanded=True, yMm=round(float(pos[b_, 1]) * 1000), modes=[ln["mode"] for ln in lanes], sinceFeedS=round(t - last_feed, 3)))
                 for ln in lanes:
                     if ln["ball"] == b_:
                         ln["mode"], ln["ball"] = "staging", None
@@ -350,7 +354,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                          f"most, lanes in turn; belt reversed 0.3 s after 1 s without a feed" + ("" if tilt_deg == 0 else f"; robot rolled {tilt_deg:g} degrees")),
                 solved="every FUEL's translation and spin in three dimensions with penalty contact and Coulomb friction against the hopper, the rollers and each other",
                 feed=dict(fed=len(good), within12s=within12, lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost, recirculated=recirculated, firstStallS=first_stall, lostAt=where,
-                          uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), remaining=int(alive.sum()), heldInPinch=int(held.sum()),
+                          uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), uncommandedAt=[d_ for d_ in delivered if d_.get("uncommanded")], remaining=int(alive.sum()), heldInPinch=int(held.sum()),
                           byLane={q: sum(1 for d_ in good if d_["lane"] == q) for q in ("left", "right")}, times=[d_["t"] for d_ in good]),
                 params=dict(n=n, seed=seed, belt=belt, periodS=period, muBall=mu_ball, muBelt=mu_belt, muHard=mu_hard, muFeeder=mu_feeder, k=k, zeta=zeta,
                             mass=mass, crr=crr, dt=dt, settleS=settle_s, tiltDeg=tilt_deg, layout=dict(opt or {}), reverse=reverse,
@@ -409,4 +413,4 @@ if __name__ == "__main__":
     for tr in (run_trials() if not names else [feed("probe", **eval("dict(%s)" % a)) for a in names]):
         f = tr["feed"]
         print(f"{tr['name']:48s} {'PASS' if tr['passed'] else 'FAIL'} fed {f['fed']} in12 {f['within12s']} last {f['lastFedS']} rate {f['ratePerS']} "
-              f"unjams {f['unjamCycles']} stall@{f['firstStallS']} recirc {f['recirculated']} lost {f['lost']} uncommanded {f['uncommanded']} lanes {f['byLane']}  {tr['firstUnmet'] or ''} {f['lostAt']} [{time.time() - t0:.0f}s]")
+              f"unjams {f['unjamCycles']} stall@{f['firstStallS']} recirc {f['recirculated']} lost {f['lost']} uncommanded {f['uncommanded']} lanes {f['byLane']}  {tr['firstUnmet'] or ''} {f['lostAt']} {f['uncommandedAt']} [{time.time() - t0:.0f}s]")

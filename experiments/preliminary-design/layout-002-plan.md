@@ -17,27 +17,41 @@ Reproduced: `field_trials.py` at `81dafcf` rewrote byte-identical outputs (21 s)
 
 ## What each risk has turned out to be
 
-| Risk | Before | Now (probe runs, not yet recorded in `field-trials.json`) | Status |
+Numbers are from probe runs of the code on this branch; `field-trials.json` is not yet regenerated.
+
+| Risk | Before | Now | Status |
 |---|---|---|---|
-| 1 Flywheel droop | 6.8% for a free 0.006 kg m² wheel against ±2.2% | The 28 J per FUEL summed absolute friction power; the net wheel work is 17 J (17.8 J in the layout-001 trial itself). With the free 0.0176 kg m² wheel and motors, the wheel falls 0.8% in a shot and releases at 6.85 m/s. A 24-FUEL batch at 4 FUEL/s releases 6.84–6.85 m/s at 12 V and 6.83–6.84 m/s at 8.34 V (band 6.70–7.00). Motors off: 6.78 m/s for one shot, then the interlock refuses the next. Spin-up from rest 2.6–2.9 s at 60 A battery-side | Passing in probes; brackets and half-step not yet run |
-| 2 Hold-back | none | Staged FUEL clamped 3.9 mm, 22.8 mm clear of the wheel. The `hold()` trial (belt running, 0.5–1.5 g, queue push) is written but not yet run | Design change made; trial to run |
-| 3 Intake power | 786 W peak at an imposed 3 m/s | 786 W is a momentary slip peak; the belt gives each FUEL 4.1 J. Driven belt stays at 2.96 m/s for one FUEL at 19 A; three abreast on a 9 V bus at the 30 A limit dips to 2.37 m/s and still captures | Passing in probes |
-| 4 Feed rate and batch | 2.8 FUEL/s by calculation, batch unevaluated | **Open.** Wheel side sustains 4 FUEL/s. Hopper side (`hopper_flow.py`, 24 free FUEL in 3-D): the layout-001 flat floor with lane guides jams (12–15 of 24 in 12 s). The trough feeds 20–22 in 5–9 s (2.3–3.2 FUEL/s), then strands the rest; seed 2 fed only 11 | Not passing |
-| 5 Mass | 1.76 kg reserve | Not recomputed. New wheel 3.36 kg sits inside the old 2.7–3.6 kg wheel range; feeders, deck, divider and shelves add mass | To do |
+| 1 Flywheel droop | 6.8% for a free 0.006 kg m² wheel against ±2.2% | The 28 J per FUEL summed absolute friction power; net wheel work is 17 J. Free 0.0176 kg m² wheel with two motors: 0.9% fall in a shot, 24 FUEL at 4 FUEL/s release 6.81–6.83 m/s at 12 V and 6.80–6.81 m/s at 8.34 V (band 6.70–7.00). Motors off: 6.75 m/s once, then the interlock refuses. Two FUEL at once: 6.78 m/s (6.74 weak pack), which is why the lanes feed in turn. Spin-up 2.6–2.9 s at 60 A | Passing; brackets to record |
+| 2 Hold-back | none | Feeder roller over a fixed deck, FUEL staged 10 mm ahead of the roller centre, 27.7 mm clear of the wheel, 3.9 mm clamp. Hold trial (stick-slip friction): holds 1.5 g with a 30 N queue push and a 60 N push (2 mm creep); fails at 120 N; fails with no feeder; fails under the regularized friction law (control for the law) | Passing |
+| 3 Intake power | 786 W peak at an imposed 3 m/s | Momentary slip peak; 4.1 J per FUEL. Driven belt holds 2.96 m/s for one FUEL at 19 A; three abreast on a 9 V bus at the 30 A limit dips to 2.37 m/s and captures. Top-roller height 20–50 mm drop all capture | Passing; ramp to add to the trial |
+| 4 Feed rate and batch | 2.8 FUEL/s by calculation, batch unevaluated | 3-D batch trial (`hopper_flow.py`): layout-001's flat floor feeds 12 of 24 in 12 s. The new hopper feeds 24 of 24 in 6.5–10.9 s (2.2–3.7 FUEL/s) in nine of nine heaps, half-step included, and 30 FUEL rolled 10°. Fails with a full-height lane divider (21 in 12 s), belt at 0.6 or 0.3 m/s, and ball friction 0.4 (18 in 12 s, all 24 by 13.3 s). Outcomes vary heap to heap, so G1 stays a bench gate with these numbers | Passing nominal; sensitive |
+| 5 Mass | 1.76 kg reserve | Not recomputed | To do |
 | 6 Hang squaring, BUMP 8.7 mm, battery strap, joints, 7.66 V | — | Not started | To do |
 
-Findings in the trough model that still need a design answer:
+### Hopper decision (risk 4)
 
-- **FUEL strand on the bumper-top shelf** ahead of the front lip (2–4 of 24 at x ≈ 382 mm), out of reach of the belts. The intake top roller does not return them. Needs a throat ramp or closure that leaves the acquisition path alone.
-- **Seed 2 stalls with both lanes empty** while 12 FUEL sit bridged above the trough on the shelves and rear wall. The 336 mm trough is 2.2 FUEL wide. Candidates: steeper or lower-friction shelves, a wider trough, agitation from the exposed feeder roller tops, or dropping the full-height divider to a low rail.
-- **Front corners were open in layout-001** between about 222 and 482 mm height outboard of the intake; corner walls are assumed in the model and must be drawn.
-- The 30-FUEL, 10° tilt case lost 3 FUEL over the wall or throat.
+Compared in the batch trial, same 24-FUEL heaps:
 
-If the hopper cannot be made to pass, compare real alternatives (R3L, a different feed) with the rehearsal tooling using `rehearsal.waitCycles: "yield"`, and rank options on time, risk, complexity, best practice and maintainability.
+| Option | Result | Time | Risk | Complexity | Best practice | Maintainability |
+|---|---|---|---|---|---|---|
+| A. layout-001 flat full-width floor, lane guides, rear wall as gate | 7–15 of 24 in 12 s; wedges at the lane mouth under the pile | 1 | 5 | 1 | 4 | 1 |
+| B. Two-lane trough, sloped shelves, full-height lane divider | 15–22; FUEL perch on the divider and shelf edges | 3 | 4 | 3 | 3 | 3 |
+| C. Straight two-lane bin, no shelves | feeds, but holds about 21–23 FUEL by volume | 2 | 3 | 2 | 2 | 2 |
+| **D. Two-lane trough, shelves, no divider, feeder rollers standing in the hopper, throat ramp and cover, 1.2 m/s belt, intake running** | **24 of 24 in 6.5–10.9 s, nine heaps** | 4 | 1 | 4 | 1 | 4 |
+| E. Powered serializer or vectoring floor | not modeled; kept as G1's fallback | 5 | 2 | 5 | 2 | 5 |
+
+Ranks are 1 best. D is selected. What D changes in the layout:
+
+- Floor two lanes wide (336 mm) from the rear wall to the lip, no divider. Rear shelves rise 30° from 270 mm at the channel edge to the side walls, from the rear wall to x = 170. Ahead of that a low shelf (170 → 216 mm) runs under the stowed intake to cheek walls at |y| = 260.
+- Rear wall stays at x = -96…-93; the feeder rollers stand in the hopper ahead of it and positively pull the floor FUEL out from under the pile.
+- Main floor belt ends at x = -30 and runs at 1.2 m/s (a free FUEL translates at 2/7 of belt speed). Fixed lane deck from there under the rollers and the wheel.
+- Throat: a ramp over the rail and bumper top down to the lip, guides turning FUEL in to the channel, a fixed cover from the front upper wall to above the top roller, front corner walls. A FUEL pushed forward off the ramp drops into the intake pinch and the running intake throws it back.
+- Battery and right electronics panel sit under the rear shelves. **Open:** the left shelf must open for the battery lift; the service case needs a staged extraction.
+- Capacity falls with the shelves; recompute the premise.
 
 ## Next steps, in order
 
-1. Settle the hopper: fix the throat stranding and the bridging, then pass nominal, three seeds, half-step, friction brackets, a control and the adverse tilt case.
+1. (Done) Hopper settled as option D; trial set with controls and brackets is `hopper_flow.run_trials()`.
 2. Rewrite `field_trials.run_trials()`/`main()` for the new chain (acquire → entry to stage → launch with the free wheel → deliver), add `hold`, `batch`, spin-up and the hopper trials, bump the issue to R3-PD3, extend the player template for the new trial kinds.
 3. `geometry.py`: feeder rollers and motors, lane deck, divider, shelves, rings, moved rear wall, front corner walls, battery strap; then `build_package.py` (phases, `freePath` for the flight and throw cases, per-member mounts and joints, `scenarioId`, mass and electrical rows, capacity code that hardcodes the old wall at -93 and pinch at -150).
 4. Risks 5 and 6, then gates, retention review and study.

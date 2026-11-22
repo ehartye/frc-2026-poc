@@ -279,6 +279,9 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
 
 
 # ------------------------------------------------------------------ hopper lane (side view, robot frame)
+STICK = True                                             # stick-slip friction in the lane trials
+
+
 def lane_scene(squeeze=None, cleat=None, feeder_squeeze=None, feeder=True):
     """Static side-view surfaces of the floor lane behind the bumper, from dimensions.py (metres)."""
     K = D.frame_constants("R3", squeeze)
@@ -327,7 +330,7 @@ def scene_record(scene):
 
 
 def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9, mu_hard=0.4, mu_hood=0.6, mu_feeder=0.9, k=15000.0,
-         zeta=0.3, mass=0.215, dt=1e-4, t_end=4.0, every=50, settle=False, release=False, accel_x=0.0, push_n=0.0, t0=0.0, abreast=1, slip_eps=0.01):
+         zeta=0.3, mass=0.215, dt=1e-4, t_end=4.0, every=50, settle=False, release=False, accel_x=0.0, push_n=0.0, t0=0.0, abreast=1, stick=STICK):
     """Integrate one free FUEL in the floor lane.
 
     control(t, x, wheel_mps) returns (belt, feeder, wheel): the floor belt and feeder roller surface speeds toward the
@@ -335,7 +338,12 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
     flywheel is a free body instead: its speed follows the FUEL's friction torque and its motors, and the third
     value is ignored. Rolling resistance is a couple crr * N * R opposing rolling on each surface (regularized at
     0.2 rad/s). accel_x is the robot's acceleration (m/s2, +X forward), felt by the FUEL as a body force; push_n is
-    a steady force toward the flywheel from FUEL queued behind. t0 offsets the reported times."""
+    a steady force toward the flywheel from FUEL queued behind. t0 offsets the reported times.
+
+    Friction in the lane is stick-slip: each contact carries a tangential spring (stiffness k, the contact's own
+    damping) that holds up to mu * N and slides at mu * N beyond it, so a clamped FUEL stays where it is until the
+    load exceeds its friction. stick=False falls back to the regularized Coulomb law of the other trials, under
+    which a clamped FUEL creeps at any load."""
     (cx, cz), rw = scene["wheel"]
     (_, _), rin, a0, a1 = scene["hood"]
     c = 2 * zeta * math.sqrt(k * mass)
@@ -345,7 +353,7 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
     t, step = 0.0, 0
     frames, events, first = [[round(t0, 4), round(x, 5), round(z, 5), round(w, 2)]], [], {}
     contacts = Contacts(0.001 if every <= 10 else 0.05)
-    recent, outcome, released = [], None, None
+    recent, outcome, released, springs = [], None, None, {}
     peak_wheel_power, wheel_energy = 0.0, 0.0
     uw = drive.mps if drive else 0.0
     wheel_trace = [[round(t0, 4), round(uw, 4)]]
@@ -381,7 +389,7 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
             d = math.hypot(x - ex, z - ez)
             if 0 < d < R:
                 rows.append((R - d, (x - ex) / d, (z - ez) / d, (0.0, 0.0), mu_hood, "hood"))
-        wheel_now, wheel_load = 0.0, 0.0
+        wheel_now, wheel_load, live = 0.0, 0.0, {}
         for pen, nx, nz, (svx, svz), mu, label in rows:
             touching[label] = max(touching.get(label, 0.0), pen)
             if label not in first:
@@ -392,7 +400,16 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
             vn = rvx * nx + rvz * nz
             Fn = max(0.0, k * pen - c * vn)
             tx, tz = -nz, nx
-            Ft = friction(Fn, rvx * tx + rvz * tz, mu, slip_eps)
+            vt = rvx * tx + rvz * tz
+            if stick:
+                xi = springs.get(label, 0.0) + vt * dt
+                Ft = -k * xi - c * vt
+                if abs(Ft) > mu * Fn:                      # sliding: the spring keeps only what the friction limit holds
+                    Ft = math.copysign(mu * Fn, Ft)
+                    xi = -Ft / k
+                live[label] = xi
+            else:
+                Ft = friction(Fn, vt, mu)
             Fx, Fz = Fn * nx + Ft * tx, Fn * nz + Ft * tz
             fx += Fx; fz += Fz
             tq += rx * Fz - rz * Fx
@@ -401,6 +418,7 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
             if label == "flywheel":
                 wheel_now += -Ft * uw       # the wheel surface moves along -t: power it gives the FUEL
                 wheel_load += Ft * rw       # and the torque the FUEL returns to the wheel
+        springs = live
         peak_wheel_power = max(peak_wheel_power, wheel_now)
         wheel_energy += wheel_now * dt
         if "flywheel" in touching and uw > 0:
@@ -531,19 +549,18 @@ def hopper_entry(name, start, belt=None, stage_mps=None, crr=0.03, mu_belt=0.9, 
 
 
 def hold(name, start, belt=None, accel_g=0.0, push_n=0.0, seconds=2.0, feeder_squeeze=None, mu_feeder=0.9, mu_belt=0.9, mu_deck=0.6, k=15000.0,
-         zeta=0.3, mass=0.215, dt=1e-5, slip_eps=0.001, feeder=True, start_note="the entry-nominal stage"):
+         zeta=0.3, mass=0.215, dt=1e-4, stick=True, feeder=True, start_note="the entry-nominal stage"):
     """Staged FUEL under load, with the feeder roller stopped and the flywheel at speed: the floor belt left
     running, the robot accelerating, or queued FUEL pressing from behind. The hold-back passes when the FUEL
     stays clear of the flywheel for the whole run.
 
-    Regularized Coulomb friction has no stiction: under a steady push a clamped FUEL creeps at the speed where
-    friction balances the push, in proportion to slip_eps. This trial therefore runs at a tenth of the other
-    trials' regularization speed and timestep, and a bracket shows the creep falling with slip_eps."""
+    stick=False is the control for the friction law: with regularized Coulomb friction, which has no stiction, the
+    same clamped FUEL creeps through under a load its friction would hold."""
     belt = 0.0 if belt is None else belt
     wheel_mps = D.SHOOTER["wheel_surface_mps"]
     scene = lane_scene(feeder_squeeze=feeder_squeeze, feeder=feeder)
     run = lane(start, lambda t, x, uw: (belt, 0.0, wheel_mps), scene, mu_feeder=mu_feeder, mu_belt=mu_belt, mu_hood=mu_deck, k=k, zeta=zeta, mass=mass,
-               dt=dt, t_end=seconds, accel_x=accel_g * G, push_n=push_n, slip_eps=slip_eps, every=round(0.005 / dt), release=True)
+               dt=dt, t_end=seconds, accel_x=accel_g * G, push_n=push_n, stick=stick, every=round(0.005 / dt), release=True)
     gaps = [wheel_gap_mm(scene, f[1], f[2]) for f in run["frames"]]
     travel = (start["x"] - min(f[1] for f in run["frames"])) * 1000
     unmet = None
@@ -561,7 +578,7 @@ def hold(name, start, belt=None, accel_g=0.0, push_n=0.0, seconds=2.0, feeder_sq
                 solved="FUEL translation and spin with penalty contact, Coulomb friction, gravity and rolling resistance",
                 creepMm=round(travel, 2),
                 params=dict(belt=belt, accelG=accel_g, pushN=push_n, feederSqueezeMm=scene["feederSqueezeMm"], muFeeder=mu_feeder, muBelt=mu_belt, muDeck=mu_deck, k=k,
-                            zeta=zeta, mass=mass, dt=dt, slipEps=slip_eps, feeder=feeder, start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}),
+                            zeta=zeta, mass=mass, dt=dt, stick=stick, feeder=feeder, start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}),
                 scene=scene_record(scene), contacts=run["contacts"], final=run["final"], events=run["events"], frames=run["frames"])
 
 

@@ -58,7 +58,7 @@ FLYWHEEL_PARTS = dict(ring=dict(ro=105.0, ri=85.0, t=8.0, density=7.85e-6), web=
 # deck; mps: roller surface speed for a feed; stage_mps: surface speed while drawing a FUEL in to the stage beam;
 # sensor_x: the stage beam, crossed by the FUEL centre; period_s: least time between feeds into the one flywheel
 # (one FUEL pitch of travel at half the feed surface speed); lane_y: each roller's span in |Y|.
-FEEDER = dict(x=-60.0, r=25.4, squeeze=8.0, mps=1.2, stage_mps=0.6, sensor_x=-58.0, period_s=0.25, lane_y=(8.0, 165.0))
+FEEDER = dict(x=-60.0, r=25.4, squeeze=8.0, mps=1.2, stage_mps=0.6, sensor_x=-50.0, period_s=0.25, lane_y=(8.0, 165.0))
 REAR_WALL_X = (-96.0, -93.0)                                  # hopper rear wall, behind the feeder rollers, which stand in the hopper
 
 # Intake in the deployed (installed STEP) pose. A vertical belt pinches the FUEL against the front bumper face and
