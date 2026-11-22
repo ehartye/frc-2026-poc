@@ -4,7 +4,7 @@
   "scenario": "Stand-off of slot 2's depot-shift delivery step from the HUB scoring station centre in the re-run field rehearsal",
   "criterion": {
     "range": [
-      0.0,
+      32.0,
       49.0
     ]
   },
@@ -17,7 +17,7 @@
     "file": "design/preliminary/rehearsal/delivery-pose-evidence.json",
     "sha256": "11b52cdb7968e66bffecb30451b4e33cb6a902be96e9fb96397fa5226ff4c8ec"
   },
-  "basis": "Re-run series r3-2p7m credits deliveries within 49 in of the station centre (3 in inside its 52 in release radius); the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
+  "basis": "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the step stands 2.70 m from the HUB centre and costs 8 FUEL against the 2.16 m baseline (96 vs 104)",
   "fieldInput": {
     "match": "Neutral return",
     "actor": "B2",

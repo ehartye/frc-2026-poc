@@ -549,7 +549,7 @@
     {
       "accepted": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-accepted.json",
-        "sha256": "6da8968b27cd10e814f285c39e7481a5986c42cccd036836239b95af01303793"
+        "sha256": "51bd814b13deaea95be495a22f1de0526471a8f100504055f469c972b7ffbfeb"
       },
       "current": {
         "file": "design/preliminary/premise-R3-PD2-delivery-pose-current.json",
