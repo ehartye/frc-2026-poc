@@ -31,7 +31,10 @@ SHOWCASE_ASSETS = {
     "docs/robot/historical-fixture/assembly.stl.gz": "7a7e69fe256fdbb17dfd6621aa8ade4e804ce9c4dfe1564437eb14e01a0bf81b",
     "docs/robot/r1-chassis/assembly.png": "b94003578b44bb6e9b6150e386549274079cf58dea49992c4c76566a41354c24",
     "docs/robot/r1-chassis/assembly.stl.gz": "ce3878c99378d195d949c62045d6629b45fbfcf26a2f6b41263239b5da8d0247",
-    "docs/vendor/model-viewer-4.1.0.min.js": "8367184a607fbe07a78b650c0d359e5ebbd96f7e2b22f95f761f559b63430386"
+    "docs/vendor/model-viewer-4.1.0.min.js": "8367184a607fbe07a78b650c0d359e5ebbd96f7e2b22f95f761f559b63430386",
+    # Preliminary review release 001: gzip-compressed JSON scene; scripts/preliminary_review.py rejects
+    # absolute and private paths in it before compressing, and release.json pins the same digest.
+    "docs/preliminary-design/releases/001/scene.json.gz": "1d662462665128c7322f83348503e9076d6e1abb2c53243149a5f9868555c5d8"
 }
 
 def findings(data):

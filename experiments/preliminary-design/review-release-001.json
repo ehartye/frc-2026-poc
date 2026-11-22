@@ -46,6 +46,6 @@
     "Every case starts from the installed pose. The main operating cycle plays the registered cycle stages in order, so the playback steps between stages rather than blending them.",
     "Battery-side currents are independent bounds per load, so the ranges can be conservative. The pack model uses the weak-battery open-circuit voltage and the high series resistance."
   ],
-  "forbid": ["[A-Za-z]:[\\\\/]", "/Users/", "agent-frc-poc-assets", "\\.f3d\\b"],
+  "forbid": ["[A-Za-z]:[\\\\/]", "/Use[r]s/", "agent-frc-poc-assets", "\\.f3d\\b"],
   "scrub": []
 }
