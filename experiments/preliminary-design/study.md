@@ -19,6 +19,16 @@ Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It repl
     - **R3L trench, sharing the corridor with the neutral runner:** 28 cycles, 21 permanent. Slot 2 and slot 3 meet head-on in the single high-trench corridor and neither can detour.
     - **R3L trench solo** (slot 3 holds the reserve): 0.
   - Slot 2 credits **124 FUEL in both the baseline and the 2.70 m R3 series**, so the pose costs nothing. The alliance totals are 366 for the baseline and 382 for R3.
+  - Slot-2 FUEL credited, per match and in total:
+
+    | Series | Own-zone supply | Neutral return | Missed preload | Total |
+    |---|---|---|---|---|
+    | Kickoff baseline | 44 | 36 | 44 | 124 |
+    | R3 at 2.7 m | 44 | 36 | 44 | 124 |
+    | R3L depot | 44 | 36 | 44 | 124 |
+    | R3L trench, shared or solo | 16 | 8 | 16 | 40 |
+
+  - The earlier "96 against 104" result is withdrawn. It came from deadlocked rehearsals in which slot 2 sat frozen against slot 3.
   - R3L on the depot route matches R3. On the TRENCH route it credits 40 shared and 40 solo, with alliance totals of 242 and 234. **R3 stays selected**, and the 2.7 m pose conclusion holds.
 - **Frame widened to 714 mm.** The perimeter becomes 2788 mm of the 2794 mm allowed. The bumper overlaps each TOWER upright by 23.9 mm instead of 6.4 mm. [hang_overlap.py](hang_overlap.py) checks this in plan view: both uprights bear for lateral offsets up to ±23.9 mm (±6.9 mm at 680 mm), and a 0.5° yaw opens a 7.5 mm trailing gap, so the robot squares against both uprights before it lifts. Module centres move to ±282 mm across; the foundation's side-rail saddles must be redrawn.
 - **Floor raised to 100 mm.** [bump_crossing.py](bump_crossing.py) rests both wheels on the BUMP profile across a sharp 15° crest. The least clearance is 8.7 mm, at the front bumper corner, which the bumper zone fixes; the belly keeps 24.3 mm.
