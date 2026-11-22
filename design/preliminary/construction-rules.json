@@ -1,0 +1,28 @@
+{
+  "schema": "frc-2026-poc/construction-rules@1",
+  "purpose": "Robot construction and game-piece facts the preliminary design needs that the kickoff rule register left unmodeled. Extends kickoff/rule-register.json for the same edition and cutoff.",
+  "edition": "Kickoff release V0 with Team Update 00",
+  "cutoff": "2026-01-10 23:59:59 America/New_York. Kickoff-day publications only.",
+  "source": {
+    "id": "manual",
+    "title": "FIRST REBUILT Game Manual, accessible English kickoff edition",
+    "location": "https://firstfrc.blob.core.windows.net/frc2026/Manual/Translations/2026GameManual-AD.docx",
+    "sha256": "928fa14e6c949fd9ef529a69bf4a737af5848f6c289ae8fc9996dd3826e70c17",
+    "retrieved": "2026-11-22; hash matches kickoff/rule-register.json"
+  },
+  "limits": {
+    "robotWeightKg": {"value": 52.16, "locator": "R103", "statement": "115.0 lb excluding bumpers, the robot battery with its half of the Anderson quick connect, and event-supplied location tags."},
+    "robotWithBumpersKg": {"value": 61.23, "locator": "R408", "statement": "135.0 lb for the R103 robot with bumpers."},
+    "startingPerimeterMm": {"value": 2794, "locator": "R104", "statement": "110.0 in frame perimeter in the starting configuration."},
+    "heightMm": {"value": 762, "locator": "R104, R107", "statement": "30 in starting height and 30.0 in total height at all times."},
+    "horizontalExtensionMm": {"value": 304.8, "locator": "R105, R106", "statement": "12 in beyond the vertical projection of the frame perimeter, over one side at a time."},
+    "bumperHardPartsMm": {"value": 31.75, "locator": "R402 family", "statement": "Hard bumper parts within 1.25 in of the frame perimeter."},
+    "batteryKg": {"value": [4.99, 6.57], "locator": "Section 8 battery description", "statement": "Nominal 11.0 to 14.5 lb battery."}
+  },
+  "fuel": {"diameterMm": 150.114, "massKg": [0.203, 0.227], "locator": "Section 5.10; 5.91 in, 0.448 to 0.500 lb"},
+  "hub": {"openingFrontEdgeMm": 1828.8, "openingSpanMm": 1059.18, "footprintMm": 1193.8, "locator": "Section 5.4; front edge 72 in, 41.7 in hexagonal opening, 47 in footprint",
+          "interpretation": "The span is treated as across-corners, the smaller conservative inscribed opening."},
+  "trench": {"clearHeightMm": 565.15, "passageWidthMm": 1278.6, "depthMm": 1193.8, "locator": "Section 5.6; 22.25 in clear height, 50.34 in passage, 47 in depth"},
+  "tower": {"lowRungCenterMm": 685.8, "rungOdMm": 42.164, "uprightGapMm": 819.15, "uprightSectionMm": [38.1, 88.9], "baseEdgeMm": [5, 8], "locator": "Section 5.8; rung centers 27 in, 1.66 in OD, uprights 32.25 in apart, 1.5 by 3.5 in, base edge 0.2 to 0.3 in",
+            "unresolved": "Rung position within the upright depth is not dimensioned in the extracted text; the layout assumes the rung centered on the upright depth."}
+}

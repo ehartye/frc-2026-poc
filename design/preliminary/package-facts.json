@@ -1,0 +1,994 @@
+{
+  "capacity": {
+    "R3": {
+      "deployed": [
+        [
+          -150,
+          4,
+          168.05700000000002
+        ],
+        [
+          -40,
+          -106,
+          168.05700000000002
+        ],
+        [
+          -40,
+          114,
+          168.05700000000002
+        ],
+        [
+          70,
+          4,
+          168.05700000000002
+        ],
+        [
+          92,
+          -194,
+          168.05700000000002
+        ],
+        [
+          114,
+          158,
+          168.05700000000002
+        ],
+        [
+          202,
+          -84,
+          168.05700000000002
+        ],
+        [
+          224,
+          70,
+          234.05700000000002
+        ],
+        [
+          202,
+          -194,
+          278.057
+        ],
+        [
+          4,
+          -40,
+          300.057
+        ],
+        [
+          4,
+          -194,
+          300.057
+        ],
+        [
+          26,
+          158,
+          300.057
+        ],
+        [
+          180,
+          202,
+          300.057
+        ],
+        [
+          158,
+          -40,
+          322.057
+        ],
+        [
+          70,
+          48,
+          410.057
+        ],
+        [
+          114,
+          -172,
+          410.057
+        ],
+        [
+          224,
+          70,
+          410.057
+        ],
+        [
+          70,
+          224,
+          432.057
+        ],
+        [
+          224,
+          224,
+          454.057
+        ],
+        [
+          4,
+          -84,
+          476.057
+        ],
+        [
+          224,
+          -84,
+          476.057
+        ],
+        [
+          4,
+          -238,
+          498.057
+        ],
+        [
+          224,
+          -238,
+          498.057
+        ],
+        [
+          4,
+          92,
+          542.057
+        ],
+        [
+          158,
+          114,
+          542.057
+        ],
+        [
+          114,
+          -150,
+          564.057
+        ],
+        [
+          48,
+          224,
+          608.057
+        ],
+        [
+          4,
+          -40,
+          630.057
+        ],
+        [
+          158,
+          -18,
+          630.057
+        ],
+        [
+          224,
+          224,
+          630.057
+        ]
+      ],
+      "stowed": [
+        [
+          -150,
+          4,
+          168.05700000000002
+        ],
+        [
+          -40,
+          -106,
+          168.05700000000002
+        ],
+        [
+          -40,
+          114,
+          168.05700000000002
+        ],
+        [
+          70,
+          4,
+          168.05700000000002
+        ],
+        [
+          92,
+          -194,
+          168.05700000000002
+        ],
+        [
+          114,
+          158,
+          168.05700000000002
+        ],
+        [
+          202,
+          -84,
+          168.05700000000002
+        ],
+        [
+          224,
+          70,
+          234.05700000000002
+        ],
+        [
+          202,
+          -194,
+          278.057
+        ],
+        [
+          4,
+          -40,
+          300.057
+        ],
+        [
+          4,
+          -194,
+          300.057
+        ],
+        [
+          26,
+          158,
+          300.057
+        ],
+        [
+          180,
+          202,
+          300.057
+        ],
+        [
+          158,
+          -40,
+          322.057
+        ],
+        [
+          4,
+          48,
+          432.057
+        ],
+        [
+          4,
+          -106,
+          454.057
+        ],
+        [
+          4,
+          202,
+          454.057
+        ],
+        [
+          4,
+          -238,
+          542.057
+        ],
+        [
+          70,
+          4,
+          564.057
+        ],
+        [
+          202,
+          -84,
+          564.057
+        ],
+        [
+          202,
+          92,
+          564.057
+        ],
+        [
+          92,
+          202,
+          586.057
+        ],
+        [
+          158,
+          -238,
+          608.057
+        ]
+      ]
+    },
+    "R3L": {
+      "deployed": [
+        [
+          -150,
+          4,
+          119.057
+        ],
+        [
+          -40,
+          -106,
+          119.057
+        ],
+        [
+          -40,
+          114,
+          119.057
+        ],
+        [
+          70,
+          4,
+          119.057
+        ],
+        [
+          92,
+          -194,
+          119.057
+        ],
+        [
+          202,
+          -84,
+          119.057
+        ],
+        [
+          202,
+          92,
+          119.057
+        ],
+        [
+          92,
+          158,
+          207.05700000000002
+        ],
+        [
+          4,
+          -40,
+          251.05700000000002
+        ],
+        [
+          4,
+          -194,
+          251.05700000000002
+        ],
+        [
+          158,
+          4,
+          251.05700000000002
+        ],
+        [
+          158,
+          -150,
+          251.05700000000002
+        ],
+        [
+          202,
+          224,
+          295.057
+        ],
+        [
+          4,
+          224,
+          317.057
+        ],
+        [
+          4,
+          70,
+          361.057
+        ],
+        [
+          224,
+          -238,
+          361.057
+        ],
+        [
+          48,
+          -106,
+          383.057
+        ],
+        [
+          158,
+          92,
+          383.057
+        ],
+        [
+          202,
+          -62,
+          383.057
+        ],
+        [
+          4,
+          -238,
+          449.057
+        ],
+        [
+          92,
+          224,
+          449.057
+        ]
+      ],
+      "stowed": [
+        [
+          -150,
+          4,
+          119.057
+        ],
+        [
+          -40,
+          -106,
+          119.057
+        ],
+        [
+          -40,
+          114,
+          119.057
+        ],
+        [
+          70,
+          4,
+          119.057
+        ],
+        [
+          92,
+          -194,
+          119.057
+        ],
+        [
+          202,
+          -84,
+          119.057
+        ],
+        [
+          202,
+          92,
+          119.057
+        ],
+        [
+          92,
+          158,
+          207.05700000000002
+        ],
+        [
+          4,
+          -40,
+          251.05700000000002
+        ],
+        [
+          4,
+          -194,
+          251.05700000000002
+        ],
+        [
+          158,
+          4,
+          251.05700000000002
+        ],
+        [
+          158,
+          -150,
+          251.05700000000002
+        ],
+        [
+          202,
+          224,
+          295.057
+        ],
+        [
+          4,
+          224,
+          317.057
+        ],
+        [
+          4,
+          70,
+          361.057
+        ],
+        [
+          48,
+          -106,
+          383.057
+        ],
+        [
+          224,
+          -40,
+          383.057
+        ],
+        [
+          4,
+          -238,
+          449.057
+        ]
+      ],
+      "constants": {
+        "floor": 32.0,
+        "wall": 530.0,
+        "hook": 534.0
+      }
+    }
+  },
+  "stored": [
+    [
+      -18,
+      -84,
+      168.05700000000002
+    ],
+    [
+      4,
+      -194,
+      278.057
+    ],
+    [
+      4,
+      4,
+      300.057
+    ],
+    [
+      4,
+      158,
+      322.057
+    ],
+    [
+      4,
+      -106,
+      410.057
+    ],
+    [
+      4,
+      48,
+      454.057
+    ],
+    [
+      4,
+      -238,
+      498.057
+    ]
+  ],
+  "trackedPath": {
+    "S0": [
+      770.0,
+      82.5,
+      78.057
+    ],
+    "S1": [
+      632.3322680381566,
+      82.5,
+      78.057
+    ],
+    "S2": [
+      455.1946340190783,
+      82.5,
+      255.19463401907834
+    ],
+    "S3": [
+      431.38004145393734,
+      82.5,
+      275.7581216659255
+    ],
+    "S4": [
+      400.0,
+      82.5,
+      282.0
+    ],
+    "S5": [
+      140.0,
+      82.5,
+      282.0
+    ],
+    "D": [
+      140.0,
+      82.5,
+      168.05700000000002
+    ]
+  },
+  "flight": {
+    "speedMps": 6.91,
+    "windowMps": [
+      6.8,
+      7.05
+    ],
+    "distanceM": 2.3384065645445484,
+    "exitHeightM": 0.2324855,
+    "cd": 0.47,
+    "massKg": 0.215,
+    "flightS": 0.820999999999965,
+    "endOffsetFromHubCentreMm": 370.3078099617669,
+    "rimEdgeClearanceMm": 57.158257405988294,
+    "speedScan": [
+      {
+        "speedMps": 6.79,
+        "edgeClearanceMm": 3.6,
+        "endOffsetMm": 212.8,
+        "inside": true
+      },
+      {
+        "speedMps": 6.8,
+        "edgeClearanceMm": 8.2,
+        "endOffsetMm": 225.8,
+        "inside": true
+      },
+      {
+        "speedMps": 6.81,
+        "edgeClearanceMm": 12.8,
+        "endOffsetMm": 240.4,
+        "inside": true
+      },
+      {
+        "speedMps": 6.82,
+        "edgeClearanceMm": 17.3,
+        "endOffsetMm": 253.5,
+        "inside": true
+      },
+      {
+        "speedMps": 6.83,
+        "edgeClearanceMm": 21.9,
+        "endOffsetMm": 266.5,
+        "inside": true
+      },
+      {
+        "speedMps": 6.84,
+        "edgeClearanceMm": 26.4,
+        "endOffsetMm": 279.6,
+        "inside": true
+      },
+      {
+        "speedMps": 6.85,
+        "edgeClearanceMm": 30.8,
+        "endOffsetMm": 292.7,
+        "inside": true
+      },
+      {
+        "speedMps": 6.86,
+        "edgeClearanceMm": 35.3,
+        "endOffsetMm": 305.9,
+        "inside": true
+      },
+      {
+        "speedMps": 6.87,
+        "edgeClearanceMm": 39.7,
+        "endOffsetMm": 319.0,
+        "inside": true
+      },
+      {
+        "speedMps": 6.88,
+        "edgeClearanceMm": 44.1,
+        "endOffsetMm": 332.2,
+        "inside": true
+      },
+      {
+        "speedMps": 6.89,
+        "edgeClearanceMm": 48.5,
+        "endOffsetMm": 345.4,
+        "inside": true
+      },
+      {
+        "speedMps": 6.9,
+        "edgeClearanceMm": 52.8,
+        "endOffsetMm": 358.7,
+        "inside": true
+      },
+      {
+        "speedMps": 6.91,
+        "edgeClearanceMm": 57.2,
+        "endOffsetMm": 370.3,
+        "inside": true
+      },
+      {
+        "speedMps": 6.92,
+        "edgeClearanceMm": 61.5,
+        "endOffsetMm": 383.6,
+        "inside": false
+      },
+      {
+        "speedMps": 6.93,
+        "edgeClearanceMm": 65.7,
+        "endOffsetMm": 396.9,
+        "inside": false
+      },
+      {
+        "speedMps": 6.94,
+        "edgeClearanceMm": 58.7,
+        "endOffsetMm": 410.2,
+        "inside": false
+      },
+      {
+        "speedMps": 6.95,
+        "edgeClearanceMm": 51.2,
+        "endOffsetMm": 421.9,
+        "inside": false
+      },
+      {
+        "speedMps": 6.96,
+        "edgeClearanceMm": 43.7,
+        "endOffsetMm": 435.3,
+        "inside": false
+      },
+      {
+        "speedMps": 6.97,
+        "edgeClearanceMm": 36.2,
+        "endOffsetMm": 448.7,
+        "inside": false
+      },
+      {
+        "speedMps": 6.98,
+        "edgeClearanceMm": 28.6,
+        "endOffsetMm": 460.4,
+        "inside": false
+      },
+      {
+        "speedMps": 6.99,
+        "edgeClearanceMm": 21.1,
+        "endOffsetMm": 473.9,
+        "inside": false
+      },
+      {
+        "speedMps": 7.0,
+        "edgeClearanceMm": 13.6,
+        "endOffsetMm": 485.7,
+        "inside": false
+      },
+      {
+        "speedMps": 7.01,
+        "edgeClearanceMm": 6.1,
+        "endOffsetMm": 499.2,
+        "inside": false
+      },
+      {
+        "speedMps": 7.02,
+        "edgeClearanceMm": -1.4,
+        "endOffsetMm": 511.0,
+        "inside": false
+      },
+      {
+        "speedMps": 7.03,
+        "edgeClearanceMm": -8.9,
+        "endOffsetMm": 524.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.04,
+        "edgeClearanceMm": -16.4,
+        "endOffsetMm": 536.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.05,
+        "edgeClearanceMm": -24.0,
+        "endOffsetMm": 550.0,
+        "inside": false
+      },
+      {
+        "speedMps": 7.06,
+        "edgeClearanceMm": -31.5,
+        "endOffsetMm": 561.9,
+        "inside": false
+      },
+      {
+        "speedMps": 7.07,
+        "edgeClearanceMm": -39.0,
+        "endOffsetMm": 575.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.08,
+        "edgeClearanceMm": -46.5,
+        "endOffsetMm": 587.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.09,
+        "edgeClearanceMm": -54.1,
+        "endOffsetMm": 599.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.1,
+        "edgeClearanceMm": -61.6,
+        "endOffsetMm": 613.2,
+        "inside": false
+      },
+      {
+        "speedMps": 7.11,
+        "edgeClearanceMm": -69.1,
+        "endOffsetMm": 625.2,
+        "inside": false
+      },
+      {
+        "speedMps": 7.12,
+        "edgeClearanceMm": -73.5,
+        "endOffsetMm": 637.3,
+        "inside": false
+      },
+      {
+        "speedMps": 7.13,
+        "edgeClearanceMm": -65.9,
+        "endOffsetMm": 649.4,
+        "inside": false
+      },
+      {
+        "speedMps": 7.14,
+        "edgeClearanceMm": -58.4,
+        "endOffsetMm": 663.1,
+        "inside": false
+      },
+      {
+        "speedMps": 7.15,
+        "edgeClearanceMm": -50.9,
+        "endOffsetMm": 675.2,
+        "inside": false
+      },
+      {
+        "speedMps": 7.16,
+        "edgeClearanceMm": -43.4,
+        "endOffsetMm": 687.4,
+        "inside": false
+      },
+      {
+        "speedMps": 7.17,
+        "edgeClearanceMm": -35.8,
+        "endOffsetMm": 699.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.18,
+        "edgeClearanceMm": -28.3,
+        "endOffsetMm": 711.7,
+        "inside": false
+      },
+      {
+        "speedMps": 7.19,
+        "edgeClearanceMm": -20.8,
+        "endOffsetMm": 723.9,
+        "inside": false
+      },
+      {
+        "speedMps": 7.2,
+        "edgeClearanceMm": -13.2,
+        "endOffsetMm": 736.1,
+        "inside": false
+      },
+      {
+        "speedMps": 7.21,
+        "edgeClearanceMm": -5.7,
+        "endOffsetMm": 749.9,
+        "inside": false
+      },
+      {
+        "speedMps": 7.22,
+        "edgeClearanceMm": 1.8,
+        "endOffsetMm": 762.2,
+        "inside": false
+      },
+      {
+        "speedMps": 7.23,
+        "edgeClearanceMm": 9.4,
+        "endOffsetMm": 774.5,
+        "inside": false
+      },
+      {
+        "speedMps": 7.24,
+        "edgeClearanceMm": 16.9,
+        "endOffsetMm": 786.7,
+        "inside": false
+      },
+      {
+        "speedMps": 7.25,
+        "edgeClearanceMm": 24.4,
+        "endOffsetMm": 799.0,
+        "inside": false
+      }
+    ],
+    "acceptedSpeedBandMps": [
+      6.79,
+      6.91
+    ],
+    "arcs": [
+      {
+        "centreMm": [
+          -5781.916974372328,
+          -2860.1221907581635
+        ],
+        "deg": -11.087457050795479,
+        "start": [
+          -261.5934354554514,
+          232.4855
+        ],
+        "end": [
+          -959.361997246126,
+          1236.3589572335604
+        ]
+      },
+      {
+        "centreMm": [
+          -2885.692752832169,
+          -366.3651589914417
+        ],
+        "deg": -20.481366097066115,
+        "start": [
+          -959.361997246126,
+          1236.3589572335604
+        ],
+        "end": [
+          -1641.9305542681354,
+          1809.0728121006046
+        ]
+      },
+      {
+        "centreMm": [
+          -2228.892647419981,
+          771.0379786279279
+        ],
+        "deg": -33.49328575775522,
+        "start": [
+          -1641.9305542681354,
+          1809.0728121006046
+        ],
+        "end": [
+          -2312.2236955600943,
+          1960.6163706289383
+        ]
+      },
+      {
+        "centreMm": [
+          -2169.7869423475986,
+          640.0592470384535
+        ],
+        "deg": -30.907585736937932,
+        "start": [
+          -2312.2236955600943,
+          1960.6163706289383
+        ],
+        "end": [
+          -2970.307809961767,
+          1699.9298456709255
+        ]
+      }
+    ],
+    "maxArcDeviationMm": 2.508988277536446
+  },
+  "inspectionKg": [
+    32.6,
+    44.6
+  ],
+  "runningKg": [
+    49.072,
+    63.748000000000005
+  ],
+  "volumesMm3": {
+    "frame rail front": 872256.3,
+    "frame rail rear": 872256.3,
+    "frame rail left": 807740.3,
+    "frame rail right": 807740.3,
+    "floor pan": 1322112.0,
+    "floor pan front tongue": 295362.0,
+    "front lip": 27084.0,
+    "intake pivot mount left": 28080.0,
+    "intake pivot mount right": 28080.0,
+    "front left wheel azimuth envelope": 388789.9,
+    "front left module body": 725805.0,
+    "front left module motors": 283095.2,
+    "front right wheel azimuth envelope": 388789.9,
+    "front right module body": 725805.0,
+    "front right module motors": 283095.2,
+    "rear left wheel azimuth envelope": 388789.9,
+    "rear left module body": 725805.0,
+    "rear left module motors": 283095.2,
+    "rear right wheel azimuth envelope": 388789.9,
+    "rear right module body": 725805.0,
+    "rear right module motors": 283095.2,
+    "bumper front": 7587840.0,
+    "bumper rear": 7587840.0,
+    "bumper left": 6201600.0,
+    "bumper right": 6201600.0,
+    "hopper wall left": 1104480.0,
+    "hopper wall right": 1104480.0,
+    "hopper rear wall": 875845.2,
+    "floor belt main": 1201050.0,
+    "floor belt front": 330750.0,
+    "flywheel": 2756488.7,
+    "hood": 317368.5,
+    "shooter side plate left": 565324.3,
+    "shooter side plate right": 565324.3,
+    "flywheel motor": 223367.2,
+    "battery": 2297252.0,
+    "electronics panel": 1296000.0,
+    "entry sensor": 1224.0,
+    "pinch sensor": 3000.0,
+    "climber tube left": 72131.0,
+    "climber inner tube left": 154333.9,
+    "climber hook left": 67056.0,
+    "climber tube right": 72131.0,
+    "climber inner tube right": 154333.9,
+    "climber hook right": 67056.0,
+    "intake pivot drive": 61525.0,
+    "intake ramp": 525408.6,
+    "intake roller": 2353149.5,
+    "intake arm left": 112120.0,
+    "intake arm right": 112120.0,
+    "hub body": 1966329242.6,
+    "hub top": 34685078.5,
+    "tower upright left": 6202777.9,
+    "tower upright right": 6202777.9,
+    "tower low rung": 1139297.2,
+    "FUEL tracked": 1771178.0,
+    "indexer cleat": 73494.7,
+    "FUEL stored 1": 1771178.0,
+    "FUEL stored 2": 1771178.0,
+    "FUEL stored 3": 1771178.0,
+    "FUEL stored 4": 1771178.0,
+    "FUEL stored 5": 1771178.0,
+    "FUEL stored 6": 1771178.0,
+    "FUEL stored 7": 1771178.0
+  }
+}

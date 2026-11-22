@@ -3,3 +3,4 @@ artifacts/
 **/.gradle/
 **/__pycache__/
 *.pyc
+design/preliminary/review/package-motion.html

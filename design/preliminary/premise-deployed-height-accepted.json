@@ -1,0 +1,21 @@
+{
+  "id": "deployed-height",
+  "unit": "mm",
+  "scenario": "Operating configuration with hooks stowed",
+  "criterion": {
+    "range": [
+      0.0,
+      762.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "climber hooks",
+    "hopper"
+  ],
+  "source": {
+    "file": "design/preliminary/construction-rules.json",
+    "sha256": "2a4c023f42108454eba341b64f3f99a5ea822a62b0a2fd0277b16e6713640b1c"
+  },
+  "basis": "R107 30 in at all times"
+}

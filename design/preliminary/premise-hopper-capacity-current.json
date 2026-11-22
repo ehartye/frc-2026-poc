@@ -1,0 +1,14 @@
+{
+  "id": "hopper-capacity",
+  "unit": "FUEL",
+  "scenario": "Selected own-zone batch of 24 with the intake deployed",
+  "value": 30.0,
+  "issue": "R3-PD1",
+  "designSha256": "87c6d40b34e33e619083c056ba64102bef67cd5d7e3cd7282d504507c91c7d06",
+  "stepSha256": "793bbec936d571750c1d3ae3521469ac01ed74912b2b69ff9065a023fee0f88e",
+  "source": {
+    "file": "design/preliminary/measurements.json",
+    "sha256": "f782eb759a2a75ef75b1ab3d9a57a791e8fc7cab2aa816299e2055d0a8d30583"
+  },
+  "valueField": "capacityDeployed"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "start-capacity",
+  "unit": "FUEL",
+  "scenario": "AUTO preload of eight in the starting fold",
+  "criterion": {
+    "range": [
+      8.0,
+      200.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "hopper",
+    "intake"
+  ],
+  "source": {
+    "file": "kickoff/selected-strategy.json",
+    "sha256": "587459be9767676b549228d5637f66d55be0abdb6c9252d25228cbc3148cb30a"
+  },
+  "basis": "Begin legally preloaded with at most eight"
+}

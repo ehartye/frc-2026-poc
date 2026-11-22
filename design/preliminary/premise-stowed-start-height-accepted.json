@@ -1,0 +1,21 @@
+{
+  "id": "stowed-start-height",
+  "unit": "mm",
+  "scenario": "Starting configuration with the intake folded",
+  "criterion": {
+    "range": [
+      0.0,
+      762.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "intake",
+    "climber hooks"
+  ],
+  "source": {
+    "file": "design/preliminary/construction-rules.json",
+    "sha256": "2a4c023f42108454eba341b64f3f99a5ea822a62b0a2fd0277b16e6713640b1c"
+  },
+  "basis": "R104/R107 30 in limit"
+}

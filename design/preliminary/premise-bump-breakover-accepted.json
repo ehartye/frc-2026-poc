@@ -1,0 +1,21 @@
+{
+  "id": "bump-breakover",
+  "unit": "mm",
+  "scenario": "BUMP crest crossing at 530 mm wheelbase needs 71 mm under the belly",
+  "criterion": {
+    "range": [
+      71.0,
+      500.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "frame",
+    "drivetrain"
+  ],
+  "source": {
+    "file": "design/preliminary/construction-rules.json",
+    "sha256": "2a4c023f42108454eba341b64f3f99a5ea822a62b0a2fd0277b16e6713640b1c"
+  },
+  "basis": "15 degree BUMP ramps meeting at the crest"
+}

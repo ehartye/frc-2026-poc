@@ -1,0 +1,16 @@
+{
+  "schema": "frc-2026-poc/retention-review@1",
+  "issue": "R3-PD1",
+  "piece": "FUEL tracked (0.203-0.227 kg, 150.114 mm)",
+  "method": "At each change of support: gravity in the holder frame, the contacts that can push back, the open direction of escape, and the result with power removed. Animated paths are prescribed; this review does not replace a free-piece simulation.",
+  "rows": [
+    {"id": "R-1", "support": "Carpet ahead of the ramp toe", "gravity": "Into the carpet", "resisting": "Carpet only", "escape": "Rolls away when bumped", "powerOff": "Not yet in custody", "disposition": "accepted: no custody is claimed before the ramp"},
+    {"id": "R-2", "support": "45 degree ramp under the roller", "gravity": "0.71 g along the ramp toward the carpet", "resisting": "Roller 3 mm above the undeformed piece; compression is not drawn", "escape": "Back down the ramp", "powerOff": "Rolls back out to the carpet", "disposition": "open F2: roller compression and friction need a bench value. A stopped roller releases the piece outside the robot, the safe direction"},
+    {"id": "R-3", "support": "Ramp rear edge crest", "gravity": "Into the hopper once past the crest", "resisting": "Edge at 82 mm centre radius", "escape": "Back down the ramp before the crest", "powerOff": "Falls either way about the edge", "disposition": "open F2: measure the lowest roller speed that carries the piece past the crest"},
+    {"id": "R-4", "support": "Hopper floor belts and walls", "gravity": "Into the floor", "resisting": "Side walls to 715 mm (85 mm above the top-layer centres), front lip to 160 mm, rear wall", "escape": "Forward over the lip and front rail under hard braking; over the walls if heaped above four layers", "powerOff": "Retained", "disposition": "open F6: drive a loaded hopper through 0.5 g stops and count losses"},
+    {"id": "R-5", "support": "Cleat on the floor belt", "gravity": "Into the belt", "resisting": "Cleat behind, belt below, neighbouring pieces", "escape": "Forward if the cleat reverses", "powerOff": "Retained in the hopper", "disposition": "restrained"},
+    {"id": "R-6", "support": "Flywheel pinch and hood", "gravity": "Into the hood lip", "resisting": "Hood below and behind, flywheel above", "escape": "Back toward the floor belt", "powerOff": "Rests on the hood lip inside the robot; the hood begins inboard of the pinch, so the lowest point of the lane is inside", "disposition": "restrained; the F2 compression setting decides launch, not retention"},
+    {"id": "R-7", "support": "Hood wrap to release at -150 deg", "gravity": "Along the hood toward the pinch", "resisting": "Hood and wheel", "escape": "Released by design at the hood end", "powerOff": "Slides back to the pinch", "disposition": "restrained until release"},
+    {"id": "R-8", "support": "Robot hanging on two hooks at 70 mm", "gravity": "Robot pitches rear-down about the rung", "resisting": "Jaws on the rung's far side and the front bumper on both uprights (about 575 N horizontal at 63.7 kg)", "escape": "Rung leaves the throat if the jaw does not reach below the rung equator under the horizontal load", "powerOff": "A winch brake or non-backdriving drive must hold 625 N", "disposition": "open F4: the 28 mm jaw reaches only 5.4 mm below the rung centre after seating; lengthen the jaw and recheck the reach sweep"}
+  ]
+}

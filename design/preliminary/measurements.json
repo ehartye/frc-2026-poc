@@ -1,0 +1,15 @@
+{
+  "issue": "R3-PD1",
+  "designSha256": "87c6d40b34e33e619083c056ba64102bef67cd5d7e3cd7282d504507c91c7d06",
+  "stepSha256": "793bbec936d571750c1d3ae3521469ac01ed74912b2b69ff9065a023fee0f88e",
+  "stowedTopMm": 750.0,
+  "deployedTopMm": 750.0,
+  "deployedReachMm": 266.938,
+  "capacityDeployed": 30.0,
+  "capacityStowed": 23.0,
+  "lowCapacityDeployed": 21.0,
+  "lowCapacityStowed": 18.0,
+  "shotDistanceM": 2.3384,
+  "bellyClearanceMm": 75.0,
+  "basis": "Measured from the solids written to package.step by build_package.py; capacity is a greedy 22 mm lattice placement of undeformed FUEL with 1.5 mm clearance"
+}
