@@ -2,11 +2,11 @@
   "issue": "R3-PD3",
   "step": {
     "file": "cad/preliminary-design/releases/layout-002/package.step",
-    "sha256": "7f2bbf9510a3fad0fd2e3a443d4d71114ecbc606700fcdaf4ec3ec5334a2a647"
+    "sha256": "90d05920da47d56a19b4cd940eb0a77886d7096107ebd40252974974f4f6dbf8"
   },
   "motion": {
     "file": "cad/preliminary-design/releases/layout-002/paths.json",
-    "sha256": "6299ca86c128fc64aa3481c7b36227128456c66255ee7a5f7522127d4cdbf25f"
+    "sha256": "2323711a65a7c5ddb370915f40eb8639e2d293fec163ec1cba2a94f6af122b1b"
   },
   "design": {
     "file": "cad/preliminary-design/releases/layout-002/design.json",

@@ -202,7 +202,8 @@ def robot_bodies(variant="R3", intake_stowed=False):
     (px0, py0, pz0), (px1, py1, pz1) = PANEL_RIGHT
     add("electronics panel", box((px0, py0, pz0 + (fl - 100)), (px1, py1, pz1 + (fl - 100))), "electrical")
     add("electronics panel left", box((82, 282 + DY, fl + 2), (fx_ - 4, 312 + DY, fl + 182)), "electrical")
-    add("electronics bay right", box((125, -314 - DY, 225), (280, -284, 340)), "electrical")
+    # the bay panel and the winch hang under the fixed slide rails, outboard of the carriage plates' path
+    add("electronics bay right", box((165, -314 - DY, 245), (280, -(INTAKE["rail_y"][0] - 0.5), 343.5)), "electrical")
     for side, s in (("left", 1), ("right", -1)):       # stage beams, one per lane, on the outside of the channel wall
         y = sorted((s * (lane + 3), s * (lane + 10)))
         add(f"stage sensor {side}", box((FEEDER["sensor_x"] - 6, y[0], k["belt_top"] + R_BALL - 8), (FEEDER["sensor_x"] + 6, y[1], k["belt_top"] + R_BALL + 8)), "electrical")
@@ -216,7 +217,7 @@ def robot_bodies(variant="R3", intake_stowed=False):
         arm = box((87, yc - 11, hook_top - 12), (313, yc + 11, hook_top))
         jaw = box((87, yc - 11, hook_top - 40), (99, yc + 11, hook_top - 12))
         add(f"climber hook {side}", fuse(arm, jaw), "climber hooks")
-    add("climber winch", box((130, 284, 230), (250, 314 + DY, 330)), "climber tubes")
+    add("climber winch", box((165, INTAKE["rail_y"][0] - 0.5, 245), (270, 314 + DY, 343.5)), "climber tubes")
 
     # Intake carriage in its deployed pose; the start fold is the same carriage translated back by the slide.
     ip = intake_points()

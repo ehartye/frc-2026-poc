@@ -71,6 +71,6 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 
 ## Public contribution checks
 
-Run `python -m unittest discover -s tests` and `python scripts/check_public_content.py` after committing changes. The guard checks committed bytes, private paths/network addresses, unexplained machine aliases and binary additions. Reports identify file/category only. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
+Run `python -m unittest discover -s tests` after committing changes. Every pushed branch is scanned for personal machine paths and credentials by the Paths and secrets job (`node PLUGIN/scripts/branch-scan.mjs .` locally), and the Design publication job checks every published design; [how to run them](tests/ci.md). Manually review images, CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
 
 [Follow the 24-piece packed service comparison in the student showcase](https://ehartye.github.io/frc-2026-poc/robot/batch.html).

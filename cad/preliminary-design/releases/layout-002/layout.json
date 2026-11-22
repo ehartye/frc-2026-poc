@@ -7,11 +7,11 @@
   },
   "step": {
     "file": "cad/preliminary-design/releases/layout-002/package.step",
-    "sha256": "7f2bbf9510a3fad0fd2e3a443d4d71114ecbc606700fcdaf4ec3ec5334a2a647"
+    "sha256": "90d05920da47d56a19b4cd940eb0a77886d7096107ebd40252974974f4f6dbf8"
   },
   "motion": {
     "file": "cad/preliminary-design/releases/layout-002/paths.json",
-    "sha256": "6299ca86c128fc64aa3481c7b36227128456c66255ee7a5f7522127d4cdbf25f"
+    "sha256": "2323711a65a7c5ddb370915f40eb8639e2d293fec163ec1cba2a94f6af122b1b"
   },
   "datum": {
     "name": "R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
@@ -501,13 +501,13 @@
     },
     {
       "group": "climber tubes",
-      "on": "hopper liner left",
+      "on": "intake slide rail left",
       "pointMm": [
-        190.0,
-        284.0,
-        280.0
+        200.0,
+        266.0,
+        345.0
       ],
-      "basis": "Winch plate on the outboard face of the left cheek, in the bay beside the stowed carriage; the right cable crosses inside the front rail",
+      "basis": "Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail",
       "member": "climber winch"
     }
   ],
@@ -1439,7 +1439,7 @@
   "view": "cad/preliminary-design/releases/layout-002/package-motion.html",
   "budgets": {
     "file": "cad/preliminary-design/releases/layout-002/budgets.json",
-    "sha256": "3f9cb117d4c0f781e7c29e096262eefb5f900826b9c30d2c62be54f1ac2dc453"
+    "sha256": "225ad02f74dec6f07c1820c787aa006b4070a79ba5987b23497b6d1e4e9c001f"
   },
   "premises": [
     {
@@ -1449,7 +1449,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-start-overhang-current.json",
-        "sha256": "20601f3c83ac2a5fa38894e7cb597c448952fb27b5fea811e7965f09b752834c"
+        "sha256": "36f9e9f5b99f86658aa90520d727bd9d92bedb4e4b3ccc3e4c51fece0b181397"
       }
     },
     {
@@ -1459,7 +1459,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-swept-height-current.json",
-        "sha256": "fcaa1ee539096792240727ff3db22e21adb88633ac157419013be7aa16b24e45"
+        "sha256": "2004f35f463f6d8beb29bb09f1554c0313ff3e7a50f4e9dd684369abc592f512"
       }
     },
     {
@@ -1469,7 +1469,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-swept-front-extension-current.json",
-        "sha256": "1cc22a77d8662db89204e295b581e68860bc7448af5240c18e71b742bfe629f9"
+        "sha256": "a67fb136ba41d6884a5ed39de57fb77b073b270da7ca82b4e675794903d04801"
       }
     },
     {
@@ -1479,7 +1479,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-swept-other-extension-current.json",
-        "sha256": "22119599ad7029d93233bc54ec4e13c2b53a3aad0b5b8c05fae291e69ef9d068"
+        "sha256": "243e9061989f174697c00ba28c3e51c7a4e84f6faccf9d58387a738072e85cb0"
       }
     },
     {
@@ -1489,7 +1489,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-sides-extended-current.json",
-        "sha256": "a53f1fed2600e31a3cc3034e3995c0307710561e857e846be821491e1d0b7cf6"
+        "sha256": "6a3be5d3634f765f3a9473640f421220cd18f0a8ecd9c8665f549f3e82dfcb07"
       }
     },
     {
@@ -1499,7 +1499,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-with-bumpers-mass-current.json",
-        "sha256": "7ef52c4692e1e3ad6fcdf6178ca731f10a94f05b8d411f57d0985bd37b221ba7"
+        "sha256": "a5b7306872c01bb28fe90005f912f135b8d4e66cab46ba3cfaac0933b93b81b6"
       }
     },
     {
@@ -1509,7 +1509,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-hopper-capacity-current.json",
-        "sha256": "beb5a9dd32ebacd4f92b5bc5f35f5b7e0ff83160b0aac0694719444e536e7b9a"
+        "sha256": "838da218e7fd174fb7e3118fbe0131e2509c539718cbfb9f18b1c02237245d33"
       }
     },
     {
@@ -1519,7 +1519,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-start-capacity-current.json",
-        "sha256": "1061d5d75ac1998c716ef580d75858f11e27777406ffc29806a59b536a5eb621"
+        "sha256": "9559ebcf0237c3bb8b5af4dbe42dc28173d6f4202d66d7d53089eae0ae7cf5b8"
       }
     },
     {
@@ -1529,17 +1529,17 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-shot-window-current.json",
-        "sha256": "a015094661dc033d31c3eaff6be2baa7548a40295776f6517e6c8b0fbf509ffd"
+        "sha256": "e3cc2f2a85500fb6d05a1d90cc3b79c344f3947055b2c17de18bf0aafdebbb72"
       }
     },
     {
       "accepted": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-delivery-pose-accepted.json",
-        "sha256": "5c86b551865b62e534b6e35a47b7ef17aac2bdcc5b02aa387f152993a8f0e619"
+        "sha256": "685d5f8df10a4f5a83b4a5a839fd9d381c9554a7f260f37eb6a1be9bc609ca26"
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-delivery-pose-current.json",
-        "sha256": "34baddc0ce987fe310c9e8b0f4c37df4ceda416f6fa89b3a6925f7f70b857c08"
+        "sha256": "86c925c4186641c34da3c03c4d2bd52a2d706609f1a842b2e3d2916f97e7e73e"
       }
     },
     {
@@ -1549,7 +1549,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-delivery-hub-distance-current.json",
-        "sha256": "ac8d541daef862ad916efb8e20d3bcb1636fbecc1b4ef8eee1a57429dc0a11e7"
+        "sha256": "7ee527304b9a334d28b0bc9ed52cc9db4e9a1c5bfb8617584f6bd6d4c2e7499d"
       }
     },
     {
@@ -1559,7 +1559,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-bump-crossing-current.json",
-        "sha256": "bb0dbb0989c1166c0ad4e2d9fb1917c03505a276c12ee6db403df633d9511fed"
+        "sha256": "08946353c2e7382fea995074af4225ef27062b607dee584736cc477e259578b9"
       }
     },
     {
@@ -1569,7 +1569,7 @@
       },
       "current": {
         "file": "cad/preliminary-design/releases/layout-002/premise-R3-PD3-hang-bumper-overlap-current.json",
-        "sha256": "2012c8fc24a03baad1eb80aa925690a863e50364ec79991366339af8f5996041"
+        "sha256": "55b69ebb4d54da7a5cf249871749012f2844955c1a8e68fc66ddb68b7f801ff5"
       }
     }
   ],
@@ -1973,19 +1973,19 @@
       },
       "feeder motor left": {
         "purpose": "Turn and brake one feeder roller.",
-        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Its shaft through the channel wall is not drawn.",
+        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Unmounted allowance: the 12 mm shaft through the channel wall and the bearing block that carries it are not drawn, so the motor appears to float.",
         "category": "mechanism",
         "material": "Planetary gearmotor with brake; envelope",
-        "name": "Feeder motor left",
+        "name": "Feeder motor left (unmounted allowance)",
         "subsystem": "feeders",
         "volumeType": "envelope"
       },
       "feeder motor right": {
         "purpose": "Turn and brake one feeder roller.",
-        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Its shaft through the channel wall is not drawn.",
+        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Unmounted allowance: the 12 mm shaft through the channel wall and the bearing block that carries it are not drawn, so the motor appears to float.",
         "category": "mechanism",
         "material": "Planetary gearmotor with brake; envelope",
-        "name": "Feeder motor right",
+        "name": "Feeder motor right (unmounted allowance)",
         "subsystem": "feeders",
         "volumeType": "envelope"
       },
@@ -2090,7 +2090,7 @@
       },
       "electronics panel": {
         "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
-        "rationale": "Under the right shelf, beside the battery and in the right bay outboard of the cheek: outside the FUEL space and reachable from above or from the side.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
         "category": "electrical",
         "material": "Polycarbonate panel",
         "name": "Electronics panel",
@@ -2099,7 +2099,7 @@
       },
       "electronics panel left": {
         "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
-        "rationale": "Under the right shelf, beside the battery and in the right bay outboard of the cheek: outside the FUEL space and reachable from above or from the side.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
         "category": "electrical",
         "material": "Polycarbonate panel",
         "name": "Electronics panel left",
@@ -2108,7 +2108,7 @@
       },
       "electronics bay right": {
         "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
-        "rationale": "Under the right shelf, beside the battery and in the right bay outboard of the cheek: outside the FUEL space and reachable from above or from the side.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
         "category": "electrical",
         "material": "Polycarbonate panel",
         "name": "Electronics bay right",
@@ -2162,7 +2162,7 @@
       },
       "climber winch": {
         "purpose": "Retract both inner tubes by cable to lift the robot.",
-        "rationale": "In the left bay beside the stowed carriage. In the hang trial at 70.3 kg its cable load peaks at 1043 N during the lift, and the brake must hold 690 N with power removed.",
+        "rationale": "Under the left slide rail, outboard of the carriage plate. In the hang trial at 70.3 kg its cable load peaks at 1043 N during the lift, and the brake must hold 690 N with power removed.",
         "category": "mechanism",
         "material": "Gearmotor and spool envelope",
         "name": "Climber winch",
@@ -2271,7 +2271,7 @@
       "hub body": {
         "purpose": "Locate the HUB and its hexagonal opening.",
         "rationale": "The flight cases follow the delivery trial over the near flat at 1828.8 mm, into the conservative inscribed opening and against the cavity wall.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Hub body",
         "subsystem": "field",
@@ -2280,7 +2280,7 @@
       "hub top": {
         "purpose": "Locate the HUB and its hexagonal opening.",
         "rationale": "The flight cases follow the delivery trial over the near flat at 1828.8 mm, into the conservative inscribed opening and against the cavity wall.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Hub top",
         "subsystem": "field",
@@ -2289,7 +2289,7 @@
       "tower upright left": {
         "purpose": "Locate the TOWER uprights.",
         "rationale": "Their 819 mm gap bounds the bumper approach and the forward hooks.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Tower upright left",
         "subsystem": "field",
@@ -2298,7 +2298,7 @@
       "tower upright right": {
         "purpose": "Locate the TOWER uprights.",
         "rationale": "Their 819 mm gap bounds the bumper approach and the forward hooks.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Tower upright right",
         "subsystem": "field",
@@ -2307,7 +2307,7 @@
       "tower low rung": {
         "purpose": "Locate the low rung at 685.8 mm.",
         "rationale": "The hooks must seat on it; the V0 text centres it in the upright depth.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Tower low rung",
         "subsystem": "field",
@@ -2316,7 +2316,7 @@
       "tower base": {
         "purpose": "Locate the TOWER BASE plate.",
         "rationale": "Level 1 requires clearing it; its 8 mm edge stands under the front bumper at the berth.",
-        "category": "field",
+        "category": "reserved-space",
         "material": "Field fixture (V0 dimensions)",
         "name": "Tower base",
         "subsystem": "field",

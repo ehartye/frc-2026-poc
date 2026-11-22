@@ -4,7 +4,7 @@
   "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
   "issue": "R3-PD3",
   "designSha256": "0faa8f043e3127e282a6c132185ea118f9cf269cfea6895f1112bde11ef1f7eb",
-  "stepSha256": "7f2bbf9510a3fad0fd2e3a443d4d71114ecbc606700fcdaf4ec3ec5334a2a647",
+  "stepSha256": "90d05920da47d56a19b4cd940eb0a77886d7096107ebd40252974974f4f6dbf8",
   "fieldReplay": {
     "input": "stationPosition",
     "actor": "B2",

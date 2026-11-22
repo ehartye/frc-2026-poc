@@ -5,7 +5,7 @@
  "runningAdditions": {
   "source": {
    "file": "cad/preliminary-design/releases/layout-002/budgets.json",
-   "sha256": "3f9cb117d4c0f781e7c29e096262eefb5f900826b9c30d2c62be54f1ac2dc453"
+   "sha256": "225ad02f74dec6f07c1820c787aa006b4070a79ba5987b23497b6d1e4e9c001f"
   },
   "basis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
   "items": [

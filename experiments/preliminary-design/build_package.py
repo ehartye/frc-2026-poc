@@ -689,7 +689,7 @@ def main():
         M("hopper", "hopper wall left", (D.REAR_WALL_X[1] - 1.5, 334.0, 500.0), "Rear wall flange on the left side wall; its right edge is carried by the right liner's pocket wall", "hopper rear wall"),
         M("climber tubes", "climber tube mount left", (300, yc, 222), "Outer tube socket in the tube mount", "climber tube left"),
         M("climber tubes", "climber tube mount right", (300, -yc, 222), "Outer tube socket in the tube mount", "climber tube right"),
-        M("climber tubes", "hopper liner left", (190, 284.0, 280.0), "Winch plate on the outboard face of the left cheek, in the bay beside the stowed carriage; the right cable crosses inside the front rail", "climber winch"),
+        M("climber tubes", "intake slide rail left", (200, 266.0, 345.0), "Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail", "climber winch"),
     ]
 
     # ---------------------------------------------------------- budgets
@@ -1140,7 +1140,7 @@ def component_explanations(shapes, groups_of, roles, k, trials, quals, fb):
         f"Flat belts in the channel at {D.FLOOR_BELT_MPS} m/s, running to the front rail so a FUEL at the front of the floor stands on a driven surface. They stop while both lanes are staged and held, and reverse for 0.3 s in an unjam cycle. At 0.6 and 0.3 m/s the hopper cycle trial feeds all 24 in {trials['hopper-cycle-belt-0.6mps']['feed']['lastFedS']:.1f} and {trials['hopper-cycle-belt-0.3mps']['feed']['lastFedS']:.1f} s, against {trials['hopper-cycle-nominal']['feed']['lastFedS']:.1f} s at this speed.", "mechanism", "Belt envelope; flat belt and rollers")
     put(["feeder roller left", "feeder roller right"], "Hold a staged FUEL clear of the spinning flywheel, and feed it on command.",
         f"One compliant 2 in roller per lane, {F_['squeeze']:g} mm into the FUEL over the fixed lane deck. Braked, it is the hold-back: the hold trial keeps the FUEL {trials['hold-nominal']['metric']['value']:.1f} mm clear of the wheel at 1.5 g with a {B_(quals['hold'], 'push from queued FUEL')['passing']:g} N push and fails at {B_(quals['hold'], 'push from queued FUEL')['failing']:g} N. Turning, it meters: the lanes feed the one flywheel in turn, each feed given only with the wheel in its ready band. The two rollers meet at the centre line so a FUEL between the lanes is still under a roller.", "mechanism", "2 in compliant roller on a 12 mm shaft")
-    put(["feeder motor left", "feeder motor right"], "Turn and brake one feeder roller.", "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Its shaft through the channel wall is not drawn.", "mechanism", "Planetary gearmotor with brake; envelope")
+    put(["feeder motor left", "feeder motor right"], "Turn and brake one feeder roller.", "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Unmounted allowance: the 12 mm shaft through the channel wall and the bearing block that carries it are not drawn, so the motor appears to float.", "mechanism", "Planetary gearmotor with brake; envelope", name=None)
     put(["flywheel"], "Accelerate each FUEL against the hood.",
         f"A 4 in floor-fed flywheel at a {lch['params']['wheelMps']} m/s setpoint, held at speed whenever FUEL is aboard. The wheel-to-hood gap is the FUEL diameter less {k['squeeze']:.0f} mm: the launch trial releases at {lch['release']['speedMps']:.2f} m/s. It is a free body in the trial: one shot takes {lch['wheelDemand']['energyJ']:.0f} J and drops it {lch['wheelDemand']['speedDropPercent']:.1f}%.", "mechanism", "Aluminum tube roller, compliant tread")
     put(["flywheel inertia ring"], "Store the energy of a shot so the wheel speed falls little.",
@@ -1155,11 +1155,11 @@ def component_explanations(shapes, groups_of, roles, k, trials, quals, fb):
     put(["battery retention cleat fore"], "Stop the battery sliding forward.",
         "Paired with the aft cleat so the battery is captured in X while it still lifts straight out for service.", "structure", "6061 aluminium formed cleat", volumeType="envelope")
     put(["battery strap"], "Hold the battery down on the floor pan.", "The earlier issue had no hold-down. The strap runs over the battery top between the cleats, under the shelf panel.", "structure", "25 mm webbing and buckle")
-    put(["electronics panel", "electronics panel left", "electronics bay right"], "Hold power distribution, controller, radio, breaker and 17 motor controllers.", "Under the right shelf, beside the battery and in the right bay outboard of the cheek: outside the FUEL space and reachable from above or from the side.", "electrical", "Polycarbonate panel")
+    put(["electronics panel", "electronics panel left", "electronics bay right"], "Hold power distribution, controller, radio, breaker and 17 motor controllers.", "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.", "electrical", "Polycarbonate panel")
     put(["entry sensor"], "Observe each FUEL passing the top of the chute, and that the chute is clear before the intake stows.", "The strategy requires per-piece intake crossings on the match timebase.", "electrical", "Beam-break sensor")
     put(["stage sensor left", "stage sensor right"], "Observe the FUEL staged under each feeder roller.", "One beam per lane: a FUEL on the centre line breaks both, and both rollers then hold or feed it together. Separates retained identity from release for the counting requirement.", "electrical", "Beam-break sensor")
     put([n for n in S if n.startswith("climber tube ") and "mount" not in n], "Guide the telescoping hooks.", "Front corners above the modules give a straight load path into the frame for the hang.", "structure", "30 mm round aluminum tube")
-    put(["climber winch"], "Retract both inner tubes by cable to lift the robot.", f"In the left bay beside the stowed carriage. In the hang trial at {D.HANG_MASS_KG} kg its cable load peaks at {hang['liftPeakN']:.0f} N during the lift, and the brake must hold {hang['holdN'][1]:.0f} N with power removed.", "mechanism", "Gearmotor and spool envelope")
+    put(["climber winch"], "Retract both inner tubes by cable to lift the robot.", f"Under the left slide rail, outboard of the carriage plate. In the hang trial at {D.HANG_MASS_KG} kg its cable load peaks at {hang['liftPeakN']:.0f} N during the lift, and the brake must hold {hang['holdN'][1]:.0f} N with power removed.", "mechanism", "Gearmotor and spool envelope")
     put([n for n in S if n.startswith("climber inner tube")], "Telescope inside the outer tube to seat the hook and lift the robot 70 mm.",
         "A round tube lets the hook swing on top without the tube rotating in its guide; the swing actuator sits inside it.", "mechanism", "22 mm round aluminum tube")
     put([n for n in S if n.startswith("climber hook")], "Swing forward, pass over the low rung, seat and lift the robot 70 mm.", "Stowed inside the perimeter for R106. They swing while the intake is still deployed below them; the intake then stows between them.", "mechanism", "Aluminum tube and hook plate")
@@ -1173,15 +1173,16 @@ def component_explanations(shapes, groups_of, roles, k, trials, quals, fb):
     put([BALL], "Follow one identifiable FUEL from the carpet into the HUB.",
         f"Its cases are strokes fitted within {TOL_MM} mm to the solved acquisition, entry, launch and delivery traces; it is drawn where the mission finds it, on the carpet ahead of the intake.", "game-piece", "Foam FUEL 150.114 mm, 0.203-0.227 kg")
     put([n for n in S if n.startswith("FUEL stored")], "Represent stored stock in the starting fold.", "Supported places from the deposition screen, behind the stowed carriage and clear of every traced position of the tracked FUEL; capacity itself is the collect trial and the start-capacity premise.", "game-piece", "Foam FUEL")
-    put(["hub body", "hub top"], "Locate the HUB and its hexagonal opening.", "The flight cases follow the delivery trial over the near flat at 1828.8 mm, into the conservative inscribed opening and against the cavity wall.", "field", "Field fixture (V0 dimensions)")
-    put([n for n in S if n.startswith("tower upright")], "Locate the TOWER uprights.", "Their 819 mm gap bounds the bumper approach and the forward hooks.", "field", "Field fixture (V0 dimensions)")
-    put(["tower low rung"], "Locate the low rung at 685.8 mm.", "The hooks must seat on it; the V0 text centres it in the upright depth.", "field", "Field fixture (V0 dimensions)")
-    put(["tower base"], "Locate the TOWER BASE plate.", "Level 1 requires clearing it; its 8 mm edge stands under the front bumper at the berth.", "field", "Field fixture (V0 dimensions)")
+    put(["hub body", "hub top"], "Locate the HUB and its hexagonal opening.", "The flight cases follow the delivery trial over the near flat at 1828.8 mm, into the conservative inscribed opening and against the cavity wall.", "reserved-space", "Field fixture (V0 dimensions)")
+    put([n for n in S if n.startswith("tower upright")], "Locate the TOWER uprights.", "Their 819 mm gap bounds the bumper approach and the forward hooks.", "reserved-space", "Field fixture (V0 dimensions)")
+    put(["tower low rung"], "Locate the low rung at 685.8 mm.", "The hooks must seat on it; the V0 text centres it in the upright depth.", "reserved-space", "Field fixture (V0 dimensions)")
+    put(["tower base"], "Locate the TOWER BASE plate.", "Level 1 requires clearing it; its 8 mm edge stands under the front bumper at the berth.", "reserved-space", "Field fixture (V0 dimensions)")
     missing = [n for n in shapes if n not in E]
     assert not missing, missing
     for n, c in E.items():   # inspector fields: display name, owning group and what the drawn volume stands for
         g = groups_of[n]
-        c.setdefault("name", n[0].upper() + n[1:])
+        if c.get("name") is None:
+            c["name"] = n[0].upper() + n[1:] + (" (unmounted allowance)" if "name" in c else "")
         c.setdefault("subsystem", g)
         c.setdefault("volumeType", "envelope" if ENVELOPE.search(n) or roles[g] == "drive" else "material")
     return E
