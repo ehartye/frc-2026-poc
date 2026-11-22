@@ -1,5 +1,13 @@
 # R3-PD2 LAN review bundle
 
+<!-- cad-still -->
+[![Robot 1780 with red alliance bumpers](../../../cad/showcase-red/assembly.png)](https://ehartye.github.io/frc-2026-poc/#model)
+
+**Project CAD · Robot 1780 with red alliance bumpers.** Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations. [Editable Fusion assembly](../../../cad/showcase-red/display.f3d) · [STEP](../../../cad/showcase-red/display.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/#model)
+<!-- /cad-still -->
+
+The still above is the current published robot. This bundle reviews the preliminary R3 design, which is layout-checked but not yet detailed in Fusion.
+
 This folder holds only the review pages for issue R3-PD2: `package-motion.html`, the geometric clearance player (about 31 MB, not committed), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B design/preliminary/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
 
 ## Build the page
