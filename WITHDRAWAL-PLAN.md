@@ -65,3 +65,30 @@ Copy the fixed catalog template (item 1), fix the review findings, add the archi
 
 - The plugin's stable preliminary viewer says "The current detailed design is on the main robot page", which is no longer true. Report to `plugin-backlog`.
 - The date "22 November 2026" is static text in `docs/showcase/front-page.html` (not pinned). The README carries no date.
+
+## Superseded: the withdrawal will be redone under the simplified gate
+
+The coordinator has stopped the three-PR plan above. The gate is being simplified: no approval baseline, no whole-site freeze, no page, README or catalog pins and no signature. A withdrawal becomes a status change in the design index plus removing the files, in one ordinary PR. Git history is the archive. Wait for the plugin's migration guide before redoing this. The two branches stay as reference only.
+
+### What carries over from `withdraw-legacy/content`
+
+- **Still renderer.** `scripts/preliminary-still.py` with its record `docs/robot/preliminary-layout-001.json` and image `docs/robot/preliminary-layout-001.png`. It renders from `docs/preliminary-design/releases/ID/review-scene.json.gz` at case `park-lower`, with the field fixtures and the three FUEL hidden. `--update` needs OCP and VTK; verify mode needs only the standard library. Keep the `.gitattributes` line that marks the PNG binary, the `tests/ci.json` check and the allowlist entry in `scripts/check_public_content.py`.
+- **README content.** The new `README.md` body and the preliminary mode in `scripts/cad-readmes.py` (`preliminary_feature`, `siteUrl` in `cad-showcase.json`), with `tests/test_cad_readme_modes.py`. The mode switch currently reads the policy pins and `docs/detailed-design/designs.json`; rewrite that part for the new index. `README.draft-001.md` and the `project-layout.json` exception are only needed if a copy of the old README is still wanted.
+- **Front page.** `docs/showcase/front-page.html` is self-contained (inline CSS, no script) and is filled by the tail of `scripts/build-showcase.mjs`. Drop the archive table, the "links inside archived pages" notice and the archive links if no on-site archive is kept. Keep the status line, the still and caption, the "No detailed design is current" section and the field-page cards.
+- **The 44 legacy files.** The list is `detailedDesigns.withdrawn[0].files` in `.github/staged-model-policy.json` on `withdraw-legacy/policy`. It equals the staged `modelFiles` list on main. The built site at `9ce4168` is exactly those 44 plus `alliance-roles.html`, `depot-lanes/index.html`, `field-lab.html`, `match-profile.json`, `match-series.json`, `match-summary.json` and `depot-lanes/results.json`. The field pages are self-contained and need none of the 44. The last commit where the files are built is main `81dafcf`.
+- **Document links.** Seven documents had links to withdrawn pages retargeted to archive addresses (`cad/assembly-release/engineering.md`, `cad/own-zone-upper/design.md`, `docs/workflow.md`, four `experiments/*/study.md` files). Without an on-site archive these need a different target or wording.
+- **Workflow.** The build job's Python step that injects the "Preliminary design (work in progress)" link must go once the front page links the review itself. `scripts/check-tower-playback.mjs` opens `#model` and `robot/tower.html`; those pages will not exist, so cut those parts and keep the field-lab part.
+
+### Review findings worth keeping
+
+- `experiments/preliminary-design/review/README.md` line 9 says the still above is the published robot. False once the still is the preliminary design.
+- Use `{{status}}` in the front page's "The preliminary design above is in progress" sentence.
+- Throw in the build script when a template marker is missing, when a field file is missing, and when the current release is not in progress or effective.
+- `scripts/preliminary-still.py` verify mode does not notice a renderer or backdrop change. Caption counts are hand-written and not compared with `shownBodies` and `hiddenBodies`.
+- Add a front-page load and link check to CI.
+- `docs/workflow.md` line 3 calls the site root the "live field study".
+- "Work in progress" wording survives in issued files outside this change: `docs/preliminary-design/releases/layout-001/field/r3-field-trials.html`, `cad/preliminary-design/stage.py`, `experiments/preliminary-design/review/package-motion.html`. The plugin's stable preliminary viewer also says "The current detailed design is on the main robot page".
+
+### No longer needed
+
+Both policy edits, the approval advance, the `detailedDesigns` twin, `scripts/withdrawn/draft-001/`, the committed catalog page, the archive equality check and the `AGENT_FRC_PLUGIN_SHA` move to `4ab39ad` for the catalog.
