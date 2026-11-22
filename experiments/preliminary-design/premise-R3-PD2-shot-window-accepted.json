@@ -14,7 +14,7 @@
   ],
   "source": {
     "file": "experiments/preliminary-design/ballistics.json",
-    "sha256": "682cfa7e6cd9643e0518661e9cbe89eb9a0759a0d987a4ed5bf27af04c14aed6"
+    "sha256": "1020902abcf2706b0498c8704ac66f729b3db17a4cf71cdc99e4d13910032ce4"
   },
-  "basis": "ballistics.json robust bands at 62 degrees start at 2.4 m"
+  "basis": "ballistics.json at the launch trial's 0.267 m release: every drag and spin corner enters from 2.4 m with a 0.15 m/s band (0.03 m/s at 2.2 m)"
 }

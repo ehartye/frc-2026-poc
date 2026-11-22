@@ -1,0 +1,51 @@
+{
+  "schema": "agent-frc/preliminary-release@1",
+  "release": "layout-001",
+  "issue": "R3-PD2",
+  "phase": "preliminary-design",
+  "status": "layout-checked",
+  "receipt": {
+    "file": "receipt.json",
+    "sha256": "3cfbe1ca753876305a6128e9b1f1eda5d6dedf0cc109679fc34e510a895655be"
+  },
+  "view": {
+    "file": "index.html",
+    "sha256": "1b1c4bd34c9934ab2cdcb477782fc3074a8b5a2da5e067c1103abb63e206d7b1"
+  },
+  "scene": {
+    "file": "motion.json",
+    "sha256": "9c5d3d3b47b7b976f01437877863b1459027a4abdc7824740a59e4b5adefec91",
+    "stepSha256": "c0f9831d1e10458f2c2aad7dc8d867d0757f974e00c1f14741e89df7e41182f3"
+  },
+  "missionCases": [
+    {
+      "case": "flight-4",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "hopper-roll-5",
+      "kind": "operating-case",
+      "accomplishes": "acquired",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    },
+    {
+      "case": "climb-lift",
+      "kind": "operating-case",
+      "accomplishes": "climb-held",
+      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
+    }
+  ],
+  "fieldPlayers": [
+    {
+      "file": "field/r3-field-trials.html",
+      "sha256": "386000780b53a987c83663e1f6488adbd09746c7624d040b7c7bb8eeccfd57c4",
+      "trial": {
+        "file": "field-trials.json",
+        "sha256": "e126dbf498d91b0caf122291b9b385c12f57f0f6f765353c7d3cca8c671d11cf"
+      },
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
+    }
+  ]
+}

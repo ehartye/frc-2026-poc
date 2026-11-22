@@ -1,6 +1,6 @@
 {
  "schema": "frc-2026-poc/hang-overlap@1",
- "basis": "Plan view at the berth. Both uprights must bear on the front bumper so the hang moment (about 610 N horizontal at 67.6 kg) is shared; a yawed robot closes its trailing gap only by bumper compliance or a further yaw correction.",
+ "basis": "Plan view at the berth. Both uprights must bear on the front bumper so the hang moment (about 634 N horizontal at 70.3 kg) is shared; a yawed robot closes its trailing gap only by bumper compliance or a further yaw correction.",
  "r3pd1_680mm": {
   "bumperHalfWidthMm": 416.5,
   "lateralToleranceMm": 6.93,

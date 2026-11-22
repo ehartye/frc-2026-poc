@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preliminary design releases</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="./fonts/fonts.css">
+<style>
+*{box-sizing:border-box}body{margin:0;color:#182e49;background:#f7faf8;font:1rem "Source Sans 3","Segoe UI",sans-serif}header{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;padding:.75rem clamp(1rem,4vw,4rem);background:#142f63;color:white;border-bottom:3px solid #ffd078}h1{margin:0 auto 0 0;font:700 1.6rem "Barlow Condensed","Arial Narrow",sans-serif}select{font:inherit}a{color:#ffd078}#phase{margin:0;padding:.45rem clamp(1rem,4vw,4rem);background:#ffd078;color:#142f63;font-weight:600}iframe{display:block;width:100%;height:calc(100dvh - 6.5rem);min-height:25rem;border:0}#message{margin:1rem}
+</style>
+<header><h1>Preliminary design</h1><label>Release <select id="release" disabled></select></label>
+<a id="standalone" hidden>Open full view</a><a id="evidence" hidden>Review receipt</a></header>
+<p id="phase" role="note">Preliminary design release<span id="designStatus"></span>. Not the released detailed model. <span id="status">Status loading.</span> <span id="season" hidden>The current detailed design is on the <a href="../" style="color:inherit">main robot page</a>.</span></p>
+<p id="message" role="status">Loading releases…</p><iframe hidden title="Selected preliminary design"></iframe>
+<script type="module">
+// The season link resolves only when the review is published under a season site; a local serve.py run has no parent.
+const parent=new URL('../',location.href);
+const season=document.querySelector('#season');
+(parent.href===new URL('./',location.href).href?Promise.resolve(null):fetch(parent,{cache:'no-store'}).then(async r=>r.ok&&(r.headers.get('content-type')||'').startsWith('text/html')?r.text():null))
+ .then(page=>{if(page&&!/<title>Directory listing/i.test(page))season.hidden=false}).catch(()=>{}).finally(()=>{season.dataset.probed='true'});
+const select=document.querySelector('select'),frame=document.querySelector('iframe'),message=document.querySelector('#message');
+function show(id){
+ const url=new URL(location.href);url.searchParams.set('release',id);location.assign(url);
+}
+try{
+ const response=await fetch('./releases.json');if(!response.ok)throw Error('Release index unavailable.');
+ const record=await response.json(),params=new URLSearchParams(location.search);
+ // Design status lives in the index: in-progress, effective, superseded or withdrawn. A listed release without one is in progress.
+ const statusOf=id=>record.designStatus?.[id]??'in-progress',label=s=>s.replace('-',' ');
+ for(const id of record.releases)select.add(new Option(id+' · '+label(statusOf(id))+(id===record.current?' · current':''),id));
+ select.disabled=false;select.onchange=()=>show(select.value);
+ const requested=params.has('release')?params.get('release'):record.current;
+ if(!record.releases.includes(requested)){select.selectedIndex=-1;throw Error('Unknown release “'+requested+'”. Choose a release above.')}
+ select.value=requested;params.delete('release');
+ const base='./releases/'+encodeURIComponent(requested)+'/';
+ const page=new URL(base+'index.html',location.href);page.search=params.toString();page.hash=location.hash;
+ const link=document.querySelector('#standalone'),evidence=document.querySelector('#evidence');
+ link.href=page;link.hidden=false;evidence.href=base+'receipt.json';evidence.hidden=false;
+ frame.src=page;frame.hidden=false;message.hidden=true;
+ document.querySelector('#designStatus').textContent=' · '+label(statusOf(requested))+(statusOf(requested)==='withdrawn'?' (withdrawn: not a current design)':'');
+ const status=document.querySelector('#status');
+ try{const r=await fetch(base+'release.json');const rec=r.ok?await r.json():null;
+  status.textContent=rec?'Checked result: '+rec.status+' · mission: '+rec.missionCases.map(m=>m.case+' ('+m.accomplishes+')').join(', ')+'.':'No release record; checked result unavailable.';
+ }catch{status.textContent='No release record; checked result unavailable.'}
+}catch(e){message.textContent=e.message}
+</script></html>

@@ -45,10 +45,11 @@ code{font-size:.85em;word-break:break-all}
 const D=JSON.parse(document.getElementById('data').textContent);
 const sel=document.getElementById('trial'),range=document.getElementById('time'),clock=document.getElementById('clock');
 const cv=document.getElementById('view'),g=cv.getContext('2d');
-document.getElementById("head").textContent=`Issue ${D.issue} · layout ${D.layout.sha256.slice(0,12)} · trace ${D.trace.sha256.slice(0,12)} · ${D.solver}`;
+document.getElementById("head").textContent=`Issue ${D.issue} · dimensions ${D.dimensions.sha256.slice(0,12)} · trace ${D.trace.sha256.slice(0,12)} · ${D.solver}`;
 D.trials.forEach((t,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${t.passed?'PASS':'FAIL'} · ${t.name}`;sel.appendChild(o)});
 let T=D.trials[0],playing=false,last=0;
-const views={acquisition:[0.25,-0.03,0.85,0.48],delivery:[-3.5,-0.05,0.3,2.25],elevation:[-0.55,-0.08,0.75,0.88]};
+const views={acquisition:[0.25,-0.03,0.85,0.48],entry:[-0.45,-0.03,0.5,0.5],launch:[-0.45,-0.03,0.5,0.5],delivery:[-3.5,-0.05,0.3,2.25],elevation:[-0.55,-0.08,0.75,0.88]};
+const tint=l=>l.startsWith('bumper')?'#2358A2':l.startsWith('floor belt')||l==='flywheel'||l==='hood'||l==='indexer cleat'?'#007F78':'#8A9199';
 function frame(){return T.frames[+range.value]||T.frames[0]}
 function W(x,z){const v=views[T.kind],s=Math.min(cv.width/(v[2]-v[0]),cv.height/(v[3]-v[1]));return[(x-v[0])*s,cv.height-(z-v[1])*s,s]}
 function line(a,b,c,w){g.strokeStyle=c;g.lineWidth=w||2;g.beginPath();g.moveTo(...W(...a).slice(0,2));g.lineTo(...W(...b).slice(0,2));g.stroke()}
@@ -65,7 +66,13 @@ function draw(){
   circ(G.pulley[0],G.pulley[1],G.pulley[2],'#007F78');circ(G.topPulley[0],G.topPulley[1],G.topPulley[2],'#007F78');circ(G.roller[0],G.roller[1],G.roller[2],'#007F78');
   line([0.314,0.0699],[0.34,0.0699],'#496A81',6);
   trace(1,2,'#e6b450');circ(f[1],f[2],R,'#e6b450',true);
-  const a=f[3]*f[0];line([f[1],f[2]],[f[1]+R*Math.cos(a),f[2]+R*Math.sin(a)],'#14212b',2);
+  const a=T.turn[+range.value]||0;line([f[1],f[2]],[f[1]+R*Math.cos(a),f[2]+R*Math.sin(a)],'#14212b',2);
+ }else if(T.scene){
+  T.scene.segs.forEach(q=>line([q[0],q[1]],[q[2],q[3]],tint(q[4]),3));
+  T.scene.circles.forEach(q=>circ(q[0],q[1],q[2],tint(q[3])));
+  T.scene.arcs.forEach(q=>{const[p,r,sc]=W(q[0],q[1]);g.strokeStyle=tint(q[5]);g.lineWidth=3;g.beginPath();g.arc(p,r,q[2]*sc,-q[4],-q[3]);g.stroke()});
+  trace(1,2,'#e6b450');circ(f[1],f[2],R,'#e6b450',true);
+  const a=T.turn[+range.value]||0;line([f[1],f[2]],[f[1]+R*Math.cos(a),f[2]+R*Math.sin(a)],'#14212b',2);
  }else if(T.kind==='delivery'){
   const h=T.hub,ins=Math.cos(Math.PI/6)*Math.hypot(h.hex[0][0]-h.center[0],h.hex[0][1]-h.center[1]);
   rect(h.center[0]-h.half,0,h.center[0]-ins,1.777,'#8A9199',true);rect(h.center[0]+ins,0,h.center[0]+h.half,1.777,'#8A9199',true);
@@ -96,18 +103,24 @@ function info(){
  ${T.firstUnmet?`<p><b>First unmet condition:</b> ${T.firstUnmet}</p>`:''}
  <p><b>Imposed:</b> ${T.imposed}<br><b>Solved:</b> ${T.solved}</p>
  ${T.beltDemand?`<p><b>Belt demand:</b> ${T.beltDemand.maxNormalN} N peak normal, ${T.beltDemand.maxFrictionPowerW} W peak friction power. <small>${T.beltDemand.note}</small></p>`:''}
+ ${T.seat?`<p><b>Rest:</b> x ${(T.seat.xM*1000).toFixed(1)} mm, z ${(T.seat.zM*1000).toFixed(1)} mm, ${T.seat.flywheelIndentationMm} mm into the stopped flywheel</p>`:''}
+ ${T.release?`<p><b>Release:</b> ${T.release.speedMps.toFixed(2)} m/s at ${T.release.elevationDeg.toFixed(1)} deg, spin ratio ${T.release.spinRatio.toFixed(2)}, at ${T.release.t.toFixed(3)} s</p>`:''}
+ ${T.wheelDemand?`<p><b>Wheel demand:</b> ${T.wheelDemand.peakFrictionPowerW} W peak friction power, ${T.wheelDemand.energyJ} J, ${T.wheelDemand.speedDropPercent}% speed drop for a free wheel. <small>${T.wheelDemand.note}</small></p>`:''}
+ ${T.contacts?`<p><b>Deepest indentation (mm):</b> ${Object.entries(T.contacts).map(([k,v])=>`${k} ${Math.max(...v.map(r=>r[2])).toFixed(1)}`).join(' · ')||'none'}</p>`:''}
  ${T.limits?`<p><b>Limits:</b> ${T.limits}</p>`:''}
  <p><b>Events</b></p><ul>${ev}</ul><p><small>${p}</small></p>`;
- document.getElementById('legend').textContent={acquisition:'Side view at the front bumper (robot frame, metres). Blue: bumper. Teal: belt module, pulleys and top roller. Gold: the free FUEL and its trace; the black tick shows its spin.',
+ document.getElementById('legend').textContent={acquisition:'Side view at the front bumper (robot frame, metres). Blue: bumper. Teal: belt module, pulleys and top roller. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
+ entry:'Side view of the floor lane (robot frame, metres). Blue: front bumper. Teal: floor belts, flywheel and hood. Grey: front rail, lip and floor pan. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
+ launch:'Side view of the floor lane (robot frame, metres). Blue: front bumper. Teal: floor belts, flywheel and hood. Grey: front rail, lip and floor pan. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
  delivery:'Side view through the HUB (shot-pose frame, metres). Grey: HUB body and cavity floor. Blue: top plate and opening edges. Orange: assumed sensor plane. Gold: the free FUEL and its trace.',
  elevation:'Side view at the berth (metres). Grey: upright face, TOWER BASE. Light circle: low rung. Blue: bumper. Teal: hook and inner tube. Gold dot: centre of mass.'}[T.kind];
 }
-function load(){T=D.trials[+sel.value];range.max=T.frames.length-1;range.value=0;info();draw()}
+function load(){T=D.trials[+sel.value];let a=0;T.turn=T.frames.map((f,i)=>i?(a+=(f[3]+T.frames[i-1][3])/2*(f[0]-T.frames[i-1][0])):0);range.max=T.frames.length-1;range.value=0;info();draw()}
 sel.onchange=load;range.oninput=draw;
 document.getElementById('play').onclick=()=>{playing=!playing;document.getElementById('play').textContent=playing?'Pause':'Play';last=performance.now();if(playing)requestAnimationFrame(tick)};
 function tick(now){if(!playing)return;const f=T.frames,dt=(now-last)/1000;last=now;let i=+range.value;const target=f[i][0]+dt*(T.kind==='delivery'?0.5:0.5);while(i<f.length-1&&f[i][0]<target)i++;range.value=i;draw();if(i>=f.length-1){playing=false;document.getElementById('play').textContent='Play';return}requestAnimationFrame(tick)}
 document.getElementById('notes').innerHTML=`<b>Scenario and evidence</b><ul>${D.scenarioNotes.map(n=>`<li>${n}</li>`).join('')}</ul>
-<p><small>Layout <code>${D.layout.file}</code> ${D.layout.sha256} · rules <code>${D.rules.file}</code> ${D.rules.sha256} · trace <code>${D.trace.file}</code> ${D.trace.sha256}. Playback runs at half speed. No frame here is a commanded illustration: every position comes from the integrated trial.</small></p>`;
+<p><small>Dimensions <code>${D.dimensions.file}</code> ${D.dimensions.sha256} · rules <code>${D.rules.file}</code> ${D.rules.sha256} · trace <code>${D.trace.file}</code> ${D.trace.sha256}. The tracked FUEL is one chain: capture, seat and release states pass from each nominal trial to the next. Playback runs at half speed. Every position comes from the integrated trial; the spin tick's angle is integrated from the sampled spin rate for display.</small></p>`;
 load();
 </script>
 </body>

@@ -8,7 +8,7 @@
 
 The still above is the current published robot. This bundle reviews the preliminary R3 design, which is layout-checked but not yet detailed in Fusion.
 
-This folder holds only the review pages for issue R3-PD2: `package-motion.html`, the geometric clearance player (about 31 MB, committed; its SHA-256 is pinned in `receipt.json`), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B experiments/preliminary-design/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
+This folder holds only the review pages for issue R3-PD2: `package-motion.html` with its compressed geometry `package-motion.geometry.json.gz`, the geometric clearance player (committed; both SHA-256 values are pinned in `receipt.json`), and `field-interaction.html`, the physics trial player (committed; rebuild it with `python -I -B experiments/preliminary-design/field_trials.py`). Both pages are self-contained: they load no external scripts. Private CAD and supplier models are not in it.
 
 ## Build the page
 
@@ -32,10 +32,10 @@ Open `http://<host LAN address>:8765/index.html` on the host and then on a secon
 ## What to check
 
 1. Reset the view, orbit a full revolution and underneath, pan, zoom, and toggle the labels.
-2. Play `intake-deploy` through `park-lower` in order. Then scrub `launch-wrap` and the four flight arcs into the HUB cavity.
+2. Play `intake-deploy` through `park-lower` in order. The tracked FUEL follows the trial traces: `acquire-*`, `hopper-*` to its seat against the stopped flywheel, `launch-*` (back-off, coast, feed, wrap) and the four `flight-*` strokes into the HUB cavity.
 3. Select a component and read its purpose and rationale.
 4. Open the mass and power ledgers.
-5. In `field-interaction.html`, play `hang-nominal` and the failing `hang-no-brake` control, then `deliver-6.55` (a rim miss) and `acquire-belt-locked`.
+5. In `field-interaction.html`, play the chain `acquire-nominal`, `entry-nominal`, `launch-nominal`, `deliver-nominal`. Then play the failing controls: `acquire-belt-locked`, `entry-floor-belt-running-0.6`, `launch-from-pressed-seat-no-back-off`, `deliver-6.40` and `hang-no-brake`.
 6. Open the displaced-hood control (`package-displacement-control`). It shows a known failing case.
 
-Expected scope: the represented package, cases and reserves. The issue's status is `reopen`; read why in [the study](../study.md).
+Expected scope: the represented package, cases and reserves. The issue's status is `layout-checked`; read what stays open in [the study](../study.md).

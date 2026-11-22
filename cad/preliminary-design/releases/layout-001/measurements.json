@@ -1,0 +1,44 @@
+{
+  "issue": "R3-PD2",
+  "designSha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a",
+  "stepSha256": "c0f9831d1e10458f2c2aad7dc8d867d0757f974e00c1f14741e89df7e41182f3",
+  "startOverhangMm": 0.0,
+  "sweptTopMm": 750.0,
+  "sweptFrontExtensionMm": 244.614,
+  "sweptOtherExtensionMm": 0.0,
+  "sidesExtendedMax": 1.0,
+  "sweptWorst": {
+    "front": {
+      "case": "intake-deploy",
+      "t": 1.0
+    },
+    "rear": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "side": {
+      "case": "intake-deploy",
+      "t": 0.0
+    },
+    "top": {
+      "case": "intake-deploy",
+      "t": 0.0
+    }
+  },
+  "deployedReachMm": 244.614,
+  "capacityDeployed": 8.0,
+  "capacityStowed": 8.0,
+  "volumeEstimateDeployedLow": 37.7,
+  "volumeEstimateStowedLow": 37.1,
+  "lowCapacityDeployed": 7.0,
+  "lowCapacityStowed": 7.0,
+  "releaseDistanceM": 2.4279,
+  "deliveryPoseM": 2.7,
+  "withBumpersUpperKg": 57.901,
+  "bellyClearanceMm": 94.0,
+  "bumpCrossingClearanceMm": 8.68,
+  "bumpCrossingLimit": "bumper front",
+  "bumperUprightOverlapMm": 23.93,
+  "basis": "Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. Capacity premises use free_volume() at a 0.45 packing fraction; capacity() is a rigid stacked-lattice lower bound. The release distance is the launch trial's release point to the HUB centre.",
+  "deliveryStandoffIn": 48.64905857259726
+}

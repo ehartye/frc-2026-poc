@@ -1,0 +1,153 @@
+{
+  "schema": "frc-2026-poc/contact-transport-trial@1",
+  "issue": "R3-PD2",
+  "transport": {
+    "case": "acquire-climb-7",
+    "payload": "tracked FUEL",
+    "mechanisms": [
+      "intake"
+    ],
+    "moves": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            163.54261546811955,
+            82.5,
+            69.89400692119494
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -12.634811324237722
+        }
+      ]
+    },
+    "initialPose": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            643.7467754611109,
+            82.5,
+            18090.392786686672
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 0.30690559816486523
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            563.6496361324383,
+            82.5,
+            248.8076441184988
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 41.921121753388746
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            491.1328734976087,
+            82.5,
+            82.29240884979725
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 179.68453353607745
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            490.46002825770097,
+            82.5,
+            89.72328193121636
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -118.76614519308815
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            497.59996458528184,
+            82.5,
+            99.5838409127419
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 80.37728602223655
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            -7.680000000000007,
+            0.0,
+            27.58999999999999
+          ]
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            -39.310324074659775,
+            82.5,
+            162.7261985781667
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -7.638291946185216
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "field-trials.json",
+    "sha256": "e126dbf498d91b0caf122291b9b385c12f57f0f6f765353c7d3cca8c671d11cf"
+  },
+  "trial": {
+    "name": "acquire-nominal",
+    "fromS": 0.383,
+    "toS": 0.434,
+    "fromPoseMm": [
+      481.56,
+      82.5,
+      198.4
+    ],
+    "toPoseMm": [
+      445.75,
+      82.5,
+      264.84999999999997
+    ],
+    "stroke": "arc",
+    "maxDeviationMm": 0.4419,
+    "toleranceMm": 1.5,
+    "peakIndentationMm": {
+      "bumper front": 4.278,
+      "intake belt module": 9.333,
+      "intake top roller": 0.59
+    }
+  },
+  "basis": "The bottom pulley draws the FUEL under the belt and the back run lifts it up the bumper face. A circular arc fitted to the solved trace acquire-nominal 0.3830-0.4340 s of field-trials.json, within 0.44 mm of every traced sample (limit 1.5 mm); moved by contact with intake"
+}
