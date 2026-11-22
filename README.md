@@ -77,4 +77,4 @@ Run `python -m unittest discover -s tests` and `python scripts/check_public_cont
 
 ## Preliminary design R3 (layout-checked, not yet detailed)
 
-R3 is the forward design for detailing: a floor-fed hooded flywheel on a 680 × 714 mm swerve base, layout-checked as issue R3-PD2. It is not the current robot. The still, showcase model and downloads above remain the published robot. [Decision, comparison and checks](design/preliminary/study.md) · [Review bundle](design/preliminary/review/index.html)
+R3 is the forward design for detailing: a floor-fed hooded flywheel on a 680 × 714 mm swerve base, layout-checked as issue R3-PD2. It is not the current robot. The still, showcase model and downloads above remain the published robot. [Decision, comparison and checks](experiments/preliminary-design/study.md) · [Review bundle](experiments/preliminary-design/review/index.html)

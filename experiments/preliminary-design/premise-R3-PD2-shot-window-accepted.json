@@ -1,0 +1,20 @@
+{
+  "id": "shot-window",
+  "unit": "m",
+  "scenario": "Release-to-HUB distance with an entry band under all drag and spin corners",
+  "criterion": {
+    "range": [
+      2.4,
+      3.6
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "shooter"
+  ],
+  "source": {
+    "file": "experiments/preliminary-design/ballistics.json",
+    "sha256": "682cfa7e6cd9643e0518661e9cbe89eb9a0759a0d987a4ed5bf27af04c14aed6"
+  },
+  "basis": "ballistics.json robust bands at 62 degrees start at 2.4 m"
+}
