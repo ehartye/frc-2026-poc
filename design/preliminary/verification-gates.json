@@ -27,7 +27,7 @@
       "objective": "Level 1 hang",
       "test": "Robot at 70 kg seated at 0, +25 and -25 mm lateral offset; lift 70 mm; remove power for 3 s",
       "pass": "Hook slip under 5 mm, at least 5 mm clearance to carpet and TOWER BASE throughout, brake holds 1.5 x 663 N",
-      "byCalculation": "714 mm frame gives 23.9 mm bumper-to-upright overlap per side; the side-view hang trial holds 37.8 mm with the brake and fails without it",
+      "byCalculation": "hang_overlap.py (plan view): both uprights bear for lateral offsets up to +/-23.9 mm with the 714 mm frame (+/-6.9 mm at 680 mm); 0.5 deg yaw leaves a 7.5 mm trailing gap, so the robot squares against both uprights before lifting. The side-view hang trial holds 37.8 mm with the brake and fails without it.",
       "onFail": "Spring latch under the rung or wider frame within the 2794 mm perimeter",
       "phase": "detailed-design"
     },
