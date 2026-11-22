@@ -1,6 +1,6 @@
 # Park, capture and hang from the low TOWER rung
 
-[Play the student climb](https://ehartye.github.io/frc-2026-poc/robot/tower.html) · [Download the whole editable R2C-T1 robot](../../cad/tower-lift/tower-l1.f3d) · [Choose B2 or R2 in the field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal)
+[Play the student climb](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/tower.html) · [Download the whole editable R2C-T1 robot](../../cad/tower-lift/tower-l1.f3d) · [Choose B2 or R2 in the field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal)
 
 ## What earns points?
 
@@ -12,7 +12,7 @@ Both HUBs stay active during end game. B2/R2 can use the selected lift if their 
 
 The blue dock uses a parked chassis center at (−6.748038, +0.142875) m in the official field frame, yaw zero with the rear bumper toward the alliance wall. The red dock rotates about midfield; both field assemblies were measured independently. The low rung has 42.164 mm diameter and a 685.8 mm center height. Two hook plates at local Y ±88 mm capture it on opposite sides of one upright. The existing rear bumper compresses against that upright. An 832 mm bumper span exceeds the nominal 819.15 mm clear between uprights. With adjacent robots straddling separate uprights 857.25 mm apart, the nominal clearance is only 25.25 mm. Two degrees of yaw grows the projected width to 860.5 mm. The rehearsal reserves one berth per alliance pending an actual partner footprint and tolerance study. [Official field STEP](https://firstfrc.blob.core.windows.net/frc2026/FieldAssets/FE-2026-rev-rebuilt-playing-field.step) · [Two-alliance station measurements](field.json)
 
-The final R2C-T1 keeps its 680 mm frame. R2C's working height budget was 740 mm. The stowed revision reaches 754 mm, 8 mm below R107's 762 mm limit. Its bare carriage sleeves stop at ±338.5 mm. Both bumpers and trial cargo remain separate from the bare perimeter. The 215 mm rear slide puts the rearmost hook at local X −498 mm, 158 mm beyond the frame at that side. No trench clearance is assumed. The 159-component public Fusion archive includes two independently drivable sliders, blue bumpers, project-made parts and project-drawn purchased-part envelopes. The earlier [117-component scoring robot](../../cad/own-zone-upper/design.md) retains its own [pickup and scored FUEL replay](https://ehartye.github.io/frc-2026-poc/robot/).
+The final R2C-T1 keeps its 680 mm frame. R2C's working height budget was 740 mm. The stowed revision reaches 754 mm, 8 mm below R107's 762 mm limit. Its bare carriage sleeves stop at ±338.5 mm. Both bumpers and trial cargo remain separate from the bare perimeter. The 215 mm rear slide puts the rearmost hook at local X −498 mm, 158 mm beyond the frame at that side. No trench clearance is assumed. The 159-component public Fusion archive includes two independently drivable sliders, blue bumpers, project-made parts and project-drawn purchased-part envelopes. The earlier [117-component scoring robot](../../cad/own-zone-upper/design.md) retains its own [pickup and scored FUEL replay](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/).
 
 ## How it supports the load
 

@@ -1,9 +1,9 @@
 # R3-PD2 LAN review bundle
 
 <!-- cad-still -->
-[![Robot 1780 with red alliance bumpers](../../../cad/showcase-red/assembly.png)](https://ehartye.github.io/frc-2026-poc/#model)
+[![Preliminary design · in progress · layout-001](../../../docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
 
-**Project CAD · Robot 1780 with red alliance bumpers.** Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations. [Editable Fusion assembly](../../../cad/showcase-red/display.f3d) · [STEP](../../../cad/showcase-red/display.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/#model)
+**Preliminary design · in progress · layout-001.** R3 floor-fed hooded flywheel shooter on four-module swerve. Parked pose of the park-lower case: the robot back on the carpet after the low-rung hang. Whole-robot block-level layout from the layout-checked review scene: 57 representative solids, with the HUB and TOWER field fixtures and the three FUEL hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) · [Layout-checked receipt · 3cfbe1ca75](../../../docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
 The still above is the current published robot. This bundle reviews the preliminary R3 design, which is layout-checked but not yet detailed in Fusion.

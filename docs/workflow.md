@@ -20,7 +20,7 @@ The [whole-robot assembly engineering record](../cad/assembly-release/engineerin
 
 ## Chassis fabrication revision
 
-The **frc-swerve** and **frc-mechanism-cad** foundation work produced the [corrected student Fusion archive](../cad/assembly-release/foundation-student.f3d), [drawing and assembly record](../cad/assembly-release/engineering.md), [235-product inspection](../cad/assembly-release/reopened-products.json), and [CAD orbit](https://ehartye.github.io/frc-2026-poc/foundation/). The archive includes 126 inherited upper, bumper and electrical articles with their earlier material and verification limits.
+The **frc-swerve** and **frc-mechanism-cad** foundation work produced the [corrected student Fusion archive](../cad/assembly-release/foundation-student.f3d), [drawing and assembly record](../cad/assembly-release/engineering.md), [235-product inspection](../cad/assembly-release/reopened-products.json), and [CAD orbit](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/foundation/). The archive includes 126 inherited upper, bumper and electrical articles with their earlier material and verification limits.
 
 ## Alliance role, collection and whole-robot support
 

@@ -12,6 +12,11 @@
       "inputs": []
     },
     {
+      "name": "Preliminary design still and its published review scene",
+      "argv": ["python", "scripts/preliminary-still.py", "."],
+      "inputs": []
+    },
+    {
       "name": "Named robot motion and model identities",
       "argv": ["node", "scripts/check-robot-motion.mjs"],
       "inputs": ["cad/", "docs/", "experiments/", "highlights.json", "cad-showcase.json", "scripts/check-robot-motion.mjs"]

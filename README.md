@@ -1,24 +1,33 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![Robot 1780 with red alliance bumpers](cad/showcase-red/assembly.png)](https://ehartye.github.io/frc-2026-poc/#model)
+[![Preliminary design · in progress · layout-001](docs/robot/preliminary-layout-001.png)](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
 
-**Project CAD · Robot 1780 with red alliance bumpers.** Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations. [Editable Fusion assembly](cad/showcase-red/display.f3d) · [STEP](cad/showcase-red/display.step) · [Rotate the model](https://ehartye.github.io/frc-2026-poc/#model)
+**Preliminary design · in progress · layout-001.** R3 floor-fed hooded flywheel shooter on four-module swerve. Parked pose of the park-lower case: the robot back on the carpet after the low-rung hang. Whole-robot block-level layout from the layout-checked review scene: 57 representative solids, with the HUB and TOWER field fixtures and the three FUEL hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) · [Layout-checked receipt · 3cfbe1ca75](docs/preliminary-design/releases/layout-001/receipt.json)
 <!-- /cad-still -->
 
-[Project workflow and student-owned outputs](docs/workflow.md) · [Earlier R2C-T1 Fusion handoff and climb](experiments/tower-climb/study.md) · [Play both mechanism animations](https://ehartye.github.io/frc-2026-poc/robot/)
+The current design is the preliminary whole-robot layout shown above: R3, a floor-fed hooded flywheel shooter on four-module swerve. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) to spin the layout, play the mission cases and trace the budgets. The [review inputs](cad/preliminary-design/README.md) hold the layout, motion cases and budgets behind the picture.
 
-[Rotate the revised chassis foundation](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download its editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Chassis shop drawings, fasteners and mass check](cad/assembly-release/engineering.md). The foundation added 109 new or revised articles. The scoring and climbing runs above used R2C-T1.
+No detailed design is current. The earlier rough-draft showcase model is withdrawn, and its pages stay in the [detailed design archive](https://ehartye.github.io/frc-2026-poc/detailed-design/). The [previous README](README.draft-001.md) describes that draft; its links to the withdrawn pages no longer resolve.
+
+[Project workflow and student-owned outputs](docs/workflow.md) · [Project site](https://ehartye.github.io/frc-2026-poc/)
 
 ## Kickoff field lab
 
-See the [intake attachment comparison and motion clearances](cad/showcase-red/handoff.md#intake-attachment).
+[Launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
 
-[Open the live 2026 showcase](https://ehartye.github.io/frc-2026-poc/) or [launch the student field lab](https://ehartye.github.io/frc-2026-poc/field-lab.html) to compare starting volume, trench access and scoring windows. [Read the kickoff study and student decision record](kickoff/study.md) or inspect the [reviewed rules model](kickoff/rules-model.json). The lab uses the January 10 release and same-day Team Update 00. The [selected own-zone strategy](kickoff/selected-strategy.md) records the coordinator decision, serial service clock and first capacity screen.
+[Play three matches at 10×](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) or inspect the [student match-series results](kickoff/match-series.md). Choose B2 or R2 in the student rehearsal to operate the Level 1 low-rung robot. B1/R1 can compare hypothetical higher-level hardware.
 
-Choose B2 or R2 in the student rehearsal to operate the Level 1 low-rung robot. B1/R1 can compare hypothetical higher-level hardware. [Play the physical climb](https://ehartye.github.io/frc-2026-poc/robot/tower.html).
+## Withdrawn rough-draft showcase
 
-[Play three matches at 10×](https://ehartye.github.io/frc-2026-poc/field-lab.html#rehearsal) or inspect the [student match-series results](kickoff/match-series.md).
+These pages and files describe the withdrawn draft, Robot 1780 with red alliance bumpers and the earlier R2C-T1 studies. The site keeps every published file unchanged in its archive.
+
+| To explore | Open |
+| --- | --- |
+| Archived showcase | [Front page and model](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/index.html) · [FUEL replay](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/) · [Climb](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/tower.html) · [24-piece batch results](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/batch.html) |
+| Draft Fusion assembly | [Editable Fusion assembly](cad/showcase-red/display.f3d) · [STEP](cad/showcase-red/display.step) · [Intake attachment comparison and motion clearances](cad/showcase-red/handoff.md#intake-attachment) |
+| Chassis foundation | [Archived orbit](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/foundation/) · [Editable Fusion assembly](cad/assembly-release/foundation-student.f3d) · [Shop drawings, fasteners and mass check](cad/assembly-release/engineering.md) |
+| R2C-T1 handoff and climb | [Lift handoff and contact study](experiments/tower-climb/study.md) |
 
 ## Archived subsystem experiment
 
@@ -48,7 +57,7 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
-- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. R2C adds the intake, lift, hopper and scoring upper. The exact supplier archive stays project-local.
+- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. R2C adds the intake, lift, hopper and scoring upper. `cad/preliminary-design/` holds the R3 preliminary design releases. The exact supplier archive stays project-local.
 - `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.
@@ -72,5 +81,3 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 ## Public contribution checks
 
 Run `python -m unittest discover -s tests` and `python scripts/check_public_content.py` after committing changes. The guard checks committed bytes, private paths/network addresses, unexplained machine aliases and binary additions. Reports identify file/category only. Manually review images/CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
-
-[Follow the 24-piece packed service comparison in the student showcase](https://ehartye.github.io/frc-2026-poc/robot/batch.html).

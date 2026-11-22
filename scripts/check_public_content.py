@@ -43,6 +43,8 @@ SHOWCASE_ASSETS['docs/preliminary-design/releases/layout-001/review-scene.json.g
 # R3 experiment review bundle: the checked package player's compressed display geometry (pinned by experiments/preliminary-design/receipt.json).
 SHOWCASE_ASSETS['experiments/preliminary-design/review/package-motion.geometry.json.gz'] = '25c36c57ca997c22b4fc5c6dfb5514ee2e0eafc28299626df3779ac6de606450'
 
+# README and entry-page still of the current preliminary design release, rendered from its public review scene (pinned by docs/robot/preliminary-layout-001.json).
+SHOWCASE_ASSETS['docs/robot/preliminary-layout-001.png'] = '477fe170af838e728a9f120f382a303c95feba1c659f5e77ac4e5e4a973a1d0a'
 
 def findings(data):
  text=data.decode('utf-8',errors='replace')

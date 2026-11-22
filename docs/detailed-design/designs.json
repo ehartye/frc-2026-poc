@@ -1,0 +1,15 @@
+{
+  "schema": "agent-frc/detailed-design-index@1",
+  "preliminaryIndex": "../preliminary-design/releases.json",
+  "current": null,
+  "beside": null,
+  "designs": [
+    "draft-001"
+  ],
+  "designStatus": {
+    "draft-001": "withdrawn"
+  },
+  "reason": {
+    "draft-001": "Rough-draft showcase published before the design-status process."
+  }
+}

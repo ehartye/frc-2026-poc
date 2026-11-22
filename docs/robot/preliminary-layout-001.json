@@ -1,0 +1,33 @@
+{
+  "schema": "frc-2026-poc/preliminary-still@1",
+  "release": "layout-001",
+  "issue": "R3-PD2",
+  "phase": "preliminary-design",
+  "releaseRecordSha256": "739c5d7a21a91d33849aecdb88d05a3d71dbb0c365e153bc3b3edc0c5a454c4b",
+  "receiptSha256": "3cfbe1ca753876305a6128e9b1f1eda5d6dedf0cc109679fc34e510a895655be",
+  "sceneSha256": "ff2533fd462ea183e6b3691c0fd9c8fc1860fd25baddb9b29ca294f4ae2e45eb",
+  "scene": "docs/preliminary-design/releases/layout-001/review-scene.json.gz",
+  "case": "park-lower",
+  "pose": -1,
+  "shownBodies": 57,
+  "hiddenBodies": [
+    "FUEL stored 1",
+    "FUEL stored 2",
+    "FUEL tracked",
+    "hub body",
+    "hub top",
+    "tower base",
+    "tower low rung",
+    "tower upright left",
+    "tower upright right"
+  ],
+  "triangles": 7380,
+  "renderer": "scripts/export-showcase-cad.py render, offscreen VTK, parallel projection",
+  "caption": {
+    "title": "R3 floor-fed hooded flywheel shooter on four-module swerve",
+    "alt": "Rendered three-quarter still of the layout-001 preliminary layout: a block-level swerve chassis with grey bumpers carrying the tall hopper walls, the floor intake roller and two climber tubes.",
+    "pose": "Parked pose of the park-lower case: the robot back on the carpet after the low-rung hang.",
+    "scope": "Whole-robot block-level layout from the layout-checked review scene: 57 representative solids, with the HUB and TOWER field fixtures and the three FUEL hidden. It is not detailed CAD."
+  },
+  "imageSha256": "477fe170af838e728a9f120f382a303c95feba1c659f5e77ac4e5e4a973a1d0a"
+}

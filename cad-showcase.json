@@ -3,7 +3,8 @@
   "appearances": "cad/tower-lift/appearances.json",
   "title": "R2C-T1 own-zone scorer and TOWER lift",
   "scope": "Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations.",
-  "viewerUrl": "https://ehartye.github.io/frc-2026-poc/robot/tower.html",
+  "viewerUrl": "https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/tower.html",
+  "siteUrl": "https://ehartye.github.io/frc-2026-poc/",
   "backdrop": {
     "center": "#405F86",
     "edge": "#142F63"
@@ -16,6 +17,6 @@
     "still": "cad/showcase-red/assembly.png",
     "mesh": "cad/showcase-red/display.glb",
     "receipt": "cad/showcase-red/provenance.json",
-    "viewerUrl": "https://ehartye.github.io/frc-2026-poc/#model"
+    "viewerUrl": "https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/index.html#model"
   }
 }

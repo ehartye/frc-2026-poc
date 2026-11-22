@@ -8,6 +8,8 @@ import {setTimeout as wait} from 'node:timers/promises';
 
 const [site, chromium] = process.argv.slice(2);
 if (!site || !chromium) throw Error('Usage: node scripts/check-tower-playback.mjs SITE_URL CHROMIUM');
+// The withdrawn showcase still has to work from its archive; the field lab stays at the site root.
+const archive = new URL('detailed-design/archive/draft-001/', site);
 const profile = await mkdtemp(path.join(tmpdir(), 'tower-playback-'));
 const chrome = spawn(chromium, ['--headless=new', '--disable-dev-shm-usage', '--remote-debugging-port=0', '--use-angle=swiftshader',
   '--enable-unsafe-swiftshader', '--no-first-run', '--no-default-browser-check', '--user-data-dir='+profile,
@@ -60,7 +62,7 @@ try {
   await send('Runtime.enable');
   for(const width of [390,1280]){
     await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
-    const home = new URL('#model', site).href;
+    const home = new URL('#model', archive).href;
     await send('Page.navigate', {url: home});
     await until("location.href===" + JSON.stringify(home) + " && document.querySelector('#featured-robot')?.loaded && !document.querySelector('.assembly-stage .controls').hidden");
     const model = "document.querySelector('#featured-robot')";
@@ -81,7 +83,7 @@ try {
     assert.ok(await evaluate("document.querySelector('#model a[download]').href.endsWith('/assembly/display.f3d')"));
     assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"));
     console.log(width + 'px: featured Fusion model loaded, rotated and reset');
-    const url=new URL('robot/tower.html',site).href+'?test='+width+'-'+Date.now();
+    const url=new URL('robot/tower.html',archive).href+'?test='+width+'-'+Date.now();
     await send('Page.navigate',{url});
     await until('location.href==='+JSON.stringify(url)+" && document.querySelector('#play')?.disabled===false && document.querySelector('#tower')?.loaded");
     const stage="document.querySelector('#tower')", button="document.querySelector('#play')";

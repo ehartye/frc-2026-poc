@@ -13,6 +13,7 @@ docs/robot/r1-chassis/*.png binary
 docs/robot/r1-chassis/*.gz binary
 *.glb binary
 docs/vendor/* -text
+docs/robot/preliminary-layout-*.png binary
 cad/tower-lift/tower-l1.step -whitespace
 
 cad/assembly-release/foundation-student.step -whitespace

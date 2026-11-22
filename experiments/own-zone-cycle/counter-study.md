@@ -1,6 +1,6 @@
 # One counter passage in an active HUB
 
-[Play the two clips and jump to the scoring event](https://ehartye.github.io/frc-2026-poc/robot/) · [Inspect the source-bound receipt](counter-result.json) · [Compare all nine robot contact cases](single-piece.json)
+[Play the two clips and jump to the scoring event](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/robot/) · [Inspect the source-bound receipt](counter-result.json) · [Compare all nine robot contact cases](single-piece.json)
 
 One modeled FUEL earned **one point 16.987 seconds into Shift 1**. The same physical passage earns zero with the other AUTO leader and an inactive blue HUB. The source is the kickoff V0 rule that requires passage through the opening and the sensor array. The Neutral return scenario gave red the AUTO lead, activating blue's first shift. The complete local event fits inside the active window, without using a processing allowance. [Project rule register](../../kickoff/rule-register.json)
 

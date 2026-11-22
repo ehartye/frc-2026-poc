@@ -4,7 +4,7 @@ The student archive for R2C-T1 contains 159 editably extruded bodies and two tow
 
 ## Issued student chassis
 
-[Open the foundation orbit](https://ehartye.github.io/frc-2026-poc/foundation/) · [Download the editable Fusion robot](foundation-student.f3d) · [Inspect the complete first-party STEP](foundation-student.step)
+[Open the foundation orbit](https://ehartye.github.io/frc-2026-poc/detailed-design/archive/draft-001/foundation/) · [Download the editable Fusion robot](foundation-student.f3d) · [Inspect the complete first-party STEP](foundation-student.step)
 
 ![Revised aluminum frame, eight machined module saddles and four student swerve representations](foundation-still.png)
 
