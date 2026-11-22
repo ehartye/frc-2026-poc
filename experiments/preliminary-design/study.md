@@ -29,6 +29,12 @@ Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It repl
     | R3L trench, shared or solo | 16 | 8 | 16 | 40 |
 
   - The earlier "96 against 104" result is withdrawn. It came from deadlocked rehearsals in which slot 2 sat frozen against slot 3.
+  - **Why the alliance totals differ (366 for the baseline against 382 for R3).** The difference is a gain, not a loss, and it comes from the 2.7 m pose. Both series use the same partner deconfliction. Slot 2's credits trade ±4 between the alliances (timing against the active windows) and net to zero. The +16 comes entirely from the slot-3 neutral runners, which each credit one more 4-piece delivery in Neutral return and in Missed preload. Moving slot 2's delivery out to 2.7 m clears it from the runner's delivery corridor. Nothing here is a cost to accept.
+  - **Why R3 beats R3L when both score 124.** The rehearsal models only footprint, height and route, so R3 and R3L on the depot route tie at 124, match for match. Three things decide it:
+    - **Capacity:** by free volume at 0.45–0.55 packing, R3 holds 37.7–46.1 FUEL and R3L 29.5–36.0.
+    - **BUMP:** R3 clears it by 8.7 mm at the bumper corner and 24.3 mm at the belly. R3L's 26 mm belly gives −43.7 mm and would high-centre, which leaves it the TRENCH route, worth 40.
+    - **Climber:** R3L needs an extra telescoping raise before its hooks swing.
+
   - R3L on the depot route matches R3. On the TRENCH route it credits 40 shared and 40 solo, with alliance totals of 242 and 234. **R3 stays selected**, and the 2.7 m pose conclusion holds.
 - **Frame widened to 714 mm.** The perimeter becomes 2788 mm of the 2794 mm allowed. The bumper overlaps each TOWER upright by 23.9 mm instead of 6.4 mm. [hang_overlap.py](hang_overlap.py) checks this in plan view: both uprights bear for lateral offsets up to ±23.9 mm (±6.9 mm at 680 mm), and a 0.5° yaw opens a 7.5 mm trailing gap, so the robot squares against both uprights before it lifts. Module centres move to ±282 mm across; the foundation's side-rail saddles must be redrawn.
 - **Floor raised to 100 mm.** [bump_crossing.py](bump_crossing.py) rests both wheels on the BUMP profile across a sharp 15° crest. The least clearance is 8.7 mm, at the front bumper corner, which the bumper zone fixes; the belly keeps 24.3 mm.

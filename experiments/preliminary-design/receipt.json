@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD2",
-  "planSha256": "0bd54f13ce9068eedb8b78c5e214b86419653f1b4d68b65e5be1bd76b049e3cb",
+  "planSha256": "a9123ee5dca3ea1260b35d126faa86a2ca0421244cdf191914bd50e8308031c0",
   "design": {
     "file": "experiments/preliminary-design/design.json",
     "sha256": "0cdf9c170465c91fc2e748d10d4e81bda3fba9ce12cff8fbc3228cfaad326d3a"
@@ -4103,7 +4103,21 @@
         "drivetrain",
         "shooter"
       ],
-      "repeatVerified": true
+      "repeatVerified": true,
+      "relocated": [
+        {
+          "fromFile": "design/preliminary/premise-delivery-pose-accepted.json",
+          "toFile": "experiments/preliminary-design/premise-R3-PD1-delivery-pose-accepted.json",
+          "sha256": "507a9a6eff70b9a6f160c3a183672928d4d755a3208910199f8f047ac232276d"
+        }
+      ]
+    }
+  ],
+  "heldRelocations": [
+    {
+      "fromFile": "design/preliminary/premise-delivery-pose-accepted.json",
+      "toFile": "experiments/preliminary-design/premise-R3-PD1-delivery-pose-accepted.json",
+      "sha256": "507a9a6eff70b9a6f160c3a183672928d4d755a3208910199f8f047ac232276d"
     }
   ]
 }

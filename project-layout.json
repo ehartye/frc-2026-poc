@@ -2,7 +2,6 @@
   "publicFusionHandoff": "cad/tower-lift/public-handoff.json",
   "toolchainFiles": [
     "config.json",
-    "PROVENANCE.json",
-    "design/preliminary/premise-delivery-pose-accepted.json"
+    "PROVENANCE.json"
   ]
 }

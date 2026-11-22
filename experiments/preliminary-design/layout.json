@@ -587,6 +587,9 @@
       }
     }
   ],
+  "relocations": {
+    "design/preliminary/premise-delivery-pose-accepted.json": "experiments/preliminary-design/premise-R3-PD1-delivery-pose-accepted.json"
+  },
   "narrativeReview": {
     "source": {
       "file": "kickoff/selected-strategy.md",

@@ -665,6 +665,8 @@ def main():
                 control=dict(case="launch-wrap", displaced="hood", moving=ball, offsetMm=[0, 0, 8],
                              basis="Raise the hood 8 mm, inside a plausible fabrication error, so its lip enters the undeformed FUEL path at the pinch"),
                 cycle=cycle, view=view, budgets=budgets, premises=premises,
+                # Agent FRC 0.85.0: the held R3-PD1 premise moved, byte-identical, out of the disallowed design/ root.
+                relocations={"design/preliminary/premise-delivery-pose-accepted.json": f"{REL}/premise-R3-PD1-delivery-pose-accepted.json"},
                 narrativeReview=dict(source=narrative, objectives=[dict(objective=o, disposition=s, basis=b) for o, s, b in objectives]),
                 presentation=dict(components=explain,
                                   required={"wheels": [n for n in shapes if "wheel azimuth" in n], "drive and steering actuators": [n for n in shapes if "module motors" in n],
