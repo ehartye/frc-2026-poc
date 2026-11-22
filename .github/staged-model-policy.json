@@ -105,5 +105,14 @@
     "style.css",
     "vendor/model-viewer-4.1.0.min.js",
     "vendor/model-viewer-LICENSE.txt"
-  ]
+  ],
+  "preliminaryReleases": {
+    "root": "preliminary-design",
+    "primaryEntryPoints": [
+      "index.html",
+      "assembly/assembly.png",
+      "assembly-view.js"
+    ],
+    "secondaryLink": "index.html"
+  }
 }
