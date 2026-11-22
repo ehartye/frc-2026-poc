@@ -1,4 +1,4 @@
-"""Append a checked work-in-progress release, or audit the index before deploying the season site."""
+"""Append a checked preliminary design release, set its design status, or audit the index before deploying."""
 import argparse
 from contextlib import contextmanager
 import hashlib
@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import tempfile
 import zlib
 
@@ -38,7 +39,7 @@ def update_index(site):
         yield
 
 
-def index(site, recovering=None):
+def index(site, recovering=None, verifier=None, policy=None):
     listing = site / "releases.json"
     record = read(listing) if listing.exists() else {"releases": []}
     names = record["releases"]
@@ -50,23 +51,123 @@ def index(site, recovering=None):
     dirs = {p.name for p in (site / "releases").iterdir() if p.is_dir() and not p.name.startswith(".")}
     if set(names) - dirs or dirs - set(names) - {recovering}:
         raise ValueError("Release index and immutable directories disagree. Reconcile every release before publishing.")
+    if set(record) - {"current", "releases", "legacy", "designStatus", "effectiveHistory"}:
+        raise ValueError("Unknown release index field")
+    check_statuses(record, site)
     for name in names:
         release = site / "releases" / name
+        if policy and name in read(policy).get("preliminaryReleases", {}).get("presentations", {}):
+            result = subprocess.run(["node", str(verifier), "verify", str(release), "--policy", str(policy)],
+                                    check=True, capture_output=True, text=True)
+            checked = json.loads(result.stdout)
+            if checked["status"] == "historical-review" and (
+                    record["current"] == name or checked["supersededBy"] not in names[names.index(name)+1:]):
+                raise ValueError("Historical review needs a later successor and cannot be current: " + name)
+            continue
         view = read(release / "receipt.json")["view"]
         if hashlib.sha256((release / "index.html").read_bytes()).hexdigest() != view["sha256"]:
             raise ValueError("Indexed view differs from receipt: " + name)
         if view.get("geometry") and not geometry_matches(release, view):
             raise ValueError("Indexed geometry differs from receipt: " + name)
+        if view.get("scene") and scene_content(release, view) is None:
+            raise ValueError("Indexed review scene differs from receipt: " + name)
         # A release deployed before release records existed stays as published; list it once under "legacy".
         if name not in record.get("legacy", []) or (release / "release.json").exists():
             check_release(release)
     return record
 
 
-LABEL = "Work-in-progress preliminary design"
+PHASE = "preliminary-design"
+# A record issued before releases named their phase carried this label instead; it still identifies the phase.
+ISSUED_LABEL = "Work-in-progress preliminary design"
+STATUSES = ("in-progress", "effective", "superseded", "withdrawn")
+
+
+def historical_ids(site, record):
+    """Historical reviews are superseded by definition and never open as current."""
+    out = set()
+    for name in record["releases"]:
+        path = site / "releases" / name / "release.json"
+        if path.is_file() and read(path).get("status") == "historical-review":
+            out.add(name)
+    return out
+
+
+def status_of(record, release, historical=frozenset()):
+    """A listed release without a designStatus entry is in progress, or superseded when it is a historical review."""
+    return (record.get("designStatus") or {}).get(release, "superseded" if release in historical else "in-progress")
+
+
+def current_for(record, historical=frozenset()):
+    """The release the stable URL opens: the effective one, else the newest in-progress one, else the newest not withdrawn."""
+    names = record["releases"]
+    st = lambda n: status_of(record, n, historical)
+    return (next((n for n in names if st(n) == "effective"), None)
+            or next((n for n in reversed(names) if st(n) == "in-progress"), None)
+            or next((n for n in reversed(names) if st(n) != "withdrawn" and n not in historical), None)
+            or (names[-1] if names else None))
+
+
+def checked_against(site, release, predecessor):
+    """The release's receipt was checked with --previous the predecessor's published receipt, every hold repeat-verified."""
+    receipt = read(site / "releases" / release / "receipt.json")
+    prior = hashlib.sha256((site / "releases" / predecessor / "receipt.json").read_bytes()).hexdigest()
+    decisions = receipt.get("priorDecisions")
+    return (receipt.get("previousCheckpointSha256") == prior and isinstance(decisions, list)
+            and all(isinstance(d, dict) and d.get("repeatVerified") is True for d in decisions))
+
+
+def check_statuses(record, site=None):
+    """The index's own design-status rules; changes against an approved index are the release gate's to check."""
+    historical = historical_ids(site, record) if site else set()
+    statuses = record.get("designStatus")
+    if statuses is not None and (not isinstance(statuses, dict) or any(
+            k not in record["releases"] or v not in STATUSES for k, v in statuses.items())):
+        raise ValueError("designStatus maps listed release IDs to " + ", ".join(STATUSES))
+    history = record.get("effectiveHistory", [])
+    if (not isinstance(history, list) or len(set(history)) != len(history) or any(n not in record["releases"] for n in history)):
+        raise ValueError("effectiveHistory lists each release made effective once, in order")
+    effective = [n for n in record["releases"] if status_of(record, n, historical) == "effective"]
+    if len(effective) > 1:
+        raise ValueError("At most one preliminary design release is effective")
+    if effective and (history[-1:] != effective or effective[0] in record.get("legacy", []) or effective[0] in historical):
+        raise ValueError("The effective release must be the last in effectiveHistory and not a legacy or historical release")
+    if effective and site and read(site / "releases" / effective[0] / "receipt.json").get("status") != "layout-checked":
+        raise ValueError("An effective preliminary release needs a layout-checked receipt: " + effective[0])
+    if effective and site and len(history) > 1 and not checked_against(site, effective[0], history[-2]):
+        raise ValueError("The effective release " + effective[0] + " was not checked against " + history[-2]
+                         + " (--previous its receipt, every held decision repeat-verified)")
+    if record["releases"] and record.get("current") != current_for(record, historical):
+        raise ValueError("current must open the effective release, else the newest in-progress one: expected "
+                         + str(current_for(record, historical)))
 RESERVED = {"index.html", "receipt.json", "motion.json", "release.json", "budgets.json", "limits.json"}
 TRIAL = re.compile(r"[a-z0-9][a-z0-9._-]{0,127}\.json")
 GEOMETRY = re.compile(r"[a-z0-9][a-z0-9._-]{0,110}\.geometry\.json\.gz")
+SCENE = "review-scene.json.gz"
+SCENE_SCHEMA = "agent-frc/preliminary-review-scene@1"
+MAX_SCENE_BYTES = 128 * 1024 * 1024
+
+
+def scene_content(release, view):
+    """The served review scene when the receipt pins its exact bytes and content, else None."""
+    pin = view.get("scene") or {}
+    path = release / SCENE
+    if (Path(pin.get("file") or "").name != SCENE or not path.is_file() or not isinstance(pin.get("bytes"), int)
+            or not 0 < pin["bytes"] <= MAX_SCENE_BYTES):
+        return None
+    served = path.read_bytes()
+    if hashlib.sha256(served).hexdigest() != pin.get("sha256"):
+        return None
+    try:
+        stream = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        content = stream.decompress(served, pin["bytes"] + 1)
+        scene = json.loads(content)
+    except (zlib.error, ValueError):
+        return None
+    if (len(content) != pin["bytes"] or not stream.eof or hashlib.sha256(content).hexdigest() != pin.get("contentSha256")
+            or not isinstance(scene, dict) or scene.get("schema") != SCENE_SCHEMA):
+        return None
+    return scene
 
 
 def geometry_matches(release, view):
@@ -236,13 +337,24 @@ def self_contained(html):
         return "declare exactly one http-equiv element, the policy"
     if NETWORK.search(html):
         return "a network API"
-    if LABEL not in html:
-        return 'label the page "' + LABEL + '"'
     return None
 
 
-def view_data(page):
-    """The checked player's embedded data; the plugin gate separately proves the page is its own player."""
+def view_data(directory, view=None):
+    """The checked review's data: its pinned scene, or the data a legacy player embedded in the page.
+
+    The plugin gate separately proves the page is its own stock page."""
+    if view and view.get("scene"):
+        scene = scene_content(directory, view)
+        if scene is None:
+            raise ValueError("Review scene differs from its receipt pin")
+        return scene
+    page = (directory / "index.html").read_text(encoding="utf-8") if (directory / "index.html").is_file() else ""
+    return view_data_page(page)
+
+
+def view_data_page(page):
+    """A legacy player's embedded data."""
     if 'id="data">' not in page:
         return {}
     return json.loads(page.split('id="data">', 1)[1].split("</script>", 1)[0])
@@ -273,8 +385,9 @@ def check_release(release):
     record, receipt = read(release / "release.json"), read(release / "receipt.json")
     sha = lambda name: hashlib.sha256((release / name).read_bytes()).hexdigest()
     if (record.get("schema") != "agent-frc/preliminary-release@1" or record.get("release") != release.name
-            or record.get("label") != LABEL or record.get("issue") != receipt.get("issue")):
-        fail("Release record names a different schema, release, label or issue")
+            or not (record.get("phase") == PHASE or record.get("label") == ISSUED_LABEL)
+            or record.get("issue") != receipt.get("issue")):
+        fail("Release record names a different schema, release, phase or issue")
     pins = [(record.get("receipt") or {}, "receipt.json"), (record.get("view") or {}, "index.html"),
             (record.get("scene") or {}, "motion.json")]
     if (any(pin.get("file") != name or pin.get("sha256") != sha(name) for pin, name in pins)
@@ -302,7 +415,7 @@ def check_release(release):
     files = [q.get("file") for q in players if isinstance(q, dict)]
     if len(files) != len(players) or len(set(files)) != len(files) or not all(FIELD.fullmatch(f or "") for f in files):
         fail("Each field player needs a unique field/NAME.html file")
-    rows = view_data((release / "index.html").read_text(encoding="utf-8")).get("fieldInteractions") or []
+    rows = view_data(release, receipt.get("view")).get("fieldInteractions") or []
     linked = {}
     for row in rows:
         name = player_target(row.get("href"))
@@ -358,6 +471,10 @@ def check_release(release):
             fail("Mission case " + str(m.get("case")) + " must be a passing operating case in the checked cycle, "
                  "with a known accomplishment, for a represented narrative objective")
     geometry = set()
+    if (receipt.get("view") or {}).get("scene"):
+        if scene_content(release, receipt["view"]) is None:
+            fail("Published review scene differs from its receipt pin")
+        geometry.add(SCENE)
     if (receipt.get("view") or {}).get("geometry"):
         if not geometry_matches(release, receipt["view"]):
             fail("Published geometry differs from the page and receipt")
@@ -367,7 +484,7 @@ def check_release(release):
         fail("Unrecognized release files " + ", ".join(sorted(extra)))
 
 
-def stage(season, inputs, release):
+def stage(season, inputs, release, verifier=None, policy=None):
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", release):
         raise ValueError("Use a lowercase release ID with letters, digits and hyphens")
     site = season / "docs/preliminary-design"
@@ -393,23 +510,25 @@ def stage(season, inputs, release):
     if not missions:
         raise ValueError("Declare a passing mission-task case for a represented objective in missions.json")
     with update_index(site), tempfile.TemporaryDirectory(dir=site.parent, prefix=".stage-") as tmp:
-        record = index(site, recovering=release)
+        record = index(site, recovering=release, verifier=verifier, policy=policy)
         if release in record["releases"]:
             raise FileExistsError("Release already exists: " + release)
         files = {"index.html": viewer, "receipt.json": receipt_file, "motion.json": pinned(inputs, plan["motion"])}
-        if result["view"].get("geometry"):
+        if result["view"].get("scene"):
             try:
-                geometry = pinned(inputs, result["view"]["geometry"])
+                scene = pinned(inputs, result["view"]["scene"])
             except ValueError as error:
                 # Another zlib can compress the same content differently; the receipt pins the bytes it checked.
                 raise ValueError(str(error) + ". Regenerate it with --write-view and save that run's receipt") from None
-            if geometry.parent != viewer.parent or not GEOMETRY.fullmatch(geometry.name):
-                raise ValueError("Keep the compressed geometry beside its view, named VIEW.geometry.json.gz")
-            files[geometry.name] = geometry
+            if scene.parent != viewer.parent or scene.name != SCENE:
+                raise ValueError("Keep the review scene beside its view, named " + SCENE)
+            files[SCENE] = scene
+        else:
+            raise ValueError("Regenerate the review with --write-view: new releases publish the stock page and its review scene")
         ledger = pinned(inputs, plan["budgets"])
         files.update({"budgets.json": ledger, "limits.json": pinned(inputs, read(ledger)["requirements"])})
         players = []
-        for row in view_data(viewer.read_text(encoding="utf-8")).get("fieldInteractions") or []:
+        for row in view_data(viewer.parent, result["view"]).get("fieldInteractions") or []:
             name = player_target(row.get("href"))
             if not name or not FIELD.fullmatch(name):
                 raise ValueError("Link each field interaction to a season player at field/NAME.html beside the view: "
@@ -442,7 +561,7 @@ def stage(season, inputs, release):
         files["release.json"] = Path(tmp) / "release.json"
         files["release.json"].write_text(json.dumps(dict(
             schema="agent-frc/preliminary-release@1", release=release, issue=result["issue"],
-            label="Work-in-progress preliminary design", status=result["status"],
+            phase=PHASE, status=result["status"],
             receipt=dict(file="receipt.json", sha256=digest("receipt.json")),
             view=dict(file="index.html", sha256=digest("index.html")),
             scene=dict(file="motion.json", sha256=digest("motion.json"), stepSha256=result["step"]["sha256"]),
@@ -460,11 +579,72 @@ def stage(season, inputs, release):
                 raise ValueError("Existing release bytes differ: " + release)
         else:
             staged.rename(destination)
-        record["current"] = release
         record["releases"].append(release)
+        # A new release enters in progress; the stable URL keeps opening the effective release when there is one.
+        record.setdefault("designStatus", {})[release] = "in-progress"
+        record["current"] = current_for(record, historical_ids(site, record))
         new_index = Path(tmp) / "releases.json"
         new_index.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
         new_index.replace(site / "releases.json")
+
+
+def set_status(site, release, status, verifier=None, policy=None):
+    """Mark a release effective or withdrawn in the index; the issued directory never changes.
+
+    Making a release effective supersedes the previous effective release. When one existed, the new release must
+    have been checked against it: its receipt's previousCheckpointSha256 is the previous release's receipt digest."""
+    if status not in ("effective", "withdrawn"):
+        raise ValueError("Set a release effective or withdrawn; superseded follows automatically")
+    with update_index(site):
+        record = index(site, verifier=verifier, policy=policy)
+        if release not in record["releases"]:
+            raise ValueError("Unknown release: " + release)
+        historical = historical_ids(site, record)
+        if release in historical or release in record.get("legacy", []):
+            if status == "effective":
+                raise ValueError("A legacy or historical release cannot become effective: " + release)
+        before = status_of(record, release, historical)
+        if before in ("superseded", "withdrawn") or before == status:
+            raise ValueError("Preliminary release " + release + " cannot move from " + before + " to " + status)
+        statuses = record.setdefault("designStatus", {})
+        if status == "effective":
+            receipt_bytes = (site / "releases" / release / "receipt.json").read_bytes()
+            receipt = json.loads(receipt_bytes)
+            if receipt.get("status") != "layout-checked":
+                raise ValueError("An effective preliminary release needs a layout-checked receipt: " + release)
+            history = record.setdefault("effectiveHistory", [])
+            if release in history:
+                raise ValueError("A release cannot become effective again: " + release)
+            # The predecessor is the last release ever made effective, even if it was withdrawn since.
+            previous = history[-1] if history else None
+            if previous:
+                if not checked_against(site, release, previous):
+                    raise ValueError("Check " + release + " against the effective release " + previous
+                                     + " (--previous its receipt.json, every held decision repeat-verified) before making it effective")
+                if status_of(record, previous, historical) == "effective":
+                    statuses[previous] = "superseded"
+            history.append(release)
+        statuses[release] = status
+        record["current"] = current_for(record, historical)
+        check_statuses(record, site)
+        with tempfile.NamedTemporaryFile("w", dir=site, delete=False, encoding="utf-8", suffix=".json") as out:
+            out.write(json.dumps(record, indent=2) + "\n")
+        Path(out.name).replace(site / "releases.json")
+
+
+def template_report(site, verifier=None):
+    """Information only: how each release page compares with the plugin's stock review page."""
+    for name in read(site / "releases.json")["releases"]:
+        page = site / "releases" / name / "index.html"
+        if verifier:
+            run = subprocess.run(["node", str(verifier), "compare-template", str(page)], capture_output=True, text=True)
+            try:
+                note = json.loads(run.stdout)["note"]
+            except (ValueError, KeyError):
+                note = "template comparison unavailable"
+        else:
+            note = "page sha256 " + hashlib.sha256(page.read_bytes()).hexdigest()[:12] + "; pass --verifier to compare it with the stock page"
+        print(name + ": " + note)
 
 
 if __name__ == "__main__":
@@ -472,9 +652,17 @@ if __name__ == "__main__":
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("release", nargs="?")
     mode.add_argument("--check-index", action="store_true")
+    mode.add_argument("--set-status", nargs=2, metavar=("RELEASE", "STATUS"), help="Mark a release effective or withdrawn")
+    parser.add_argument("--policy", type=Path, help="Approved staged policy for project presentations")
+    parser.add_argument("--verifier", type=Path, help="Pinned plugin scripts/preliminary-release.mjs")
     args = parser.parse_args()
+    if bool(args.policy) != bool(args.verifier):
+        parser.error("Supply --policy and --verifier together for a project presentation")
     base = Path(__file__).resolve().parent
     if args.check_index:
-        index(base.parents[1] / "docs/preliminary-design")
+        index(base.parents[1] / "docs/preliminary-design", verifier=args.verifier, policy=args.policy)
+        template_report(base.parents[1] / "docs/preliminary-design", args.verifier)
+    elif args.set_status:
+        set_status(base.parents[1] / "docs/preliminary-design", *args.set_status, verifier=args.verifier, policy=args.policy)
     else:
-        stage(base.parents[1], base / "releases" / args.release, args.release)
+        stage(base.parents[1], base / "releases" / args.release, args.release, args.verifier, args.policy)

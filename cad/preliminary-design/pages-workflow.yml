@@ -20,7 +20,7 @@ jobs:
       url: ${{ steps.publish.outputs.page_url }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      # Each release is a work-in-progress preliminary design. --check-index refuses any release without a
+      # Each release is a preliminary design release. --check-index refuses any release without a
       # layout-checked receipt, matching digests and a mission-task case for a represented objective.
       # A combined site that also serves a detailed showcase deploys through its mechanical model eligibility gate
       # instead, with this tree registered under preliminaryReleases; the detailed model stays the primary view.
