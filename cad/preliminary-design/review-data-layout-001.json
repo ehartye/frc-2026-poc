@@ -1,0 +1,406 @@
+{
+ "schema": "frc-2026-poc/preliminary-review-data@1",
+ "release": "layout-001",
+ "note": "Project-authored inputs for the standardized preliminary review scene. Values cite their source; anything without a source is recorded as not supplied.",
+ "runningAdditions": {
+  "source": {
+   "file": "budgets.json",
+   "sha256": "76b084cfa5bf37cb30b98de4af7de98c62faaf32ad5ed0014c99edb5bde3f688"
+  },
+  "basis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
+  "items": [
+   {
+    "name": "bumpers",
+    "kg": [
+     6.0,
+     7.5
+    ],
+    "members": [
+     "bumper front",
+     "bumper left",
+     "bumper rear",
+     "bumper right"
+    ],
+    "basis": "R103 excludes bumpers; 6.0-7.5 kg per budgets.json"
+   },
+   {
+    "name": "battery and leads",
+    "kg": [
+     5.0,
+     6.9
+    ],
+    "members": [
+     "battery"
+    ],
+    "basis": "R103 excludes the battery and its connector half; 5.0-6.9 kg per budgets.json"
+   },
+   {
+    "name": "24 FUEL",
+    "kg": [
+     4.872,
+     5.448
+    ],
+    "members": [
+     "FUEL stored 1",
+     "FUEL stored 2",
+     "FUEL tracked"
+    ],
+    "basis": "24 FUEL at 0.203-0.227 kg each (budgets.json); the three placed FUEL represent the carried stock"
+   }
+  ],
+  "totalKg": [
+   15.872,
+   19.848
+  ]
+ },
+ "support": {
+  "source": "layout.json mounts (group-level datums); structure-to-frame joints beyond these datums are not registered",
+  "members": {
+   "FUEL tracked": {
+    "path": [],
+    "supplied": false,
+    "reason": "Carried-piece motion is prescribed; no carriedWith or transportedBy support is registered"
+   },
+   "battery": {
+    "path": [],
+    "supplied": false,
+    "reason": "The layout registers no mount datum for group 'battery'"
+   },
+   "climber hook left": {
+    "path": [
+     "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top",
+     "climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube",
+     "climber tube left is a climber tubes structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber hook right": {
+    "path": [
+     "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top",
+     "climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube",
+     "climber tube left is a climber tubes structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber inner tube left": {
+    "path": [
+     "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube",
+     "climber tube left is a climber tubes structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber inner tube right": {
+    "path": [
+     "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube",
+     "climber tube left is a climber tubes structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "floor belt front": {
+    "path": [
+     "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "floor belt main": {
+    "path": [
+     "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel motor left": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel motor right": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "hood": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "indexer cleat": {
+    "path": [
+     "Group datum: floor indexer mounts on floor belt main at (0, 82.5, 109) mm: Cleat rides the main belt",
+     "floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake belt module": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 278, 400) mm: Carriage plates run on the two-stage slide; the fixed stage is drawn",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake carriage plate left": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 278, 400) mm: Carriage plates run on the two-stage slide; the fixed stage is drawn",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake carriage plate right": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 278, 400) mm: Carriage plates run on the two-stage slide; the fixed stage is drawn",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake top roller": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 278, 400) mm: Carriage plates run on the two-stage slide; the fixed stage is drawn",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "shooter side plate left": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "shooter side plate right": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   }
+  }
+ },
+ "modelNotes": [
+  "What it is: the R3-PD2 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter on a 680 x 714 mm four-module swerve base), layout-checked by Agent FRC. Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
+  "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are two panel blocks; belts and rollers are rigid reserves (3 mm undeformed reserve for guided FUEL paths); the HUB and TOWER are V0-dimension fixtures, not the official field model.",
+  "Prescribed, not simulated, in the package: every case motion, including the carried FUEL path. Free-piece contact physics is in the field-interaction trials (field-trials.json), whose contact stiffness, damping, friction and FUEL release speed and spin are estimates, not measurements.",
+  "Unverified: verification gates G1-G6 (verification-gates.json) carry the physical tests; hopper capacity is a free-volume premise; dynamic BUMP crossing and robot-to-robot contact are not evaluated.",
+  "Sources and cutoff: FRC REBUILT kickoff manual V0 with Team Update 00, cutoff 2026-01-10 23:59:59 America/New_York (construction-rules.json); field dimensions from the V0 description (geometry.py field_bodies)."
+ ],
+ "focus": {
+  "component": "FUEL tracked",
+  "basis": "The mission cases (acquire-drop, flight-4) follow this FUEL from the carpet into the HUB"
+ },
+ "caseTimes": {
+  "source": {
+   "file": "field-trials.json",
+   "sha256": "77ea722c41f0d9bd67400367de8efb3d122f2d7820b6c119c45e07adb63c311c"
+  },
+  "note": "Package cases are prescribed 25-frame geometric paths. Times come from the nominal field trials; a case group shares its trial interval.",
+  "cases": {
+   "acquire-approach": {
+    "seconds": [
+     0.0,
+     0.5254
+    ],
+    "trial": "acquire-nominal",
+    "basis": "first carpet contact to capture"
+   },
+   "acquire-climb": {
+    "seconds": [
+     0.0,
+     0.5254
+    ],
+    "trial": "acquire-nominal",
+    "basis": "first carpet contact to capture"
+   },
+   "acquire-over": {
+    "seconds": [
+     0.0,
+     0.5254
+    ],
+    "trial": "acquire-nominal",
+    "basis": "first carpet contact to capture"
+   },
+   "acquire-drop": {
+    "seconds": [
+     0.0,
+     0.5254
+    ],
+    "trial": "acquire-nominal",
+    "basis": "first carpet contact to capture"
+   },
+   "launch-wrap": {
+    "seconds": [
+     0.0,
+     0.9303
+    ],
+    "trial": "deliver-nominal",
+    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+   },
+   "flight-1": {
+    "seconds": [
+     0.0,
+     0.9303
+    ],
+    "trial": "deliver-nominal",
+    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+   },
+   "flight-2": {
+    "seconds": [
+     0.0,
+     0.9303
+    ],
+    "trial": "deliver-nominal",
+    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+   },
+   "flight-3": {
+    "seconds": [
+     0.0,
+     0.9303
+    ],
+    "trial": "deliver-nominal",
+    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+   },
+   "flight-4": {
+    "seconds": [
+     0.0,
+     0.9303
+    ],
+    "trial": "deliver-nominal",
+    "basis": "release from the hood exit to the HUB sensor-plane crossing"
+   },
+   "climb-lift": {
+    "seconds": [
+     0.0,
+     0.4548
+    ],
+    "trial": "hang-nominal",
+    "basis": "lift stroke complete; then a 3 s brake hold to 3.4548 s"
+   },
+   "intake-deploy": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "loaded-transit": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "index": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "tower-lateral": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "tower-forward": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "climb-reach": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "climb-seat": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "park-lower": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "battery-withdraw": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "shooter-withdraw": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "package-displacement-control": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   }
+  }
+ },
+ "targetAperture": {
+  "name": "HUB opening (top)",
+  "source": {
+   "rule": "construction-rules.json hub: 'Section 5.4; front edge 72 in, 41.7 in hexagonal opening, 47 in footprint'",
+   "geometry": "geometry.py hexagon_prism: corners on +/-Y, flats facing +/-X",
+   "file": {
+    "file": "construction-rules.json",
+    "sha256": "f8910bcbf996861164fa0db9160b197dd38c77c031a31ff02be2df31de12813c"
+   }
+  },
+  "interpretation": "41.7 in (1059.18 mm) treated as across-corners, the smaller conservative inscribed opening (construction-rules.json)",
+  "frame": "HUB-local millimetres: origin at the HUB centre on the carpet, +X/+Y parallel to the robot datum axes",
+  "cornersMm": [
+   [
+    0.0,
+    529.59,
+    1828.8
+   ],
+   [
+    -458.64,
+    264.79,
+    1828.8
+   ],
+   [
+    -458.64,
+    -264.8,
+    1828.8
+   ],
+   [
+    -0.0,
+    -529.59,
+    1828.8
+   ],
+   [
+    458.64,
+    -264.8,
+    1828.8
+   ],
+   [
+    458.64,
+    264.8,
+    1828.8
+   ]
+  ],
+  "placement": {
+   "shotPoseHubCentreMm": [
+    -2700.0,
+    0.0
+   ],
+   "basis": "build_package.py hub_shot: HUB centre 2700 mm aft of the robot centre at the delivery pose"
+  }
+ }
+}
