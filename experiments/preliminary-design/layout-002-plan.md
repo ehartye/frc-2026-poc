@@ -56,3 +56,11 @@ If the hopper cannot be made to pass, compare real alternatives (R3L, a differen
 ## Plugin friction to send (not yet sent)
 
 - None confirmed against the plugin yet; the work so far is project trial code.
+
+## Readiness report (landed after parking)
+
+Agent FRC 0.112.0 (`5bc3f97`, PR 178) adds `node scripts/design.mjs effective-readiness PROJECT`. It is informational (exit 0). Not yet run here. To satisfy it:
+
+- `missions.json` declares a `cycle` map (acquire, retain, transfer, deliver, reset, endgame, park, service → checked cases, or `notApplicable` with a reason) and a `risks` register (`closedBy`, or `benchTest` with measure, pass and fail values).
+- Each pinned trial file carries a `qualification` record: passing result, rejected control, brackets with a passing and a failing value, and a timestep check.
+- Contract: `docs/preliminary-design.md#judge-readiness-to-be-marked-effective` in the plugin. Re-copy the plugin's `stage.py` before staging; it prints the report with `--set-status RELEASE effective --readiness PLUGIN/scripts/effective-readiness.mjs`.
