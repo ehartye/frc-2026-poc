@@ -38,9 +38,9 @@ def surfaces(belt_mps, opt=None):
     hw = D.HALF_W - 24.0                       # hopper side wall inner face: 333 mm
     wx = opt.get("wall_x", D.REAR_WALL_X[1])
     gate_z = K["z0"] + D.R_BALL + 7
-    lane = H["lane_half"]
+    lane = opt.get("lane_half", H["lane_half"])
     floor = opt.get("floor", H["floor"])
-    shelf_z = H["shelf_z"]
+    shelf_z = opt.get("shelf_z", H["shelf_z"])
     rise = (hw - lane) * math.tan(math.radians(opt.get("shelf_deg", H["shelf_deg"])))
     rects = []
 
@@ -61,7 +61,7 @@ def surfaces(belt_mps, opt=None):
             rect((x0, y1, z0), (x1 - x0, 0, 0), (0, 0, z1 - z0), label)
 
     m, f = D.FLOOR_BELT_MAIN, D.FLOOR_BELT_FRONT
-    by = (lane, lane) if floor == "trough" else (279 + D.DY, 231 + D.DY)
+    by = (lane, lane) if floor in ("trough", "bin") else (279 + D.DY, 231 + D.DY)
     rect((m["x0"], -by[0], bt), (m["x1"] - m["x0"], 0, 0), (0, by[0] + by[1], 0), "floor belt main", "belt", (-belt_mps, 0, 0))
     rect((D.LANE_DECK["x0"], -lane, bt), (D.LANE_DECK["x1"] - D.LANE_DECK["x0"], 0, 0), (0, 2 * lane, 0), "lane deck", "deck")
     if opt.get("divider", True):
@@ -80,10 +80,19 @@ def surfaces(belt_mps, opt=None):
         rect((-340, s * hw, pan), (680, 0, 0), (0, 0, wall - pan), "hopper wall " + side)
         rect((337, min(s * 260, s * hw), 125), (0, hw - 260, 0), (0, 0, wall - 125), "hopper front corner wall " + side)
         rect((-143, s * 173, pan), (143 + min(wx, D.FEEDER["x"] + 40), 0, 0), (0, 0, 320), "shooter side plate " + side)
-        if floor == "trough":
-            # a two-lane channel the whole length of the floor; above it a shelf slopes up to the side wall
-            rect((wx, s * lane, pan), (L["x0"] - wx, 0, 0), (0, 0, shelf_z - pan), "hopper channel wall " + side)
-            rect((wx, s * lane, shelf_z), (337 - wx, 0, 0), (0, s * (hw - lane), rise), "hopper shelf " + side)
+        if floor == "bin":
+            # straight walls two lanes apart for the whole height: nothing converges
+            rect((wx, s * lane, pan), (337 - wx, 0, 0), (0, 0, wall - pan), "hopper wall " + side)
+        elif floor == "trough":
+            # a two-lane channel the whole length of the floor. Aft of the stowed intake a shelf slopes up from it to the
+            # side wall; under the stowed intake a low shelf slopes up to a cheek wall
+            fx_, fz_, cheek, fr_ = H["front_x"], H["front_shelf_z"], H["cheek_y"], H["front_rise"]
+            rect((wx, s * lane, pan), (fx_ - wx, 0, 0), (0, 0, shelf_z - pan), "hopper channel wall " + side)
+            rect((wx, s * lane, shelf_z), (fx_ - wx, 0, 0), (0, s * (hw - lane), rise), "hopper shelf " + side)
+            rect((fx_, min(s * lane, s * hw), fz_), (0, hw - lane, 0), (0, 0, shelf_z + rise - fz_), "hopper shelf " + side)
+            rect((fx_, s * lane, pan), (337 - fx_, 0, 0), (0, 0, fz_ - pan), "hopper channel wall " + side)
+            rect((fx_, s * lane, fz_), (337 - fx_, 0, 0), (0, s * (cheek - lane), fr_), "hopper front shelf " + side)
+            rect((fx_, s * cheek, fz_), (470 - fx_, 0, 0), (0, 0, wall - fz_), "hopper cheek " + side)
         else:
             box((185, min(s * (185 + D.DY), s * (312 + D.DY)), 80), (312, max(s * (185 + D.DY), s * (312 + D.DY)), 125), "module body", "zxy" if s > 0 else "zxY")
             rect((wx, min(s * lane, s * hw), pan), (0, hw - lane, 0), (0, 0, gate_z - pan), "hopper rear wall")
@@ -92,13 +101,17 @@ def surfaces(belt_mps, opt=None):
     # front: lip, bumper-top shelf, the deployed intake closing the throat, upper wall
     rect((L["x0"], -183, L["z0"]), (0, 366, 0), (0, 0, L["z1"] - L["z0"]), "front lip")
     rect((L["x0"], -183, L["z1"]), (L["x1"] - L["x0"], 0, 0), (0, 366, 0), "front lip")
-    rect((L["x1"], -260, D.BUMPER["z1"]), (D.BUMPER["x1"] + 40 - L["x1"], 0, 0), (0, 520, 0), "bumper front")
-    ip = D.intake_points()
-    stop_x = ip["roller"][0] - ip["roller_r"]                  # the deployed top roller's aft face closes the throat
-    rect((stop_x, -260, D.BUMPER["z1"]), (0, 520, 0), (0, 0, ip["roller"][1] - D.BUMPER["z1"]), "intake belt module")
-    rect((stop_x, -260, ip["roller"][1] + ip["roller_r"]), (0, 520, 0), (0, 0, 482 - ip["roller"][1] - ip["roller_r"]), "intake belt module")
+    B = D.BUMPER
+    rect((L["x1"], -260, D.FRONT_RAIL["z1"]), (B["x0"] - L["x1"], 0, 0), (0, 520, 0), "frame rail front")
+    rect((B["x0"], -260, D.FRONT_RAIL["z1"]), (0, 520, 0), (0, 0, B["z1"] - D.FRONT_RAIL["z1"]), "bumper front")
+    rect((B["x0"], -260, B["z1"]), (B["x1"] - B["x0"], 0, 0), (0, 520, 0), "bumper front")
+    ramp = opt.get("throat_ramp", H["throat_ramp"])
+    if ramp:   # a plate over the bumper top and rail that slopes down aft to the lip, so nothing rests in the throat
+        rect((L["x0"], -260, L["z1"]), (B["x1"] - L["x0"], 0, ramp - L["z1"]), (0, 520, 0), "throat ramp")
     rect((311, -282 - D.DY, 482), (0, 564 + 2 * D.DY, 0), (0, 0, wall - 482), "hopper front upper wall")
-    if floor != "trough":
+    tc = H["throat_cover"]
+    rect((311, -260, 482), (tc[0] - 311, 0, tc[1] - 482), (0, 520, 0), "throat cover")
+    if floor not in ("trough", "bin"):
         box(D.BATTERY_BOX[0], D.BATTERY_BOX[1], "battery", "zxXy")
         box(D.PANEL_RIGHT[0], D.PANEL_RIGHT[1], "electronics panel", "zXY")
     if floor == "guides":
@@ -122,7 +135,7 @@ def posts():
 def heap(n, seed, trough, jitter=0.008):
     """n FUEL on a loose lattice above the floor, dropped together."""
     rng = np.random.default_rng(seed)
-    xs, ys = (0.055, 0.222), ((-0.085, 0.085) if trough else (-0.200, -0.035, 0.130))
+    xs, ys = (0.055, 0.222), ((-0.082, 0.082) if trough else (-0.200, -0.035, 0.130))
     pts = []
     layer = 0
     while len(pts) < n:
@@ -160,16 +173,17 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
     inertia = 0.4 * mass * R * R
     tilt = math.radians(tilt_deg)
     grav = np.array([0.0, -G * math.sin(tilt), -G * math.cos(tilt)])
-    pos = heap(n, seed, S["floor"] == "trough")
+    pos = heap(n, seed, S["floor"] in ("trough", "bin"))
     vel = np.zeros((n, 3)); om = np.zeros((n, 3))
     alive = np.ones(n, bool)
     P = posts()
     eps = 0.01
     lanes = [dict(mode="staging", ball=None), dict(mode="staging", ball=None)]
     delivered, unjams, last_feed, last_take, last_lane = [], 0, -1e9, 0.0, 1
-    reverse_until = -1.0
+    reverse_until, first_stall = -1.0, None
     frames, t, step = [], -settle_s, 0
-    lost = 0
+    lost, recirculated, pending, where = 0, 0, [], []
+    PINCH_X = (D.BUMPER["x1"] + 45.0) * MM
     next_frame = 0.0
 
     def contact(n_, pen, surf_v, mu, idx, F, Tq):
@@ -190,6 +204,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
         running = t >= 0.0
         if running and reverse and t - max(last_take, 0.0) > 1.0 and t > reverse_until + 1.0:
             reverse_until = t + 0.3; unjams += 1
+            first_stall = round(t, 3) if first_stall is None else first_stall
         vb = 0.0 if not running else (-0.5 * belt if t < reverse_until else belt)
         # lane controller: stage to the beam, hold, feed on the scheduler's command
         uf = [0.0, 0.0]
@@ -284,8 +299,23 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                     if ln["ball"] == b_:
                         ln["mode"], ln["ball"] = "staging", None
             last_take = t
-        out = alive & ((pos[:, 2] < 0.0) | (pos[:, 0] > 0.60) | (np.abs(pos[:, 1]) > (D.HALF_W - 20) * MM) | (pos[:, 2] > 1.2))
+        # a FUEL that rolls forward off the bumper top drops into the intake pinch: the running intake lifts it and throws
+        # it back in with the acquisition trial's capture state; with the intake stopped it falls to the carpet
+        fell = alive & (pos[:, 0] > PINCH_X) & (pos[:, 2] < 0.30)
+        for b_ in np.where(fell)[0]:
+            if running and intake > 0:
+                pos[b_] = (0.5, float(np.clip(pos[b_, 1], -0.18, 0.18)), 5.0 + 0.5 * len(pending)); vel[b_] = 0; om[b_] = 0
+                pending.append((t + 0.4, b_))
+            else:
+                alive[b_] = False; lost += 1
+        for due, b_ in [q for q in pending if q[0] <= t]:
+            pending.remove((due, b_)); recirculated += 1
+            pos[b_] = (0.340, pos[b_, 1], 0.266); vel[b_] = (-1.17, 0.0, -0.46); om[b_] = (0.0, 24.0, 0.0)
+        parked = np.zeros(n, bool); parked[[q[1] for q in pending]] = True
+        vel[parked] = 0; pos[parked, 2] = 5.0 + 0.5 * np.arange(parked.sum())
+        out = alive & ~parked & ((pos[:, 2] < 0.0) | (pos[:, 0] > 0.60) | (np.abs(pos[:, 1]) > (D.HALF_W - 20) * MM) | (pos[:, 2] > 1.5))
         if out.any():
+            where += [[round(t, 2)] + [round(float(v) * 1000) for v in pos[b_]] for b_ in np.where(out)[0]]
             lost += int(out.sum()); alive[out] = False
         if keep_frames and t >= next_frame - 1e-9:
             frames.append([round(t, 3)] + [[round(float(v), 4) for v in pos[i]] if alive[i] else None for i in range(n)])
@@ -313,7 +343,7 @@ def feed(name, n=24, seed=1, belt=None, period=None, mu_ball=0.7, mu_belt=0.9, m
                          f"roller {F_['stage_mps']} m/s to the stage beam, stopped while staged, {F_['mps']} m/s on a feed command; intake top roller {intake} m/s; one feed per {period} s at "
                          f"most, lanes in turn; belt reversed 0.3 s after 1 s without a feed" + ("" if tilt_deg == 0 else f"; robot rolled {tilt_deg:g} degrees")),
                 solved="every FUEL's translation and spin in three dimensions with penalty contact and Coulomb friction against the hopper, the rollers and each other",
-                feed=dict(fed=len(good), within12s=within12, lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost,
+                feed=dict(fed=len(good), within12s=within12, lastFedS=last, ratePerS=rate, unjamCycles=unjams, lost=lost, recirculated=recirculated, firstStallS=first_stall, lostAt=where,
                           uncommanded=sum(1 for d_ in delivered if d_.get("uncommanded")), remaining=int(alive.sum()),
                           byLane={q: sum(1 for d_ in good if d_["lane"] == q) for q in ("left", "right")}, times=[d_["t"] for d_ in good]),
                 params=dict(n=n, seed=seed, belt=belt, periodS=period, muBall=mu_ball, muBelt=mu_belt, muHard=mu_hard, muFeeder=mu_feeder, k=k, zeta=zeta,
@@ -351,4 +381,4 @@ if __name__ == "__main__":
     for tr in (run_trials() if not names else [feed("probe", **eval("dict(%s)" % a)) for a in names]):
         f = tr["feed"]
         print(f"{tr['name']:48s} {'PASS' if tr['passed'] else 'FAIL'} fed {f['fed']} in12 {f['within12s']} last {f['lastFedS']} rate {f['ratePerS']} "
-              f"unjams {f['unjamCycles']} lost {f['lost']} uncommanded {f['uncommanded']} lanes {f['byLane']}  {tr['firstUnmet'] or ''}  [{time.time() - t0:.0f}s]")
+              f"unjams {f['unjamCycles']} stall@{f['firstStallS']} recirc {f['recirculated']} lost {f['lost']} uncommanded {f['uncommanded']} lanes {f['byLane']}  {tr['firstUnmet'] or ''} {f['lostAt']} [{time.time() - t0:.0f}s]")

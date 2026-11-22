@@ -327,7 +327,7 @@ def scene_record(scene):
 
 
 def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9, mu_hard=0.4, mu_hood=0.6, mu_feeder=0.9, k=15000.0,
-         zeta=0.3, mass=0.215, dt=1e-4, t_end=4.0, every=50, settle=False, release=False, accel_x=0.0, push_n=0.0, t0=0.0):
+         zeta=0.3, mass=0.215, dt=1e-4, t_end=4.0, every=50, settle=False, release=False, accel_x=0.0, push_n=0.0, t0=0.0, abreast=1, slip_eps=0.01):
     """Integrate one free FUEL in the floor lane.
 
     control(t, x, wheel_mps) returns (belt, feeder, wheel): the floor belt and feeder roller surface speeds toward the
@@ -392,7 +392,7 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
             vn = rvx * nx + rvz * nz
             Fn = max(0.0, k * pen - c * vn)
             tx, tz = -nz, nx
-            Ft = friction(Fn, rvx * tx + rvz * tz, mu)
+            Ft = friction(Fn, rvx * tx + rvz * tz, mu, slip_eps)
             Fx, Fz = Fn * nx + Ft * tx, Fn * nz + Ft * tz
             fx += Fx; fz += Fz
             tq += rx * Fz - rz * Fx
@@ -407,7 +407,7 @@ def lane(state, control, scene, drive=None, crr=0.03, mu_belt=0.9, mu_wheel=0.9,
             wheel_touch = t0 + t if wheel_touch is None else wheel_touch
             wheel_low = uw if wheel_low is None else min(wheel_low, uw)
         if drive:
-            drive.step(wheel_load, dt)
+            drive.step(abreast * wheel_load, dt)   # abreast FUEL meet the wheel together, each on this path
             uw = drive.mps
         contacts.step(t0 + t, touching)
         vx += fx / mass * dt; vz += fz / mass * dt; w += tq / inertia * dt
@@ -530,16 +530,20 @@ def hopper_entry(name, start, belt=None, stage_mps=None, crr=0.03, mu_belt=0.9, 
                 scene=scene_record(scene), contacts=run["contacts"], final=f, events=events, frames=run["frames"])
 
 
-def hold(name, start, belt=None, accel_g=0.0, push_n=0.0, seconds=3.0, feeder_squeeze=None, mu_feeder=0.9, mu_belt=0.9, k=15000.0, zeta=0.3,
-         mass=0.215, dt=1e-4, start_note="the entry-nominal stage"):
+def hold(name, start, belt=None, accel_g=0.0, push_n=0.0, seconds=2.0, feeder_squeeze=None, mu_feeder=0.9, mu_belt=0.9, mu_deck=0.6, k=15000.0,
+         zeta=0.3, mass=0.215, dt=1e-5, slip_eps=0.001, feeder=True, start_note="the entry-nominal stage"):
     """Staged FUEL under load, with the feeder roller stopped and the flywheel at speed: the floor belt left
     running, the robot accelerating, or queued FUEL pressing from behind. The hold-back passes when the FUEL
-    stays clear of the flywheel for the whole run."""
+    stays clear of the flywheel for the whole run.
+
+    Regularized Coulomb friction has no stiction: under a steady push a clamped FUEL creeps at the speed where
+    friction balances the push, in proportion to slip_eps. This trial therefore runs at a tenth of the other
+    trials' regularization speed and timestep, and a bracket shows the creep falling with slip_eps."""
     belt = 0.0 if belt is None else belt
     wheel_mps = D.SHOOTER["wheel_surface_mps"]
-    scene = lane_scene(feeder_squeeze=feeder_squeeze)
-    run = lane(start, lambda t, x, uw: (belt, 0.0, wheel_mps), scene, mu_feeder=mu_feeder, mu_belt=mu_belt, k=k, zeta=zeta, mass=mass, dt=dt,
-               t_end=seconds, accel_x=accel_g * G, push_n=push_n)
+    scene = lane_scene(feeder_squeeze=feeder_squeeze, feeder=feeder)
+    run = lane(start, lambda t, x, uw: (belt, 0.0, wheel_mps), scene, mu_feeder=mu_feeder, mu_belt=mu_belt, mu_hood=mu_deck, k=k, zeta=zeta, mass=mass,
+               dt=dt, t_end=seconds, accel_x=accel_g * G, push_n=push_n, slip_eps=slip_eps, every=round(0.005 / dt), release=True)
     gaps = [wheel_gap_mm(scene, f[1], f[2]) for f in run["frames"]]
     travel = (start["x"] - min(f[1] for f in run["frames"])) * 1000
     unmet = None
@@ -556,14 +560,14 @@ def hold(name, start, belt=None, accel_g=0.0, push_n=0.0, seconds=3.0, feeder_sq
                          f"acceleration {accel_g:g} g forward; {push_n:g} N from queued FUEL behind; flywheel surface held at {wheel_mps} m/s"),
                 solved="FUEL translation and spin with penalty contact, Coulomb friction, gravity and rolling resistance",
                 creepMm=round(travel, 2),
-                params=dict(belt=belt, accelG=accel_g, pushN=push_n, feederSqueezeMm=scene["feederSqueezeMm"], muFeeder=mu_feeder, muBelt=mu_belt, k=k,
-                            zeta=zeta, mass=mass, dt=dt, start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}),
+                params=dict(belt=belt, accelG=accel_g, pushN=push_n, feederSqueezeMm=scene["feederSqueezeMm"], muFeeder=mu_feeder, muBelt=mu_belt, muDeck=mu_deck, k=k,
+                            zeta=zeta, mass=mass, dt=dt, slipEps=slip_eps, feeder=feeder, start={q: round(start[q], 5) for q in ("x", "z", "vx", "vz", "w")}),
                 scene=scene_record(scene), contacts=run["contacts"], final=run["final"], events=run["events"], frames=run["frames"])
 
 
 def launch(name, start, feed_mps=None, feeder_mps=None, feed_at=0.1, squeeze=None, feeder_squeeze=None, crr=0.03, mu_wheel=0.9, mu_belt=0.9,
            mu_hood=0.6, mu_feeder=0.9, k=15000.0, zeta=0.3, mass=0.215, dt=1e-4, t_end=3.0, every=50, band=None, imposed_wheel=False,
-           drive=None, start_note="the entry-nominal stage", t0=0.0, **drive_kw):
+           drive=None, start_note="the entry-nominal stage", t0=0.0, abreast=1, **drive_kw):
     """Staged FUEL to release. The flywheel is at its setpoint, a free body under its motors and speed loop. Once
     the measured wheel speed is inside the ready band the feeder roller and floor belt advance the FUEL; the wheel
     takes it, slows under its load, rolls it up the hood and releases it. imposed_wheel=True holds the wheel
@@ -583,7 +587,7 @@ def launch(name, start, feed_mps=None, feeder_mps=None, feed_at=0.1, squeeze=Non
 
     before = drive.motor_j if drive else 0.0
     run = lane(start, control, scene, drive=drive, crr=crr, mu_belt=mu_belt, mu_wheel=mu_wheel, mu_hood=mu_hood, mu_feeder=mu_feeder, k=k,
-               zeta=zeta, mass=mass, dt=dt, t_end=t_end, every=every, release=True, t0=t0)
+               zeta=zeta, mass=mass, dt=dt, t_end=t_end, every=every, release=True, t0=t0, abreast=abreast)
     rel = run["released"]
     events = sorted(run["events"] + ([dict(t=round(t0 + fed[0], 4), event=f"wheel ready at {setpoint} m/s: feeder {feeder_mps} m/s and belt {feed_mps} m/s advance the FUEL")]
                                      if fed else []), key=lambda e: e["t"])
