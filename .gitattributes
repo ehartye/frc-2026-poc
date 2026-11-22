@@ -24,3 +24,4 @@ experiments/tower-climb/head-support/*.step -text -whitespace
 # Preliminary design releases and their inputs are digest-pinned; keep exact bytes.
 cad/preliminary-design/** -text
 docs/preliminary-design/** -text
+experiments/preliminary-design/review/*.gz binary
