@@ -48,8 +48,8 @@ const cv=document.getElementById('view'),g=cv.getContext('2d');
 document.getElementById("head").textContent=`Issue ${D.issue} · dimensions ${D.dimensions.sha256.slice(0,12)} · trace ${D.trace.sha256.slice(0,12)} · ${D.solver}`;
 D.trials.forEach((t,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${t.passed?'PASS':'FAIL'} · ${t.name}`;sel.appendChild(o)});
 let T=D.trials[0],playing=false,last=0;
-const views={acquisition:[0.25,-0.03,0.85,0.48],entry:[-0.45,-0.03,0.5,0.5],launch:[-0.45,-0.03,0.5,0.5],delivery:[-3.5,-0.05,0.3,2.25],elevation:[-0.55,-0.08,0.75,0.88]};
-const tint=l=>l.startsWith('bumper')?'#2358A2':l.startsWith('floor belt')||l==='flywheel'||l==='hood'||l==='indexer cleat'?'#007F78':'#8A9199';
+const views={acquisition:[0.25,-0.03,0.85,0.48],entry:[-0.45,-0.03,0.5,0.5],launch:[-0.45,-0.03,0.5,0.5],hold:[-0.45,-0.03,0.5,0.5],batch:[-0.45,-0.03,0.5,0.5],hopper:[-0.2,-0.42,0.62,0.42],delivery:[-3.5,-0.05,0.3,2.25],elevation:[-0.55,-0.08,0.75,0.88]};
+const tint=l=>l.startsWith('bumper')?'#2358A2':l.startsWith('floor belt')||l==='flywheel'||l==='hood'||l==='feeder roller'||l==='lane deck'?'#007F78':'#8A9199';
 function frame(){return T.frames[+range.value]||T.frames[0]}
 function W(x,z){const v=views[T.kind],s=Math.min(cv.width/(v[2]-v[0]),cv.height/(v[3]-v[1]));return[(x-v[0])*s,cv.height-(z-v[1])*s,s]}
 function line(a,b,c,w){g.strokeStyle=c;g.lineWidth=w||2;g.beginPath();g.moveTo(...W(...a).slice(0,2));g.lineTo(...W(...b).slice(0,2));g.stroke()}
@@ -59,7 +59,7 @@ function trace(ix,iz,c){g.strokeStyle=c;g.lineWidth=1.5;g.setLineDash([4,4]);g.b
 function draw(){
  g.fillStyle='#0f1820';g.fillRect(0,0,cv.width,cv.height);
  const f=frame(),R=0.075057;
- line([-5,0],[5,0],'#5c6b77',2);
+ if(T.kind!=='hopper')line([-5,0],[5,0],'#5c6b77',2);
  if(T.kind==='acquisition'){
   const G=T.geometry;rect(G.bumper[0],G.bumper[1],G.bumper[2],G.bumper[3],'#2358A2',true);
   rect(G.beltBackX,G.pulley[1],G.pulley[0]+G.pulley[2],G.topPulley[1],'#007F78',false);
@@ -67,6 +67,11 @@ function draw(){
   line([0.314,0.0699],[0.34,0.0699],'#496A81',6);
   trace(1,2,'#e6b450');circ(f[1],f[2],R,'#e6b450',true);
   const a=T.turn[+range.value]||0;line([f[1],f[2]],[f[1]+R*Math.cos(a),f[2]+R*Math.sin(a)],'#14212b',2);
+ }else if(T.kind==='hopper'){
+  g.fillStyle='#0f1820';g.fillRect(0,0,cv.width,cv.height);
+  T.hopper.rects.forEach(q=>{if(Math.abs(q[5])<1e-6&&Math.abs(q[8])<1e-6)return;line([q[0],q[1]],[q[0]+q[3]+q[6],q[1]+q[4]+q[7]],tint(q[9]),2)});
+  const H=T.hopper;line([H.takeX,-0.17],[H.takeX,0.17],'#D55E00',2);line([H.feeder[0],-0.165],[H.feeder[0],0.165],'#007F78',5);
+  f.slice(1).forEach(p=>{if(p)circ(p[0],p[1],H.radius,p[2]<0.26?'#e6b450':'#a8853a',true)});
  }else if(T.scene){
   T.scene.segs.forEach(q=>line([q[0],q[1]],[q[2],q[3]],tint(q[4]),3));
   T.scene.circles.forEach(q=>circ(q[0],q[1],q[2],tint(q[3])));
@@ -102,20 +107,25 @@ function info(){
  <p><b>${m.name}:</b> ${m.value===null?'not reached':m.value}<br><small>Requirement: ${m.requirement}</small></p>
  ${T.firstUnmet?`<p><b>First unmet condition:</b> ${T.firstUnmet}</p>`:''}
  <p><b>Imposed:</b> ${T.imposed}<br><b>Solved:</b> ${T.solved}</p>
- ${T.beltDemand?`<p><b>Belt demand:</b> ${T.beltDemand.maxNormalN} N peak normal, ${T.beltDemand.maxFrictionPowerW} W peak friction power. <small>${T.beltDemand.note}</small></p>`:''}
- ${T.seat?`<p><b>Rest:</b> x ${(T.seat.xM*1000).toFixed(1)} mm, z ${(T.seat.zM*1000).toFixed(1)} mm, ${T.seat.flywheelIndentationMm} mm into the stopped flywheel</p>`:''}
+ ${T.beltDemand?`<p><b>Belt demand:</b> ${T.beltDemand.maxNormalN} N peak normal, ${T.beltDemand.maxFrictionPowerW} W peak friction power, ${T.beltDemand.energyJ} J, lowest belt speed ${T.beltDemand.minBeltMps} m/s, ${T.beltDemand.peakSupplyA} A peak battery-side. <small>${T.beltDemand.note}</small></p>`:''}
+ ${T.seat?`<p><b>Stage:</b> x ${(T.seat.xM*1000).toFixed(1)} mm, z ${(T.seat.zM*1000).toFixed(1)} mm, ${T.seat.clearOfFlywheelMm} mm clear of the flywheel, ${T.seat.feederSqueezeMm} mm feeder squeeze</p>`:''}
+ ${T.feed?`<p><b>Feed:</b> ${T.feed.fed} fed, ${T.feed.within12s} within 12 s, last at ${T.feed.lastFedS} s, ${T.feed.unjamCycles} unjam cycles, ${T.feed.recirculated} thrown back by the intake, ${T.feed.lost} lost</p>`:''}
+ ${T.batch?`<p><b>Batch:</b> releases ${T.batch.releaseSpeedMps?T.batch.releaseSpeedMps.join(' to '):'none'} m/s, last at ${T.batch.lastReleaseS} s, ${T.batch.peakSupplyA} A peak battery-side</p>`:''}
  ${T.release?`<p><b>Release:</b> ${T.release.speedMps.toFixed(2)} m/s at ${T.release.elevationDeg.toFixed(1)} deg, spin ratio ${T.release.spinRatio.toFixed(2)}, at ${T.release.t.toFixed(3)} s</p>`:''}
- ${T.wheelDemand?`<p><b>Wheel demand:</b> ${T.wheelDemand.peakFrictionPowerW} W peak friction power, ${T.wheelDemand.energyJ} J, ${T.wheelDemand.speedDropPercent}% speed drop for a free wheel. <small>${T.wheelDemand.note}</small></p>`:''}
+ ${T.wheelDemand?`<p><b>Wheel demand:</b> ${T.wheelDemand.peakFrictionPowerW} W peak friction power, ${T.wheelDemand.energyJ} J to the FUEL, wheel falls ${T.wheelDemand.speedDropPercent}% below its setpoint, ${T.wheelDemand.peakSupplyA} A peak battery-side. <small>${T.wheelDemand.note}</small></p>`:''}
  ${T.contacts?`<p><b>Deepest indentation (mm):</b> ${Object.entries(T.contacts).map(([k,v])=>`${k} ${Math.max(...v.map(r=>r[2])).toFixed(1)}`).join(' · ')||'none'}</p>`:''}
  ${T.limits?`<p><b>Limits:</b> ${T.limits}</p>`:''}
  <p><b>Events</b></p><ul>${ev}</ul><p><small>${p}</small></p>`;
  document.getElementById('legend').textContent={acquisition:'Side view at the front bumper (robot frame, metres). Blue: bumper. Teal: belt module, pulleys and top roller. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
  entry:'Side view of the floor lane (robot frame, metres). Blue: front bumper. Teal: floor belts, flywheel and hood. Grey: front rail, lip and floor pan. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
- launch:'Side view of the floor lane (robot frame, metres). Blue: front bumper. Teal: floor belts, flywheel and hood. Grey: front rail, lip and floor pan. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
+ launch:'Side view of the floor lane (robot frame, metres). Blue: front bumper. Teal: floor belt, lane deck, feeder roller, flywheel and hood. Grey: front rail, lip, ramp, rear wall and floor pan. Gold: the free FUEL and its trace; the black tick turns by the sampled spin rate, integrated for display.',
+ hold:'Side view of the floor lane with the FUEL staged under the stopped feeder roller (robot frame, metres).',
+ batch:'Side view of the floor lane: the first FUEL of the batch (robot frame, metres). Every shot is listed under Events.',
+ hopper:'Plan view of the hopper (robot frame, metres; front to the right). Gold: floor FUEL; darker gold: FUEL above the floor layer. Teal bar: feeder rollers. Orange line: where the flywheel takes a FUEL.',
  delivery:'Side view through the HUB (shot-pose frame, metres). Grey: HUB body and cavity floor. Blue: top plate and opening edges. Orange: assumed sensor plane. Gold: the free FUEL and its trace.',
  elevation:'Side view at the berth (metres). Grey: upright face, TOWER BASE. Light circle: low rung. Blue: bumper. Teal: hook and inner tube. Gold dot: centre of mass.'}[T.kind];
 }
-function load(){T=D.trials[+sel.value];let a=0;T.turn=T.frames.map((f,i)=>i?(a+=(f[3]+T.frames[i-1][3])/2*(f[0]-T.frames[i-1][0])):0);range.max=T.frames.length-1;range.value=0;info();draw()}
+function load(){T=D.trials[+sel.value];let a=0;T.turn=T.kind==='hopper'?[]:T.frames.map((f,i)=>i?(a+=(f[3]+T.frames[i-1][3])/2*(f[0]-T.frames[i-1][0])):0);range.max=T.frames.length-1;range.value=0;info();draw()}
 sel.onchange=load;range.oninput=draw;
 document.getElementById('play').onclick=()=>{playing=!playing;document.getElementById('play').textContent=playing?'Pause':'Play';last=performance.now();if(playing)requestAnimationFrame(tick)};
 function tick(now){if(!playing)return;const f=T.frames,dt=(now-last)/1000;last=now;let i=+range.value;const target=f[i][0]+dt*(T.kind==='delivery'?0.5:0.5);while(i<f.length-1&&f[i][0]<target)i++;range.value=i;draw();if(i>=f.length-1){playing=false;document.getElementById('play').textContent='Play';return}requestAnimationFrame(tick)}

@@ -143,8 +143,11 @@ def spin_up(bus_v=12.0, dt=1e-3, **kw):
 
 
 # ------------------------------------------------------------------ acquisition (side view, robot frame)
+RAMP = ((D.FRONT_LIP["x0"] * MM, D.FRONT_LIP["z1"] * MM), (D.BUMPER["x1"] * MM, D.HOPPER["throat_ramp"] * MM))   # throat ramp, lip to bumper face
+
+
 def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_bumper=0.4, mu_carpet=0.6,
-                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=1.5, locked=False, every=40,
+                k=15000.0, zeta=0.3, mass=0.215, v_robot=0.5, dt=1e-4, t_end=1.5, locked=False, every=40, mu_ramp=0.4,
                 imposed=False, abreast=1, bus_v=12.0, gear=None, supply_a=None, stator_a=None, moving_kg=None):
     """FUEL on the carpet; the robot drives at v_robot; the bottom pulley pulls it under, the back run lifts it
     against the bumper face and the top roller pushes it over the bumper. The belt, pulleys and roller stand where
@@ -178,6 +181,7 @@ def acquisition(name, u=None, comp_back=None, comp_pulley=None, mu_belt=0.9, mu_
         ("seg", ((-1.0, 0.0), (2.0, 0.0)), None, mu_carpet, "carpet"),
         ("seg", ((B["x1"] * MM, B["z0"] * MM), (B["x1"] * MM, B["z1"] * MM)), None, mu_bumper, "bumper face"),
         ("seg", ((B["x0"] * MM, B["z1"] * MM), (B["x1"] * MM, B["z1"] * MM)), None, mu_bumper, "bumper top"),
+        ("seg", RAMP, None, mu_ramp, "throat ramp"),
         ("seg", ((xk, zb), (xk, zt)), (0.0, 1.0), mu_belt, "belt back run"),
         ("seg", ((xp + rp, zb), (xp + rp, zt)), (0.0, -1.0), mu_belt, "belt front run"),
         ("circ", ((xp, zb), rp), True, mu_belt, "bottom pulley"),
@@ -299,6 +303,7 @@ def lane_scene(squeeze=None, cleat=None, feeder_squeeze=None, feeder=True):
         ((L["x1"] * MM, L["z0"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
         ((L["x0"] * MM, L["z1"] * MM), (L["x1"] * MM, L["z1"] * MM), "hard", "front lip"),
         ((L["x0"] * MM, L["z0"] * MM), (L["x0"] * MM, L["z1"] * MM), "hard", "front lip"),
+        (RAMP[0], RAMP[1], "hard", "throat ramp"),
         ((D.FLOOR_BELT_FRONT["x0"] * MM, bt), (D.FLOOR_BELT_FRONT["x1"] * MM, bt), "belt", "floor belt front"),
         ((D.FLOOR_BELT_MAIN["x0"] * MM, bt), (D.FLOOR_BELT_MAIN["x1"] * MM, bt), "belt", "floor belt main"),
         ((D.LANE_DECK["x0"] * MM, bt), (D.LANE_DECK["x1"] * MM, bt), "deck", "lane deck"),
@@ -949,10 +954,10 @@ def at_rest(final, dx=0.0):
     return s
 
 
-CLEAT_AS_DRAWN = (0.218057, 0.226057, 0.1105, 0.187057)  # the earlier belt cleat this revision removes (x0, x1, z0, z1)
-RESERVE_PINCH = -2 * D.GAP                               # the earlier pinch: 3 mm clear of the FUEL on the wheel and on the hood
 CORNERS = [(0.35, 0.0), (0.35, 0.30), (0.60, 0.0), (0.60, 0.30)]  # the drag and spin-lift corners of ballistics.py
 SPEEDS = [6.40, 6.55, 6.70, 6.85, 7.00, 7.15, 7.30, 7.45, 7.60]
+SUPERSEDED_WHEEL = 0.006                                 # the layout-001 flywheel inertia, kept as a control
+WEAK_V = 8.34                                            # weak-pack bus under the launch duty (budgets.json)
 
 
 def run_trials():
@@ -960,9 +965,9 @@ def run_trials():
     acq = acquisition("acquire-nominal", **fine)
     capture = state(acq["final"])
     slow = acquisition("acquire-belt-2.5mps", u=2.5)
-    # The entry runs at half the others' timestep: its rest time is not converged at 1e-4 s.
+    # The entry runs at half the others' timestep, as in the earlier issue.
     entry = hopper_entry("entry-nominal", capture, dt=5e-5, **fine)
-    seat = at_rest(entry["final"])  # the FUEL waits in the seat through the loaded transit
+    seat = at_rest(entry["final"])  # the FUEL waits clamped at the stage through the loaded transit
     rel = launch("launch-nominal", seat)["released"]
     assert acq["passed"] and entry["passed"] and rel, "the nominal chain must reach a release"
     # A release speed scores only if it scores at the nominal drag and spin lift and at all four corners.
@@ -981,16 +986,19 @@ def run_trials():
     band = [rows[lo]["speedMps"], rows[hi]["speedMps"]]
     lch = launch("launch-nominal", seat, band=band, **fine)
     rel = lch["released"]
-
-    def rest(**kw):
-        return at_rest(hopper_entry("x", capture, **kw)["final"])
-    wedged, pressed = rest(belt=D.FLOOR_BELT_MPS), rest(belt=0.05)
-    bouncy = hopper_entry("entry-contact-damping-0.10", capture, zeta=0.10)
+    legal = [0.203, 0.215, 0.227]
+    set_mps = D.SHOOTER["wheel_surface_mps"]
     trials = [
         acq,
         acquisition("acquire-belt-locked (cause isolation)", locked=True),
+        acquisition("acquire-belt-speed-imposed (earlier issue's drive)", imposed=True),
         acquisition("acquire-low-friction-light-compression (adverse)", mu_belt=0.5, comp_back=0.010, comp_pulley=0.010),
         acquisition("acquire-nominal-half-step", dt=5e-5),
+        acquisition("acquire-three-abreast", abreast=3),
+        acquisition("acquire-three-abreast-9V-bus (adverse)", abreast=3, bus_v=9.0),
+        acquisition("acquire-three-abreast-7V-bus", abreast=3, bus_v=7.0),
+        acquisition("acquire-three-abreast-9V-supply-limit-20A", abreast=3, bus_v=9.0, supply_a=20.0),
+        acquisition("acquire-three-abreast-9V-supply-limit-10A", abreast=3, bus_v=9.0, supply_a=10.0),
         acquisition("acquire-belt-friction-0.7", mu_belt=0.7),
         acquisition("acquire-belt-friction-0.5", mu_belt=0.5),
         acquisition("acquire-bumper-friction-0.3", mu_bumper=0.3),
@@ -1006,36 +1014,46 @@ def run_trials():
         entry,
         hopper_entry("entry-nominal-half-step", capture, dt=2.5e-5),
         hopper_entry("entry-nominal-double-step", capture, dt=1e-4),
-        hopper_entry("entry-released-at-rest-behind-the-lip (cause isolation)", dict(x=0.236, z=0.109 + R, vx=0.0, vz=0.0, w=0.0),
-                     start_note="a FUEL set down at rest behind the lip, without the intake's capture velocity"),
-        hopper_entry("entry-floor-belt-running-0.6 (adverse)", capture, belt=D.FLOOR_BELT_MPS),
-        hopper_entry("entry-floor-belt-running-0.2", capture, belt=0.2),
-        hopper_entry("entry-floor-belt-running-0.05", capture, belt=0.05),
-        hopper_entry("entry-superseded-cleat (control)", capture, cleat=CLEAT_AS_DRAWN),
-        hopper_entry("entry-superseded-3mm-reserve-pinch (control)", capture, squeeze=RESERVE_PINCH),
+        hopper_entry("entry-no-feeder (control)", capture, feeder=False),
+        hopper_entry("entry-feeder-not-turning (cause isolation)", capture, stage_mps=0.0),
+        hopper_entry("entry-floor-belt-stopped", capture, belt=0.0),
+        hopper_entry("entry-floor-belt-0.6mps", capture, belt=0.6),
+        hopper_entry("entry-stage-lag-20ms", capture, lag_s=0.020),
+        hopper_entry("entry-stage-lag-80ms", capture, lag_s=0.080),
+        hopper_entry("entry-stage-lag-150ms", capture, lag_s=0.150),
         hopper_entry("entry-from-2.5mps-intake-belt", state(slow["final"]), start_note="the acquire-belt-2.5mps capture state"),
         hopper_entry("entry-rolling-resistance-0.01", capture, crr=0.01),
         hopper_entry("entry-rolling-resistance-0.20", capture, crr=0.20),
         hopper_entry("entry-belt-friction-0.5", capture, mu_belt=0.5),
+        hopper_entry("entry-feeder-friction-0.5", capture, mu_feeder=0.5),
+        hopper_entry("entry-feeder-squeeze-4mm", capture, feeder_squeeze=4.0),
+        hopper_entry("entry-feeder-squeeze-1mm", capture, feeder_squeeze=1.0),
         hopper_entry("entry-contact-damping-0.20", capture, zeta=0.20),
-        bouncy,
+        hopper_entry("entry-contact-damping-0.10", capture, zeta=0.10),
+        hold("hold-nominal", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0),
+        hold("hold-nominal-half-step", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, dt=5e-5),
+        hold("hold-no-feeder (control)", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, feeder=False),
+        hold("hold-regularized-friction-law (control for the law)", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, stick=False),
+        hold("hold-braking-1.5g", seat, belt=D.FLOOR_BELT_MPS, accel_g=-1.5),
+        hold("hold-queue-push-60N", seat, belt=D.FLOOR_BELT_MPS, push_n=60.0),
+        hold("hold-queue-push-90N", seat, belt=D.FLOOR_BELT_MPS, push_n=90.0),
+        hold("hold-queue-push-120N", seat, belt=D.FLOOR_BELT_MPS, push_n=120.0),
+        hold("hold-feeder-friction-0.5-deck-0.3", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, mu_feeder=0.5, mu_deck=0.3),
+        hold("hold-feeder-friction-0.2-deck-0.2", seat, belt=D.FLOOR_BELT_MPS, accel_g=1.5, push_n=30.0, mu_feeder=0.2, mu_deck=0.2),
         lch,
         launch("launch-nominal-half-step", seat, band=band, dt=5e-5),
-        launch("launch-no-back-off (control)", seat, band=band, back_mps=0.0),
-        launch("launch-no-back-off-seat-0.5mm-aft", at_rest(entry["final"], -0.0005), band=band, back_mps=0.0,
-               start_note="the entry-nominal seat moved 0.5 mm along the belt toward the flywheel, at rest"),
-        launch("launch-no-back-off-seat-1.0mm-aft", at_rest(entry["final"], -0.0010), band=band, back_mps=0.0,
-               start_note="the entry-nominal seat moved 1.0 mm along the belt toward the flywheel, at rest"),
-        launch("launch-from-pressed-seat-no-back-off (cause isolation)", pressed, band=band, back_mps=0.0,
-               start_note="the entry-floor-belt-running-0.05 rest, pressed 3.2 mm into the stopped flywheel"),
-        launch("launch-from-pressed-seat", pressed, band=band,
-               start_note="the entry-floor-belt-running-0.05 rest, pressed 3.2 mm into the stopped flywheel"),
-        launch("launch-from-wedged-seat (adverse)", wedged, band=band,
-               start_note="the entry-floor-belt-running-0.6 rest, wedged in the pinch"),
-        launch("launch-from-forward-seat", at_rest(bouncy["final"]), band=band,
-               start_note="the entry-contact-damping-0.10 rest, forward of the flywheel"),
-        launch("launch-belt-stopped-feed (cause isolation)", seat, band=band, feed_mps=0.0, t_end=3.5),
-        launch("launch-spin-up-0.5s", seat, band=band, spin_s=0.5),
+        launch("launch-feeder-stopped (cause isolation)", seat, band=band, feeder_mps=0.0, t_end=2.0),
+        launch("launch-wheel-speed-imposed (earlier issue's drive)", seat, band=band, imposed_wheel=True),
+        launch("launch-motors-off", seat, band=band, powered=False),
+        launch("launch-superseded-0.006-wheel-motors-off (control)", seat, band=band, inertia=SUPERSEDED_WHEEL, powered=False),
+        launch("launch-superseded-0.006-wheel", seat, band=band, inertia=SUPERSEDED_WHEEL),
+        launch("launch-weak-pack-8.34V", seat, band=band, bus_v=WEAK_V),
+        launch("launch-two-abreast", seat, band=band, abreast=2),
+        launch("launch-two-abreast-weak-pack-heavy-FUEL (adverse)", seat, band=band, abreast=2, bus_v=WEAK_V, mass=legal[2]),
+        launch("launch-three-abreast", seat, band=band, abreast=3),
+        launch("launch-fuel-0.203kg", seat, band=band, mass=legal[0]),
+        launch("launch-fuel-0.227kg", seat, band=band, mass=legal[2]),
+        launch("launch-stator-limit-20A", seat, band=band, stator_a=20.0),
         launch("launch-squeeze-6mm", seat, band=band, squeeze=6.0),
         launch("launch-squeeze-8mm", seat, band=band, squeeze=8.0),
         launch("launch-squeeze-16mm", seat, band=band, squeeze=16.0),
@@ -1045,10 +1063,15 @@ def run_trials():
         launch("launch-contact-stiffness-7.5k", seat, band=band, k=7500.0),
         launch("launch-contact-stiffness-10k", seat, band=band, k=10000.0),
         launch("launch-contact-stiffness-30k", seat, band=band, k=30000.0),
-        launch("launch-wheel-13.0mps", seat, band=band, wheel_mps=13.0),
-        launch("launch-wheel-13.1mps", seat, band=band, wheel_mps=13.1),
-        launch("launch-wheel-13.6mps", seat, band=band, wheel_mps=13.6),
-        launch("launch-wheel-13.8mps", seat, band=band, wheel_mps=13.8),
+        *[launch(f"launch-setpoint-{set_mps + d:.1f}mps", seat, band=band, setpoint_mps=set_mps + d) for d in (-0.5, -0.3, 0.3, 0.5)],
+        batch("batch-nominal", seat, band=band, masses=legal),
+        batch("batch-nominal-half-step", seat, band=band, masses=legal, dt=5e-5),
+        batch("batch-weak-pack-8.34V", seat, band=band, masses=legal, bus_v=WEAK_V),
+        batch("batch-motors-off (cause isolation)", seat, band=band, masses=legal, powered=False),
+        batch("batch-superseded-0.006-wheel-weak-pack", seat, band=band, masses=legal, inertia=SUPERSEDED_WHEEL, bus_v=WEAK_V),
+        batch("batch-stator-limit-20A-weak-pack", seat, band=band, masses=legal, stator_a=20.0, bus_v=WEAK_V),
+        batch("batch-stator-limit-5A-weak-pack", seat, band=band, masses=legal, stator_a=5.0, bus_v=WEAK_V),
+        batch("batch-required-rate-0.5s-period", seat, band=band, masses=legal, period=0.5),
         delivery("deliver-nominal", rel, **fine),
         delivery("deliver-nominal-half-step", rel, dt=5e-5),
         *[delivery(f"deliver-corner-cd{cd}-cl{cl}", rel, cd=cd, cl=cl) for cd, cl in CORNERS],
@@ -1064,26 +1087,38 @@ def run_trials():
         elevation("hang-current-limit-10A", i_limit=10.0),
         elevation("hang-current-limit-8A", i_limit=8.0),
     ]
+    import hopper_flow
+    trials += hopper_flow.run_trials()
     for tr in trials:
         tr.pop("released", None)
+    spin = dict(nominal=spin_up(supply_a=D.SHOOTER["supply_a"]), weakPack=spin_up(bus_v=WEAK_V, supply_a=D.SHOOTER["supply_a"]),
+                transitLimit15A=spin_up(bus_v=WEAK_V, supply_a=15.0),
+                note="The flywheel motors bring the wheel from rest to its ready band during the loaded transit: at the launch duty's 30 A "
+                     "per-motor supply limit, and at the 15 A per motor the loaded-transit budget row allows")
     chain = dict(capture={q: round(v, 6) for q, v in capture.items()}, seat={q: round(v, 6) for q, v in seat.items()},
-                 release={q: round(v, 6) for q, v in rel.items()}, scoringBandMps=band, scoringScan=rows,
-                 note="acquire-nominal ends at capture; entry-nominal starts there and ends at the seat; launch-nominal starts at the seat "
+                 release={q: round(v, 6) for q, v in rel.items()}, scoringBandMps=band, scoringScan=rows, spinUp=spin,
+                 flywheel=dict(D.flywheel_build(), setpointMps=set_mps, readyBand=D.SHOOTER["ready_band"]),
+                 note="acquire-nominal ends at capture; entry-nominal starts there and ends clamped at the stage; launch-nominal starts at the stage "
                       "(at rest) and ends at release; deliver-nominal starts at that release. A release speed counts as scoring only if the "
                       "delivery scores at the nominal drag and spin lift (Cd 0.47, CL 0.15) and at all four corners (Cd 0.35 and 0.60, CL 0 and "
                       "0.30). The scoring band is the contiguous run of such speeds in the 0.15 m/s scan around the nominal release.")
     return trials, chain
 
 
-SOLVER = ("Semi-implicit Euler; penalty normal contact k with damping ratio zeta; Coulomb friction regularized at 0.01 m/s; "
-          "rolling resistance couple crr N R in the hopper lane")
+SOLVER = ("Semi-implicit Euler; penalty normal contact k with damping ratio zeta. Lane trials (entry, hold, launch, batch): stick-slip "
+          "friction with a tangential spring, and a rolling resistance couple crr N R. Acquisition, delivery, hang and the 3-D hopper trial: "
+          "Coulomb friction regularized at 0.01 m/s")
 NOTES = [
-    "Acquisition: side view at the front bumper. The belt back run, bottom pulley and top roller stand at the squeeze the layout draws (dimensions.py); variants bracket it.",
-    "Hopper entry: side view of the floor lane from the capture state to rest. Floor belts and flywheel are stopped in the nominal; the bumper top, front rail, lip, belts, floor pan, stopped flywheel and hood are the layout's surfaces. One FUEL in an empty lane; neighbours are not represented.",
-    "Launch: the same lane. The belt backs the seated FUEL off the stopped wheel, the wheel spins up with the belt stopped, then the belt feeds. Belt and wheel speeds are imposed; the wheel does not slow under load in the model. The hood is a surface without thickness, and a run ends when the FUEL passes its end.",
+    "Acquisition: side view at the front bumper. The belt back run, bottom pulley and top roller stand at the squeeze the layout draws (dimensions.py); variants bracket it. The belt is a free body under its motor and current limits; the throat ramp replaces the bumper top as the surface the FUEL crosses.",
+    "Hopper entry: side view of the floor lane from the capture state to the stage. The floor belt runs, the feeder roller turns at its staging speed until the FUEL centre crosses the stage beam, then both stop. The flywheel spins at its setpoint throughout. One FUEL in an empty lane.",
+    "Hold: the staged FUEL with the feeder stopped, the floor belt running, the robot accelerating and queued FUEL pushing. Under the roller the floor is the fixed lane deck.",
+    "Launch: the same lane. The flywheel is a free body: its inertia, two direct brushless motors with current limits and a speed loop. The feeder advances the FUEL only while the wheel is inside its ready band. The hood is a surface without thickness, and a run ends when the FUEL passes its end.",
+    "Batch: 24 FUEL through the one flywheel, each launched from the stage, the wheel carried from shot to shot. Each lane's next FUEL is assumed staged in time; the hopper trials test that.",
+    "Hopper: 24 free FUEL in three dimensions from a settled heap to the feeders. A FUEL advanced to the flywheel is counted and removed. A FUEL pushed forward off the throat ramp is held in the intake pinch and thrown back with the acquisition trial's capture state while the intake runs. Outcomes vary from heap to heap, so eight heaps are run.",
     "Scoring band: a release speed counts only if the delivery scores at the nominal drag and spin lift and at all four drag and spin corners (chain.scoringScan).",
     "Delivery: starts from the launch trial's release state at the 2.7 m shot pose; HUB body, top plate and cavity from V0 dimensions; the sensor plane at 1.50 m inside the opening is an assumption (V0 does not locate it).",
     "Elevation: rung centred in the upright depth (V0), uprights 5 mm ahead of the bumper, TOWER BASE edge 0.4 mm ahead of the bumper face.",
+    "Motor figures are a NEO-class brushless curve (5676 rpm free, 2.6 N m stall, 105 A stall at 12 V); drive efficiency 0.85 to 0.9 is an assumption.",
     "Contact stiffness, damping, friction and rolling resistance are estimates, not measured. No FUEL force-deflection curve is available, so every indentation here is a model result, not a material limit."]
 
 
@@ -1111,7 +1146,7 @@ def player_data(trials_file, rel):
 
 def main():
     trials, chain = run_trials()
-    out = dict(schema="frc-2026-poc/field-trials@2", issue="R3-PD2",
+    out = dict(schema="frc-2026-poc/field-trials@3", issue="R3-PD3",
                dimensions={"file": "dimensions.py", "sha256": sha(HERE / "dimensions.py")},
                rules={"file": "construction-rules.json", "sha256": sha(HERE / "construction-rules.json")},
                solver=SOLVER, scenarioNotes=NOTES, chain=chain, trials=trials)
@@ -1122,12 +1157,18 @@ def main():
         print(f"{tr['name']:58s} {'PASS' if tr['passed'] else 'FAIL'}  {tr['metric']['name']}={tr['metric']['value']}  {tr.get('firstUnmet') or ''}")
         if tr["kind"] == "acquisition":
             print("   ", tr["beltDemand"])
-        if tr["kind"] in ("entry", "launch", "acquisition", "delivery"):
+        if tr["kind"] in ("entry", "launch", "acquisition", "delivery", "hold"):
             print("    peak indentation mm", {k: max(r[2] for r in v) for k, v in tr["contacts"].items()})
         if tr["kind"] == "entry":
             print("   ", tr["seat"], [e["event"] for e in tr["events"]])
         if tr["kind"] == "launch":
-            print("   ", tr["release"], tr["schedule"])
+            print("   ", tr["release"], tr["schedule"], {q: v for q, v in tr["wheelDemand"].items() if q not in ("note", "drive")})
+        if tr["kind"] == "batch":
+            print("   ", {q: v for q, v in tr["batch"].items() if q not in ("shots", "drive")})
+        if tr["kind"] == "hopper":
+            print("   ", {q: v for q, v in tr["feed"].items() if q != "times"})
+        if tr["kind"] == "hold":
+            print("    creep mm", tr["creepMm"])
         if tr["kind"] == "delivery":
             print("   ", [e["event"] + " " + str(e.get("at", "")) for e in tr["events"]])
         if tr["kind"] == "elevation":
