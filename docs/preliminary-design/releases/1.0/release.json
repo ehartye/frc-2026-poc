@@ -5,7 +5,7 @@
   "phase": "preliminary-design",
   "check": {
     "project": "cad/preliminary-design/releases/1.0",
-    "plan": "layout.json"
+    "plan": "judgement.json"
   },
   "missionCases": [
     {

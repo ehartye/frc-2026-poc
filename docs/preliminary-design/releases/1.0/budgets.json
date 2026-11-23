@@ -1,14 +1,5 @@
 {
   "issue": "chute-fed-hood-shooter-1.0",
-  "step": {
-    "file": "cad/preliminary-design/releases/1.0/package.step"
-  },
-  "motion": {
-    "file": "cad/preliminary-design/releases/1.0/paths.json"
-  },
-  "design": {
-    "file": "cad/preliminary-design/releases/1.0/design.json"
-  },
   "requirements": {
     "file": "cad/preliminary-design/releases/1.0/package-limits.json"
   },
@@ -192,40 +183,6 @@
         0.0
       ],
       "basis": "R103 excludes the battery and its connector half; 5.0-6.9 kg (V0 battery 4.99-6.57 kg plus leads) carried in the running payload"
-    },
-    {
-      "id": "field fixtures (not robot)",
-      "members": [
-        "hub front panel bottom",
-        "hub front panel top 1",
-        "hub front panel top 2",
-        "hub funnel base",
-        "hub funnel side 1",
-        "hub funnel side 2",
-        "hub funnel side 3",
-        "hub funnel side 4",
-        "hub funnel side 5",
-        "hub funnel side 6",
-        "hub net",
-        "hub rear panel",
-        "hub roof panel",
-        "hub side panel 1",
-        "hub side panel 2",
-        "tower base",
-        "tower lower plastic",
-        "tower rung 1",
-        "tower rung 2",
-        "tower rung 3",
-        "tower upright inner 1",
-        "tower upright inner 2",
-        "tower upright outer 1",
-        "tower upright outer 2"
-      ],
-      "kg": [
-        0.0,
-        0.0
-      ],
-      "basis": "HUB and TOWER references are field equipment"
     },
     {
       "id": "unmodeled robot hardware",
