@@ -1,0 +1,11 @@
+{
+  "id": "delivery-hub-distance",
+  "unit": "m",
+  "scenario": "Robot-centre distance from the HUB centre at every slot 2 delivery step in the re-run rehearsal",
+  "value": 2.7,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "deliveryPoseM"
+}

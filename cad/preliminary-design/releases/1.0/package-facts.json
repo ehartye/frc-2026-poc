@@ -1,0 +1,368 @@
+{
+  "startVolume": {
+    "freeVolumeMm3": 54489654.0,
+    "ballVolumeMm3": 1771178.0,
+    "frontMm": 122.5,
+    "topMm": 520.0,
+    "estimateAtPacking": {
+      "0.45": 13.8,
+      "0.5": 15.4,
+      "0.55": 16.9
+    }
+  },
+  "stored": [
+    [
+      4,
+      -84,
+      187.05700000000002
+    ]
+  ],
+  "trackedFuel": {
+    "installedMm": [
+      720.0,
+      82.5,
+      75.06
+    ],
+    "seatMm": [
+      -57.58,
+      82.5,
+      177.0
+    ],
+    "pathToleranceMm": {
+      "acquire": 40.0,
+      "hopper": 40.0,
+      "launch": 40.0,
+      "flight": 40.0
+    },
+    "fieldTrials": {
+      "file": "cad/preliminary-design/releases/1.0/field-trials.json"
+    },
+    "cases": [
+      {
+        "case": "acquire-1",
+        "phase": "acquire",
+        "trial": "acquire-nominal",
+        "fromS": 0.0,
+        "toS": 0.335,
+        "stroke": "arc",
+        "maxDeviationMm": 39.6,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "intake"
+        ],
+        "contacts": {
+          "bumper front": 11.21,
+          "intake back plate": 0.0,
+          "intake belt module": 9.81
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/acquire-1.json"
+      },
+      {
+        "case": "acquire-2",
+        "phase": "acquire",
+        "trial": "acquire-nominal",
+        "fromS": 0.335,
+        "toS": 0.638,
+        "stroke": "arc",
+        "maxDeviationMm": 39.77,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "intake"
+        ],
+        "contacts": {
+          "bumper front": 11.21,
+          "intake back plate": 10.38,
+          "intake belt module": 14.3,
+          "intake top roller": 1.72
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/acquire-2.json"
+      },
+      {
+        "case": "acquire-3",
+        "phase": "acquire",
+        "trial": "acquire-nominal",
+        "fromS": 0.638,
+        "toS": 0.6544,
+        "stroke": "drop",
+        "maxDeviationMm": 0.01,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "intake"
+        ],
+        "contacts": {},
+        "record": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
+      },
+      {
+        "case": "hopper-1",
+        "phase": "hopper",
+        "trial": "entry-nominal",
+        "fromS": 0.0,
+        "toS": 0.233,
+        "stroke": "arc",
+        "maxDeviationMm": 39.43,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "contacts": {
+          "hopper rear wall": 4.73
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/hopper-1.json"
+      },
+      {
+        "case": "hopper-2",
+        "phase": "hopper",
+        "trial": "entry-nominal",
+        "fromS": 0.233,
+        "toS": 0.413,
+        "stroke": "line",
+        "maxDeviationMm": 39.64,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "contacts": {
+          "floor belt main": 5.64
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/hopper-2.json"
+      },
+      {
+        "case": "hopper-3",
+        "phase": "hopper",
+        "trial": "entry-nominal",
+        "fromS": 0.413,
+        "toS": 1.437,
+        "stroke": "line",
+        "maxDeviationMm": 28.32,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "feeders",
+          "floor belts"
+        ],
+        "contacts": {
+          "feeder roller left": 6.92,
+          "floor belt main": 2.5,
+          "lane deck": 7.06
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
+      },
+      {
+        "case": "launch-1",
+        "phase": "launch",
+        "trial": "launch-nominal",
+        "fromS": 0.1,
+        "toS": 0.2174,
+        "stroke": "arc",
+        "maxDeviationMm": 27.02,
+        "pathToleranceMm": 40.0,
+        "transportedBy": [
+          "feeders",
+          "shooter"
+        ],
+        "contacts": {
+          "feeder roller left": 6.92,
+          "flywheel": 7.73,
+          "hood": 10.18,
+          "lane deck": 7.09
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
+      },
+      {
+        "case": "flight-1",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.0,
+        "toS": 0.889,
+        "stroke": "drop",
+        "maxDeviationMm": 7.42,
+        "pathToleranceMm": 40.0,
+        "transportedBy": null,
+        "contacts": {
+          "flywheel": 0.0,
+          "hood": 0.0,
+          "hub funnel base": null,
+          "hub funnel side 1": null,
+          "hub funnel side 2": null,
+          "hub funnel side 3": null,
+          "hub funnel side 4": null,
+          "hub funnel side 5": null,
+          "hub funnel side 6": null,
+          "hub net": null
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/flight-1.json"
+      },
+      {
+        "case": "flight-2",
+        "phase": "flight",
+        "trial": "deliver-nominal",
+        "fromS": 0.889,
+        "toS": 1.0037,
+        "stroke": "arc",
+        "maxDeviationMm": 1.7,
+        "pathToleranceMm": 40.0,
+        "transportedBy": null,
+        "contacts": {
+          "hub funnel base": null,
+          "hub funnel side 1": null,
+          "hub funnel side 2": null,
+          "hub funnel side 3": null,
+          "hub funnel side 4": null,
+          "hub funnel side 5": null,
+          "hub funnel side 6": null,
+          "hub net": null
+        },
+        "record": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
+      }
+    ]
+  },
+  "shot": {
+    "speedMps": 6.900235,
+    "elevationDeg": 61.59757,
+    "spinRatio": 0.976344,
+    "releaseMm": [
+      -272.06,
+      82.5,
+      267.01000000000005
+    ],
+    "distanceM": 2.42794,
+    "scoringBandMps": [
+      6.725,
+      7.1
+    ],
+    "flightS": 1.0037,
+    "source": "launch-nominal release state and deliver-nominal trace in field-trials.json"
+  },
+  "inspectionKg": [
+    40.091,
+    49.961
+  ],
+  "runningKg": [
+    55.963,
+    69.809
+  ],
+  "reserveKg": 2.198999999999998,
+  "sweep": {
+    "front": 244.61400000000003,
+    "rear": 0.0,
+    "side": 0.0,
+    "top": 756.2570000000001,
+    "maxSides": 1,
+    "startOverhang": 0.0,
+    "worst": {
+      "front": {
+        "case": "intake-deploy",
+        "t": 1.0
+      },
+      "rear": {
+        "case": "intake-deploy",
+        "t": 0.0
+      },
+      "side": {
+        "case": "intake-deploy",
+        "t": 0.0
+      },
+      "top": {
+        "case": "intake-deploy",
+        "t": 0.0
+      }
+    }
+  },
+  "volumesMm3": {
+    "frame rail front": 916127.2,
+    "frame rail rear": 916127.2,
+    "frame rail left": 807740.3,
+    "frame rail right": 807740.3,
+    "floor pan": 1393920.0,
+    "floor pan front tongue": 295362.0,
+    "lane deck": 124002.0,
+    "intake slide rail left": 190080.0,
+    "climber tube mount left": 102600.0,
+    "intake slide rail right": 190080.0,
+    "climber tube mount right": 102600.0,
+    "front left wheel azimuth envelope": 388789.9,
+    "front left module body": 758063.0,
+    "front left module motors": 283095.2,
+    "front right wheel azimuth envelope": 388789.9,
+    "front right module body": 758063.0,
+    "front right module motors": 283095.2,
+    "rear left wheel azimuth envelope": 388789.9,
+    "rear left module body": 758063.0,
+    "rear left module motors": 283095.2,
+    "rear right wheel azimuth envelope": 388789.9,
+    "rear right module body": 758063.0,
+    "rear right module motors": 283095.2,
+    "bumper front": 7897920.0,
+    "bumper rear": 7897920.0,
+    "bumper left": 6201600.0,
+    "bumper right": 6201600.0,
+    "hopper wall left": 1104480.0,
+    "hopper wall right": 1104480.0,
+    "hopper rear wall": 670166.7,
+    "hopper shelf left": 57388.5,
+    "hopper liner left": 478685.5,
+    "hopper liner right": 710948.6,
+    "floor belt main": 470610.0,
+    "floor belt front": 305025.0,
+    "feeder roller left": 331386.7,
+    "feeder motor left": 41764.3,
+    "feeder roller right": 331386.7,
+    "feeder motor right": 41764.3,
+    "flywheel": 2756488.7,
+    "hood": 278695.0,
+    "shooter side plate left": 567228.3,
+    "shooter side plate right": 567228.3,
+    "flywheel inertia ring": 281486.7,
+    "flywheel motor right": 223367.2,
+    "flywheel motor left": 223367.2,
+    "battery": 2297252.0,
+    "battery retention cleat aft": 60282.0,
+    "battery retention cleat fore": 14184.0,
+    "battery strap": 7200.0,
+    "electronics panel": 815400.0,
+    "electronics panel left": 172800.0,
+    "electronics bay right": 787261.2,
+    "stage sensor left": 1344.0,
+    "stage sensor right": 1344.0,
+    "climber tube left": 72131.0,
+    "climber inner tube left": 154333.9,
+    "climber hook left": 67056.0,
+    "climber tube right": 72131.0,
+    "climber inner tube right": 154333.9,
+    "climber hook right": 67056.0,
+    "climber winch": 718803.8,
+    "intake belt module": 7564484.1,
+    "intake top roller": 2225459.2,
+    "intake back plate": 2963136.0,
+    "intake carriage plate left": 807933.2,
+    "intake carriage plate right": 807933.2,
+    "entry sensor": 1336.5,
+    "hub funnel side 1": 654393.8,
+    "hub funnel side 2": 654393.8,
+    "hub funnel side 3": 654393.8,
+    "hub funnel side 4": 654393.8,
+    "hub funnel side 5": 654393.8,
+    "hub funnel side 6": 654393.8,
+    "hub funnel base": 932148.1,
+    "hub roof panel": 3368397.8,
+    "hub side panel 1": 7958628.1,
+    "hub side panel 2": 7958628.1,
+    "hub front panel top 1": 2127645.8,
+    "hub front panel top 2": 2127645.8,
+    "hub front panel bottom": 6906795.7,
+    "hub rear panel": 5338469.2,
+    "hub net": 3895565.0,
+    "tower base": 2283735.8,
+    "tower upright outer 1": 676041.7,
+    "tower upright outer 2": 676041.7,
+    "tower upright inner 1": 655557.2,
+    "tower upright inner 2": 655557.2,
+    "tower rung 1": 514385.4,
+    "tower rung 2": 514385.4,
+    "tower rung 3": 514385.4,
+    "tower lower plastic": 6578813.7,
+    "FUEL tracked": 1771178.0,
+    "FUEL stored 1": 1771178.0
+  }
+}

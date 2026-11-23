@@ -1,0 +1,406 @@
+{
+ "schema": "frc-2026-poc/official-field@1",
+ "source": {
+  "url": "https://firstfrc.blob.core.windows.net/frc2026/FieldAssets/FE-2026-rev-rebuilt-playing-field.step",
+  "file": "FE-2026-rev-rebuilt-playing-field.step",
+  "bytes": 35707894,
+  "stepSha256": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671",
+  "edition": "FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT",
+  "rootProduct": "FE-2026: REBUILT Playing Field",
+  "retrieved": "2026-11-22",
+  "listedAt": "https://www.firstinspires.org/resources/library/frc/playing-field"
+ },
+ "units": "mm",
+ "officialFrame": "Millimetres, Z up, origin at the field centre on the carpet top. Blue alliance wall at +X (x = 8269.288), scoring table at +Y.",
+ "fieldFrame": {
+  "name": "project blue field frame",
+  "units": "mm",
+  "basis": "kickoff/field-profile.json: 651.2 x 317.7 in, origin at the blue alliance wall on the side away from the scoring table, +X toward red, +Y toward the scoring table, +Z up",
+  "matrix": [
+   [
+    -1,
+    0,
+    0,
+    8270.24
+   ],
+   [
+    0,
+    -1,
+    0,
+    4034.79
+   ],
+   [
+    0,
+    0,
+    1,
+    0
+   ]
+  ],
+  "mirrors": false
+ },
+ "tessellation": {
+  "linearDeflectionMm": 3.0,
+  "angularDeflectionRad": 0.8,
+  "roundedToMm": 0.01,
+  "displayMinMm": 150.0
+ },
+ "fixtures": [
+  {
+   "id": "blue-hub",
+   "purpose": "Blue HUB the robot scores FUEL into",
+   "step": "blue-hub.step",
+   "stepSha256": "612597a3f48cea6d63d9fcadc9231d7e2166370863e2d5333334356f2ac0bd1a",
+   "stepBytes": 19313887,
+   "rootProduct": "FE-2026: REBUILT\ufffd Playing Field",
+   "products": [
+    {
+     "product": "GE-26300: Hub <2>",
+     "officialTransform": [
+      [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "parts": "blue-hub.parts.json",
+   "meshes": "blue-hub.meshes.json",
+   "leafParts": 1039,
+   "solids": 1039,
+   "faces": 50981,
+   "displayedParts": 108,
+   "partsReadEmpty": {},
+   "displayBodies": {
+    "blue-hub-tags": {
+     "color": "#f4f4f4",
+     "vertices": 2753,
+     "triangles": 6048
+    },
+    "blue-hub-counter": {
+     "color": "#b3b3b3",
+     "vertices": 7716,
+     "triangles": 16136
+    },
+    "blue-hub-net": {
+     "color": "#b3b3b3",
+     "vertices": 6850,
+     "triangles": 14056
+    },
+    "blue-hub-lights": {
+     "color": "#303030",
+     "vertices": 1200,
+     "triangles": 2464
+    },
+    "blue-hub-funnel": {
+     "color": "#eaeaea",
+     "vertices": 8336,
+     "triangles": 17420
+    },
+    "blue-hub-panels": {
+     "color": "#cccccc",
+     "vertices": 6769,
+     "triangles": 17528
+    },
+    "blue-hub-frame": {
+     "color": "#cccccc",
+     "vertices": 14750,
+     "triangles": 32104
+    }
+   },
+   "boundsOfficialMm": [
+    2773.701,
+    -746.636,
+    0.0,
+    4257.682,
+    746.636,
+    3058.166
+   ],
+   "boundsFieldMm": [
+    4012.558,
+    3288.154,
+    0.0,
+    5496.539,
+    4781.426,
+    3058.166
+   ],
+   "dockFrames": [
+    {
+     "id": "shot-pose",
+     "basis": "Layout robot frame at the shot pose: robot centre 2700 mm on the alliance-wall side of the HUB centre, on its centreline, robot +X toward the blue alliance wall. The acquire pose the layout draws is this frame shifted by (-400, -2000, 0).",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -6345.0
+      ],
+      [
+       0,
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "notes": [
+    "GE-26329 are the six funnel sides whose top edge is the 72 in opening; GE-26400 is the fuel counter inside the body; GE-26318 and the net poles stand on the neutral-zone side.",
+    "The display meshes leave out fasteners, parts under 150 mm, frame parts under 300 mm and counter parts under 400 mm; the STEP keeps them."
+   ]
+  },
+  {
+   "id": "blue-tower",
+   "purpose": "Blue TOWER whose rungs the robot hangs from",
+   "step": "blue-tower.step",
+   "stepSha256": "4c36c536ffbc9d2e058737836b9858b7e36ee6f5a9ae985b554708da449e539c",
+   "stepBytes": 1905040,
+   "rootProduct": "FE-2026: REBUILT\ufffd Playing Field",
+   "products": [
+    {
+     "product": "GE-26500: Tower <2>",
+     "officialTransform": [
+      [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "parts": "blue-tower.parts.json",
+   "meshes": "blue-tower.meshes.json",
+   "leafParts": 202,
+   "solids": 202,
+   "faces": 5119,
+   "displayedParts": 40,
+   "partsReadEmpty": {},
+   "displayBodies": {
+    "blue-tower-tags": {
+     "color": "#f4f4f4",
+     "vertices": 688,
+     "triangles": 1512
+    },
+    "blue-tower-rungs": {
+     "color": "#0000ff",
+     "vertices": 780,
+     "triangles": 1608
+    },
+    "blue-tower-uprights": {
+     "color": "#0000ff",
+     "vertices": 5694,
+     "triangles": 12500
+    },
+    "blue-tower-base": {
+     "color": "#303030",
+     "vertices": 1896,
+     "triangles": 4604
+    },
+    "blue-tower-wall": {
+     "color": "#e6e6e6",
+     "vertices": 4640,
+     "triangles": 10380
+    }
+   },
+   "boundsOfficialMm": [
+    7125.938,
+    -336.55,
+    0.0,
+    8330.963,
+    914.4,
+    1991.141
+   ],
+   "boundsFieldMm": [
+    -60.723,
+    3120.39,
+    0.0,
+    1144.302,
+    4371.34,
+    1991.141
+   ],
+   "dockFrames": [
+    {
+     "id": "as-drawn",
+     "basis": "Layout robot frame with the TOWER where build_package.py draws it for the shot pose (tower_face_shot = 1025, tower_y_shot = -1250): the field-side face of the uprights at X = 1025 and the rung centre at Y = -1250, robot +X toward the blue alliance wall. This is the layout's drawing position, not the TOWER's field position relative to the HUB; in the blue-hub shot-pose frame the same face is at X = 818.784 and the rung centre at Y = 288.925.",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -6138.784
+      ],
+      [
+       0,
+       1,
+       0,
+       -1538.925
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "notes": [
+    "GE-26503 are the three rungs, GE-26502 the two uprights, GE-26501 the base, GE-26504 and GE-26507 the supports and braces back to the alliance wall panel.",
+    "The display meshes leave out fasteners and parts under 150 mm; the STEP keeps them."
+   ]
+  },
+  {
+   "id": "blue-bumps",
+   "purpose": "Blue BUMPs the robot drives over, one each side of the blue HUB",
+   "step": "blue-bumps.step",
+   "stepSha256": "d770225b4afcdb2ad5b04ad00c1e6b088b36c81a4c6ce5adc3a82eac960d7956",
+   "stepBytes": 1923065,
+   "rootProduct": "FE-2026: REBUILT\ufffd Playing Field",
+   "products": [
+    {
+     "product": "GE-26100: Bump <4>",
+     "officialTransform": [
+      [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0,
+       0.0
+      ]
+     ]
+    },
+    {
+     "product": "GE-26100: Bump <3>",
+     "officialTransform": [
+      [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "parts": "blue-bumps.parts.json",
+   "meshes": "blue-bumps.meshes.json",
+   "leafParts": 472,
+   "solids": 472,
+   "faces": 14516,
+   "displayedParts": 24,
+   "partsReadEmpty": {},
+   "displayBodies": {
+    "blue-bumps-plastic": {
+     "color": "#0000ff",
+     "vertices": 4768,
+     "triangles": 9904
+    },
+    "blue-bumps-base": {
+     "color": "#e6e6e6",
+     "vertices": 23580,
+     "triangles": 52512
+    }
+   },
+   "boundsOfficialMm": [
+    3081.082,
+    -2752.724,
+    -0.0,
+    4208.718,
+    2752.724,
+    165.423
+   ],
+   "boundsFieldMm": [
+    4061.522,
+    1282.066,
+    -0.0,
+    5189.158,
+    6787.514,
+    165.423
+   ],
+   "dockFrames": [
+    {
+     "id": "crossing",
+     "basis": "experiments/preliminary-design/bump_crossing.py side view: x along the crossing with 0 at the crest line, z up from the carpet",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -3644.9
+      ],
+      [
+       0,
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "notes": [
+    "Bump <4> is the blue BUMP on the side away from the scoring table (low field Y), Bump <3> the one toward it. GE-26101 are the ramp plastics.",
+    "The display meshes leave out fasteners, parts under 150 mm and base parts under 400 mm; the STEP keeps them."
+   ]
+  }
+ ]
+}

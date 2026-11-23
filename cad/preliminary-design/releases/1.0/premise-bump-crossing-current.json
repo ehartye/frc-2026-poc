@@ -1,0 +1,11 @@
+{
+  "id": "bump-crossing",
+  "unit": "mm",
+  "scenario": "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest",
+  "value": 8.68,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "bumpCrossingClearanceMm"
+}

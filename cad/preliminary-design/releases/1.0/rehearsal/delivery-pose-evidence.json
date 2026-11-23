@@ -1,0 +1,74 @@
+{
+  "premise": "delivery-pose",
+  "phase": "conceptual-design",
+  "scenario": "Robot-centre stand-off from the blue HUB station centre at each slot 2 delivery step of the field rehearsal",
+  "issue": "chute-fed-hood-shooter-1.0",
+  "fieldReplay": {
+    "input": "stationPosition",
+    "actor": "B2",
+    "station": "blue-hub",
+    "profile": {
+      "file": "cad/preliminary-design/releases/1.0/rehearsal/r3-2p7m-profile.json"
+    },
+    "result": {
+      "file": "cad/preliminary-design/releases/1.0/rehearsal/r3-2p7m-series.json"
+    }
+  },
+  "resolvedSteps": [
+    {
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "Shift 1",
+      "program": "shift-depot",
+      "stepIndex": 3,
+      "label": "Attempt HUB delivery; credited",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
+        84.78,
+        201.6
+      ],
+      "standoffIn": 48.64905857259726,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.6999,
+      "bearingFromHubAxisDeg": 23.71
+    },
+    {
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "AUTO",
+      "program": "auto-2-missed",
+      "stepIndex": 1,
+      "label": "Attempt HUB delivery; missed",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
+        75.8,
+        159.01
+      ],
+      "standoffIn": 32.20039751307428,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.7,
+      "bearingFromHubAxisDeg": 0.09
+    }
+  ],
+  "frame": "Blue field inches. The stand-off is measured to the blue-hub station centre (its chassis action datum at 108, 158.85); the HUB centre is (182.1, 158.85), so both steps stand 2.70 m from the HUB centre.",
+  "comparison": {
+    "file": "cad/preliminary-design/releases/1.0/rehearsal/comparison.json"
+  },
+  "outcome": "With waitCycles yield and the shared partner deconfliction (0 permanent cycles), slot 2 credits 124 FUEL in both the baseline and the 2.70 m series, so the pose costs nothing."
+}

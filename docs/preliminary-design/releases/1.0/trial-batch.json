@@ -1,0 +1,115 @@
+{
+  "schema": "frc-2026-poc/trial-record@1",
+  "issue": "chute-fed-hood-shooter-1.0",
+  "case": "launch-1",
+  "interaction": "Launch 24 FUEL through the one flywheel at 4 FUEL/s inside the scoring band",
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/1.0/field-trials.json"
+  },
+  "trials": [
+    "batch-nominal",
+    "batch-nominal-half-step",
+    "batch-weak-pack-8.34V",
+    "batch-motors-off (cause isolation)",
+    "batch-bare-roller-0.0026-wheel-weak-pack",
+    "batch-bare-roller-weak-pack-stator-limit-20A",
+    "batch-stator-limit-20A-weak-pack",
+    "batch-stator-limit-5A-weak-pack",
+    "batch-required-rate-0.5s-period"
+  ],
+  "summary": {
+    "scoringBandMps": [
+      6.725,
+      7.1
+    ],
+    "releaseSpeedMps": [
+      6.875,
+      6.921
+    ],
+    "weakPackReleaseSpeedMps": [
+      6.829,
+      6.878
+    ],
+    "ratePerS": 4.022,
+    "peakSupplyA": 60.0,
+    "flywheel": {
+      "ringKg": 0.966730891362651,
+      "webKg": 0.09160884177867838,
+      "tubeKg": 0.7973633588416171,
+      "treadKg": 0.45,
+      "hubKg": 0.25,
+      "kg": 2.5557030919829464,
+      "inertia": 0.00759496601701809,
+      "ringsInertia": 0.0049985503720148755,
+      "setpointMps": 13.6,
+      "readyBand": 0.01
+    },
+    "spinUp": {
+      "nominal": {
+        "busV": 12.0,
+        "seconds": 1.129,
+        "peakSupplyA": 60.0,
+        "motorJ": 270.0,
+        "storedJ": 267.2
+      },
+      "weakPack": {
+        "busV": 8.34,
+        "seconds": 1.266,
+        "peakSupplyA": 60.0,
+        "motorJ": 270.4,
+        "storedJ": 267.0
+      },
+      "transitLimit15A": {
+        "busV": 8.34,
+        "seconds": 1.949,
+        "peakSupplyA": 30.0,
+        "motorJ": 272.6,
+        "storedJ": 267.0
+      },
+      "note": "The flywheel motors bring the wheel from rest to its ready band during the loaded transit: at the launch duty's 30 A per-motor supply limit, and at the 15 A per motor the loaded-transit budget row allows"
+    }
+  },
+  "qualification": {
+    "result": "pass",
+    "trial": "batch-nominal",
+    "metric": {
+      "name": "FUEL released per second",
+      "value": 4.022,
+      "requirement": "all 24 released inside the scoring band (6.72-7.10 m/s), each fed with the wheel in its ready band, at 2.00 FUEL/s or faster from the first feed command"
+    },
+    "control": {
+      "condition": "Flywheel motors off through the batch",
+      "trial": "batch-motors-off (cause isolation)",
+      "rejected": true,
+      "firstUnmet": "shot 1: release 6.72 m/s is outside the delivery trials' scoring band 6.72-7.10 m/s"
+    },
+    "brackets": [
+      {
+        "input": "flywheel stator current limit at the weak-pack bus",
+        "unit": "A",
+        "passing": 20.0,
+        "failing": 5.0,
+        "passingTrial": "batch-stator-limit-20A-weak-pack",
+        "failingTrial": "batch-stator-limit-5A-weak-pack",
+        "failingFirstUnmet": "shot 2: release 6.72 m/s is outside the delivery trials' scoring band 6.72-7.10 m/s"
+      },
+      {
+        "input": "stator current limit with the bare 0.0026 kg m2 roller at the weak-pack bus",
+        "unit": "A",
+        "passing": 40.0,
+        "failing": 20.0,
+        "passingTrial": "batch-bare-roller-0.0026-wheel-weak-pack",
+        "failingTrial": "batch-bare-roller-weak-pack-stator-limit-20A",
+        "failingFirstUnmet": "shot 1: release 6.69 m/s is outside the delivery trials' scoring band 6.72-7.10 m/s"
+      }
+    ],
+    "timestep": {
+      "coarseS": 0.0001,
+      "fineS": 5e-05,
+      "sameOutcome": true,
+      "fineTrial": "batch-nominal-half-step",
+      "coarseMetric": 4.022,
+      "fineMetric": 4.021
+    }
+  }
+}

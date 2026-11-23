@@ -1,0 +1,11 @@
+{
+  "id": "start-capacity",
+  "unit": "FUEL",
+  "scenario": "AUTO preload of eight in the starting fold behind the stowed intake, at a loose 0.45 packing fraction",
+  "value": 13.8,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "volumeEstimateStowedLow"
+}

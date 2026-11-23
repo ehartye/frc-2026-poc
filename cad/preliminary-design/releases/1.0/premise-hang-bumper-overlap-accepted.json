@@ -1,0 +1,21 @@
+{
+  "id": "hang-bumper-overlap",
+  "unit": "mm",
+  "scenario": "Lateral overlap of the bumper with each TOWER upright face while hanging",
+  "criterion": {
+    "range": [
+      20.0,
+      200.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "bumpers",
+    "frame",
+    "climber hooks"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "Official uprights 819.15 mm apart; a 20 mm overlap tolerates driver alignment error"
+}

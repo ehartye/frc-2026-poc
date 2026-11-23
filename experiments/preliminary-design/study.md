@@ -1,16 +1,16 @@
-# R3 preliminary design: a floor-fed hood shooter with a chute intake on a 680 × 714 mm swerve base
+# Preliminary design study: Chute-fed hood shooter, a floor-fed hood shooter with a chute intake on a 680 × 714 mm swerve base
 
-**Issue R3-PD3 · release layout-002 · robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres.**
+**Chute-fed hood shooter 1.0 · in progress · robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres.**
 
-Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It replaces the R2C upper and the R2C-T1 screw lift for detailing. The [architecture comparison](architecture-comparison.json) and the [re-run field rehearsal](rehearsal/comparison.json) that selected it are unchanged from R3-PD2.
+Selected architecture: **R3, the tall floor-fed hooded-flywheel robot**. It replaces the R2C upper and the R2C-T1 screw lift for detailing. The [architecture comparison](architecture-comparison.json) and the [re-run field rehearsal](rehearsal/comparison.json) that selected it are unchanged.
 
-Everything this issue checks is in the release folder [`cad/preliminary-design/releases/layout-002/`](../../cad/preliminary-design/releases/layout-002/): the [layout plan](../../cad/preliminary-design/releases/layout-002/layout.json), the [checker receipt](../../cad/preliminary-design/releases/layout-002/receipt.json), the [missions, cycle map and risk register](../../cad/preliminary-design/releases/layout-002/missions.json), the [risk register with its bench tests](../../cad/preliminary-design/releases/layout-002/verification-gates.json), the [measurements](../../cad/preliminary-design/releases/layout-002/measurements.json) and the [physics trials](../../cad/preliminary-design/releases/layout-002/field-trials.json). The numbers quoted below are in those files; where this page and a file disagree, the file is right.
+Everything the design checks is in its folder [`cad/preliminary-design/releases/1.0/`](../../cad/preliminary-design/releases/1.0/): the [layout plan](../../cad/preliminary-design/releases/1.0/layout.json), the [checker receipt](../../cad/preliminary-design/releases/1.0/receipt.json), the [missions, cycle map and risk register](../../cad/preliminary-design/releases/1.0/missions.json), the [risk register with its bench tests](../../cad/preliminary-design/releases/1.0/verification-gates.json), the [measurements](../../cad/preliminary-design/releases/1.0/measurements.json) and the [physics trials](../../cad/preliminary-design/releases/1.0/field-trials.json). The numbers quoted below are in those files; where this page and a file disagree, the file is right.
 
-## Why layout-001 was not enough
+## Why the first blockout was not enough
 
-Layout-001 (R3-PD2) was layout-checked, but four of its mechanisms had not been driven by a trial, and one of them does not work.
+The first blockout of this architecture was layout-checked, but four of its mechanisms had not been driven by a trial, and one of them did not work. It was never accepted and is folded into version 1.0.
 
-| Question layout-001 left open | What the trials show | What changed |
+| Question the first blockout left open | What the trials show | What changed |
 | --- | --- | --- |
 | Can the robot collect a batch of 24? | No. A three-dimensional trial that brings FUEL in through the intake, instead of dropping a heap, stalls with 8 of 24 FUEL in the hopper and the rest back in the intake. They enter low, at the height of the second layer, the front fills first and the rest back out into the intake. | The intake is a chute. Its belt lifts each FUEL up the bumper face and then up the carriage's own back plate to 425 mm, and the top roller throws it in over the top of that plate. The back plate is the hopper's front wall while the intake is deployed. |
 | Does the heap feed two lanes at 2 FUEL/s? | Not from a flat full-width floor: it wedges at the lane mouth and feeds about half the batch. | The floor is a channel two lanes wide for its whole length, under sloped shelves. The floor belt runs to the front rail, the feeder rollers stand in the hopper ahead of the rear wall and meet at the centre line, and each lane has its own stage beam. An unjam cycle reverses the belt and nudges the intake carriage 40 mm into the FUEL at the front. |
@@ -42,7 +42,8 @@ The hopper trial's outcome depends on the arrival pattern, so the cycle is run f
 - The floor belt and feeder roller speeds are imposed. The intake belt and the flywheel are solved under their motors and current limits.
 - The hopper trial models the hopper as rectangles and cylinders taken from `dimensions.py`. The feeder shafts, the hood's thickness and the slot between the front rail and the bumper are not in it.
 - A loaded acceleration limit of 0.5 g is assumed for the transit. The field rehearsal credited its cycle times without that limit and is not re-run here.
-- The 24-FUEL cycle, the hold-back, the batch and the hang do not play as animations in the review. The tracked FUEL's cases do: each is a stroke fitted within 1.5 mm to the solved trace.
+- The delivery and hang trials ran against dimensioned HUB and TOWER surfaces. The layout check and the review use FIRST's official parts from `cad/field/official/`; the trials have not been repeated on them.
+- The checked cases move the tracked FUEL in coarse strokes within 40 mm of the solved trace. The recorded trials play as replays in the review's motion list.
 
 ## Reproduce
 
@@ -50,8 +51,8 @@ With the project geometry environment selected and `AGENT_FRC` set to the plugin
 
 ```sh
 python -I -B experiments/preliminary-design/field_trials.py
-python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/layout-002 --check
-node "$AGENT_FRC/scripts/design.mjs" effective-readiness . --release cad/preliminary-design/releases/layout-002
+python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/1.0 --check --jobs 4
+node "$AGENT_FRC/scripts/design.mjs" effective-readiness . --release cad/preliminary-design/releases/1.0
 ```
 
-The trials take about twenty minutes on eight cores. `dimensions.py` is the one source for the placed solids and the trial surfaces; `field-trials.json` records its digest and `build_package.py` refuses a trace solved for other dimensions.
+The trials take about twenty minutes on eight cores. `dimensions.py` is the one source for the placed solids and the trial surfaces. Rerun the trials after changing it.

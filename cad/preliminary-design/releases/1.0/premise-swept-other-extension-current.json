@@ -1,0 +1,11 @@
+{
+  "id": "swept-other-extension",
+  "unit": "mm",
+  "scenario": "Rear and side extension through every operating and park pose",
+  "value": 0.0,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "sweptOtherExtensionMm"
+}

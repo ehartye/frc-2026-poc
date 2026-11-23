@@ -1,0 +1,84 @@
+{
+  "schema": "agent-frc/preliminary-release@1",
+  "release": "1.0",
+  "issue": "chute-fed-hood-shooter-1.0",
+  "phase": "preliminary-design",
+  "check": {
+    "project": "cad/preliminary-design/releases/1.0",
+    "plan": "layout.json"
+  },
+  "missionCases": [
+    {
+      "case": "acquire-3",
+      "kind": "field-interaction-trial",
+      "accomplishes": "acquired",
+      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
+      "trial": {
+        "file": "acquire-3.json"
+      }
+    },
+    {
+      "case": "hopper-3",
+      "kind": "field-interaction-trial",
+      "accomplishes": "acquired",
+      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
+      "trial": {
+        "file": "hopper-3.json"
+      }
+    },
+    {
+      "case": "loaded-transit",
+      "kind": "operating-case",
+      "accomplishes": "acquired",
+      "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
+      "trial": {
+        "file": "trial-hold.json"
+      }
+    },
+    {
+      "case": "launch-1",
+      "kind": "field-interaction-trial",
+      "accomplishes": "delivered",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
+      "trial": {
+        "file": "launch-1.json"
+      }
+    },
+    {
+      "case": "launch-1",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+      "trial": {
+        "file": "trial-hopper-cycle.json"
+      }
+    },
+    {
+      "case": "launch-1",
+      "kind": "operating-case",
+      "accomplishes": "delivered",
+      "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+      "trial": {
+        "file": "trial-batch.json"
+      }
+    },
+    {
+      "case": "flight-2",
+      "kind": "field-interaction-trial",
+      "accomplishes": "scored",
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
+      "trial": {
+        "file": "flight-2.json"
+      }
+    },
+    {
+      "case": "climb-lift",
+      "kind": "operating-case",
+      "accomplishes": "climb-held",
+      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
+      "trial": {
+        "file": "trial-hang.json"
+      }
+    }
+  ]
+}

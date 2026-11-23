@@ -1,0 +1,20 @@
+{
+  "id": "swept-front-extension",
+  "unit": "mm",
+  "scenario": "Front extension through every operating and park pose",
+  "criterion": {
+    "range": [
+      -500.0,
+      304.8
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "intake",
+    "climber hooks"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "R105 12 in"
+}

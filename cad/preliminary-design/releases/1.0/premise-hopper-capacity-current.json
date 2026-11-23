@@ -1,0 +1,11 @@
+{
+  "id": "hopper-capacity",
+  "unit": "FUEL",
+  "scenario": "Selected own-zone batch of 24 collected through the intake chute and held: FUEL in the hopper plus at most four waiting in the chute",
+  "value": 24.0,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "carriedInCollectTrial"
+}

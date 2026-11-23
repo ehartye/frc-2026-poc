@@ -1,0 +1,11 @@
+{
+  "id": "start-overhang",
+  "unit": "mm",
+  "scenario": "Starting fold: nothing but bumpers outside the frame projection",
+  "value": 0.0,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "startOverhangMm"
+}

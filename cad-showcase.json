@@ -1,22 +1,13 @@
 {
-  "source": "cad/tower-lift/tower-l1.step",
-  "appearances": "cad/tower-lift/appearances.json",
-  "title": "R2C-T1 own-zone scorer and TOWER lift",
-  "scope": "Parked 159-solid Fusion assembly with four swerve modules, blue bumpers and two editable rear low-rung sliders. Public purchased parts use project-drawn representations.",
-  "viewerUrl": "https://ehartye.github.io/frc-2026-poc/detailed-design/",
+  "title": "Chute-fed hood shooter 1.0, preliminary design",
+  "status": "in-progress",
+  "scope": "Whole-robot blockout, parked at the end of the park-lower case: back on the carpet after the low-rung hang, with the intake stowed. Field parts and FUEL are hidden. It is not detailed CAD.",
+  "alt": "Rendered three-quarter still of the Chute-fed hood shooter blockout: a swerve chassis with blue bumpers carrying the tall hopper walls, the chute intake stowed between two climber tubes and the hooded flywheel at the rear.",
+  "still": "docs/robot/preliminary-design.png",
+  "viewerUrl": "https://ehartye.github.io/frc-2026-poc/preliminary-design/",
   "siteUrl": "https://ehartye.github.io/frc-2026-poc/",
   "backdrop": {
     "center": "#405F86",
     "edge": "#142F63"
-  },
-  "featuredAssembly": {
-    "title": "Robot 1780 with red alliance bumpers",
-    "scope": "Parked Fusion assembly with four swerve modules, a rear lift and two floor intake ramps supported by gussets on both sides. Purchased components use public project-drawn representations.",
-    "source": "cad/showcase-red/display.step",
-    "archive": "cad/showcase-red/display.f3d",
-    "still": "cad/showcase-red/assembly.png",
-    "mesh": "cad/showcase-red/display.glb",
-    "receipt": "cad/showcase-red/provenance.json",
-    "viewerUrl": "https://ehartye.github.io/frc-2026-poc/detailed-design/"
   }
 }

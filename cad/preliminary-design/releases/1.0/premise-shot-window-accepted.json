@@ -1,0 +1,19 @@
+{
+  "id": "shot-window",
+  "unit": "m",
+  "scenario": "Release-to-HUB distance with an entry band under all drag and spin corners",
+  "criterion": {
+    "range": [
+      2.4,
+      3.6
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "shooter"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/ballistics.json"
+  },
+  "basis": "ballistics.json at the launch trial's 0.267 m release: every drag and spin corner enters from 2.4 m with a 0.15 m/s band (0.03 m/s at 2.2 m)"
+}

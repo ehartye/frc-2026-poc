@@ -1,0 +1,251 @@
+{
+ "schema": "frc-2026-poc/official-field@1",
+ "source": {
+  "url": "https://firstfrc.blob.core.windows.net/frc2026/FieldAssets/FE-2026-rev-rebuilt-playing-field.step",
+  "file": "FE-2026-rev-rebuilt-playing-field.step",
+  "bytes": 35707894,
+  "stepSha256": "2ad90e42f2c2db0fab5b22bb65aa0851089e414d568d4ebd127624fa230c7671",
+  "edition": "FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT",
+  "rootProduct": "FE-2026: REBUILT Playing Field",
+  "retrieved": "2026-11-22",
+  "listedAt": "https://www.firstinspires.org/resources/library/frc/playing-field"
+ },
+ "officialFrame": "Millimetres, Z up, origin at the field centre on the carpet top. Blue alliance wall at +X (x = 8269.288), scoring table at +Y.",
+ "fieldFrame": {
+  "name": "project blue field frame",
+  "units": "mm",
+  "basis": "kickoff/field-profile.json: 651.2 x 317.7 in, origin at the blue alliance wall on the side away from the scoring table, +X toward red, +Y toward the scoring table, +Z up",
+  "matrix": [
+   [
+    -1,
+    0,
+    0,
+    8270.24
+   ],
+   [
+    0,
+    -1,
+    0,
+    4034.79
+   ],
+   [
+    0,
+    0,
+    1,
+    0
+   ]
+  ],
+  "mirrors": false
+ },
+ "tessellation": {
+  "linearDeflectionMm": 3.0,
+  "angularDeflectionRad": 0.8,
+  "roundedToMm": 0.01,
+  "displayMinMm": 150.0
+ },
+ "displaySkip": "\\b(bolt|nut|washer|cable tie|screw|rivet|quick release pin|bushing|nylock|shcs|bhcs|pin_quick|flat_phil|9\\d{4}A\\d+)\\b|nylock|flat_phil|pin_quick|Quick-Release Pin",
+ "fixtures": [
+  {
+   "id": "blue-hub",
+   "purpose": "Blue HUB the robot scores FUEL into",
+   "products": [
+    {
+     "product": "GE-26300: Hub <2>"
+    }
+   ],
+   "dockFrames": [
+    {
+     "id": "shot-pose",
+     "basis": "Layout robot frame at the shot pose: robot centre 2700 mm on the alliance-wall side of the HUB centre, on its centreline, robot +X toward the blue alliance wall. The acquire pose the layout draws is this frame shifted by (-400, -2000, 0).",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -6345.0
+      ],
+      [
+       0,
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "displayGroups": [
+    {
+     "id": "tags",
+     "name": "Blue HUB AprilTags",
+     "match": "AprilTag",
+     "color": "#f4f4f4"
+    },
+    {
+     "id": "counter",
+     "name": "Blue HUB fuel counter",
+     "match": "Fuel Counter",
+     "minMm": 400.0
+    },
+    {
+     "id": "net",
+     "name": "Blue HUB net and poles",
+     "match": "Net|Pole"
+    },
+    {
+     "id": "lights",
+     "name": "Blue HUB lights",
+     "match": "Light",
+     "minMm": 100.0
+    },
+    {
+     "id": "funnel",
+     "name": "Blue HUB funnel, roof and ramps",
+     "match": "Funnel|Roof|Diffuser|Ramp|Internal Wall"
+    },
+    {
+     "id": "panels",
+     "name": "Blue HUB panels",
+     "match": "Panel"
+    },
+    {
+     "id": "frame",
+     "name": "Blue HUB frame",
+     "match": ".",
+     "minMm": 300.0
+    }
+   ],
+   "notes": [
+    "GE-26329 are the six funnel sides whose top edge is the 72 in opening; GE-26400 is the fuel counter inside the body; GE-26318 and the net poles stand on the neutral-zone side.",
+    "The display meshes leave out fasteners, parts under 150 mm, frame parts under 300 mm and counter parts under 400 mm; the STEP keeps them."
+   ]
+  },
+  {
+   "id": "blue-tower",
+   "purpose": "Blue TOWER whose rungs the robot hangs from",
+   "products": [
+    {
+     "product": "GE-26500: Tower <2>"
+    }
+   ],
+   "dockFrames": [
+    {
+     "id": "as-drawn",
+     "basis": "Layout robot frame with the TOWER where build_package.py draws it for the shot pose (tower_face_shot = 1025, tower_y_shot = -1250): the field-side face of the uprights at X = 1025 and the rung centre at Y = -1250, robot +X toward the blue alliance wall. This is the layout's drawing position, not the TOWER's field position relative to the HUB; in the blue-hub shot-pose frame the same face is at X = 818.784 and the rung centre at Y = 288.925.",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -6138.784
+      ],
+      [
+       0,
+       1,
+       0,
+       -1538.925
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "displayGroups": [
+    {
+     "id": "tags",
+     "name": "Blue TOWER AprilTags",
+     "match": "AprilTag",
+     "color": "#f4f4f4"
+    },
+    {
+     "id": "rungs",
+     "name": "Blue TOWER rungs",
+     "match": "Tower Rung"
+    },
+    {
+     "id": "uprights",
+     "name": "Blue TOWER uprights",
+     "match": "Tower Upright(?! Support)|Gusset"
+    },
+    {
+     "id": "base",
+     "name": "Blue TOWER base",
+     "match": "Tower Base"
+    },
+    {
+     "id": "wall",
+     "name": "Blue TOWER wall panel and supports",
+     "match": "."
+    }
+   ],
+   "notes": [
+    "GE-26503 are the three rungs, GE-26502 the two uprights, GE-26501 the base, GE-26504 and GE-26507 the supports and braces back to the alliance wall panel.",
+    "The display meshes leave out fasteners and parts under 150 mm; the STEP keeps them."
+   ]
+  },
+  {
+   "id": "blue-bumps",
+   "purpose": "Blue BUMPs the robot drives over, one each side of the blue HUB",
+   "products": [
+    {
+     "product": "GE-26100: Bump <4>"
+    },
+    {
+     "product": "GE-26100: Bump <3>"
+    }
+   ],
+   "dockFrames": [
+    {
+     "id": "crossing",
+     "basis": "experiments/preliminary-design/bump_crossing.py side view: x along the crossing with 0 at the crest line, z up from the carpet",
+     "matrix": [
+      [
+       1,
+       0,
+       0,
+       -3644.9
+      ],
+      [
+       0,
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       0,
+       1,
+       0
+      ]
+     ]
+    }
+   ],
+   "displayGroups": [
+    {
+     "id": "plastic",
+     "name": "Blue BUMP ramps",
+     "match": "Bump Plastic"
+    },
+    {
+     "id": "base",
+     "name": "Blue BUMP bases",
+     "match": ".",
+     "minMm": 400.0
+    }
+   ],
+   "notes": [
+    "Bump <4> is the blue BUMP on the side away from the scoring table (low field Y), Bump <3> the one toward it. GE-26101 are the ramp plastics.",
+    "The display meshes leave out fasteners, parts under 150 mm and base parts under 400 mm; the STEP keeps them."
+   ]
+  }
+ ]
+}

@@ -13,7 +13,7 @@ docs/robot/r1-chassis/*.png binary
 docs/robot/r1-chassis/*.gz binary
 *.glb binary
 docs/vendor/* -text
-docs/robot/preliminary-layout-*.png binary
+docs/robot/preliminary-design.png binary
 cad/tower-lift/tower-l1.step -whitespace
 
 cad/assembly-release/foundation-student.step -whitespace
@@ -22,6 +22,6 @@ cad/showcase-red/display.step -whitespace
 cad/showcase-red/*.png binary
 experiments/tower-climb/head-support/*.step -text -whitespace
 
-# Preliminary design releases and their inputs are digest-pinned; keep exact bytes.
+# The layout check records the digest of each input it reads, and CI compares them on Linux: keep exact bytes.
 cad/preliminary-design/** -text
 docs/preliminary-design/** -text

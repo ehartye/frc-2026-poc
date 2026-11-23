@@ -1,0 +1,11 @@
+{
+  "id": "shot-window",
+  "unit": "m",
+  "scenario": "Release-to-HUB distance with an entry band under all drag and spin corners",
+  "value": 2.4279,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "releaseDistanceM"
+}
