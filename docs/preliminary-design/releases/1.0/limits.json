@@ -48,8 +48,8 @@
       "duty": "intake-deploy duty during intake-deploy",
       "requiredMotionMinV": 7.5
     },
-    "acquire-1-nominal": {
-      "stage": "acquire-1",
+    "acquire-nominal": {
+      "stage": "acquire",
       "batteryCondition": "nominal",
       "sources": [
         "drive",
@@ -60,11 +60,11 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-1",
+      "duty": "acquire duty during acquire",
       "requiredMotionMinV": 7.5
     },
-    "acquire-1-weak": {
-      "stage": "acquire-1",
+    "acquire-weak": {
+      "stage": "acquire",
       "batteryCondition": "weak",
       "sources": [
         "drive",
@@ -75,11 +75,11 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-1",
+      "duty": "acquire duty during acquire",
       "requiredMotionMinV": 7.5
     },
-    "acquire-2-nominal": {
-      "stage": "acquire-2",
+    "hopper-nominal": {
+      "stage": "hopper",
       "batteryCondition": "nominal",
       "sources": [
         "drive",
@@ -90,11 +90,11 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-2",
+      "duty": "acquire duty during hopper",
       "requiredMotionMinV": 7.5
     },
-    "acquire-2-weak": {
-      "stage": "acquire-2",
+    "hopper-weak": {
+      "stage": "hopper",
       "batteryCondition": "weak",
       "sources": [
         "drive",
@@ -105,127 +105,7 @@
         "climber",
         "controls"
       ],
-      "duty": "acquire duty during acquire-2",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-3-nominal": {
-      "stage": "acquire-3",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-3",
-      "requiredMotionMinV": 7.5
-    },
-    "acquire-3-weak": {
-      "stage": "acquire-3",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during acquire-3",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-1-nominal": {
-      "stage": "hopper-1",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-1",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-1-weak": {
-      "stage": "hopper-1",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-1",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-2-nominal": {
-      "stage": "hopper-2",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-2",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-2-weak": {
-      "stage": "hopper-2",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-2",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-3-nominal": {
-      "stage": "hopper-3",
-      "batteryCondition": "nominal",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-3",
-      "requiredMotionMinV": 7.5
-    },
-    "hopper-3-weak": {
-      "stage": "hopper-3",
-      "batteryCondition": "weak",
-      "sources": [
-        "drive",
-        "steer",
-        "intake",
-        "indexer",
-        "flywheel",
-        "climber",
-        "controls"
-      ],
-      "duty": "acquire duty during hopper-3",
+      "duty": "acquire duty during hopper",
       "requiredMotionMinV": 7.5
     },
     "loaded-transit-nominal": {
@@ -258,8 +138,8 @@
       "duty": "loaded-transit duty during loaded-transit",
       "requiredMotionMinV": 7.5
     },
-    "launch-1-nominal": {
-      "stage": "launch-1",
+    "launch-nominal": {
+      "stage": "launch",
       "batteryCondition": "nominal",
       "sources": [
         "drive",
@@ -270,11 +150,11 @@
         "climber",
         "controls"
       ],
-      "duty": "launch duty during launch-1",
+      "duty": "launch duty during launch",
       "requiredMotionMinV": 8.0
     },
-    "launch-1-weak": {
-      "stage": "launch-1",
+    "launch-weak": {
+      "stage": "launch",
       "batteryCondition": "weak",
       "sources": [
         "drive",
@@ -285,7 +165,7 @@
         "climber",
         "controls"
       ],
-      "duty": "launch duty during launch-1",
+      "duty": "launch duty during launch",
       "requiredMotionMinV": 8.0
     },
     "flight-1-nominal": {

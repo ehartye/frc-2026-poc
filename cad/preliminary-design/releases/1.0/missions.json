@@ -1,98 +1,64 @@
 {
   "missionCases": [
     {
-      "case": "acquire-3",
-      "kind": "field-interaction-trial",
+      "case": "acquire",
+      "kind": "operating-case",
       "accomplishes": "acquired",
-      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
-      }
+      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner"
     },
     {
-      "case": "hopper-3",
-      "kind": "field-interaction-trial",
+      "case": "hopper",
+      "kind": "operating-case",
       "accomplishes": "acquired",
-      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
-      }
+      "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner"
     },
     {
       "case": "loaded-transit",
       "kind": "operating-case",
       "accomplishes": "acquired",
-      "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/trial-hold.json"
-      }
+      "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield"
     },
     {
-      "case": "launch-1",
-      "kind": "field-interaction-trial",
-      "accomplishes": "delivered",
-      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
-      }
-    },
-    {
-      "case": "launch-1",
+      "case": "launch",
       "kind": "operating-case",
       "accomplishes": "delivered",
-      "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/trial-hopper-cycle.json"
-      }
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
     },
     {
-      "case": "launch-1",
+      "case": "launch",
       "kind": "operating-case",
       "accomplishes": "delivered",
-      "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/trial-batch.json"
-      }
+      "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5"
     },
     {
       "case": "flight-2",
-      "kind": "field-interaction-trial",
+      "kind": "operating-case",
       "accomplishes": "scored",
-      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
-      }
+      "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
     },
     {
       "case": "climb-lift",
       "kind": "operating-case",
       "accomplishes": "climb-held",
-      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
-      "trial": {
-        "file": "cad/preliminary-design/releases/1.0/trial-hang.json"
-      }
+      "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service"
     }
   ],
   "cycle": {
     "acquire": {
       "cases": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3"
+        "acquire"
       ]
     },
     "retain": {
       "cases": [
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit"
       ]
     },
     "transfer": {
       "cases": [
-        "launch-1"
+        "launch"
       ]
     },
     "deliver": {

@@ -200,14 +200,10 @@
   },
   "cycle": [
     "intake-deploy",
-    "acquire-1",
-    "acquire-2",
-    "acquire-3",
-    "hopper-1",
-    "hopper-2",
-    "hopper-3",
+    "acquire",
+    "hopper",
     "loaded-transit",
-    "launch-1",
+    "launch",
     "flight-1",
     "flight-2",
     "climb-reach",
@@ -225,9 +221,9 @@
     "offsetMm": [
       0,
       0,
-      40
+      80
     ],
-    "basis": "Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"
+    "basis": "Raise the front left module's motors 80 mm, as a taller motor stack would, so the carriage plate strikes them as it slides forward before it drops"
   },
   "stages": {
     "intake-deploy": {
@@ -238,13 +234,13 @@
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
       "pathToleranceMm": 40.0
     },
-    "acquire-1": {
+    "acquire": {
       "purpose": "operating",
       "phase": "collect",
-      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A circular arc fitted to the solved trace acquire-nominal 0.0000-0.3350 s of field-trials.json, within 39.6 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
+      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. The path is the pickup trial's fitted path (records/trials.json), within 7.5 mm of every traced sample; moved by contact with the intake",
       "minGapMm": 1.0,
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
+      "pathToleranceMm": 10.0,
       "transportedBy": {
         "tracked FUEL": {
           "mechanisms": [
@@ -253,64 +249,18 @@
           "drive": {
             "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
           },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-1.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+          "basis": "The intake belt and top roller lift the FUEL up the bumper face and the back plate; the library's pickup trial solves it",
+          "trial": "pickup"
         }
       }
     },
-    "acquire-2": {
-      "purpose": "operating",
-      "phase": "collect",
-      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A circular arc fitted to the solved trace acquire-nominal 0.3350-0.6380 s of field-trials.json, within 39.8 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
-      "minGapMm": 1.0,
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "intake"
-          ],
-          "drive": {
-            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-2.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
-        }
-      }
-    },
-    "acquire-3": {
-      "purpose": "operating",
-      "phase": "collect",
-      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A translation with a quadratic drop fitted to the solved trace acquire-nominal 0.6380-0.6544 s of field-trials.json, within 0.0 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
-      "minGapMm": 1.0,
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "intake"
-          ],
-          "drive": {
-            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
-        }
-      }
-    },
-    "hopper-1": {
+    "hopper": {
       "purpose": "operating",
       "phase": "stage-and-carry",
-      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A circular arc fitted to the solved trace entry-nominal 0.0000-0.2330 s of field-trials.json, within 39.4 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
+      "basis": "The FUEL drops from the chute to the floor belt, the belt carries it aft and the feeder roller draws it to the stage beam, where the roller and the belt stop and hold it clamped against the lane deck. The path is the entry trial's fitted path (records/trials.json), within 9.8 mm of every traced sample.",
       "minGapMm": 1.0,
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
+      "pathToleranceMm": 10.0,
       "transportedBy": {
         "tracked FUEL": {
           "mechanisms": [
@@ -318,61 +268,11 @@
             "floor belts"
           ],
           "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+            "feeders": "Feeder roller at its staging speed until the stage beam stops it",
+            "floor belts": "Floor belt toward the flywheel until the stage beam stops it"
           },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-1.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
-        }
-      }
-    },
-    "hopper-2": {
-      "purpose": "operating",
-      "phase": "stage-and-carry",
-      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A straight stroke fitted to the solved trace entry-nominal 0.2330-0.4130 s of field-trials.json, within 39.6 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
-      "minGapMm": 1.0,
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "floor belts"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-2.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
-        }
-      }
-    },
-    "hopper-3": {
-      "purpose": "operating",
-      "phase": "stage-and-carry",
-      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A straight stroke fitted to the solved trace entry-nominal 0.4130-1.4370 s of field-trials.json, within 28.3 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
-      "minGapMm": 1.0,
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "floor belts"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+          "trial": "entry",
+          "basis": "The floor belt carries the FUEL aft and the feeder roller draws it to the stage beam; the library's entry trial solves it"
         }
       }
     },
@@ -384,61 +284,45 @@
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
       "pathToleranceMm": 40.0
     },
-    "launch-1": {
+    "launch": {
       "purpose": "operating",
       "phase": "score",
-      "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it. A circular arc fitted to the solved trace launch-nominal 0.1000-0.2174 s of field-trials.json, within 27.0 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and shooter",
+      "basis": "On the feed command, once the flywheel is inside its 1% ready band, the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it toward the HUB. The path is the launch trial's fitted path (records/trials.json), within 3.3 mm of every traced sample.",
       "minGapMm": 1.0,
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
+      "pathToleranceMm": 10.0,
       "transportedBy": {
         "tracked FUEL": {
           "mechanisms": [
             "feeders",
+            "floor belts",
             "shooter"
           ],
           "drive": {
-            "feeders": "Feeder roller surface at 1.2 m/s from the feed command, given only with the wheel in its ready band; imposed in the trial",
-            "shooter": "Flywheel a free 0.0076 kg m2 body at a 13.6 m/s setpoint under two motors and a speed loop, solved in the trial"
+            "feeders": "Feeder roller fed only inside the flywheel ready band",
+            "floor belts": "Floor belt fed only inside the flywheel ready band",
+            "shooter": "Flywheel under two motors and a speed loop"
           },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
-          },
-          "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it"
+          "trial": "launch",
+          "basis": "The feeder rolls the FUEL into the flywheel, which squeezes it against the hood and releases it; the library's launch trial solves it"
         }
       }
     },
     "flight-1": {
       "purpose": "operating",
       "phase": "score",
-      "basis": "Free flight from the hood release into the HUB funnel. A translation with a quadratic drop fitted to the solved trace deliver-nominal 0.0000-0.8890 s of field-trials.json, within 7.4 mm of every traced sample (path tolerance 40 mm); no mechanism moves it here: a free path",
+      "basis": "Free flight from the hood release into the HUB funnel. A translation with a quadratic drop fitted to the solved trace deliver-nominal 0.0000-0.8890 s of field-trials.json, within 7.4 mm of every traced sample (path tolerance 40 mm). Prescribed in this draft: the stroke was fitted to the earlier project solver's trace, and the library trial of this interaction is not run yet (interaction flight). The stroke starts at the launch trial's release, 12 mm forward and 16 mm lower than the earlier trace's, and keeps the earlier trace's landing point.",
       "minGapMm": 1.0,
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "freePath": {
-        "tracked FUEL": {
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/flight-1.json"
-          },
-          "basis": "Free flight from the hood release into the HUB funnel"
-        }
-      }
+      "pathToleranceMm": 40.0
     },
     "flight-2": {
       "purpose": "operating",
       "phase": "score",
-      "basis": "Free flight from the hood release into the HUB funnel. A circular arc fitted to the solved trace deliver-nominal 0.8890-1.0037 s of field-trials.json, within 1.7 mm of every traced sample (path tolerance 40 mm); no mechanism moves it here: a free path",
+      "basis": "Free flight from the hood release into the HUB funnel. A circular arc fitted to the solved trace deliver-nominal 0.8890-1.0037 s of field-trials.json, within 1.7 mm of every traced sample (path tolerance 40 mm). Prescribed in this draft: the stroke was fitted to the earlier project solver's trace, and the library trial of this interaction is not run yet (interaction flight).",
       "minGapMm": 1.0,
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "freePath": {
-        "tracked FUEL": {
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
-          },
-          "basis": "Free flight from the hood release into the HUB funnel"
-        }
-      }
+      "pathToleranceMm": 40.0
     },
     "climb-reach": {
       "purpose": "operating",
@@ -1481,7 +1365,7 @@
         "electronics bay right"
       ]
     },
-    "architecture": "Chute-fed hood shooter · floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 × 714 mm four-module swerve base",
+    "architecture": "Chute-fed hood shooter \u00b7 floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 \u00d7 714 mm four-module swerve base",
     "alliance": "blue",
     "phases": {
       "collect": {
@@ -1508,14 +1392,10 @@
     },
     "caseKinds": {
       "intake-deploy": "nominal",
-      "acquire-1": "nominal",
-      "acquire-2": "nominal",
-      "acquire-3": "nominal",
-      "hopper-1": "nominal",
-      "hopper-2": "nominal",
-      "hopper-3": "nominal",
+      "acquire": "nominal",
+      "hopper": "nominal",
       "loaded-transit": "nominal",
-      "launch-1": "nominal",
+      "launch": "nominal",
       "flight-1": "nominal",
       "flight-2": "nominal",
       "climb-reach": "nominal",
@@ -1542,13 +1422,13 @@
       }
     ],
     "title": "Floor-fed hood shooter with a chute intake and a two-lane hopper",
-    "context": "Preliminary design · whole-robot blockout",
+    "context": "Preliminary design \u00b7 whole-robot blockout",
     "focus": "FUEL tracked: The mission cases follow this FUEL from the carpet into the HUB.",
     "notes": [
       "What it is: the whole-robot preliminary blockout of the Chute-fed hood shooter (floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
       "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are panel blocks; belts and rollers are rigid outlines; the back plate is drawn solid. The intake belt, top roller, back plate, feeder roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is an intended contact in its case, listed in contacts.json.",
       "Field: the HUB and TOWER are parts of FIRST's official field model (cad/field/official/), placed at the shot pose in their official positions relative to each other. Fasteners, tags, lights and the fuel counter are left out. The physics trials ran earlier against dimensioned surfaces, not these parts.",
-      "Tracked FUEL motion: its 9 checked cases are coarse strokes fitted to the solved acquire, entry, launch and deliver trials in field-trials.json, each within the path tolerance its case declares (largest fit error 39.8 mm). Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's. The replays after the checked cases play the recorded trials themselves.",
+      "Tracked FUEL motion: the acquire, hopper and launch cases are the library's pickup, entry and launch trials' own fitted paths. The two flight cases are still strokes fitted to the earlier project solver's delivery trace in field-trials.json; the 3D flight trial is not run yet, so they are prescribed. Each case is uniform in its own parameter, so playback timing inside a case is not the trial's.",
       "Solved in the trials: the FUEL against every surface; the intake belt speed under its motor and current limits; the flywheel speed under the FUEL's load and its motors. Imposed: robot approach speed (0.5 m/s), floor belt speed (1.2 m/s) and feeder roller speeds (0.6 and 1.2 m/s).",
       "Replays: one FUEL from the carpet into the HUB, the 24-FUEL collect, hold and feed cycle, the hold-back, the 24-shot batch and the hang are recorded physics trials in field-trials.json. The hopper cycle fed all 24 in 7.1-10.5 s over 16 arrival patterns.",
       "Prescribed, not simulated, in the checked cases: the intake slide, the field moving in the robot frame (TOWER approach), the hook swing and the climb strokes: battery-cover-remove, battery-withdraw, climb-reach, climb-seat, intake-deploy, intake-stow, loaded-transit, park-lower, shooter-withdraw, tower-forward, tower-lateral.",
@@ -1620,7 +1500,7 @@
     ],
     "runningBasis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
     "loadPaths": {
-      "FUEL tracked": "Moved by contact transport (feeders, floor belts, intake, shooter) in 7 cases, each bound to its trial window by a pinned transport record: acquire-1, acquire-2, acquire-3, hopper-1, hopper-2, hopper-3, launch-1 -> No mechanism moves it in 6 cases (carpet approach, flight over the back plate, the fall to the floor, free flight to the HUB, and riding with the field): flight-1, flight-2, tower-lateral, tower-forward, climb-lift, park-lower. The free-path strokes pin their trial window through freePath",
+      "FUEL tracked": "Moved by contact with the intake in the acquire case, with the floor belt and the feeders in the hopper case and with the feeders and the flywheel in the launch case, each on the path its library trial solved. Nothing moves it in flight-1 and flight-2: those free-flight strokes are prescribed in this draft, fitted to the earlier project solver's traces, until the 3D flight trial runs. It rides with the field in tower-lateral, tower-forward, climb-lift and park-lower",
       "battery": "Group datum: battery mounts on battery retention cleat aft at (-95, 291, 150) mm: Battery end face captured between the aft and fore cleats, with the strap over its top -> battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails -> floor pan is a frame structure member",
       "battery strap": "Group datum: battery strap mounts on battery retention cleat aft at (-95, 291, 199) mm: Strap anchored to the aft cleat and buckled to the fore cleat over the battery top -> battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails -> floor pan is a frame structure member",
       "climber hook left": "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top (+1 more mount datum) -> climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum) -> climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums) -> climber tube mount left is a frame structure member",
@@ -1653,5 +1533,55 @@
         "file": "cad/preliminary-design/releases/1.0/replays.json.gz"
       }
     ]
+  },
+  "trials": {
+    "file": "cad/preliminary-design/releases/1.0/records/trials.json"
+  },
+  "interactions": {
+    "pickup": {
+      "decides": "Whether the belt-and-roller intake lifts a floor FUEL over the bumper and the back plate at every assumed friction, and which pulley height and squeeze to build",
+      "trial": "pickup",
+      "cases": [
+        "acquire"
+      ]
+    },
+    "entry": {
+      "decides": "Whether one FUEL dropped from the chute reaches the stage beam and stops there, and the feeder squeeze to build",
+      "trial": "entry",
+      "cases": [
+        "hopper"
+      ]
+    },
+    "hold": {
+      "decides": "Whether the staged FUEL stays clear of the spinning flywheel through loaded driving and a queue push, with the feeder stopped",
+      "trial": "hold",
+      "cases": [
+        "loaded-transit"
+      ]
+    },
+    "launch": {
+      "decides": "Whether the flywheel and hood release the FUEL inside the scoring band, and the wheel inertia and setpoint to build",
+      "trial": "launch",
+      "cases": [
+        "launch"
+      ]
+    },
+    "flight": {
+      "decides": "Whether the released FUEL enters the HUB at the shot pose under the assumed drag and spin lift",
+      "trial": "flight",
+      "cases": [
+        "flight-2"
+      ]
+    },
+    "batch": {
+      "decides": "Whether 24 FUEL through the one flywheel all release inside the scoring band at the required rate",
+      "trial": "batch",
+      "cases": []
+    },
+    "hopper flow": {
+      "decides": "Whether 24 free FUEL arriving through the chute stage and feed in turn without a jam",
+      "trial": "hopper flow",
+      "cases": []
+    }
   }
 }
