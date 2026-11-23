@@ -1,0 +1,48 @@
+{
+  "exceptions": [
+    {
+      "path": "cad/assembly-release/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/showcase-red/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/own-zone/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/own-zone-upper/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/tower-lift/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/field/official/",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "scripts/export-showcase-cad.py",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "cad/build_original_fixture.py",
+      "reason": "detailed-design or Fusion-export tooling; awaits the detailed-design decision"
+    },
+    {
+      "path": "experiments/own-zone-cycle/field_mesh.py",
+      "reason": "Field registration and meshing that the Fusion-export tooling imports (cad/assembly-release/supplier.py, cad/own-zone-upper/animated.py); awaits the detailed-design decision"
+    },
+    {
+      "path": "experiments/own-zone-cycle/field_register.py",
+      "reason": "Field registration that the Fusion-export tooling and field_mesh.py import; awaits the detailed-design decision"
+    },
+    {
+      "path": "experiments/tower-climb/",
+      "reason": "Climb geometry study that the current narrative cites and cad/assembly-release/mast_load.py imports; stays until a library hang trial replaces it"
+    }
+  ]
+}
