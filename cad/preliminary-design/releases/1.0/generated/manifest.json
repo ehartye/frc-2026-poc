@@ -3,7 +3,7 @@
   "design": {
     "name": "Chute-fed hood shooter 1.0",
     "source": "design.json",
-    "sourceSha256": "38b46453f727681d28a30ba73106753bbd5b010afd3c102f8701f4167ec54923",
+    "sourceSha256": "3fd190c4124882b668c95b0adc54d429fb5229582477fdc788b9a19e06b86488",
     "frame": "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres"
   },
   "units": {
@@ -2189,11 +2189,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2214,11 +2212,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2239,11 +2235,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2264,11 +2258,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2289,11 +2281,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2314,11 +2304,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2339,11 +2327,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2364,11 +2350,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2389,11 +2373,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2414,11 +2396,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2439,11 +2419,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2464,11 +2442,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2489,11 +2465,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2514,11 +2488,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2539,11 +2511,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2564,11 +2534,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2589,11 +2557,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2614,11 +2580,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2639,11 +2603,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2664,11 +2626,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2689,11 +2649,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2714,11 +2672,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2739,11 +2695,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2764,11 +2718,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2789,11 +2741,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2814,11 +2764,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2839,11 +2787,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2864,11 +2810,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2889,11 +2833,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2914,11 +2856,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2939,11 +2879,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2964,11 +2902,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -2989,11 +2925,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3014,11 +2948,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3039,11 +2971,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3064,11 +2994,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3089,11 +3017,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3114,11 +3040,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3139,11 +3063,9 @@
       "during": [
         "intake-deploy",
         "acquire",
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1",
+        "launch",
         "flight-1",
         "flight-2",
         "climb-reach",
@@ -3202,9 +3124,9 @@
         "hopper rear wall"
       ],
       "during": [
-        "hopper-1"
+        "hopper"
       ],
-      "note": "entry-nominal 0.0000-0.2330 s: the trial presses the FUEL 4.7 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.4 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "entry trial: the floor belt, the feeder roller, the lane deck and the hopper rear wall carry and stage the FUEL"
     },
     {
       "pair": [
@@ -3212,10 +3134,9 @@
         "floor belt main"
       ],
       "during": [
-        "hopper-2",
-        "hopper-3"
+        "hopper"
       ],
-      "note": "entry-nominal 0.2330-0.4130 s: the trial presses the FUEL 5.6 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.6 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "entry trial: the floor belt, the feeder roller, the lane deck and the hopper rear wall carry and stage the FUEL"
     },
     {
       "pair": [
@@ -3223,11 +3144,11 @@
         "feeder roller left"
       ],
       "during": [
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1"
+        "launch"
       ],
-      "note": "entry-nominal 0.4130-1.4370 s: the trial presses the FUEL 6.9 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 28.3 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "entry, hold and launch trials: the FUEL is staged and held clamped between the feeder roller and the lane deck, then fed to the flywheel"
     },
     {
       "pair": [
@@ -3235,11 +3156,11 @@
         "lane deck"
       ],
       "during": [
-        "hopper-3",
+        "hopper",
         "loaded-transit",
-        "launch-1"
+        "launch"
       ],
-      "note": "entry-nominal 0.4130-1.4370 s: the trial presses the FUEL 7.1 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 28.3 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "entry, hold and launch trials: the FUEL is staged and held clamped between the feeder roller and the lane deck, then fed to the flywheel"
     },
     {
       "pair": [
@@ -3247,10 +3168,10 @@
         "flywheel"
       ],
       "during": [
-        "launch-1",
+        "launch",
         "flight-1"
       ],
-      "note": "launch-nominal 0.1000-0.2174 s: the trial presses the FUEL 7.7 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 27.0 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "launch trial: the flywheel squeezes the FUEL against the hood as it launches it; the free flight that follows is prescribed"
     },
     {
       "pair": [
@@ -3258,10 +3179,10 @@
         "hood"
       ],
       "during": [
-        "launch-1",
+        "launch",
         "flight-1"
       ],
-      "note": "launch-nominal 0.1000-0.2174 s: the trial presses the FUEL 10.2 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 27.0 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "launch trial: the flywheel squeezes the FUEL against the hood as it launches it; the free flight that follows is prescribed"
     },
     {
       "pair": [
@@ -3407,7 +3328,7 @@
         750.0
       ]
     },
-    "hopper-1 start": {
+    "hopper start": {
       "groups": {
         "field": [
           {
@@ -3459,172 +3380,6 @@
                 82.5,
                 552.3576
               ]
-            ]
-          }
-        ]
-      },
-      "robotBoundsMm": [
-        -417.5,
-        -434.5,
-        0.0,
-        584.614,
-        434.5,
-        750.0
-      ]
-    },
-    "hopper-2 start": {
-      "groups": {
-        "field": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              0.0,
-              -2000.0,
-              0.0
-            ]
-          }
-        ],
-        "tracked FUEL": [
-          {
-            "kind": "path",
-            "curve": "straight",
-            "throughMm": [
-              [
-                720.0,
-                82.5,
-                75.057
-              ],
-              [
-                642.0135,
-                82.5,
-                74.8226
-              ],
-              [
-                580.9642,
-                82.5,
-                53.6501
-              ],
-              [
-                487.4611,
-                82.5,
-                78.2494
-              ],
-              [
-                482.0979,
-                82.5,
-                454.6966
-              ],
-              [
-                445.8999,
-                82.5,
-                522.562
-              ],
-              [
-                339.9112,
-                82.5,
-                552.3576
-              ]
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          }
-        ]
-      },
-      "robotBoundsMm": [
-        -417.5,
-        -434.5,
-        0.0,
-        584.614,
-        434.5,
-        750.0
-      ]
-    },
-    "hopper-3 start": {
-      "groups": {
-        "field": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              0.0,
-              -2000.0,
-              0.0
-            ]
-          }
-        ],
-        "tracked FUEL": [
-          {
-            "kind": "path",
-            "curve": "straight",
-            "throughMm": [
-              [
-                720.0,
-                82.5,
-                75.057
-              ],
-              [
-                642.0135,
-                82.5,
-                74.8226
-              ],
-              [
-                580.9642,
-                82.5,
-                53.6501
-              ],
-              [
-                487.4611,
-                82.5,
-                78.2494
-              ],
-              [
-                482.0979,
-                82.5,
-                454.6966
-              ],
-              [
-                445.8999,
-                82.5,
-                522.562
-              ],
-              [
-                339.9112,
-                82.5,
-                552.3576
-              ]
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
             ]
           }
         ]
@@ -3693,33 +3448,49 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
-            ]
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -157.6,
-              0.0,
-              -39.98
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
             ]
           }
         ]
@@ -3733,7 +3504,7 @@
         750.0
       ]
     },
-    "launch-1 start": {
+    "launch start": {
       "groups": {
         "tracked FUEL": [
           {
@@ -3778,33 +3549,49 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
-            ]
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -157.6,
-              0.0,
-              -39.98
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
             ]
           }
         ]
@@ -3863,48 +3650,76 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
             ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              -157.6,
-              0.0,
-              -39.98
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
           }
         ]
       },
@@ -3962,55 +3777,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4021,12 +3864,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3166.411972,
+        -3166.5388,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1669.29953
+        1670.651549
       ]
     },
     "climb-reach start": {
@@ -4074,55 +3917,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4147,12 +4018,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.243645,
+        -3009.649026,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "intake-stow start": {
@@ -4232,55 +4103,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4305,12 +4204,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.243645,
+        -3009.649026,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "tower-lateral start": {
@@ -4400,55 +4299,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4473,12 +4400,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.243645,
+        -3009.649026,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "tower-forward start": {
@@ -4578,55 +4505,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4659,12 +4614,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.243645,
+        -3009.649026,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "climb-seat start": {
@@ -4772,55 +4727,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -4861,12 +4844,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.527895,
+        -3405.933276,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "climb-lift start": {
@@ -5000,55 +4983,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -5089,12 +5100,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.527895,
+        -3405.933276,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.88718
+        1576.108028
       ]
     },
     "park-lower start": {
@@ -5260,55 +5271,83 @@
             ]
           },
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
+            ]
           },
           {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
             ]
           },
           {
             "kind": "translation",
             "travelMm": [
-              -157.6,
+              -2831.3032,
               0.0,
-              -39.98
-            ]
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -2819.31,
-              0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {
@@ -5357,12 +5396,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.527895,
+        -3405.933276,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1504.88718
+        1506.108028
       ]
     },
     "battery-cover-remove start": {
@@ -5476,52 +5515,54 @@
         ]
       }
     },
-    "hopper-1": {
-      "from": "hopper-1 start",
+    "hopper": {
+      "from": "hopper start",
       "moves": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              282.972047,
-              82.5,
-              255.144133
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -76.853076
-          }
-        ]
-      }
-    },
-    "hopper-2": {
-      "from": "hopper-2 start",
-      "moves": {
-        "tracked FUEL": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              93.56,
-              0.0,
-              -161.23
-            ]
-          }
-        ]
-      }
-    },
-    "hopper-3": {
-      "from": "hopper-3 start",
-      "moves": {
-        "tracked FUEL": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              -157.6,
-              0.0,
-              -39.98
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                339.92,
+                82.5,
+                552.4
+              ],
+              [
+                246.57,
+                82.5,
+                551.1672
+              ],
+              [
+                153.22,
+                82.5,
+                525.4177
+              ],
+              [
+                -14.81,
+                82.5,
+                417.2868
+              ],
+              [
+                95.5689,
+                82.5,
+                178.7661
+              ],
+              [
+                77.0703,
+                82.5,
+                230.1697
+              ],
+              [
+                57.4109,
+                82.5,
+                182.8444
+              ],
+              [
+                -57.6788,
+                82.5,
+                178.353
+              ]
             ]
           }
         ]
@@ -5542,23 +5583,35 @@
         ]
       }
     },
-    "launch-1": {
-      "from": "launch-1 start",
+    "launch": {
+      "from": "launch start",
       "moves": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              -48.816185,
-              82.5,
-              498.424267
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 42.40866
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                -57.58,
+                82.5,
+                177.0
+              ],
+              [
+                -191.9366,
+                82.5,
+                183.6254
+              ],
+              [
+                -235.8318,
+                82.5,
+                212.8825
+              ],
+              [
+                -260.071,
+                82.5,
+                251.3443
+              ]
+            ]
           }
         ]
       }
@@ -5570,9 +5623,9 @@
           {
             "kind": "translation",
             "travelMm": [
-              -2819.31,
+              -2831.3032,
               0.0,
-              5249.918851
+              5265.5855
             ]
           },
           {

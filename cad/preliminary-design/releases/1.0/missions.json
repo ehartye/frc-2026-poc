@@ -7,7 +7,7 @@
       "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner"
     },
     {
-      "case": "hopper-3",
+      "case": "hopper",
       "kind": "operating-case",
       "accomplishes": "acquired",
       "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner"
@@ -19,13 +19,13 @@
       "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield"
     },
     {
-      "case": "launch-1",
+      "case": "launch",
       "kind": "operating-case",
       "accomplishes": "delivered",
       "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB"
     },
     {
-      "case": "launch-1",
+      "case": "launch",
       "kind": "operating-case",
       "accomplishes": "delivered",
       "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5"
@@ -52,15 +52,13 @@
     },
     "retain": {
       "cases": [
-        "hopper-1",
-        "hopper-2",
-        "hopper-3",
+        "hopper",
         "loaded-transit"
       ]
     },
     "transfer": {
       "cases": [
-        "launch-1"
+        "launch"
       ]
     },
     "deliver": {

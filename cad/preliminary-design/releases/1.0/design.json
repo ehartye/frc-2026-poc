@@ -260,55 +260,55 @@
     {"group": "climber tubes", "on": "intake slide rail left", "atMm": [200.0, 266.0, 345.0], "note": "Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail", "member": "climber winch"}
   ],
   "contacts": [
-    {"pair": ["hub front panel bottom", "hub front panel top 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel bottom", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel bottom", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel top 1", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel top 1", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel top 2", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub front panel top 2", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 3"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 4"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 5"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel base", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 1", "hub funnel side 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 1", "hub funnel side 3"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 2", "hub funnel side 4"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 3", "hub funnel side 5"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 4", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub funnel side 5", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub rear panel", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["hub rear panel", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower base", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower base", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower base", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower base", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 1", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 1", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 1", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 1", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 2", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 2", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 2", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 2", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 3", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 3", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 3", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower rung 3", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower upright inner 1", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
-    {"pair": ["tower upright inner 2", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper-1", "hopper-2", "hopper-3", "loaded-transit", "launch-1", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel bottom", "hub front panel top 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel bottom", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel bottom", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel top 1", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel top 1", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel top 2", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub front panel top 2", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 3"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 4"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 5"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel base", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 1", "hub funnel side 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 1", "hub funnel side 3"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 2", "hub funnel side 4"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 3", "hub funnel side 5"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 4", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub funnel side 5", "hub funnel side 6"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub rear panel", "hub side panel 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["hub rear panel", "hub side panel 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower base", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower base", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower base", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower base", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 1", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 1", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 1", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 1", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 2", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 2", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 2", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 2", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 3", "tower upright inner 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 3", "tower upright inner 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 3", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower rung 3", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower upright inner 1", "tower upright outer 1"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
+    {"pair": ["tower upright inner 2", "tower upright outer 2"], "during": ["intake-deploy", "acquire", "hopper", "loaded-transit", "launch", "flight-1", "flight-2", "climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift", "park-lower"], "note": "Two parts of the official field assembly that are built against each other"},
     {"pair": ["FUEL tracked", "bumper front"], "during": ["acquire"], "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"},
     {"pair": ["FUEL tracked", "intake back plate"], "during": ["acquire"], "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"},
     {"pair": ["FUEL tracked", "intake belt module"], "during": ["acquire"], "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"},
     {"pair": ["FUEL tracked", "intake top roller"], "during": ["acquire"], "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"},
-    {"pair": ["FUEL tracked", "hopper rear wall"], "during": ["hopper-1"], "note": "entry-nominal 0.0000-0.2330 s: the trial presses the FUEL 4.7 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.4 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
-    {"pair": ["FUEL tracked", "floor belt main"], "during": ["hopper-2", "hopper-3"], "note": "entry-nominal 0.2330-0.4130 s: the trial presses the FUEL 5.6 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.6 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
-    {"pair": ["FUEL tracked", "feeder roller left"], "during": ["hopper-3", "loaded-transit", "launch-1"], "note": "entry-nominal 0.4130-1.4370 s: the trial presses the FUEL 6.9 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 28.3 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
-    {"pair": ["FUEL tracked", "lane deck"], "during": ["hopper-3", "loaded-transit", "launch-1"], "note": "entry-nominal 0.4130-1.4370 s: the trial presses the FUEL 7.1 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 28.3 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
-    {"pair": ["FUEL tracked", "flywheel"], "during": ["launch-1", "flight-1"], "note": "launch-nominal 0.1000-0.2174 s: the trial presses the FUEL 7.7 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 27.0 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
-    {"pair": ["FUEL tracked", "hood"], "during": ["launch-1", "flight-1"], "note": "launch-nominal 0.1000-0.2174 s: the trial presses the FUEL 10.2 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 27.0 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"},
+    {"pair": ["FUEL tracked", "hopper rear wall"], "during": ["hopper"], "note": "entry trial: the floor belt, the feeder roller, the lane deck and the hopper rear wall carry and stage the FUEL"},
+    {"pair": ["FUEL tracked", "floor belt main"], "during": ["hopper"], "note": "entry trial: the floor belt, the feeder roller, the lane deck and the hopper rear wall carry and stage the FUEL"},
+    {"pair": ["FUEL tracked", "feeder roller left"], "during": ["hopper", "loaded-transit", "launch"], "note": "entry, hold and launch trials: the FUEL is staged and held clamped between the feeder roller and the lane deck, then fed to the flywheel"},
+    {"pair": ["FUEL tracked", "lane deck"], "during": ["hopper", "loaded-transit", "launch"], "note": "entry, hold and launch trials: the FUEL is staged and held clamped between the feeder roller and the lane deck, then fed to the flywheel"},
+    {"pair": ["FUEL tracked", "flywheel"], "during": ["launch", "flight-1"], "note": "launch trial: the flywheel squeezes the FUEL against the hood as it launches it; the free flight that follows is prescribed"},
+    {"pair": ["FUEL tracked", "hood"], "during": ["launch", "flight-1"], "note": "launch trial: the flywheel squeezes the FUEL against the hood as it launches it; the free flight that follows is prescribed"},
     {"pair": ["FUEL tracked", "hub funnel base"], "during": ["flight-1", "flight-2"], "note": "deliver-nominal 0.0000-0.8890 s: the FUEL enters the HUB opening and comes to rest in the funnel. The delivery trial solved the flight against a dimensioned opening, not these official parts, so where it lands on them is not a trial result (risk shot-calibration)"},
     {"pair": ["FUEL tracked", "hub funnel side 1"], "during": ["flight-1", "flight-2"], "note": "deliver-nominal 0.0000-0.8890 s: the FUEL enters the HUB opening and comes to rest in the funnel. The delivery trial solved the flight against a dimensioned opening, not these official parts, so where it lands on them is not a trial result (risk shot-calibration)"},
     {"pair": ["FUEL tracked", "hub funnel side 2"], "during": ["flight-1", "flight-2"], "note": "deliver-nominal 0.0000-0.8890 s: the FUEL enters the HUB opening and comes to rest in the funnel. The delivery trial solved the flight against a dimensioned opening, not these official parts, so where it lands on them is not a trial result (risk shot-calibration)"},
@@ -326,58 +326,50 @@
     "acquire start": {
       "field": [{"kind": "translation", "travelMm": [-0.0, -2000.0, -0.0]}]
     },
-    "hopper-1 start": {
+    "hopper start": {
       "field": [{"kind": "translation", "travelMm": [-0.0, -2000.0, -0.0]}],
       "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}]
     },
-    "hopper-2 start": {
-      "field": [{"kind": "translation", "travelMm": [-0.0, -2000.0, -0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}]
-    },
-    "hopper-3 start": {
-      "field": [{"kind": "translation", "travelMm": [-0.0, -2000.0, -0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}]
-    },
     "loaded-transit start": {
       "field": [{"kind": "translation", "travelMm": [-0.0, -2000.0, -0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}]
     },
-    "launch-1 start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}]
+    "launch start": {
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}]
     },
     "flight-1 start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}]
     },
     "flight-2 start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
     },
     "climb-reach start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "intake-stow start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "tower-lateral start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "tower-forward start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}]
     },
     "climb-seat start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
     },
     "climb-lift start": {
       "climber inner tubes": [{"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}],
@@ -385,7 +377,7 @@
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}, {"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
     },
     "park-lower start": {
       "climber inner tubes": [{"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
@@ -393,7 +385,7 @@
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}, {"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}, {"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}, {"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}, {"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}, {"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}]
     },
     "battery-cover-remove start": {},
     "battery-withdraw start": {},
@@ -406,23 +398,17 @@
     "acquire": {"from": "acquire start", "moves": {
       "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}]
     }},
-    "hopper-1": {"from": "hopper-1 start", "moves": {
-      "tracked FUEL": [{"kind": "rotation", "originMm": [282.972047068857, 82.5, 255.14413304104158], "axis": [0.0, 1.0, 0.0], "travelDeg": -76.8530760172679}]
-    }},
-    "hopper-2": {"from": "hopper-2 start", "moves": {
-      "tracked FUEL": [{"kind": "translation", "travelMm": [93.56, 0.0, -161.22999999999996]}]
-    }},
-    "hopper-3": {"from": "hopper-3 start", "moves": {
-      "tracked FUEL": [{"kind": "translation", "travelMm": [-157.6, 0.0, -39.98000000000002]}]
+    "hopper": {"from": "hopper start", "moves": {
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}]
     }},
     "loaded-transit": {"from": "loaded-transit start", "moves": {
       "field": [{"kind": "translation", "travelMm": [0.0, 2000.0, 0.0]}]
     }},
-    "launch-1": {"from": "launch-1 start", "moves": {
-      "tracked FUEL": [{"kind": "rotation", "originMm": [-48.81618521847922, 82.5, 498.4242666852638], "axis": [0.0, 1.0, 0.0], "travelDeg": 42.408659683294616}]
+    "launch": {"from": "launch start", "moves": {
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}]
     }},
     "flight-1": {"from": "flight-1 start", "moves": {
-      "tracked FUEL": [{"kind": "translation", "travelMm": [-2819.31, 0.0, 5249.918850602449]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
+      "tracked FUEL": [{"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
     }},
     "flight-2": {"from": "flight-2 start", "moves": {
       "tracked FUEL": [{"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
@@ -482,22 +468,25 @@
     "belt": {"note": "FUEL on the gripping intake belt and top roller. Estimate: no FUEL force-deflection curve or friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500.0, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}},
     "lane deck": {"note": "FUEL on the polycarbonate lane deck. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.3, 0.8]}},
     "feeder": {"note": "FUEL on the feeder roller's rubber. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}},
-    "flywheel": {"note": "FUEL on the flywheel tread. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}}
+    "flywheel": {"note": "FUEL on the flywheel tread. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}},
+    "hood": {"note": "FUEL on the hood's polycarbonate face. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.3, 0.8]}}
   },
   "motors": {
-    "NEO": {"note": "Brushless motor class the project assumes: 5676 rpm free, 2.6 N m stall, 105 A stall at 12 V.", "ohm": {"value": "=12 / 105", "measured": "maker's data sheet"}, "ktNmPerA": {"value": "=2.6 / (105 - 1.8)", "measured": "maker's data sheet"}, "keVsPerRad": {"value": "=(12 - 1.8 * 12 / 105) / (5676 * 2 * pi / 60)", "measured": "maker's data sheet"}}
+    "NEO": {"note": "Brushless motor class the project assumes: 5676 rpm free, 2.6 N m stall, 105 A stall at 12 V.", "ohm": {"value": "=12 / 105", "measured": "maker's data sheet"}, "ktNmPerA": {"value": "=2.6 / (105 - 1.8)", "measured": "maker's data sheet"}, "keVsPerRad": {"value": "=(12 - 1.8 * 12 / 105) / (5676 * 2 * pi / 60)", "measured": "maker's data sheet"}},
+    "NEO pair": {"note": "Two NEO-class motors on one shaft: twice the torque per amp, half the winding resistance.", "ohm": {"value": "=12 / 105 / 2", "measured": "maker's data sheet, two motors in parallel"}, "ktNmPerA": {"value": "=2.6 / (105 - 1.8)", "measured": "maker's data sheet; with the current shared, the pair gives this per amp of each"}, "keVsPerRad": {"value": "=(12 - 1.8 * 12 / 105) / (5676 * 2 * pi / 60)", "measured": "maker's data sheet"}}
   },
   "drives": {
     "intake belt": {"note": "One NEO drives the intake belt and, through a 2:1 pulley, the top roller.", "motor": "NEO", "gear": 2.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": "=rp", "movingKg": {"value": 2.2, "assumed": [1.8, 2.6]}, "statorLimitA": 40, "supplyLimitA": 30, "turns": [{"solid": "intake belt module", "axis": [0, 1, 0]}, {"solid": "intake top roller", "axis": [0, 1, 0], "ratio": 2.0}]},
     "feeder left": {"note": "One motor turns the left feeder roller through a reduction.", "motor": "NEO", "gear": 5.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": 25.4, "movingKg": {"value": 0.3, "assumed": [0.2, 0.4]}, "statorLimitA": 40, "turns": [{"solid": "feeder roller left", "axis": [0, 1, 0]}]},
     "floor belt": {"note": "The floor belt's top run moves aft, toward the flywheel.", "motor": "NEO", "gear": 5.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": 18.5, "movingKg": {"value": 0.5, "assumed": [0.3, 0.7]}, "statorLimitA": 40, "turns": [{"solid": "floor belt main", "axis": [0, -1, 0]}, {"solid": "floor belt front", "axis": [0, -1, 0]}]},
-    "flywheel": {"note": "Two motors turn the flywheel directly.", "motor": "NEO", "gear": 1.0, "efficiency": {"value": 0.9, "assumed": [0.85, 0.95]}, "radiusMm": "=fly_r", "movingKg": {"value": 2.56, "assumed": [2.4, 2.7]}, "statorLimitA": 60, "turns": [{"solid": "flywheel", "axis": [0, 1, 0]}]}
+    "flywheel": {"note": "Two motors turn the flywheel directly; the roller and one inertia ring hold 0.0076 kg m2, carried here as 2.95 kg at the tread.", "motor": "NEO pair", "gear": 1.0, "efficiency": {"value": 0.9, "assumed": [0.85, 0.95]}, "radiusMm": "=fly_r", "movingKg": {"value": 2.95, "assumed": [2.6, 3.3]}, "statorLimitA": 80, "supplyLimitA": 60, "turns": [{"solid": "flywheel", "axis": [0, 1, 0]}]}
   },
   "adjustments": {
     "intake squeeze": {"input": "parameters.squeeze", "kind": "mechanical", "range": [15, 30], "step": 2.5, "note": "Slotted bearing blocks move the belt module toward or away from the bumper face."},
     "intake belt speed": {"input": "parameters.belt_mps", "kind": "setpoint", "range": [2.5, 4.0], "note": "The intake belt's speed setpoint in software."},
     "belt pulley height": {"input": "parameters.pulley_drop", "kind": "mechanical", "range": [10, 30], "step": 5, "note": "Slotted bottom-pulley plates set how far below the squeeze line the belt meets the FUEL."},
-    "floor belt speed": {"input": "commands.floor belt.speedMps", "kind": "setpoint", "range": [1.2, 2.0], "note": "The floor belt's speed setpoint in software, while a FUEL is on its way to the stage."}
+    "floor belt speed": {"input": "commands.floor belt.speedMps", "kind": "setpoint", "range": [1.2, 2.0], "note": "The floor belt's speed setpoint in software, while a FUEL is on its way to the stage."},
+    "flywheel setpoint": {"input": "commands.flywheel.setpointMps", "kind": "setpoint", "range": [13.1, 14.1], "note": "The flywheel surface speed set in software."}
   },
   "interactions": {
     "pickup": {
@@ -566,12 +555,10 @@
         ]
       ],
       "motions": [
-        "hopper-1",
-        "hopper-2",
-        "hopper-3"
+        "hopper"
       ],
       "pieceSolid": "FUEL tracked",
-      "squeezeMotion": "hopper-3",
+      "squeezeMotion": "hopper",
       "approach": {
         "angleDeg": [
           -5,
@@ -651,10 +638,10 @@
         ]
       ],
       "motions": [
-        "launch-1"
+        "launch"
       ],
       "pieceSolid": "FUEL tracked",
-      "squeezeMotion": "launch-1",
+      "squeezeMotion": "launch",
       "approach": {
         "angleDeg": [
           0,
@@ -725,7 +712,7 @@
       ],
       "piecesAtOnce": 24,
       "motions": [
-        "launch-1"
+        "launch"
       ],
       "approach": {
         "angleDeg": [
@@ -768,9 +755,7 @@
       ],
       "piecesAtOnce": 24,
       "motions": [
-        "hopper-1",
-        "hopper-2",
-        "hopper-3"
+        "hopper"
       ],
       "approach": {
         "angleDeg": [
@@ -1304,6 +1289,200 @@
       ],
       "adjustments": [
         "floor belt speed"
+      ]
+    },
+    "launch": {
+      "note": "Launch: the staged FUEL is fed into the spinning flywheel only once the wheel is in its ready band, squeezed between the wheel and the hood and released toward the HUB.",
+      "assumes": [
+        {
+          "id": "one-lane",
+          "text": "The left lane stands for both; the lanes are mirror images."
+        },
+        {
+          "id": "wheel-inertia",
+          "text": "The flywheel's inertia is carried as a mass at its tread."
+        }
+      ],
+      "plane": {
+        "normal": "y",
+        "atMm": 82.5
+      },
+      "stepS": 5e-05,
+      "durationS": 1.0,
+      "traceS": 0.002,
+      "fitToleranceMm": 10,
+      "planar": {
+        "frictionLaw": "stick"
+      },
+      "piece": {
+        "use": "FUEL",
+        "start": {
+          "atMm": [
+            -57.58,
+            177.0
+          ]
+        }
+      },
+      "commands": {
+        "flywheel": {
+          "mode": "speed",
+          "setpointMps": 13.6,
+          "band": 0.005,
+          "busV": 12.0,
+          "startMps": 13.6
+        },
+        "feeder left": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": 13.46
+                  },
+                  {
+                    "signal": "tS",
+                    "above": 0.1
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              },
+              "note": "Fed only inside the 1% ready band."
+            }
+          ]
+        },
+        "floor belt": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": 13.46
+                  },
+                  {
+                    "signal": "tS",
+                    "above": 0.1
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            }
+          ]
+        }
+      },
+      "surfaces": [
+        {
+          "name": "lane deck",
+          "material": "lane deck",
+          "solid": "lane deck"
+        },
+        {
+          "name": "floor belt main",
+          "material": "feeder",
+          "solid": "floor belt main"
+        },
+        {
+          "name": "feeder roller left",
+          "material": "feeder",
+          "solid": "feeder roller left"
+        },
+        {
+          "name": "flywheel",
+          "material": "flywheel",
+          "solid": "flywheel"
+        },
+        {
+          "name": "hood",
+          "material": "hood",
+          "solid": "hood"
+        }
+      ],
+      "events": [
+        {
+          "name": "released",
+          "when": {
+            "all": [
+              {
+                "signal": "xMm",
+                "below": -260
+              },
+              {
+                "signal": "zMm",
+                "above": 250
+              }
+            ]
+          },
+          "outcome": "released"
+        },
+        {
+          "name": "fell back",
+          "when": {
+            "signal": "zMm",
+            "below": 50
+          },
+          "outcome": "fell back"
+        }
+      ],
+      "measures": {
+        "releaseSpeed": {
+          "final": "speedMps"
+        },
+        "lowestWheel": {
+          "lowest": "drive.flywheel.speedMps"
+        },
+        "peakSupplyA": {
+          "peak": "drive.flywheel.supplyA"
+        }
+      },
+      "pass": {
+        "outcomes": [
+          "released"
+        ],
+        "limits": [
+          {
+            "measure": "releaseSpeed",
+            "atLeast": 6.725
+          },
+          {
+            "measure": "releaseSpeed",
+            "atMost": 7.1
+          }
+        ]
+      },
+      "control": {
+        "change": {
+          "commands.flywheel": {
+            "mode": "voltage",
+            "busV": null,
+            "startMps": 0.0
+          }
+        },
+        "note": "Flywheel stopped and unpowered: nothing launches the FUEL."
+      },
+      "brackets": [
+        {
+          "input": "commands.flywheel.setpointMps",
+          "unit": "m/s",
+          "values": [
+            13.1,
+            13.3,
+            13.6,
+            13.9,
+            14.1
+          ]
+        }
+      ],
+      "adjustments": [
+        "flywheel setpoint"
       ]
     }
   }

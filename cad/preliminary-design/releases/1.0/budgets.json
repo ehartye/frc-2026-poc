@@ -388,7 +388,7 @@
         0.026
       ]
     },
-    "hopper-1-nominal": {
+    "hopper-nominal": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
       "loadedKg": [
         55.963,
@@ -433,187 +433,7 @@
         0.016
       ]
     },
-    "hopper-1-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
-      "loadedKg": [
-        55.963,
-        69.809
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          12
-        ],
-        "flywheel": [
-          2,
-          10
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        11.9,
-        12.2
-      ],
-      "resistanceOhm": [
-        0.02,
-        0.026
-      ]
-    },
-    "hopper-2-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
-      "loadedKg": [
-        55.963,
-        69.809
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          12
-        ],
-        "flywheel": [
-          2,
-          10
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        12.4,
-        12.8
-      ],
-      "resistanceOhm": [
-        0.012,
-        0.016
-      ]
-    },
-    "hopper-2-weak": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
-      "loadedKg": [
-        55.963,
-        69.809
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          12
-        ],
-        "flywheel": [
-          2,
-          10
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        11.9,
-        12.2
-      ],
-      "resistanceOhm": [
-        0.02,
-        0.026
-      ]
-    },
-    "hopper-3-nominal": {
-      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
-      "loadedKg": [
-        55.963,
-        69.809
-      ],
-      "batterySideA": {
-        "drive": [
-          20,
-          90
-        ],
-        "steer": [
-          2,
-          10
-        ],
-        "intake": [
-          10,
-          30
-        ],
-        "indexer": [
-          2,
-          12
-        ],
-        "flywheel": [
-          2,
-          10
-        ],
-        "climber": [
-          0,
-          0
-        ],
-        "controls": [
-          3,
-          6
-        ]
-      },
-      "openCircuitV": [
-        12.4,
-        12.8
-      ],
-      "resistanceOhm": [
-        0.012,
-        0.016
-      ]
-    },
-    "hopper-3-weak": {
+    "hopper-weak": {
       "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
       "loadedKg": [
         55.963,
@@ -748,7 +568,7 @@
         0.026
       ]
     },
-    "launch-1-nominal": {
+    "launch-nominal": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
       "loadedKg": [
         55.963,
@@ -793,7 +613,7 @@
         0.016
       ]
     },
-    "launch-1-weak": {
+    "launch-weak": {
       "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
       "loadedKg": [
         55.963,
