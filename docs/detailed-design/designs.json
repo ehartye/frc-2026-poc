@@ -3,16 +3,6 @@
   "preliminaryIndex": "../preliminary-design/releases.json",
   "current": null,
   "beside": null,
-  "designs": [
-    "draft-001"
-  ],
-  "designStatus": {
-    "draft-001": "withdrawn"
-  },
-  "reason": {
-    "draft-001": "Rough-draft showcase published before the design-status process."
-  },
-  "lastCommit": {
-    "draft-001": "b47730c525c6cf9a006fabc0b2883b6c672ac9f2"
-  }
+  "designs": [],
+  "designStatus": {}
 }
