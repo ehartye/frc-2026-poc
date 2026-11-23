@@ -7,62 +7,62 @@ Written by `experiments/preliminary-design/handoff.py` from the files in `cad/pr
 | Item | Value | File |
 | --- | --- | --- |
 | Name and version | Chute-fed hood shooter 1.0 | `docs/preliminary-design/releases.json` |
-| Blockout | 70 named solids, one per functional volume, in 18 groups | `package.step`, groups in `layout.json` |
-| Solid names | Plain words with handedness last, such as `feeder roller left`; envelopes say so in their explanation | `layout.json` presentation.components |
+| Blockout | 70 named solids, one per functional volume, in 19 groups | `design.json` (the design source), built to `generated/design.step` |
+| Solid names | Plain words with handedness last, such as `feeder roller left`; envelopes say so in their explanation | `judgement.json` presentation.components |
 | Field parts | 24 parts of FIRST's official HUB and TOWER at the shot pose | `field/*.step`, source in `cad/field/official/` |
 
 ## Frame and datums
 
 | Datum | Value | File |
 | --- | --- | --- |
-| Origin and axes | Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres | `layout.json` datum |
-| Floor | Z = 0 at the carpet | `layout.json` datum |
-| Mount: floor belts on floor pan | (0, 0, 100). Belt bed rests on the floor pan | `layout.json` mounts |
-| Mount: feeder roller left on hopper liner left | (-60, 169, 250.514). Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block | `layout.json` mounts |
-| Mount: feeder motor left on hopper liner left | (-60, 169, 248.514). Gearmotor flange on the bearing block outboard of the channel wall | `layout.json` mounts |
-| Mount: feeder roller right on hopper liner right | (-60, -169, 250.514). Right roller shaft runs in a bearing block on the channel wall of the right liner | `layout.json` mounts |
-| Mount: feeder motor right on hopper liner right | (-60, -169, 248.514). Gearmotor flange on the bearing block outboard of the channel wall | `layout.json` mounts |
-| Mount: shooter on frame rail rear | (-327, 0, 120.65). Shooter side plates bolt to the rear rail top | `layout.json` mounts |
-| Mount: intake carriage plate left on intake slide rail left | (300, 266, 400). Left carriage plate runs on the two-stage slide; the fixed stage is drawn | `layout.json` mounts |
-| Mount: intake carriage plate right on intake slide rail right | (300, -266, 400). Right carriage plate runs on the two-stage slide; the fixed stage is drawn | `layout.json` mounts |
-| Mount: intake belt module on intake carriage plate left | (560, 255, 300). Belt module frame spans the two carriage plates | `layout.json` mounts |
-| Mount: intake top roller on intake carriage plate left | (495.5, 255, 565). Top roller shaft runs in bearings in the two carriage plates | `layout.json` mounts |
-| Mount: intake back plate on intake carriage plate left | (400, 255, 300). Back plate flanges bolt to the two carriage plates | `layout.json` mounts |
-| Mount: entry sensor on intake carriage plate left | (434, 255, 569). Sensor bracket on the top edge of the left carriage plate | `layout.json` mounts |
-| Mount: climber inner tube left on climber tube left | (300, 316, 500). Inner tube runs in bushings in the fixed outer tube | `layout.json` mounts |
-| Mount: climber inner tube right on climber tube right | (300, -316, 500). Inner tube runs in bushings in the fixed outer tube | `layout.json` mounts |
-| Mount: climber hook left on climber inner tube left | (300, 316, 736). Swing joint on the inner tube top | `layout.json` mounts |
-| Mount: climber hook right on climber inner tube right | (300, -316, 736). Swing joint on the inner tube top | `layout.json` mounts |
-| Mount: battery on battery retention cleat aft | (-95, 291, 150). Battery end face captured between the aft and fore cleats, with the strap over its top | `layout.json` mounts |
-| Mount: battery retention on floor pan | (-95, 291, 100). Cleat feet riveted to the floor pan top, which rests on the frame rails | `layout.json` mounts |
-| Mount: battery strap on battery retention cleat aft | (-95, 291, 199). Strap anchored to the aft cleat and buckled to the fore cleat over the battery top | `layout.json` mounts |
-| Mount: hopper shelf on hopper liner left | (0, 169, 267). Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners | `layout.json` mounts |
-| Mount: hopper wall left on frame rail left | (0, 334, 120.65). Side wall foot on the left rail top | `layout.json` mounts |
-| Mount: hopper wall right on frame rail right | (0, -334, 120.65). Side wall foot on the right rail top | `layout.json` mounts |
-| Mount: hopper liner left on floor pan | (0, 169, 100). Channel wall foot on the floor pan | `layout.json` mounts |
-| Mount: hopper liner right on floor pan | (0, -169, 100). Channel wall foot on the floor pan | `layout.json` mounts |
-| Mount: hopper rear wall on hopper wall left | (-94.5, 334, 500). Rear wall flange on the left side wall; its right edge is carried by the right liner's pocket wall | `layout.json` mounts |
-| Mount: climber tube left on climber tube mount left | (300, 316, 222). Outer tube socket in the tube mount | `layout.json` mounts |
-| Mount: climber tube right on climber tube mount right | (300, -316, 222). Outer tube socket in the tube mount | `layout.json` mounts |
-| Mount: climber winch on intake slide rail left | (200, 266, 345). Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail | `layout.json` mounts |
+| Origin and axes | Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres | `design.json` frame |
+| Floor | Z = 0 at the carpet | `design.json` frame |
+| Mount: floor belts on floor pan | (0, 0, 100). Belt bed rests on the floor pan | `design.json` mounts |
+| Mount: feeder roller left on hopper liner left | (-60, 169, 250.514). Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block | `design.json` mounts |
+| Mount: feeder motor left on hopper liner left | (-60, 169, 248.514). Gearmotor flange on the bearing block outboard of the channel wall | `design.json` mounts |
+| Mount: feeder roller right on hopper liner right | (-60, -169, 250.514). Right roller shaft runs in a bearing block on the channel wall of the right liner | `design.json` mounts |
+| Mount: feeder motor right on hopper liner right | (-60, -169, 248.514). Gearmotor flange on the bearing block outboard of the channel wall | `design.json` mounts |
+| Mount: shooter on frame rail rear | (-327, 0, 120.65). Shooter side plates bolt to the rear rail top | `design.json` mounts |
+| Mount: intake carriage plate left on intake slide rail left | (300, 266, 400). Left carriage plate runs on the two-stage slide; the fixed stage is drawn | `design.json` mounts |
+| Mount: intake carriage plate right on intake slide rail right | (300, -266, 400). Right carriage plate runs on the two-stage slide; the fixed stage is drawn | `design.json` mounts |
+| Mount: intake belt module on intake carriage plate left | (560, 255, 300). Belt module frame spans the two carriage plates | `design.json` mounts |
+| Mount: intake top roller on intake carriage plate left | (495.5, 255, 565). Top roller shaft runs in bearings in the two carriage plates | `design.json` mounts |
+| Mount: intake back plate on intake carriage plate left | (400, 255, 300). Back plate flanges bolt to the two carriage plates | `design.json` mounts |
+| Mount: entry sensor on intake carriage plate left | (434, 255, 569). Sensor bracket on the top edge of the left carriage plate | `design.json` mounts |
+| Mount: climber inner tube left on climber tube left | (300, 316, 500). Inner tube runs in bushings in the fixed outer tube | `design.json` mounts |
+| Mount: climber inner tube right on climber tube right | (300, -316, 500). Inner tube runs in bushings in the fixed outer tube | `design.json` mounts |
+| Mount: climber hook left on climber inner tube left | (300, 316, 736). Swing joint on the inner tube top | `design.json` mounts |
+| Mount: climber hook right on climber inner tube right | (300, -316, 736). Swing joint on the inner tube top | `design.json` mounts |
+| Mount: battery on battery retention cleat aft | (-95, 291, 150). Battery end face captured between the aft and fore cleats, with the strap over its top | `design.json` mounts |
+| Mount: battery retention on floor pan | (-95, 291, 100). Cleat feet riveted to the floor pan top, which rests on the frame rails | `design.json` mounts |
+| Mount: battery strap on battery retention cleat aft | (-95, 291, 199). Strap anchored to the aft cleat and buckled to the fore cleat over the battery top | `design.json` mounts |
+| Mount: hopper shelf on hopper liner left | (0, 169, 267). Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners | `design.json` mounts |
+| Mount: hopper wall left on frame rail left | (0, 334, 120.65). Side wall foot on the left rail top | `design.json` mounts |
+| Mount: hopper wall right on frame rail right | (0, -334, 120.65). Side wall foot on the right rail top | `design.json` mounts |
+| Mount: hopper liner left on floor pan | (0, 169, 100). Channel wall foot on the floor pan | `design.json` mounts |
+| Mount: hopper liner right on floor pan | (0, -169, 100). Channel wall foot on the floor pan | `design.json` mounts |
+| Mount: hopper rear wall on hopper wall left | (-94.5, 334, 500). Rear wall flange on the left side wall; its right edge is carried by the right liner's pocket wall | `design.json` mounts |
+| Mount: climber tube left on climber tube mount left | (300, 316, 222). Outer tube socket in the tube mount | `design.json` mounts |
+| Mount: climber tube right on climber tube mount right | (300, -316, 222). Outer tube socket in the tube mount | `design.json` mounts |
+| Mount: climber winch on intake slide rail left | (200, 266, 345). Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail | `design.json` mounts |
 
 ## Axes and travel
 
-From `paths.json`. Mirrored members move the same way on the other side.
+From the motions of `design.json`. Mirrored groups move the same way on the other side.
 
-| Case | First moving member | Travel |
+| Case | First moving group | Travel |
 | --- | --- | --- |
-| intake-deploy | entry sensor | translates [250.0, 0.0, -95.0] |
+| intake-deploy | intake | translates [250.0, 0.0, -95.0] |
 | climb-reach | climber hook left | rotates 180 degrees about axis [0.0, 0.0, 1.0] through [300.0, 316.0, 744.0] |
-| climb-seat | climber hook left | translates [0.0, 0.0, -29.61799989999861] |
+| climb-seat | climber hook left | translates [0.0, 0.0, -29.618] |
 | climb-lift | climber hook left | translates [0.0, 0.0, -70.0] |
 
 ## Envelopes
 
 | Measure | Value | File |
 | --- | --- | --- |
-| Frame | 680 long by 714 wide, 2788 perimeter | `design.json` |
-| Bumper zone | 48 to 168 above the carpet, 76 section | `design.json` |
+| Frame | 680 long by 714 wide, 2788 perimeter | `design.json` frame rails |
+| Bumper zone | 48 to 168 above the carpet, 76 section | `design.json` bumpers |
 | Starting overhang beyond the frame | 0.0 | `measurements.json` |
 | Greatest height in any operating or park pose | 756.257 | `measurements.json` |
 | Greatest front extension | 244.614 | `measurements.json` |
@@ -104,12 +104,12 @@ Least gap of each pair the layout check measured under 10 mm, from `receipt.json
 | hopper liner right / intake top roller | 2.0 | tower-lateral |
 | FUEL stored 1 / feeder roller right | 4.7 | intake-deploy |
 | FUEL tracked / floor belt main | 5.2 | loaded-transit |
-| FUEL tracked / hub funnel side 2 | 7.4 | climb-reach |
-| FUEL tracked / hub funnel base | 8.8 | climb-reach |
+| FUEL tracked / hub funnel side 2 | 7.4 | tower-forward |
+| FUEL tracked / hub funnel base | 8.8 | tower-forward |
 
 ## Interfaces and allowances: intended contacts
 
-From `contacts.json`. A listed pair is left out of that case's clearance test.
+From the contacts of `design.json`. A listed pair is left out of that case's clearance test.
 
 | Pair | Cases | Basis |
 | --- | --- | --- |
@@ -173,7 +173,7 @@ Each trial ran on blockout geometry with estimated contact stiffness and frictio
 
 ## Motion cases
 
-From `missions.json` and `layout.json`. The single prescribed strokes follow their path exactly; the tracked FUEL's strokes are within the stated distance of the solved trace.
+From `missions.json` and `judgement.json`. The single prescribed strokes follow their path exactly; the tracked FUEL's strokes are within the stated distance of the solved trace.
 
 | Phase | Cases | Path tolerance |
 | --- | --- | --- |

@@ -728,7 +728,8 @@ async function init(){
  // One short list: an animation per mission phase, then the other checked motions, the displaced control and the trial replays.
  // A checked case is a segment of its phase's animation. It is listed in the check results, never here.
  const caseOf=new Map(scene.cases.map(c=>[c.id,c])),phases=animationsOf(scene),clips=phases.map(a=>clipOf(a,a.cases.map(id=>caseOf.get(id))));
- const controls=scene.cases.filter(c=>!phases.some(a=>a.cases.includes(c.id))).map(c=>clipOf({id:c.id,title:c.label,mission:false},[c]));
+ // A scene written before the control took a title labels it by its case ID; it reads as plain words here.
+ const controls=scene.cases.filter(c=>!phases.some(a=>a.cases.includes(c.id))).map(c=>clipOf({id:c.id,title:c.kind==='displaced control'&&c.label===c.id+' (displaced control)'?'Displaced control':c.label,mission:false},[c]));
  const replays=(scene.replays||[]).map(r=>clipOf({id:r.id,title:r.label,replay:true,objective:r.objective},[replayMotion(r)]));
  const lists=[['Mission animations',clips.filter(c=>c.mission)],['Other checked motions',clips.filter(c=>!c.mission)],['Check control',controls],['Trial replays',replays]].filter(l=>l[1].length);
  motions=lists.flatMap(l=>l[1]);
@@ -768,5 +769,5 @@ async function init(){
  c.onkeydown=e=>{const v={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(e.key==='Home')reset();else if(v){if(e.shiftKey){cam.x+=20*v[0];cam.y+=20*v[1]}else{cam.az+=.15*v[0];cam.el-=.15*v[1]}}else if(e.key==='+'||e.key==='-'){cam.scale*=e.key==='+'?1.2:1/1.2}else return;e.preventDefault();draw()};
  new ResizeObserver(draw).observe(c);
 }
-init().catch(e=>{$('state').textContent=e.message;$('sceneStatus').textContent=e.message+(location.protocol==='file:'?' Serve this directory over HTTP (for a release, run serve.py) to load the scene.':'');console.error(e)});
+init().catch(e=>{$('state').textContent=e.message;$('sceneStatus').textContent=e.message+(location.protocol==='file:'?' Serve this directory over HTTP to load the scene.':'');console.error(e)});
 </script></html>

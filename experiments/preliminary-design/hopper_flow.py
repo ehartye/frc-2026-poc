@@ -8,7 +8,7 @@ belts and the feeder rollers carry imposed surface speeds; the lane controller b
 beams, as the robot's would. A FUEL that a feeder advances to the flywheel is counted and leaves the model there:
 what the flywheel then does with it is the launch and batch trials' question (field_trials.py).
 
-The surfaces are the layout's (dimensions.py and the same numbers geometry.py draws), reduced to rectangles and
+The surfaces are the layout's (dimensions.py and the same numbers the design source draws), reduced to rectangles and
 cylinders. Units are SI. numpy is needed here and nowhere else in the trials.
 
     python -I -B experiments/preliminary-design/hopper_flow.py        # prints the trial table; field_trials.py records it

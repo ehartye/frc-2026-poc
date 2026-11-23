@@ -47,12 +47,13 @@ The hopper trial's outcome depends on the arrival pattern, so the cycle is run f
 
 ## Reproduce
 
-With the project geometry environment selected and `AGENT_FRC` set to the plugin checkout:
+With the project geometry environment selected, the design library `frc-design-kernel` installed in it, and `PLUGIN` standing for wherever the agent keeps its design tool:
 
 ```sh
 python -I -B experiments/preliminary-design/field_trials.py
-python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/1.0 --check --jobs 4
-node "$AGENT_FRC/scripts/design.mjs" effective-readiness . --release cad/preliminary-design/releases/1.0
+python -m frc_design_kernel build cad/preliminary-design/releases/1.0/design.json --out cad/preliminary-design/releases/1.0/generated
+node PLUGIN/scripts/design.mjs preliminary-check . cad/preliminary-design/releases/1.0/judgement.json --write-view --output cad/preliminary-design/releases/1.0/receipt.json --workers 4
+node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/1.0
 ```
 
-The trials take about twenty minutes on eight cores. `dimensions.py` is the one source for the placed solids and the trial surfaces. Rerun the trials after changing it.
+The trials take about twenty minutes on eight cores. `dimensions.py` holds the trial surfaces; the design source repeats the figures the solids need under `parameters`. After changing a dimension, change it in both, rerun the trials and refit the tracked FUEL's motions in the design source to the new traces by hand.

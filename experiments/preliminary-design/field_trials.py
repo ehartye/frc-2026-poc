@@ -11,11 +11,11 @@ The HUB, the TOWER and the hook are written here separately.
 
 The tracked FUEL is one chain: acquire-nominal ends at capture, entry-nominal starts from that state and ends at
 rest in the seat, launch-nominal starts from that seat and ends at release, and deliver-nominal starts from that
-release state. build_package.py turns those four traces into the package's FUEL cases.
+release state. The tracked FUEL's motions in the design source are fitted to those four traces.
 
     python -I -B experiments/preliminary-design/field_trials.py
 
-Writes experiments/preliminary-design/field-trials.json. build_package.py fits the tracked FUEL's package cases to
+Writes experiments/preliminary-design/field-trials.json. The tracked FUEL's motions in the design source are fitted to
 its traces and writes each trial's qualification record into the release.
 """
 import hashlib

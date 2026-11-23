@@ -136,7 +136,7 @@
    "dockFrames": [
     {
      "id": "as-drawn",
-     "basis": "Layout robot frame with the TOWER where build_package.py draws it for the shot pose (tower_face_shot = 1025, tower_y_shot = -1250): the field-side face of the uprights at X = 1025 and the rung centre at Y = -1250, robot +X toward the blue alliance wall. This is the layout's drawing position, not the TOWER's field position relative to the HUB; in the blue-hub shot-pose frame the same face is at X = 818.784 and the rung centre at Y = 288.925.",
+     "basis": "Layout robot frame with the TOWER where the design source draws it for the shot pose (tower_face_shot = 1025, tower_y_shot = -1250): the field-side face of the uprights at X = 1025 and the rung centre at Y = -1250, robot +X toward the blue alliance wall. This is the layout's drawing position, not the TOWER's field position relative to the HUB; in the blue-hub shot-pose frame the same face is at X = 818.784 and the rung centre at Y = 288.925.",
      "matrix": [
       [
        1,
