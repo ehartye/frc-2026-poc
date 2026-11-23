@@ -41,6 +41,7 @@
     "bump_x1": 417.5,
     "half": 244,
     "rp": 18.5,
+    "fly_set": 13.35,
     "squeeze": 20,
     "belt_mps": 3.0,
     "belt_x": "=bump_x1 + 2 * r_ball - squeeze",
@@ -153,11 +154,34 @@
      "shape": {"kind": "cylinder", "fromMm": ["=fxc", "=s * 204", "=fzc"], "toMm": ["=fxc", "=s * 250", "=fzc"], "radiusMm": 17}},
 
     {"name": "flywheel", "group": "shooter", "shape": {"kind": "cylinder", "fromMm": ["=cx", -170, "=cz"], "toMm": ["=cx", 170, "=cz"], "radiusMm": "=fly_r"}},
-    {"name": "hood", "group": "shooter",
-     "shape": {"kind": "difference",
-               "from": {"kind": "cylinder", "fromMm": ["=cx", 170, "=cz"], "toMm": ["=cx", -170, "=cz"], "radiusMm": "=hood_out",
-                        "sweepDeg": "=hood_span_deg", "sweepFrom": ["=cos(radians(hood_end_deg))", 0, "=sin(radians(hood_end_deg))"]},
-               "cut": [{"kind": "cylinder", "fromMm": ["=cx", 171, "=cz"], "toMm": ["=cx", -171, "=cz"], "radiusMm": "=hood_in"}]}},
+    {"name": "hood", "group": "shooter", "note": "The hood's curved face as a band of 12 flat facets on each side (0.2 mm from the true arc), so a 3D trial runs its true shape rather than a filled hull.",
+     "shape": {"kind": "prism", "plane": "xz", "fromMm": -170, "toMm": 170, "outlineMm": [
+       ["=cx + hood_out * cos(radians(hood_end_deg + 0 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 0 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 1 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 1 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 2 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 2 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 3 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 3 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 4 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 4 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 5 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 5 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 6 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 6 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 7 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 7 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 8 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 8 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 9 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 9 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 10 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 10 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 11 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 11 * hood_span_deg / 12))"],
+       ["=cx + hood_out * cos(radians(hood_end_deg + 12 * hood_span_deg / 12))", "=cz + hood_out * sin(radians(hood_end_deg + 12 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 12 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 12 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 11 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 11 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 10 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 10 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 9 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 9 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 8 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 8 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 7 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 7 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 6 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 6 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 5 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 5 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 4 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 4 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 3 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 3 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 2 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 2 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 1 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 1 * hood_span_deg / 12))"],
+       ["=cx + hood_in * cos(radians(hood_end_deg + 0 * hood_span_deg / 12))", "=cz + hood_in * sin(radians(hood_end_deg + 0 * hood_span_deg / 12))"]]}},
     {"name": "shooter side plate {side}", "group": "shooter", "each": [{"side": "left", "s": 1}, {"side": "right", "s": -1}],
      "shape": {"kind": "box", "fromMm": [-338, "=s * 173", 125], "toMm": [-100, "=s * 181", "=cz + 125"]}},
     {"name": "flywheel inertia ring", "group": "shooter", "shape": {"kind": "cylinder", "fromMm": ["=cx", -197, "=cz"], "toMm": ["=cx", -183, "=cz"], "radiusMm": 80}},
@@ -338,38 +362,38 @@
       "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}]
     },
     "flight-1 start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}]
     },
     "flight-2 start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
     },
     "climb-reach start": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "intake-stow start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "tower-lateral start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
     },
     "tower-forward start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}]
     },
     "climb-seat start": {
       "climber hook left": [{"kind": "rotation", "originMm": [300.0, 316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": 180.0}],
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
     },
     "climb-lift start": {
       "climber inner tubes": [{"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}],
@@ -377,7 +401,7 @@
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}, {"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}]
     },
     "park-lower start": {
       "climber inner tubes": [{"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
@@ -385,7 +409,7 @@
       "climber hook right": [{"kind": "rotation", "originMm": [300.0, -316.0, 744.0], "axis": [0.0, 0.0, 1.0], "travelDeg": -180.0}, {"kind": "translation", "travelMm": [0.0, 0.0, -29.61799989999861]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
       "intake": [{"kind": "translation", "travelMm": [-250.0, -0.0, 95.0]}],
       "field": [{"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}],
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}, {"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[720.0, 82.5, 75.057], [642.0135, 82.5, 74.8226], [580.9642, 82.5, 53.6501], [487.4611, 82.5, 78.2494], [482.0979, 82.5, 454.6966], [445.8999, 82.5, 522.562], [339.9112, 82.5, 552.3576]]}, {"kind": "path", "curve": "straight", "throughMm": [[339.92, 82.5, 552.4], [246.57, 82.5, 551.1672], [153.22, 82.5, 525.4177], [-14.81, 82.5, 417.2868], [95.5689, 82.5, 178.7661], [77.0703, 82.5, 230.1697], [57.4109, 82.5, 182.8444], [-57.6788, 82.5, 178.353]]}, {"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}, {"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}, {"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}, {"kind": "translation", "travelMm": [0.0, -288.92499999999643, 0.0]}, {"kind": "translation", "travelMm": [-396.2842499000052, 0.0, 0.0]}, {"kind": "translation", "travelMm": [0.0, 0.0, -70.0]}]
     },
     "battery-cover-remove start": {},
     "battery-withdraw start": {},
@@ -405,10 +429,10 @@
       "field": [{"kind": "translation", "travelMm": [0.0, 2000.0, 0.0]}]
     }},
     "launch": {"from": "launch start", "moves": {
-      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-191.9366, 82.5, 183.6254], [-235.8318, 82.5, 212.8825], [-260.071, 82.5, 251.3443]]}]
+      "tracked FUEL": [{"kind": "path", "curve": "straight", "throughMm": [[-57.58, 82.5, 177.0], [-190.6076, 82.5, 187.5568], [-260.1666, 82.5, 251.7264]]}]
     }},
     "flight-1": {"from": "flight-1 start", "moves": {
-      "tracked FUEL": [{"kind": "translation", "travelMm": [-2831.3032, 0.0, 5265.5855]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
+      "tracked FUEL": [{"kind": "translation", "travelMm": [-2831.2076, 0.0, 5265.2034]}, {"kind": "gravity-drop", "fallMm": 3922.64885060245, "quadraticFraction": 1.0}]
     }},
     "flight-2": {"from": "flight-2 start", "moves": {
       "tracked FUEL": [{"kind": "rotation", "originMm": [-3181.620429367168, 82.5, 1268.5677167371016], "axis": [0.0, 1.0, 0.0], "travelDeg": 31.32758700905177}]
@@ -469,7 +493,8 @@
     "lane deck": {"note": "FUEL on the polycarbonate lane deck. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.3, 0.8]}},
     "feeder": {"note": "FUEL on the feeder roller's rubber. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}},
     "flywheel": {"note": "FUEL on the flywheel tread. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.9, "assumed": [0.5, 1.0]}},
-    "hood": {"note": "FUEL on the hood's polycarbonate face. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.3, 0.8]}}
+    "hood": {"note": "FUEL on the hood's polycarbonate face. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.3, 0.8]}},
+    "FUEL on FUEL": {"note": "FUEL against FUEL. Estimate: no FUEL friction measurement is available", "stiffnessNPerM": {"value": 15000, "assumed": [7500, 30000]}, "dampingRatio": {"value": 0.3, "assumed": [0.2, 0.4]}, "friction": {"value": 0.6, "assumed": [0.4, 0.9]}}
   },
   "motors": {
     "NEO": {"note": "Brushless motor class the project assumes: 5676 rpm free, 2.6 N m stall, 105 A stall at 12 V.", "ohm": {"value": "=12 / 105", "measured": "maker's data sheet"}, "ktNmPerA": {"value": "=2.6 / (105 - 1.8)", "measured": "maker's data sheet"}, "keVsPerRad": {"value": "=(12 - 1.8 * 12 / 105) / (5676 * 2 * pi / 60)", "measured": "maker's data sheet"}},
@@ -479,7 +504,8 @@
     "intake belt": {"note": "One NEO drives the intake belt and, through a 2:1 pulley, the top roller.", "motor": "NEO", "gear": 2.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": "=rp", "movingKg": {"value": 2.2, "assumed": [1.8, 2.6]}, "statorLimitA": 40, "supplyLimitA": 30, "turns": [{"solid": "intake belt module", "axis": [0, 1, 0]}, {"solid": "intake top roller", "axis": [0, 1, 0], "ratio": 2.0}]},
     "feeder left": {"note": "One motor turns the left feeder roller through a reduction.", "motor": "NEO", "gear": 5.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": 25.4, "movingKg": {"value": 0.3, "assumed": [0.2, 0.4]}, "statorLimitA": 40, "turns": [{"solid": "feeder roller left", "axis": [0, 1, 0]}]},
     "floor belt": {"note": "The floor belt's top run moves aft, toward the flywheel.", "motor": "NEO", "gear": 5.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": 18.5, "movingKg": {"value": 0.5, "assumed": [0.3, 0.7]}, "statorLimitA": 40, "turns": [{"solid": "floor belt main", "axis": [0, -1, 0]}, {"solid": "floor belt front", "axis": [0, -1, 0]}]},
-    "flywheel": {"note": "Two motors turn the flywheel directly; the roller and one inertia ring hold 0.0076 kg m2, carried here as 2.95 kg at the tread.", "motor": "NEO pair", "gear": 1.0, "efficiency": {"value": 0.9, "assumed": [0.85, 0.95]}, "radiusMm": "=fly_r", "movingKg": {"value": 2.95, "assumed": [2.6, 3.3]}, "statorLimitA": 80, "supplyLimitA": 60, "turns": [{"solid": "flywheel", "axis": [0, 1, 0]}]}
+    "flywheel": {"note": "Two motors turn the flywheel directly; the roller and one inertia ring hold 0.0076 kg m2, carried here as 2.95 kg at the tread.", "motor": "NEO pair", "gear": 1.0, "efficiency": {"value": 0.9, "assumed": [0.85, 0.95]}, "radiusMm": "=fly_r", "movingKg": {"value": 2.95, "assumed": [2.6, 3.3]}, "statorLimitA": 80, "supplyLimitA": 60, "turns": [{"solid": "flywheel", "axis": [0, 1, 0]}]},
+    "feeder right": {"note": "One motor turns the right feeder roller through a reduction; the lanes are mirror images.", "motor": "NEO", "gear": 5.0, "efficiency": {"value": 0.85, "assumed": [0.85, 0.9]}, "radiusMm": 25.4, "movingKg": {"value": 0.3, "assumed": [0.2, 0.4]}, "statorLimitA": 40, "turns": [{"solid": "feeder roller right", "axis": [0, 1, 0]}]}
   },
   "adjustments": {
     "intake squeeze": {"input": "parameters.squeeze", "kind": "mechanical", "range": [15, 30], "step": 2.5, "note": "Slotted bearing blocks move the belt module toward or away from the bumper face."},
@@ -710,7 +736,7 @@
           177.0
         ]
       ],
-      "piecesAtOnce": 24,
+      "piecesAtOnce": 4,
       "motions": [
         "launch"
       ],
@@ -753,7 +779,7 @@
           177.0
         ]
       ],
-      "piecesAtOnce": 24,
+      "piecesAtOnce": 12,
       "motions": [
         "hopper"
       ],
@@ -1326,10 +1352,10 @@
       "commands": {
         "flywheel": {
           "mode": "speed",
-          "setpointMps": 13.6,
+          "setpointMps": "=fly_set",
           "band": 0.005,
           "busV": 12.0,
-          "startMps": 13.6
+          "startMps": "=fly_set"
         },
         "feeder left": {
           "mode": "imposed",
@@ -1340,7 +1366,7 @@
                 "all": [
                   {
                     "signal": "drive.flywheel.speedMps",
-                    "above": 13.46
+                    "above": "=0.99 * fly_set"
                   },
                   {
                     "signal": "tS",
@@ -1364,7 +1390,7 @@
                 "all": [
                   {
                     "signal": "drive.flywheel.speedMps",
-                    "above": 13.46
+                    "above": "=0.99 * fly_set"
                   },
                   {
                     "signal": "tS",
@@ -1483,6 +1509,1379 @@
       ],
       "adjustments": [
         "flywheel setpoint"
+      ]
+    },
+    "batch": {
+      "engine": "mujoco",
+      "note": "Batch: two FUEL in each lane fed in turn through the one flywheel about 3 FUEL/s. Each shot waits for the wheel's 1% ready band; between shots the floor belt brings the next FUEL of each lane under its braked feeder roller.",
+      "assumes": [
+        {
+          "id": "two-per-lane",
+          "text": "Two FUEL in each lane stand for the 24: each shot is gated by the ready band, so every shot starts from the same wheel speed and the fourth repeats the second."
+        },
+        {
+          "id": "release-by-wheel",
+          "text": "A shot fed with the wheel at or above 13.1 m/s releases inside the scoring band, as the launch trial shows over its setpoint range; the batch is held to the wheel speed, and each FUEL's peak speed in the shooter is kept as a measure."
+        },
+        {
+          "id": "timed-feed",
+          "text": "Timed feed windows stand for the stage beams: each lane feeds one FUEL per window, the lanes in turn 0.25 s apart, with the belt bringing up the second FUEL between rounds."
+        }
+      ],
+      "plane": {
+        "normal": "y",
+        "atMm": 82.5
+      },
+      "stepS": 0.0001,
+      "durationS": 1.8,
+      "traceS": 0.005,
+      "fitToleranceMm": 10,
+      "planar": {
+        "frictionLaw": "stick"
+      },
+      "piece": {
+        "use": "FUEL",
+        "start": {
+          "atMm": [
+            -57.58,
+            177.0
+          ]
+        }
+      },
+      "others": [
+        {
+          "name": "left 2",
+          "use": "FUEL",
+          "atMm": [
+            92.7,
+            184.1
+          ]
+        },
+        {
+          "name": "right 1",
+          "use": "FUEL",
+          "atMm": [
+            -57.58,
+            177.0
+          ],
+          "acrossMm": -165
+        },
+        {
+          "name": "right 2",
+          "use": "FUEL",
+          "atMm": [
+            92.7,
+            184.1
+          ],
+          "acrossMm": -165
+        }
+      ],
+      "betweenPieces": "FUEL on FUEL",
+      "commands": {
+        "flywheel": {
+          "mode": "speed",
+          "setpointMps": "=fly_set",
+          "band": 0.005,
+          "busV": 12.0,
+          "startMps": "=fly_set"
+        },
+        "feeder left": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.1
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 0.22
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.85
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.05
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            }
+          ]
+        },
+        "feeder right": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.35
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 0.47
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.1
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.3
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            }
+          ]
+        },
+        "floor belt": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.47
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 0.8
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              },
+              "note": "Bring the second FUEL of each lane under its roller."
+            }
+          ]
+        }
+      },
+      "surfaces": [
+        {
+          "name": "lane deck",
+          "material": "lane deck",
+          "solid": "lane deck"
+        },
+        {
+          "name": "floor belt main",
+          "material": "feeder",
+          "solid": "floor belt main"
+        },
+        {
+          "name": "feeder roller left",
+          "material": "feeder",
+          "solid": "feeder roller left"
+        },
+        {
+          "name": "feeder roller right",
+          "material": "feeder",
+          "solid": "feeder roller right"
+        },
+        {
+          "name": "flywheel",
+          "material": "flywheel",
+          "solid": "flywheel"
+        },
+        {
+          "name": "hood",
+          "material": "hood",
+          "solid": "hood"
+        },
+        {
+          "name": "shooter side plate left",
+          "material": "hood",
+          "solid": "shooter side plate left"
+        },
+        {
+          "name": "shooter side plate right",
+          "material": "hood",
+          "solid": "shooter side plate right"
+        }
+      ],
+      "events": [
+        {
+          "name": "all released",
+          "when": {
+            "all": [
+              {
+                "signal": "xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.left 2.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.right 1.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.right 2.xMm",
+                "below": -260
+              }
+            ]
+          },
+          "outcome": "all released"
+        },
+        {
+          "name": "fell back",
+          "when": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "signal": "zMm",
+                    "below": 50
+                  },
+                  {
+                    "signal": "xMm",
+                    "above": -200
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "signal": "other.left 2.zMm",
+                    "below": 50
+                  },
+                  {
+                    "signal": "other.left 2.xMm",
+                    "above": -200
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "signal": "other.right 1.zMm",
+                    "below": 50
+                  },
+                  {
+                    "signal": "other.right 1.xMm",
+                    "above": -200
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "signal": "other.right 2.zMm",
+                    "below": 50
+                  },
+                  {
+                    "signal": "other.right 2.xMm",
+                    "above": -200
+                  }
+                ]
+              }
+            ]
+          },
+          "outcome": "a FUEL fell back"
+        }
+      ],
+      "measures": {
+        "peak left 1": {
+          "peak": "speedMps"
+        },
+        "peak left 2": {
+          "peak": "other.left 2.speedMps"
+        },
+        "peak right 1": {
+          "peak": "other.right 1.speedMps"
+        },
+        "peak right 2": {
+          "peak": "other.right 2.speedMps"
+        },
+        "lowestWheel": {
+          "lowest": "drive.flywheel.speedMps"
+        },
+        "doneS": {
+          "timeOf": "all released"
+        }
+      },
+      "pass": {
+        "outcomes": [
+          "all released"
+        ],
+        "limits": [
+          {
+            "measure": "lowestWheel",
+            "atLeast": 13.1
+          },
+          {
+            "measure": "doneS",
+            "atMost": 1.7
+          }
+        ]
+      },
+      "control": {
+        "change": {
+          "commands.flywheel": {
+            "mode": "voltage",
+            "busV": null,
+            "startMps": 0.0
+          }
+        },
+        "note": "Flywheel stopped and unpowered: nothing launches."
+      },
+      "brackets": [
+        {
+          "input": "commands.flywheel.setpointMps",
+          "unit": "m/s",
+          "values": [
+            13.1,
+            13.3,
+            13.6,
+            13.9,
+            14.1
+          ]
+        }
+      ],
+      "adjustments": [
+        "flywheel setpoint"
+      ]
+    },
+    "hopper flow": {
+      "engine": "mujoco",
+      "note": "Hopper flow: twelve FUEL settled in the hopper as a heap. The floor belt runs toward the flywheel and the feeder rollers feed the lanes in turn, each only inside the flywheel's ready band. Every FUEL must reach the flywheel and leave it.",
+      "assumes": [
+        {
+          "id": "heap-start",
+          "text": "Twelve FUEL dropped as a heap stand for a full hopper of 24 filled through the chute; the chute arrivals are the entry trial's question."
+        },
+        {
+          "id": "timed-unjam",
+          "text": "The unjam reversal runs on a timer every 1.5 s, standing for the sensed reversal when a lane's beam stays clear."
+        },
+        {
+          "id": "timed-feed",
+          "text": "Timed feed windows stand for the stage beams: each lane feeds for 0.22 s every 0.5 s, the lanes 0.25 s apart."
+        }
+      ],
+      "plane": {
+        "normal": "y",
+        "atMm": 82.5
+      },
+      "stepS": 0.0002,
+      "durationS": 8.0,
+      "traceS": 0.02,
+      "fitToleranceMm": 20,
+      "planar": {
+        "frictionLaw": "stick"
+      },
+      "piece": {
+        "use": "FUEL",
+        "start": {
+          "atMm": [
+            -15,
+            262
+          ]
+        }
+      },
+      "others": [
+        {
+          "name": "FUEL 2",
+          "use": "FUEL",
+          "atMm": [
+            137,
+            262
+          ],
+          "acrossMm": 0.0
+        },
+        {
+          "name": "FUEL 3",
+          "use": "FUEL",
+          "atMm": [
+            289,
+            262
+          ],
+          "acrossMm": 0.0
+        },
+        {
+          "name": "FUEL 4",
+          "use": "FUEL",
+          "atMm": [
+            -15,
+            262
+          ],
+          "acrossMm": -165.0
+        },
+        {
+          "name": "FUEL 5",
+          "use": "FUEL",
+          "atMm": [
+            137,
+            262
+          ],
+          "acrossMm": -165.0
+        },
+        {
+          "name": "FUEL 6",
+          "use": "FUEL",
+          "atMm": [
+            289,
+            262
+          ],
+          "acrossMm": -165.0
+        },
+        {
+          "name": "FUEL 7",
+          "use": "FUEL",
+          "atMm": [
+            -15,
+            416
+          ],
+          "acrossMm": 0.0
+        },
+        {
+          "name": "FUEL 8",
+          "use": "FUEL",
+          "atMm": [
+            137,
+            416
+          ],
+          "acrossMm": 0.0
+        },
+        {
+          "name": "FUEL 9",
+          "use": "FUEL",
+          "atMm": [
+            289,
+            416
+          ],
+          "acrossMm": 0.0
+        },
+        {
+          "name": "FUEL 10",
+          "use": "FUEL",
+          "atMm": [
+            -15,
+            416
+          ],
+          "acrossMm": -165.0
+        },
+        {
+          "name": "FUEL 11",
+          "use": "FUEL",
+          "atMm": [
+            137,
+            416
+          ],
+          "acrossMm": -165.0
+        },
+        {
+          "name": "FUEL 12",
+          "use": "FUEL",
+          "atMm": [
+            289,
+            416
+          ],
+          "acrossMm": -165.0
+        }
+      ],
+      "betweenPieces": "FUEL on FUEL",
+      "commands": {
+        "flywheel": {
+          "mode": "speed",
+          "setpointMps": "=fly_set",
+          "band": 0.005,
+          "busV": 12.0,
+          "startMps": "=fly_set"
+        },
+        "feeder left": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 0.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 2.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 2.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 2.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 2.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 3.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 3.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 3.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 3.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 4.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 4.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 4.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 4.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 5.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 5.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 5.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 5.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 6.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 6.3
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 6.52
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 6.8
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 7.02
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            }
+          ]
+        },
+        "feeder right": {
+          "mode": "imposed",
+          "speedMps": 0.0,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 0.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 0.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 2.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 2.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 2.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 2.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 3.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 3.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 3.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 3.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 4.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 4.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 4.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 4.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 5.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 5.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 5.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 5.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 6.05
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 6.27
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 6.55
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 6.77
+                  },
+                  {
+                    "signal": "drive.flywheel.speedMps",
+                    "above": "=0.99 * fly_set"
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": 1.2
+              }
+            }
+          ]
+        },
+        "floor belt": {
+          "mode": "imposed",
+          "speedMps": 1.2,
+          "rules": [
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 1.5
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 1.75
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": -0.8
+              },
+              "note": "Unjam: the belt runs back briefly to break an arch at the lane front."
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 3.0
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 3.25
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": -0.8
+              },
+              "note": "Unjam: the belt runs back briefly to break an arch at the lane front."
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 4.5
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 4.75
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": -0.8
+              },
+              "note": "Unjam: the belt runs back briefly to break an arch at the lane front."
+            },
+            {
+              "when": {
+                "all": [
+                  {
+                    "signal": "tS",
+                    "above": 6.0
+                  },
+                  {
+                    "signal": "tS",
+                    "below": 6.25
+                  }
+                ]
+              },
+              "set": {
+                "speedMps": -0.8
+              },
+              "note": "Unjam: the belt runs back briefly to break an arch at the lane front."
+            }
+          ]
+        }
+      },
+      "surfaces": [
+        {
+          "name": "hopper wall left",
+          "material": "back plate",
+          "solid": "hopper wall left"
+        },
+        {
+          "name": "hopper wall right",
+          "material": "back plate",
+          "solid": "hopper wall right"
+        },
+        {
+          "name": "hopper rear wall",
+          "material": "back plate",
+          "solid": "hopper rear wall"
+        },
+        {
+          "name": "hopper liner left",
+          "material": "back plate",
+          "solid": "hopper liner left"
+        },
+        {
+          "name": "hopper liner right",
+          "material": "back plate",
+          "solid": "hopper liner right"
+        },
+        {
+          "name": "hopper shelf left",
+          "material": "back plate",
+          "solid": "hopper shelf left"
+        },
+        {
+          "name": "intake back plate",
+          "material": "back plate",
+          "solid": "intake back plate"
+        },
+        {
+          "name": "lane deck",
+          "material": "lane deck",
+          "solid": "lane deck"
+        },
+        {
+          "name": "floor belt main",
+          "material": "feeder",
+          "solid": "floor belt main"
+        },
+        {
+          "name": "floor belt front",
+          "material": "feeder",
+          "solid": "floor belt front"
+        },
+        {
+          "name": "feeder roller left",
+          "material": "feeder",
+          "solid": "feeder roller left"
+        },
+        {
+          "name": "feeder roller right",
+          "material": "feeder",
+          "solid": "feeder roller right"
+        },
+        {
+          "name": "flywheel",
+          "material": "flywheel",
+          "solid": "flywheel"
+        },
+        {
+          "name": "hood",
+          "material": "hood",
+          "solid": "hood"
+        },
+        {
+          "name": "shooter side plate left",
+          "material": "hood",
+          "solid": "shooter side plate left"
+        },
+        {
+          "name": "shooter side plate right",
+          "material": "hood",
+          "solid": "shooter side plate right"
+        }
+      ],
+      "events": [
+        {
+          "name": "all fed",
+          "when": {
+            "all": [
+              {
+                "signal": "xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 2.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 3.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 4.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 5.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 6.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 7.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 8.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 9.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 10.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 11.xMm",
+                "below": -260
+              },
+              {
+                "signal": "other.FUEL 12.xMm",
+                "below": -260
+              }
+            ]
+          },
+          "outcome": "all fed"
+        }
+      ],
+      "measures": {
+        "fedS": {
+          "timeOf": "all fed"
+        },
+        "lowestWheel": {
+          "lowest": "drive.flywheel.speedMps"
+        }
+      },
+      "pass": {
+        "outcomes": [
+          "all fed"
+        ],
+        "limits": [
+          {
+            "measure": "fedS",
+            "atMost": 7.0
+          }
+        ]
+      },
+      "control": {
+        "change": {
+          "commands.feeder left": {
+            "mode": "imposed",
+            "speedMps": 0.0
+          },
+          "commands.feeder right": {
+            "mode": "imposed",
+            "speedMps": 0.0
+          }
+        },
+        "note": "Feeders stopped: nothing passes the braked rollers."
+      },
+      "brackets": [
+        {
+          "input": "commands.floor belt.speedMps",
+          "unit": "m/s",
+          "values": [
+            0.6,
+            1.2,
+            1.8
+          ]
+        }
+      ],
+      "adjustments": [
+        "floor belt speed"
       ]
     }
   }

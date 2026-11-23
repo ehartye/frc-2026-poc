@@ -1,10 +1,10 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "chute-fed-hood-shooter-1.0",
-  "planSha256": "0a386a683dbc81ed39754beb2979426c67693725d5cad7eeb1f83594369e4db6",
+  "planSha256": "64896c4adc678a599ea36b17bce8d8e265c202a7e21c89ea9a32fe2e0bf54fcf",
   "design": {
     "file": "cad/preliminary-design/releases/1.0/design.json",
-    "sha256": "3fd190c4124882b668c95b0adc54d429fb5229582477fdc788b9a19e06b86488"
+    "sha256": "dd292e47c3bc0b54a170eddc264a8349fa1d4e4eaa78cfbf313f36de5af9ff84"
   },
   "designId": "Chute-fed hood shooter 1.0",
   "datum": {
@@ -13,7 +13,7 @@
   "library": {
     "library": "frc-design-kernel",
     "version": "0.1.0",
-    "commit": null
+    "commit": "9c69c7d201b7affc0173be277903a64075c29fe5"
   },
   "status": "layout-checked",
   "missingInputs": [],
@@ -433,7 +433,7 @@
   "reopen": [],
   "step": {
     "file": "cad/preliminary-design/releases/1.0/generated/design.step",
-    "sha256": "4872f533451ff879f2cf0f87413decf9c0f21df0885997b3aaba46b811342a31"
+    "sha256": "fc68501a54fe1b6715903fab3c1b5af233d423334117599cc734c9f6e769be4b"
   },
   "parts": [
     {
@@ -587,6 +587,11 @@
     "climb-lift",
     "park-lower"
   ],
+  "carriedFrom": {
+    "file": "cad/preliminary-design/releases/1.0/receipt.json",
+    "sha256": "d7477a7f95105b6af5163df6b188464450fd6738ca697c8f489ca47d4a23447f",
+    "cases": 17
+  },
   "groups": {
     "frame": {
       "role": "structure",
@@ -3027,7 +3032,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -3286,7 +3291,7 @@
             "intake back plate"
           ],
           "status": "pass",
-          "lowerBoundMm": 293.47032321173145,
+          "lowerBoundMm": 293.4703232117314,
           "samples": 3
         },
         {
@@ -3295,7 +3300,7 @@
             "intake carriage plate left"
           ],
           "status": "pass",
-          "lowerBoundMm": 306.1418725838798,
+          "lowerBoundMm": 306.1418725838797,
           "samples": 3
         },
         {
@@ -3304,7 +3309,7 @@
             "intake carriage plate right"
           ],
           "status": "pass",
-          "lowerBoundMm": 306.1418725838798,
+          "lowerBoundMm": 306.1418725838797,
           "samples": 3
         },
         {
@@ -3934,8 +3939,11 @@
         "bothStill": 0,
         "farApart": 333,
         "fixedFarApart": 3750,
-        "measured": 249
-      }
+        "measured": 249,
+        "notInFocus": 0
+      },
+      "inputsSha256": "15d9615e3137257eddd404e3f00c405b17a7ca4d0b3de527b7717d349654cecb",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "acquire",
@@ -4841,7 +4849,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -5118,8 +5126,11 @@
         "bothStill": 0,
         "farApart": 32,
         "fixedFarApart": 4185,
-        "measured": 111
-      }
+        "measured": 111,
+        "notInFocus": 0
+      },
+      "inputsSha256": "99a7020288c7e0dc4e42be6cf5d932f472f156f79c67270ad3a8b2061e9de33d",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "hopper",
@@ -5528,7 +5539,7 @@
             "hood"
           ],
           "status": "pass",
-          "lowerBoundMm": 23.96484970507869,
+          "lowerBoundMm": 23.964849705078635,
           "samples": 7
         },
         {
@@ -6097,7 +6108,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -6374,8 +6385,11 @@
         "bothStill": 0,
         "farApart": 24,
         "fixedFarApart": 4185,
-        "measured": 119
-      }
+        "measured": 119,
+        "notInFocus": 0
+      },
+      "inputsSha256": "72409cfc6bdf2bb7c714914d36ce6ad3222c3dd9ffc01492b2e51fa0c9a2112c",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "loaded-transit",
@@ -6815,7 +6829,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -7092,8 +7106,11 @@
         "bothStill": 0,
         "farApart": 1680,
         "fixedFarApart": 2594,
-        "measured": 56
-      }
+        "measured": 56,
+        "notInFocus": 0
+      },
+      "inputsSha256": "5bc1dc649d387496d0cb05299ca866dc3b33cc465b91f855a53a33ae8eb8e463",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "launch",
@@ -7112,7 +7129,7 @@
             "FUEL tracked"
           ],
           "status": "pass",
-          "lowerBoundMm": 10.557714494558628,
+          "lowerBoundMm": 10.806124564363287,
           "samples": 7
         },
         {
@@ -7133,7 +7150,7 @@
             "battery"
           ],
           "status": "pass",
-          "lowerBoundMm": 39.20046321990841,
+          "lowerBoundMm": 40.17774195154807,
           "samples": 5
         },
         {
@@ -7142,7 +7159,7 @@
             "battery retention cleat aft"
           ],
           "status": "pass",
-          "lowerBoundMm": 39.98153642530634,
+          "lowerBoundMm": 41.03308646319374,
           "samples": 5
         },
         {
@@ -7151,7 +7168,7 @@
             "battery retention cleat fore"
           ],
           "status": "pass",
-          "lowerBoundMm": 114.30257701511421,
+          "lowerBoundMm": 114.53303897688193,
           "samples": 3
         },
         {
@@ -7160,7 +7177,7 @@
             "battery strap"
           ],
           "status": "pass",
-          "lowerBoundMm": 57.92065544048019,
+          "lowerBoundMm": 57.36977592646943,
           "samples": 3
         },
         {
@@ -7169,7 +7186,7 @@
             "bumper left"
           ],
           "status": "pass",
-          "lowerBoundMm": 85.04178373179418,
+          "lowerBoundMm": 87.57795230365622,
           "samples": 3
         },
         {
@@ -7178,7 +7195,7 @@
             "bumper rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 9.789755932337766,
+          "lowerBoundMm": 17.91744660389402,
           "samples": 7
         },
         {
@@ -7187,7 +7204,7 @@
             "climber winch"
           ],
           "status": "pass",
-          "lowerBoundMm": 196.67234672629093,
+          "lowerBoundMm": 196.2742115110466,
           "samples": 3
         },
         {
@@ -7196,7 +7213,7 @@
             "electronics panel left"
           ],
           "status": "pass",
-          "lowerBoundMm": 143.78320922733093,
+          "lowerBoundMm": 144.17235629609468,
           "samples": 3
         },
         {
@@ -7205,7 +7222,7 @@
             "feeder motor left"
           ],
           "status": "pass",
-          "lowerBoundMm": 16.974016073725615,
+          "lowerBoundMm": 16.929954334118747,
           "samples": 5
         },
         {
@@ -7214,7 +7231,7 @@
             "feeder motor right"
           ],
           "status": "pass",
-          "lowerBoundMm": 121.56453946283342,
+          "lowerBoundMm": 122.29744039718958,
           "samples": 3
         },
         {
@@ -7223,7 +7240,7 @@
             "feeder roller right"
           ],
           "status": "pass",
-          "lowerBoundMm": 4.7005393622741245,
+          "lowerBoundMm": 4.668978665950419,
           "samples": 7
         },
         {
@@ -7232,7 +7249,7 @@
             "floor belt front"
           ],
           "status": "pass",
-          "lowerBoundMm": 167.91302744347126,
+          "lowerBoundMm": 168.4597193900343,
           "samples": 3
         },
         {
@@ -7241,8 +7258,8 @@
             "floor belt main"
           ],
           "status": "pass",
-          "lowerBoundMm": 3.398316134269616,
-          "samples": 11
+          "lowerBoundMm": 1.238208811675916,
+          "samples": 9
         },
         {
           "pair": [
@@ -7250,8 +7267,8 @@
             "floor pan"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.2320648154188123,
-          "samples": 47
+          "lowerBoundMm": 1.102449859358492,
+          "samples": 37
         },
         {
           "pair": [
@@ -7259,7 +7276,7 @@
             "floor pan front tongue"
           ],
           "status": "pass",
-          "lowerBoundMm": 169.8998262907894,
+          "lowerBoundMm": 170.53870102511644,
           "samples": 3
         },
         {
@@ -7268,7 +7285,7 @@
             "flywheel inertia ring"
           ],
           "status": "pass",
-          "lowerBoundMm": 76.55302084191693,
+          "lowerBoundMm": 78.39849828802201,
           "samples": 3
         },
         {
@@ -7277,8 +7294,8 @@
             "flywheel motor left"
           ],
           "status": "pass",
-          "lowerBoundMm": 1.0791393719155309,
-          "samples": 5
+          "lowerBoundMm": 3.863808984596318,
+          "samples": 7
         },
         {
           "pair": [
@@ -7286,7 +7303,7 @@
             "flywheel motor right"
           ],
           "status": "pass",
-          "lowerBoundMm": 103.02289416675141,
+          "lowerBoundMm": 104.27693163605417,
           "samples": 3
         },
         {
@@ -7295,7 +7312,7 @@
             "frame rail left"
           ],
           "status": "pass",
-          "lowerBoundMm": 65.6161249027278,
+          "lowerBoundMm": 68.77307262034131,
           "samples": 3
         },
         {
@@ -7304,8 +7321,8 @@
             "frame rail rear"
           ],
           "status": "pass",
-          "lowerBoundMm": 24.00894081681187,
-          "samples": 7
+          "lowerBoundMm": 2.258116870327214,
+          "samples": 5
         },
         {
           "pair": [
@@ -7313,7 +7330,7 @@
             "front left module body"
           ],
           "status": "pass",
-          "lowerBoundMm": 191.4406697682765,
+          "lowerBoundMm": 191.9090130547492,
           "samples": 3
         },
         {
@@ -7322,7 +7339,7 @@
             "front left wheel azimuth envelope"
           ],
           "status": "pass",
-          "lowerBoundMm": 263.3731721811668,
+          "lowerBoundMm": 264.24764583735697,
           "samples": 3
         },
         {
@@ -7331,7 +7348,7 @@
             "hopper liner left"
           ],
           "status": "pass",
-          "lowerBoundMm": 3.1700500012478914,
+          "lowerBoundMm": 3.3154066991784,
           "samples": 15
         },
         {
@@ -7340,7 +7357,7 @@
             "hopper liner right"
           ],
           "status": "pass",
-          "lowerBoundMm": 72.2844406154294,
+          "lowerBoundMm": 73.82684919049854,
           "samples": 3
         },
         {
@@ -7349,7 +7366,7 @@
             "hopper rear wall"
           ],
           "status": "pass",
-          "lowerBoundMm": 2.8476537914621556,
+          "lowerBoundMm": 1.9262484508234188,
           "samples": 13
         },
         {
@@ -7358,7 +7375,7 @@
             "hopper shelf left"
           ],
           "status": "pass",
-          "lowerBoundMm": 18.728950904832505,
+          "lowerBoundMm": 18.72090809548866,
           "samples": 7
         },
         {
@@ -7367,7 +7384,7 @@
             "hopper wall left"
           ],
           "status": "pass",
-          "lowerBoundMm": 59.07580001990381,
+          "lowerBoundMm": 61.40150718675733,
           "samples": 3
         },
         {
@@ -7376,7 +7393,7 @@
             "intake slide rail left"
           ],
           "status": "pass",
-          "lowerBoundMm": 220.4314246215328,
+          "lowerBoundMm": 219.4178310871336,
           "samples": 3
         },
         {
@@ -7385,7 +7402,7 @@
             "rear left module body"
           ],
           "status": "pass",
-          "lowerBoundMm": 11.767556596269493,
+          "lowerBoundMm": 17.14831984492764,
           "samples": 5
         },
         {
@@ -7394,7 +7411,7 @@
             "rear left module motors"
           ],
           "status": "pass",
-          "lowerBoundMm": 38.16058101339815,
+          "lowerBoundMm": 40.80077775438485,
           "samples": 5
         },
         {
@@ -7403,7 +7420,7 @@
             "rear left wheel azimuth envelope"
           ],
           "status": "pass",
-          "lowerBoundMm": 17.56192896788194,
+          "lowerBoundMm": 22.512446300127436,
           "samples": 3
         },
         {
@@ -7412,7 +7429,7 @@
             "rear right module body"
           ],
           "status": "pass",
-          "lowerBoundMm": 99.34970526773883,
+          "lowerBoundMm": 102.46912437546234,
           "samples": 3
         },
         {
@@ -7421,8 +7438,8 @@
             "shooter side plate left"
           ],
           "status": "pass",
-          "lowerBoundMm": 5.0660451435699105,
-          "samples": 31
+          "lowerBoundMm": 1.1878133983446766,
+          "samples": 17
         },
         {
           "pair": [
@@ -7430,7 +7447,7 @@
             "shooter side plate right"
           ],
           "status": "pass",
-          "lowerBoundMm": 64.07580001990381,
+          "lowerBoundMm": 66.40150718675699,
           "samples": 3
         },
         {
@@ -7439,7 +7456,7 @@
             "stage sensor left"
           ],
           "status": "pass",
-          "lowerBoundMm": 6.219260448091252,
+          "lowerBoundMm": 6.3594637526638405,
           "samples": 11
         },
         {
@@ -7448,7 +7465,7 @@
             "stage sensor right"
           ],
           "status": "pass",
-          "lowerBoundMm": 85.68028928551529,
+          "lowerBoundMm": 86.98920097679854,
           "samples": 3
         },
         {
@@ -7819,7 +7836,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -8096,8 +8113,11 @@
         "bothStill": 0,
         "farApart": 52,
         "fixedFarApart": 4185,
-        "measured": 91
-      }
+        "measured": 91,
+        "notInFocus": 0
+      },
+      "inputsSha256": "069f1ee0222b3d92e9390af2301853c1770ed3b6b2ea007b42923a16c7f91e3f",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "flight-1",
@@ -8128,7 +8148,7 @@
             "hub front panel bottom"
           ],
           "status": "pass",
-          "lowerBoundMm": 75.15423914154064,
+          "lowerBoundMm": 75.32977161945382,
           "samples": 17
         },
         {
@@ -8137,7 +8157,7 @@
             "hub front panel top 2"
           ],
           "status": "pass",
-          "lowerBoundMm": 48.91747775656984,
+          "lowerBoundMm": 48.9419753278122,
           "samples": 27
         },
         {
@@ -8146,7 +8166,7 @@
             "hub roof panel"
           ],
           "status": "pass",
-          "lowerBoundMm": 12.011866295096922,
+          "lowerBoundMm": 12.1434227550738,
           "samples": 43
         },
         {
@@ -8517,7 +8537,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -8794,8 +8814,11 @@
         "bothStill": 0,
         "farApart": 80,
         "fixedFarApart": 4185,
-        "measured": 57
-      }
+        "measured": 57,
+        "notInFocus": 0
+      },
+      "inputsSha256": "eb710675c76b2ab8d38e405012d465a536c361bb968f577cdab115263ef62f4f",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "flight-2",
@@ -8826,7 +8849,7 @@
             "hub roof panel"
           ],
           "status": "pass",
-          "lowerBoundMm": 4.508206835920522,
+          "lowerBoundMm": 4.508206835921177,
           "samples": 13
         },
         {
@@ -9197,7 +9220,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -9474,8 +9497,11 @@
         "bothStill": 0,
         "farApart": 84,
         "fixedFarApart": 4185,
-        "measured": 55
-      }
+        "measured": 55,
+        "notInFocus": 0
+      },
+      "inputsSha256": "5e673e45de70edbc8ab04276623e9f8ea945155ba77b4f78e850e47da46e93be",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "climb-reach",
@@ -9509,7 +9535,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -9521,7 +9547,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.413896593511897,
+            "gapMm": 8.413896593512153,
             "volumeMm3": 0
           }
         },
@@ -9533,7 +9559,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449306,
             "volumeMm3": 0
           }
         },
@@ -10046,7 +10072,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -10323,8 +10349,11 @@
         "bothStill": 0,
         "farApart": 164,
         "fixedFarApart": 4094,
-        "measured": 74
-      }
+        "measured": 74,
+        "notInFocus": 0
+      },
+      "inputsSha256": "d9d59709ae2187f2630e47ceb63094ba5a4765b204f6e93a1c7b226335674360",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "intake-stow",
@@ -10380,7 +10409,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -10392,7 +10421,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.413896593511897,
+            "gapMm": 8.413896593512153,
             "volumeMm3": 0
           }
         },
@@ -10404,7 +10433,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449306,
             "volumeMm3": 0
           }
         },
@@ -11532,7 +11561,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -12349,8 +12378,11 @@
         "bothStill": 0,
         "farApart": 382,
         "fixedFarApart": 3747,
-        "measured": 203
-      }
+        "measured": 203,
+        "notInFocus": 0
+      },
+      "inputsSha256": "91ba508dd627d0fbf61d77e7fc07e36468c507d8e0dcf8b12a6b7cdbec0bc8cb",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "tower-lateral",
@@ -12407,7 +12439,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -12419,7 +12451,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.413896593511897,
+            "gapMm": 8.413896593512153,
             "volumeMm3": 0
           }
         },
@@ -12431,7 +12463,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449306,
             "volumeMm3": 0
           }
         },
@@ -12815,7 +12847,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -13188,8 +13220,11 @@
         "bothStill": 0,
         "farApart": 1725,
         "fixedFarApart": 2541,
-        "measured": 66
-      }
+        "measured": 66,
+        "notInFocus": 0
+      },
+      "inputsSha256": "97d42f2d8708ac2a25118d1e6107e9ff83fc0165ab0ae31202ed30a2d03922d4",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "tower-forward",
@@ -13246,7 +13281,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -13258,7 +13293,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.41389659351202,
+            "gapMm": 8.413896593512177,
             "volumeMm3": 0
           }
         },
@@ -13270,7 +13305,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449313,
             "volumeMm3": 0
           }
         },
@@ -13662,7 +13697,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -14035,8 +14070,11 @@
         "bothStill": 0,
         "farApart": 1724,
         "fixedFarApart": 2541,
-        "measured": 67
-      }
+        "measured": 67,
+        "notInFocus": 0
+      },
+      "inputsSha256": "0b1ed9f1cf17d7feb55d267da14b2bb1abec9acca95e0971aaa1d4f556147acc",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "climb-seat",
@@ -14072,7 +14110,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -14084,7 +14122,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.41389659351202,
+            "gapMm": 8.413896593512177,
             "volumeMm3": 0
           }
         },
@@ -14096,7 +14134,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449313,
             "volumeMm3": 0
           }
         },
@@ -14486,7 +14524,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -14892,8 +14930,11 @@
         "bothStill": 0,
         "farApart": 352,
         "fixedFarApart": 3911,
-        "measured": 69
-      }
+        "measured": 69,
+        "notInFocus": 0
+      },
+      "inputsSha256": "492693550182868b8c707539ed94168ce69426dd8886b50e9c53520d5a1a47fd",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "climb-lift",
@@ -14954,7 +14995,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -14966,7 +15007,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.41389659351202,
+            "gapMm": 8.413896593512177,
             "volumeMm3": 0
           }
         },
@@ -14978,7 +15019,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449313,
             "volumeMm3": 0
           }
         },
@@ -15388,7 +15429,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -15761,8 +15802,11 @@
         "bothStill": 0,
         "farApart": 1876,
         "fixedFarApart": 2385,
-        "measured": 71
-      }
+        "measured": 71,
+        "notInFocus": 0
+      },
+      "inputsSha256": "ef009b8b32a78af2cc00763d325b32aa4f969be067c7e169b1dc9735e0d13581",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "park-lower",
@@ -15823,7 +15867,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 10.085091370930993,
+            "gapMm": 10.085091370931664,
             "volumeMm3": 0
           }
         },
@@ -15835,7 +15879,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 8.41389659351202,
+            "gapMm": 8.413896593512177,
             "volumeMm3": 0
           }
         },
@@ -15847,7 +15891,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 20.182633975448965,
+            "gapMm": 20.182633975449313,
             "volumeMm3": 0
           }
         },
@@ -16257,7 +16301,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -16630,8 +16674,11 @@
         "bothStill": 0,
         "farApart": 1876,
         "fixedFarApart": 2385,
-        "measured": 71
-      }
+        "measured": 71,
+        "notInFocus": 0
+      },
+      "inputsSha256": "5ff6a0bc7224ee5c56ba4fb7222bb228f0468cbfc83b7d7efdcde72ca4b2a7bd",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "battery-cover-remove",
@@ -17012,7 +17059,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -17717,9 +17764,12 @@
         "bothStill": 0,
         "farApart": 179,
         "fixedFarApart": 4102,
-        "measured": 90
+        "measured": 90,
+        "notInFocus": 0
       },
-      "withdrawnBoxGapMm": 449.3513509689983
+      "withdrawnBoxGapMm": 449.3513509689983,
+      "inputsSha256": "4942773d1dc928636fc96b07a54e2d957f6fc55f0d3af1506a8b081d527e00ad",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "battery-withdraw",
@@ -18053,7 +18103,7 @@
           "status": "pass",
           "witness": {
             "t": 0,
-            "gapMm": 48.986156461297035,
+            "gapMm": 49.11525612016582,
             "volumeMm3": 0
           }
         },
@@ -18750,9 +18800,12 @@
         "bothStill": 0,
         "farApart": 90,
         "fixedFarApart": 4012,
-        "measured": 84
+        "measured": 84,
+        "notInFocus": 0
       },
-      "withdrawnBoxGapMm": 283.3513509689983
+      "withdrawnBoxGapMm": 283.3513509689983,
+      "inputsSha256": "e5c2143e719c1c8d44c75fb727cb1a3246017d4a0fcabc864e7585e16a0e4458",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     },
     {
       "case": "shooter-withdraw",
@@ -19860,9 +19913,12 @@
         "bothStill": 0,
         "farApart": 607,
         "fixedFarApart": 3674,
-        "measured": 90
+        "measured": 90,
+        "notInFocus": 0
       },
-      "withdrawnBoxGapMm": 286.3513509689983
+      "withdrawnBoxGapMm": 286.4688689654363,
+      "inputsSha256": "086f63c5c0e60601129dbb1f5fdbea36fa58126b7c5727e3128b847a6dad7db3",
+      "checked": "carried from cad/preliminary-design/releases/1.0/receipt.json"
     }
   ],
   "control": {
@@ -20460,14 +20516,743 @@
       },
       "verdict": "needs 3D",
       "reasons": [
-        "24 pieces at once"
+        "4 pieces at once; guideline: one piece"
       ],
       "decides": "Whether 24 FUEL through the one flywheel all release inside the scoring band at the required rate",
       "cases": [],
       "trial": {
         "name": "batch",
-        "result": null,
-        "state": "not run"
+        "engine": "mujoco",
+        "result": "covered by adjustment",
+        "findings": [
+          "the outcome changes inside the assumed range of \"pieces.FUEL.massKg\": it holds at 0.221 and changes at 0.2225; the adjustment \"flywheel setpoint\" covers it: settings 13.35 to 14.1 pass at the low end, 13.5375 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"materials.flywheel.stiffnessNPerM\": it holds at 15000 and changes at 16875; the adjustment \"flywheel setpoint\" covers it: settings 13.2875 to 14.1 pass at the low end, 13.5375 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"materials.flywheel.friction\": it holds at 0.9375 and changes at 0.95; the adjustment \"flywheel setpoint\" covers it: settings 13.2875 to 14.1 pass at the low end, 13.5375 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"materials.hood.stiffnessNPerM\": it holds at 16875 and changes at 18750; the adjustment \"flywheel setpoint\" covers it: settings 13.35 to 14.1 pass at the low end, 13.5375 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"materials.lane deck.stiffnessNPerM\": it holds at 16875 and changes at 18750; the adjustment \"flywheel setpoint\" covers it: settings 13.35 to 14.1 pass at the low end, 13.5375 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"drives.flywheel.efficiency\": it holds at 0.86875 and changes at 0.8625; the adjustment \"flywheel setpoint\" covers it: settings 13.5375 to 14.1 pass at the low end, 13.35 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the assumed range of \"drives.flywheel.movingKg\": it holds at 2.90625 and changes at 2.8625; the adjustment \"flywheel setpoint\" covers it: settings 13.5375 to 14.1 pass at the low end, 13.35 to 14.1 at the high end, and one setting (13.8187) passes at both ends",
+          "the outcome changes inside the listed values of \"commands.flywheel.setpointMps\": it holds at 13.35 and changes at 13.3"
+        ],
+        "assumptions": [
+          {
+            "id": "two-per-lane",
+            "text": "Two FUEL in each lane stand for the 24: each shot is gated by the ready band, so every shot starts from the same wheel speed and the fourth repeats the second."
+          },
+          {
+            "id": "release-by-wheel",
+            "text": "A shot fed with the wheel at or above 13.1 m/s releases inside the scoring band, as the launch trial shows over its setpoint range; the batch is held to the wheel speed, and each FUEL's peak speed in the shooter is kept as a measure."
+          },
+          {
+            "id": "timed-feed",
+            "text": "Timed feed windows stand for the stage beams: each lane feeds one FUEL per window, the lanes in turn 0.25 s apart, with the belt bringing up the second FUEL between rounds."
+          },
+          {
+            "id": "rigid-bodies",
+            "text": "Every body is rigid. All give is in the contact between the piece and a surface."
+          },
+          {
+            "id": "listed-pieces",
+            "text": "The trial's piece and any others the trial lists are the only free bodies."
+          },
+          {
+            "id": "convex-shapes",
+            "text": "A tube, a box with boxes cut out, a prism and a pie slice are run as their true convex pieces. Any other hollow, cut or imported solid is used as its convex hull; the record lists which, and says when the piece touched one."
+          },
+          {
+            "id": "own-contact-law",
+            "text": "MuJoCo finds where shapes overlap and moves the bodies. The forces there are this library's spring, damper and friction law, the same as the planar engine's."
+          },
+          {
+            "id": "shared-spring",
+            "text": "Where a piece touches one surface at several points, the surface's spring is shared among the points by depth."
+          },
+          {
+            "id": "driven-not-driving",
+            "text": "A moved group follows its motion and a driven surface runs at its drive's speed; contact loads the drive's motor model but cannot push a mechanism off its motion."
+          },
+          {
+            "id": "driven-surface-still",
+            "text": "A roller, wheel or belt that a drive turns is a still shape whose surface runs at the drive's speed across the turn's axis."
+          },
+          {
+            "id": "teleported-paths",
+            "text": "A group whose motion is not one hinge or one slider is carried along its path without its speed being felt in contact."
+          },
+          {
+            "id": "flap-as-drawn",
+            "text": "A flap is its drawn solid on a sprung hinge about the plane's normal; its stops do not bounce."
+          },
+          {
+            "id": "ring-of-capsules",
+            "text": "A ring piece is a closed chain of straight round segments; the record says how many."
+          },
+          {
+            "id": "pieces-alike",
+            "text": "With more than one piece, piece against piece takes the one material the trial names; only the trial's own piece is reported contact by contact."
+          },
+          {
+            "id": "not-yet-run",
+            "text": "Custom forces are not run by this engine yet; a trial that has them is refused."
+          },
+          {
+            "id": "no-air",
+            "text": "No air drag or lift."
+          },
+          {
+            "id": "fixed-step",
+            "text": "Time moves in fixed steps; the half-step repeat is the check on the step."
+          }
+        ],
+        "inputs": [
+          {
+            "path": "pieces.FUEL.massKg",
+            "value": 0.215,
+            "source": "assumed",
+            "range": [
+              0.203,
+              0.227
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.4,
+              0.9
+            ]
+          },
+          {
+            "path": "materials.feeder.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.feeder.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.feeder.friction",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "path": "materials.flywheel.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.flywheel.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.flywheel.friction",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "path": "materials.hood.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.hood.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.hood.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.8
+            ]
+          },
+          {
+            "path": "materials.lane deck.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.lane deck.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.lane deck.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.8
+            ]
+          },
+          {
+            "path": "motors.NEO.ktNmPerA",
+            "value": 0.025193798449612403,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO.ohm",
+            "value": 0.11428571428571428,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO.keVsPerRad",
+            "value": 0.01984269420366487,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO pair.ktNmPerA",
+            "value": 0.025193798449612403,
+            "source": "measured",
+            "reference": "maker's data sheet; with the current shared, the pair gives this per amp of each"
+          },
+          {
+            "path": "motors.NEO pair.ohm",
+            "value": 0.05714285714285714,
+            "source": "measured",
+            "reference": "maker's data sheet, two motors in parallel"
+          },
+          {
+            "path": "motors.NEO pair.keVsPerRad",
+            "value": 0.01984269420366487,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "drives.feeder left.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.feeder left.movingKg",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "drives.feeder right.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.feeder right.movingKg",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "drives.floor belt.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.floor belt.movingKg",
+            "value": 0.5,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.7
+            ]
+          },
+          {
+            "path": "drives.flywheel.efficiency",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.95
+            ]
+          },
+          {
+            "path": "drives.flywheel.movingKg",
+            "value": 2.95,
+            "source": "assumed",
+            "range": [
+              2.6,
+              3.3
+            ]
+          }
+        ],
+        "sensitivity": [
+          "materials.flywheel.stiffnessNPerM",
+          "materials.flywheel.friction",
+          "commands.flywheel.setpointMps",
+          "materials.lane deck.stiffnessNPerM",
+          "materials.hood.stiffnessNPerM",
+          "pieces.FUEL.massKg",
+          "drives.flywheel.movingKg",
+          "drives.flywheel.efficiency",
+          "materials.feeder.friction",
+          "materials.hood.friction",
+          "materials.flywheel.dampingRatio",
+          "materials.lane deck.dampingRatio",
+          "materials.feeder.stiffnessNPerM",
+          "materials.feeder.dampingRatio",
+          "materials.lane deck.friction",
+          "materials.hood.dampingRatio",
+          "drives.feeder left.efficiency",
+          "drives.feeder left.movingKg",
+          "drives.feeder right.efficiency",
+          "drives.feeder right.movingKg",
+          "drives.floor belt.efficiency",
+          "drives.floor belt.movingKg",
+          "materials.FUEL on FUEL.dampingRatio",
+          "materials.FUEL on FUEL.friction",
+          "materials.FUEL on FUEL.stiffnessNPerM"
+        ],
+        "coverage": [
+          {
+            "input": "pieces.FUEL.massKg",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.5375,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.FUEL on FUEL.stiffnessNPerM",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.FUEL on FUEL.dampingRatio",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.FUEL on FUEL.friction",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.feeder.stiffnessNPerM",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.feeder.dampingRatio",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.feeder.friction",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.flywheel.stiffnessNPerM",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.2875,
+              14.1
+            ],
+            "atHigh": [
+              13.5375,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.flywheel.dampingRatio",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.flywheel.friction",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.2875,
+              14.1
+            ],
+            "atHigh": [
+              13.5375,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.hood.stiffnessNPerM",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.5375,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.hood.dampingRatio",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.hood.friction",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.lane deck.stiffnessNPerM",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.5375,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.lane deck.dampingRatio",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "materials.lane deck.friction",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.feeder left.efficiency",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.feeder left.movingKg",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.feeder right.efficiency",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.feeder right.movingKg",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.floor belt.efficiency",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.floor belt.movingKg",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.725,
+            "atLow": [
+              13.35,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.flywheel.efficiency",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.5375,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          },
+          {
+            "input": "drives.flywheel.movingKg",
+            "adjustment": "flywheel setpoint",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 13.81875,
+            "atLow": [
+              13.5375,
+              14.1
+            ],
+            "atHigh": [
+              13.35,
+              14.1
+            ]
+          }
+        ],
+        "adjustments": [
+          "flywheel setpoint"
+        ],
+        "touchedHulled": [],
+        "state": "current",
+        "changes": []
       }
     },
     {
@@ -20928,13 +21713,13 @@
       },
       "verdict": "needs 3D",
       "reasons": [
-        "the section of hub funnel base changes by 43.3 mm across the piece's width",
-        "hub funnel base has a face sloped across the plane (a funnel or chamfer) and a free-form face and a round face lying across the plane",
-        "the section plane misses hub funnel side 1",
-        "hub funnel side 1 has a face sloped across the plane (a funnel or chamfer) and a round face lying across the plane",
-        "the section of hub funnel side 2 changes by 43.3 mm across the piece's width",
-        "hub funnel side 2 has a face sloped across the plane (a funnel or chamfer) and a round face lying across the plane",
-        "hub net has a free-form face and a round face lying across the plane"
+        "the section of hub funnel base changes by 43.3 mm across the piece's width; guideline: within 7.5 mm, the larger of 2 mm and 5% of its thickness",
+        "hub funnel base has a face sloped across the plane (a funnel or chamfer) and a free-form face and a round face lying across the plane; guideline: faces square to the plane",
+        "the section plane misses hub funnel side 1; guideline: the plane cuts every solid the piece meets",
+        "hub funnel side 1 has a face sloped across the plane (a funnel or chamfer) and a round face lying across the plane; guideline: faces square to the plane",
+        "the section of hub funnel side 2 changes by 43.3 mm across the piece's width; guideline: within 7.5 mm, the larger of 2 mm and 5% of its thickness",
+        "hub funnel side 2 has a face sloped across the plane (a funnel or chamfer) and a round face lying across the plane; guideline: faces square to the plane",
+        "hub net has a free-form face and a round face lying across the plane; guideline: faces square to the plane"
       ],
       "decides": "Whether the released FUEL enters the HUB at the shot pose under the assumed drag and spin lift",
       "cases": [
@@ -21228,20 +22013,788 @@
       },
       "verdict": "needs 3D",
       "reasons": [
-        "the section plane misses feeder roller right",
-        "the section plane misses hopper liner left",
-        "hopper liner left has a face sloped across the plane (a funnel or chamfer)",
-        "the section plane misses hopper liner right",
-        "hopper liner right has a face sloped across the plane (a funnel or chamfer)",
-        "24 pieces at once",
-        "the piece may arrive up to 20 degrees skewed"
+        "the section plane misses feeder roller right; guideline: the plane cuts every solid the piece meets",
+        "the section plane misses hopper liner left; guideline: the plane cuts every solid the piece meets",
+        "hopper liner left has a face sloped across the plane (a funnel or chamfer); guideline: faces square to the plane",
+        "the section plane misses hopper liner right; guideline: the plane cuts every solid the piece meets",
+        "hopper liner right has a face sloped across the plane (a funnel or chamfer); guideline: faces square to the plane",
+        "12 pieces at once; guideline: one piece",
+        "the piece may arrive up to 20 degrees skewed; guideline: within 10 degrees"
       ],
       "decides": "Whether 24 free FUEL arriving through the chute stage and feed in turn without a jam",
       "cases": [],
       "trial": {
         "name": "hopper flow",
-        "result": null,
-        "state": "not run"
+        "engine": "mujoco",
+        "result": "failed",
+        "findings": [],
+        "assumptions": [
+          {
+            "id": "heap-start",
+            "text": "Twelve FUEL dropped as a heap stand for a full hopper of 24 filled through the chute; the chute arrivals are the entry trial's question."
+          },
+          {
+            "id": "timed-unjam",
+            "text": "The unjam reversal runs on a timer every 1.5 s, standing for the sensed reversal when a lane's beam stays clear."
+          },
+          {
+            "id": "timed-feed",
+            "text": "Timed feed windows stand for the stage beams: each lane feeds for 0.22 s every 0.5 s, the lanes 0.25 s apart."
+          },
+          {
+            "id": "rigid-bodies",
+            "text": "Every body is rigid. All give is in the contact between the piece and a surface."
+          },
+          {
+            "id": "listed-pieces",
+            "text": "The trial's piece and any others the trial lists are the only free bodies."
+          },
+          {
+            "id": "convex-shapes",
+            "text": "A tube, a box with boxes cut out, a prism and a pie slice are run as their true convex pieces. Any other hollow, cut or imported solid is used as its convex hull; the record lists which, and says when the piece touched one."
+          },
+          {
+            "id": "own-contact-law",
+            "text": "MuJoCo finds where shapes overlap and moves the bodies. The forces there are this library's spring, damper and friction law, the same as the planar engine's."
+          },
+          {
+            "id": "shared-spring",
+            "text": "Where a piece touches one surface at several points, the surface's spring is shared among the points by depth."
+          },
+          {
+            "id": "driven-not-driving",
+            "text": "A moved group follows its motion and a driven surface runs at its drive's speed; contact loads the drive's motor model but cannot push a mechanism off its motion."
+          },
+          {
+            "id": "driven-surface-still",
+            "text": "A roller, wheel or belt that a drive turns is a still shape whose surface runs at the drive's speed across the turn's axis."
+          },
+          {
+            "id": "teleported-paths",
+            "text": "A group whose motion is not one hinge or one slider is carried along its path without its speed being felt in contact."
+          },
+          {
+            "id": "flap-as-drawn",
+            "text": "A flap is its drawn solid on a sprung hinge about the plane's normal; its stops do not bounce."
+          },
+          {
+            "id": "ring-of-capsules",
+            "text": "A ring piece is a closed chain of straight round segments; the record says how many."
+          },
+          {
+            "id": "pieces-alike",
+            "text": "With more than one piece, piece against piece takes the one material the trial names; only the trial's own piece is reported contact by contact."
+          },
+          {
+            "id": "not-yet-run",
+            "text": "Custom forces are not run by this engine yet; a trial that has them is refused."
+          },
+          {
+            "id": "no-air",
+            "text": "No air drag or lift."
+          },
+          {
+            "id": "fixed-step",
+            "text": "Time moves in fixed steps; the half-step repeat is the check on the step."
+          }
+        ],
+        "inputs": [
+          {
+            "path": "pieces.FUEL.massKg",
+            "value": 0.215,
+            "source": "assumed",
+            "range": [
+              0.203,
+              0.227
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.FUEL on FUEL.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.4,
+              0.9
+            ]
+          },
+          {
+            "path": "materials.back plate.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500.0,
+              30000
+            ]
+          },
+          {
+            "path": "materials.back plate.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.back plate.friction",
+            "value": 0.4,
+            "source": "assumed",
+            "range": [
+              0.1,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.feeder.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.feeder.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.feeder.friction",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "path": "materials.flywheel.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.flywheel.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.flywheel.friction",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "path": "materials.hood.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.hood.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.hood.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.8
+            ]
+          },
+          {
+            "path": "materials.lane deck.stiffnessNPerM",
+            "value": 15000,
+            "source": "assumed",
+            "range": [
+              7500,
+              30000
+            ]
+          },
+          {
+            "path": "materials.lane deck.dampingRatio",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "materials.lane deck.friction",
+            "value": 0.6,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.8
+            ]
+          },
+          {
+            "path": "motors.NEO.ktNmPerA",
+            "value": 0.025193798449612403,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO.ohm",
+            "value": 0.11428571428571428,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO.keVsPerRad",
+            "value": 0.01984269420366487,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "motors.NEO pair.ktNmPerA",
+            "value": 0.025193798449612403,
+            "source": "measured",
+            "reference": "maker's data sheet; with the current shared, the pair gives this per amp of each"
+          },
+          {
+            "path": "motors.NEO pair.ohm",
+            "value": 0.05714285714285714,
+            "source": "measured",
+            "reference": "maker's data sheet, two motors in parallel"
+          },
+          {
+            "path": "motors.NEO pair.keVsPerRad",
+            "value": 0.01984269420366487,
+            "source": "measured",
+            "reference": "maker's data sheet"
+          },
+          {
+            "path": "drives.feeder left.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.feeder left.movingKg",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "drives.feeder right.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.feeder right.movingKg",
+            "value": 0.3,
+            "source": "assumed",
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "path": "drives.floor belt.efficiency",
+            "value": 0.85,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.9
+            ]
+          },
+          {
+            "path": "drives.floor belt.movingKg",
+            "value": 0.5,
+            "source": "assumed",
+            "range": [
+              0.3,
+              0.7
+            ]
+          },
+          {
+            "path": "drives.flywheel.efficiency",
+            "value": 0.9,
+            "source": "assumed",
+            "range": [
+              0.85,
+              0.95
+            ]
+          },
+          {
+            "path": "drives.flywheel.movingKg",
+            "value": 2.95,
+            "source": "assumed",
+            "range": [
+              2.6,
+              3.3
+            ]
+          }
+        ],
+        "sensitivity": [
+          "materials.flywheel.friction",
+          "drives.flywheel.movingKg",
+          "materials.hood.stiffnessNPerM",
+          "drives.flywheel.efficiency",
+          "materials.flywheel.dampingRatio",
+          "materials.hood.dampingRatio",
+          "materials.feeder.stiffnessNPerM",
+          "materials.lane deck.friction",
+          "materials.hood.friction",
+          "materials.feeder.dampingRatio",
+          "materials.FUEL on FUEL.friction",
+          "materials.lane deck.dampingRatio",
+          "materials.FUEL on FUEL.dampingRatio",
+          "commands.floor belt.speedMps",
+          "materials.back plate.stiffnessNPerM",
+          "materials.FUEL on FUEL.stiffnessNPerM",
+          "materials.flywheel.stiffnessNPerM",
+          "materials.lane deck.stiffnessNPerM",
+          "pieces.FUEL.massKg",
+          "materials.feeder.friction",
+          "materials.back plate.dampingRatio",
+          "materials.back plate.friction",
+          "drives.feeder left.efficiency",
+          "drives.feeder left.movingKg",
+          "drives.feeder right.efficiency",
+          "drives.feeder right.movingKg",
+          "drives.floor belt.efficiency",
+          "drives.floor belt.movingKg"
+        ],
+        "coverage": [
+          {
+            "input": "pieces.FUEL.massKg",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              2.0,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.FUEL on FUEL.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.8,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              1.8
+            ]
+          },
+          {
+            "input": "materials.FUEL on FUEL.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.6,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.FUEL on FUEL.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": null,
+            "atHigh": [
+              1.2,
+              1.2
+            ]
+          },
+          {
+            "input": "materials.back plate.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.back plate.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": null,
+            "atHigh": [
+              1.4,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.back plate.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.4,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.feeder.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.6,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.feeder.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.feeder.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              1.4,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.flywheel.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.flywheel.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.6,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.flywheel.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.9,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.8,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.hood.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.5,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              1.8
+            ]
+          },
+          {
+            "input": "materials.hood.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": null
+          },
+          {
+            "input": "materials.hood.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.6,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.lane deck.stiffnessNPerM",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.7,
+            "atLow": [
+              1.4,
+              2.0
+            ],
+            "atHigh": [
+              1.4,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.lane deck.dampingRatio",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.7,
+            "atLow": [
+              1.4,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "materials.lane deck.friction",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.6,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.feeder left.efficiency",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.feeder left.movingKg",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.feeder right.efficiency",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.feeder right.movingKg",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.floor belt.efficiency",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.floor belt.movingKg",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.8,
+            "atLow": [
+              1.6,
+              2.0
+            ],
+            "atHigh": [
+              1.6,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.flywheel.efficiency",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": false,
+            "oneSettingPassesBoth": false,
+            "setting": null,
+            "atLow": null,
+            "atHigh": [
+              1.2,
+              2.0
+            ]
+          },
+          {
+            "input": "drives.flywheel.movingKg",
+            "adjustment": "floor belt speed",
+            "someSettingPassesEach": true,
+            "oneSettingPassesBoth": true,
+            "setting": 1.5,
+            "atLow": [
+              1.2,
+              2.0
+            ],
+            "atHigh": [
+              1.2,
+              1.8
+            ]
+          }
+        ],
+        "adjustments": [
+          "floor belt speed"
+        ],
+        "touchedHulled": [],
+        "state": "current",
+        "changes": []
       }
     },
     {
@@ -21251,9 +22804,9 @@
         "normal": "y",
         "atMm": 82.5
       },
-      "verdict": "planar is enough",
+      "verdict": "configurable",
       "reasons": [
-        "the piece is round in the section, every meeting solid is the same across its width and nothing leaves the plane"
+        "flywheel squeezes the piece by 12% of its thickness; guideline: a squeeze within 10% is simulated well enough"
       ],
       "decides": "Whether the flywheel and hood release the FUEL inside the scoring band, and the wheel inertia and setpoint to build",
       "cases": [
@@ -21264,10 +22817,8 @@
         "engine": "planar",
         "result": "covered by adjustment",
         "findings": [
-          "the outcome changes inside the assumed range of \"materials.flywheel.stiffnessNPerM\": it holds at 8437.5 and changes at 7500; the adjustment \"flywheel setpoint\" covers it: settings 13.1 to 13.475 pass at the low end, 13.1 to 13.6 at the high end, and one setting (13.2875) passes at both ends",
-          "the outcome changes inside the assumed range of \"materials.hood.stiffnessNPerM\": it holds at 16875 and changes at 18750; the adjustment \"flywheel setpoint\" covers it: settings 13.35 to 14.1 pass at the low end, 13.1 to 13.35 at the high end, and one setting (13.35) passes at both ends",
-          "the outcome changes inside the assumed range of \"materials.hood.dampingRatio\": it holds at 0.3875 and changes at 0.4; the adjustment \"flywheel setpoint\" covers it: settings 13.1 to 13.6 pass at the low end, 13.1 to 13.475 at the high end, and one setting (13.2875) passes at both ends",
-          "the outcome changes inside the listed values of \"commands.flywheel.setpointMps\": it holds at 13.6 and changes at 13.9"
+          "the outcome changes inside the assumed range of \"materials.hood.stiffnessNPerM\": it holds at 24375 and changes at 26250; the adjustment \"flywheel setpoint\" covers it: settings 13.1 to 13.5375 pass at the low end, 13.1 to 13.225 at the high end, and one setting (13.1625) passes at both ends",
+          "the outcome changes inside the listed values of \"commands.flywheel.setpointMps\": it holds at 13.35 and changes at 13.6"
         ],
         "assumptions": [
           {
@@ -21524,18 +23075,18 @@
           "commands.flywheel.setpointMps",
           "materials.hood.stiffnessNPerM",
           "materials.flywheel.stiffnessNPerM",
-          "materials.hood.dampingRatio",
-          "materials.hood.friction",
           "materials.flywheel.friction",
-          "pieces.FUEL.massKg",
+          "materials.hood.friction",
           "drives.flywheel.movingKg",
+          "materials.hood.dampingRatio",
+          "pieces.FUEL.massKg",
           "drives.flywheel.efficiency",
           "materials.flywheel.dampingRatio",
           "materials.lane deck.stiffnessNPerM",
           "materials.lane deck.friction",
-          "materials.feeder.stiffnessNPerM",
           "materials.feeder.friction",
           "materials.lane deck.dampingRatio",
+          "materials.feeder.stiffnessNPerM",
           "materials.feeder.dampingRatio",
           "drives.feeder left.efficiency",
           "drives.feeder left.movingKg",
@@ -21548,14 +23099,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21563,14 +23114,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21578,14 +23129,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21593,14 +23144,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21608,14 +23159,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.2875,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.475
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21623,14 +23174,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21638,14 +23189,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21653,14 +23204,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.1625,
             "atLow": [
-              13.35,
-              14.1
+              13.1,
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.35
+              13.225
             ]
           },
           {
@@ -21668,14 +23219,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.2875,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.475
+              13.35
             ]
           },
           {
@@ -21683,14 +23234,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.725
+              13.35
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21698,14 +23249,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21713,14 +23264,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21728,14 +23279,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21743,14 +23294,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21758,14 +23309,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21773,14 +23324,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21788,14 +23339,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.31875,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.5375
             ]
           },
           {
@@ -21803,14 +23354,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.35
             ]
           },
           {
@@ -21818,14 +23369,14 @@
             "adjustment": "flywheel setpoint",
             "someSettingPassesEach": true,
             "oneSettingPassesBoth": true,
-            "setting": 13.35,
+            "setting": 13.225,
             "atLow": [
               13.1,
-              13.6
+              13.5375
             ],
             "atHigh": [
               13.1,
-              13.6
+              13.35
             ]
           }
         ],
@@ -21846,7 +23397,7 @@
       },
       "verdict": "configurable",
       "reasons": [
-        "intake belt module squeezes the piece by 14% of its thickness"
+        "intake belt module squeezes the piece by 14% of its thickness; guideline: a squeeze within 10% is simulated well enough"
       ],
       "decides": "Whether the belt-and-roller intake lifts a floor FUEL over the bumper and the back plate at every assumed friction, and which pulley height and squeeze to build",
       "cases": [
@@ -22770,9 +24321,8 @@
         10,
         30
       ],
-      "measured": false,
-      "findings": [],
-      "hint": "Measure both ends with python -m frc_design_kernel measure SOURCE --out RECORDS --extremes --min-gap 1: the largest stage allowance"
+      "measured": true,
+      "findings": []
     },
     {
       "name": "floor belt speed",
@@ -22815,24 +24365,27 @@
         15,
         30
       ],
-      "measured": false,
-      "findings": [],
-      "hint": "Measure both ends with python -m frc_design_kernel measure SOURCE --out RECORDS --extremes --min-gap 1: the largest stage allowance"
+      "measured": true,
+      "findings": []
     }
   ],
   "trials": {
     "file": "cad/preliminary-design/releases/1.0/records/trials.json",
-    "sha256": "528d02a720f43ea88a0c1a455bcd1ec89c00fc9e12b79993d2fba849a6468775"
+    "sha256": "6b61e93dd27b67916e5d5ed6af087fc6f5e3aebe86bf795faf05c97b9f9d73e7"
+  },
+  "measurements": {
+    "file": "cad/preliminary-design/releases/1.0/records/measurements.json",
+    "sha256": "610fa320d806c5ee7678eec86ac0ddc3099b1c131033ec447fa925a7efea5902"
   },
   "view": {
     "file": "cad/preliminary-design/releases/1.0/package-motion.html",
-    "sha256": "ecd64d9e6e637e86ead51f06b8d6c9016abaddfe704cce8ec2cf57d73f26bf2f",
+    "sha256": "463e4e7995ede9bedeaaa25699b113ced7f62f07d303c08ecd21fa841fa390ac",
     "verified": true,
     "scene": {
       "file": "cad/preliminary-design/releases/1.0/review-scene.json.gz",
-      "sha256": "649797dcdc2ddd922efaf15916a232913770d6fdeea947dec58796ba507906ad",
-      "contentSha256": "bd2154fc746d52df3fb7152370118090fdac4fbbd5932936bbf1957147a7059b",
-      "bytes": 11234427
+      "sha256": "b90cb7c72fbef730d828cb59b89db678bc12d4300612d30ca67b62c5382db614",
+      "contentSha256": "68c82a44932298e04a9af5f03f38862f839f0300cfb44b62f40832beb8eef914",
+      "bytes": 11255482
     }
   },
   "parked": {

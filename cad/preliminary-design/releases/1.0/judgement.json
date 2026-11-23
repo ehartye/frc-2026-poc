@@ -1583,5 +1583,8 @@
       "trial": "hopper flow",
       "cases": []
     }
+  },
+  "measurements": {
+    "file": "cad/preliminary-design/releases/1.0/records/measurements.json"
   }
 }
