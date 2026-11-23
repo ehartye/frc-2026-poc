@@ -270,7 +270,7 @@ def main():
         for n, _ in cleats:
             scene.track(clip, n, "translation", ticks, shelves[n])
             scene.track(clip, n, "rotation", ticks, shelfq[n])
-    output = ROOT / "docs/robot/cad/own-zone.glb"
+    output = ROOT / "cad/archived-views/robot/cad/own-zone.glb"
     output.parent.mkdir(parents=True, exist_ok=True)
     scene.save(output)
     print(

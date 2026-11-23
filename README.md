@@ -61,7 +61,8 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 - `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.
-- `docs/DESIGN.md`: design scope, assumptions and remaining work.
+- `docs/`: the published site, as static files, with `docs/DESIGN.md` (design scope, assumptions and remaining work) and the workflow notes beside it.
+- `cad/archived-views/`: stills and viewer pages of earlier and withdrawn models, kept off the site.
 - `PROVENANCE.json`: exact source commit and file hashes; no Git history or private vault included.
 
 The shared source snapshot is derived from agent-frc commit `21d785397cd08ca9dc5bf5f9849996ab508c9a49`. That development commit need not be accessible remotely to run this checkout. Gradle 8.11, GradleRIO/WPILib 2026.2.1 and JUnit 5.10.1 are pinned; 2024/2025 are game models using the 2026 desktop toolchain, not historical toolchain builds. See [dependency notices](experiments/legacy/shared/examples/java-2026-sim/THIRD_PARTY.md).
@@ -80,4 +81,4 @@ Only the documented run entry is supported by this minimal snapshot. Legacy task
 
 ## Public contribution checks
 
-Run `python -m unittest discover -s tests` after committing changes. Every pushed branch is scanned for personal machine paths and credentials by the Paths and secrets job (`node PLUGIN/scripts/branch-scan.mjs .` locally), and the Design publication job checks every published design; [how to run them](tests/ci.md). Manually review images, CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.
+Every pushed branch runs the project's own workflow: a scan for personal machine paths and credentials (`node scripts/ci/scan.mjs .` locally), a check that the published site is whole, and the project's tests; [how to run them](tests/ci.md). The site is the `docs/` folder as committed. Design checks are run by the coding agent with its own tool before a push, as [AGENTS.md](AGENTS.md) describes; this project runs none of that tool. Manually review images, CAD metadata and novel formats before publishing; pattern checks are not a complete privacy guarantee.

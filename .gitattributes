@@ -4,15 +4,15 @@ experiments/legacy/shared/** -text
 cad/** -text
 config.json -text
 
-docs/robot/cad/*.png binary
-docs/robot/cad/*.gz binary
+cad/archived-views/robot/cad/*.png binary
+cad/archived-views/robot/cad/*.gz binary
 *.f3d binary
-docs/robot/historical-fixture/*.png binary
-docs/robot/historical-fixture/*.gz binary
-docs/robot/r1-chassis/*.png binary
-docs/robot/r1-chassis/*.gz binary
+cad/archived-views/robot/historical-fixture/*.png binary
+cad/archived-views/robot/historical-fixture/*.gz binary
+cad/archived-views/robot/r1-chassis/*.png binary
+cad/archived-views/robot/r1-chassis/*.gz binary
 *.glb binary
-docs/vendor/* -text
+cad/archived-views/vendor/* -text
 docs/robot/preliminary-design.png binary
 cad/tower-lift/tower-l1.step -whitespace
 
@@ -22,6 +22,6 @@ cad/showcase-red/display.step -whitespace
 cad/showcase-red/*.png binary
 experiments/tower-climb/head-support/*.step -text -whitespace
 
-# The layout check records the digest of each input it reads, and CI compares them on Linux: keep exact bytes.
+# The layout check records the digest of each input it reads: keep exact bytes on every platform.
 cad/preliminary-design/** -text
 docs/preliminary-design/** -text

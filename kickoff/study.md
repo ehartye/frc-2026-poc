@@ -47,12 +47,9 @@ In the lab, record who chose the role, the cycle in their own words, the clock a
 
 ## Reproduce
 
-From this project root with Agent FRC **0.26.0** installed, point `$plugin` to that install. Create fresh generated files in the ignored artifacts directory so the tools can enforce their no-overwrite rule.
+The rule model and the field lab in this folder were generated at kickoff with the coding agent's design tool, Agent FRC 0.26.0, from the [rule register](rule-register.json) and the [field profile](field-profile.json). The generated files are committed. Nothing in this project regenerates them, and the generator's own checks of them were retired with it; Git history keeps that script. Two checks that need only Node still run in the project's CI:
 
-```powershell
-node "$plugin/scripts/project-layout.mjs" init .
-node "$plugin/scripts/rules.mjs" review kickoff/rule-register.json
-node "$plugin/scripts/rules.mjs" compile kickoff/rule-register.json kickoff/field-profile.json artifacts/rebuilt-kickoff-model.json
-node "$plugin/scripts/kickoff.mjs" --profile artifacts/rebuilt-kickoff-model.json --output artifacts/rebuilt-field-lab.html
-node scripts/check-kickoff.mjs "$plugin"
+```sh
+node scripts/check-strategy.mjs
+node scripts/check-match-series.mjs
 ```

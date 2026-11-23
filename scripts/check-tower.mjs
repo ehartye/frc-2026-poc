@@ -7,7 +7,7 @@ const json=file=>JSON.parse(read(file));
 const hash=file=>createHash('sha256').update(read(file)).digest('hex');
 const folder='experiments/tower-climb/';
 const native=json('cad/tower-lift/native-reopen.json');
-const still=json('docs/robot/cad/receipt.json');
+const still=json('cad/archived-views/robot/cad/receipt.json');
 assert.equal(native.stage,'complete');
 assert.equal(native.documentsRestored,true);
 assert.equal(native.archiveSha256,hash('cad/tower-lift/tower-l1.f3d'));
@@ -37,7 +37,7 @@ for(const name of ['nominal','finer','loaded']){
 }
 for(const name of ['early-cut','stalled-drive','missed-rung'])
   assert.equal(controls.find(r=>r.name===name).conditionalTeleopPoints,0);
-const bytes=read('docs/robot/cad/tower-climb.glb');
+const bytes=read('cad/archived-views/robot/cad/tower-climb.glb');
 const gltf=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
 const bin=bytes.subarray(20+bytes.readUInt32LE(12)+8);
 assert.equal(gltf.animations.length,1);

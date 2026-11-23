@@ -2,7 +2,7 @@
   "schema": "agent-frc/replay-chapters@1",
   "revision": "R2C",
   "media": {
-    "file": "docs/robot/cad/own-zone.glb",
+    "file": "cad/archived-views/robot/cad/own-zone.glb",
     "sha256": "38d6feebb3bd54729e21e43cdc13d296cb5c30b672aeb2e70243bb6f29bfccb1"
   },
   "trace": {

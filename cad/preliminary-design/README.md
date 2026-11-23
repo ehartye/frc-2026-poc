@@ -6,7 +6,7 @@
 **Project CAD · Chute-fed hood shooter 1.0, preliminary design · in-progress.** Whole-robot blockout, parked at the end of the park-lower case: back on the carpet after the low-rung hang, with the intake stowed. Field parts and FUEL are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
 <!-- /cad-still -->
 
-This folder holds the checked inputs of the preliminary design and the scripts that publish it. It follows the Agent FRC publication workflow. The plugin revision is the `AGENT_FRC_REF` line of `.github/workflows/design-publication.yml`; build and check with a fixed copy of the plugin at that commit, called `PLUGIN` below.
+This folder holds the checked inputs of the preliminary design. The coding agent checks, stages and publishes the design with its own design tool, Agent FRC; `PLUGIN` below stands for wherever the agent keeps that tool. The project's CI runs none of it and the repository holds no pin to it.
 
 | Version | Design | Status |
 | --- | --- | --- |
@@ -16,21 +16,22 @@ One design has one version folder. An edit to an in-progress design is the next 
 
 ## Rebuild, check and publish
 
-Run from the repository root with the geometry Python environment and `AGENT_FRC` set to `PLUGIN`.
+The agent runs these from the repository root with the geometry Python environment.
 
 ```sh
 python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/1.0 --check --jobs 4
 python -I -B experiments/preliminary-design/handoff.py cad/preliminary-design/releases/1.0
-python cad/preliminary-design/stage.py 1.0
+python PLUGIN/scripts/stage_preliminary_review.py 1.0
 python scripts/preliminary-still.py .
 python scripts/cad-readmes.py . --update
-node PLUGIN/scripts/design-publication.mjs check . --skip-rerun
+node PLUGIN/scripts/design-publication.mjs check .
 ```
 
-- `build_package.py` writes every input into `releases/1.0/` and, with `--check`, runs the layout check and stops on a non-zero exit. Add `--fail-fast` while fixing a failing layout or `--physics-only` while only geometry or motion changes.
+- `build_package.py` writes every input into `releases/1.0/` and, with `--check`, runs the layout check and stops on a non-zero exit. Add `--fail-fast` while fixing a failing layout or `--physics-only` while only geometry or motion changes. This builder and `experiments/preliminary-design/rehearsal/variants.py` still call the agent's tool directly, through the `AGENT_FRC` environment variable. They are due to be replaced by a separate library, and CI does not run them.
 - After an edit to names, colours, explanations or grouping only, rebuild without `--check` and run `node PLUGIN/scripts/design.mjs preliminary-check . cad/preliminary-design/releases/1.0/layout.json --view-only --output cad/preliminary-design/releases/1.0/receipt.json`.
 - Readiness to be marked effective: `node PLUGIN/scripts/design.mjs effective-readiness . --release cad/preliminary-design/releases/1.0 --design "Chute-fed hood shooter 1.0"`. The owner marks a design effective in a reviewed pull request.
-- Review locally: `python cad/preliminary-design/serve.py`, then open `http://127.0.0.1:8000/`.
+- Review locally: `python PLUGIN/scripts/serve_preliminary_review.py`, then open `http://127.0.0.1:8000/`.
+- After the status or draft number changes, edit the status line and caption of `docs/index.html` by hand. No builder writes the entry page.
 
 The physics trials are solved separately by `experiments/preliminary-design/field_trials.py` (about twenty minutes on eight cores) into `experiments/preliminary-design/field-trials.json`. The builder reads that file and does not run a trial. Rerun the trials after changing `dimensions.py`.
 

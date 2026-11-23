@@ -12,7 +12,7 @@ def ref(p):
 def main():
     report = HERE / "counter-result.json"
     replay = HERE / "counter-replay.json"
-    clip = ROOT / "docs/robot/cad/own-zone.glb"
+    clip = ROOT / "cad/archived-views/robot/cad/own-zone.glb"
     data, summary = read(replay), read(report)
     core = {
         "revision": "R2C",
