@@ -34,7 +34,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 .power-ledger details{border-top:1px solid var(--line);padding:6px 0}.power-ledger details summary{font-weight:650}.member-buttons{display:flex;flex-wrap:wrap;gap:3px;margin:6px 0}.member-buttons button{font-size:12px}
 .checks,.decision{background:white;padding:16px;margin-top:16px}.checks #attachmentHeading{margin-top:16px}.checks #required,.checks #attachment{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 12px}.role-row{padding:5px 0;border-bottom:1px solid #d9e2ea;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.role-row strong{min-width:55px;color:#247669;font:600 12px var(--mono)}.role-row.warn strong{color:#975200}.role-row button{padding:1px 8px}.role-row small{color:var(--steel)}.swatch.hatched{background:repeating-linear-gradient(135deg,#8a9199 0 3px,#eef2f7 3px 6px)}
 #findings,#inventory{max-height:300px;overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px;text-align:left;border-bottom:1px solid #dbe4e3;vertical-align:top}thead{position:sticky;top:0;background:#f2f6f6}tr[data-name],tr[data-finding],tr[data-members]{cursor:pointer}tr:hover{background:#edf6f4}tr.located td{background:#fff1cc}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
-.scroll{overflow-x:auto}#evidenceTable{min-width:60rem}tr.control td{background:#fff6dd}tr.uncovered td{color:var(--steel);font-style:italic}tr.replay td{background:#eff6ff}td ul{margin:0;padding-left:1.1rem}td .actions{display:flex;flex-wrap:wrap;gap:4px}.interaction{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:6px 0}.interaction iframe{width:100%;height:min(60vh,36rem);border:1px solid var(--line);margin-top:6px}
+.scroll{overflow-x:auto}#evidenceTable{min-width:44rem}.case-table{min-width:60rem}tr.phase td{font-variant-numeric:tabular-nums}tr.phase.attention td:first-child{border-left:4px solid #c2452d}tr.phase:hover,tr.phase-cases:hover{background:none}tr.phase-cases>td{padding:0 0 10px 14px;background:#f7fafd}tr.phase-cases .scroll{max-height:min(70vh,34rem);overflow:auto}.case-table td:last-child{min-width:17rem}.case-table .actions button{padding:1px 8px;font-size:12px}#checkNote{font-size:13px;margin:0 0 10px;max-width:70rem}tr.control td{background:#fff6dd}tr.unmet td{background:#fde0da}tr.uncovered td{color:var(--steel);font-style:italic}tr.replay td{background:#eff6ff}td ul{margin:0;padding-left:1.1rem}td .actions{display:flex;flex-wrap:wrap;gap:4px}.interaction{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:6px 0}.interaction iframe{width:100%;height:min(60vh,36rem);border:1px solid var(--line);margin-top:6px}
 .notes{margin-top:16px;padding:16px;font-size:13px;color:var(--steel)}.notes summary,details summary{cursor:pointer}#notes{overflow-wrap:anywhere}.not-supplied{color:#975200;font-style:italic}
 .viewer:fullscreen{display:flex;flex-direction:column}.viewer:fullscreen #stage{flex:1;height:auto}[hidden]{display:none!important}
 @media(max-width:60rem){.grid{grid-template-columns:1fr}#stage{height:65vh;min-height:340px}}
@@ -54,7 +54,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
  <div class="bar"><b>Assembly layout</b><label><input id="labels" type="checkbox"> Labels</label><span id="labelPages" hidden><button id="labelPrev" aria-label="Previous callouts">‹</button><output id="labelPageCount"></output><button id="labelNext" aria-label="Next callouts">›</button></span><label><input id="floor" type="checkbox" checked> Floor</label><label id="hideFieldToggle" hidden><input id="hideField" type="checkbox"> Hide field parts</label><label id="cutawayToggle" hidden><input type="checkbox" id="cutaway"> <span id="cutawayLabel"></span></label><button id="reset">Fit robot</button><button id="field" aria-describedby="fieldWhy">Fit field interaction</button><button id="expand" aria-label="Expand model viewer">Expand</button></div>
  <div id="stage"><canvas id="canvas" tabindex="0" aria-label="Solid model. Drag to orbit, Shift-drag to pan. Arrow keys rotate, Shift and arrow keys pan."></canvas><div id="names"></div><div id="sceneStatus" role="status">Loading geometry…</div></div>
  <small>Drag to orbit · Shift-drag or right-drag to pan · Scroll to zoom · Arrows rotate · Home fits robot</small>
- <div class="bar playback"><select aria-label="Motion case" id="motion"></select><button id="play">Play</button><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value=".25">¼×</option><option value="4">4×</option><option value="10">10×</option></select><input id="time" aria-label="Position on path" type="range" min="0" max="24" value="0"><output id="fraction">0%</output></div>
+ <div class="bar playback"><select aria-label="Mission animation" id="motion"></select><button id="play">Play</button><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value=".25">¼×</option><option value="4">4×</option><option value="10">10×</option></select><input id="time" aria-label="Position on path" type="range" min="0" max="24" value="0"><output id="fraction">0%</output></div>
  <div class="mission-readout"><strong id="liveMeasure"></strong><div id="events" hidden><span id="eventNow"></span><span id="eventJumps"></span></div><small id="basis"></small><small id="fieldWhy" class="not-supplied" hidden></small></div>
  <div id="legend"></div>
 </section>
@@ -73,7 +73,9 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 <section class="lower power-ledger"><div id="weightCard"><h2>Weight budget</h2><div id="weightBody"></div></div><div id="powerCard"><h2>Power by load</h2><p>Upper battery-current estimate by circuit group. Choose a bar to inspect the contributing parts.</p><div id="powerBars"></div><div id="loads"></div></div></section>
 <section class="checks"><details><summary>Strategic narrative review</summary><div id="narrative"></div></details><h2>Required components</h2><p id="warningText"></p><div id="required"></div><h2 id="attachmentHeading">Attachment: nothing floats</h2><p id="attachmentText"></p><div id="attachment"></div></section>
 <section class="lower"><div><h2>Clearance evidence</h2><p id="validation"></p><label>Evidence set <select id="set"><option>Current motion</option><option>Parked assembly</option></select></label><label> Outcome <select id="filter"><option value="adverse">Failed or open</option><option value="all">All recorded pairs</option></select></label><p id="count"></p><div id="findings"></div><p id="witness"></p></div><div><h2>Component inventory</h2><p id="inventoryScope"></p><div id="inventory"></div></div></section>
-<section class="decision" id="motion-evidence" aria-label="Motion evidence and decision"><h2>Motion evidence and decision</h2><div class="scroll"><table id="evidenceTable"></table></div>
+<section class="decision" id="motion-evidence" aria-label="Check results and decision"><h2>Check results and decision</h2>
+ <p id="checkNote">The animations above show the mission. This list is the evidence. Each case is one straight segment of a path that the layout check swept, grouped here by mission phase. Open a phase to see its cases, and jump from a case to its pose in the model.</p>
+ <div class="scroll"><table id="evidenceTable"></table></div>
  <p id="replayNote" hidden>A replay plays back a recorded trial from the files pinned in its row. It is not a clearance case: the layout check does not run it or credit it, and the decision above does not depend on it.</p>
  <p>Pinned evidence: <a id="receiptLink" href="receipt.json" target="_blank" rel="noopener">review receipt</a> <span id="receiptPin"></span></p>
  <h3>Return to an earlier phase</h3><p>Return to <strong>preliminary design</strong> when:</p><ul id="returnPreliminary"></ul><p>Return to <strong>conceptual design</strong> when:</p><ul id="returnConceptual"></ul><p>Currently triggered:</p><ul id="triggered"></ul>
@@ -125,7 +127,9 @@ function inspectorFields(id,scene){
  const lines=massLinesFor(id,scene);
  const mass=lines.length?[lines,false]:b.massExcluded?[b.massExcluded,false]:scene.mass?['No mass line includes this component',true]:['Budget ledger not supplied',true];
  const loads=[...new Set(scene.power.flatMap(d=>d.lines.filter(l=>l.members.includes(id)).map(l=>l.name)))];
- const moves=[...scene.cases.filter(c=>c.bodies[id]?.matrices.length>1),...(scene.replays||[]).filter(r=>r.bodies[id]&&r.bodies[id].group!==null)].map(c=>c.id);
+ const moving=new Set(scene.cases.filter(c=>c.bodies[id]?.matrices.length>1).map(c=>c.id)),phases=animationsOf(scene);
+ // Named by mission phase: a phase moves a body when any of its cases does.
+ const moves=[...phases.filter(a=>a.cases.some(c=>moving.has(c))).map(a=>a.title),...[...moving].filter(c=>!phases.some(a=>a.cases.includes(c))),...(scene.replays||[]).filter(r=>r.bodies[id]&&r.bodies[id].group!==null).map(r=>r.id)];
  // Mounts the plan registers against this member, ahead of the project's load-path text.
  const note=attachmentNote(id,scene),mounts=(b.mounts||[]).map(m=>'Mounted on '+(scene.bodies[m.on]?.name||m.on)+' at ('+m.pointMm.map(v=>fmt(v,1)).join(', ')+') mm · '+m.basis);
  return [['Category',b.category+(b.category!==b.role&&!b.fixture?' (colour of role '+b.role+')':''),false,'swatch'],['Subsystem',...val('subsystem',b.subsystem)],['Motion group',b.motionGroup,false],
@@ -148,7 +152,47 @@ function partition(lines,selected,whole){
  return {included,shared};
 }
 function frameCount(c){return c.replay?c.time.length:Math.max(1,...Object.values(c.bodies).map(b=>b.matrices.length))}
-// A replay in the shape the page gives a case: one entry of the one motion list.
+// The animation list of a scene: one entry per mission phase, each naming the cases it plays end to end. A scene written
+// before the list existed gets one entry per run of consecutive cases whose IDs differ only by a trailing segment number.
+function animationsOf(scene){
+ if(scene.animations)return scene.animations;
+ const out=[],taken=new Set();
+ for(const c of scene.cases){if(c.kind==='displaced control')continue;
+  const phase=c.id.replace(/[-_. ]\d+$/,'')||c.id,last=out.at(-1);
+  if(last&&last.phase===phase){last.cases.push(c.id);last.mission=last.mission||c.stage==='operating';continue}
+  let id=phase,run=1;while(taken.has(id))id=phase+'-run-'+(++run);taken.add(id);
+  out.push({id,phase,title:id,mission:c.stage==='operating',cases:[c.id]})}
+ return out;
+}
+// One entry of the animation list as a single clip: its segments end to end, sharing the frame where one ends and the next begins.
+// A segment with no time of its own takes a tenth of a second a frame, shortened so the untimed part of a clip lasts six seconds at most.
+function clipOf(entry,segments){
+ const untimed=segments.reduce((n,c)=>n+(c.time?0:frameCount(c)-1),0),step=Math.min(.1,6/Math.max(1,untimed)),offsets=[],times=[];
+ let frames=1,clock=segments[0].time?.[0]??0;
+ for(const c of segments){const n=frameCount(c),local=c.time?c.time.map(t=>t-c.time[0]):Array.from({length:n},(_,i)=>i*step);
+  offsets.push(frames-1);for(let i=0;i<n;i++)times[frames-1+i]=clock+local[i];clock+=local[n-1];frames+=n-1}
+ return {...entry,segments,offsets,times,frames,timed:segments.every(c=>c.time)};
+}
+// The segment a clip shows at a frame, and the frame within that segment: [segment index, local frame].
+function clipFrame(clip,t){let k=clip.offsets.length-1;while(k&&t<clip.offsets[k])k--;return [k,t-clip.offsets[k]]}
+// The frame of a clip that shows a fraction of the way along one of its segments.
+function clipSeek(clip,k,fraction=0){return clip.offsets[k]+Math.round(Math.min(1,Math.max(0,fraction))*(frameCount(clip.segments[k])-1))}
+// The clearance a check row leaves: negative for an overlap, unbounded when no pair came within range.
+function rowClearance(row){const v=row.limitingValue;if(!v)return 1/0;if(v.volumeMm3>0)return -v.volumeMm3;return v.gapMm??v.lowerBoundMm??1/0}
+// The check list grouped by mission phase: how many cases were checked, their results, the tightest clearance and the tolerances used.
+// Rows outside every phase, the displaced control and the uncovered conditions, form a last group.
+function checkGroups(scene){
+ const rows=scene.motionEvidence||[],by=new Map(rows.map(r=>[r.case,r])),used=new Set(),span=v=>v.length?[Math.min(...v),Math.max(...v)]:null;
+ const group=(id,title,list,phase)=>{const counts={};for(const r of list)counts[r.result]=(counts[r.result]||0)+1;
+  const measured=list.filter(r=>r.limitingPair),tightest=measured.reduce((a,r)=>!a||rowClearance(r)<rowClearance(a)?r:a,null);
+  const bad=list.find(r=>['fail','open'].includes(r.result)),tol=list.map(r=>r.pathToleranceMm).filter(Number.isFinite);
+  return {id,title,phase,rows:list,counts,tightest,focus:bad||tightest,allowanceMm:span(list.map(r=>r.allowanceMm).filter(Number.isFinite)),pathToleranceMm:span(tol),undeclaredTolerance:phase?list.length-tol.length:0,
+   attention:list.some(r=>['fail','open','not run','not rejected','missing','skipped'].includes(r.result))}};
+ const out=animationsOf(scene).map(a=>{const list=a.cases.map(id=>by.get(id)).filter(Boolean);list.forEach(r=>used.add(r));return group(a.id,a.title,list,true)}).filter(g=>g.rows.length);
+ const rest=rows.filter(r=>!used.has(r));if(rest.length)out.push(group(null,'Displaced control and uncovered conditions',rest,false));
+ return out;
+}
+// A replay in the shape the page gives a case: one entry of the one animation list.
 function replayMotion(r){return {...r,replay:true,kind:'replay',stage:'replay',status:'replay',removed:[],results:[]}}
 // The latest named event at or before a frame, as [count, label], or null before the first.
 function eventAt(events,t){let n=0;for(const e of events||[]){if(e.frame>t)break;n++}return n?[n,events[n-1].label]:null}
@@ -223,9 +267,18 @@ const flat=(m,p)=>[0,4,8].map(k=>m[k]*p[0]+m[k+1]*p[1]+m[k+2]*p[2]+m[k+3]);
 const rgb=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16)/255);
 const short=s=>s?s.slice(0,12):'';
 let scene,entries,motions,custom=Object.create(null),selNames=new Set(),picked=new Set(),marked=[],selected=null,isolated=null,timer,cam,gl,program,position,normal,locations={},gpu,lastProjection,paintPending=false,extent=1,locatedId=null,allowanceIds=new Set();
-const current=()=>motions[$('motion').selectedIndex];
+// The selected entry of the animation list is a clip of one or more checked cases, or one replay. Drawing and inspection
+// read the case the clip shows now and the frame within it.
+const entry=()=>motions[$('motion').selectedIndex];
+const shown=()=>clipFrame(entry(),+$('time').value);
+const current=()=>entry().segments[shown()[0]];
 const duty=()=>scene.power[$('duty').selectedIndex];
-const frameOf=()=>+$('time').value;
+const frameOf=()=>shown()[1];
+// Where an animation, a replay or a case sits in the list: [entry index, segment index].
+function placeOf(id){let i=motions.findIndex(m=>m.id===id);if(i>=0)return [i,0];i=motions.findIndex(m=>m.segments.some(c=>c.id===id));return i<0?null:[i,motions[i].segments.findIndex(c=>c.id===id)]}
+// Show a case at a fraction along it, inside the animation that plays it. Returns false for an unknown ID.
+function show(id,fraction=0){const at=placeOf(id);if(!at)return false;if($('motion').selectedIndex!==at[0]){$('motion').selectedIndex=at[0];activate()}else stop();
+ $('time').value=clipSeek(motions[at[0]],at[1],fraction);draw();return true}
 const storageKey=()=>'agent-frc/preliminary/groups/'+scene.sources.step.sha256;
 function readGroups(){const groups=Object.create(null);try{Object.assign(groups,JSON.parse(localStorage.getItem(storageKey())||'{}'))}catch{}return groups}
 function writeGroups(){try{localStorage.setItem(storageKey(),JSON.stringify(custom))}catch{}}
@@ -351,7 +404,7 @@ function fit(ids,follow=true,tubes=false){
 const robotIds=()=>presentIds(current()).filter(id=>!scene.bodies[id].fixture);
 function reset(){fit(robotIds())}
 function fieldFit(){fit(presentIds(current()),false,true)}
-function draw(){if(!cam||paintPending)return;paintPending=true;requestAnimationFrame(render)}
+function draw(){if(!cam)return;readout();if(paintPending)return;paintPending=true;requestAnimationFrame(render)}
 let labelPage=0,followLabel=null;const calloutNodes=[];
 function labelRail(width){return Math.min(212,Math.max(92,width*.235))}
 function drawLeaders(labels,width,height,rail){
@@ -402,7 +455,13 @@ function render(){
  }
  if(!isolated)for(const tube of cs.tubes||[]){if(tube.body&&$('hideField').checked)continue;const values=tube.body?carriedMesh(tube,t):tubeTriangles(tubePoints(tube,t),tube.radiusMm);gl.bindBuffer(gl.ARRAY_BUFFER,gpu.tube.buffer);gl.bufferData(gl.ARRAY_BUFFER,values,gl.DYNAMIC_DRAW);gpu.tube.count=values.length/6;paint(gpu.tube,UNMOVED,tube.body?scene.bodies[tube.body].tint:rgb(tube.color))}
  drawLeaders(labels,width,height,rail);
- const frames=frameCount(cs);$('fraction').textContent=cs.time?fmt(cs.time[t])+' s':Math.round(t/Math.max(1,frames-1)*100)+'%';
+}
+// The readouts follow the slider at once; painting waits for the next animation frame.
+function readout(){
+ const cs=current(),t=frameOf();
+ const m=entry(),frame=+$('time').value;$('fraction').textContent=m.replay?fmt(cs.time[t])+' s':m.timed?fmt(m.times[frame])+' s':Math.round(frame/Math.max(1,m.frames-1)*100)+'%';
+ // An animation of several checked segments names the one on screen, so a reviewer can find it in the check results.
+ const said=(m.replay?'Recorded playback, not a clearance case. ':'')+(m.segments.length>1?'Checked segment '+(shown()[0]+1)+' of '+m.segments.length+' ('+cs.id+'). ':'')+cs.basis;if($('basis').textContent!==said)$('basis').textContent=said;
  const row=(scene.motionEvidence||[]).find(r=>r.case===cs.id);
  $('liveMeasure').textContent=cs.measure?.[t]||(cs.replay?'Recorded playback':row?row.kind+': '+row.result:cs.status==='pass'?'Checked path':cs.status);
  if(cs.events?.length){const now=eventAt(cs.events,t);$('eventNow').textContent=now?'Event '+now[0]+' of '+cs.events.length+': '+now[1]:'No event yet · '+cs.events.length+' recorded';
@@ -530,7 +589,7 @@ function attachmentPanel(){
  note.textContent=(findings?findings+' to fix or label. ':'Nothing floats. ')+a.robotSolids+' robot solids checked at the start of '+a.case+'; touching means within '+a.gapMm+' mm. Field fixtures, game pieces and service gauges are left out. Information only: it does not change the checked result.';
  for(const [label,id,detail,finding,also] of rows){
   const row=document.createElement('div');row.className='role-row'+(finding?' warn':'');const b=text('button',scene.bodies[id]?.name||id);b.setAttribute('aria-label','Inspect '+label.toLowerCase()+' '+id);
-  b.onclick=()=>{if(scene.bodies[id]?.fixture&&$('hideField').checked)$('hideField').checked=false;const i=motions.findIndex(c=>c.id===a.case);if(i>=0){selectCase(i);$('time').value=0}isolated=null;inspect(id,also);$('stage').scrollIntoView({block:'nearest'})};
+  b.onclick=()=>{if(scene.bodies[id]?.fixture&&$('hideField').checked)$('hideField').checked=false;show(a.case);isolated=null;inspect(id,also);$('stage').scrollIntoView({block:'nearest'})};
   row.append(text('strong',label),b,text('small',detail));root.append(row)}
 }
 function inventory(){
@@ -547,14 +606,14 @@ function inventory(){
 
 // Clearance evidence (region 6 detail)
 function evidence(){
- const parked=$('set').selectedIndex===1,cs=current(),rows=parked?[...scene.parked.positive.map(x=>({pair:x.pair,status:'overlap',witness:{volumeMm3:x.volumeMm3}})),...scene.parked.unresolved.map(p=>({pair:p,status:'open',witness:{reason:'Unresolved'}}))]:cs.results;
+ const parked=$('set').selectedIndex===1,m=entry(),cs=m.segments[0],many=m.segments.length>1,rows=parked?[...scene.parked.positive.map(x=>({pair:x.pair,status:'overlap',witness:{volumeMm3:x.volumeMm3}})),...scene.parked.unresolved.map(p=>({pair:p,status:'open',witness:{reason:'Unresolved'}}))]:m.segments.flatMap(c=>c.results.map(r=>({...r,of:c.id})));
  const counts={};rows.forEach(r=>counts[r.status]=(counts[r.status]||0)+1);
- $('count').textContent=parked?'Installed STEP · '+scene.parked.screenedPairs+' pairs screened. '+scene.parked.positive.length+' positive-volume pairs, '+scene.parked.unresolved.length+' unresolved.':cs.id+' · '+(cs.replay?'recorded playback, not a clearance case':Object.entries(counts).map(([k,v])=>v+' '+k).join(' / ')||'no pair within broad-phase range')+(cs.allowanceMm==null?'':' · clearance allowance '+cs.allowanceMm+' mm');
- const [tab,body]=table(['Pair','Result','Witness']);
+ $('count').textContent=parked?'Installed STEP · '+scene.parked.screenedPairs+' pairs screened. '+scene.parked.positive.length+' positive-volume pairs, '+scene.parked.unresolved.length+' unresolved.':m.title+' · '+(m.replay?'recorded playback, not a clearance case':(many?m.segments.length+' checked cases · ':'')+(Object.entries(counts).map(([k,v])=>v+' '+k).join(' / ')||'no pair within broad-phase range'))+(many||cs.allowanceMm==null?'':' · clearance allowance '+cs.allowanceMm+' mm');
+ const [tab,body]=table(many&&!parked?['Pair','Case','Result','Witness']:['Pair','Result','Witness']);
  for(const f of rows){if($('filter').value==='adverse'&&!['fail','open','overlap'].includes(f.status))continue;
-  const r=body.insertRow();r.dataset.finding='1';r.tabIndex=0;r.insertCell().textContent=f.pair.map(n=>scene.bodies[n]?.name??n).join(' / ');r.insertCell().textContent=f.status;const w=f.witness||{};
+  const r=body.insertRow();r.dataset.finding='1';r.tabIndex=0;r.insertCell().textContent=f.pair.map(n=>scene.bodies[n]?.name??n).join(' / ');if(many&&!parked)r.insertCell().textContent=f.of;r.insertCell().textContent=f.status;const w=f.witness||{};
   r.insertCell().textContent=w.reason||(Array.isArray(w)?'Open interval '+w.map(v=>Math.round(v*100)+'%').join('–'):w.volumeMm3>0?fmt(w.volumeMm3)+' mm³':Number.isFinite(w.gapMm)?fmt(w.gapMm)+' mm':Number.isFinite(f.lowerBoundMm)?'≥ '+fmt(f.lowerBoundMm)+' mm':f.method||'Unresolved');
-  const go=()=>{stop();marked=f.pair.slice();selected=null;if(!parked&&Number.isFinite(w.t))$('time').value=Math.round(w.t*(frameCount(cs)-1));$('witness').textContent=f.pair.join(' / ')+(Number.isFinite(w.t)?' · recorded position '+fmt(100*w.t)+'% · nearest displayed frame':' · parked or interval result');draw()};
+  const go=()=>{stop();if(!parked&&Number.isFinite(w.t))show(f.of,w.t);marked=f.pair.slice();selected=null;$('witness').textContent=f.pair.join(' / ')+(Number.isFinite(w.t)?' · recorded position '+fmt(100*w.t)+'% · nearest displayed frame':' · parked or interval result');draw()};
   r.onclick=go;r.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go()}}}
  $('findings').replaceChildren(tab);
 }
@@ -568,36 +627,55 @@ function limitText(row){
  const v=row.limitingValue||{},bits=[];if('gapMm' in v)bits.push('gap '+fmt(v.gapMm,3)+' mm');if(v.volumeMm3>0)bits.push('overlap '+fmt(v.volumeMm3,1)+' mm³');if('lowerBoundMm' in v)bits.push('≥ '+fmt(v.lowerBoundMm,3)+' mm');
  return row.limitingPair.join(' / ')+' · '+bits.join(', ')+(row.limitingTime==null?' · bounded over the stroke':' · t = '+fmt(row.limitingTime,3));
 }
+const listOf=(title,items)=>{if(!items?.length)return [];const ul=document.createElement('ul');for(const v of items)ul.append(text('li',v));return [text('b',title),ul]};
+function jumpTo(row){show(row.case,row.limitingTime||0);inspect(row.limitingPair[0],row.limitingPair);$('stage').scrollIntoView({block:'nearest'})}
+// One check case: a row of the table a phase opens to.
+function caseRow(body,row){
+ const r=body.insertRow();r.className=(row.kind==='displaced control'?'control':row.kind)+(['fail','open'].includes(row.result)?' unmet':'');
+ for(const c of [row.case+(row.basis?' — '+row.basis:''),row.kind,row.start||'—',(row.groups||[]).join(', ')||'—',row.environment||'—',row.metric?row.metric+' ('+row.units+')':'—',limitText(row),row.allowanceMm==null?'—':fmt(row.allowanceMm)+' mm · '+(row.allowanceBasis||'basis missing'),row.method||row.note||'—',row.result+(row.expected?' (expected '+row.expected+')':'')])r.insertCell().textContent=c;
+ const actions=document.createElement('div');actions.className='actions';r.insertCell().append(actions);
+ if(row.playable&&placeOf(row.case)){
+  const play=text('button','Play from here');play.onclick=()=>{show(row.case);start();$('stage').scrollIntoView({block:'nearest'})};actions.append(play);
+  if(row.limitingPair){const jump=text('button','Jump to limiting pose');jump.disabled=row.limitingTime==null;if(jump.disabled)jump.title='Interval bound; no single limiting pose';jump.onclick=()=>jumpTo(row);
+   const both=text('button','Inspect both bodies');both.onclick=()=>{show(row.case);inspect(row.limitingPair[0],row.limitingPair);$('stage').scrollIntoView({block:'nearest'})};actions.append(jump,both)}
+ }else if(row.note)actions.append(text('span',row.note));
+}
+// A replay is listed with the check results and marked as playback of pinned trial files.
+function replayRow(body,r){
+ const tr=body.insertRow();tr.className='replay';const fixtures=Object.keys(r.bodies).filter(id=>scene.bodies[id].fixture),cell=v=>{const td=tr.insertCell();td.append(...[v].flat());return td};
+ const pins=document.createElement('details');pins.append(text('summary','Playback of '+r.evidence.length+' pinned trial file'+(r.evidence.length>1?'s':'')));
+ const files=document.createElement('ul');for(const e of r.evidence)files.append(text('li',(e.role?e.role+': ':'')+e.file+' · '+short(e.sha256)));pins.append(files);pins.open=r.evidence.length<3;
+ cell(r.id+' — '+r.basis+(r.objective?' Mission objective: '+r.objective+'.':''));cell('replay');cell('Recorded field pose of '+r.follow);cell(Object.keys(r.groups).join(', '));
+ cell(fixtures.length||r.tubes?.length?'Field fixtures: '+[...fixtures.map(id=>scene.bodies[id].name),...(r.tubes||[]).map(x=>x.name)].join(', '):'No field fixture');
+ cell(fmt(r.time.at(-1)-r.time[0])+' s on the trial clock · '+r.time.length+' frames');cell('—');cell('—');
+ cell([pins,...listOf('Recorded',r.recorded),...listOf('Display only, no contact or load claim',r.display)]);cell('recorded playback · not a clearance case');
+ const actions=document.createElement('div');actions.className='actions';tr.insertCell().append(actions);
+ const play=text('button','Play');play.onclick=()=>{show(r.id);start();$('stage').scrollIntoView({block:'nearest'})};actions.append(play);
+}
+const CASE_COLUMNS=['Case','Kind','Starting pose','Participating groups','Environment','Metric and units','Limiting pair and time','Clearance allowance','Evidence method','Result','Review'];
+// The check results: one row per mission phase, opening to its cases. The cases are evidence and are not animation entries.
 function motionEvidence(){
- const t=$('evidenceTable'),head=t.createTHead().insertRow();
- for(const h of ['Path','Kind','Starting pose','Participating groups','Environment','Metric and units','Limiting pair and time','Clearance allowance','Evidence method','Result','Review'])head.append(text('th',h));
- const body=t.createTBody();
- for(const row of scene.motionEvidence){
-  const r=body.insertRow();r.className=row.kind==='displaced control'?'control':row.kind;
-  for(const c of [row.case+(row.basis?' — '+row.basis:''),row.kind,row.start||'—',(row.groups||[]).join(', ')||'—',row.environment||'—',row.metric?row.metric+' ('+row.units+')':'—',limitText(row),row.allowanceMm==null?'—':fmt(row.allowanceMm)+' mm · '+(row.allowanceBasis||'basis missing'),row.method||row.note||'—',row.result+(row.expected?' (expected '+row.expected+')':'')])r.insertCell().textContent=c;
-  const actions=document.createElement('div');actions.className='actions';r.insertCell().append(actions);
-  const index=motions.findIndex(c=>c.id===row.case);
-  if(row.playable&&index>=0){
-   const play=text('button','Play');play.onclick=()=>{selectCase(index);$('time').value=0;start()};actions.append(play);
-   if(row.limitingPair){const jump=text('button','Jump to limiting pose');jump.disabled=row.limitingTime==null;if(jump.disabled)jump.title='Interval bound; no single limiting pose';
-    jump.onclick=()=>{selectCase(index);$('time').value=Math.round((row.limitingTime||0)*(frameCount(current())-1));inspect(row.limitingPair[0],row.limitingPair);$('stage').scrollIntoView({block:'nearest'})};
-    const both=text('button','Inspect both bodies');both.onclick=()=>{selectCase(index);inspect(row.limitingPair[0],row.limitingPair)};actions.append(jump,both)}
-  }else if(row.note)actions.append(text('span',row.note));
- }
- // Replays sit in the same table and the same motion list, marked as playback of pinned trial files.
- for(const r of scene.replays||[]){
-  const tr=body.insertRow();tr.className='replay';const fixtures=Object.keys(r.bodies).filter(id=>scene.bodies[id].fixture),cell=v=>{const td=tr.insertCell();td.append(...[v].flat());return td};
-  const list=(title,items)=>{if(!items?.length)return [];const ul=document.createElement('ul');for(const v of items)ul.append(text('li',v));return [text('b',title),ul]};
-  const pins=document.createElement('details');pins.append(text('summary','Playback of '+r.evidence.length+' pinned trial file'+(r.evidence.length>1?'s':'')));
-  const files=document.createElement('ul');for(const e of r.evidence)files.append(text('li',(e.role?e.role+': ':'')+e.file+' · '+short(e.sha256)));pins.append(files);pins.open=r.evidence.length<3;
-  cell(r.id+' — '+r.basis+(r.objective?' Mission objective: '+r.objective+'.':''));cell('replay');cell('Recorded field pose of '+r.follow);cell(Object.keys(r.groups).join(', '));
-  cell(fixtures.length||r.tubes?.length?'Field fixtures: '+[...fixtures.map(id=>scene.bodies[id].name),...(r.tubes||[]).map(x=>x.name)].join(', '):'No field fixture');
-  cell(fmt(r.time.at(-1)-r.time[0])+' s on the trial clock · '+r.time.length+' frames');cell('—');cell('—');
-  cell([pins,...list('Recorded',r.recorded),...list('Display only, no contact or load claim',r.display)]);cell('recorded playback · not a clearance case');
-  const actions=document.createElement('div');actions.className='actions';tr.insertCell().append(actions);
-  const play=text('button','Play');play.onclick=()=>{selectCase(motions.findIndex(c=>c.id===r.id));$('time').value=0;start();$('stage').scrollIntoView({block:'nearest'})};actions.append(play);
- }
- $('replayNote').hidden=!(scene.replays||[]).length;
+ const t=$('evidenceTable'),head=t.createTHead().insertRow(),spanText=(v,unit)=>v?(v[0]===v[1]?fmt(v[0])+' '+unit:fmt(v[0])+'–'+fmt(v[1])+' '+unit):'—';
+ for(const h of ['Phase','Cases checked','Result','Tightest clearance','Clearance allowance','Path tolerance','Review'])head.append(text('th',h));
+ const body=t.createTBody(),replays=scene.replays||[];
+ const groups=[...checkGroups(scene),...(replays.length?[{title:'Trial replays',replays,rows:[],counts:{'recorded playback':replays.length}}]:[])];
+ groups.forEach((g,n)=>{
+  const tr=body.insertRow();tr.className='phase'+(g.attention?' attention':'');const cell=v=>{const td=tr.insertCell();td.append(...[v].flat());return td};
+  cell(text('b',g.title));cell(String(g.replays?g.replays.length:g.rows.length));cell(Object.entries(g.counts).map(([k,v])=>v+' '+k).join(' · '));
+  cell(g.tightest?limitText(g.tightest)+(g.rows.length>1?' · in '+g.tightest.case:''):'—');cell(spanText(g.allowanceMm,'mm'));
+  cell(g.phase?(g.pathToleranceMm?spanText(g.pathToleranceMm,'mm')+(g.undeclaredTolerance?' · '+g.undeclaredTolerance+' not declared':''):'Not declared'):'—');
+  const actions=document.createElement('div');actions.className='actions';cell(actions);
+  if(g.phase&&placeOf(g.id)){const play=text('button','Play');play.setAttribute('aria-label','Play '+g.title);play.onclick=()=>{show(g.id);start();$('stage').scrollIntoView({block:'nearest'})};actions.append(play)}
+  if(g.focus?.limitingPair&&g.focus.playable&&placeOf(g.focus.case)){const failed=['fail','open'].includes(g.focus.result),jump=text('button',failed?'Jump to failing case':g.focus.limitingTime==null?'Show tightest case':'Jump to tightest pose');jump.setAttribute('aria-label',jump.textContent+' of '+g.title+': '+g.focus.case);jump.onclick=()=>jumpTo(g.focus);actions.append(jump)}
+  const detail=body.insertRow();detail.className='phase-cases';detail.id='checkCases'+n;detail.hidden=true;const holder=detail.insertCell();holder.colSpan=7;
+  const toggle=text('button','Show cases');toggle.setAttribute('aria-controls',detail.id);
+  const open=on=>{detail.hidden=!on;toggle.textContent=on?'Hide cases':'Show cases';toggle.setAttribute('aria-label',toggle.textContent+' of '+g.title);toggle.setAttribute('aria-expanded',String(on));
+   if(on&&!holder.firstChild){const [tab,rows]=table(CASE_COLUMNS);tab.className='case-table';const bad=r=>['fail','open'].includes(r.result)?0:1;for(const row of [...g.rows].sort((a,b)=>bad(a)-bad(b)))caseRow(rows,row);for(const r of g.replays||[])replayRow(rows,r);const wrap=document.createElement('div');wrap.className='scroll';wrap.append(tab);holder.append(wrap)}};
+  toggle.onclick=()=>open(detail.hidden);actions.append(toggle);
+  // A phase that needs attention opens at once, with its failing and open cases first; a passing list stays compact.
+  open(!!g.attention);
+ });
+ $('replayNote').hidden=!replays.length;
  for(const [id,key] of [['returnPreliminary','preliminary'],['returnConceptual','conceptual']])$(id).replaceChildren(...(scene.returnCriteria[key]||[]).map(v=>text('li',v)));
  const fields=$('fieldInteractions');
  if(!scene.fieldInteractions.length)fields.append(text('p','No season-owned field-interaction or physics player is linked to this release (presentation.fieldInteractions).'));
@@ -614,24 +692,23 @@ function motionEvidence(){
 // Playback
 function stop(){clearInterval(timer);timer=null;$('play').textContent='Play'}
 function start(){
- if(timer)stop();const c=current(),frames=frameCount(c),times=c.time||Array.from({length:frames},(_,i)=>i*.1);if(+$('time').value>=frames-1)$('time').value=0;
+ if(timer)stop();const {frames,times}=entry();if(+$('time').value>=frames-1)$('time').value=0;
  const begin=performance.now(),offset=times[+$('time').value],rate=+$('speed').value;$('play').textContent='Pause';
  timer=setInterval(()=>{const elapsed=offset+(performance.now()-begin)*rate/1000;let t=+$('time').value;while(t<frames-1&&times[t+1]<=elapsed)t++;$('time').value=t;draw();if(t===frames-1)stop()},16);
 }
-function selectCase(i){if($('motion').selectedIndex!==i){$('motion').selectedIndex=i;activate()}}
 let inField=false;
 function activate(opening=false){
- stop();const c=current(),frames=frameCount(c);$('time').max=frames-1;$('time').value=0;marked=[];
+ stop();const m=entry(),c=m.segments[0];$('time').max=m.frames-1;$('time').value=0;marked=[];
  $('events').hidden=!c.events?.length;$('eventJumps').replaceChildren(...(c.events||[]).map((e,i)=>{const b=text('button',String(i+1));b.title=e.label+' · '+fmt(c.time[e.frame])+' s';b.setAttribute('aria-label','Jump to event '+(i+1)+': '+e.label);b.onclick=()=>{stop();$('time').value=e.frame;draw()};return b}));
- const link=new URL(location.href);link.searchParams.set('case',c.id);try{history.replaceState({},'',link)}catch{}
- const match=opening?-1:scene.power.findIndex(e=>e.stage===c.id&&e.batteryCondition==='weak');if(match>=0){$('duty').selectedIndex=match;budget()}
+ const link=new URL(location.href);link.searchParams.set('case',m.id);try{history.replaceState({},'',link)}catch{}
+ const match=opening?-1:scene.power.findIndex(e=>m.segments.some(s=>s.id===e.stage)&&e.batteryCondition==='weak');if(match>=0){$('duty').selectedIndex=match;budget()}
  // The cutaway hides a fixture without removing it from the case, so it does not change this control.
- const fieldFitting=c.tubes?.length?{enabled:true,reason:''}:fieldFitState(Object.keys(c.bodies).filter(id=>!c.removed.includes(id)),scene);$('field').disabled=!fieldFitting.enabled;$('field').title=fieldFitting.reason;
+ const fieldFitting=c.tubes?.length?{enabled:true,reason:''}:fieldFitState([...new Set(m.segments.flatMap(s=>Object.keys(s.bodies).filter(id=>!s.removed.includes(id))))],scene);$('field').disabled=!fieldFitting.enabled;$('field').title=fieldFitting.reason;
  $('fieldWhy').textContent=fieldFitting.reason;$('fieldWhy').hidden=fieldFitting.enabled;
- $('cutaway').disabled=!scene.cutaway||!scene.cutaway.hides.some(id=>c.bodies[id]);
- $('basis').textContent=(c.replay?'Recorded playback, not a clearance case. ':'')+c.basis;$('witness').textContent='';evidence();
+ $('cutaway').disabled=!scene.cutaway||!scene.cutaway.hides.some(id=>m.segments.some(s=>s.bodies[id]));
+ $('witness').textContent='';evidence();
  // A replay places the robot in the field, away from the installed pose, so the view is fitted again on entering or leaving one.
- if(!opening&&cam&&(c.replay||inField)){isolated=null;reset()}inField=!!c.replay;draw();
+ if(!opening&&cam&&(m.replay||inField)){isolated=null;reset()}inField=!!m.replay;draw();
 }
 
 async function loadScene(){
@@ -648,24 +725,28 @@ async function init(){
  for(const m of scene.meshes){const c=[0,1,2].map(i=>m.v.reduce((s,p)=>s+p[i],0)/m.v.length);let best=1/0;for(const p of m.v){const d=p.reduce((s,x,i)=>s+(x-c[i])**2,0);if(d<best){best=d;m.anchor=p}}}
  for(const [,b] of entries){b.tint=rgb(b.color);b.dim=b.tint.map((x,i)=>.20*x+.80*[.64,.73,.83][i])}
  header();showDesignStatus();
- const replays=(scene.replays||[]).map(replayMotion);motions=scene.cases.concat(replays);
- // One list for every motion: the checked mechanism cases and the trial replays, told apart by their group label.
- const listed=(label,items)=>{const g=document.createElement('optgroup');g.label=label;g.append(...items.map(c=>new Option(c.label,c.id)));return g};
- $('motion').replaceChildren(...(replays.length?[listed('Mechanism cases',scene.cases),listed('Trial replays',replays)]:scene.cases.map(c=>new Option(c.label,c.id))));
- const deep=new URLSearchParams(location.search).get('case'),wanted=motions.findIndex(c=>c.id===deep);$('motion').selectedIndex=wanted>=0?wanted:Math.max(0,motions.findIndex(c=>c.id===scene.openingCase));
+ // One short list: an animation per mission phase, then the other checked motions, the displaced control and the trial replays.
+ // A checked case is a segment of its phase's animation. It is listed in the check results, never here.
+ const caseOf=new Map(scene.cases.map(c=>[c.id,c])),phases=animationsOf(scene),clips=phases.map(a=>clipOf(a,a.cases.map(id=>caseOf.get(id))));
+ const controls=scene.cases.filter(c=>!phases.some(a=>a.cases.includes(c.id))).map(c=>clipOf({id:c.id,title:c.label,mission:false},[c]));
+ const replays=(scene.replays||[]).map(r=>clipOf({id:r.id,title:r.label,replay:true,objective:r.objective},[replayMotion(r)]));
+ const lists=[['Mission animations',clips.filter(c=>c.mission)],['Other checked motions',clips.filter(c=>!c.mission)],['Check control',controls],['Trial replays',replays]].filter(l=>l[1].length);
+ motions=lists.flatMap(l=>l[1]);
+ $('motion').replaceChildren(...lists.map(([label,items])=>{const g=document.createElement('optgroup');g.label=label;g.append(...items.map(c=>new Option(c.title,c.id)));return g}));
+ const opening=placeOf(new URLSearchParams(location.search).get('case'))||placeOf(scene.openingCase)||[0,0];$('motion').selectedIndex=opening[0];
  $('duty').replaceChildren(...scene.power.map(e=>new Option(e.case,e.case)));$('duty').disabled=!scene.power.length;
  if(scene.power.length)$('duty').selectedIndex=scene.power.reduce((w,e,i,a)=>e.marginV<a[w].marginV?i:w,0);
  if(scene.cutaway){$('cutawayToggle').hidden=false;$('cutawayLabel').textContent=scene.cutaway.label}
  for(const [id,b] of entries)$('componentNames').append(new Option(b.name===id?id:b.name+' ('+id+')',id));
  for(const cat of new Set(entries.map(([,b])=>b.category))){const span=document.createElement('span'),i=document.createElement('i');i.className='swatch';i.style.background=entries.find(([,b])=>b.category===cat)[1].color;span.append(i,cat);$('legend').append(span)}
  const n=scene.narrativeReview;$('narrative').replaceChildren(...(n?.source?[text('p',n.source.file+' · '+short(n.source.sha256))]:[notSupplied('narrativeReview')]),...(n?.objectives||[]).map(o=>{const p=text('p',o.objective+' — '+o.disposition+'. '+o.basis);
-  for(const r of replays.filter(r=>r.objective===o.objective)){const b=text('button','Play replay: '+r.label);b.style.marginLeft='.5rem';b.onclick=()=>{selectCase(motions.indexOf(r));start();$('stage').scrollIntoView({block:'nearest'})};p.append(b)}return p}));
+  for(const r of replays.filter(r=>r.objective===o.objective)){const b=text('button','Play replay: '+r.title);b.style.marginLeft='.5rem';b.onclick=()=>{show(r.id);start();$('stage').scrollIntoView({block:'nearest'})};p.append(b)}return p}));
  $('notes').replaceChildren(...(scene.notes?.length?scene.notes.map(v=>text('p',v)):[notSupplied('presentation.notes')]));
  allowanceIds=new Set((scene.attachment?.unmountedAllowances||[]).map(r=>r.solid));
  if(allowanceIds.size){const span=document.createElement('span'),i=document.createElement('i');i.className='swatch hatched';span.append(i,'unmounted allowance');$('legend').append(span)}
  $('hideFieldToggle').hidden=!entries.some(([,b])=>b.fixture);
  validationText();motionEvidence();attachmentPanel();initGL();group();
- activate(true);reset();
+ activate(true);$('time').value=clipSeek(motions[opening[0]],opening[1]);reset();
  $('sceneStatus').textContent='Scene loaded';
  bindReceipt(loaded.contentSha).then(()=>{if($('decisionSource').textContent.startsWith('(from the review receipt'))$('sceneStatus').textContent='Scene digest verified'+(isSecureContext?'':' (plain HTTP: consistency check only)')});
  $('duty').onchange=budget;$('group').onchange=group;$('subset').onchange=()=>{if($('group').value==='Custom subsystem')picked=new Set(custom[$('subset').value]||[]);select()};

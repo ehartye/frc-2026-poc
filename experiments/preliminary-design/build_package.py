@@ -662,6 +662,18 @@ def main():
                                 basis="Pairs that are meant to touch: the tracked FUEL against the surfaces its physics trial presses it on, and official field "
                                       "parts built against each other. Listing a pair removes it from that case's clearance test.",
                                 interfaces=contacts))
+    # One animation per mission phase on the review page; the cases stay the check results.
+    PHASES = {"collect": ("Collect a FUEL from the floor", ["intake-deploy"] + phase_cases["acquire"]),
+              "stage-and-carry": ("Stage the FUEL and carry it to the shot pose", phase_cases["hopper"] + ["loaded-transit"]),
+              "score": ("Launch the FUEL into the HUB", phase_cases["launch"] + phase_cases["flight"]),
+              "hang": ("Hang on the low rung", ["climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift"]),
+              "park": ("Lower back to the carpet", ["park-lower"]),
+              "battery-service": ("Lift out the shelf panel and the battery", ["battery-cover-remove", "battery-withdraw"]),
+              "shooter-service": ("Lift out the shooter module", ["shooter-withdraw"])}
+    for phase_id, (title, members) in PHASES.items():
+        for cid in members:
+            stages[cid]["phase"] = phase_id
+    assert all("phase" in v for v in stages.values())
     motion = write("paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step, layoutDatum=datum, cases=cases))
 
     fxc, fzc = k["feeder"]
@@ -1046,6 +1058,7 @@ def main():
                                                "controls": ["electronics panel", "electronics panel left", "electronics bay right"]},
                                   architecture=f"{DESIGN} · floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 × 714 mm four-module swerve base",
                                   alliance="blue",
+                                  phases={phase_id: dict(title=title) for phase_id, (title, members) in PHASES.items()},
                                   caseKinds={c["id"]: "nominal" for c in cases},
                                   uncoveredCases=uncovered))
     import review_data

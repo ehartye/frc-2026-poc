@@ -534,7 +534,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "collect"
     },
     "acquire-1": {
       "purpose": "operating",
@@ -557,7 +558,8 @@
           },
           "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
         }
-      }
+      },
+      "phase": "collect"
     },
     "acquire-2": {
       "purpose": "operating",
@@ -580,7 +582,8 @@
           },
           "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
         }
-      }
+      },
+      "phase": "collect"
     },
     "acquire-3": {
       "purpose": "operating",
@@ -603,7 +606,8 @@
           },
           "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
         }
-      }
+      },
+      "phase": "collect"
     },
     "hopper-1": {
       "purpose": "operating",
@@ -628,7 +632,8 @@
           },
           "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
         }
-      }
+      },
+      "phase": "stage-and-carry"
     },
     "hopper-2": {
       "purpose": "operating",
@@ -653,7 +658,8 @@
           },
           "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
         }
-      }
+      },
+      "phase": "stage-and-carry"
     },
     "hopper-3": {
       "purpose": "operating",
@@ -678,7 +684,8 @@
           },
           "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
         }
-      }
+      },
+      "phase": "stage-and-carry"
     },
     "loaded-transit": {
       "purpose": "operating",
@@ -687,7 +694,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "stage-and-carry"
     },
     "launch-1": {
       "purpose": "operating",
@@ -712,7 +720,8 @@
           },
           "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it"
         }
-      }
+      },
+      "phase": "score"
     },
     "flight-1": {
       "purpose": "operating",
@@ -729,7 +738,8 @@
           },
           "basis": "Free flight from the hood release into the HUB funnel"
         }
-      }
+      },
+      "phase": "score"
     },
     "flight-2": {
       "purpose": "operating",
@@ -746,7 +756,8 @@
           },
           "basis": "Free flight from the hood release into the HUB funnel"
         }
-      }
+      },
+      "phase": "score"
     },
     "climb-reach": {
       "purpose": "operating",
@@ -755,7 +766,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "intake-stow": {
       "purpose": "operating",
@@ -764,7 +776,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "tower-lateral": {
       "purpose": "operating",
@@ -774,7 +787,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "tower-forward": {
       "purpose": "operating",
@@ -784,7 +798,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "climb-seat": {
       "purpose": "operating",
@@ -794,7 +809,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "climb-lift": {
       "purpose": "operating",
@@ -806,7 +822,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "hang"
     },
     "park-lower": {
       "purpose": "park",
@@ -818,7 +835,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "park"
     },
     "battery-cover-remove": {
       "purpose": "service",
@@ -828,7 +846,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "battery-service"
     },
     "battery-withdraw": {
       "purpose": "service",
@@ -837,7 +856,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "battery-service"
     },
     "shooter-withdraw": {
       "purpose": "service",
@@ -846,7 +866,8 @@
       ],
       "carriedWith": {},
       "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0
+      "pathToleranceMm": 40.0,
+      "phase": "shooter-service"
     }
   },
   "missingInputs": [],
@@ -1980,6 +2001,29 @@
     },
     "architecture": "Chute-fed hood shooter · floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 × 714 mm four-module swerve base",
     "alliance": "blue",
+    "phases": {
+      "collect": {
+        "title": "Collect a FUEL from the floor"
+      },
+      "stage-and-carry": {
+        "title": "Stage the FUEL and carry it to the shot pose"
+      },
+      "score": {
+        "title": "Launch the FUEL into the HUB"
+      },
+      "hang": {
+        "title": "Hang on the low rung"
+      },
+      "park": {
+        "title": "Lower back to the carpet"
+      },
+      "battery-service": {
+        "title": "Lift out the shelf panel and the battery"
+      },
+      "shooter-service": {
+        "title": "Lift out the shooter module"
+      }
+    },
     "caseKinds": {
       "intake-deploy": "nominal",
       "acquire-1": "nominal",
