@@ -10,7 +10,8 @@
   },
   "phase": "preliminary-design",
   "interfaces": [
-    "climber hooks",
+    "climber hook left",
+    "climber hook right",
     "intake",
     "hopper"
   ],

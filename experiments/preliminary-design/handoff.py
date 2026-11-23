@@ -2,8 +2,8 @@
 
     python -I -B experiments/preliminary-design/handoff.py cad/preliminary-design/releases/1.0
 
-Every figure is read from the plan, the receipt, missions.json, measurements.json or a trial record in that folder.
-Run it after the layout check.
+Every figure is read from the judgement file, the generated manifest of the design source, the receipt, missions.json,
+measurements.json or a trial record in that folder. Run it after the layout check. It reads files and runs nothing else.
 """
 import json
 import sys
@@ -23,13 +23,14 @@ def main():
     rel = Path(sys.argv[1]).as_posix().strip("/")
     folder = REPO / rel
     load = lambda name: json.loads((folder / name).read_text(encoding="utf-8"))
-    plan, receipt, missions, measured, motion = (load(n) for n in ("layout.json", "receipt.json", "missions.json", "measurements.json", "paths.json"))
+    plan, receipt, missions, measured, built = (load(n) for n in ("judgement.json", "receipt.json", "missions.json", "measurements.json", "generated/manifest.json"))
     assert receipt["status"] == "layout-checked" and not receipt.get("partial"), "Run the full layout check first"
     index = json.loads((REPO / "docs/preliminary-design/releases.json").read_text(encoding="utf-8"))
     version = folder.name
     name = index.get("designs", {}).get(version.split(".")[0], {}).get("name", "")
-    fixtures = {f["id"] for c in motion["cases"] for f in c.get("fixtures", [])}
-    payload = {m for g in plan["groups"].values() if g["role"] == "payload" for m in g["members"]}
+    fixtures = {f["name"] for f in built["fixtures"]}
+    groups = {name: g for name, g in built["groups"].items() if g["members"]}
+    payload = {m for g in groups.values() if g["role"] == "payload" for m in g["members"]}
     out = [f"# Handoff to detailed design: {name} {version}", "",
            f"Written by `experiments/preliminary-design/handoff.py` from the files in `{rel}/`. The design is in progress until the owner marks it effective. "
            "Lengths are millimetres in the robot datum unless a unit is given.", ""]
@@ -39,29 +40,28 @@ def main():
         out.extend("| " + " | ".join(str(c).replace("|", "/").replace("\n", " ") for c in row) + " |" for row in rows)
         out.append("")
 
-    groups = plan["groups"]
-    robot = sum(len(g["members"]) for g in groups.values()) - len(fixtures)
+    robot = len(built["solids"])
     table("Design", ["Item", "Value", "File"], [
         ["Name and version", f"{name} {version}", "`docs/preliminary-design/releases.json`"],
-        ["Blockout", f"{robot} named solids, one per functional volume, in {len(groups) - 1} groups", "`package.step`, groups in `layout.json`"],
-        ["Solid names", "Plain words with handedness last, such as `feeder roller left`; envelopes say so in their explanation", "`layout.json` presentation.components"],
+        ["Blockout", f"{robot} named solids, one per functional volume, in {len(groups) - 1} groups", "`design.json` (the design source), built to `generated/design.step`"],
+        ["Solid names", "Plain words with handedness last, such as `feeder roller left`; envelopes say so in their explanation", "`judgement.json` presentation.components"],
         ["Field parts", f"{len(fixtures)} parts of FIRST's official HUB and TOWER at the shot pose", "`field/*.step`, source in `cad/field/official/`"]])
     table("Frame and datums", ["Datum", "Value", "File"], [
-        ["Origin and axes", plan["datum"]["name"], "`layout.json` datum"],
-        ["Floor", "Z = 0 at the carpet", "`layout.json` datum"],
-        *[[f"Mount: {m.get('member', m['group'])} on {m['on']}", f"({m['pointMm'][0]:g}, {m['pointMm'][1]:g}, {m['pointMm'][2]:g}). {m['basis']}", "`layout.json` mounts"] for m in plan["mounts"]]])
+        ["Origin and axes", built["design"]["frame"], "`design.json` frame"],
+        ["Floor", "Z = 0 at the carpet", "`design.json` frame"],
+        *[[f"Mount: {m.get('member', m['group'])} on {m['on']}", f"({m['atMm'][0]:g}, {m['atMm'][1]:g}, {m['atMm'][2]:g}). {m['note']}", "`design.json` mounts"] for m in built["mounts"]]])
     moves = []
-    for c in motion["cases"]:
-        if c["id"] in ("intake-deploy", "climb-reach", "climb-seat", "climb-lift"):
-            member, ops = next((n, o) for n, o in sorted(c["moves"].items()) if n not in fixtures and n not in payload)
-            op = ops[0]
-            travel = (f"rotates {op['travelDeg']:g} degrees about axis {op['axis']} through {op['originMm']}" if op["kind"] == "rotation"
-                      else f"translates {op['travelMm']}")
-            moves.append([c["id"], member, travel])
-    table("Axes and travel", ["Case", "First moving member", "Travel"], moves, "From `paths.json`. Mirrored members move the same way on the other side.")
+    for case in ("intake-deploy", "climb-reach", "climb-seat", "climb-lift"):
+        group, ops = next((g, o) for g, o in sorted(built["motions"][case]["moves"].items())
+                          if not set(groups[g]["members"]) <= fixtures and groups[g]["role"] != "payload")
+        op = ops[0]
+        travel = (f"rotates {op['travelDeg']:g} degrees about axis {op['axis']} through {op['originMm']}" if op["kind"] == "rotation"
+                  else f"translates {op['travelMm']}")
+        moves.append([case, group, travel])
+    table("Axes and travel", ["Case", "First moving group", "Travel"], moves, "From the motions of `design.json`. Mirrored groups move the same way on the other side.")
     table("Envelopes", ["Measure", "Value", "File"], [
-        ["Frame", "680 long by 714 wide, 2788 perimeter", "`design.json`"],
-        ["Bumper zone", "48 to 168 above the carpet, 76 section", "`design.json`"],
+        ["Frame", "680 long by 714 wide, 2788 perimeter", "`design.json` frame rails"],
+        ["Bumper zone", "48 to 168 above the carpet, 76 section", "`design.json` bumpers"],
         ["Starting overhang beyond the frame", measured["startOverhangMm"], "`measurements.json`"],
         ["Greatest height in any operating or park pose", measured["sweptTopMm"], "`measurements.json`"],
         ["Greatest front extension", measured["sweptFrontExtensionMm"], "`measurements.json`"],
@@ -83,13 +83,13 @@ def main():
           "Least gap of each pair the layout check measured under 10 mm, from `receipt.json`. Each is an interface for detailed design to dimension, not a verified clearance. "
           "Pairs of official field parts are left out.")
     contacts = {}
-    for row in load("contacts.json")["interfaces"]:
+    for row in built["contacts"]:
         a, b = row["pair"]
         if not (a in fixtures and b in fixtures):
-            contacts.setdefault((a, b), []).append(row)
+            contacts[a, b] = row
     table("Interfaces and allowances: intended contacts", ["Pair", "Cases", "Basis"],
-          [[f"{a} / {b}", ", ".join(r["case"] for r in rows), rows[0]["basis"]] for (a, b), rows in sorted(contacts.items())],
-          "From `contacts.json`. A listed pair is left out of that case's clearance test.")
+          [[f"{a} / {b}", ", ".join(row.get("during", ["every case"])), row["note"]] for (a, b), row in sorted(contacts.items())],
+          "From the contacts of `design.json`. A listed pair is left out of that case's clearance test.")
     unmounted = plan.get("attachment", {}).get("unmounted", {})
     if unmounted:
         table("Connections not drawn yet", ["Solid", "Reason"], sorted(unmounted.items()))
@@ -111,7 +111,7 @@ def main():
           [[phase, ", ".join(v["cases"]) if "cases" in v else "not applicable: " + v["notApplicable"],
             ", ".join(sorted({f"{plan['stages'][c]['pathToleranceMm']:g} mm" for c in v.get("cases", [])}))] for phase, v in missions["cycle"].items()]
           + [["displaced control", f"{plan['control']['case']}: {plan['control']['basis']}", "rejected" if receipt["control"]["witness"]["status"] == "fail" else "NOT rejected"]],
-          "From `missions.json` and `layout.json`. The single prescribed strokes follow their path exactly; the tracked FUEL's strokes are within the stated distance of the solved trace.")
+          "From `missions.json` and `judgement.json`. The single prescribed strokes follow their path exactly; the tracked FUEL's strokes are within the stated distance of the solved trace.")
     b = receipt["budgets"]
     volts = min(b["electricalCases"], key=lambda e: e["marginV"])
     table("Budgets", ["Budget", "Value", "File"], [

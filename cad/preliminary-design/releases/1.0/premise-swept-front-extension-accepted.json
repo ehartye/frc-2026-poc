@@ -11,7 +11,8 @@
   "phase": "preliminary-design",
   "interfaces": [
     "intake",
-    "climber hooks"
+    "climber hook left",
+    "climber hook right"
   ],
   "source": {
     "file": "cad/preliminary-design/releases/1.0/construction-rules.json"

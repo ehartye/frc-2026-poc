@@ -1,910 +1,77 @@
 {
-  "schema": "agent-frc/preliminary-layout@1",
+  "schema": "agent-frc/layout-judgement@1",
   "issue": "chute-fed-hood-shooter-1.0",
-  "design": {
+  "source": {
     "file": "cad/preliminary-design/releases/1.0/design.json"
   },
-  "step": {
-    "file": "cad/preliminary-design/releases/1.0/package.step"
+  "generated": {
+    "file": "cad/preliminary-design/releases/1.0/generated/manifest.json"
   },
-  "motion": {
-    "file": "cad/preliminary-design/releases/1.0/paths.json"
-  },
-  "datum": {
-    "name": "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
-    "robotToStepMm": [
-      1,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0,
-      0,
-      0,
-      1
-    ]
-  },
-  "groups": {
-    "frame": {
-      "role": "structure",
-      "members": [
-        "climber tube mount left",
-        "climber tube mount right",
-        "floor pan",
-        "floor pan front tongue",
-        "frame rail front",
-        "frame rail left",
-        "frame rail rear",
-        "frame rail right",
-        "intake slide rail left",
-        "intake slide rail right",
-        "lane deck"
-      ]
-    },
-    "hopper": {
-      "role": "structure",
-      "members": [
-        "hopper liner left",
-        "hopper liner right",
-        "hopper rear wall",
-        "hopper wall left",
-        "hopper wall right"
-      ]
-    },
-    "hopper shelf": {
-      "role": "structure",
-      "members": [
-        "hopper shelf left"
-      ]
-    },
-    "climber tubes": {
-      "role": "structure",
-      "members": [
-        "climber tube left",
-        "climber tube right",
-        "climber winch"
-      ]
-    },
-    "battery retention": {
-      "role": "structure",
-      "members": [
-        "battery retention cleat aft",
-        "battery retention cleat fore"
-      ]
-    },
-    "battery strap": {
-      "role": "structure",
-      "members": [
-        "battery strap"
-      ]
-    },
-    "bumpers": {
-      "role": "bumper",
-      "members": [
-        "bumper front",
-        "bumper left",
-        "bumper rear",
-        "bumper right"
-      ]
-    },
-    "drivetrain": {
-      "role": "drive",
-      "members": [
-        "front left module body",
-        "front left module motors",
-        "front left wheel azimuth envelope",
-        "front right module body",
-        "front right module motors",
-        "front right wheel azimuth envelope",
-        "rear left module body",
-        "rear left module motors",
-        "rear left wheel azimuth envelope",
-        "rear right module body",
-        "rear right module motors",
-        "rear right wheel azimuth envelope"
-      ]
-    },
-    "battery": {
-      "role": "battery",
-      "members": [
-        "battery"
-      ]
-    },
-    "electrical": {
-      "role": "other",
-      "members": [
-        "electronics bay right",
-        "electronics panel",
-        "electronics panel left",
-        "stage sensor left",
-        "stage sensor right"
-      ]
-    },
-    "floor belts": {
-      "role": "mechanism",
-      "members": [
-        "floor belt front",
-        "floor belt main"
-      ]
-    },
-    "feeders": {
-      "role": "mechanism",
-      "members": [
-        "feeder motor left",
-        "feeder motor right",
-        "feeder roller left",
-        "feeder roller right"
-      ]
-    },
-    "shooter": {
-      "role": "mechanism",
-      "members": [
-        "flywheel",
-        "flywheel inertia ring",
-        "flywheel motor left",
-        "flywheel motor right",
-        "hood",
-        "shooter side plate left",
-        "shooter side plate right"
-      ]
-    },
-    "intake": {
-      "role": "mechanism",
-      "members": [
-        "entry sensor",
-        "intake back plate",
-        "intake belt module",
-        "intake carriage plate left",
-        "intake carriage plate right",
-        "intake top roller"
-      ]
-    },
-    "climber hooks": {
-      "role": "mechanism",
-      "members": [
-        "climber hook left",
-        "climber hook right"
-      ]
-    },
-    "climber inner tubes": {
-      "role": "mechanism",
-      "members": [
-        "climber inner tube left",
-        "climber inner tube right"
-      ]
-    },
-    "tracked FUEL": {
-      "role": "payload",
-      "members": [
-        "FUEL tracked"
-      ]
-    },
-    "stored FUEL": {
-      "role": "payload",
-      "members": [
-        "FUEL stored 1"
-      ]
-    },
-    "field": {
-      "role": "other",
-      "members": [
-        "hub front panel bottom",
-        "hub front panel top 1",
-        "hub front panel top 2",
-        "hub funnel base",
-        "hub funnel side 1",
-        "hub funnel side 2",
-        "hub funnel side 3",
-        "hub funnel side 4",
-        "hub funnel side 5",
-        "hub funnel side 6",
-        "hub net",
-        "hub rear panel",
-        "hub roof panel",
-        "hub side panel 1",
-        "hub side panel 2",
-        "tower base",
-        "tower lower plastic",
-        "tower rung 1",
-        "tower rung 2",
-        "tower rung 3",
-        "tower upright inner 1",
-        "tower upright inner 2",
-        "tower upright outer 1",
-        "tower upright outer 2"
-      ]
-    }
-  },
-  "mounts": [
-    {
-      "group": "floor belts",
-      "on": "floor pan",
-      "pointMm": [
-        0.0,
-        0.0,
-        100.0
-      ],
-      "basis": "Belt bed rests on the floor pan"
-    },
-    {
-      "group": "feeders",
-      "on": "hopper liner left",
-      "pointMm": [
-        -60.0,
-        169.0,
-        250.514
-      ],
-      "basis": "Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block",
-      "member": "feeder roller left"
-    },
-    {
-      "group": "feeders",
-      "on": "hopper liner left",
-      "pointMm": [
-        -60.0,
-        169.0,
-        248.514
-      ],
-      "basis": "Gearmotor flange on the bearing block outboard of the channel wall",
-      "member": "feeder motor left"
-    },
-    {
-      "group": "feeders",
-      "on": "hopper liner right",
-      "pointMm": [
-        -60.0,
-        -169.0,
-        250.514
-      ],
-      "basis": "Right roller shaft runs in a bearing block on the channel wall of the right liner",
-      "member": "feeder roller right"
-    },
-    {
-      "group": "feeders",
-      "on": "hopper liner right",
-      "pointMm": [
-        -60.0,
-        -169.0,
-        248.514
-      ],
-      "basis": "Gearmotor flange on the bearing block outboard of the channel wall",
-      "member": "feeder motor right"
-    },
-    {
-      "group": "shooter",
-      "on": "frame rail rear",
-      "pointMm": [
-        -327.0,
-        0.0,
-        120.65
-      ],
-      "basis": "Shooter side plates bolt to the rear rail top"
-    },
-    {
-      "group": "intake",
-      "on": "intake slide rail left",
-      "pointMm": [
-        300.0,
-        266.0,
-        400.0
-      ],
-      "basis": "Left carriage plate runs on the two-stage slide; the fixed stage is drawn",
-      "member": "intake carriage plate left"
-    },
-    {
-      "group": "intake",
-      "on": "intake slide rail right",
-      "pointMm": [
-        300.0,
-        -266.0,
-        400.0
-      ],
-      "basis": "Right carriage plate runs on the two-stage slide; the fixed stage is drawn",
-      "member": "intake carriage plate right"
-    },
-    {
-      "group": "intake",
-      "on": "intake carriage plate left",
-      "pointMm": [
-        560.0,
-        255.0,
-        300.0
-      ],
-      "basis": "Belt module frame spans the two carriage plates",
-      "member": "intake belt module"
-    },
-    {
-      "group": "intake",
-      "on": "intake carriage plate left",
-      "pointMm": [
-        495.5,
-        255.0,
-        565.0
-      ],
-      "basis": "Top roller shaft runs in bearings in the two carriage plates",
-      "member": "intake top roller"
-    },
-    {
-      "group": "intake",
-      "on": "intake carriage plate left",
-      "pointMm": [
-        400.0,
-        255.0,
-        300.0
-      ],
-      "basis": "Back plate flanges bolt to the two carriage plates",
-      "member": "intake back plate"
-    },
-    {
-      "group": "intake",
-      "on": "intake carriage plate left",
-      "pointMm": [
-        434.0,
-        255.0,
-        569.0
-      ],
-      "basis": "Sensor bracket on the top edge of the left carriage plate",
-      "member": "entry sensor"
-    },
-    {
-      "group": "climber inner tubes",
-      "on": "climber tube left",
-      "pointMm": [
-        300.0,
-        316.0,
-        500.0
-      ],
-      "basis": "Inner tube runs in bushings in the fixed outer tube",
-      "member": "climber inner tube left"
-    },
-    {
-      "group": "climber inner tubes",
-      "on": "climber tube right",
-      "pointMm": [
-        300.0,
-        -316.0,
-        500.0
-      ],
-      "basis": "Inner tube runs in bushings in the fixed outer tube",
-      "member": "climber inner tube right"
-    },
-    {
-      "group": "climber hooks",
-      "on": "climber inner tube left",
-      "pointMm": [
-        300.0,
-        316.0,
-        736.0
-      ],
-      "basis": "Swing joint on the inner tube top",
-      "member": "climber hook left"
-    },
-    {
-      "group": "climber hooks",
-      "on": "climber inner tube right",
-      "pointMm": [
-        300.0,
-        -316.0,
-        736.0
-      ],
-      "basis": "Swing joint on the inner tube top",
-      "member": "climber hook right"
-    },
-    {
-      "group": "battery",
-      "on": "battery retention cleat aft",
-      "pointMm": [
-        -95.0,
-        291.0,
-        150.0
-      ],
-      "basis": "Battery end face captured between the aft and fore cleats, with the strap over its top"
-    },
-    {
-      "group": "battery retention",
-      "on": "floor pan",
-      "pointMm": [
-        -95.0,
-        291.0,
-        100.0
-      ],
-      "basis": "Cleat feet riveted to the floor pan top, which rests on the frame rails"
-    },
-    {
-      "group": "battery strap",
-      "on": "battery retention cleat aft",
-      "pointMm": [
-        -95.0,
-        291.0,
-        199.0
-      ],
-      "basis": "Strap anchored to the aft cleat and buckled to the fore cleat over the battery top"
-    },
-    {
-      "group": "hopper shelf",
-      "on": "hopper liner left",
-      "pointMm": [
-        0.0,
-        169.0,
-        267.0
-      ],
-      "basis": "Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners"
-    },
-    {
-      "group": "hopper",
-      "on": "frame rail left",
-      "pointMm": [
-        0.0,
-        334.0,
-        120.65
-      ],
-      "basis": "Side wall foot on the left rail top",
-      "member": "hopper wall left"
-    },
-    {
-      "group": "hopper",
-      "on": "frame rail right",
-      "pointMm": [
-        0.0,
-        -334.0,
-        120.65
-      ],
-      "basis": "Side wall foot on the right rail top",
-      "member": "hopper wall right"
-    },
-    {
-      "group": "hopper",
-      "on": "floor pan",
-      "pointMm": [
-        0.0,
-        169.0,
-        100.0
-      ],
-      "basis": "Channel wall foot on the floor pan",
-      "member": "hopper liner left"
-    },
-    {
-      "group": "hopper",
-      "on": "floor pan",
-      "pointMm": [
-        0.0,
-        -169.0,
-        100.0
-      ],
-      "basis": "Channel wall foot on the floor pan",
-      "member": "hopper liner right"
-    },
-    {
-      "group": "hopper",
-      "on": "hopper wall left",
-      "pointMm": [
-        -94.5,
-        334.0,
-        500.0
-      ],
-      "basis": "Rear wall flange on the left side wall; its right edge is carried by the right liner's pocket wall",
-      "member": "hopper rear wall"
-    },
-    {
-      "group": "climber tubes",
-      "on": "climber tube mount left",
-      "pointMm": [
-        300.0,
-        316.0,
-        222.0
-      ],
-      "basis": "Outer tube socket in the tube mount",
-      "member": "climber tube left"
-    },
-    {
-      "group": "climber tubes",
-      "on": "climber tube mount right",
-      "pointMm": [
-        300.0,
-        -316.0,
-        222.0
-      ],
-      "basis": "Outer tube socket in the tube mount",
-      "member": "climber tube right"
-    },
-    {
-      "group": "climber tubes",
-      "on": "intake slide rail left",
-      "pointMm": [
-        200.0,
-        266.0,
-        345.0
-      ],
-      "basis": "Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail",
-      "member": "climber winch"
-    }
-  ],
-  "stages": {
-    "intake-deploy": {
-      "purpose": "operating",
-      "movingGroups": [
-        "intake"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "collect"
-    },
-    "acquire-1": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "intake"
-          ],
-          "drive": {
-            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-1.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
-        }
-      },
-      "phase": "collect"
-    },
-    "acquire-2": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "intake"
-          ],
-          "drive": {
-            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-2.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
-        }
-      },
-      "phase": "collect"
-    },
-    "acquire-3": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "intake"
-          ],
-          "drive": {
-            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
-          },
-          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
-        }
-      },
-      "phase": "collect"
-    },
-    "hopper-1": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "floor belts"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-1.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
-        }
-      },
-      "phase": "stage-and-carry"
-    },
-    "hopper-2": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "floor belts"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-2.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
-        }
-      },
-      "phase": "stage-and-carry"
-    },
-    "hopper-3": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "floor belts"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
-          },
-          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
-        }
-      },
-      "phase": "stage-and-carry"
-    },
-    "loaded-transit": {
-      "purpose": "operating",
-      "movingGroups": [
-        "field"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "stage-and-carry"
-    },
-    "launch-1": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "transportedBy": {
-        "tracked FUEL": {
-          "mechanisms": [
-            "feeders",
-            "shooter"
-          ],
-          "drive": {
-            "feeders": "Feeder roller surface at 1.2 m/s from the feed command, given only with the wheel in its ready band; imposed in the trial",
-            "shooter": "Flywheel a free 0.0076 kg m2 body at a 13.6 m/s setpoint under two motors and a speed loop, solved in the trial"
-          },
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
-          },
-          "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it"
-        }
-      },
-      "phase": "score"
-    },
-    "flight-1": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "freePath": {
-        "tracked FUEL": {
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/flight-1.json"
-          },
-          "basis": "Free flight from the hood release into the HUB funnel"
-        }
-      },
-      "phase": "score"
-    },
-    "flight-2": {
-      "purpose": "operating",
-      "movingGroups": [
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "freePath": {
-        "tracked FUEL": {
-          "evidence": {
-            "file": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
-          },
-          "basis": "Free flight from the hood release into the HUB funnel"
-        }
-      },
-      "phase": "score"
-    },
-    "climb-reach": {
-      "purpose": "operating",
-      "movingGroups": [
-        "climber hooks"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "intake-stow": {
-      "purpose": "operating",
-      "movingGroups": [
-        "intake"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "tower-lateral": {
-      "purpose": "operating",
-      "movingGroups": [
-        "field",
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "tower-forward": {
-      "purpose": "operating",
-      "movingGroups": [
-        "field",
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "climb-seat": {
-      "purpose": "operating",
-      "movingGroups": [
-        "climber hooks",
-        "climber inner tubes"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "climb-lift": {
-      "purpose": "operating",
-      "movingGroups": [
-        "climber hooks",
-        "climber inner tubes",
-        "field",
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "hang"
-    },
-    "park-lower": {
-      "purpose": "park",
-      "movingGroups": [
-        "climber hooks",
-        "climber inner tubes",
-        "field",
-        "tracked FUEL"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
-      "pathToleranceMm": 40.0,
-      "phase": "park"
-    },
-    "battery-cover-remove": {
-      "purpose": "service",
-      "movingGroups": [
-        "hopper shelf",
-        "battery strap"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0,
-      "phase": "battery-service"
-    },
-    "battery-withdraw": {
-      "purpose": "service",
-      "movingGroups": [
-        "battery"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0,
-      "phase": "battery-service"
-    },
-    "shooter-withdraw": {
-      "purpose": "service",
-      "movingGroups": [
-        "shooter"
-      ],
-      "carriedWith": {},
-      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
-      "pathToleranceMm": 40.0,
-      "phase": "shooter-service"
-    }
-  },
-  "missingInputs": [],
-  "control": {
-    "case": "intake-deploy",
-    "displaced": "front left module motors",
-    "moving": "intake carriage plate left",
-    "offsetMm": [
-      0,
-      0,
-      40
-    ],
-    "basis": "Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"
-  },
-  "cycle": [
-    "intake-deploy",
-    "acquire-1",
-    "acquire-2",
-    "acquire-3",
-    "hopper-1",
-    "hopper-2",
-    "hopper-3",
-    "loaded-transit",
-    "launch-1",
-    "flight-1",
-    "flight-2",
-    "climb-reach",
-    "intake-stow",
-    "tower-lateral",
-    "tower-forward",
-    "climb-seat",
-    "climb-lift",
-    "park-lower"
-  ],
   "view": "cad/preliminary-design/releases/1.0/package-motion.html",
   "budgets": {
     "file": "cad/preliminary-design/releases/1.0/budgets.json"
+  },
+  "narrativeReview": {
+    "source": {
+      "file": "cad/preliminary-design/releases/1.0/narrative.md"
+    },
+    "objectives": [
+      {
+        "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
+        "disposition": "represented",
+        "basis": "The starting fold holds 14 or more FUEL by free volume behind the stowed intake (start-capacity premise), and the hopper-cycle-8-preload trial feeds eight from the hopper; the launch and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series."
+      },
+      {
+        "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
+        "disposition": "represented",
+        "basis": "The acquire cases take a floor FUEL up the bumper face and the chute back plate and over its top along the acquisition trial's trace (inside the frame in 0.65 s); the hopper cases follow the entry trial to the stage, clamped under the feeder roller 1.44 s later. The hopper-collect-24-hold trial collects 24 through the chute: 24 in the hopper and 0 in the chute, none lost and none at the flywheel (hopper-capacity premise)."
+      },
+      {
+        "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
+        "disposition": "represented",
+        "basis": "loaded-transit, the launch and flight cases carry the tracked FUEL from the stage into the HUB funnel along the launch and delivery trials' traces, to within the path tolerance each case declares. The feeder advances it only with the wheel in its ready band; it releases at 6.90 m/s and 61.6 degrees, and the delivery trials score from 6.725 to 7.100 m/s at the nominal drag and spin lift and at all four corners."
+      },
+      {
+        "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+        "disposition": "represented",
+        "basis": "The batch trial launches 24 FUEL through the one flywheel at 4.0 FUEL/s, every release inside the scoring band, on a 12 V and on the 8.34 V weak-pack bus. The hopper cycle trial feeds 24 collected FUEL to the flywheel in 7.1-10.5 s over 16 arrival patterns (2.3-3.4 FUEL/s against 2.00), so the hopper, not the flywheel, sets the rate. The wheel spins up in 1.1 s (1.3 s on the weak pack) and is held at speed while FUEL is aboard. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "Fallback: score the available batch when supply or traffic consumes the window and return to collecting",
+        "disposition": "represented",
+        "basis": "The cycle is piece-count independent: the hopper-cycle-8-preload trial feeds a part batch; the intake stays deployed in every scoring case; the re-run rehearsal keeps the depot loop."
+      },
+      {
+        "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
+        "disposition": "represented",
+        "basis": "The hopper front is closed by the deployed intake's back plate to 425 mm and the walls rise to 715 mm. Every collect-hold-feed pattern carries its 24 FUEL through a 0.5 g stop, start and turn with none lost. Harder stops are tested on single patterns only: at 0.75 g 1 of 1 tested patterns keep and feed all 24; at 1 g 2 of 2 tested patterns keep and feed all 24. Loaded acceleration is limited to 0.5 g. The staged FUEL is clamped under a braked feeder roller: the hold trial keeps it 25.6 mm clear of the spinning wheel at 1.5 g with a 90 N push. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "Neutral collector alternative with two field crossings",
+        "disposition": "out-of-scope",
+        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-crossing premise, 8.7 mm least clearance) with the intake retracted."
+      },
+      {
+        "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
+        "disposition": "represented",
+        "basis": "With the hopper empty the hooks swing forward, the intake stows between them, the robot closes on the TOWER, seats (2 mm required contact) and lifts 70 mm; the 714 mm frame gives 23.9 mm of bumper overlap with each upright (hang-bumper-overlap premise); the hang physics trial at 70.3 kg holds 37.5 mm with the brake and fails without it; its cable load peaks at 1043 N in the lift and settles at 690 N. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "AUTO Level 1 TOWER (15 points, two-robot cap)",
+        "disposition": "out-of-scope",
+        "basis": "The strategy keeps the eight-FUEL AUTO objective; no joined AUTO climb evidence is sought in this layout."
+      },
+      {
+        "objective": "Reserve the depot entrance and partner lane",
+        "disposition": "out-of-scope",
+        "basis": "Alliance routing decision owned by the field rehearsal, independent of the robot layout."
+      },
+      {
+        "objective": "Measurement: observe intake crossing, retained identity, release and downstream crossing on one timebase",
+        "disposition": "represented",
+        "basis": "An entry sensor on the carriage watches the top of the chute and a stage beam watches each lane at the feeder; the HUB counter is field equipment."
+      }
+    ]
   },
   "premises": [
     {
@@ -1012,67 +179,382 @@
       }
     }
   ],
-  "narrativeReview": {
-    "source": {
-      "file": "cad/preliminary-design/releases/1.0/narrative.md"
+  "missingInputs": [],
+  "scopeGuidelines": {
+    "solids": 80,
+    "toleranceMm": 10
+  },
+  "attachment": {
+    "gapMm": 3.5,
+    "suspended": {
+      "hub funnel base": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 1": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 2": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 3": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 4": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 5": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 6": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub net": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub roof panel": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down"
+    }
+  },
+  "cycle": [
+    "intake-deploy",
+    "acquire-1",
+    "acquire-2",
+    "acquire-3",
+    "hopper-1",
+    "hopper-2",
+    "hopper-3",
+    "loaded-transit",
+    "launch-1",
+    "flight-1",
+    "flight-2",
+    "climb-reach",
+    "intake-stow",
+    "tower-lateral",
+    "tower-forward",
+    "climb-seat",
+    "climb-lift",
+    "park-lower"
+  ],
+  "control": {
+    "case": "intake-deploy",
+    "displaced": "front left module motors",
+    "moving": "intake carriage plate left",
+    "offsetMm": [
+      0,
+      0,
+      40
+    ],
+    "basis": "Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"
+  },
+  "stages": {
+    "intake-deploy": {
+      "purpose": "operating",
+      "phase": "collect",
+      "basis": "Slide the intake carriage 250 mm forward and 95 mm down from the legal start fold, over the bumper",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
     },
-    "objectives": [
-      {
-        "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
-        "disposition": "represented",
-        "basis": "The starting fold holds 14 or more FUEL by free volume behind the stowed intake (start-capacity premise), and the hopper-cycle-8-preload trial feeds eight from the hopper; the launch and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series."
-      },
-      {
-        "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
-        "disposition": "represented",
-        "basis": "The acquire cases take a floor FUEL up the bumper face and the chute back plate and over its top along the acquisition trial's trace (inside the frame in 0.65 s); the hopper cases follow the entry trial to the stage, clamped under the feeder roller 1.44 s later. The hopper-collect-24-hold trial collects 24 through the chute: 24 in the hopper and 0 in the chute, none lost and none at the flywheel (hopper-capacity premise)."
-      },
-      {
-        "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
-        "disposition": "represented",
-        "basis": "loaded-transit, the launch and flight cases carry the tracked FUEL from the stage into the HUB funnel along the launch and delivery trials' traces, to within the path tolerance each case declares. The feeder advances it only with the wheel in its ready band; it releases at 6.90 m/s and 61.6 degrees, and the delivery trials score from 6.725 to 7.100 m/s at the nominal drag and spin lift and at all four corners."
-      },
-      {
-        "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
-        "disposition": "represented",
-        "basis": "The batch trial launches 24 FUEL through the one flywheel at 4.0 FUEL/s, every release inside the scoring band, on a 12 V and on the 8.34 V weak-pack bus. The hopper cycle trial feeds 24 collected FUEL to the flywheel in 7.1-10.5 s over 16 arrival patterns (2.3-3.4 FUEL/s against 2.00), so the hopper, not the flywheel, sets the rate. The wheel spins up in 1.1 s (1.3 s on the weak pack) and is held at speed while FUEL is aboard. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
-      },
-      {
-        "objective": "Fallback: score the available batch when supply or traffic consumes the window and return to collecting",
-        "disposition": "represented",
-        "basis": "The cycle is piece-count independent: the hopper-cycle-8-preload trial feeds a part batch; the intake stays deployed in every scoring case; the re-run rehearsal keeps the depot loop."
-      },
-      {
-        "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
-        "disposition": "represented",
-        "basis": "The hopper front is closed by the deployed intake's back plate to 425 mm and the walls rise to 715 mm. Every collect-hold-feed pattern carries its 24 FUEL through a 0.5 g stop, start and turn with none lost. Harder stops are tested on single patterns only: at 0.75 g 1 of 1 tested patterns keep and feed all 24; at 1 g 2 of 2 tested patterns keep and feed all 24. Loaded acceleration is limited to 0.5 g. The staged FUEL is clamped under a braked feeder roller: the hold trial keeps it 25.6 mm clear of the spinning wheel at 1.5 g with a 90 N push. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
-      },
-      {
-        "objective": "Neutral collector alternative with two field crossings",
-        "disposition": "out-of-scope",
-        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-crossing premise, 8.7 mm least clearance) with the intake retracted."
-      },
-      {
-        "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
-        "disposition": "represented",
-        "basis": "With the hopper empty the hooks swing forward, the intake stows between them, the robot closes on the TOWER, seats (2 mm required contact) and lifts 70 mm; the 714 mm frame gives 23.9 mm of bumper overlap with each upright (hang-bumper-overlap premise); the hang physics trial at 70.3 kg holds 37.5 mm with the brake and fails without it; its cable load peaks at 1043 N in the lift and settles at 690 N. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
-      },
-      {
-        "objective": "AUTO Level 1 TOWER (15 points, two-robot cap)",
-        "disposition": "out-of-scope",
-        "basis": "The strategy keeps the eight-FUEL AUTO objective; no joined AUTO climb evidence is sought in this layout."
-      },
-      {
-        "objective": "Reserve the depot entrance and partner lane",
-        "disposition": "out-of-scope",
-        "basis": "Alliance routing decision owned by the field rehearsal, independent of the robot layout."
-      },
-      {
-        "objective": "Measurement: observe intake crossing, retained identity, release and downstream crossing on one timebase",
-        "disposition": "represented",
-        "basis": "An entry sensor on the carriage watches the top of the chute and a stage beam watches each lane at the feeder; the HUB counter is field equipment."
+    "acquire-1": {
+      "purpose": "operating",
+      "phase": "collect",
+      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A circular arc fitted to the solved trace acquire-nominal 0.0000-0.3350 s of field-trials.json, within 39.6 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-1.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
       }
-    ]
+    },
+    "acquire-2": {
+      "purpose": "operating",
+      "phase": "collect",
+      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A circular arc fitted to the solved trace acquire-nominal 0.3350-0.6380 s of field-trials.json, within 39.8 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-2.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
+      }
+    },
+    "acquire-3": {
+      "purpose": "operating",
+      "phase": "collect",
+      "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper. A translation with a quadratic drop fitted to the solved trace acquire-nominal 0.6380-0.6544 s of field-trials.json, within 0.0 mm of every traced sample (path tolerance 40 mm); moved by contact with intake",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
+      }
+    },
+    "hopper-1": {
+      "purpose": "operating",
+      "phase": "stage-and-carry",
+      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A circular arc fitted to the solved trace entry-nominal 0.0000-0.2330 s of field-trials.json, within 39.4 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-1.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "hopper-2": {
+      "purpose": "operating",
+      "phase": "stage-and-carry",
+      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A straight stroke fitted to the solved trace entry-nominal 0.2330-0.4130 s of field-trials.json, within 39.6 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-2.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "hopper-3": {
+      "purpose": "operating",
+      "phase": "stage-and-carry",
+      "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck. A straight stroke fitted to the solved trace entry-nominal 0.4130-1.4370 s of field-trials.json, within 28.3 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and floor belts",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "loaded-transit": {
+      "purpose": "operating",
+      "phase": "stage-and-carry",
+      "basis": "Drive loaded 2 m along the alliance zone to the shot pose (robot frame: the field moves); the staged FUEL stays clamped between the braked feeder roller and the lane deck",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "launch-1": {
+      "purpose": "operating",
+      "phase": "score",
+      "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it. A circular arc fitted to the solved trace launch-nominal 0.1000-0.2174 s of field-trials.json, within 27.0 mm of every traced sample (path tolerance 40 mm); moved by contact with feeders and shooter",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "shooter"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 1.2 m/s from the feed command, given only with the wheel in its ready band; imposed in the trial",
+            "shooter": "Flywheel a free 0.0076 kg m2 body at a 13.6 m/s setpoint under two motors and a speed loop, solved in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
+          },
+          "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it"
+        }
+      }
+    },
+    "flight-1": {
+      "purpose": "operating",
+      "phase": "score",
+      "basis": "Free flight from the hood release into the HUB funnel. A translation with a quadratic drop fitted to the solved trace deliver-nominal 0.0000-0.8890 s of field-trials.json, within 7.4 mm of every traced sample (path tolerance 40 mm); no mechanism moves it here: a free path",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "freePath": {
+        "tracked FUEL": {
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/flight-1.json"
+          },
+          "basis": "Free flight from the hood release into the HUB funnel"
+        }
+      }
+    },
+    "flight-2": {
+      "purpose": "operating",
+      "phase": "score",
+      "basis": "Free flight from the hood release into the HUB funnel. A circular arc fitted to the solved trace deliver-nominal 0.8890-1.0037 s of field-trials.json, within 1.7 mm of every traced sample (path tolerance 40 mm); no mechanism moves it here: a free path",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "freePath": {
+        "tracked FUEL": {
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
+          },
+          "basis": "Free flight from the hood release into the HUB funnel"
+        }
+      }
+    },
+    "climb-reach": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "With the hopper empty and the intake still deployed below them, swing both hooks 180 degrees inboard to point forward",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "intake-stow": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "Slide the empty intake carriage back into the frame between the forward hooks, so nothing stands under the rung",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "tower-lateral": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "From the shot pose, drive 289 mm sideways to the TOWER line (robot frame: the field moves)",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "tower-forward": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "Drive 396 mm forward to 5 mm from the uprights; the hook jaws pass over the low rung",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "climb-seat": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "Lower the hooks onto the low rung; a 2 mm seat contact is required at the end of the stroke",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "requiredContacts": [
+        {
+          "id": "left hook seats on low rung",
+          "pair": [
+            "climber hook left",
+            "tower rung 1"
+          ],
+          "criterion": "Hook arm underside within 2 mm of the rung top",
+          "maxGapMm": 2.0,
+          "window": [
+            0.9,
+            1.0
+          ]
+        },
+        {
+          "id": "right hook seats on low rung",
+          "pair": [
+            "climber hook right",
+            "tower rung 1"
+          ],
+          "criterion": "Hook arm underside within 2 mm of the rung top",
+          "maxGapMm": 2.0,
+          "window": [
+            0.9,
+            1.0
+          ]
+        }
+      ]
+    },
+    "climb-lift": {
+      "purpose": "operating",
+      "phase": "hang",
+      "basis": "Retract the hooks 70 mm; in the robot frame the field and hooks move down together (Level 1 clears carpet and base)",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "park-lower": {
+      "purpose": "park",
+      "phase": "park",
+      "basis": "After the match, lower the robot back to the carpet",
+      "minGapMm": 1.0,
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "battery-cover-remove": {
+      "purpose": "service",
+      "phase": "battery-service",
+      "basis": "Release the battery strap and lift the left shelf panel straight out with it, beside the feeder roller and aft of the stowed hook arm",
+      "minGapMm": 0.0,
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0,
+      "extract": true
+    },
+    "battery-withdraw": {
+      "purpose": "service",
+      "phase": "battery-service",
+      "basis": "With the shelf panel and strap out, lift the battery straight up",
+      "minGapMm": 0.0,
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0,
+      "absent": [
+        "battery strap",
+        "hopper shelf left"
+      ],
+      "extract": true
+    },
+    "shooter-withdraw": {
+      "purpose": "service",
+      "phase": "shooter-service",
+      "basis": "Lift the flywheel, inertia ring, hood, side plates and both motors out as one module, with the floor lane empty",
+      "minGapMm": 0.0,
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0,
+      "extract": true
+    }
   },
   "presentation": {
     "components": {
@@ -2171,23 +1653,5 @@
         "file": "cad/preliminary-design/releases/1.0/replays.json.gz"
       }
     ]
-  },
-  "scopeGuidelines": {
-    "solids": 80,
-    "toleranceMm": 10
-  },
-  "attachment": {
-    "gapMm": 3.5,
-    "suspended": {
-      "hub funnel base": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 1": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 2": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 3": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 4": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 5": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub funnel side 6": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub net": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
-      "hub roof panel": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down"
-    }
   }
 }

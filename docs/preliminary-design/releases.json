@@ -8,9 +8,9 @@
   "current": "1.0",
   "revision": {
     "1.0": {
-      "number": 1,
+      "number": 2,
       "date": "2026-11-23",
-      "commit": "5c21bd9a91a9249684a476cf926912a1dcacb964"
+      "commit": "223c646b28cc8153bf396b2ba3d4e79c7aa1756b"
     }
   },
   "designs": {

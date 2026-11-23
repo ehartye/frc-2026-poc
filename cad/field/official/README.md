@@ -39,7 +39,7 @@ Each STEP holds the official root `FE-2026: REBUILT Playing Field`, the selected
 
 Project blue field frame from `kickoff/field-profile.json` (651.2 x 317.7 in), millimetres: `field = (8270.24 - x, 4034.79 - y, z)`. The official HUB centre (x = 3,644.9, y = 0) lands on the profile's (182.1, 158.85) in.
 
-The layout has no single field pose. `build_package.py` draws the HUB and the TOWER separately in the robot frame and each case moves them. The robot frame is parallel to the official axes, +X toward the blue alliance wall. Each frame is a 3 x 4 matrix from official millimetres, in `official-field.json` under `dockFrames`.
+The layout has no single field pose. The design source places the HUB and the TOWER separately in the robot frame and each motion moves them. The robot frame is parallel to the official axes, +X toward the blue alliance wall. Each frame is a 3 x 4 matrix from official millimetres, in `official-field.json` under `dockFrames`.
 
 | Frame | Registration |
 | --- | --- |

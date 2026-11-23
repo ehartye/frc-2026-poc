@@ -4,7 +4,7 @@ For each lateral offset and yaw of the robot at the berth, report the bearing wi
 (the overlap of the bumper's front face with the upright's 38.1 mm face, measured along the face). Both
 uprights must bear so the hang moment is reacted without roll. Run: python -I -B experiments/preliminary-design/hang_overlap.py
 Writes hang-overlap.json. Dimensions: V0 uprights 819.15 mm apart, 38.1 mm thick; bumper outer half-width
-from geometry.HALF_W plus the 76.5 mm bumper section.
+from the frame half-width (dimensions.HALF_W) plus the 76.5 mm bumper section.
 """
 import json
 import math

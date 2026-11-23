@@ -1,4 +1,5 @@
-"""Shared R3 dimensions: the one source for the placed solids (geometry.py) and the physics trials (field_trials.py).
+"""Shared R3 dimensions for the physics trials (field_trials.py). The placed solids are written in the design source,
+cad/preliminary-design/releases/1.0/design.json, whose parameters repeat the figures the solids need.
 
 Robot frame: origin on the carpet at the frame centre, +X forward (intake), +Y left, +Z up, millimetres.
 Every value is a preliminary allocation. This module imports nothing but math, so the trials run without the

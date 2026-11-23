@@ -35,6 +35,6 @@
   "bumpCrossingClearanceMm": 8.68,
   "bumpCrossingLimit": "bumper front",
   "bumperUprightOverlapMm": 23.93,
-  "basis": "Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. The carried count is the hopper-collect-24-hold trial's FUEL in the hopper plus at most four waiting in the chute; the start capacity is the free volume behind the stowed back plate at a 0.45 packing fraction. The release distance is the launch trial's release point to the HUB centre.",
+  "basis": "Measured from the 1.0 blockout solids and cases when draft 1 was built. The design source, design.json, draws the same solids and motions, so the figures stand until the geometry changes; re-measure them then. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. The carried count is the hopper-collect-24-hold trial's FUEL in the hopper plus at most four waiting in the chute; the start capacity is the free volume behind the stowed back plate at a 0.45 packing fraction. The release distance is the launch trial's release point to the HUB centre.",
   "deliveryStandoffIn": 48.64905857259726
 }

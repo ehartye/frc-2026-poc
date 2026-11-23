@@ -82,7 +82,7 @@ def robust(deg, h0, d, conditions):
 
 
 CONDITIONS = [(0.215, cd, cl) for cd in (0.35, 0.6) for cl in (0.0, 0.3)]
-R3_RELEASE_M = 0.267  # release height of the launch trial (field-trials.json chain.release.z); build_package.py checks it
+R3_RELEASE_M = 0.267  # release height of the launch trial (field-trials.json chain.release.z)
 
 
 def study():
