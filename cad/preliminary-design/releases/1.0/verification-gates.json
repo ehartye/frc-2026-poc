@@ -139,6 +139,16 @@
       }
     },
     {
+      "id": "service-reserve",
+      "risk": "The battery, shelf panel and shooter withdrawals are checked for interference only, with no clearance reserve, because the layout check cannot hold a reserve in an extraction case beside official field parts that touch each other",
+      "benchTest": {
+        "measure": "Least clearance while lifting out the shelf panel, the battery and the shooter module on the first assembled robot",
+        "pass": 3,
+        "fail": 1,
+        "unit": "mm"
+      }
+    },
+    {
       "id": "unregistered-joints",
       "risk": "Members carried no registered joint to the frame",
       "closedBy": "Each separately mounted member has its own mount entry: both feeder rollers and motors, both carriage plates, both inner tubes, both hooks, both climber tubes, the winch, the side walls, liners, rear wall, shelf panel and strap"

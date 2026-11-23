@@ -971,6 +971,9 @@ def main():
              closedBy="A strap over the battery top between the two cleats is drawn and mounted, and the shelf panel above it covers it; the service cases remove the panel and strap, then lift the battery (checked)"),
         dict(id="carriage-cross-ties", risk="The intake's belt module, top roller and back plate stand inside the hopper cheeks and its carriage plates outside them. The ties between them and the moving slide stage are not drawn, so the layout does not show that they clear the cheeks and the bay walls through the slide travel",
              benchTest=dict(measure="Least clearance from the carriage cross-ties and the moving slide stage to the hopper cheeks and bay walls over the full slide travel, on the first assembled carriage", **{"pass": 3, "fail": 1}, unit="mm")),
+        dict(id="service-reserve", risk="The battery, shelf panel and shooter withdrawals are checked for interference only, with no clearance reserve, "
+                                        "because the layout check cannot hold a reserve in an extraction case beside official field parts that touch each other",
+             benchTest=dict(measure="Least clearance while lifting out the shelf panel, the battery and the shooter module on the first assembled robot", **{"pass": 3, "fail": 1}, unit="mm")),
         dict(id="unregistered-joints", risk="Members carried no registered joint to the frame",
              closedBy="Each separately mounted member has its own mount entry: both feeder rollers and motors, both carriage plates, both inner tubes, both hooks, both climber tubes, the winch, the side walls, liners, rear wall, shelf panel and strap"),
         dict(id="weak-battery-margin", risk="The loaded-transit duty leaves the smallest voltage margin on a weak battery",
