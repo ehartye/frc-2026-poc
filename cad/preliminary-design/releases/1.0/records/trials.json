@@ -8,13 +8,13 @@
  "design": {
   "name": "Chute-fed hood shooter 1.0",
   "source": "design.json",
-  "sourceSha256": "77db20883fd48bbf3dc9b9b6abcdec7d5cc2f28d3c2eac7c9972e871a13e1686"
+  "sourceSha256": "3fd190c4124882b668c95b0adc54d429fb5229582477fdc788b9a19e06b86488"
  },
  "cost": {
-  "runsAtMost": 545,
-  "stepsAtMost": 10940000,
-  "runs": 243,
-  "stepsRun": 1614804
+  "runsAtMost": 1570,
+  "stepsAtMost": 36960000,
+  "runs": 538,
+  "stepsRun": 4347118
  },
  "custom": [],
  "trials": {
