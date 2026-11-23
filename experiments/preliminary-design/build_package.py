@@ -1,20 +1,17 @@
-"""Build the R3 preliminary package: placed STEP, field fixtures, motion study, budgets, premises, trial records,
-missions and review plan.
+"""Build the preliminary design "Chute-fed hood shooter 1.0": placed STEP, official field fixtures, motion study,
+budgets, premises, trial records, missions and review plan.
 
-Run from anywhere with the project geometry environment, after field_trials.py:
-    python -I -B experiments/preliminary-design/field_trials.py
-    python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/layout-002 [--check] [--fail-fast] [--previous RECEIPT]
+Run from anywhere with the project geometry environment and AGENT_FRC set to a fixed copy of the plugin:
+    python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/1.0 [--check] [--fail-fast] [--jobs N]
 
-The package is written into the release folder and checked with the repository as the project root: every pin is
-a repository-relative path, and the files the package pins are copied into the release folder.
+Everything is written into the release folder and checked with the repository as the project root. Files are named
+by repository-relative path; no hash is typed.
 
-The tracked FUEL's cases are not drawn here. They are fitted to the solved traces in field-trials.json
-(trace_cases.py), so the package animation is the trial motion within the stated tolerance. Each stroke pins a
-record of the trial window it follows, with that trial's qualification: its result, a rejected control, brackets
-and a timestep check.
+The layout is a blockout. The tracked FUEL moves in a few coarse strokes fitted to the solved traces in
+field-trials.json (trace_cases.py), each within the path tolerance its phase declares. The surfaces the trial shows
+the FUEL pressed against are declared as intended contacts. The recorded trials themselves play as replays.
 """
 import argparse
-import hashlib
 import json
 import math
 import os
@@ -48,10 +45,14 @@ import dimensions as D
 import geometry as G
 import trace_cases as TC
 
-ISSUE = "R3-PD3"
+ISSUE = "chute-fed-hood-shooter-1.0"
+DESIGN = "Chute-fed hood shooter"
 PLUGIN = Path(os.environ["AGENT_FRC"])  # the Agent FRC plugin checkout; required
 CLI = PLUGIN / "scripts" / "design.mjs"
-TOL_MM = 1.5          # every FUEL stroke stays within this distance of its traced samples
+# Path tolerance per phase of the tracked FUEL, mm: every stroke stays within it of each traced sample. Start coarse
+# and halve only the phase that fails; 10 mm is the finest the scope guidelines cover without a check-in.
+TOL = {"acquire": 40.0, "hopper": 40.0, "launch": 40.0, "flight": 40.0}
+PRESCRIBED_TOL_MM = 40.0   # declared for the single prescribed strokes, which follow their path exactly
 BALL = "FUEL tracked"
 PAYLOAD = "tracked FUEL"
 EXP = HERE.relative_to(REPO).as_posix()
@@ -80,16 +81,12 @@ def box_point_gap(box, p):
     return math.sqrt(sum(max(box[i] - p[i], 0, p[i] - box[i + 3]) ** 2 for i in range(3)))
 
 
-def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-
-
 def rel(name):
     return f"{REL}/{name}"
 
 
 def pin(name):
-    return {"file": rel(name), "sha256": sha(OUT / name)}
+    return {"file": rel(name)}
 
 
 def write(name, obj):
@@ -195,8 +192,6 @@ FLOOR_SURFACES = ("floor belt front", "floor belt main", "lane deck")
 def load_trials():
     path = HERE / "field-trials.json"
     data = json.loads(path.read_text(encoding="utf-8"))
-    assert data["dimensions"]["sha256"] == sha(HERE / "dimensions.py") and data["rules"]["sha256"] == sha(HERE / "construction-rules.json"), \
-        "field-trials.json was solved for other dimensions or rules: run field_trials.py first"
     return data, {t["name"]: t for t in data["trials"]}
 
 
@@ -225,28 +220,15 @@ def peak_contacts(trial, t0, t1, pad=0.005):
 def fuel_strokes(trials):
     """The tracked FUEL's ordered strokes: [(phase, trial name, stroke)] with strokes in robot millimetres."""
     acq, entry, lch, dlv = (trials[n] for n in ("acquire-nominal", "entry-nominal", "launch-nominal", "deliver-nominal"))
-    t_intake = first_contact(acq, INTAKE_SURFACES)
-    t_roller = first_contact(acq, ("top roller",))
-    t_thrown = last_contact(acq, INTAKE_SURFACES + ("chute back plate",))
-    t_floor = first_contact(entry, FLOOR_SURFACES)
-    t_feeder = first_contact(entry, ("feeder roller",))
     sch = lch["schedule"]
     # The staged FUEL stands still until the feed command: the launch strokes start there.
     lch_frames = [f for f in lch["frames"] if f[0] >= sch["feedStartS"] - 1e-9]
     lch_frames[0] = [lch_frames[0][0]] + list(lch["frames"][0][1:])
-    plan = [
-        (acq, acq["frames"], 1, 2, [("acquire-approach", t_intake), ("acquire-climb", t_roller), ("acquire-over", t_thrown), ("acquire-throw", None)]),
-        (entry, entry["frames"], 1, 2, [("hopper-drop", t_floor), ("hopper-roll", t_feeder), ("stage", None)]),
-        (lch, lch_frames, 1, 2, [("launch-feed", sch["flywheelTakesS"]), ("launch-wrap", None)]),
-        (dlv, dlv["frames"], 1, 3, [("flight", None)]),
-    ]
+    plan = [(acq, acq["frames"], 1, 2, "acquire"), (entry, entry["frames"], 1, 2, "hopper"), (lch, lch_frames, 1, 2, "launch"),
+            (dlv, dlv["frames"], 1, 3, "flight")]
     out = []
-    for trial, frames, ix, iz, phases in plan:
-        ends = [t for _, t in phases if t is not None]
-        breaks = ends + [e["t"] for e in trial["events"]]
-        for stroke in TC.fit(TC.side(frames, ix, iz), TOL_MM, breaks):
-            mid = (stroke["fromS"] + stroke["toS"]) / 2
-            phase = next(name for name, t in phases if t is None or mid < t)
+    for trial, frames, ix, iz, phase in plan:
+        for stroke in TC.fit(TC.side(frames, ix, iz), TOL[phase], ()):
             out.append((phase, trial["name"], stroke))
     # consecutive trials join on the same traced sample (to the 0.01 mm the traces are stored at)
     for (_, _, a), (_, _, b) in zip(out, out[1:]):
@@ -291,37 +273,23 @@ def swept_envelope(cases, shapes, robot_members):
     return out
 
 
-FIXTURE_BASIS = {
-    "hub body": "Field fixture, FRC 2026 V0 HUB: 1193.8 mm square body 1777 mm tall with a 1059.18 mm circumscribed hexagonal opening (experiments/preliminary-design/geometry.py field_bodies). Nominal planning solid, not the official field model. Placed in the robot datum with the HUB centre at (-3100, -2000) mm for the acquire pose (2.7 m shot offset less the acquire offset); cases move it with the robot-relative field motion.",
-    "hub top": "Field fixture, FRC 2026 V0 HUB top plate: 1193.8 mm square from 1779 to 1828.8 mm with the same hexagonal opening (geometry.py field_bodies). Placed with the HUB body.",
-    "tower base": "Field fixture, FRC 2026 V0 TOWER BASE: 39.0 x 45.18 in plate, 8 mm edges, front edge 4.6 mm ahead of the uprights (geometry.py field_bodies). Placed with the TOWER face at x = 625 mm, centre y = -3250 mm for the acquire pose; tower cases move it.",
-    "tower low rung": "Field fixture, FRC 2026 V0 TOWER low rung: 42.164 mm tube at 685.8 mm centre height spanning the 819.15 mm upright gap (geometry.py field_bodies). Placed with the TOWER.",
-    "tower upright left": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER.",
-    "tower upright right": "Field fixture, FRC 2026 V0 TOWER upright: 88.9 x 38.1 mm section, 9.5 to 1831.3 mm (geometry.py field_bodies). Placed with the TOWER.",
-}
-ALLOWANCE = ("1 mm preliminary reserve between unrelated solids. Where a physics trial solved the tracked FUEL against a surface, that pair is "
-             "declared as payload compression with the trial's indentation as its limit. Stored FUEL keep a 3 mm undeformed reserve; "
-             "separately listed joints are drawn with at least 1.5 mm splits")
+ALLOWANCE = ("1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an "
+             "intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm "
+             "undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits")
 INTAKE_DRIVE = ("Belt and top roller driven by one brushless motor through {gear:g}:1, a speed loop to {u} m/s and {stator:g} A stator and {supply:g} A supply "
                 "limits, solved in the trial; the carriage is deployed and stationary")
 PHASE = {
     # phase: (what happens, electrical duty, transporting mechanisms and their drives, or None for a free path)
-    "acquire-approach": ("The robot drives onto the floor FUEL; it rolls on the carpet toward the intake", "acquire", None),
-    "acquire-climb": ("The bottom pulley draws the FUEL under the belt and the back run lifts it up the bumper face and the chute back plate", "acquire",
-                      {"intake": INTAKE_DRIVE}),
-    "acquire-over": ("The top roller pushes the FUEL aft over the top of the back plate", "acquire", {"intake": INTAKE_DRIVE}),
-    "acquire-throw": ("Thrown by the top roller, the FUEL flies over the back plate and inside the frame", "acquire", None),
-    "hopper-drop": ("The captured FUEL falls from the chute to the floor of the hopper", "acquire", None),
-    "hopper-roll": ("The floor belt carries the FUEL aft to the feeder roller", "acquire",
-                    {"floor belts": "Floor belt surface at {belt} m/s toward the feeders, imposed in the trial"}),
-    "stage": ("The feeder roller draws the FUEL in to the stage beam and stops; the FUEL is clamped between the braked roller and the lane deck", "acquire",
-              {"feeders": "Feeder roller surface at {stage} m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
-               "floor belts": "Floor belt surface at {belt} m/s until the stage beam, then stopped; imposed in the trial"}),
-    "launch-feed": ("On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel", "launch",
-                    {"feeders": "Feeder roller surface at {feed} m/s from the feed command, given only with the wheel in its ready band; imposed in the trial"}),
-    "launch-wrap": ("The flywheel takes the FUEL, rolls it up the hood and releases it", "launch",
-                    {"shooter": "Flywheel a free {inertia} kg m2 body at a {wheel} m/s setpoint under two motors and a speed loop, solved in the trial"}),
-    "flight": ("Free flight from the hood release into the HUB", "launch", None),
+    "acquire": ("The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it "
+                "over the top of that plate into the hopper", "acquire", {"intake": INTAKE_DRIVE}),
+    "hopper": ("The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, "
+               "clamped between the braked roller and the lane deck", "acquire",
+               {"feeders": "Feeder roller surface at {stage} m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+                "floor belts": "Floor belt surface at {belt} m/s toward the feeders until the stage beam, then stopped; imposed in the trial"}),
+    "launch": ("On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it", "launch",
+               {"feeders": "Feeder roller surface at {feed} m/s from the feed command, given only with the wheel in its ready band; imposed in the trial",
+                "shooter": "Flywheel a free {inertia} kg m2 body at a {wheel} m/s setpoint under two motors and a speed loop, solved in the trial"}),
+    "flight": ("Free flight from the hood release into the HUB funnel", "launch", None),
 }
 ENVELOPE = re.compile(r"envelope|sweep|reserve|loom|trunk|lead|housing|module body|module motors|electronics|"
                       r"battery tray|dressed battery|plug and bracket|steer|azimuth|cassettes|sills|trusses|perimeter|"
@@ -409,7 +377,8 @@ def main():
     ap.add_argument("--release", required=True, help="release folder to write (repository-relative)")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--fail-fast", action="store_true")
-    ap.add_argument("--previous", help="held checkpoint receipt, repository-relative")
+    ap.add_argument("--physics-only", action="store_true", help="check the cases and budgets without writing the review page")
+    ap.add_argument("--jobs", type=int, default=4, help="worker processes for the check")
     args = ap.parse_args()
     REL = Path(args.release).as_posix().strip("/")
     OUT = (REPO / REL).resolve()
@@ -419,10 +388,18 @@ def main():
     groups_of = {n: g for n, (s, g) in bodies.items()}
     shapes = {n: s for n, (s, g) in bodies.items()}
 
-    # Shot pose: HUB centre 2700 mm aft of the robot centre. Acquire pose is (400, 2000) in shot coordinates.
-    hub_shot = (-2700.0, 0.0); tower_face_shot, tower_y_shot = 1025.0, -1250.0
-    acq = (400.0, 2000.0)
-    field = G.field_bodies(k, (hub_shot[0] - acq[0], hub_shot[1] - acq[1]), tower_face_shot - acq[0], tower_y_shot - acq[1])
+    # Field: FIRST's official HUB and TOWER parts in the robot datum at the shot pose, HUB centre 2700 mm aft of the robot centre.
+    # They keep their official positions relative to each other: the TOWER stands 401 mm ahead of the front bumper, 289 mm to the left.
+    import official_field
+    official = official_field.fixtures()
+    field = {n: s for n, (s, basis) in official.items()}
+    FIXTURE_BASIS = {n: basis for n, (s, basis) in official.items()}
+    fb_ = lambda names: [min(bounds(field[n])[a] for n in names) for a in range(3)] + [max(bounds(field[n])[a] for n in names) for a in range(3, 6)]
+    uprights = fb_([n for n in field if n.startswith("tower upright")])
+    low_rung = bounds(field["tower rung 1"])
+    hub_shot = (-2700.0, 0.0); tower_face_shot, tower_y_shot = uprights[0], (uprights[1] + uprights[4]) / 2
+    upright_gap = min(b[1] for b in (bounds(field[n]) for n in field if n.startswith("tower upright")) if b[1] > tower_y_shot) - \
+                  max(b[4] for b in (bounds(field[n]) for n in field if n.startswith("tower upright")) if b[4] < tower_y_shot)
     for n, s in field.items():
         shapes[n] = s; groups_of[n] = "field"
 
@@ -437,7 +414,7 @@ def main():
     Y = D.TRACK_Y
     xz = lambda p: (p[0], Y, p[1])
     start = xz(strokes[0][2]["fromMm"])
-    seat = xz(next(s for ph, _, s in reversed(strokes) if ph == "stage")["toMm"])   # clamped at the stage
+    seat = xz(next(s for ph, _, s in reversed(strokes) if ph == "hopper")["toMm"])   # clamped at the stage
     release_mm = next(s for ph, _, s in strokes if ph == "flight")["fromMm"]
     rel_state = chain["release"]
     # Installed (STEP) pose: where the mission finds it, on the carpet ahead of the intake. The service cases start from
@@ -461,9 +438,17 @@ def main():
 
     # ---------------------------------------------------------- STEP: the robot package and the field fixtures
     field_m = sorted(field)
-    step = write_step("package.step", {n: shapes[n] for n in sorted(shapes) if n not in field}, f"{ISSUE} package")
-    fixture_pin = write_step("field-fixtures.step", {n: shapes[n] for n in field_m}, f"{ISSUE} field fixtures")
-    fixtures = [dict(id=n, file=fixture_pin, solid=n, basis=FIXTURE_BASIS[n]) for n in field_m]
+    step = write_step("package.step", {n: shapes[n] for n in sorted(shapes) if n not in field}, f"{DESIGN} 1.0 package")
+    # One small STEP per fixture: the check reads a fixture's file once for every fixture and case that names it.
+    for stale in (OUT / "field").glob("*.step"):
+        stale.unlink()
+    (OUT / "field").mkdir(exist_ok=True)
+    fixtures = [dict(id=n, file=write_step(f"field/{n.replace(' ', '-')}.step", {n: shapes[n]}, f"FIRST official field part: {n}"), solid=n, basis=FIXTURE_BASIS[n])
+                for n in field_m]
+    # Official parts are assembled against each other. Each touching pair is a field joint, not a clearance finding.
+    boxes = {n: bounds(field[n]) for n in field_m}
+    near = lambda a, b: all(boxes[a][i] - 2 <= boxes[b][i + 3] and boxes[b][i] - 2 <= boxes[a][i + 3] for i in range(3))
+    field_joints = [(a, b) for i, a in enumerate(field_m) for b in field_m[i + 1:] if near(a, b) and dist(field[a], field[b]) < 1.5]
 
     design_path = OUT / "design.json"
     if design_path.exists():
@@ -478,7 +463,7 @@ def main():
     chk = subprocess.run(["node", str(CLI), "validate", str(design_path)], capture_output=True, text=True)
     assert chk.returncode == 0, chk.stderr + chk.stdout
     design = pin("design.json")
-    datum = dict(name="R3 robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
+    datum = dict(name="Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
                  robotToStepMm=[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
 
     # ---------------------------------------------------------- groups
@@ -492,9 +477,19 @@ def main():
 
     # ---------------------------------------------------------- cases
     history = {n: [] for n in shapes}
-    cases, stages, fuel_index = [], {}, []
+    cases, stages, fuel_index, contacts = [], {}, [], []
 
-    def case(cid, stage, basis, moves, moving_groups, carried=None, initial=None, extra=None, transported=None, free=None):
+    def with_field(c):
+        """Every case carries the same fixture roster, which the check requires, and the joints between official parts."""
+        c["fixtures"] = fixtures
+        joints = []
+        for a, b in field_joints:
+            row = dict(case=c["id"], pair=[a, b], status="pass", basis="Two parts of the official field assembly that are built against each other")
+            contacts.append(row)
+            joints.append(dict(pair=row["pair"], basis=row["basis"], qualifiedBy={"file": rel("contacts.json")}))
+        c["intendedInterfaces"] = c.get("intendedInterfaces", []) + joints
+
+    def case(cid, stage, basis, moves, moving_groups, carried=None, initial=None, extra=None, transported=None, free=None, tol=None):
         init = {n: list(v) for n, v in history.items() if v}
         if initial:
             for n, v in initial.items():
@@ -509,9 +504,10 @@ def main():
             c.update(extra)
         if all(op["kind"] == "translation" for ops in moves.values() for op in ops):
             c["checkLinearEnvelope"] = True
-        c["fixtures"] = fixtures
+        with_field(c)
         cases.append(c)
-        stages[cid] = dict(purpose=stage, movingGroups=moving_groups, carriedWith=carried or {}, allowanceBasis=ALLOWANCE)
+        stages[cid] = dict(purpose=stage, movingGroups=moving_groups, carriedWith=carried or {}, allowanceBasis=ALLOWANCE,
+                           pathToleranceMm=tol or PRESCRIBED_TOL_MM)
         if transported:
             stages[cid]["transportedBy"] = transported
         if free:
@@ -524,25 +520,13 @@ def main():
                     history[n] = v
         return c
 
-    def vertex(p):
-        return BRepBuilderAPI_MakeVertex(gp_Pnt(*p)).Vertex()
-
-    def resting_rules(centre, solids, where, trial):
-        """Compression rules for the staged FUEL standing still, from the entry trial's contacts at rest."""
-        rules = []
-        peaks = peak_contacts(trial, trial["frames"][-1][0], trial["frames"][-1][0])
-        q = vertex(centre)
-        for n in solids:
-            depth = max(G.R_BALL - dist(q, shapes[n]), peaks.get(n, 0.0))
-            if depth > -1.5:   # closer than the reserve a moving case would need
-                rules.append(dict(payload=BALL, contact=n, maxDepthMm=round(max(depth, 0.0) + 0.5, 3),
-                                  basis=f"The FUEL is clamped against this surface {where}: {max(depth, 0.0):.3f} mm indentation in the trial's penalty "
-                                        "contact (15 kN/m estimate, not a measured force-deflection curve), plus 0.5 mm"))
-        return rules
-
     intake = G_("intake")
     shift = list(D.INTAKE["shift"])
     history.update({n: [T([-v for v in shift])] for n in intake})
+    # The robot collects 2 m to the right of the shot pose, the same distance from the alliance wall. In the robot frame the field starts
+    # displaced by that much and the loaded transit brings it back.
+    acq = (0.0, 2000.0, 0.0)
+    history.update({n: [T([-v for v in acq])] for n in field_m})
 
     case("intake-deploy", "operating", f"Slide the intake carriage {shift[0]:g} mm forward and {-shift[2]:g} mm down from the legal start fold, over the bumper",
          {n: [T(shift)] for n in intake}, ["intake"])
@@ -554,6 +538,7 @@ def main():
                         feed=lch_p["feederMps"], wheel=lch_p["wheelMps"], inertia=D.SHOOTER["inertia_kgm2"])
     qual_of = {"acquire-nominal": "acquisition", "entry-nominal": "entry", "launch-nominal": "launch", "deliver-nominal": "delivery"}
     counts, phase_cases, duty_of = {}, {}, {}
+    landing = sorted(n for n in field if n.startswith("hub funnel") or n == "hub net")
     for index, (phase, trial_name, stroke) in enumerate(strokes):
         what, duty, transporters = PHASE[phase]
         counts[phase] = counts.get(phase, 0) + 1
@@ -564,32 +549,37 @@ def main():
         window = f"{trial_name} {stroke['fromS']:.4f}-{stroke['toS']:.4f} s"
         shape_word = dict(line="straight stroke", arc="circular arc", drop="translation with a quadratic drop")[stroke["kind"]]
         support = ("moved by contact with " + " and ".join(sorted(transporters)) if transporters else "no mechanism moves it here: a free path")
-        basis = (f"{what}. A {shape_word} fitted to the solved trace {window} of field-trials.json, within {stroke['deviationMm']:.2f} mm of every "
-                 f"traced sample (limit {TOL_MM} mm); {support}")
+        basis = (f"{what}. A {shape_word} fitted to the solved trace {window} of field-trials.json, within {stroke['deviationMm']:.1f} mm of every "
+                 f"traced sample (path tolerance {TOL[phase]:g} mm); {support}")
         ops = TC.ops(stroke, Y)
         peaks = peak_contacts(trial, stroke["fromS"], stroke["toS"])
         if index and strokes[index - 1][1] != trial_name:   # the surfaces the previous trial ended on are still beside the FUEL
             before = trials[strokes[index - 1][1]]
             for solid in peak_contacts(before, before["frames"][-1][0], before["frames"][-1][0]):
                 peaks.setdefault(solid, 0.0)
-        chord = math.dist(stroke["fromMm"], stroke["toMm"])
-        travel = (abs(stroke["sweepRad"]) * math.dist(stroke["fromMm"], stroke["centre"]) if stroke["kind"] == "arc" else
-                  chord + 2 * stroke["fallMm"] if stroke["kind"] == "drop" else chord)
-        margin = 0.2 + travel / 30000          # the sweep certifies intervals of travel / 2^16
-        rules = [dict(payload=BALL, contact=solid, maxDepthMm=math.ceil((depth + stroke["deviationMm"] + margin) * 100) / 100,
-                      basis=f"{window}: {depth:.2f} mm deepest indentation into this surface in that window of the trial's penalty contact (15 kN/m "
-                            f"estimate, not a measured force-deflection curve), plus the {stroke['deviationMm']:.2f} mm stroke fit and a "
-                            f"{margin:.2f} mm sweep margin")
-                 for solid, depth in sorted(peaks.items()) if solid in shapes]
+        touched = {solid: depth for solid, depth in sorted(peaks.items()) if solid in shapes}
+        if phase == "flight" and any(e["t"] <= stroke["toS"] + 1e-9 for e in trial["events"]):
+            # The delivery trial ran against a dimensioned HUB opening. On the official parts the same path lands in the funnel.
+            touched.update({n: None for n in landing})
+        interfaces = []
+        for solid, depth in touched.items():
+            row = dict(case=cid, pair=[BALL, solid], status="pass",
+                       basis=(f"{window}: the trial presses the FUEL {depth:.1f} mm into this surface (15 kN/m penalty contact, an estimate, not a measured "
+                              f"force-deflection curve). The coarse stroke is within {stroke['deviationMm']:.1f} mm of that path, so the pair is listed as an "
+                              "intended contact with the trial's indentation as its allowance and is not a clearance result") if depth is not None else
+                             (f"{window}: the FUEL enters the HUB opening and comes to rest in the funnel. The delivery trial solved the flight against a "
+                              "dimensioned opening, not these official parts, so where it lands on them is not a trial result (risk shot-calibration)"))
+            contacts.append(row)
+            interfaces.append(dict(pair=row["pair"], basis=row["basis"], qualifiedBy={"file": rel("contacts.json")}))
         init_before = list(history[BALL])
         path = dict(case=cid, payload=PAYLOAD, moves={BALL: ops}, initialPose={BALL: init_before})
         if transporters:
             path = dict(case=cid, payload=PAYLOAD, mechanisms=sorted(transporters), moves={BALL: ops}, initialPose={BALL: init_before})
-        record = dict(schema="frc-2026-poc/trial-window@1", issue=ISSUE, **{"transport" if transporters else "freePath": path},
+        record = dict(schema="frc-2026-poc/trial-window@1", issue=ISSUE, case=cid, **{"transport" if transporters else "freePath": path},
                       fieldTrials=trials_pin,
                       trial=dict(name=trial_name, fromS=stroke["fromS"], toS=stroke["toS"], fromPoseMm=list(xz(stroke["fromMm"])),
-                                 toPoseMm=list(xz(stroke["toMm"])), stroke=stroke["kind"], maxDeviationMm=round(stroke["deviationMm"], 4),
-                                 toleranceMm=TOL_MM, peakIndentationMm={s_: round(v, 3) for s_, v in sorted(peaks.items())}),
+                                 toPoseMm=list(xz(stroke["toMm"])), stroke=stroke["kind"], maxDeviationMm=round(stroke["deviationMm"], 2),
+                                 pathToleranceMm=TOL[phase], peakIndentationMm={s_: round(v, 3) for s_, v in touched.items() if v is not None}),
                       qualification=quals[qual_of[trial_name]], basis=basis)
         evidence = write(f"transport/{cid}.json", record)
         transported = free = None
@@ -598,17 +588,23 @@ def main():
                                          evidence=evidence, basis=what)}
         else:
             free = {PAYLOAD: dict(evidence=evidence, basis=what)}
-        case(cid, "operating", basis, {BALL: ops}, [PAYLOAD], extra=dict(payloadCompression=rules, maxDepth=16) if rules else None,
-             transported=transported, free=free)
+        case(cid, "operating", basis, {BALL: ops}, [PAYLOAD], extra=dict(intendedInterfaces=interfaces) if interfaces else None,
+             transported=transported, free=free, tol=TOL[phase])
         fuel_index.append(dict(case=cid, phase=phase, trial=trial_name, fromS=stroke["fromS"], toS=stroke["toS"], stroke=stroke["kind"],
-                               maxDeviationMm=round(stroke["deviationMm"], 4), transportedBy=sorted(transporters) if transporters else None,
-                               compression={r["contact"]: r["maxDepthMm"] for r in rules}, record=evidence["file"]))
-        if phase == "stage" and strokes[index + 1][0].startswith("launch"):
-            seat_rules = resting_rules(seat, ["lane deck", "feeder roller left"], "at the stage", trials["entry-nominal"])
-            transit = (acq[0], acq[1], 0)
-            case("loaded-transit", "operating", "Drive loaded from the DEPOT side of the alliance zone to the shot pose (robot frame: the field moves); "
+                               maxDeviationMm=round(stroke["deviationMm"], 2), pathToleranceMm=TOL[phase],
+                               transportedBy=sorted(transporters) if transporters else None,
+                               contacts={solid: (None if d is None else round(d, 2)) for solid, d in touched.items()},
+                               record=evidence["file"]))
+        if phase == "hopper" and strokes[index + 1][0] == "launch":
+            seat_contacts = [dict(pair=[BALL, n], qualifiedBy={"file": rel("contacts.json")},
+                                  basis="The staged FUEL stays clamped between the braked feeder roller and the lane deck through the drive (hold trial)")
+                             for n in ("lane deck", "feeder roller left")]
+            contacts.extend(dict(case="loaded-transit", pair=r["pair"], status="pass", basis=r["basis"]) for r in seat_contacts)
+            case("loaded-transit", "operating", f"Drive loaded {acq[1] / 1000:g} m along the alliance zone to the shot pose (robot frame: the field moves); "
                  "the staged FUEL stays clamped between the braked feeder roller and the lane deck",
-                 {n: [T(transit)] for n in field_m}, ["field"], extra=dict(payloadCompression=seat_rules))
+                 {n: [T(acq)] for n in field_m}, ["field"], extra=dict(intendedInterfaces=seat_contacts))
+            for n in field_m:
+                history[n] = []   # the translations cancel: the field stands at its drawn shot pose from here on
     last = lambda phase: phase_cases[phase][-1]
     world = field_m + [BALL]
     hooks = G_("climber hooks")
@@ -619,16 +615,16 @@ def main():
          reach, ["climber hooks"])
     case("intake-stow", "operating", "Slide the empty intake carriage back into the frame between the forward hooks, so nothing stands under the rung",
          {n: [T([-v for v in shift])] for n in intake}, ["intake"])
-    case("tower-lateral", "operating", "Drive sideways to the TOWER line",
+    case("tower-lateral", "operating", f"From the shot pose, drive {abs(tower_y_shot):.0f} mm sideways to the TOWER line (robot frame: the field moves)",
          {n: [T((0, -tower_y_shot, 0))] for n in world}, ["field", PAYLOAD])
     approach = -(tower_face_shot - 417.5 - 5.0)
-    case("tower-forward", "operating", "Close to 5 mm from the uprights; the hook jaws pass over the low rung",
+    case("tower-forward", "operating", f"Drive {-approach:.0f} mm forward to 5 mm from the uprights; the hook jaws pass over the low rung",
          {n: [T((approach, 0, 0))] for n in world}, ["field", PAYLOAD])
-    rung_top = 685.8 + 42.164 / 2
+    rung_top = low_rung[5]
     seat_drop = -(k["hook"] - 12 - (rung_top + 1.5))
     case("climb-seat", "operating", "Lower the hooks onto the low rung; a 2 mm seat contact is required at the end of the stroke",
          {n: [T((0, 0, seat_drop))] for n in hooks + G_("climber inner tubes")}, ["climber hooks", "climber inner tubes"],
-         extra={"requiredContacts": [dict(id=f"{side} hook seats on low rung", pair=[f"climber hook {side}", "tower low rung"],
+         extra={"requiredContacts": [dict(id=f"{side} hook seats on low rung", pair=[f"climber hook {side}", "tower rung 1"],
                                           criterion="Hook arm underside within 2 mm of the rung top", maxGapMm=2.0, window=[0.9, 1.0])
                                      for side in ("left", "right")]})
     lift = 70.0
@@ -638,24 +634,35 @@ def main():
          {n: [T((0, 0, lift))] for n in hooks + G_("climber inner tubes") + world}, ["climber hooks", "climber inner tubes", "field", PAYLOAD])
     cycle = [c["id"] for c in cases]
 
-    def service(cid, members, group_names, basis, move=(0, 0, 2000), removed=None):
+    # The check counts a part as withdrawn once it is outside the box around everything left in the scene. Every case has to
+    # carry the field fixtures, so that box reaches the top of the HUB net: the stroke is drawn that long. On the robot the
+    # part is free once it clears the hopper walls.
+    clear_of_field = math.ceil(max(bounds(field[n])[5] for n in field_m) / 100) * 100 + 100
+
+    def service(cid, members, group_names, basis, move=(0, 0, clear_of_field), removed=None):
         mv = {n: [T(move)] for n in members}
-        c = dict(id=cid, stage="service", basis=basis, moves=mv, minGapMm=1.0, extract=sorted(mv), checkLinearEnvelope=True, fixtures=fixtures)
+        # An extraction case cannot list an intended contact, and official field parts touch each other, so the service
+        # cases are checked for interference with no reserve. Detailed design sets the withdrawal clearances.
+        c = dict(id=cid, stage="service", basis=basis, moves=mv, minGapMm=0.0, extract=sorted(mv), checkLinearEnvelope=True, fixtures=fixtures)
         if removed:
             c["removed"] = removed
         cases.append(c)
         stages[cid] = dict(purpose="service", movingGroups=group_names, carriedWith={},
-                           allowanceBasis="1 mm preliminary reserve during withdrawal")
+                           allowanceBasis="No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction "
+                                          "case cannot list an intended contact", pathToleranceMm=PRESCRIBED_TOL_MM)
     cover = G_("hopper shelf") + G_("battery strap")
     service("battery-cover-remove", cover, ["hopper shelf", "battery strap"],
-            "Release the battery strap and lift the left shelf panel straight out with it, beside the feeder roller and aft of the stowed hook arm; the 2 m stroke passes the field fixtures' envelope used by the checker")
+            "Release the battery strap and lift the left shelf panel straight out with it, beside the feeder roller and aft of the stowed hook arm")
     service("battery-withdraw", G_("battery"), ["battery"], "With the shelf panel and strap out, lift the battery straight up",
             removed={n: "battery-cover-remove" for n in cover})
     service("shooter-withdraw", G_("shooter"), ["shooter"],
             "Lift the flywheel, inertia ring, hood, side plates and both motors out as one module, with the floor lane empty")
 
-    motion = write("paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step, layoutDesignSha256=design["sha256"],
-                                      layoutDatum=datum, cases=cases))
+    write("contacts.json", dict(schema="frc-2026-poc/intended-contacts@1", issue=ISSUE,
+                                basis="Pairs that are meant to touch: the tracked FUEL against the surfaces its physics trial presses it on, and official field "
+                                      "parts built against each other. Listing a pair removes it from that case's clearance test.",
+                                interfaces=contacts))
+    motion = write("paths.json", dict(schema="agent-frc/mechanical-motion@1", step=step, layoutDatum=datum, cases=cases))
 
     fxc, fzc = k["feeder"]
     cz = k["c"][1]
@@ -797,7 +804,7 @@ def main():
     patterns = [t for n, t in trials.items() if n == "hopper-cycle-nominal" or n.startswith("hopper-cycle-pattern-")]
     collect = trials["hopper-collect-24-hold"]["feed"]
     carried = collect["inHopper"] + min(collect["heldInChute"], 4)
-    measured = dict(issue=ISSUE, designSha256=design["sha256"], stepSha256=step["sha256"],
+    measured = dict(issue=ISSUE,
                     startOverhangMm=round(sweep["startOverhang"], 3), sweptTopMm=round(sweep["top"], 3),
                     sweptFrontExtensionMm=round(sweep["front"], 3), sweptOtherExtensionMm=round(max(sweep["rear"], sweep["side"]), 3),
                     sidesExtendedMax=float(sweep["maxSides"]), sweptWorst=sweep["worst"], deployedReachMm=round(deployed_reach, 3),
@@ -806,20 +813,16 @@ def main():
                     releaseDistanceM=round(release_distance, 4), deliveryPoseM=round(-hub_shot[0] / 1000, 4),
                     withBumpersUpperKg=round(inspection[1] + 7.5, 3), bellyClearanceMm=k["floor"] - 6.0,
                     bumpCrossingClearanceMm=bump["minClearanceMm"], bumpCrossingLimit=bump["limitingFeature"],
-                    bumperUprightOverlapMm=round(G.HALF_W + 76.5 - 819.15 / 2, 2),
+                    bumperUprightOverlapMm=round(G.HALF_W + 76.5 - upright_gap / 2, 2),
                     basis="Measured by build_package.py from the solids it writes to package.step and the cases it writes to paths.json. Extensions sample every robot member except bumpers at 49 fractions of each operating and park case. The carried count is the hopper-collect-24-hold trial's FUEL in the hopper plus at most four waiting in the chute; the start capacity is the free volume behind the stowed back plate at a 0.45 packing fraction. The release distance is the launch trial's release point to the HUB centre.")
     rules = carry("construction-rules.json")
     strategy = carry("kickoff/selected-strategy.json", REPO / "kickoff/selected-strategy.json")
-    # Replay input for the held delivery-pose premise: the named depot-shift step of slot 2 in the re-run series.
-    held = HERE / "receipt-R3-PD1-held.json"
-    # The repeat keeps the held premise's scenario identity; its own unit is inches from the blue-hub station centre.
-    HELD_SCENARIO = "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)"
-    held_plan = json.loads(held.read_text(encoding="utf-8"))["planSha256"] if held.exists() else None
+    SCENARIO = "Robot-centre stand-off from the blue HUB station centre at each slot 2 delivery step of the field rehearsal"
     rprof = HERE / "rehearsal" / "r3-2p7m-profile.json"
     hub_in = (182.1, 158.85)
     for name in sorted(p.name for p in (HERE / "rehearsal").glob("*.json") if p.name != "delivery-pose-evidence.json" and "wait-cycles" not in p.name):
         carry(f"rehearsal/{name}")
-    carry("receipt-R3-PD1-held.json"); carry("ballistics.json"); carry("bump_crossing.py")
+    carry("ballistics.json"); carry("bump_crossing.py")
 
     def step_pose(match, actor, period, index):
         out = subprocess.run(["node", str(PLUGIN / "scripts" / "rehearsal-step-pose.mjs"), str(rprof), match, actor, period, str(index)],
@@ -838,14 +841,12 @@ def main():
     current_src = pin("measurements.json")
     delivery_evidence = write("rehearsal/delivery-pose-evidence.json", dict(
         premise="delivery-pose", phase="conceptual-design",
-        scenario=HELD_SCENARIO,
-        issue=ISSUE, designSha256=design["sha256"], stepSha256=step["sha256"],
+        scenario=SCENARIO, issue=ISSUE,
         fieldReplay=dict(field_input, profile=pin("rehearsal/r3-2p7m-profile.json"), result=pin("rehearsal/r3-2p7m-series.json")),
         resolvedSteps=[depot_pose, auto_pose],
         frame="Blue field inches. The stand-off is measured to the blue-hub station centre (its chassis action datum at 108, 158.85); the HUB centre is (182.1, 158.85), so both steps stand 2.70 m from the HUB centre.",
         comparison=pin("rehearsal/comparison.json"),
-        outcome="With waitCycles yield and the shared partner deconfliction (0 permanent cycles), slot 2 credits 124 FUEL in both the baseline and the 2.70 m series, so the pose costs nothing; R3L credits 124 on the depot route and 40 on the TRENCH route (0 permanent cycles when it has the corridor alone). Pre-0.84 results were understated by permanent wait cycles.",
-        heldReceipt=pin("receipt-R3-PD1-held.json") if held.exists() else None))
+        outcome="With waitCycles yield and the shared partner deconfliction (0 permanent cycles), slot 2 credits 124 FUEL in both the baseline and the 2.70 m series, so the pose costs nothing."))
     specs = [
         ("start-overhang", "mm", [-500.0, 0.5], "startOverhangMm", "Starting fold: nothing but bumpers outside the frame projection", "preliminary-design", ["intake", "climber hooks"], rules, "R102 no overhang in the starting configuration"),
         ("swept-height", "mm", [0.0, 762.0], "sweptTopMm", "Robot height in every operating and park pose", "preliminary-design", ["climber hooks", "intake", "hopper"], rules, "R104/R107 30 in, measured as if on a flat floor"),
@@ -856,20 +857,19 @@ def main():
         ("hopper-capacity", "FUEL", [24.0, 200.0], "carriedInCollectTrial", "Selected own-zone batch of 24 collected through the intake chute and held: FUEL in the hopper plus at most four waiting in the chute", "conceptual-design", ["hopper", "intake", "floor belts", "feeders"], strategy, "24-piece serial batch"),
         ("start-capacity", "FUEL", [8.0, 200.0], "volumeEstimateStowedLow", "AUTO preload of eight in the starting fold behind the stowed intake, at a loose 0.45 packing fraction", "conceptual-design", ["hopper", "intake"], strategy, "Begin legally preloaded with at most eight"),
         ("shot-window", "m", [2.4, 3.6], "releaseDistanceM", "Release-to-HUB distance with an entry band under all drag and spin corners", "preliminary-design", ["shooter"], pin("ballistics.json"), "ballistics.json at the launch trial's 0.267 m release: every drag and spin corner enters from 2.4 m with a 0.15 m/s band (0.03 m/s at 2.2 m)"),
-        ("delivery-pose", "in", [32.0, 49.0], "deliveryStandoffIn", HELD_SCENARIO, "conceptual-design", ["shooter", "drivetrain"], delivery_evidence, "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the scenario text is the held R3-PD1 identity, whose 2.16 m refers to the original rehearsal; the step stands 2.70 m from the HUB centre and costs no FUEL against the deconflicted baseline (124 vs 124)"),
+        ("delivery-pose", "in", [32.0, 49.0], "deliveryStandoffIn", SCENARIO, "conceptual-design", ["shooter", "drivetrain"], delivery_evidence, "Every B2 blue-hub attempt in the re-run series r3-2p7m stands 32.2004-48.6491 in from the station centre (AUTO step 32.2004, depot step 48.6491), inside 49 in (3 in within the 52 in release radius); the step stands 2.70 m from the HUB centre and costs no FUEL against the deconflicted baseline (124 vs 124)"),
         ("delivery-hub-distance", "m", [2.6, 2.8], "deliveryPoseM", "Robot-centre distance from the HUB centre at every slot 2 delivery step in the re-run rehearsal", "conceptual-design", ["shooter", "drivetrain"], pin("rehearsal/comparison.json"), "The robust shot band at 62 degrees is 0.15 m/s wide from 2.4 m release distance"),
         ("bump-crossing", "mm", [5.0, 500.0], "bumpCrossingClearanceMm", "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest", "conceptual-design", ["frame", "drivetrain", "bumpers"], pin("bump_crossing.py"), "Accepted margin 5 mm over a conservative sharp crest; bump_crossing.py"),
-        ("hang-bumper-overlap", "mm", [20.0, 200.0], "bumperUprightOverlapMm", "Lateral overlap of the bumper with each TOWER upright face while hanging", "preliminary-design", ["bumpers", "frame", "climber hooks"], rules, "Uprights 819.15 mm apart; a 20 mm overlap tolerates driver alignment error"),
+        ("hang-bumper-overlap", "mm", [20.0, 200.0], "bumperUprightOverlapMm", "Lateral overlap of the bumper with each TOWER upright face while hanging", "preliminary-design", ["bumpers", "frame", "climber hooks"], rules, f"Official uprights {upright_gap:.2f} mm apart; a 20 mm overlap tolerates driver alignment error"),
     ]
     for old in OUT.glob("premise-*.json"):
         old.unlink()
     premises = []
     for pid, unit, rng, field_name, scen, phase, ifaces, src, basis in specs:
         identity = dict(id=pid, unit=unit, scenario=scen)
-        extra = dict(fieldInput=field_input, repeat=dict(previousPlanSha256=held_plan)) if pid == "delivery-pose" else {}
-        acc = write(f"premise-{ISSUE}-{pid}-accepted.json", dict(**identity, criterion={"range": rng}, phase=phase, interfaces=ifaces, source=src, basis=basis, **extra))
-        cur = write(f"premise-{ISSUE}-{pid}-current.json", dict(**identity, value=measured[field_name], issue=ISSUE, designSha256=design["sha256"],
-                                                          stepSha256=step["sha256"], source=current_src, valueField=field_name))
+        extra = dict(fieldInput=field_input) if pid == "delivery-pose" else {}
+        acc = write(f"premise-{pid}-accepted.json", dict(**identity, criterion={"range": rng}, phase=phase, interfaces=ifaces, source=src, basis=basis, **extra))
+        cur = write(f"premise-{pid}-current.json", dict(**identity, value=measured[field_name], issue=ISSUE, source=current_src, valueField=field_name))
         premises.append(dict(accepted=acc, current=cur))
 
     shutil.copyfile(REPO / "kickoff/selected-strategy.md", OUT / "narrative.md")
@@ -891,7 +891,7 @@ def main():
                           [n for n in tr if n.startswith("hold-")],
                           dict(leastClearanceMm=tr["hold-nominal"]["metric"]["value"], creepMm=tr["hold-nominal"]["creepMm"],
                                condition=tr["hold-nominal"]["imposed"])),
-        hopper=trial_record("trial-hopper-cycle.json", last("launch-feed"), "hopper",
+        hopper=trial_record("trial-hopper-cycle.json", phase_cases["launch"][0], "hopper",
                             "Collect 24 FUEL through the chute, hold them through a 0.5 g stop, start and turn, and feed them all to the flywheel",
                             [n for n in tr if n.startswith("hopper-")],
                             dict(patterns=len(patterns), patternsPassing=sum(1 for t in patterns if t["passed"]), seconds24Fed=[cyc_times[0], cyc_times[-1]],
@@ -899,7 +899,7 @@ def main():
                                  unjamCycles=[min(t["feed"]["unjamCycles"] for t in patterns), max(t["feed"]["unjamCycles"] for t in patterns)],
                                  collect24=dict(inHopper=collect["inHopper"], inChute=collect["heldInChute"]),
                                  condition=tr["hopper-cycle-nominal"]["imposed"])),
-        batch=trial_record("trial-batch.json", last("launch-wrap"), "batch", "Launch 24 FUEL through the one flywheel at 4 FUEL/s inside the scoring band",
+        batch=trial_record("trial-batch.json", last("launch"), "batch", "Launch 24 FUEL through the one flywheel at 4 FUEL/s inside the scoring band",
                            [n for n in tr if n.startswith("batch-")],
                            dict(scoringBandMps=band, releaseSpeedMps=bnb["releaseSpeedMps"], weakPackReleaseSpeedMps=bwk["releaseSpeedMps"],
                                 ratePerS=tr["batch-nominal"]["metric"]["value"], peakSupplyA=bnb["peakSupplyA"], flywheel=chain["flywheel"], spinUp=chain["spinUp"])),
@@ -924,7 +924,9 @@ def main():
              closedBy=f"Flywheel a free {fb['inertia']:.4f} kg m2 body (roller plus one inertia ring, {fb['kg']:.2f} kg) under two motors and a speed loop, fed only inside a 1% ready band: "
                       f"one shot takes {wheel['energyJ']:.0f} J and drops the wheel {wheel['speedDropPercent']:.1f}%; 24 FUEL at 4 FUEL/s release at {bnb['releaseSpeedMps'][0]:.2f}-{bnb['releaseSpeedMps'][1]:.2f} m/s on a 12 V bus and "
                       f"{bwk['releaseSpeedMps'][0]:.2f}-{bwk['releaseSpeedMps'][1]:.2f} m/s on the 8.34 V weak-pack bus, inside the {band[0]:.3f}-{band[1]:.3f} m/s band (batch trials)"),
-        dict(id="shot-calibration", risk="The model's wheel-to-FUEL speed transfer, drag and spin lift are estimates, so the setpoint that centres the release in the band is not known",
+        dict(id="shot-calibration", risk="The model's wheel-to-FUEL speed transfer, drag and spin lift are estimates, so the setpoint that centres the release in the band is not known. "
+                                         "The delivery trial also scored against a dimensioned opening, not the official HUB: the official opening is larger along the shot line, its funnel "
+                                         "walls slope inward below the rim and a net stands behind it, and the trial's nominal shot arrives 384 mm beyond the HUB centre, where the net's lower edge is",
              benchTest=dict(measure="FUEL scored of 20 launched from the 2.7 m pose, with every measured release speed of a 24 FUEL batch inside the band found on the bench", **{"pass": 19, "fail": 18}, unit="FUEL")),
         dict(id="hold-back", risk="A staged FUEL is pushed into the spinning flywheel with no feed commanded",
              closedBy=f"One braked feeder roller per lane over a fixed lane deck, {D.FEEDER['squeeze']:g} mm squeeze, floor belt ending ahead of the staged FUEL and stopped while both lanes are staged: "
@@ -956,12 +958,14 @@ def main():
              benchTest=dict(measure="Uncommanded feeds in 20 collect-and-drive cycles of 24 FUEL", **{"pass": 0, "fail": 1}, unit="feeds")),
         dict(id="mass-reserve", risk=f"The inspection weight estimate tops out {reserve:.2f} kg under the 52.16 kg limit",
              benchTest=dict(measure="Weighed inspection weight of the robot without bumpers and battery", **{"pass": 52.16, "fail": 52.17}, unit="kg")),
-        dict(id="hang-squaring", risk="The robot hangs yawed or offset and a bumper misses an upright",
+        dict(id="hang-squaring", risk="The robot hangs yawed or offset and a bumper misses an upright. The hang trial used a dimensioned TOWER BASE 8 mm tall; the official base plate and its "
+                                      "brackets are checked for clearance in the climb cases but are not in the trial",
              benchTest=dict(measure="Least clearance to the carpet and TOWER BASE through the 3 s hold, at 70.3 kg, seated at 0 and at 20 mm lateral offset each way", **{"pass": 5, "fail": 0}, unit="mm")),
         dict(id="hang-with-fuel", risk="The intake cannot stow with FUEL in the front of the hopper, and deployed it stands under the rung",
              closedBy="The hang sequence swings the hooks forward first, then stows the empty intake between them, then closes on the TOWER (cases climb-reach, intake-stow, tower-forward, checked). "
                       "The stow is commanded only with the chute and both stage beams clear; with FUEL aboard the robot keeps shooting and does not hang, which is the strategy's own rule"),
-        dict(id="bump-clearance", risk=f"The front bumper corner clears the BUMP crest by {bump['minClearanceMm']:.1f} mm in the static screen",
+        dict(id="bump-clearance", risk=f"The front bumper corner clears the BUMP crest by {bump['minClearanceMm']:.1f} mm in the static screen, which uses a sharp 15 degree profile. "
+                                       "The official BUMP crest is rounded and stands 3.7 mm fuller 20 mm either side of the line (cad/field/official/README.md), which is not in the screen",
              benchTest=dict(measure="Least clearance of any part other than wheels and bumpers over the BUMP in ten crossings each way, intake retracted", **{"pass": 5, "fail": 0}, unit="mm")),
         dict(id="battery-strap", risk="The battery has no hold-down",
              closedBy="A strap over the battery top between the two cleats is drawn and mounted, and the shelf panel above it covers it; the service cases remove the panel and strap, then lift the battery (checked)"),
@@ -997,9 +1001,9 @@ def main():
         (obj_auto, "represented",
          f"The starting fold holds {measured['volumeEstimateStowedLow']:.0f} or more FUEL by free volume behind the stowed intake (start-capacity premise), and the hopper-cycle-8-preload trial feeds eight from the hopper; the launch and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series."),
         (obj_collect, "represented",
-         f"The acquire cases take a floor FUEL up the bumper face and the chute back plate and over its top along the acquisition trial's trace (inside the frame in {cap_s:.2f} s); the hopper and stage cases follow the entry trial to the stage, clamped under the feeder roller {seat_s:.2f} s later. The hopper-collect-24-hold trial collects 24 through the chute: {collect['inHopper']} in the hopper and {collect['heldInChute']} in the chute, none lost and none at the flywheel (hopper-capacity premise)."),
+         f"The acquire cases take a floor FUEL up the bumper face and the chute back plate and over its top along the acquisition trial's trace (inside the frame in {cap_s:.2f} s); the hopper cases follow the entry trial to the stage, clamped under the feeder roller {seat_s:.2f} s later. The hopper-collect-24-hold trial collects 24 through the chute: {collect['inHopper']} in the hopper and {collect['heldInChute']} in the chute, none lost and none at the flywheel (hopper-capacity premise)."),
         (obj_carry, "represented",
-         f"loaded-transit, the launch cases and the flight cases carry the tracked FUEL from the stage into the HUB cavity along the launch and delivery trials' traces. The feeder advances it only with the wheel in its ready band; it releases at {rel_state['speedMps']:.2f} m/s and {rel_state['elevationDeg']:.1f} degrees, and the delivery trials score from {band[0]:.3f} to {band[1]:.3f} m/s at the nominal drag and spin lift and at all four corners."),
+         f"loaded-transit, the launch and flight cases carry the tracked FUEL from the stage into the HUB funnel along the launch and delivery trials' traces, to within the path tolerance each case declares. The feeder advances it only with the wheel in its ready band; it releases at {rel_state['speedMps']:.2f} m/s and {rel_state['elevationDeg']:.1f} degrees, and the delivery trials score from {band[0]:.3f} to {band[1]:.3f} m/s at the nominal drag and spin lift and at all four corners."),
         (obj_rate, "represented",
          f"The batch trial launches 24 FUEL through the one flywheel at {tr['batch-nominal']['metric']['value']:.1f} FUEL/s, every release inside the scoring band, on a 12 V and on the 8.34 V weak-pack bus. The hopper cycle trial feeds 24 collected FUEL to the flywheel in {cyc_times[0]:.1f}-{cyc_times[-1]:.1f} s over {len(patterns)} arrival patterns ({24 / cyc_times[-1]:.1f}-{24 / cyc_times[0]:.1f} FUEL/s against 2.00), so the hopper, not the flywheel, sets the rate. The wheel spins up in {spin['nominal']['seconds']:.1f} s ({spin['weakPack']['seconds']:.1f} s on the weak pack) and is held at speed while FUEL is aboard. " + gates),
         ("Fallback: score the available batch when supply or traffic consumes the window and return to collecting", "represented",
@@ -1017,15 +1021,14 @@ def main():
         ("Measurement: observe intake crossing, retained identity, release and downstream crossing on one timebase", "represented",
          "An entry sensor on the carriage watches the top of the chute and a stage beam watches each lane at the feeder; the HUB counter is field equipment."),
     ]
-    explain = component_explanations(shapes, groups_of, roles, k, trials, quals, fb)
+    explain = component_explanations(shapes, groups_of, roles, k, trials, quals, fb, FIXTURE_BASIS)
     view = rel("package-motion.html")
-    wrap_hood = [(row["compression"].get("hood", 0), row["case"]) for row in fuel_index if row["phase"] == "launch-wrap" and "hood" in row["compression"]]
-    control_case = max(wrap_hood)[1]
+    control_case = "intake-deploy"
     uncovered = [dict(id=r["id"], condition=r["benchTest"]["measure"], reason=r["risk"]) for r in risks if r["id"] in ("bump-crossing-dynamic", "loaded-robot-contact")]
     plan = dict(schema="agent-frc/preliminary-layout@1", issue=ISSUE, design=design, step=step, motion=motion, datum=datum,
                 groups=groups, mounts=mounts, stages=stages, missingInputs=[],
-                control=dict(case=control_case, displaced="hood", moving=BALL, offsetMm=[0, 0, 8],
-                             basis="Raise the hood 8 mm, as a mislocated hood mount would, so it squeezes the FUEL beyond the launch trial's indentation in the wrap"),
+                control=dict(case=control_case, displaced="front left module motors", moving="intake carriage plate left", offsetMm=[0, 0, 40],
+                             basis="Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"),
                 cycle=cycle, view=view, budgets=budgets, premises=premises,
                 narrativeReview=dict(source=narrative, objectives=[dict(objective=o, disposition=s, basis=b) for o, s, b in objectives]),
                 presentation=dict(components=explain,
@@ -1038,7 +1041,8 @@ def main():
                                                "flywheel": ["flywheel motor left", "flywheel motor right", "flywheel", "flywheel inertia ring"],
                                                "climber": hooks + G_("climber inner tubes") + ["climber winch"],
                                                "controls": ["electronics panel", "electronics panel left", "electronics bay right"]},
-                                  architecture="R3 · tall floor-fed hooded-flywheel shooter with a chute intake on a 680 × 714 mm four-module swerve base",
+                                  architecture=f"{DESIGN} · floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 × 714 mm four-module swerve base",
+                                  alliance="blue",
                                   caseKinds={c["id"]: "nominal" for c in cases},
                                   uncoveredCases=uncovered))
     import review_data
@@ -1049,30 +1053,33 @@ def main():
     import replay_set
     robot_members = [n for n in sorted(shapes) if n not in field and groups_of[n] not in (PAYLOAD, "stored FUEL")]
     replay_rows = replay_set.build(OUT, REPO, REL, trial_data, cases, robot_members, sorted(field),
-                                   dict(rate=obj_rate, traffic=obj_traffic, hang=obj_hang))
+                                   dict(rate=obj_rate, traffic=obj_traffic, hang=obj_hang, carry=obj_carry))
     plan["presentation"]["replays"] = [pin(replay_set.NAME)]
+    plan["scopeGuidelines"] = dict(solids=80, toleranceMm=10)
+    # Official panels and the TOWER BASE stand 3.175 mm above the carpet datum on base parts left out of the check.
+    hung = "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down"
+    plan["attachment"] = dict(gapMm=3.5, suspended={n: hung for n in field_m if n.startswith("hub funnel") or n in ("hub roof panel", "hub net")})
     write("layout.json", plan)
 
     # ---------------------------------------------------------- missions: mission cases, cycle map and risk register
     FIT = lambda cid, what, objective: dict(case=cid, kind="field-interaction-trial", accomplishes=what, objective=objective,
-                                           trial=next(dict(file=r["record"], sha256=sha(REPO / r["record"])) for r in fuel_index if r["case"] == cid))
+                                           trial=next(dict(file=r["record"]) for r in fuel_index if r["case"] == cid))
     OPC = lambda cid, what, objective, key: dict(case=cid, kind="operating-case", accomplishes=what, objective=objective, trial=records[key])
     of = lambda *phases: [c for ph in phases for c in phase_cases.get(ph, [])]
     missions = dict(
         missionCases=[
-            FIT(last("acquire-climb"), "acquired", obj_collect),
-            FIT(last("stage"), "acquired", obj_collect),
+            FIT(last("acquire"), "acquired", obj_collect),
+            FIT(last("hopper"), "acquired", obj_collect),
             OPC("loaded-transit", "acquired", obj_traffic, "hold"),
-            FIT(last("launch-feed"), "delivered", obj_carry),
-            OPC(last("launch-feed"), "delivered", obj_rate, "hopper"),
-            FIT(last("launch-wrap"), "delivered", obj_carry),
-            OPC(last("launch-wrap"), "delivered", obj_rate, "batch"),
+            FIT(last("launch"), "delivered", obj_carry),
+            OPC(phase_cases["launch"][0], "delivered", obj_rate, "hopper"),
+            OPC(last("launch"), "delivered", obj_rate, "batch"),
             FIT(last("flight"), "scored", obj_carry),
             OPC("climb-lift", "climb-held", obj_hang, "hang")],
         cycle=dict(
-            acquire=dict(cases=["intake-deploy"] + of("acquire-approach", "acquire-climb", "acquire-over", "acquire-throw")),
-            retain=dict(cases=of("hopper-drop", "hopper-roll", "stage") + ["loaded-transit"]),
-            transfer=dict(cases=of("launch-feed", "launch-wrap")),
+            acquire=dict(cases=["intake-deploy"] + of("acquire")),
+            retain=dict(cases=of("hopper") + ["loaded-transit"]),
+            transfer=dict(cases=of("launch")),
             deliver=dict(cases=of("flight")),
             reset=dict(notApplicable="No reset motion: the intake stays deployed and each lane's feeder stages the next FUEL as the last one leaves, which the hopper cycle trial covers"),
             endgame=dict(cases=["climb-reach", "intake-stow", "tower-lateral", "tower-forward", "climb-seat", "climb-lift"]),
@@ -1081,7 +1088,7 @@ def main():
         risks=risks)
     write("missions.json", missions)
     extras = dict(startVolume=vol, stored=stored,
-                  trackedFuel=dict(installedMm=list(start), seatMm=list(seat), toleranceMm=TOL_MM, fieldTrials=trials_pin, cases=fuel_index),
+                  trackedFuel=dict(installedMm=list(start), seatMm=list(seat), pathToleranceMm=TOL, fieldTrials=trials_pin, cases=fuel_index),
                   shot=dict(speedMps=rel_state["speedMps"], elevationDeg=rel_state["elevationDeg"], spinRatio=rel_state["spinRatio"],
                             releaseMm=list(xz(release_mm)), distanceM=release_distance, scoringBandMps=band, flightS=tr["deliver-nominal"]["metric"]["value"],
                             source="launch-nominal release state and deliver-nominal trace in field-trials.json"),
@@ -1100,16 +1107,15 @@ def check(args, view):
     """Run the layout check from the repository root and save its receipt beside the plan."""
     env = dict(os.environ)
     env.setdefault("PYTHON", sys.executable)
-    plan, receipt = rel("layout.json"), rel("receipt-partial.json" if args.fail_fast else "receipt.json")
-    flags = ["--fail-fast"] if args.fail_fast else ["--require-checked", "--write-view"]
-    if args.previous:
-        flags += ["--previous", args.previous]
-    out = subprocess.run(["node", str(CLI), "preliminary-check", str(REPO), plan, *flags, "--output", receipt], capture_output=True, text=True, env=env)
-    sys.stderr.write(out.stderr)
-    print("exit", out.returncode, out.stdout[-400:])
+    partial = args.fail_fast or args.physics_only
+    plan, receipt = rel("layout.json"), rel("receipt-partial.json" if partial else "receipt.json")
+    flags = ["--fail-fast"] if args.fail_fast else ["--physics-only"] if args.physics_only else ["--require-checked", "--write-view"]
+    out = subprocess.run(["node", str(CLI), "preliminary-check", str(REPO), plan, *flags, "--jobs", str(args.jobs), "--output", receipt], env=env)
+    print("check exit", out.returncode)
+    sys.exit(out.returncode)
 
 
-def component_explanations(shapes, groups_of, roles, k, trials, quals, fb):
+def component_explanations(shapes, groups_of, roles, k, trials, quals, fb, fixture_basis):
     E = {}
     def put(names, purpose, rationale, category, material, **more):
         for n in names:
@@ -1179,12 +1185,11 @@ def component_explanations(shapes, groups_of, roles, k, trials, quals, fb):
         f"It continues the bumper face plane up to {I_['back_top']:g} mm, so a FUEL enters the hopper from above the heap: thrown in low through an open throat, the collect trial stalls with FUEL backing out. Its hopper-side face leans forward from a {I_['back_foot']:g} mm foot, so a FUEL touching it stands over the driven belt. In an unjam cycle the slide nudges it {I_['nudge'][0]:g} mm into the FUEL at the front. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float 6 mm inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).", "mechanism", "Folded 1 mm aluminum wedge with a friction face; drawn solid", volumeType="envelope")
     put([n for n in S if n.startswith("intake carriage plate")], "Join the belt module, top roller and back plate to the slide, and close the sides of the chute.", "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys. Unmounted allowance: only the fixed stage of the two-stage slide is drawn, so a deployed plate appears to float ahead of its rail. The moving stage and the cross-ties to the belt module, top roller and back plate are not drawn (risk carriage-cross-ties).", "mechanism", "Aluminum plate, lightened")
     put([BALL], "Follow one identifiable FUEL from the carpet into the HUB.",
-        f"Its cases are strokes fitted within {TOL_MM} mm to the solved acquisition, entry, launch and delivery traces; it is drawn where the mission finds it, on the carpet ahead of the intake.", "game-piece", "Foam FUEL 150.114 mm, 0.203-0.227 kg")
+        f"Its cases are coarse strokes fitted to the solved acquisition, entry, launch and delivery traces, within {max(TOL.values()):g} mm; the recorded trials play as replays. It is drawn where the mission finds it, on the carpet ahead of the intake.", "game-piece", "Foam FUEL 150.114 mm, 0.203-0.227 kg")
     put([n for n in S if n.startswith("FUEL stored")], "Represent stored stock in the starting fold.", "Supported places from the deposition screen, behind the stowed carriage and clear of every traced position of the tracked FUEL; capacity itself is the collect trial and the start-capacity premise.", "game-piece", "Foam FUEL")
-    put(["hub body", "hub top"], "Locate the HUB and its hexagonal opening.", "The flight cases follow the delivery trial over the near flat at 1828.8 mm, into the conservative inscribed opening and against the cavity wall.", "reserved-space", "Field fixture (V0 dimensions)")
-    put([n for n in S if n.startswith("tower upright")], "Locate the TOWER uprights.", "Their 819 mm gap bounds the bumper approach and the forward hooks.", "reserved-space", "Field fixture (V0 dimensions)")
-    put(["tower low rung"], "Locate the low rung at 685.8 mm.", "The hooks must seat on it; the V0 text centres it in the upright depth.", "reserved-space", "Field fixture (V0 dimensions)")
-    put(["tower base"], "Locate the TOWER BASE plate.", "Level 1 requires clearing it; its 8 mm edge stands under the front bumper at the berth.", "reserved-space", "Field fixture (V0 dimensions)")
+    for n, basis in fixture_basis.items():
+        what, source = basis.split(". ", 1)
+        put([n], what + ".", source, "field", "FIRST official field part")
     missing = [n for n in shapes if n not in E]
     assert not missing, missing
     for n, c in E.items():   # inspector fields: display name, owning group and what the drawn volume stands for

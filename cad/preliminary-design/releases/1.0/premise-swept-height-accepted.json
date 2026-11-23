@@ -1,0 +1,21 @@
+{
+  "id": "swept-height",
+  "unit": "mm",
+  "scenario": "Robot height in every operating and park pose",
+  "criterion": {
+    "range": [
+      0.0,
+      762.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "climber hooks",
+    "intake",
+    "hopper"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "R104/R107 30 in, measured as if on a flat floor"
+}

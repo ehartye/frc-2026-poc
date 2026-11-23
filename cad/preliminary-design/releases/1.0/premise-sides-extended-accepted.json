@@ -1,0 +1,20 @@
+{
+  "id": "sides-extended",
+  "unit": "sides",
+  "scenario": "Sides extended at once in any sampled pose",
+  "criterion": {
+    "range": [
+      0.0,
+      1.0
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "intake",
+    "climber hooks"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "R106"
+}

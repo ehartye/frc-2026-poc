@@ -1,0 +1,2148 @@
+{
+  "schema": "agent-frc/preliminary-layout@1",
+  "issue": "chute-fed-hood-shooter-1.0",
+  "design": {
+    "file": "cad/preliminary-design/releases/1.0/design.json"
+  },
+  "step": {
+    "file": "cad/preliminary-design/releases/1.0/package.step"
+  },
+  "motion": {
+    "file": "cad/preliminary-design/releases/1.0/paths.json"
+  },
+  "datum": {
+    "name": "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres",
+    "robotToStepMm": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "groups": {
+    "frame": {
+      "role": "structure",
+      "members": [
+        "climber tube mount left",
+        "climber tube mount right",
+        "floor pan",
+        "floor pan front tongue",
+        "frame rail front",
+        "frame rail left",
+        "frame rail rear",
+        "frame rail right",
+        "intake slide rail left",
+        "intake slide rail right",
+        "lane deck"
+      ]
+    },
+    "hopper": {
+      "role": "structure",
+      "members": [
+        "hopper liner left",
+        "hopper liner right",
+        "hopper rear wall",
+        "hopper wall left",
+        "hopper wall right"
+      ]
+    },
+    "hopper shelf": {
+      "role": "structure",
+      "members": [
+        "hopper shelf left"
+      ]
+    },
+    "climber tubes": {
+      "role": "structure",
+      "members": [
+        "climber tube left",
+        "climber tube right",
+        "climber winch"
+      ]
+    },
+    "battery retention": {
+      "role": "structure",
+      "members": [
+        "battery retention cleat aft",
+        "battery retention cleat fore"
+      ]
+    },
+    "battery strap": {
+      "role": "structure",
+      "members": [
+        "battery strap"
+      ]
+    },
+    "bumpers": {
+      "role": "bumper",
+      "members": [
+        "bumper front",
+        "bumper left",
+        "bumper rear",
+        "bumper right"
+      ]
+    },
+    "drivetrain": {
+      "role": "drive",
+      "members": [
+        "front left module body",
+        "front left module motors",
+        "front left wheel azimuth envelope",
+        "front right module body",
+        "front right module motors",
+        "front right wheel azimuth envelope",
+        "rear left module body",
+        "rear left module motors",
+        "rear left wheel azimuth envelope",
+        "rear right module body",
+        "rear right module motors",
+        "rear right wheel azimuth envelope"
+      ]
+    },
+    "battery": {
+      "role": "battery",
+      "members": [
+        "battery"
+      ]
+    },
+    "electrical": {
+      "role": "other",
+      "members": [
+        "electronics bay right",
+        "electronics panel",
+        "electronics panel left",
+        "stage sensor left",
+        "stage sensor right"
+      ]
+    },
+    "floor belts": {
+      "role": "mechanism",
+      "members": [
+        "floor belt front",
+        "floor belt main"
+      ]
+    },
+    "feeders": {
+      "role": "mechanism",
+      "members": [
+        "feeder motor left",
+        "feeder motor right",
+        "feeder roller left",
+        "feeder roller right"
+      ]
+    },
+    "shooter": {
+      "role": "mechanism",
+      "members": [
+        "flywheel",
+        "flywheel inertia ring",
+        "flywheel motor left",
+        "flywheel motor right",
+        "hood",
+        "shooter side plate left",
+        "shooter side plate right"
+      ]
+    },
+    "intake": {
+      "role": "mechanism",
+      "members": [
+        "entry sensor",
+        "intake back plate",
+        "intake belt module",
+        "intake carriage plate left",
+        "intake carriage plate right",
+        "intake top roller"
+      ]
+    },
+    "climber hooks": {
+      "role": "mechanism",
+      "members": [
+        "climber hook left",
+        "climber hook right"
+      ]
+    },
+    "climber inner tubes": {
+      "role": "mechanism",
+      "members": [
+        "climber inner tube left",
+        "climber inner tube right"
+      ]
+    },
+    "tracked FUEL": {
+      "role": "payload",
+      "members": [
+        "FUEL tracked"
+      ]
+    },
+    "stored FUEL": {
+      "role": "payload",
+      "members": [
+        "FUEL stored 1"
+      ]
+    },
+    "field": {
+      "role": "other",
+      "members": [
+        "hub front panel bottom",
+        "hub front panel top 1",
+        "hub front panel top 2",
+        "hub funnel base",
+        "hub funnel side 1",
+        "hub funnel side 2",
+        "hub funnel side 3",
+        "hub funnel side 4",
+        "hub funnel side 5",
+        "hub funnel side 6",
+        "hub net",
+        "hub rear panel",
+        "hub roof panel",
+        "hub side panel 1",
+        "hub side panel 2",
+        "tower base",
+        "tower lower plastic",
+        "tower rung 1",
+        "tower rung 2",
+        "tower rung 3",
+        "tower upright inner 1",
+        "tower upright inner 2",
+        "tower upright outer 1",
+        "tower upright outer 2"
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "group": "floor belts",
+      "on": "floor pan",
+      "pointMm": [
+        0.0,
+        0.0,
+        100.0
+      ],
+      "basis": "Belt bed rests on the floor pan"
+    },
+    {
+      "group": "feeders",
+      "on": "hopper liner left",
+      "pointMm": [
+        -60.0,
+        169.0,
+        250.514
+      ],
+      "basis": "Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block",
+      "member": "feeder roller left"
+    },
+    {
+      "group": "feeders",
+      "on": "hopper liner left",
+      "pointMm": [
+        -60.0,
+        169.0,
+        248.514
+      ],
+      "basis": "Gearmotor flange on the bearing block outboard of the channel wall",
+      "member": "feeder motor left"
+    },
+    {
+      "group": "feeders",
+      "on": "hopper liner right",
+      "pointMm": [
+        -60.0,
+        -169.0,
+        250.514
+      ],
+      "basis": "Right roller shaft runs in a bearing block on the channel wall of the right liner",
+      "member": "feeder roller right"
+    },
+    {
+      "group": "feeders",
+      "on": "hopper liner right",
+      "pointMm": [
+        -60.0,
+        -169.0,
+        248.514
+      ],
+      "basis": "Gearmotor flange on the bearing block outboard of the channel wall",
+      "member": "feeder motor right"
+    },
+    {
+      "group": "shooter",
+      "on": "frame rail rear",
+      "pointMm": [
+        -327.0,
+        0.0,
+        120.65
+      ],
+      "basis": "Shooter side plates bolt to the rear rail top"
+    },
+    {
+      "group": "intake",
+      "on": "intake slide rail left",
+      "pointMm": [
+        300.0,
+        266.0,
+        400.0
+      ],
+      "basis": "Left carriage plate runs on the two-stage slide; the fixed stage is drawn",
+      "member": "intake carriage plate left"
+    },
+    {
+      "group": "intake",
+      "on": "intake slide rail right",
+      "pointMm": [
+        300.0,
+        -266.0,
+        400.0
+      ],
+      "basis": "Right carriage plate runs on the two-stage slide; the fixed stage is drawn",
+      "member": "intake carriage plate right"
+    },
+    {
+      "group": "intake",
+      "on": "intake carriage plate left",
+      "pointMm": [
+        560.0,
+        255.0,
+        300.0
+      ],
+      "basis": "Belt module frame spans the two carriage plates",
+      "member": "intake belt module"
+    },
+    {
+      "group": "intake",
+      "on": "intake carriage plate left",
+      "pointMm": [
+        495.5,
+        255.0,
+        565.0
+      ],
+      "basis": "Top roller shaft runs in bearings in the two carriage plates",
+      "member": "intake top roller"
+    },
+    {
+      "group": "intake",
+      "on": "intake carriage plate left",
+      "pointMm": [
+        400.0,
+        255.0,
+        300.0
+      ],
+      "basis": "Back plate flanges bolt to the two carriage plates",
+      "member": "intake back plate"
+    },
+    {
+      "group": "intake",
+      "on": "intake carriage plate left",
+      "pointMm": [
+        434.0,
+        255.0,
+        569.0
+      ],
+      "basis": "Sensor bracket on the top edge of the left carriage plate",
+      "member": "entry sensor"
+    },
+    {
+      "group": "climber inner tubes",
+      "on": "climber tube left",
+      "pointMm": [
+        300.0,
+        316.0,
+        500.0
+      ],
+      "basis": "Inner tube runs in bushings in the fixed outer tube",
+      "member": "climber inner tube left"
+    },
+    {
+      "group": "climber inner tubes",
+      "on": "climber tube right",
+      "pointMm": [
+        300.0,
+        -316.0,
+        500.0
+      ],
+      "basis": "Inner tube runs in bushings in the fixed outer tube",
+      "member": "climber inner tube right"
+    },
+    {
+      "group": "climber hooks",
+      "on": "climber inner tube left",
+      "pointMm": [
+        300.0,
+        316.0,
+        736.0
+      ],
+      "basis": "Swing joint on the inner tube top",
+      "member": "climber hook left"
+    },
+    {
+      "group": "climber hooks",
+      "on": "climber inner tube right",
+      "pointMm": [
+        300.0,
+        -316.0,
+        736.0
+      ],
+      "basis": "Swing joint on the inner tube top",
+      "member": "climber hook right"
+    },
+    {
+      "group": "battery",
+      "on": "battery retention cleat aft",
+      "pointMm": [
+        -95.0,
+        291.0,
+        150.0
+      ],
+      "basis": "Battery end face captured between the aft and fore cleats, with the strap over its top"
+    },
+    {
+      "group": "battery retention",
+      "on": "floor pan",
+      "pointMm": [
+        -95.0,
+        291.0,
+        100.0
+      ],
+      "basis": "Cleat feet riveted to the floor pan top, which rests on the frame rails"
+    },
+    {
+      "group": "battery strap",
+      "on": "battery retention cleat aft",
+      "pointMm": [
+        -95.0,
+        291.0,
+        199.0
+      ],
+      "basis": "Strap anchored to the aft cleat and buckled to the fore cleat over the battery top"
+    },
+    {
+      "group": "hopper shelf",
+      "on": "hopper liner left",
+      "pointMm": [
+        0.0,
+        169.0,
+        267.0
+      ],
+      "basis": "Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners"
+    },
+    {
+      "group": "hopper",
+      "on": "frame rail left",
+      "pointMm": [
+        0.0,
+        334.0,
+        120.65
+      ],
+      "basis": "Side wall foot on the left rail top",
+      "member": "hopper wall left"
+    },
+    {
+      "group": "hopper",
+      "on": "frame rail right",
+      "pointMm": [
+        0.0,
+        -334.0,
+        120.65
+      ],
+      "basis": "Side wall foot on the right rail top",
+      "member": "hopper wall right"
+    },
+    {
+      "group": "hopper",
+      "on": "floor pan",
+      "pointMm": [
+        0.0,
+        169.0,
+        100.0
+      ],
+      "basis": "Channel wall foot on the floor pan",
+      "member": "hopper liner left"
+    },
+    {
+      "group": "hopper",
+      "on": "floor pan",
+      "pointMm": [
+        0.0,
+        -169.0,
+        100.0
+      ],
+      "basis": "Channel wall foot on the floor pan",
+      "member": "hopper liner right"
+    },
+    {
+      "group": "hopper",
+      "on": "hopper wall left",
+      "pointMm": [
+        -94.5,
+        334.0,
+        500.0
+      ],
+      "basis": "Rear wall flange on the left side wall; its right edge is carried by the right liner's pocket wall",
+      "member": "hopper rear wall"
+    },
+    {
+      "group": "climber tubes",
+      "on": "climber tube mount left",
+      "pointMm": [
+        300.0,
+        316.0,
+        222.0
+      ],
+      "basis": "Outer tube socket in the tube mount",
+      "member": "climber tube left"
+    },
+    {
+      "group": "climber tubes",
+      "on": "climber tube mount right",
+      "pointMm": [
+        300.0,
+        -316.0,
+        222.0
+      ],
+      "basis": "Outer tube socket in the tube mount",
+      "member": "climber tube right"
+    },
+    {
+      "group": "climber tubes",
+      "on": "intake slide rail left",
+      "pointMm": [
+        200.0,
+        266.0,
+        345.0
+      ],
+      "basis": "Winch plate bolts to the underside of the fixed slide rail, in the bay outboard of the carriage plate; the right cable crosses inside the front rail",
+      "member": "climber winch"
+    }
+  ],
+  "stages": {
+    "intake-deploy": {
+      "purpose": "operating",
+      "movingGroups": [
+        "intake"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "acquire-1": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-1.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
+      }
+    },
+    "acquire-2": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-2.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
+      }
+    },
+    "acquire-3": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "intake"
+          ],
+          "drive": {
+            "intake": "Belt and top roller driven by one brushless motor through 2:1, a speed loop to 3.0 m/s and 40 A stator and 30 A supply limits, solved in the trial; the carriage is deployed and stationary"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/acquire-3.json"
+          },
+          "basis": "The robot drives onto the floor FUEL; the intake draws it under the belt, lifts it up the bumper face and the chute back plate and throws it over the top of that plate into the hopper"
+        }
+      }
+    },
+    "hopper-1": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-1.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "hopper-2": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-2.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "hopper-3": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "floor belts"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 0.6 m/s until the FUEL centre crosses the stage beam, then stopped and braked; imposed in the trial",
+            "floor belts": "Floor belt surface at 1.2 m/s toward the feeders until the stage beam, then stopped; imposed in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/hopper-3.json"
+          },
+          "basis": "The FUEL drops to the hopper floor, the floor belt carries it aft and the feeder roller draws it to the stage beam and holds it there, clamped between the braked roller and the lane deck"
+        }
+      }
+    },
+    "loaded-transit": {
+      "purpose": "operating",
+      "movingGroups": [
+        "field"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "launch-1": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "transportedBy": {
+        "tracked FUEL": {
+          "mechanisms": [
+            "feeders",
+            "shooter"
+          ],
+          "drive": {
+            "feeders": "Feeder roller surface at 1.2 m/s from the feed command, given only with the wheel in its ready band; imposed in the trial",
+            "shooter": "Flywheel a free 0.0076 kg m2 body at a 13.6 m/s setpoint under two motors and a speed loop, solved in the trial"
+          },
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/launch-1.json"
+          },
+          "basis": "On the feed command the feeder roller rolls the FUEL along the lane deck to the flywheel, which rolls it up the hood and releases it"
+        }
+      }
+    },
+    "flight-1": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "freePath": {
+        "tracked FUEL": {
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/flight-1.json"
+          },
+          "basis": "Free flight from the hood release into the HUB funnel"
+        }
+      }
+    },
+    "flight-2": {
+      "purpose": "operating",
+      "movingGroups": [
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0,
+      "freePath": {
+        "tracked FUEL": {
+          "evidence": {
+            "file": "cad/preliminary-design/releases/1.0/transport/flight-2.json"
+          },
+          "basis": "Free flight from the hood release into the HUB funnel"
+        }
+      }
+    },
+    "climb-reach": {
+      "purpose": "operating",
+      "movingGroups": [
+        "climber hooks"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "intake-stow": {
+      "purpose": "operating",
+      "movingGroups": [
+        "intake"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "tower-lateral": {
+      "purpose": "operating",
+      "movingGroups": [
+        "field",
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "tower-forward": {
+      "purpose": "operating",
+      "movingGroups": [
+        "field",
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "climb-seat": {
+      "purpose": "operating",
+      "movingGroups": [
+        "climber hooks",
+        "climber inner tubes"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "climb-lift": {
+      "purpose": "operating",
+      "movingGroups": [
+        "climber hooks",
+        "climber inner tubes",
+        "field",
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "park-lower": {
+      "purpose": "park",
+      "movingGroups": [
+        "climber hooks",
+        "climber inner tubes",
+        "field",
+        "tracked FUEL"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "1 mm preliminary reserve between unrelated solids. A surface the physics trial shows the tracked FUEL pressed against is an intended contact, listed with the trial's indentation as its allowance for detailed design. Stored FUEL keep a 3 mm undeformed reserve; separately listed joints are drawn with at least 1.5 mm splits",
+      "pathToleranceMm": 40.0
+    },
+    "battery-cover-remove": {
+      "purpose": "service",
+      "movingGroups": [
+        "hopper shelf",
+        "battery strap"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0
+    },
+    "battery-withdraw": {
+      "purpose": "service",
+      "movingGroups": [
+        "battery"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0
+    },
+    "shooter-withdraw": {
+      "purpose": "service",
+      "movingGroups": [
+        "shooter"
+      ],
+      "carriedWith": {},
+      "allowanceBasis": "No interference during withdrawal. The case holds no reserve: official field parts touch each other and an extraction case cannot list an intended contact",
+      "pathToleranceMm": 40.0
+    }
+  },
+  "missingInputs": [],
+  "control": {
+    "case": "intake-deploy",
+    "displaced": "front left module motors",
+    "moving": "intake carriage plate left",
+    "offsetMm": [
+      0,
+      0,
+      40
+    ],
+    "basis": "Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"
+  },
+  "cycle": [
+    "intake-deploy",
+    "acquire-1",
+    "acquire-2",
+    "acquire-3",
+    "hopper-1",
+    "hopper-2",
+    "hopper-3",
+    "loaded-transit",
+    "launch-1",
+    "flight-1",
+    "flight-2",
+    "climb-reach",
+    "intake-stow",
+    "tower-lateral",
+    "tower-forward",
+    "climb-seat",
+    "climb-lift",
+    "park-lower"
+  ],
+  "view": "cad/preliminary-design/releases/1.0/package-motion.html",
+  "budgets": {
+    "file": "cad/preliminary-design/releases/1.0/budgets.json"
+  },
+  "premises": [
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-start-overhang-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-start-overhang-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-height-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-height-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-front-extension-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-front-extension-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-other-extension-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-swept-other-extension-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-sides-extended-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-sides-extended-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-with-bumpers-mass-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-with-bumpers-mass-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-hopper-capacity-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-hopper-capacity-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-start-capacity-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-start-capacity-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-shot-window-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-shot-window-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-delivery-pose-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-delivery-pose-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-delivery-hub-distance-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-delivery-hub-distance-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-bump-crossing-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-bump-crossing-current.json"
+      }
+    },
+    {
+      "accepted": {
+        "file": "cad/preliminary-design/releases/1.0/premise-hang-bumper-overlap-accepted.json"
+      },
+      "current": {
+        "file": "cad/preliminary-design/releases/1.0/premise-hang-bumper-overlap-current.json"
+      }
+    }
+  ],
+  "narrativeReview": {
+    "source": {
+      "file": "cad/preliminary-design/releases/1.0/narrative.md"
+    },
+    "objectives": [
+      {
+        "objective": "AUTO: start with up to eight supported FUEL and score from a legal launch pose while the HUB is active",
+        "disposition": "represented",
+        "basis": "The starting fold holds 14 or more FUEL by free volume behind the stowed intake (start-capacity premise), and the hopper-cycle-8-preload trial feeds eight from the hopper; the launch and flight cases carry a FUEL into the HUB opening from the 2.7 m pose that the re-run rehearsal credits in AUTO (delivery-pose premise). Delivering from 2.70 m costs no FUEL: slot 2 credits 124 in both the baseline and R3 series."
+      },
+      {
+        "objective": "Inactive shift: collect and hold the next allocated stock from the DEPOT, OUTPOST or a partner",
+        "disposition": "represented",
+        "basis": "The acquire cases take a floor FUEL up the bumper face and the chute back plate and over its top along the acquisition trial's trace (inside the frame in 0.65 s); the hopper cases follow the entry trial to the stage, clamped under the feeder roller 1.44 s later. The hopper-collect-24-hold trial collects 24 through the chute: 24 in the hopper and 0 in the chute, none lost and none at the flywheel (hopper-capacity premise)."
+      },
+      {
+        "objective": "Active shift: carry each FUEL from storage through one transfer into the HUB",
+        "disposition": "represented",
+        "basis": "loaded-transit, the launch and flight cases carry the tracked FUEL from the stage into the HUB funnel along the launch and delivery trials' traces, to within the path tolerance each case declares. The feeder advances it only with the wheel in its ready band; it releases at 6.90 m/s and 61.6 degrees, and the delivery trials score from 6.725 to 7.100 m/s at the nominal drag and spin lift and at all four corners."
+      },
+      {
+        "objective": "Active shift: sustain 2.00 FUEL/s to score 24 with stock ready by second 5",
+        "disposition": "represented",
+        "basis": "The batch trial launches 24 FUEL through the one flywheel at 4.0 FUEL/s, every release inside the scoring band, on a 12 V and on the 8.34 V weak-pack bus. The hopper cycle trial feeds 24 collected FUEL to the flywheel in 7.1-10.5 s over 16 arrival patterns (2.3-3.4 FUEL/s against 2.00), so the hopper, not the flywheel, sets the rate. The wheel spins up in 1.1 s (1.3 s on the weak pack) and is held at speed while FUEL is aboard. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "Fallback: score the available batch when supply or traffic consumes the window and return to collecting",
+        "disposition": "represented",
+        "basis": "The cycle is piece-count independent: the hopper-cycle-8-preload trial feeds a part batch; the intake stays deployed in every scoring case; the re-run rehearsal keeps the depot loop."
+      },
+      {
+        "objective": "Traffic: remain in the own zone, keep possession through loaded driving and contact, and yield",
+        "disposition": "represented",
+        "basis": "The hopper front is closed by the deployed intake's back plate to 425 mm and the walls rise to 715 mm. Every collect-hold-feed pattern carries its 24 FUEL through a 0.5 g stop, start and turn with none lost. Harder stops are tested on single patterns only: at 0.75 g 1 of 1 tested patterns keep and feed all 24; at 1 g 2 of 2 tested patterns keep and feed all 24. Loaded acceleration is limited to 0.5 g. The staged FUEL is clamped under a braked feeder roller: the hold trial keeps it 25.6 mm clear of the spinning wheel at 1.5 g with a 90 N push. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "Neutral collector alternative with two field crossings",
+        "disposition": "out-of-scope",
+        "basis": "The coordinator selected the own-zone role. R3 keeps a BUMP crossing option (bump-crossing premise, 8.7 mm least clearance) with the intake retracted."
+      },
+      {
+        "objective": "End game: Level 1 low-rung hang when its expected 10 points exceed the remaining FUEL service",
+        "disposition": "represented",
+        "basis": "With the hopper empty the hooks swing forward, the intake stows between them, the robot closes on the TOWER, seats (2 mm required contact) and lifts 70 mm; the 714 mm frame gives 23.9 mm of bumper overlap with each upright (hang-bumper-overlap premise); the hang physics trial at 70.3 kg holds 37.5 mm with the brake and fails without it; its cable load peaks at 1043 N in the lift and settles at 690 N. Bench tests are listed in verification-gates.json and in the risk register of missions.json."
+      },
+      {
+        "objective": "AUTO Level 1 TOWER (15 points, two-robot cap)",
+        "disposition": "out-of-scope",
+        "basis": "The strategy keeps the eight-FUEL AUTO objective; no joined AUTO climb evidence is sought in this layout."
+      },
+      {
+        "objective": "Reserve the depot entrance and partner lane",
+        "disposition": "out-of-scope",
+        "basis": "Alliance routing decision owned by the field rehearsal, independent of the robot layout."
+      },
+      {
+        "objective": "Measurement: observe intake crossing, retained identity, release and downstream crossing on one timebase",
+        "disposition": "represented",
+        "basis": "An entry sensor on the carriage watches the top of the chute and a stage beam watches each lane at the feeder; the HUB counter is field equipment."
+      }
+    ]
+  },
+  "presentation": {
+    "components": {
+      "frame rail front": {
+        "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame is 714 mm wide (2788 mm perimeter) for hang overlap. The front rail top closes the front of the hopper channel below the bumper top.",
+        "category": "structure",
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail front",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "frame rail rear": {
+        "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame is 714 mm wide (2788 mm perimeter) for hang overlap. The front rail top closes the front of the hopper channel below the bumper top.",
+        "category": "structure",
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail rear",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "frame rail left": {
+        "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame is 714 mm wide (2788 mm perimeter) for hang overlap. The front rail top closes the front of the hopper channel below the bumper top.",
+        "category": "structure",
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail left",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "frame rail right": {
+        "purpose": "Carry the drive corners, bumpers and every mechanism mount.",
+        "rationale": "The foundation's 680 mm length and module saddles carry forward; the frame is 714 mm wide (2788 mm perimeter) for hang overlap. The front rail top closes the front of the hopper channel below the bumper top.",
+        "category": "structure",
+        "material": "6061-T6 2x1x0.125 in tube",
+        "name": "Frame rail right",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "floor pan": {
+        "purpose": "Support the floor belts, battery and electronics.",
+        "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
+        "category": "structure",
+        "material": "3 mm polycarbonate over aluminum stiffeners",
+        "name": "Floor pan",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "floor pan front tongue": {
+        "purpose": "Support the floor belts, battery and electronics.",
+        "rationale": "Sits 94 mm above the carpet; the BUMP crossing screen then leaves 24 mm at the belly and 8.7 mm at the front bumper corner.",
+        "category": "structure",
+        "material": "3 mm polycarbonate over aluminum stiffeners",
+        "name": "Floor pan front tongue",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "lane deck": {
+        "purpose": "Carry the staged FUEL and the FUEL being fed, under the feeder rollers and on to the flywheel.",
+        "rationale": "A fixed surface, not the belt: a FUEL clamped between a braked roller and a fixed deck stays put whatever the belt behind it does. The floor belt ends ahead of it so the staged FUEL does not touch the belt.",
+        "category": "structure",
+        "material": "3 mm aluminum with a friction surface",
+        "name": "Lane deck",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "intake slide rail left": {
+        "purpose": "Guide the intake carriage between the start fold and the pickup pose.",
+        "rationale": "A straight slide of 250 mm aft and 95 mm up never sweeps beyond the 304.8 mm R105 reach; the fixed stage of the two-stage slide is drawn. The same slide makes the 40 mm unjam nudge.",
+        "category": "structure",
+        "material": "Aluminum drawer-slide stage",
+        "name": "Intake slide rail left",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "intake slide rail right": {
+        "purpose": "Guide the intake carriage between the start fold and the pickup pose.",
+        "rationale": "A straight slide of 250 mm aft and 95 mm up never sweeps beyond the 304.8 mm R105 reach; the fixed stage of the two-stage slide is drawn. The same slide makes the 40 mm unjam nudge.",
+        "category": "structure",
+        "material": "Aluminum drawer-slide stage",
+        "name": "Intake slide rail right",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "climber tube mount left": {
+        "purpose": "Carry the climber tubes and the hang load into the front rail.",
+        "rationale": "The hang reaction enters the frame next to the front modules.",
+        "category": "structure",
+        "material": "6 mm aluminum bracket",
+        "name": "Climber tube mount left",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "climber tube mount right": {
+        "purpose": "Carry the climber tubes and the hang load into the front rail.",
+        "rationale": "The hang reaction enters the frame next to the front modules.",
+        "category": "structure",
+        "material": "6 mm aluminum bracket",
+        "name": "Climber tube mount right",
+        "subsystem": "frame",
+        "volumeType": "material"
+      },
+      "front left wheel azimuth envelope": {
+        "purpose": "Reserve the full steering sweep of each swerve wheel.",
+        "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
+        "category": "drivetrain",
+        "material": "Supplier wheel; envelope only",
+        "name": "Front left wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "front right wheel azimuth envelope": {
+        "purpose": "Reserve the full steering sweep of each swerve wheel.",
+        "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
+        "category": "drivetrain",
+        "material": "Supplier wheel; envelope only",
+        "name": "Front right wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear left wheel azimuth envelope": {
+        "purpose": "Reserve the full steering sweep of each swerve wheel.",
+        "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
+        "category": "drivetrain",
+        "material": "Supplier wheel; envelope only",
+        "name": "Rear left wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear right wheel azimuth envelope": {
+        "purpose": "Reserve the full steering sweep of each swerve wheel.",
+        "rationale": "A revolved envelope avoids animating an axisymmetric sweep and still bounds the wheel at any heading.",
+        "category": "drivetrain",
+        "material": "Supplier wheel; envelope only",
+        "name": "Rear right wheel azimuth envelope",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "front left module body": {
+        "purpose": "Represent the swerve module plates and gearing.",
+        "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
+        "category": "drivetrain",
+        "material": "Supplier module",
+        "name": "Front left module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "front right module body": {
+        "purpose": "Represent the swerve module plates and gearing.",
+        "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
+        "category": "drivetrain",
+        "material": "Supplier module",
+        "name": "Front right module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear left module body": {
+        "purpose": "Represent the swerve module plates and gearing.",
+        "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
+        "category": "drivetrain",
+        "material": "Supplier module",
+        "name": "Rear left module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear right module body": {
+        "purpose": "Represent the swerve module plates and gearing.",
+        "rationale": "Four-module swerve is the project default and the foundation already fits the supplier tabs.",
+        "category": "drivetrain",
+        "material": "Supplier module",
+        "name": "Rear right module body",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "front left module motors": {
+        "purpose": "Reserve the drive and steering motors above each module.",
+        "rationale": "Their height sets the low front shelves of the hopper liners above the front corners.",
+        "category": "drivetrain",
+        "material": "Supplier motors",
+        "name": "Front left module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "front right module motors": {
+        "purpose": "Reserve the drive and steering motors above each module.",
+        "rationale": "Their height sets the low front shelves of the hopper liners above the front corners.",
+        "category": "drivetrain",
+        "material": "Supplier motors",
+        "name": "Front right module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear left module motors": {
+        "purpose": "Reserve the drive and steering motors above each module.",
+        "rationale": "Their height sets the low front shelves of the hopper liners above the front corners.",
+        "category": "drivetrain",
+        "material": "Supplier motors",
+        "name": "Rear left module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "rear right module motors": {
+        "purpose": "Reserve the drive and steering motors above each module.",
+        "rationale": "Their height sets the low front shelves of the hopper liners above the front corners.",
+        "category": "drivetrain",
+        "material": "Supplier motors",
+        "name": "Rear right module motors",
+        "subsystem": "drivetrain",
+        "volumeType": "envelope"
+      },
+      "bumper front": {
+        "purpose": "Protect the frame perimeter and back the intake pinch.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing for the first of the climb: the acquisition trial presses the FUEL 11.2 mm into it. Its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
+        "category": "bumper",
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper front",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
+      },
+      "bumper rear": {
+        "purpose": "Protect the frame perimeter and back the intake pinch.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing for the first of the climb: the acquisition trial presses the FUEL 11.2 mm into it. Its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
+        "category": "bumper",
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper rear",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
+      },
+      "bumper left": {
+        "purpose": "Protect the frame perimeter and back the intake pinch.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing for the first of the climb: the acquisition trial presses the FUEL 11.2 mm into it. Its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
+        "category": "bumper",
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper left",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
+      },
+      "bumper right": {
+        "purpose": "Protect the frame perimeter and back the intake pinch.",
+        "rationale": "The 48-168 mm zone and 76 mm section follow the foundation release; the front bumper face is the pinch backing for the first of the climb: the acquisition trial presses the FUEL 11.2 mm into it. Its 866.15 mm width overlaps each TOWER upright by 23.9 mm.",
+        "category": "bumper",
+        "material": "Plywood backing, foam, fabric",
+        "name": "Bumper right",
+        "subsystem": "bumpers",
+        "volumeType": "envelope"
+      },
+      "hopper wall left": {
+        "purpose": "Contain stacked FUEL up to 715 mm.",
+        "rationale": "The walls stand above the heap the collect trial builds.",
+        "category": "structure",
+        "material": "2 mm polycarbonate",
+        "name": "Hopper wall left",
+        "subsystem": "hopper",
+        "volumeType": "material"
+      },
+      "hopper wall right": {
+        "purpose": "Contain stacked FUEL up to 715 mm.",
+        "rationale": "The walls stand above the heap the collect trial builds.",
+        "category": "structure",
+        "material": "2 mm polycarbonate",
+        "name": "Hopper wall right",
+        "subsystem": "hopper",
+        "volumeType": "material"
+      },
+      "hopper rear wall": {
+        "purpose": "Separate stored FUEL from the spinning flywheel above the floor lanes.",
+        "rationale": "Only the floor layer may pass under it. It stands behind the feeder rollers, so the rollers pull the floor FUEL out from under the heap. It stops at the right liner's pocket, clear of the inertia ring.",
+        "category": "structure",
+        "material": "2 mm polycarbonate",
+        "name": "Hopper rear wall",
+        "subsystem": "hopper",
+        "volumeType": "material"
+      },
+      "hopper liner left": {
+        "purpose": "Shape the hopper floor: a two-lane channel with shelves sloping in to it, and the cheeks beside the stowed intake.",
+        "rationale": "The channel is two lanes (336 mm) wide for its whole length, so the floor layer never has to converge; the batch trial stalls on the earlier issue's flat full-width floor. The 30 degree shelves cover the battery and electronics; the low front shelves pass under the stowed carriage. The right liner starts ahead of the flywheel's inertia ring behind a pocket wall.",
+        "category": "structure",
+        "material": "2 mm formed polycarbonate",
+        "name": "Hopper liner left",
+        "subsystem": "hopper",
+        "volumeType": "material"
+      },
+      "hopper liner right": {
+        "purpose": "Shape the hopper floor: a two-lane channel with shelves sloping in to it, and the cheeks beside the stowed intake.",
+        "rationale": "The channel is two lanes (336 mm) wide for its whole length, so the floor layer never has to converge; the batch trial stalls on the earlier issue's flat full-width floor. The 30 degree shelves cover the battery and electronics; the low front shelves pass under the stowed carriage. The right liner starts ahead of the flywheel's inertia ring behind a pocket wall.",
+        "category": "structure",
+        "material": "2 mm formed polycarbonate",
+        "name": "Hopper liner right",
+        "subsystem": "hopper",
+        "volumeType": "material"
+      },
+      "hopper shelf left": {
+        "purpose": "Cover the battery and slope stored FUEL in to the channel; lift out for battery service.",
+        "rationale": "A separate panel on two quarter-turn fasteners: the service cases lift it out with the strap, then the battery.",
+        "category": "structure",
+        "material": "2 mm polycarbonate panel",
+        "name": "Hopper shelf left",
+        "subsystem": "hopper shelf",
+        "volumeType": "material"
+      },
+      "floor belt main": {
+        "purpose": "Carry the floor layer of FUEL aft to the feeder rollers.",
+        "rationale": "Flat belts in the channel at 1.2 m/s, running to the front rail so a FUEL at the front of the floor stands on a driven surface. They stop while both lanes are staged and held, and reverse for 0.3 s in an unjam cycle. At 0.6 and 0.3 m/s the hopper cycle trial feeds all 24 in 15.8 and 14.3 s, against 7.6 s at this speed.",
+        "category": "mechanism",
+        "material": "Belt envelope; flat belt and rollers",
+        "name": "Floor belt main",
+        "subsystem": "floor belts",
+        "volumeType": "material"
+      },
+      "floor belt front": {
+        "purpose": "Carry the floor layer of FUEL aft to the feeder rollers.",
+        "rationale": "Flat belts in the channel at 1.2 m/s, running to the front rail so a FUEL at the front of the floor stands on a driven surface. They stop while both lanes are staged and held, and reverse for 0.3 s in an unjam cycle. At 0.6 and 0.3 m/s the hopper cycle trial feeds all 24 in 15.8 and 14.3 s, against 7.6 s at this speed.",
+        "category": "mechanism",
+        "material": "Belt envelope; flat belt and rollers",
+        "name": "Floor belt front",
+        "subsystem": "floor belts",
+        "volumeType": "material"
+      },
+      "feeder roller left": {
+        "purpose": "Hold a staged FUEL clear of the spinning flywheel, and feed it on command.",
+        "rationale": "One compliant 2 in roller per lane, 14 mm into the FUEL over the fixed lane deck. Braked, it is the hold-back: the hold trial keeps the FUEL 25.6 mm clear of the wheel at 1.5 g with a 90 N push and fails at 120 N. Turning, it meters: the lanes feed the one flywheel in turn, each feed given only with the wheel in its ready band. The two rollers meet at the centre line so a FUEL between the lanes is still under a roller.",
+        "category": "mechanism",
+        "material": "2 in compliant roller on a 12 mm shaft",
+        "name": "Feeder roller left",
+        "subsystem": "feeders",
+        "volumeType": "material"
+      },
+      "feeder roller right": {
+        "purpose": "Hold a staged FUEL clear of the spinning flywheel, and feed it on command.",
+        "rationale": "One compliant 2 in roller per lane, 14 mm into the FUEL over the fixed lane deck. Braked, it is the hold-back: the hold trial keeps the FUEL 25.6 mm clear of the wheel at 1.5 g with a 90 N push and fails at 120 N. Turning, it meters: the lanes feed the one flywheel in turn, each feed given only with the wheel in its ready band. The two rollers meet at the centre line so a FUEL between the lanes is still under a roller.",
+        "category": "mechanism",
+        "material": "2 in compliant roller on a 12 mm shaft",
+        "name": "Feeder roller right",
+        "subsystem": "feeders",
+        "volumeType": "material"
+      },
+      "feeder motor left": {
+        "purpose": "Turn and brake one feeder roller.",
+        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Unmounted allowance: the 12 mm shaft through the channel wall and the bearing block that carries it are not drawn, so the motor appears to float.",
+        "category": "mechanism",
+        "material": "Planetary gearmotor with brake; envelope",
+        "name": "Feeder motor left (unmounted allowance)",
+        "subsystem": "feeders",
+        "volumeType": "envelope"
+      },
+      "feeder motor right": {
+        "purpose": "Turn and brake one feeder roller.",
+        "rationale": "A small planetary gearmotor with a brake outboard of the channel wall, under the shelf on the left and in the pocket on the right. Unmounted allowance: the 12 mm shaft through the channel wall and the bearing block that carries it are not drawn, so the motor appears to float.",
+        "category": "mechanism",
+        "material": "Planetary gearmotor with brake; envelope",
+        "name": "Feeder motor right (unmounted allowance)",
+        "subsystem": "feeders",
+        "volumeType": "envelope"
+      },
+      "flywheel": {
+        "purpose": "Accelerate each FUEL against the hood.",
+        "rationale": "A 4 in floor-fed flywheel at a 13.6 m/s setpoint, held at speed whenever FUEL is aboard. The wheel-to-hood gap is the FUEL diameter less 12 mm: the launch trial releases at 6.90 m/s. It is a free body in the trial: one shot takes 17 J and drops it 1.9%.",
+        "category": "mechanism",
+        "material": "Aluminum tube roller, compliant tread",
+        "name": "Flywheel",
+        "subsystem": "shooter",
+        "volumeType": "material"
+      },
+      "flywheel inertia ring": {
+        "purpose": "Store the energy of a shot so the wheel speed falls little.",
+        "rationale": "One steel ring (0.97 kg) outboard of the right side plate brings the wheel to 0.0076 kg m2 for 2.56 kg. The batch trial holds the scoring band with it on the weak-pack bus; the bare roller holds it there only at the full 40 A stator limit.",
+        "category": "mechanism",
+        "material": "Steel ring on an aluminum web; drawn as its disc envelope",
+        "volumeType": "envelope",
+        "name": "Flywheel inertia ring",
+        "subsystem": "shooter"
+      },
+      "hood": {
+        "purpose": "Guide the FUEL around the flywheel and release it at about 62 degrees elevation.",
+        "rationale": "Concentric with the wheel and tangent to the lane deck. It ends at -149.5 degrees about the wheel axis, where the launch trial releases the FUEL at 61.6 degrees; the end stays inside the rear perimeter, so the shooter never extends a second side.",
+        "category": "mechanism",
+        "material": "Formed aluminum with friction liner",
+        "name": "Hood",
+        "subsystem": "shooter",
+        "volumeType": "material"
+      },
+      "shooter side plate left": {
+        "purpose": "Carry the flywheel bearings and hood.",
+        "rationale": "Plates stop 4 mm short of the rear modules and bound the two lanes behind the rear wall.",
+        "category": "structure",
+        "material": "6 mm aluminum plate",
+        "name": "Shooter side plate left",
+        "subsystem": "shooter",
+        "volumeType": "material"
+      },
+      "shooter side plate right": {
+        "purpose": "Carry the flywheel bearings and hood.",
+        "rationale": "Plates stop 4 mm short of the rear modules and bound the two lanes behind the rear wall.",
+        "category": "structure",
+        "material": "6 mm aluminum plate",
+        "name": "Shooter side plate right",
+        "subsystem": "shooter",
+        "volumeType": "material"
+      },
+      "flywheel motor left": {
+        "purpose": "Drive the flywheel from both ends and hold its speed.",
+        "rationale": "Direct drive, 40 A stator and 30 A supply limit each. Outboard of each side plate, clear of the battery, the ring and the rear modules.",
+        "category": "mechanism",
+        "material": "Brushless motor",
+        "name": "Flywheel motor left",
+        "subsystem": "shooter",
+        "volumeType": "envelope"
+      },
+      "flywheel motor right": {
+        "purpose": "Drive the flywheel from both ends and hold its speed.",
+        "rationale": "Direct drive, 40 A stator and 30 A supply limit each. Outboard of each side plate, clear of the battery, the ring and the rear modules.",
+        "category": "mechanism",
+        "material": "Brushless motor",
+        "name": "Flywheel motor right",
+        "subsystem": "shooter",
+        "volumeType": "envelope"
+      },
+      "battery": {
+        "purpose": "Supply the robot bus.",
+        "rationale": "Standing on its end under the left shelf, between two cleats and under a strap; it lifts straight out once the shelf panel and strap are off.",
+        "category": "battery",
+        "material": "Sealed lead acid 12 V",
+        "name": "Battery",
+        "subsystem": "battery",
+        "volumeType": "material"
+      },
+      "battery retention cleat aft": {
+        "purpose": "Stop the battery sliding aft and carry its end load into the floor pan.",
+        "rationale": "Paired with the fore cleat so the battery is captured in X.",
+        "category": "structure",
+        "material": "6061 aluminium formed cleat",
+        "volumeType": "envelope",
+        "name": "Battery retention cleat aft",
+        "subsystem": "battery retention"
+      },
+      "battery retention cleat fore": {
+        "purpose": "Stop the battery sliding forward.",
+        "rationale": "Paired with the aft cleat so the battery is captured in X while it still lifts straight out for service.",
+        "category": "structure",
+        "material": "6061 aluminium formed cleat",
+        "volumeType": "envelope",
+        "name": "Battery retention cleat fore",
+        "subsystem": "battery retention"
+      },
+      "battery strap": {
+        "purpose": "Hold the battery down on the floor pan.",
+        "rationale": "The earlier issue had no hold-down. The strap runs over the battery top between the cleats, under the shelf panel.",
+        "category": "structure",
+        "material": "25 mm webbing and buckle",
+        "name": "Battery strap",
+        "subsystem": "battery strap",
+        "volumeType": "material"
+      },
+      "electronics panel": {
+        "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
+        "category": "electrical",
+        "material": "Polycarbonate panel",
+        "name": "Electronics panel",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
+      },
+      "electronics panel left": {
+        "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
+        "category": "electrical",
+        "material": "Polycarbonate panel",
+        "name": "Electronics panel left",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
+      },
+      "electronics bay right": {
+        "purpose": "Hold power distribution, controller, radio, breaker and 17 motor controllers.",
+        "rationale": "Under the right shelf, beside the battery and under the right slide rail: outside the FUEL space and reachable from above or from the side. The panel under the shelf stands on the floor pan.",
+        "category": "electrical",
+        "material": "Polycarbonate panel",
+        "name": "Electronics bay right",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
+      },
+      "entry sensor": {
+        "purpose": "Observe each FUEL passing the top of the chute, and that the chute is clear before the intake stows.",
+        "rationale": "The strategy requires per-piece intake crossings on the match timebase.",
+        "category": "electrical",
+        "material": "Beam-break sensor",
+        "name": "Entry sensor",
+        "subsystem": "intake",
+        "volumeType": "envelope"
+      },
+      "stage sensor left": {
+        "purpose": "Observe the FUEL staged under each feeder roller.",
+        "rationale": "One beam per lane: a FUEL on the centre line breaks both, and both rollers then hold or feed it together. Separates retained identity from release for the counting requirement.",
+        "category": "electrical",
+        "material": "Beam-break sensor",
+        "name": "Stage sensor left",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
+      },
+      "stage sensor right": {
+        "purpose": "Observe the FUEL staged under each feeder roller.",
+        "rationale": "One beam per lane: a FUEL on the centre line breaks both, and both rollers then hold or feed it together. Separates retained identity from release for the counting requirement.",
+        "category": "electrical",
+        "material": "Beam-break sensor",
+        "name": "Stage sensor right",
+        "subsystem": "electrical",
+        "volumeType": "envelope"
+      },
+      "climber tube left": {
+        "purpose": "Guide the telescoping hooks.",
+        "rationale": "Front corners above the modules give a straight load path into the frame for the hang.",
+        "category": "structure",
+        "material": "30 mm round aluminum tube",
+        "name": "Climber tube left",
+        "subsystem": "climber tubes",
+        "volumeType": "material"
+      },
+      "climber tube right": {
+        "purpose": "Guide the telescoping hooks.",
+        "rationale": "Front corners above the modules give a straight load path into the frame for the hang.",
+        "category": "structure",
+        "material": "30 mm round aluminum tube",
+        "name": "Climber tube right",
+        "subsystem": "climber tubes",
+        "volumeType": "material"
+      },
+      "climber winch": {
+        "purpose": "Retract both inner tubes by cable to lift the robot.",
+        "rationale": "Under the left slide rail, outboard of the carriage plate. In the hang trial at 70.3 kg its cable load peaks at 1043 N during the lift, and the brake must hold 690 N with power removed.",
+        "category": "mechanism",
+        "material": "Gearmotor and spool envelope",
+        "name": "Climber winch",
+        "subsystem": "climber tubes",
+        "volumeType": "envelope"
+      },
+      "climber inner tube left": {
+        "purpose": "Telescope inside the outer tube to seat the hook and lift the robot 70 mm.",
+        "rationale": "A round tube lets the hook swing on top without the tube rotating in its guide; the swing actuator sits inside it.",
+        "category": "mechanism",
+        "material": "22 mm round aluminum tube",
+        "name": "Climber inner tube left",
+        "subsystem": "climber inner tubes",
+        "volumeType": "material"
+      },
+      "climber inner tube right": {
+        "purpose": "Telescope inside the outer tube to seat the hook and lift the robot 70 mm.",
+        "rationale": "A round tube lets the hook swing on top without the tube rotating in its guide; the swing actuator sits inside it.",
+        "category": "mechanism",
+        "material": "22 mm round aluminum tube",
+        "name": "Climber inner tube right",
+        "subsystem": "climber inner tubes",
+        "volumeType": "material"
+      },
+      "climber hook left": {
+        "purpose": "Swing forward, pass over the low rung, seat and lift the robot 70 mm.",
+        "rationale": "Stowed inside the perimeter for R106. They swing while the intake is still deployed below them; the intake then stows between them.",
+        "category": "mechanism",
+        "material": "Aluminum tube and hook plate",
+        "name": "Climber hook left",
+        "subsystem": "climber hooks",
+        "volumeType": "material"
+      },
+      "climber hook right": {
+        "purpose": "Swing forward, pass over the low rung, seat and lift the robot 70 mm.",
+        "rationale": "Stowed inside the perimeter for R106. They swing while the intake is still deployed below them; the intake then stows between them.",
+        "category": "mechanism",
+        "material": "Aluminum tube and hook plate",
+        "name": "Climber hook right",
+        "subsystem": "climber hooks",
+        "volumeType": "material"
+      },
+      "intake belt module": {
+        "purpose": "Draw a floor FUEL under its bottom pulley and lift it up the bumper face and the back plate.",
+        "rationale": "Drawn at the acquisition trial's setting: the back run stands 20 mm inside one FUEL diameter from the bumper face and the back plate, and the bottom pulley 20 mm into a floor FUEL. The trial captures at 15 mm and fails at 10 mm, so the squeeze is a layout dimension. It stays inside the 304.8 mm reach. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float 6 mm inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
+        "category": "mechanism",
+        "material": "Belt module with internal motor",
+        "name": "Intake belt module",
+        "subsystem": "intake",
+        "volumeType": "envelope"
+      },
+      "intake top roller": {
+        "purpose": "Throw the lifted FUEL aft over the top of the back plate.",
+        "rationale": "Lowered 20 mm into the path of the FUEL at the top of the climb and turning at 2 times the belt speed; the FUEL enters the hopper at 1.9 m/s, 552 mm up, above the stored FUEL. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float above and inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
+        "category": "mechanism",
+        "material": "2 in compliant wheels on hex shaft",
+        "name": "Intake top roller",
+        "subsystem": "intake",
+        "volumeType": "material"
+      },
+      "intake back plate": {
+        "purpose": "Back the belt above the bumper, and close the front of the hopper while the intake is deployed.",
+        "rationale": "It continues the bumper face plane up to 425 mm, so a FUEL enters the hopper from above the heap: thrown in low through an open throat, the collect trial stalls with FUEL backing out. Its hopper-side face leans forward from a 45 mm foot, so a FUEL touching it stands over the driven belt. In an unjam cycle the slide nudges it 40 mm into the FUEL at the front. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float 6 mm inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
+        "category": "mechanism",
+        "material": "Folded 1 mm aluminum wedge with a friction face; drawn solid",
+        "volumeType": "envelope",
+        "name": "Intake back plate",
+        "subsystem": "intake"
+      },
+      "intake carriage plate left": {
+        "purpose": "Join the belt module, top roller and back plate to the slide, and close the sides of the chute.",
+        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys. Unmounted allowance: only the fixed stage of the two-stage slide is drawn, so a deployed plate appears to float ahead of its rail. The moving stage and the cross-ties to the belt module, top roller and back plate are not drawn (risk carriage-cross-ties).",
+        "category": "mechanism",
+        "material": "Aluminum plate, lightened",
+        "name": "Intake carriage plate left",
+        "subsystem": "intake",
+        "volumeType": "material"
+      },
+      "intake carriage plate right": {
+        "purpose": "Join the belt module, top roller and back plate to the slide, and close the sides of the chute.",
+        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys. Unmounted allowance: only the fixed stage of the two-stage slide is drawn, so a deployed plate appears to float ahead of its rail. The moving stage and the cross-ties to the belt module, top roller and back plate are not drawn (risk carriage-cross-ties).",
+        "category": "mechanism",
+        "material": "Aluminum plate, lightened",
+        "name": "Intake carriage plate right",
+        "subsystem": "intake",
+        "volumeType": "material"
+      },
+      "FUEL tracked": {
+        "purpose": "Follow one identifiable FUEL from the carpet into the HUB.",
+        "rationale": "Its cases are coarse strokes fitted to the solved acquisition, entry, launch and delivery traces, within 40 mm; the recorded trials play as replays. It is drawn where the mission finds it, on the carpet ahead of the intake.",
+        "category": "game-piece",
+        "material": "Foam FUEL 150.114 mm, 0.203-0.227 kg",
+        "name": "FUEL tracked",
+        "subsystem": "tracked FUEL",
+        "volumeType": "material"
+      },
+      "FUEL stored 1": {
+        "purpose": "Represent stored stock in the starting fold.",
+        "rationale": "Supported places from the deposition screen, behind the stowed carriage and clear of every traced position of the tracked FUEL; capacity itself is the collect trial and the start-capacity premise.",
+        "category": "game-piece",
+        "material": "Foam FUEL",
+        "name": "FUEL stored 1",
+        "subsystem": "stored FUEL",
+        "volumeType": "material"
+      },
+      "hub funnel side 1": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel side 2": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel side 3": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 3",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel side 4": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 4",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel side 5": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 5",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel side 6": {
+        "purpose": "One of the six sloping walls of the HUB funnel.",
+        "rationale": "A FUEL that enters the opening lands on them. FIRST official field model, part 'GE-26329: Hub Funnel Side' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel side 6",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub funnel base": {
+        "purpose": "Bottom of the HUB funnel, where scored FUEL drop to the counter.",
+        "rationale": "FIRST official field model, part 'GE-26315-01: Hub Funnel Base' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub funnel base",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub roof panel": {
+        "purpose": "Roof of the HUB body around the funnel.",
+        "rationale": "FIRST official field model, part 'GE-26304: Hub Roof Panel' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub roof panel",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub side panel 1": {
+        "purpose": "Side panel of the HUB body.",
+        "rationale": "FIRST official field model, part 'GE-26305: Hub Side Panel' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub side panel 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub side panel 2": {
+        "purpose": "Side panel of the HUB body.",
+        "rationale": "FIRST official field model, part 'GE-26305: Hub Side Panel' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub side panel 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub front panel top 1": {
+        "purpose": "Upper panel of the HUB face.",
+        "rationale": "FIRST official field model, part 'GE-26308: Hub Front Panel, Top' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub front panel top 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub front panel top 2": {
+        "purpose": "Upper panel of the HUB face.",
+        "rationale": "FIRST official field model, part 'GE-26308: Hub Front Panel, Top' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub front panel top 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub front panel bottom": {
+        "purpose": "Lower panel of the HUB face.",
+        "rationale": "FIRST official field model, part 'GE-26328: Hub Front Panel, Bottom' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub front panel bottom",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub rear panel": {
+        "purpose": "Neutral-zone panel of the HUB body.",
+        "rationale": "FIRST official field model, part 'GE-26306: Hub Rear Panel, Bottom' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub rear panel",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "hub net": {
+        "purpose": "Net behind the opening.",
+        "rationale": "A shot that carries past the opening meets it. FIRST official field model, part 'GE-26318: Hub Net (Aesthetic)' from cad/field/official/blue-hub.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Hub net",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower base": {
+        "purpose": "TOWER BASE plate.",
+        "rationale": "A Level 1 hang has to clear it. FIRST official field model, part 'GE-26501-01: Tower Base Bottom' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower base",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower upright outer 1": {
+        "purpose": "TOWER upright.",
+        "rationale": "The bumper berths against the pair. FIRST official field model, part 'GE-26502-01: Tower Upright Outer' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower upright outer 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower upright outer 2": {
+        "purpose": "TOWER upright.",
+        "rationale": "The bumper berths against the pair. FIRST official field model, part 'GE-26502-01: Tower Upright Outer' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower upright outer 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower upright inner 1": {
+        "purpose": "TOWER upright.",
+        "rationale": "The bumper berths against the pair. FIRST official field model, part 'GE-26502-02: Tower Upright Inner' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower upright inner 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower upright inner 2": {
+        "purpose": "TOWER upright.",
+        "rationale": "The bumper berths against the pair. FIRST official field model, part 'GE-26502-02: Tower Upright Inner' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower upright inner 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower rung 1": {
+        "purpose": "TOWER rung.",
+        "rationale": "The hooks seat on the low one at 685.8 mm. FIRST official field model, part 'GE-26503: Tower Rung' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower rung 1",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower rung 2": {
+        "purpose": "TOWER rung.",
+        "rationale": "The hooks seat on the low one at 685.8 mm. FIRST official field model, part 'GE-26503: Tower Rung' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower rung 2",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower rung 3": {
+        "purpose": "TOWER rung.",
+        "rationale": "The hooks seat on the low one at 685.8 mm. FIRST official field model, part 'GE-26503: Tower Rung' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower rung 3",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      },
+      "tower lower plastic": {
+        "purpose": "Panel between the uprights below the low rung.",
+        "rationale": "FIRST official field model, part 'GE-26505: Tower Lower Plastic' from cad/field/official/blue-tower.step (FE-2026-rev-rebuilt-playing-field.step, FE-2026 REBUILT playing field, Onshape STEP AP242 export stamped 2026-01-07T21:47:03Z; server Last-Modified 2026-01-10 17:31:49 GMT), geometry as published, placed in the robot datum at the shot pose: official millimetres shifted by (-6345, 0, 0)",
+        "category": "field",
+        "material": "FIRST official field part",
+        "name": "Tower lower plastic",
+        "subsystem": "field",
+        "volumeType": "envelope"
+      }
+    },
+    "required": {
+      "wheels": [
+        "front left wheel azimuth envelope",
+        "front right wheel azimuth envelope",
+        "rear left wheel azimuth envelope",
+        "rear right wheel azimuth envelope"
+      ],
+      "drive and steering actuators": [
+        "front left module motors",
+        "front right module motors",
+        "rear left module motors",
+        "rear right module motors"
+      ],
+      "control computer, power distribution, main disconnect and radio": [
+        "electronics panel",
+        "electronics panel left",
+        "electronics bay right"
+      ],
+      "supply": [
+        "battery"
+      ],
+      "game piece": [
+        "FUEL tracked",
+        "FUEL stored 1"
+      ]
+    },
+    "loadMembers": {
+      "drive": [
+        "front left module body",
+        "front left module motors",
+        "front right module body",
+        "front right module motors",
+        "rear left module body",
+        "rear left module motors",
+        "rear right module body",
+        "rear right module motors"
+      ],
+      "steer": [
+        "front left module motors",
+        "front right module motors",
+        "rear left module motors",
+        "rear right module motors"
+      ],
+      "intake": [
+        "intake belt module",
+        "intake top roller",
+        "intake slide rail left",
+        "intake slide rail right"
+      ],
+      "indexer": [
+        "floor belt main",
+        "floor belt front",
+        "feeder motor left",
+        "feeder motor right",
+        "feeder roller left",
+        "feeder roller right"
+      ],
+      "flywheel": [
+        "flywheel motor left",
+        "flywheel motor right",
+        "flywheel",
+        "flywheel inertia ring"
+      ],
+      "climber": [
+        "climber hook left",
+        "climber hook right",
+        "climber inner tube left",
+        "climber inner tube right",
+        "climber winch"
+      ],
+      "controls": [
+        "electronics panel",
+        "electronics panel left",
+        "electronics bay right"
+      ]
+    },
+    "architecture": "Chute-fed hood shooter · floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 × 714 mm four-module swerve base",
+    "alliance": "blue",
+    "caseKinds": {
+      "intake-deploy": "nominal",
+      "acquire-1": "nominal",
+      "acquire-2": "nominal",
+      "acquire-3": "nominal",
+      "hopper-1": "nominal",
+      "hopper-2": "nominal",
+      "hopper-3": "nominal",
+      "loaded-transit": "nominal",
+      "launch-1": "nominal",
+      "flight-1": "nominal",
+      "flight-2": "nominal",
+      "climb-reach": "nominal",
+      "intake-stow": "nominal",
+      "tower-lateral": "nominal",
+      "tower-forward": "nominal",
+      "climb-seat": "nominal",
+      "climb-lift": "nominal",
+      "park-lower": "nominal",
+      "battery-cover-remove": "nominal",
+      "battery-withdraw": "nominal",
+      "shooter-withdraw": "nominal"
+    },
+    "uncoveredCases": [
+      {
+        "id": "bump-crossing-dynamic",
+        "condition": "FUEL leaving the robot in ten BUMP crossings each way at 1.5 m/s with 24 aboard and the intake retracted",
+        "reason": "Driving over the BUMP at speed with stored FUEL is not evaluated"
+      },
+      {
+        "id": "loaded-robot-contact",
+        "condition": "FUEL leaving the robot in five 1 m/s bumper-to-bumper contacts on each side with 24 aboard",
+        "reason": "Robot-to-robot contact while carrying FUEL is not evaluated"
+      }
+    ],
+    "title": "Floor-fed hood shooter with a chute intake and a two-lane hopper",
+    "context": "Preliminary design · whole-robot blockout",
+    "focus": "FUEL tracked: The mission cases follow this FUEL from the carpet into the HUB.",
+    "notes": [
+      "What it is: the whole-robot preliminary blockout of the Chute-fed hood shooter (floor-fed hooded-flywheel shooter with a chute intake and a two-lane hopper on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
+      "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are panel blocks; belts and rollers are rigid outlines; the back plate is drawn solid. The intake belt, top roller, back plate, feeder roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is an intended contact in its case, listed in contacts.json.",
+      "Field: the HUB and TOWER are parts of FIRST's official field model (cad/field/official/), placed at the shot pose in their official positions relative to each other. Fasteners, tags, lights and the fuel counter are left out. The physics trials ran earlier against dimensioned surfaces, not these parts.",
+      "Tracked FUEL motion: its 9 checked cases are coarse strokes fitted to the solved acquire, entry, launch and deliver trials in field-trials.json, each within the path tolerance its case declares (largest fit error 39.8 mm). Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's. The replays after the checked cases play the recorded trials themselves.",
+      "Solved in the trials: the FUEL against every surface; the intake belt speed under its motor and current limits; the flywheel speed under the FUEL's load and its motors. Imposed: robot approach speed (0.5 m/s), floor belt speed (1.2 m/s) and feeder roller speeds (0.6 and 1.2 m/s).",
+      "Replays: one FUEL from the carpet into the HUB, the 24-FUEL collect, hold and feed cycle, the hold-back, the 24-shot batch and the hang are recorded physics trials in field-trials.json. The hopper cycle fed all 24 in 7.1-10.5 s over 16 arrival patterns.",
+      "Prescribed, not simulated, in the checked cases: the intake slide, the field moving in the robot frame (TOWER approach), the hook swing and the climb strokes: battery-cover-remove, battery-withdraw, climb-reach, climb-seat, intake-deploy, intake-stow, loaded-transit, park-lower, shooter-withdraw, tower-forward, tower-lateral.",
+      "Contact stiffness, damping, friction and rolling resistance are estimates, not measurements, and no FUEL force-deflection curve is available. Motor figures are a published brushless curve.",
+      "Sources and cutoff: FRC REBUILT kickoff manual V0 with Team Update 00, cutoff 2026-01-10 23:59:59 America/New_York (construction-rules.json); official field STEP stamped 2026-01-07 (cad/field/official/official-field.json).",
+      "Risks closed by design and bench tests still to run: see openItems.",
+      "Closed by design (flywheel-droop): The flywheel slows under each shot and through a batch, and the release leaves the scoring band. Flywheel a free 0.0076 kg m2 body (roller plus one inertia ring, 2.56 kg) under two motors and a speed loop, fed only inside a 1% ready band: one shot takes 17 J and drops the wheel 1.9%; 24 FUEL at 4 FUEL/s release at 6.88-6.92 m/s on a 12 V bus and 6.83-6.88 m/s on the 8.34 V weak-pack bus, inside the 6.725-7.100 m/s band (batch trials).",
+      "Closed by design (hold-back): A staged FUEL is pushed into the spinning flywheel with no feed commanded. One braked feeder roller per lane over a fixed lane deck, 14 mm squeeze, floor belt ending ahead of the staged FUEL and stopped while both lanes are staged: the hold trial keeps the FUEL 25.6 mm clear under a 90 N push at 1.5 g and fails at 120 N. In the 16 collect-hold-feed patterns the push on a staged FUEL peaks at 138 N (20 ms mean), above the steady push the hold trial passes, as FUEL land on the heap, and no pattern feeds uncommanded; the bench tests hold-back-force and uncommanded-feed-bench measure the margin.",
+      "Closed by design (intake-power): The intake belt cannot hold its speed under the acquisition load at its current limit. Belt driven in the trial by one motor at 2:1 with a 30 A supply limit: three FUEL abreast on a 9 V bus dip it to 2.13 m/s and are captured; the trial captures down to 2.5 m/s and fails at 2 m/s.",
+      "Closed by design (batch-collection): A batch of 24 cannot be collected: thrown in low through an open throat, the hopper stalls with FUEL backing out into the intake. The intake is a chute that lifts each FUEL up its own back plate to 425 mm and throws it in over the top; the back plate closes the hopper front. Collect trial: 24 in the hopper and 0 in the chute of 24; collecting 27 leaves more than four in the chute (bracket). The earlier issue's low entry fails the same trial (control).",
+      "Closed by design (batch-feed): The collected heap bridges or strands FUEL and the feed falls below 2.00 FUEL/s. Two-lane channel with the belt running to the front rail, sloped shelves, feeder rollers standing in the hopper and meeting at the centre line, one stage beam per lane, a belt reversal and a 40 mm carriage nudge in the unjam cycle: 16 of 16 collect-hold-feed patterns feed all 24 in 7.1-10.5 s (2.3-3.4 FUEL/s).",
+      "Closed by design (hang-with-fuel): The intake cannot stow with FUEL in the front of the hopper, and deployed it stands under the rung. The hang sequence swings the hooks forward first, then stows the empty intake between them, then closes on the TOWER (cases climb-reach, intake-stow, tower-forward, checked). The stow is commanded only with the chute and both stage beams clear; with FUEL aboard the robot keeps shooting and does not hang, which is the strategy's own rule.",
+      "Closed by design (battery-strap): The battery has no hold-down. A strap over the battery top between the two cleats is drawn and mounted, and the shelf panel above it covers it; the service cases remove the panel and strap, then lift the battery (checked).",
+      "Closed by design (unregistered-joints): Members carried no registered joint to the frame. Each separately mounted member has its own mount entry: both feeder rollers and motors, both carriage plates, both inner tubes, both hooks, both climber tubes, the winch, the side walls, liners, rear wall, shelf panel and strap.",
+      "Bench test (shot-calibration): The model's wheel-to-FUEL speed transfer, drag and spin lift are estimates, so the setpoint that centres the release in the band is not known. The delivery trial also scored against a dimensioned opening, not the official HUB: the official opening is larger along the shot line, its funnel walls slope inward below the rim and a net stands behind it, and the trial's nominal shot arrives 384 mm beyond the HUB centre, where the net's lower edge is. Measure: FUEL scored of 20 launched from the 2.7 m pose, with every measured release speed of a 24 FUEL batch inside the band found on the bench; pass 19, fail 18 FUEL.",
+      "Bench test (hold-back-force): The hold rests on foam friction and stiffness that are estimates (0.9 and 0.6, 15 kN/m). Measure: Steady push on a staged FUEL that the braked feeder holds without the FUEL reaching the wheel; pass 90, fail 60 N.",
+      "Bench test (acquisition-pinch): Capture depends on the belt squeeze and on cover and back plate friction, which are estimates. Measure: Floor FUEL thrown over the back plate within 1.2 s, of 20, at 17.5, 20 and 25 mm squeeze with the belt at or above 2.5 m/s; pass 20, fail 19 FUEL.",
+      "Bench test (feed-rate-bench): Heap behaviour varies from run to run and rests on FUEL-to-FUEL and wall friction estimates; the slowest pattern feeds 24 in 10.5 s against 12 s. Measure: FUEL fed to the flywheel within 12 s of the first feed command, 24 collected through the chute, in each of 5 runs; pass 22, fail 21 FUEL.",
+      "Bench test (loaded-driving): A hard stop can throw FUEL forward over the chute, which is open above the top roller. Harder stops are tested on single patterns only: at 0.75 g 1 of 1 tested patterns keep and feed all 24; at 1 g 2 of 2 tested patterns keep and feed all 24. Measure: FUEL leaving the robot across ten stops from 3 m/s and five turns at the loaded acceleration limit of 0.5 g with 24 aboard; pass 0, fail 1 FUEL.",
+      "Bench test (uncommanded-feed-bench): A FUEL reaches the flywheel while collecting or driving. Measure: Uncommanded feeds in 20 collect-and-drive cycles of 24 FUEL; pass 0, fail 1 feeds.",
+      "Bench test (mass-reserve): The inspection weight estimate tops out 2.20 kg under the 52.16 kg limit. Measure: Weighed inspection weight of the robot without bumpers and battery; pass 52.16, fail 52.17 kg.",
+      "Bench test (hang-squaring): The robot hangs yawed or offset and a bumper misses an upright. The hang trial used a dimensioned TOWER BASE 8 mm tall; the official base plate and its brackets are checked for clearance in the climb cases but are not in the trial. Measure: Least clearance to the carpet and TOWER BASE through the 3 s hold, at 70.3 kg, seated at 0 and at 20 mm lateral offset each way; pass 5, fail 0 mm.",
+      "Bench test (bump-clearance): The front bumper corner clears the BUMP crest by 8.7 mm in the static screen, which uses a sharp 15 degree profile. The official BUMP crest is rounded and stands 3.7 mm fuller 20 mm either side of the line (cad/field/official/README.md), which is not in the screen. Measure: Least clearance of any part other than wheels and bumpers over the BUMP in ten crossings each way, intake retracted; pass 5, fail 0 mm.",
+      "Bench test (carriage-cross-ties): The intake's belt module, top roller and back plate stand inside the hopper cheeks and its carriage plates outside them. The ties between them and the moving slide stage are not drawn, so the layout does not show that they clear the cheeks and the bay walls through the slide travel. Measure: Least clearance from the carriage cross-ties and the moving slide stage to the hopper cheeks and bay walls over the full slide travel, on the first assembled carriage; pass 3, fail 1 mm.",
+      "Bench test (weak-battery-margin): The loaded-transit duty leaves the smallest voltage margin on a weak battery. Measure: Minimum bus voltage through a loaded transit with the flywheel spinning up, on a battery at 0.026 ohm; pass 7.5, fail 7.0 V.",
+      "Bench test (carriage-nudge): The unjam cycle's carriage nudge has to push the back plate into the FUEL at the hopper front. In the recorded trials the pattern run without the nudge also feeds all 24, so the trials do not show the nudge is needed. Measure: Arches at the hopper front cleared by one 40 mm nudge, of 10 set by hand with 24 FUEL aboard; pass 10, fail 9 arches.",
+      "Bench test (bump-crossing-dynamic): Driving over the BUMP at speed with stored FUEL is not evaluated. Measure: FUEL leaving the robot in ten BUMP crossings each way at 1.5 m/s with 24 aboard and the intake retracted; pass 0, fail 1 FUEL.",
+      "Bench test (loaded-robot-contact): Robot-to-robot contact while carrying FUEL is not evaluated. Measure: FUEL leaving the robot in five 1 m/s bumper-to-bumper contacts on each side with 24 aboard; pass 1, fail 2 FUEL.",
+      "The loaded acceleration limit of 0.5 g is not in the field rehearsal: its cycle times were credited without it and are not re-run here.",
+      "The feeder shafts through the channel walls, the right climber cable across the front rail and the hood's thickness are not drawn.",
+      "The stowed carriage stands in the front half of the hopper, so the intake cannot stow while FUEL is forward of the stage; the hang is taken with the hopper empty."
+    ],
+    "runningAdditions": [
+      {
+        "name": "bumpers",
+        "kg": [
+          6.0,
+          7.5
+        ],
+        "members": [
+          "bumper front",
+          "bumper left",
+          "bumper rear",
+          "bumper right"
+        ]
+      },
+      {
+        "name": "battery and leads",
+        "kg": [
+          5.0,
+          6.9
+        ],
+        "members": [
+          "battery"
+        ]
+      },
+      {
+        "name": "24 FUEL",
+        "kg": [
+          4.872,
+          5.448
+        ],
+        "members": [
+          "FUEL stored 1",
+          "FUEL tracked"
+        ]
+      }
+    ],
+    "runningBasis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
+    "loadPaths": {
+      "FUEL tracked": "Moved by contact transport (feeders, floor belts, intake, shooter) in 7 cases, each bound to its trial window by a pinned transport record: acquire-1, acquire-2, acquire-3, hopper-1, hopper-2, hopper-3, launch-1 -> No mechanism moves it in 6 cases (carpet approach, flight over the back plate, the fall to the floor, free flight to the HUB, and riding with the field): flight-1, flight-2, tower-lateral, tower-forward, climb-lift, park-lower. The free-path strokes pin their trial window through freePath",
+      "battery": "Group datum: battery mounts on battery retention cleat aft at (-95, 291, 150) mm: Battery end face captured between the aft and fore cleats, with the strap over its top -> battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails -> floor pan is a frame structure member",
+      "battery strap": "Group datum: battery strap mounts on battery retention cleat aft at (-95, 291, 199) mm: Strap anchored to the aft cleat and buckled to the fore cleat over the battery top -> battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails -> floor pan is a frame structure member",
+      "climber hook left": "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top (+1 more mount datum) -> climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum) -> climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums) -> climber tube mount left is a frame structure member",
+      "climber hook right": "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top (+1 more mount datum) -> climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum) -> climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums) -> climber tube mount left is a frame structure member",
+      "climber inner tube left": "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum) -> climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums) -> climber tube mount left is a frame structure member",
+      "climber inner tube right": "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum) -> climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums) -> climber tube mount left is a frame structure member",
+      "entry sensor": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "feeder motor left": "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums) -> hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums) -> frame rail left is a frame structure member",
+      "feeder motor right": "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums) -> hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums) -> frame rail left is a frame structure member",
+      "feeder roller left": "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums) -> hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums) -> frame rail left is a frame structure member",
+      "feeder roller right": "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums) -> hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums) -> frame rail left is a frame structure member",
+      "floor belt front": "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan -> floor pan is a frame structure member",
+      "floor belt main": "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan -> floor pan is a frame structure member",
+      "flywheel": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "flywheel inertia ring": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "flywheel motor left": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "flywheel motor right": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "hood": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "hopper shelf left": "Group datum: hopper shelf mounts on hopper liner left at (0, 169, 267) mm: Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners -> hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums) -> frame rail left is a frame structure member",
+      "intake back plate": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "intake belt module": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "intake carriage plate left": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "intake carriage plate right": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "intake top roller": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
+      "shooter side plate left": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
+      "shooter side plate right": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member"
+    },
+    "replays": [
+      {
+        "file": "cad/preliminary-design/releases/1.0/replays.json.gz"
+      }
+    ]
+  },
+  "scopeGuidelines": {
+    "solids": 80,
+    "toleranceMm": 10
+  },
+  "attachment": {
+    "gapMm": 3.5,
+    "suspended": {
+      "hub funnel base": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 1": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 2": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 3": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 4": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 5": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub funnel side 6": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub net": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down",
+      "hub roof panel": "Carried by the official HUB frame, roof risers and net poles, which are left out of the check to keep the fixture count down"
+    }
+  }
+}

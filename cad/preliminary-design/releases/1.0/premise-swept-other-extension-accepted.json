@@ -1,0 +1,20 @@
+{
+  "id": "swept-other-extension",
+  "unit": "mm",
+  "scenario": "Rear and side extension through every operating and park pose",
+  "criterion": {
+    "range": [
+      -500.0,
+      0.5
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "shooter",
+    "climber hooks"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "R106 one side at a time; only the front extends"
+}

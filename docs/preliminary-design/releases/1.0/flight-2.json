@@ -1,0 +1,186 @@
+{
+  "schema": "frc-2026-poc/trial-window@1",
+  "issue": "chute-fed-hood-shooter-1.0",
+  "case": "flight-2",
+  "freePath": {
+    "case": "flight-2",
+    "payload": "tracked FUEL",
+    "moves": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            -3181.620429367168,
+            82.5,
+            1268.5677167371016
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 31.32758700905177
+        }
+      ]
+    },
+    "initialPose": {
+      "FUEL tracked": [
+        {
+          "kind": "rotation",
+          "originMm": [
+            677.4127250851084,
+            82.5,
+            427.35494893488345
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 40.4300579745874
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            86.29960205060956,
+            82.5,
+            249.0173380602274
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -62.95386931401368
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            -30.619999999999948,
+            0.0,
+            6.242898042658725
+          ]
+        },
+        {
+          "kind": "gravity-drop",
+          "fallMm": 1.3128980426587744,
+          "quadraticFraction": 1.0
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            282.972047068857,
+            82.5,
+            255.14413304104158
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": -76.8530760172679
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            93.56,
+            0.0,
+            -161.22999999999996
+          ]
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            -157.6,
+            0.0,
+            -39.98000000000002
+          ]
+        },
+        {
+          "kind": "rotation",
+          "originMm": [
+            -48.81618521847922,
+            82.5,
+            498.4242666852638
+          ],
+          "axis": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "travelDeg": 42.408659683294616
+        },
+        {
+          "kind": "translation",
+          "travelMm": [
+            -2819.31,
+            0.0,
+            5249.918850602449
+          ]
+        },
+        {
+          "kind": "gravity-drop",
+          "fallMm": 3922.64885060245,
+          "quadraticFraction": 1.0
+        }
+      ]
+    }
+  },
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/1.0/field-trials.json"
+  },
+  "trial": {
+    "name": "deliver-nominal",
+    "fromS": 0.889,
+    "toS": 1.0037,
+    "fromPoseMm": [
+      -3091.37,
+      82.5,
+      1594.28
+    ],
+    "toPoseMm": [
+      -2935.18,
+      82.5,
+      1499.8700000000001
+    ],
+    "stroke": "arc",
+    "maxDeviationMm": 1.7,
+    "pathToleranceMm": 40.0,
+    "peakIndentationMm": {}
+  },
+  "qualification": {
+    "result": "pass",
+    "trial": "deliver-nominal",
+    "metric": {
+      "name": "scored at sensor (s)",
+      "value": 1.0037,
+      "requirement": "cross the sensor plane inside the opening"
+    },
+    "control": {
+      "condition": "Release 6.40 m/s, below the scoring band",
+      "trial": "deliver-6.40",
+      "rejected": true,
+      "firstUnmet": "did not reach the sensor plane inside the opening"
+    },
+    "brackets": [
+      {
+        "input": "release speed",
+        "unit": "m/s",
+        "passing": 7.1,
+        "failing": 7.25,
+        "passingTrial": "deliver-7.10",
+        "failingTrial": "deliver-7.25",
+        "failingFirstUnmet": "did not reach the sensor plane inside the opening"
+      }
+    ],
+    "timestep": {
+      "coarseS": 0.0001,
+      "fineS": 5e-05,
+      "sameOutcome": true,
+      "fineTrial": "deliver-nominal-half-step",
+      "coarseMetric": 1.0037,
+      "fineMetric": 1.0036
+    }
+  },
+  "basis": "Free flight from the hood release into the HUB funnel. A circular arc fitted to the solved trace deliver-nominal 0.8890-1.0037 s of field-trials.json, within 1.7 mm of every traced sample (path tolerance 40 mm); no mechanism moves it here: a free path"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "delivery-hub-distance",
+  "unit": "m",
+  "scenario": "Robot-centre distance from the HUB centre at every slot 2 delivery step in the re-run rehearsal",
+  "criterion": {
+    "range": [
+      2.6,
+      2.8
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "shooter",
+    "drivetrain"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/rehearsal/comparison.json"
+  },
+  "basis": "The robust shot band at 62 degrees is 0.15 m/s wide from 2.4 m release distance"
+}

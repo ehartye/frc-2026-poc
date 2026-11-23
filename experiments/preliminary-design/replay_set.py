@@ -108,18 +108,57 @@ def build(out, repo, rel, trial_data, cases, robot_members, field_members, objec
     """Write replays.json.gz into the release folder and return its plan pin fields (file is repository-relative)."""
     trials = {t["name"]: t for t in trial_data["trials"]}
     case = {c["id"]: c for c in cases}
-    import hashlib
-    trials_file = out / "field-trials.json"
-    evidence = lambda name: [dict(file=f"{rel}/field-trials.json", sha256=hashlib.sha256(trials_file.read_bytes()).hexdigest(),
-                                  role=f"Recorded trial {name}: the frames this replay plays")]
+    evidence = lambda name: [dict(file=f"{rel}/field-trials.json", role=f"Recorded trial {name}: the frames this replay plays")]
+    first = lambda prefix: next(c for c in cases if c["id"].startswith(prefix))
+    final = lambda prefix: [c for c in cases if c["id"].startswith(prefix)][-1]
     field, replays = {}, []
+
+    # ------------------------------------------------------------ one FUEL from the carpet into the HUB
+    acq, ent, lch, dlv = (trials[k] for k in ("acquire-nominal", "entry-nominal", "launch-nominal", "deliver-nominal"))
+    feed = lch["schedule"]["feedStartS"]
+    parts = [("collecting", acq["frames"], 2, None, True), ("to the stage", ent["frames"], 2, None, True),
+             ("launching", [f for f in lch["frames"] if f[0] >= feed - 1e-9], 2, None, False), ("in flight", dlv["frames"], 3, 2, False)]
+    time, rows, measure, events, at_shot, clock = [], [], [], [], [], 0.0
+    for word, frames, iz, iy, away in parts:
+        events.append(dict(frame=len(time), label=word[0].upper() + word[1:]))
+        t0 = frames[0][0]
+        for f in frames:
+            time.append(round(clock + f[0] - t0, 4))
+            rows.append(shift(1000 * f[1], D.TRACK_Y if iy is None else 1000 * f[iy], 1000 * f[iz]))
+            measure.append(f"{word} · trial second {f[0]:.2f} · FUEL centre {1000 * f[iz]:.0f} mm above the carpet")
+            at_shot.append(not away)
+        clock = time[-1] + 0.02
+    n = len(time)
+    events.append(dict(frame=n - 1, label="In the HUB"))
+    start = start_pose(first("acquire-"))
+    bodies, groups = static_groups(robot_members, start, n, "robot")
+    away_pose = start.get(field_members[0], I4)
+    for member in field_members:
+        bodies[member] = "field"
+    groups["field"] = [list(I4) if here else list(away_pose) for here in at_shot]
+    field["replay FUEL tracked"] = fuel_body(1, "The one FUEL the four chained trials follow")
+    bodies["replay FUEL tracked"] = "fuel"
+    groups["fuel"] = rows
+    replays.append(dict(
+        id="replay-one-fuel", label="One FUEL from the carpet into the HUB (recorded trials)",
+        basis="Recorded trials acquire-nominal, entry-nominal, launch-nominal and deliver-nominal of field-trials.json, played one after another. "
+              "Each starts where the one before ended. The checked acquire, hopper, launch and flight cases follow the same path in coarse strokes.",
+        objective=objectives["carry"],
+        evidence=[dict(file=f"{rel}/field-trials.json", role="Recorded trials acquire-nominal, entry-nominal, launch-nominal and deliver-nominal: the frames this replay plays")],
+        recorded=["Centre of the FUEL through the intake, the hopper, the feeder, the flywheel and the flight",
+                  "The delivery trial solved the flight and the scoring against a dimensioned HUB opening"],
+        display=["The official HUB and TOWER parts are drawn for scale. The trials did not run against them, so where the FUEL meets the funnel is not a trial result",
+                 "The loaded drive between collecting and shooting is not in these trials: the field jumps to the shot pose",
+                 "The clock restarts with each trial and the waits between them are left out",
+                 "Belts, rollers and the flywheel do not turn in the picture"],
+        time=time, measure=measure, events=events, follow=bodies["floor pan"], bodies=bodies, groups=groups))
 
     # ------------------------------------------------------------ collect, hold and feed 24 FUEL
     tr = trials["hopper-cycle-nominal"]
     frames = tr["frames"]
     n = len(frames)
     time = [max(0.0, f[0]) for f in frames]
-    pose = start_pose(case["hopper-roll-1"])
+    pose = start_pose(first("hopper-"))
     bodies, groups = static_groups(robot_members, pose, n, "robot")
     follow = bodies["floor pan"]
     count = len(frames[0]) - 1
@@ -179,7 +218,7 @@ def build(out, repo, rel, trial_data, cases, robot_members, field_members, objec
         basis=f"Recorded trial hold-nominal of field-trials.json: {tr['solved']}. Imposed: {tr['imposed']}. "
               f"Result: creep {tr['creepMm']:.2f} mm, least clearance to the flywheel {tr['metric']['value']:.1f} mm against 10 mm. "
               "The motion is about a millimetre, so the picture barely changes: read the creep in the readout. "
-              "The limit cases (90 N holds, 120 N fails) are trial records on the loaded-transit case and are not replayed.",
+              "The limit cases (90 N holds, 120 N fails) are in the trial record trial-hold.json and are not replayed.",
         objective=objectives["traffic"], evidence=evidence("hold-nominal"),
         recorded=["Centre and spin of the staged FUEL every 5 ms for 2 s"],
         display=["The robot is drawn standing still. The 1.5 g acceleration and the 30 N queue push act on the FUEL in the trial",
@@ -199,7 +238,7 @@ def build(out, repo, rel, trial_data, cases, robot_members, field_members, objec
     step = 0.01
     n = int(math.ceil(end / step)) + 2
     time = [round(i * step, 3) for i in range(n)]
-    pose = start_pose(case["launch-feed-1"])
+    pose = start_pose(first("launch-"))
     bodies, groups = static_groups(robot_members + field_members, pose, n, "still")
 
     def along(t):

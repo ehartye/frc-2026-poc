@@ -1,5 +1,11 @@
 # Official 2026 field fixtures
 
+<!-- cad-still -->
+[![Chute-fed hood shooter 1.0, preliminary design](../../../docs/robot/preliminary-design.png)](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
+
+**Project CAD · Chute-fed hood shooter 1.0, preliminary design · in-progress.** Whole-robot blockout, parked at the end of the park-lower case: back on the carpet after the low-rung hang, with the intake stowed. Field parts and FUEL are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
+<!-- /cad-still -->
+
 FIRST's official field model, trimmed to the fixtures the R3 layout's missions touch: the blue HUB the robot scores into, the blue TOWER it hangs from and the blue BUMPs it drives over. They replace the project-drawn planning solids from `experiments/preliminary-design/geometry.py` (`field_bodies`) and the profile in `bump_crossing.py`.
 
 | | |

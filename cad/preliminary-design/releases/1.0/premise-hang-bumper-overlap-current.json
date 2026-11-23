@@ -1,0 +1,11 @@
+{
+  "id": "hang-bumper-overlap",
+  "unit": "mm",
+  "scenario": "Lateral overlap of the bumper with each TOWER upright face while hanging",
+  "value": 23.93,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "bumperUprightOverlapMm"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "swept-height",
+  "unit": "mm",
+  "scenario": "Robot height in every operating and park pose",
+  "value": 756.257,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "sweptTopMm"
+}

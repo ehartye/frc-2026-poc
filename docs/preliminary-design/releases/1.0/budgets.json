@@ -1,0 +1,1875 @@
+{
+  "issue": "chute-fed-hood-shooter-1.0",
+  "step": {
+    "file": "cad/preliminary-design/releases/1.0/package.step"
+  },
+  "motion": {
+    "file": "cad/preliminary-design/releases/1.0/paths.json"
+  },
+  "design": {
+    "file": "cad/preliminary-design/releases/1.0/design.json"
+  },
+  "requirements": {
+    "file": "cad/preliminary-design/releases/1.0/package-limits.json"
+  },
+  "runningPayloadKg": [
+    15.872,
+    19.848
+  ],
+  "runningPayloadBasis": "Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing",
+  "masses": [
+    {
+      "id": "frame and floor",
+      "members": [
+        "climber tube mount left",
+        "climber tube mount right",
+        "floor pan",
+        "floor pan front tongue",
+        "frame rail front",
+        "frame rail left",
+        "frame rail rear",
+        "frame rail right",
+        "intake slide rail left",
+        "intake slide rail right",
+        "lane deck"
+      ],
+      "kg": [
+        5.53,
+        6.73
+      ],
+      "basis": "Four 2x1x0.125 in 6061 rails (2.72 m at 1.20 kg/m), 3 mm polycarbonate floor (about 0.4 m2), slide rails, tube mounts, gussets, and the 3 mm aluminum lane deck (0.33 kg as drawn). The front lip of the earlier issue is removed"
+    },
+    {
+      "id": "hopper walls and liners",
+      "members": [
+        "hopper liner left",
+        "hopper liner right",
+        "hopper rear wall",
+        "hopper wall left",
+        "hopper wall right",
+        "hopper shelf left"
+      ],
+      "kg": [
+        3.15,
+        3.73
+      ],
+      "basis": "Two side walls and the rear wall (drawn 3 mm) and two formed liners and the battery shelf panel (drawn 2 mm), all allocated as 1.5 mm polycarbonate: 1.73 kg of walls and 1.12 kg of liners at 1.2 g/cm3, plus 0.3-0.6 kg of edge stiffeners and fasteners and 10% high. The front upper wall of the earlier issue is removed"
+    },
+    {
+      "id": "drivetrain",
+      "members": [
+        "front left module body",
+        "front left module motors",
+        "front left wheel azimuth envelope",
+        "front right module body",
+        "front right module motors",
+        "front right wheel azimuth envelope",
+        "rear left module body",
+        "rear left module motors",
+        "rear left wheel azimuth envelope",
+        "rear right module body",
+        "rear right module motors",
+        "rear right wheel azimuth envelope"
+      ],
+      "kg": [
+        8.9,
+        9.7
+      ],
+      "basis": "Four MAXSwerve corners: 1.720 kg purchased assembly each (foundation reconciliation), 6.88 kg, plus four drive motors at 0.43 kg and four steering motors at 0.14 kg, 2.28 kg; 0.25 kg low for the lighter wheel option and 0.5 kg high for fasteners and encoders cables"
+    },
+    {
+      "id": "floor indexer",
+      "members": [
+        "floor belt front",
+        "floor belt main"
+      ],
+      "kg": [
+        1.2,
+        1.9
+      ],
+      "basis": "Two flat belt runs 332 mm wide in the channel, rollers, one motor and gearbox"
+    },
+    {
+      "id": "feeders",
+      "members": [
+        "feeder motor left",
+        "feeder motor right",
+        "feeder roller left",
+        "feeder roller right"
+      ],
+      "kg": [
+        1.2,
+        1.7
+      ],
+      "basis": "Two 2 in compliant rollers on 12 mm shafts (0.30-0.40 kg each), two planetary gearmotors with brakes (0.25-0.40 kg each), bearing blocks 0.1 kg"
+    },
+    {
+      "id": "shooter",
+      "members": [
+        "flywheel",
+        "flywheel inertia ring",
+        "flywheel motor left",
+        "flywheel motor right",
+        "hood",
+        "shooter side plate left",
+        "shooter side plate right"
+      ],
+      "kg": [
+        5.42,
+        6.52
+      ],
+      "basis": "Flywheel as built in dimensions.py: 2.56 kg for 0.0076 kg m2 (aluminum tube roller 0.80 kg, tread 0.45 kg, one steel inertia ring 0.97 kg on a 0.09 kg web, hubs 0.25 kg), plus 5% high. Two side plates allocated as 4.76 mm aluminum with 30 to 50% pocketed out, 0.91-1.28 kg (the drawn 8 mm envelopes would weigh 3.06 kg solid). Hood 0.75 kg. Two flywheel motors 0.9-1.2 kg. Shaft, bearings and fasteners 0.3-0.6 kg"
+    },
+    {
+      "id": "intake",
+      "members": [
+        "entry sensor",
+        "intake back plate",
+        "intake belt module",
+        "intake carriage plate left",
+        "intake carriage plate right",
+        "intake top roller"
+      ],
+      "kg": [
+        4.24,
+        5.58
+      ],
+      "basis": "Vertical belt module with internal motor and top roller as in the earlier issue (2.8-3.6 kg), 130 mm more belt and frame (0.25-0.4 kg), the back plate as a folded 1 mm aluminum wedge (0.4-0.6 kg), and two carriage plates allocated as 3 mm aluminum with 25 to 40% pocketed out, 0.79-0.98 kg (the drawn 10 mm envelopes would weigh 4.36 kg solid)"
+    },
+    {
+      "id": "climber",
+      "members": [
+        "climber tube left",
+        "climber tube right",
+        "climber winch",
+        "climber inner tube left",
+        "climber inner tube right",
+        "climber hook left",
+        "climber hook right"
+      ],
+      "kg": [
+        3.0,
+        3.9
+      ],
+      "basis": "Two telescoping tube pairs, hooks with swing actuators inside the inner tubes, winch and cables"
+    },
+    {
+      "id": "electrical and controls",
+      "members": [
+        "electronics bay right",
+        "electronics panel",
+        "electronics panel left",
+        "stage sensor left",
+        "stage sensor right"
+      ],
+      "kg": [
+        4.3,
+        5.4
+      ],
+      "basis": "Power distribution, controller, radio, 17 motor controllers, breaker, three beam sensors, wiring on the panels under the right shelf and in the right bay"
+    },
+    {
+      "id": "bumpers (excluded by R103)",
+      "members": [
+        "bumper front",
+        "bumper left",
+        "bumper rear",
+        "bumper right"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes bumpers; 6.0-7.5 kg carried in the running payload and in the R408 check"
+    },
+    {
+      "id": "battery (excluded by R103)",
+      "members": [
+        "battery"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "R103 excludes the battery and its connector half; 5.0-6.9 kg (V0 battery 4.99-6.57 kg plus leads) carried in the running payload"
+    },
+    {
+      "id": "field fixtures (not robot)",
+      "members": [
+        "hub front panel bottom",
+        "hub front panel top 1",
+        "hub front panel top 2",
+        "hub funnel base",
+        "hub funnel side 1",
+        "hub funnel side 2",
+        "hub funnel side 3",
+        "hub funnel side 4",
+        "hub funnel side 5",
+        "hub funnel side 6",
+        "hub net",
+        "hub rear panel",
+        "hub roof panel",
+        "hub side panel 1",
+        "hub side panel 2",
+        "tower base",
+        "tower lower plastic",
+        "tower rung 1",
+        "tower rung 2",
+        "tower rung 3",
+        "tower upright inner 1",
+        "tower upright inner 2",
+        "tower upright outer 1",
+        "tower upright outer 2"
+      ],
+      "kg": [
+        0.0,
+        0.0
+      ],
+      "basis": "HUB and TOWER references are field equipment"
+    },
+    {
+      "id": "unmodeled robot hardware",
+      "members": [],
+      "kg": [
+        3.0,
+        4.5
+      ],
+      "basis": "Fasteners, brackets, cable chain, camera and spares not yet drawn. The upper bound falls 0.5 kg from the earlier issue: the feeder mounts, battery strap, lane deck and liner joints it covered are now drawn and weighed in their own lines"
+    },
+    {
+      "id": "battery retention",
+      "members": [
+        "battery retention cleat aft",
+        "battery retention cleat fore",
+        "battery strap"
+      ],
+      "kg": [
+        0.151,
+        0.301
+      ],
+      "basis": "Two cleat envelopes, 74.5 cm3: high as solid 6061 at 2.70 g/cm3, low at half fill for formed angle; rivets inside. Webbing strap and buckle 0.05-0.10 kg"
+    }
+  ],
+  "electricalCases": {
+    "intake-deploy-nominal": {
+      "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          10,
+          60
+        ],
+        "steer": [
+          2,
+          8
+        ],
+        "intake": [
+          5,
+          25
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "intake-deploy-weak": {
+      "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          10,
+          60
+        ],
+        "steer": [
+          2,
+          8
+        ],
+        "intake": [
+          5,
+          25
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "acquire-3-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "acquire-3-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "hopper-3-nominal": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "hopper-3-weak": {
+      "basis": "Simultaneous battery-side bounds for the acquire duty with supply current limits (drive 25 A per module battery-side). The intake row is its 30 A supply limit: with three FUEL abreast on a 9 V bus the driven belt draws 30 A and its speed dips to 2.13 m/s, and all three are captured. The flywheel row holds the wheel at speed while FUEL is aboard",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          10,
+          30
+        ],
+        "indexer": [
+          2,
+          12
+        ],
+        "flywheel": [
+          2,
+          10
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "loaded-transit-nominal": {
+      "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers a spin-up from rest during the transit at 15 A per motor: 1.9 s on the weak pack (30 A battery-side peak)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          50,
+          100
+        ],
+        "steer": [
+          3,
+          12
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          5,
+          30
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "loaded-transit-weak": {
+      "basis": "Simultaneous battery-side bounds for the loaded-transit duty with supply current limits (drive 25 A per module battery-side). The flywheel row covers a spin-up from rest during the transit at 15 A per motor: 1.9 s on the weak pack (30 A battery-side peak)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          50,
+          100
+        ],
+        "steer": [
+          3,
+          12
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          5,
+          30
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "launch-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "launch-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "flight-1-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "flight-1-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "flight-2-nominal": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "flight-2-weak": {
+      "basis": "Simultaneous battery-side bounds for the launch duty with supply current limits (drive 25 A per module battery-side). The flywheel row is two motors at their 30 A supply limit: the weak-pack batch trial peaks at 55 A battery-side. One shot takes 17 J from the wheel, a 1.9% speed fall that the motors return before the next feed. The indexer row is the floor belt and both feeder gearmotors",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          40
+        ],
+        "steer": [
+          0,
+          6
+        ],
+        "intake": [
+          0,
+          10
+        ],
+        "indexer": [
+          5,
+          15
+        ],
+        "flywheel": [
+          10,
+          60
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "climb-reach-nominal": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "climb-reach-weak": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "intake-stow-nominal": {
+      "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          10,
+          60
+        ],
+        "steer": [
+          2,
+          8
+        ],
+        "intake": [
+          5,
+          25
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "intake-stow-weak": {
+      "basis": "Simultaneous battery-side bounds for the intake-deploy duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          10,
+          60
+        ],
+        "steer": [
+          2,
+          8
+        ],
+        "intake": [
+          5,
+          25
+        ],
+        "indexer": [
+          0,
+          5
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          0
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "tower-lateral-nominal": {
+      "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          2
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "tower-lateral-weak": {
+      "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          2
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "tower-forward-nominal": {
+      "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          2
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "tower-forward-weak": {
+      "basis": "Simultaneous battery-side bounds for the tower duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          20,
+          90
+        ],
+        "steer": [
+          2,
+          10
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          5
+        ],
+        "climber": [
+          0,
+          2
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "climb-seat-nominal": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "climb-seat-weak": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "climb-lift-nominal": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "climb-lift-weak": {
+      "basis": "Simultaneous battery-side bounds for the climb duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          10
+        ],
+        "steer": [
+          0,
+          4
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          10,
+          45
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    },
+    "park-lower-nominal": {
+      "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          5
+        ],
+        "steer": [
+          0,
+          2
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          5,
+          20
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        12.4,
+        12.8
+      ],
+      "resistanceOhm": [
+        0.012,
+        0.016
+      ]
+    },
+    "park-lower-weak": {
+      "basis": "Simultaneous battery-side bounds for the park duty with supply current limits (drive 25 A per module battery-side)",
+      "loadedKg": [
+        55.963,
+        69.809
+      ],
+      "batterySideA": {
+        "drive": [
+          0,
+          5
+        ],
+        "steer": [
+          0,
+          2
+        ],
+        "intake": [
+          0,
+          2
+        ],
+        "indexer": [
+          0,
+          2
+        ],
+        "flywheel": [
+          0,
+          2
+        ],
+        "climber": [
+          5,
+          20
+        ],
+        "controls": [
+          3,
+          6
+        ]
+      },
+      "openCircuitV": [
+        11.9,
+        12.2
+      ],
+      "resistanceOhm": [
+        0.02,
+        0.026
+      ]
+    }
+  }
+}

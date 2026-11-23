@@ -1,0 +1,11 @@
+{
+  "id": "with-bumpers-mass",
+  "unit": "kg",
+  "scenario": "Upper R103 estimate plus 7.5 kg bumpers",
+  "value": 57.461,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "withBumpersUpperKg"
+}

@@ -63,7 +63,7 @@ try {
     const home=new URL('?test='+width,site).href;
     await send('Page.navigate',{url:home});
     await until("location.href==="+JSON.stringify(home)+" && document.querySelector('figure img')?.complete && document.querySelector('figure img').naturalWidth>0");
-    assert.match(await evaluate("document.querySelector('.status').textContent"),/^Preliminary design · (in progress|effective) · layout-\d+$/);
+    assert.match(await evaluate("document.querySelector('.status').textContent"),/^Preliminary design · .+ \d+\.\d+( · draft \d+)? · (in progress|effective)$/);
     assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"),'The entry page scrolls sideways at '+width+'px');
     assert.equal(await evaluate("document.body.textContent.includes('{{')"),false,'An entry page field was left unfilled');
     console.log(width+'px: entry page shows the current preliminary design and its still');
@@ -71,7 +71,9 @@ try {
   // Every same-site link on the entry page has to resolve, so a withdrawn page cannot stay linked.
   const links=await evaluate("[...new Set([...document.querySelectorAll('a[href]')].map(a=>a.href.split('#')[0]).filter(h=>h.startsWith(location.origin)))]");
   assert.ok(links.length>=8,'Expected the entry page to link the review, the status page and the field pages');
-  for(const link of links)assert.equal((await fetch(link)).status,200,'Broken entry page link: '+link);
+  // The test server closes each connection, which the runtime's fetch sometimes trips over: one transport retry per link.
+  const status=async link=>{try{return (await fetch(link)).status;}catch{await wait(250);return (await fetch(link)).status;}};
+  for(const link of links)assert.equal(await status(link),200,'Broken entry page link: '+link);
   console.log(links.length+' same-site entry page links resolve');
   for(const [page,ready] of [['preliminary-design/',"document.querySelector('#release')?.options.length>=1 && !!document.querySelector('iframe')?.src"],
       ['detailed-design/',"document.body.textContent.includes('withdrawn')"]]){

@@ -1,18 +1,21 @@
 {
   "releases": [
-    "layout-001",
-    "layout-002"
+    "1.0"
   ],
   "designStatus": {
-    "layout-001": "superseded",
-    "layout-002": "in-progress"
+    "1.0": "in-progress"
   },
-  "current": "layout-002",
+  "current": "1.0",
   "revision": {
-    "layout-002": {
-      "number": 3,
+    "1.0": {
+      "number": 1,
       "date": "2026-11-23",
-      "commit": "802de698956aa922d8a8d090375bf551ea14fbe4"
+      "commit": "21572c9b4e5a0605826b97ef189174e6c10fa111"
+    }
+  },
+  "designs": {
+    "1": {
+      "name": "Chute-fed hood shooter"
     }
   }
 }

@@ -117,7 +117,7 @@ def robot_bodies(variant="R3", intake_stowed=False):
             cx, cy = sx * 265, sy * (265 + DY)
             add(f"{fx} {side} wheel azimuth envelope", cyl((cx, cy, 0), (0, 0, 1), 40.3, 76.2), "drivetrain")
             x = sorted((sx * 185, sx * 312)); y = sorted((sy * (185 + DY), sy * (312 + DY)))
-            add(f"{fx} {side} module body", box((x[0], y[0], 80), (x[1], y[1], 125)), "drivetrain")
+            add(f"{fx} {side} module body", box((x[0], y[0], 78), (x[1], y[1], 125)), "drivetrain")   # 1.8 mm over the wheel envelope: touching
             add(f"{fx} {side} module motors", cyl((cx, cy, 127), (0, 0, 1), 32, 88), "drivetrain")
 
     # Bumpers in the bumper zone used by the foundation.

@@ -1,0 +1,11 @@
+{
+  "id": "swept-front-extension",
+  "unit": "mm",
+  "scenario": "Front extension through every operating and park pose",
+  "value": 244.614,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "sweptFrontExtensionMm"
+}

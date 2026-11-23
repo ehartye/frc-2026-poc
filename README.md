@@ -1,12 +1,12 @@
 # 2026 REBUILT proof of concept
 
 <!-- cad-still -->
-[![Preliminary design · in progress · layout-002](docs/robot/preliminary-layout-002.png)](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
+[![Chute-fed hood shooter 1.0, preliminary design](docs/robot/preliminary-design.png)](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
 
-**Preliminary design · in progress · layout-002.** R3 floor-fed hooded flywheel shooter with a chute intake on four-module swerve. Parked pose at the end of the park-lower case: the robot back on the carpet after the low-rung hang, with the intake stowed. Whole-robot block-level layout from the layout-checked review scene: 68 representative solids, with the six HUB and TOWER field fixtures and the two FUEL hidden. It is not detailed CAD. [Open the review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) · [Layout-checked receipt · 383a1c0759](docs/preliminary-design/releases/layout-002/receipt.json)
+**Project CAD · Chute-fed hood shooter 1.0, preliminary design · in-progress.** Whole-robot blockout, parked at the end of the park-lower case: back on the carpet after the low-rung hang, with the intake stowed. Field parts and FUEL are hidden. It is not detailed CAD. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/)
 <!-- /cad-still -->
 
-The current design is the preliminary whole-robot layout shown above: R3, a floor-fed hooded flywheel shooter with a chute intake on four-module swerve. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) to spin the layout, play the mission cases and trace the budgets. The [review inputs](cad/preliminary-design/README.md) hold the layout, motion cases and budgets behind the picture.
+The current design is the preliminary whole-robot blockout shown above: the Chute-fed hood shooter, a floor-fed hooded flywheel shooter with a chute intake and a two-lane hopper on four-module swerve. It is in progress. [Open the design review](https://ehartye.github.io/frc-2026-poc/preliminary-design/) to spin the layout, play the mission cases and trace the budgets. The [review inputs](cad/preliminary-design/README.md) hold the layout, motion cases and budgets behind the picture.
 
 No detailed design is current. The earlier rough-draft showcase model is withdrawn, and the [detailed design status page](https://ehartye.github.io/frc-2026-poc/detailed-design/) gives the reason. Its pages left the site; Git keeps them at commit [`b47730c`](https://github.com/ehartye/frc-2026-poc/tree/b47730c525c6cf9a006fabc0b2883b6c672ac9f2).
 
@@ -57,7 +57,7 @@ Open the printed results directory: `SUMMARY.md`, `season-results.json` and `rob
 
 ## What lives here
 
-- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. R2C adds the intake, lift, hopper and scoring upper. `cad/preliminary-design/` holds the R3 preliminary design releases. The exact supplier archive stays project-local.
+- `cad/`: original fixture STEP, editable OCP generator and dimensions, overview SVG, and earlier sideplate SVG/DXF. R1 adds the editable four-module Fusion chassis. R2C adds the intake, lift, hopper and scoring upper. `cad/preliminary-design/` holds the preliminary design, and `cad/field/official/` the official field parts it is checked against. The exact supplier archive stays project-local.
 - `experiments/legacy/shared/examples/java-2026-sim/src/`: actual Java controller/plant and integration tests, not a link to unavailable code.
 - `experiments/legacy/shared/scripts/`: actual execution, finite-body target and evidence checks.
 - `config.json`: season design description checked against pinned runtime duty/inertia. It is not yet a general tuning interface.

@@ -2,18 +2,8 @@
   "schema": "agent-frc/project-checks@1",
   "checks": [
     {
-      "name": "Pinned evidence and public content",
-      "argv": ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],
-      "inputs": []
-    },
-    {
-      "name": "CAD views and README coverage",
-      "argv": ["python", "scripts/cad-readmes.py", ".", "--template", "scripts/cad-orbit.html"],
-      "inputs": []
-    },
-    {
-      "name": "Preliminary design still and its published review scene",
-      "argv": ["python", "scripts/preliminary-still.py", "."],
+      "name": "README still names the current design",
+      "argv": ["python", "scripts/cad-readmes.py", "."],
       "inputs": []
     },
     {

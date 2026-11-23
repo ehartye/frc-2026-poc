@@ -1,0 +1,21 @@
+{
+  "id": "bump-crossing",
+  "unit": "mm",
+  "scenario": "Side-view BUMP crossing with the intake retracted: least clearance of any underside feature over the sharp 15 degree crest",
+  "criterion": {
+    "range": [
+      5.0,
+      500.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "frame",
+    "drivetrain",
+    "bumpers"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/bump_crossing.py"
+  },
+  "basis": "Accepted margin 5 mm over a conservative sharp crest; bump_crossing.py"
+}

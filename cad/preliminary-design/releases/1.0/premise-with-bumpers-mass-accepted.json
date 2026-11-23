@@ -1,0 +1,20 @@
+{
+  "id": "with-bumpers-mass",
+  "unit": "kg",
+  "scenario": "Upper R103 estimate plus 7.5 kg bumpers",
+  "criterion": {
+    "range": [
+      0.0,
+      61.23
+    ]
+  },
+  "phase": "preliminary-design",
+  "interfaces": [
+    "bumpers",
+    "frame"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/construction-rules.json"
+  },
+  "basis": "R408 135 lb"
+}

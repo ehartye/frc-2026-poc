@@ -1,0 +1,11 @@
+{
+  "id": "sides-extended",
+  "unit": "sides",
+  "scenario": "Sides extended at once in any sampled pose",
+  "value": 1.0,
+  "issue": "chute-fed-hood-shooter-1.0",
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/measurements.json"
+  },
+  "valueField": "sidesExtendedMax"
+}

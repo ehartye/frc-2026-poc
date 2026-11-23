@@ -1,6 +1,5 @@
 // Build the public site: the independent field pages, the design status pages and an entry page that
 // features the current preliminary design release. The rough-draft showcase is withdrawn and is not built.
-import {createHash} from 'node:crypto';
 import {cp, mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -12,7 +11,6 @@ if (!plugin || !output) throw Error('Usage: node scripts/build-showcase.mjs FIEL
 const root = fileURLToPath(new URL('../', import.meta.url));
 const at = file => path.join(root, file);
 const json = async file => JSON.parse(await readFile(at(file), 'utf8'));
-const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const destination = path.resolve(output);
 await mkdir(destination, {recursive: false});
 
@@ -35,27 +33,25 @@ if (!withdrawn || !designs.reason?.[withdrawn] || !designs.lastCommit?.[withdraw
 await cp(at('docs/detailed-design'), path.join(destination, 'detailed-design'), {recursive: true});
 await cp(at('docs/preliminary-design'), path.join(destination, 'preliminary-design'), {recursive: true});
 
-// The entry page and its still follow the primary view: the current preliminary design release.
+// The entry page and its still follow the primary view: the current preliminary design, as cad-showcase.json names it.
 const releases = await json('docs/preliminary-design/releases.json');
 const release = releases.current, state = releases.designStatus?.[release];
 const status = {'in-progress': 'in progress', effective: 'effective'}[state];
 const statusNote = {'in-progress': 'It is in progress and still changing.',
   effective: 'It is the effective preliminary design that detailed design builds on.'}[state];
 if (!releases.releases.includes(release) || !status) throw Error('The entry page needs a current in-progress or effective preliminary design release');
-const record = await json('docs/robot/preliminary-' + release + '.json');
-const still = await readFile(at('docs/robot/preliminary-' + release + '.png'));
-const served = name => readFile(at('docs/preliminary-design/releases/' + release + '/' + name));
-const packed = await served('review-scene.json.gz');
-if (record.release !== release || sha(still) !== record.imageSha256 || sha(await served('receipt.json')) !== record.receiptSha256 ||
-    sha(await served('release.json')) !== record.releaseRecordSha256 || sha(packed) !== record.sceneSha256)
-  throw Error('The preliminary still differs from the current release. Regenerate it with scripts/preliminary-still.py.');
+const shownDesign = await json('cad-showcase.json');
+if (shownDesign.status !== state) throw Error('cad-showcase.json names status ' + shownDesign.status + ' and the release index ' + state + ': update cad-showcase.json and run cad-readmes.py --update');
+const name = releases.designs?.[release.split('.')[0]]?.name;
+const draft = state === 'in-progress' && releases.revision?.[release]?.number ? ' · draft ' + releases.revision[release].number : '';
+const label = (name ? name + ' ' : '') + release + draft + ' · ' + status;
+const still = await readFile(at(shownDesign.still));
+const packed = await readFile(at('docs/preliminary-design/releases/' + release + '/review-scene.json.gz'));
 await mkdir(path.join(destination, 'assembly'));
 await writeFile(path.join(destination, 'assembly/assembly.png'), still);
 const text = value => String(value).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
-const fields = {status, statusNote, release, reason: designs.reason[withdrawn], lastCommit: designs.lastCommit[withdrawn],
-  lastShort: designs.lastCommit[withdrawn].slice(0, 7), receipt: record.receiptSha256.slice(0, 10),
-  headline: JSON.parse(gunzipSync(packed)).title, title: record.caption.title, alt: record.caption.alt, pose: record.caption.pose,
-  scope: record.caption.scope};
+const fields = {status, statusNote, release, label, reason: designs.reason[withdrawn], lastCommit: designs.lastCommit[withdrawn],
+  lastShort: designs.lastCommit[withdrawn].slice(0, 7), headline: JSON.parse(gunzipSync(packed)).title, alt: shownDesign.alt, scope: shownDesign.scope};
 const template = await readFile(at('docs/showcase/front-page.html'), 'utf8');
 for (const key of Object.keys(fields)) if (!template.includes('{{' + key + '}}')) throw Error('The front page no longer uses the field ' + key);
 const page = template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
@@ -63,4 +59,4 @@ const page = template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
   return text(fields[key]);
 });
 await writeFile(path.join(destination, 'index.html'), page);
-console.log('Built the field pages, the design status pages and the ' + release + ' preliminary design entry page');
+console.log('Built the field pages, the design status pages and the entry page for ' + label);

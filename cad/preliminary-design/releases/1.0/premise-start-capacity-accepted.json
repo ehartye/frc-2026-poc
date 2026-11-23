@@ -1,0 +1,20 @@
+{
+  "id": "start-capacity",
+  "unit": "FUEL",
+  "scenario": "AUTO preload of eight in the starting fold behind the stowed intake, at a loose 0.45 packing fraction",
+  "criterion": {
+    "range": [
+      8.0,
+      200.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "hopper",
+    "intake"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/kickoff/selected-strategy.json"
+  },
+  "basis": "Begin legally preloaded with at most eight"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "hopper-capacity",
+  "unit": "FUEL",
+  "scenario": "Selected own-zone batch of 24 collected through the intake chute and held: FUEL in the hopper plus at most four waiting in the chute",
+  "criterion": {
+    "range": [
+      24.0,
+      200.0
+    ]
+  },
+  "phase": "conceptual-design",
+  "interfaces": [
+    "hopper",
+    "intake",
+    "floor belts",
+    "feeders"
+  ],
+  "source": {
+    "file": "cad/preliminary-design/releases/1.0/kickoff/selected-strategy.json"
+  },
+  "basis": "24-piece serial batch"
+}
