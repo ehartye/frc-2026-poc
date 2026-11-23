@@ -20,6 +20,7 @@ Run from the repository root with the geometry Python environment and `AGENT_FRC
 
 ```sh
 python -I -B experiments/preliminary-design/build_package.py --release cad/preliminary-design/releases/1.0 --check --jobs 4
+python -I -B experiments/preliminary-design/handoff.py cad/preliminary-design/releases/1.0
 python cad/preliminary-design/stage.py 1.0
 python scripts/preliminary-still.py .
 python scripts/cad-readmes.py . --update
@@ -48,5 +49,6 @@ The physics trials are solved separately by `experiments/preliminary-design/fiel
 | `field-trials.json`, `transport/`, `trial-*.json` | The solved physics trials, the trial window each FUEL case follows and the trial records with their qualification |
 | `replays.json.gz` | The recorded trials as replay entries of the review page's motion list |
 | `receipt.json`, `package-motion.html` | The layout check's receipt and the review page |
+| `HANDOFF.md` | The note for detailed design: datums, envelopes, interfaces, operating windows, budgets, risks and first work items, each read from the files above |
 
 The review is one page with one motion list: the checked cases first, then the replays. A replay is playback of the recorded frames. The layout check neither runs nor credits it.
