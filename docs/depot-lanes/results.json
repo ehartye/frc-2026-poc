@@ -1,0 +1,861 @@
+{
+  "rulesProfileSha256": "68cffc66867db892f4362430e403dc488299d1ddad517c05e556cce8f4c77b62",
+  "secondsPerMatch": 160,
+  "matches": [
+    {
+      "id": "Own-zone supply",
+      "score": {
+        "blue": 46,
+        "red": 46
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 0,
+          "admissions": []
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 0,
+          "admissions": []
+        }
+      }
+    },
+    {
+      "id": "Near reserve · blue",
+      "score": {
+        "blue": 50,
+        "red": 46
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 4,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "blue-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "blue-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "blue-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "blue-depot/9"
+              ]
+            }
+          ]
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 0,
+          "admissions": []
+        }
+      }
+    },
+    {
+      "id": "Near reserve · red",
+      "score": {
+        "blue": 46,
+        "red": 50
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 0,
+          "admissions": []
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 4,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "red-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "red-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "red-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "red-depot/9"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Near reserve · blue + red",
+      "score": {
+        "blue": 50,
+        "red": 50
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 4,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "blue-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "blue-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "blue-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "blue-depot/9"
+              ]
+            }
+          ]
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 4,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "red-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "red-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "red-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "red-depot/9"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Deep reserve · blue",
+      "score": {
+        "blue": 55,
+        "red": 46
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 21,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "blue-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "blue-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "blue-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "blue-depot/9"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 8.450000000000001,
+              "pieces": [
+                "blue-depot/1"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.05,
+              "pieces": [
+                "blue-depot/7"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 1.6500000000000001,
+              "pieces": [
+                "blue-depot/5"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.3000000000000003,
+              "pieces": [
+                "blue-depot/11"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.9000000000000004,
+              "pieces": [
+                "blue-depot/10"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 3.75,
+              "pieces": [
+                "blue-depot/16"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 8.950000000000001,
+              "pieces": [
+                "blue-depot/15"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.55,
+              "pieces": [
+                "blue-depot/22"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.100000000000001,
+              "pieces": [
+                "blue-depot/14"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.700000000000001,
+              "pieces": [
+                "blue-depot/21"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 15.850000000000001,
+              "pieces": [
+                "blue-depot/8"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.45,
+              "pieces": [
+                "blue-depot/20"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.95,
+              "pieces": [
+                "blue-depot/19"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 19.200000000000003,
+              "pieces": [
+                "blue-depot/13"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 24.650000000000002,
+              "pieces": [
+                "blue-depot/23"
+              ]
+            },
+            {
+              "phase": "Shift 2",
+              "timeS": 2.0500000000000003,
+              "pieces": [
+                "blue-depot/24"
+              ]
+            },
+            {
+              "phase": "Shift 2",
+              "timeS": 2.6,
+              "pieces": [
+                "blue-depot/12"
+              ]
+            }
+          ]
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 0,
+          "admissions": []
+        }
+      }
+    },
+    {
+      "id": "Deep reserve · red",
+      "score": {
+        "blue": 46,
+        "red": 62
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 0,
+          "admissions": []
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 21,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "red-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "red-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "red-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "red-depot/9"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 8.450000000000001,
+              "pieces": [
+                "red-depot/1"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.05,
+              "pieces": [
+                "red-depot/7"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.65,
+              "pieces": [
+                "red-depot/13"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 1.6,
+              "pieces": [
+                "red-depot/5"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.25,
+              "pieces": [
+                "red-depot/11"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.85,
+              "pieces": [
+                "red-depot/10"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 3.5,
+              "pieces": [
+                "red-depot/16"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 8.700000000000001,
+              "pieces": [
+                "red-depot/15"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.3,
+              "pieces": [
+                "red-depot/22"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.8,
+              "pieces": [
+                "red-depot/23"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.350000000000001,
+              "pieces": [
+                "red-depot/14"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 15.55,
+              "pieces": [
+                "red-depot/8"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.150000000000002,
+              "pieces": [
+                "red-depot/21"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.7,
+              "pieces": [
+                "red-depot/20"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 17.25,
+              "pieces": [
+                "red-depot/19"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 22.5,
+              "pieces": [
+                "red-depot/24"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 23,
+              "pieces": [
+                "red-depot/12"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Deep reserve · blue + red",
+      "score": {
+        "blue": 55,
+        "red": 62
+      },
+      "depots": {
+        "blue": {
+          "robot": "B2",
+          "pieces": 21,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "blue-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "blue-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "blue-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "blue-depot/9"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 8.450000000000001,
+              "pieces": [
+                "blue-depot/1"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.05,
+              "pieces": [
+                "blue-depot/7"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 1.6500000000000001,
+              "pieces": [
+                "blue-depot/5"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.3000000000000003,
+              "pieces": [
+                "blue-depot/11"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.9000000000000004,
+              "pieces": [
+                "blue-depot/10"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 3.75,
+              "pieces": [
+                "blue-depot/16"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 8.950000000000001,
+              "pieces": [
+                "blue-depot/15"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.55,
+              "pieces": [
+                "blue-depot/22"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.100000000000001,
+              "pieces": [
+                "blue-depot/14"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.700000000000001,
+              "pieces": [
+                "blue-depot/21"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 15.850000000000001,
+              "pieces": [
+                "blue-depot/8"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.45,
+              "pieces": [
+                "blue-depot/20"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.95,
+              "pieces": [
+                "blue-depot/19"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 18.95,
+              "pieces": [
+                "blue-depot/13"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 24.400000000000002,
+              "pieces": [
+                "blue-depot/23"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 24.900000000000002,
+              "pieces": [
+                "blue-depot/24"
+              ]
+            },
+            {
+              "phase": "Shift 2",
+              "timeS": 2.1,
+              "pieces": [
+                "blue-depot/12"
+              ]
+            }
+          ]
+        },
+        "red": {
+          "robot": "R2",
+          "pieces": 23,
+          "admissions": [
+            {
+              "phase": "Transition",
+              "timeS": 2,
+              "pieces": [
+                "red-depot/3"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 2.5,
+              "pieces": [
+                "red-depot/4"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3,
+              "pieces": [
+                "red-depot/2"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 3.6,
+              "pieces": [
+                "red-depot/9"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 8.450000000000001,
+              "pieces": [
+                "red-depot/1"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.05,
+              "pieces": [
+                "red-depot/7"
+              ]
+            },
+            {
+              "phase": "Transition",
+              "timeS": 9.65,
+              "pieces": [
+                "red-depot/13"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 1.6,
+              "pieces": [
+                "red-depot/5"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.25,
+              "pieces": [
+                "red-depot/11"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 2.85,
+              "pieces": [
+                "red-depot/10"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 3.5,
+              "pieces": [
+                "red-depot/16"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 8.700000000000001,
+              "pieces": [
+                "red-depot/15"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.3,
+              "pieces": [
+                "red-depot/22"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 9.850000000000001,
+              "pieces": [
+                "red-depot/23"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 10.4,
+              "pieces": [
+                "red-depot/24"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 15.65,
+              "pieces": [
+                "red-depot/8"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.25,
+              "pieces": [
+                "red-depot/21"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 16.75,
+              "pieces": [
+                "red-depot/14"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 17.35,
+              "pieces": [
+                "red-depot/20"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 22.6,
+              "pieces": [
+                "red-depot/19"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 23.75,
+              "pieces": [
+                "red-depot/12"
+              ]
+            },
+            {
+              "phase": "Shift 1",
+              "timeS": 24.400000000000002,
+              "pieces": [
+                "red-depot/18"
+              ]
+            },
+            {
+              "phase": "Shift 2",
+              "timeS": 2.6,
+              "pieces": [
+                "red-depot/17"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

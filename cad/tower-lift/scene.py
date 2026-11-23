@@ -141,7 +141,7 @@ def make():
     scene.track(clip, lift, "translation", times, [[0, -r["down"], 0] for r in rows])
     scene.track(clip, rail, "translation", times, [[-r["deploy"], 0, 0] for r in rows])
     scene.g["animations"] = [clip]
-    output = ROOT / "docs/robot/cad/tower-climb.glb"
+    output = ROOT / "cad/archived-views/robot/cad/tower-climb.glb"
     scene.save(output)
 
 

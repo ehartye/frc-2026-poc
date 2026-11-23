@@ -36,11 +36,6 @@ The bench cart supports the full robot at four rail pads during battery removal.
 
 ## Reproduce
 
-From the project root, run the following with the reviewed Agent FRC checkout. The first command writes the full match executable results, design comparison and both load and throughput assessments. The second emits the standalone interactive lab and its admissions register into a fresh directory.
-
-```sh
-python experiments/role-and-support/review.py PATH_TO_AGENT_FRC role-results
-node experiments/role-and-support/replay-lanes.mjs PATH_TO_AGENT_FRC role-lab
-```
+The match results, design comparison, load and throughput assessments and the standalone interactive lab were generated once with the coding agent's design tool (Agent FRC 0.48.2). The results are recorded in this folder and the lab is committed as a static page at [`docs/depot-lanes/`](../../docs/depot-lanes/index.html). Nothing regenerates them; Git history keeps the two scripts that did.
 
 All game geometry, scoring and clock assumptions trace to the January 10 release-day V0 and Team Update 00. The parking changes are project strategy comparisons. [Source cutoff and hashes](../../kickoff/rule-register.json)

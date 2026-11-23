@@ -1,5 +1,4 @@
-"""Prepare native student authoring inputs with no desktop or robot connection."""
-import argparse
+"""The portable chassis design recipe: stock, public proxies and supplier sites. Other scripts import it."""
 import hashlib
 import json
 from pathlib import Path
@@ -70,32 +69,3 @@ def layout():
             proxies.append(box(site+" public drive housing","drive",[x-40,y-40,70],[x+40,y+40,115]))
             proxies.append(cylinder(site+" public motor reserve","drive",[x,y,115],[x,y,171.46],29.9))
     return cfg,items,proxies,sites
-
-
-def main():
-    cli=argparse.ArgumentParser(description=__doc__)
-    cli.add_argument("plugin",type=Path)
-    cli.add_argument("supplier_step",type=Path)
-    cli.add_argument("output",type=Path)
-    args=cli.parse_args()
-    cfg,items,proxies,sites=layout()
-    pin=cfg["swerve"]["sha256"]
-    if sha(args.supplier_step)!=pin:
-        raise ValueError("Supplier STEP differs from the selected revision")
-    import sys
-    sys.path.insert(0,str(args.plugin.resolve()/"scripts"))
-    from component_palette import resolve_palette
-    colors=resolve_palette(ROOT)
-    assert all(p["role"] in colors for p in items+proxies)
-    for record in sites:
-        a,b,c=record["rotation"]
-        determinant=a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0])
-        assert determinant==1
-    args.output.mkdir(exist_ok=True,parents=True)
-    job={"items":items,"proxies":proxies,"sites":sites,"palette":colors,"layout":cfg,
-         "supplier":str(args.supplier_step.resolve()),"output":str(args.output.resolve())}
-    (args.output/"native-job.json").write_text(json.dumps(job,indent=2)+"\n",encoding="utf-8")
-    print(f"{len(items)} original components and {len(sites)} supplier placements")
-
-if __name__=="__main__":
-    main()

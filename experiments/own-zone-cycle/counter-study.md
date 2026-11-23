@@ -32,12 +32,12 @@ The selected strategy allocates 12 s for 24 deliveries. This receipt contains on
 
 ## Rebuild
 
-Use the [R2C CAD handoff](../../cad/own-zone-upper/design.md) to reconstruct the private field mesh from the pinned FIRST source. From the checkout, with Agent FRC 0.33.0 installed at the path in `$plugin`, run the following commands. They reconstruct the approach, rerun the field dynamics with drive controls, and validate the public GLB event register.
+Use the [R2C CAD handoff](../../cad/own-zone-upper/design.md) to reconstruct the private field mesh from the pinned FIRST source. From the checkout, run the following commands. They rerun the field dynamics with drive controls and write the public GLB event register.
 
 ```powershell
-node experiments/own-zone-cycle/score_approaches.mjs $plugin experiments/own-zone-cycle/approach-comparison.json
 python experiments/own-zone-cycle/run_counter.py artifacts/own-zone-native
 python cad/own-zone-upper/animated.py
 python experiments/own-zone-cycle/register_motion.py
-node "$plugin/scripts/replay-chapters.mjs" experiments/own-zone-cycle/motion-chapters.json .
 ```
+
+The [approach comparison](approach-comparison.json) is a recorded result. The script that wrote it and the chapter validation ran the coding agent's design tool (Agent FRC 0.33.0) and are retired; Git history keeps the script.

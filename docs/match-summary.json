@@ -1,0 +1,115 @@
+{
+  "profileSha256": "68cffc66867db892f4362430e403dc488299d1ddad517c05e556cce8f4c77b62",
+  "modelSeconds": 480,
+  "playbackSeconds": 48,
+  "matches": [
+    {
+      "id": "Own-zone supply",
+      "score": {
+        "blue": 46,
+        "red": 46
+      },
+      "auto": {
+        "blue": 24,
+        "red": 24
+      },
+      "fuel": {
+        "blue": 36,
+        "red": 36
+      },
+      "tower": {
+        "blue": 10,
+        "red": 10
+      },
+      "acquired": {
+        "B1": 24,
+        "B2": 0,
+        "B3": 0,
+        "R1": 24,
+        "R2": 0,
+        "R3": 0
+      },
+      "individualChuteReleases": 48,
+      "final": {
+        "floor": 504,
+        "operators": 0,
+        "bays": 0,
+        "returning": 0,
+        "terminal": 0
+      },
+      "minimumModeledSecondsBetweenHumanReleases": 1.5
+    },
+    {
+      "id": "Neutral return",
+      "score": {
+        "blue": 70,
+        "red": 74
+      },
+      "auto": {
+        "blue": 16,
+        "red": 24
+      },
+      "fuel": {
+        "blue": 70,
+        "red": 74
+      },
+      "tower": {
+        "blue": 0,
+        "red": 0
+      },
+      "acquired": {
+        "B1": 24,
+        "B2": 22,
+        "B3": 44,
+        "R1": 24,
+        "R2": 22,
+        "R3": 48
+      },
+      "individualChuteReleases": 48,
+      "final": {
+        "floor": 484,
+        "operators": 0,
+        "bays": 12,
+        "returning": 0,
+        "terminal": 8
+      },
+      "minimumModeledSecondsBetweenHumanReleases": 1.5
+    },
+    {
+      "id": "Missed preload",
+      "score": {
+        "blue": 74,
+        "red": 64
+      },
+      "auto": {
+        "blue": 24,
+        "red": 8
+      },
+      "fuel": {
+        "blue": 64,
+        "red": 64
+      },
+      "tower": {
+        "blue": 10,
+        "red": 0
+      },
+      "acquired": {
+        "B1": 24,
+        "B2": 22,
+        "B3": 44,
+        "R1": 24,
+        "R2": 22,
+        "R3": 48
+      },
+      "individualChuteReleases": 48,
+      "final": {
+        "floor": 476,
+        "operators": 0,
+        "bays": 12,
+        "returning": 0,
+        "terminal": 16
+      },
+      "minimumModeledSecondsBetweenHumanReleases": 1.5
+    }
+  ]
+}

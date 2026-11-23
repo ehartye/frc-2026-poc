@@ -1,6 +1,5 @@
 """Upper layout in the native robot frame. Dimensions and trajectories are in millimetres."""
 
-import argparse
 import json
 import math
 import sys
@@ -297,68 +296,3 @@ def parts():
             cylinder(side + " public scoring motor envelope", "drive", start, end, 30)
         )
     return cfg, stock, proxies, sites
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("plugin", type=Path)
-    parser.add_argument("supplier_step", type=Path)
-    parser.add_argument("output", type=Path)
-    args = parser.parse_args()
-    cfg, stock, proxies, sites = parts()
-    if sha(args.supplier_step) != cfg["swerve"]["sha256"]:
-        raise ValueError("Unexpected module source")
-    sys.path.insert(0, str(args.plugin.resolve() / "scripts"))
-    from component_palette import resolve_palette
-
-    palette = resolve_palette(ROOT)
-    if any(s["role"] not in palette for s in stock + proxies):
-        raise ValueError("Missing palette role")
-    args.output.mkdir(exist_ok=True, parents=True)
-    vendor = args.supplier_step.resolve().parent / "REV-21-1650-extracted.step"
-    if not vendor.is_file():
-        raise ValueError(
-            "Provide the privately extracted and verified REV-21-1650 STEP"
-        )
-    motors = []
-    a = math.radians(60)
-    n = [-math.sin(a), 0, math.cos(a)]
-    basis = [[0, n[0], n[2]], [1, 0, 0], [0, n[2], -n[0]]]
-    for sign, side in [(-1, "right"), (1, "left")]:
-        motors.append(
-            {
-                "name": side + " scoring motor",
-                "rotation": basis,
-                "translation": [
-                    238 + (28 - 40.1) * n[0],
-                    sign * 104,
-                    601 + (28 - 40.1) * n[2],
-                ],
-            }
-        )
-    job = {
-        "title": "REBUILT own-zone R2",
-        "items": stock,
-        "proxies": proxies,
-        "sites": sites,
-        "palette": palette,
-        "layout": cfg,
-        "supplier": str(args.supplier_step.resolve()),
-        "output": str(args.output.resolve()),
-        "extraSources": [
-            {
-                "file": str(vendor),
-                "sha256": sha(vendor),
-                "source": "REV-21-1650",
-                "placements": motors,
-            }
-        ],
-    }
-    (args.output / "native-job.json").write_text(
-        json.dumps(job, indent=2) + "\n", encoding="utf8"
-    )
-    print(len(stock), "project parts;", len(proxies), "public supplier representations")
-
-
-if __name__ == "__main__":
-    main()

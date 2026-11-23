@@ -51,6 +51,7 @@ Use the project-local FIRST field cache reconstructed from the pinned source in 
 ```powershell
 python experiments/batch-port/reproduce.py artifacts/own-zone-native
 python experiments/batch-port/pickup.py
-node experiments/batch-port/traffic.mjs $plugin experiments/batch-port/traffic.json
 ```
+
+The [traffic result](traffic.json) is a recorded result. The script that wrote it ran the coding agent's design tool and is retired; Git history keeps it.
 

@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 
 const read = rel => readFileSync(new URL('../' + rel, import.meta.url));
 const json = rel => JSON.parse(read(rel));
-const raw = read('docs/robot/cad/own-zone.glb');
+const raw = read('cad/archived-views/robot/cad/own-zone.glb');
 assert.equal(raw.toString('ascii', 0, 4), 'glTF');
 assert.equal(raw.readUInt32LE(8), raw.length);
 const jsonEnd = 20 + raw.readUInt32LE(12);
