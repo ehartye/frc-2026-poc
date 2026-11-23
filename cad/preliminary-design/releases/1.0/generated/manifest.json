@@ -3,7 +3,7 @@
   "design": {
     "name": "Chute-fed hood shooter 1.0",
     "source": "design.json",
-    "sourceSha256": "85b280e4367e9baafc997e0182f1cda246abf76b45324d5cdb23054b15f56532",
+    "sourceSha256": "b4395fcd1322fcfada9c7073f898518a8c3871c28f7e62bdbbc50f743c1e33ec",
     "frame": "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres"
   },
   "units": {
@@ -13,7 +13,7 @@
   "generator": {
     "library": "frc-design-kernel",
     "version": "0.1.0",
-    "commit": "96319fb0b96ad53cdc0900c5fc5ca2ae8ec6fdfc"
+    "commit": null
   },
   "pose": null,
   "files": {
@@ -1100,11 +1100,11 @@
       "name": "intake belt module",
       "group": "intake",
       "kind": "union",
-      "volumeMm3": 7564484.137817,
+      "volumeMm3": 7925604.137817,
       "boundsMm": [
         547.614,
         -244.0,
-        130.114,
+        110.114,
         584.614,
         244.0,
         557.0
@@ -5576,11 +5576,24 @@
       "moves": {
         "intake": [
           {
-            "kind": "translation",
-            "travelMm": [
-              250.0,
-              0.0,
-              -95.0
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                250,
+                0,
+                0
+              ],
+              [
+                250,
+                0,
+                -95
+              ]
             ]
           }
         ]
@@ -5818,11 +5831,24 @@
       "moves": {
         "intake": [
           {
-            "kind": "translation",
-            "travelMm": [
-              -250.0,
-              0.0,
-              95.0
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                95
+              ],
+              [
+                -250,
+                0,
+                95
+              ]
             ]
           }
         ]
@@ -6117,10 +6143,13 @@
     "bump_x1": 417.5,
     "half": 244,
     "rp": 18.5,
+    "squeeze": 20,
+    "belt_mps": 3.0,
     "belt_x": 547.614,
     "pulley_x": 566.114,
     "front_x": 584.614,
-    "bottom_z": 148.614,
+    "pulley_drop": 20,
+    "bottom_z": 128.614,
     "top_z": 538.5,
     "roller_x": 495.557,
     "roller_z": 623.157,

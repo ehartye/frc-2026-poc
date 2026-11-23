@@ -225,9 +225,9 @@
     "offsetMm": [
       0,
       0,
-      40
+      80
     ],
-    "basis": "Raise the front left module's motors 40 mm, as a taller motor would, so the deploying carriage plate strikes them"
+    "basis": "Raise the front left module's motors 80 mm, as a taller motor stack would, so the carriage plate strikes them as it slides forward before it drops"
   },
   "stages": {
     "intake-deploy": {
