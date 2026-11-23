@@ -7,5 +7,12 @@
     "layout-001": "superseded",
     "layout-002": "in-progress"
   },
-  "current": "layout-002"
+  "current": "layout-002",
+  "revision": {
+    "layout-002": {
+      "number": 2,
+      "date": "2026-11-22",
+      "commit": "2b58fdd278ad7f07325998648149c6c103ee3209"
+    }
+  }
 }

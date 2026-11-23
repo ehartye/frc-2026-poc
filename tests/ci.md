@@ -6,7 +6,7 @@ One workflow, `.github/workflows/design-publication.yml`, runs on every push to 
 | --- | --- |
 | Paths and secrets | `node PLUGIN/scripts/branch-scan.mjs .` |
 | Design publication | `node PLUGIN/scripts/design-publication.mjs check .`, which reruns the layout check of each in-progress or effective design from its committed inputs, then the registered checks in `tests/ci.json` |
-| Site build | `node scripts/build-showcase.mjs BUILDER NEW_SITE_DIRECTORY` with the original showcase builder, the preliminary design releases copied under `preliminary-design/`, the role and support replays and the phone and desktop tower controls |
+| Site build | `node scripts/build-showcase.mjs BUILDER NEW_SITE_DIRECTORY` with the season's original field builder: the field lab, alliance roles and depot lanes, the design status pages, the preliminary design releases and the entry page. Then the role and support replays and `scripts/check-site-pages.mjs`, which opens the entry page and the field lab on phone and desktop widths and follows every entry page link |
 
 Run from the project checkout. Use a real ancestor of your candidate for `BASE`.
 

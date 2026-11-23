@@ -1,66 +1,66 @@
-import {cp, mkdir, readFile, rename, writeFile} from 'node:fs/promises';
+// Build the public site: the independent field pages, the design status pages and an entry page that
+// features the current preliminary design release. The rough-draft showcase is withdrawn and is not built.
+import {createHash} from 'node:crypto';
+import {cp, mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
-import {fileURLToPath, pathToFileURL} from 'node:url';
+import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
-
-import {styleOrbit,styleShowcase} from './showcase-navigation.mjs';
+import {gunzipSync} from 'node:zlib';
 
 const [plugin, output] = process.argv.slice(2);
-if (!plugin || !output) throw Error('Usage: node scripts/build-showcase.mjs PLUGIN_ROOT NEW_SITE_DIRECTORY');
+if (!plugin || !output) throw Error('Usage: node scripts/build-showcase.mjs FIELD_BUILDER_ROOT NEW_SITE_DIRECTORY');
 const root = fileURLToPath(new URL('../', import.meta.url));
 const at = file => path.join(root, file);
+const json = async file => JSON.parse(await readFile(at(file), 'utf8'));
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const destination = path.resolve(output);
 await mkdir(destination, {recursive: false});
-const {buildHighlights} = await import(pathToFileURL(path.resolve(plugin, 'scripts/robot-highlights.mjs')));
-await buildHighlights(at('highlights.json'), path.join(destination, 'evidence'));
-await cp(at('docs/showcase/style.css'),path.join(destination,'style.css'));
-const layout=JSON.parse(await readFile(at('project-layout.json'),'utf8'));
-const handoff=JSON.parse(await readFile(at(layout.publicFusionHandoff),'utf8'));
-const download='evidence/evidence/'+handoff.archive.sha256+'.f3d';
-const {createHash}=await import('node:crypto');
-if(createHash('sha256').update(await readFile(path.join(destination,download))).digest('hex')!==handoff.archive.sha256)
-  throw Error('Student download differs from the independently reopened assembly');
-const home=(await readFile(at('docs/showcase/index.html'),'utf8')).replace('__PUBLIC_FUSION__',download);
-await writeFile(path.join(destination,'index.html'),styleShowcase(home,'./','model'));
-const featured = at('cad/showcase-red');
-const provenance = JSON.parse(await readFile(path.join(featured, 'provenance.json'), 'utf8'));
-const assembly = path.join(destination, 'assembly');
-await mkdir(assembly);
-for (const name of ['display.f3d', 'display.step', 'display.glb', 'assembly.png']) {
-  const bytes = await readFile(path.join(featured, name));
-  if (createHash('sha256').update(bytes).digest('hex') !== provenance.sha256[name])
-    throw Error('Featured Fusion export changed: ' + name);
-  await writeFile(path.join(assembly, name), bytes);
-}
-await cp(path.join(featured, 'provenance.json'), path.join(assembly, 'provenance.json'));
-await cp(at('docs/showcase/assembly-view.js'), path.join(destination, 'assembly-view.js'));
-const config = JSON.parse(await readFile(at('kickoff/selected-strategy.json'), 'utf8'));
-const study = await readFile(at('docs/showcase/study.js'), 'utf8');
-await writeFile(path.join(destination, 'study.js'), study.replace('__CLOCK__', JSON.stringify(config.case)));
-await cp(at('kickoff/rule-register.json'),path.join(destination,'rule-register.json'));
-execFileSync(process.execPath,[at('kickoff/rehearsal/build.mjs'),plugin,destination],{stdio:'inherit'});
-await cp(at('docs/robot/historical-fixture'), path.join(destination, 'fixture'), {recursive: true});
-await cp(at('docs/robot/cad'), path.join(destination, 'robot'), {recursive: true});
-await cp(at('docs/robot/r1-chassis'), path.join(destination, 'chassis'), {recursive: true});
-await cp(at('docs/vendor'), path.join(destination, 'vendor'), {recursive: true});
-await cp(at('docs/foundation'),path.join(destination,'foundation'),{recursive:true});
-for(const [source,name] of [['foundation-student.f3d','foundation-student.f3d'],['foundation-still.png','assembly.png']])
-  await cp(at('cad/assembly-release/'+source),path.join(destination,'foundation',name));
-await rename(path.join(destination, 'robot/index.html'), path.join(destination, 'robot/orbit.html'));
-for(const route of ['robot/orbit.html','chassis/index.html','fixture/index.html','foundation/index.html']){
-  const file=path.join(destination,route);
-  await writeFile(file,styleOrbit(await readFile(file,'utf8')));
-}
-for(const [source,name,section] of [['motion.html','index.html','motion'],['batch.html','batch.html','results'],['tower.html','tower.html','tower']]){
-  const html=await readFile(at('docs/showcase/'+source),'utf8');
-  await writeFile(path.join(destination,'robot',name),styleShowcase(html,'../',section));
-}
-for(const file of ['motion.js','batch.js','loading.js','tower.js']) await cp(at('docs/showcase/'+file),path.join(destination,'robot',file));
-const {checkChapters} = await import(pathToFileURL(path.resolve(plugin, 'scripts/replay-chapters.mjs')));
-const chapters = await checkChapters(at('experiments/own-zone-cycle/motion-chapters.json'), root);
-await writeFile(path.join(destination, 'robot/chapters.json'), JSON.stringify(chapters));
-await cp(path.resolve(plugin, 'templates/replay-chapter-controls.mjs'), path.join(destination, 'robot/chapter-controls.js'));
 
-await cp(at('experiments/batch-port/results.json'), path.join(destination, 'robot/batch-data.json'));
+// The field lab, the alliance role comparison, the depot lanes and the match data need no robot model.
+execFileSync(process.execPath, [at('kickoff/rehearsal/build.mjs'), plugin, destination], {stdio: 'inherit'});
+const fieldFiles = ['alliance-roles.html', 'depot-lanes/index.html', 'depot-lanes/results.json', 'field-lab.html',
+  'match-profile.json', 'match-series.json', 'match-summary.json'];
+const built = (await readdir(destination, {withFileTypes: true, recursive: true})).filter(item => item.isFile())
+  .map(item => path.relative(destination, path.join(item.parentPath, item.name)).split(path.sep).join('/')).sort();
+if (JSON.stringify(built) !== JSON.stringify(fieldFiles)) throw Error('Unexpected field pages: ' + built.join(', '));
 
-await cp(at('experiments/depot-loading/results.json'),path.join(destination,'robot/loading-data.json'));
+// The design status of each phase, as committed.
+const designs = await json('docs/detailed-design/designs.json');
+const shown = designs.designs.filter(id => ['in-progress', 'effective'].includes(designs.designStatus[id]));
+if (designs.current !== null || shown.length)
+  throw Error('A current detailed design needs its own entry page: this builder publishes the preliminary design as the primary view');
+const withdrawn = designs.designs.find(id => designs.designStatus[id] === 'withdrawn');
+if (!withdrawn || !designs.reason?.[withdrawn] || !designs.lastCommit?.[withdrawn])
+  throw Error('The detailed design index must record the withdrawn showcase with its reason and last commit');
+await cp(at('docs/detailed-design'), path.join(destination, 'detailed-design'), {recursive: true});
+await cp(at('docs/preliminary-design'), path.join(destination, 'preliminary-design'), {recursive: true});
+
+// The entry page and its still follow the primary view: the current preliminary design release.
+const releases = await json('docs/preliminary-design/releases.json');
+const release = releases.current, state = releases.designStatus?.[release];
+const status = {'in-progress': 'in progress', effective: 'effective'}[state];
+const statusNote = {'in-progress': 'It is in progress and still changing.',
+  effective: 'It is the effective preliminary design that detailed design builds on.'}[state];
+if (!releases.releases.includes(release) || !status) throw Error('The entry page needs a current in-progress or effective preliminary design release');
+const record = await json('docs/robot/preliminary-' + release + '.json');
+const still = await readFile(at('docs/robot/preliminary-' + release + '.png'));
+const served = name => readFile(at('docs/preliminary-design/releases/' + release + '/' + name));
+const packed = await served('review-scene.json.gz');
+if (record.release !== release || sha(still) !== record.imageSha256 || sha(await served('receipt.json')) !== record.receiptSha256 ||
+    sha(await served('release.json')) !== record.releaseRecordSha256 || sha(packed) !== record.sceneSha256)
+  throw Error('The preliminary still differs from the current release. Regenerate it with scripts/preliminary-still.py.');
+await mkdir(path.join(destination, 'assembly'));
+await writeFile(path.join(destination, 'assembly/assembly.png'), still);
+const text = value => String(value).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+const fields = {status, statusNote, release, reason: designs.reason[withdrawn], lastCommit: designs.lastCommit[withdrawn],
+  lastShort: designs.lastCommit[withdrawn].slice(0, 7), receipt: record.receiptSha256.slice(0, 10),
+  headline: JSON.parse(gunzipSync(packed)).title, title: record.caption.title, alt: record.caption.alt, pose: record.caption.pose,
+  scope: record.caption.scope};
+const template = await readFile(at('docs/showcase/front-page.html'), 'utf8');
+for (const key of Object.keys(fields)) if (!template.includes('{{' + key + '}}')) throw Error('The front page no longer uses the field ' + key);
+const page = template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+  if (!(key in fields)) throw Error('Unknown front page field: ' + key);
+  return text(fields[key]);
+});
+await writeFile(path.join(destination, 'index.html'), page);
+console.log('Built the field pages, the design status pages and the ' + release + ' preliminary design entry page');

@@ -5,6 +5,7 @@ whether the result may merge: it reruns the layout check from the committed inpu
 Withdrawing a release is a status change: the index keeps the reason and the last commit that held its published
 files, and the files leave the site."""
 import argparse
+import datetime
 from contextlib import contextmanager
 import hashlib
 import json
@@ -104,7 +105,10 @@ def project_root(season, inputs, view):
 
 
 def stage(season, inputs, release):
-    """Copy one release's checked files into the site and list it in the index as in progress."""
+    """Copy one release's checked files into the site and list it in the index as in progress.
+
+    An in-progress release is revised in place: staging its ID again replaces its published files and counts a
+    revision in the index. A release stops changing when it is marked effective, and stays so afterwards."""
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", release):
         raise ValueError("Use a lowercase release ID with letters, digits and hyphens")
     site = season / "docs/preliminary-design"
@@ -164,8 +168,9 @@ def stage(season, inputs, release):
     site.mkdir(parents=True, exist_ok=True)
     with update_index(site), tempfile.TemporaryDirectory(dir=site.parent, prefix=".stage-") as tmp:
         index = load_index(site)
-        if release in index["releases"] and status_of(index, release) in ("superseded", "withdrawn"):
-            raise ValueError("Release " + release + " is " + status_of(index, release) + "; stage the revision under a new ID")
+        if release in index["releases"] and status_of(index, release) != "in-progress":
+            raise ValueError("Release " + release + " is " + status_of(index, release) + " and no longer changes. Only an in-progress "
+                             "release is revised in place; publish the design that follows it under a new release ID")
         staged = Path(tmp) / release
         for name, source in files.items():
             (staged / name).parent.mkdir(parents=True, exist_ok=True)
@@ -174,15 +179,24 @@ def stage(season, inputs, release):
         destination = site / "releases" / release
         destination.parent.mkdir(parents=True, exist_ok=True)
         replaced = destination.exists()
+        if replaced and tree(destination) == tree(staged) and release in index["releases"]:
+            print("Preliminary release " + release + " is unchanged (revision " + str(revision_of(index, release)) + ")")
+            return
         if replaced:
             # Git holds the earlier bytes; the pull request shows what changed.
             shutil.rmtree(destination)
         staged.rename(destination)
+        # One design keeps one ID: an edit counts a revision here and adds no entry to the picker.
+        number = revision_of(index, release) + 1 if replaced or release in index["releases"] else 1
+        commit = head_commit(season)
+        index.setdefault("revision", {})[release] = dict(number=number, date=datetime.date.today().isoformat(),
+                                                         **(dict(commit=commit) if commit else {}))
         if release not in index["releases"]:
             index["releases"].append(release)
             index.setdefault("designStatus", {})[release] = "in-progress"
         save_index(index, site)
-    print(("Replaced" if replaced else "Staged") + " preliminary release " + release + " (" + status_of(index, release) + ")")
+    print(("Revised preliminary release " + release + " in place" if number > 1 else "Staged preliminary release " + release)
+          + " (" + status_of(index, release) + ", revision " + str(number) + ")")
 
 
 def readiness_report(inputs, reporter=None, season=None):
@@ -211,6 +225,26 @@ def readiness_report(inputs, reporter=None, season=None):
         print("Effective-readiness report unavailable for " + inputs.as_posix() + "; run `" + command + "`.")
 
 
+def tree(folder):
+    """Every file under a folder with its digest."""
+    return {p.relative_to(folder).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in folder.rglob("*") if p.is_file()}
+
+
+def revision_of(index, release):
+    """How many times a release has been staged with changed files. One published before revisions were counted is at 1."""
+    number = ((index.get("revision") or {}).get(release) or {}).get("number")
+    return number if isinstance(number, int) and number > 0 else 1
+
+
+def head_commit(folder):
+    """The commit the checkout is at, which the revision was staged from. None outside Git or before a first commit."""
+    try:
+        run = subprocess.run(["git", "-C", str(folder), "rev-parse", "--verify", "-q", "HEAD"], capture_output=True, text=True)
+        return run.stdout.strip() or None if run.returncode == 0 else None
+    except OSError:
+        return None
+
+
 def last_commit(folder):
     """The last commit that changed a folder, where its files can still be read. None outside Git."""
     try:
@@ -237,6 +271,8 @@ def set_status(site, release, status, reason=None):
             raise ValueError("Unknown release: " + release)
         statuses = record.setdefault("designStatus", {})
         if status == "effective":
+            # The date it was accepted stays with the release, so it remains listed as a design once it is superseded.
+            record.setdefault("accepted", {}).setdefault(release, datetime.date.today().isoformat())
             for other in record["releases"]:
                 if other != release and status_of(record, other) == "effective":
                     statuses[other] = "superseded"

@@ -1,4 +1,4 @@
-// Exercise the real model-viewer at its terminal key and fail on uncaught page errors.
+// Open the built site's entry page and field lab in Chromium and fail on a broken link or an uncaught page error.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {mkdtemp, readFile, rm} from 'node:fs/promises';
@@ -7,8 +7,8 @@ import path from 'node:path';
 import {setTimeout as wait} from 'node:timers/promises';
 
 const [site, chromium] = process.argv.slice(2);
-if (!site || !chromium) throw Error('Usage: node scripts/check-tower-playback.mjs SITE_URL CHROMIUM');
-const profile = await mkdtemp(path.join(tmpdir(), 'tower-playback-'));
+if (!site || !chromium) throw Error('Usage: node scripts/check-site-pages.mjs SITE_URL CHROMIUM');
+const profile = await mkdtemp(path.join(tmpdir(), 'site-pages-'));
 const chrome = spawn(chromium, ['--headless=new', '--disable-dev-shm-usage', '--remote-debugging-port=0', '--use-angle=swiftshader',
   '--enable-unsafe-swiftshader', '--no-first-run', '--no-default-browser-check', '--user-data-dir='+profile,
   'about:blank'], {windowsHide:true, stdio:['ignore','ignore','pipe']});
@@ -60,51 +60,25 @@ try {
   await send('Runtime.enable');
   for(const width of [390,1280]){
     await send('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
-    const home = new URL('#model', site).href;
-    await send('Page.navigate', {url: home});
-    await until("location.href===" + JSON.stringify(home) + " && document.querySelector('#featured-robot')?.loaded && !document.querySelector('.assembly-stage .controls').hidden");
-    const model = "document.querySelector('#featured-robot')";
-    const initial = await evaluate(model + ".getCameraOrbit().theta");
-    await evaluate("document.querySelector('#inspect-intake').click()");
-    await until("Math.abs(" + model + ".getCameraTarget().x - 0.27) < 0.004");
-    assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true);
-    await evaluate("document.querySelector('#reset-camera').click()");
-    await until("Math.abs(" + model + ".getCameraTarget().x) < 0.15");
-    await evaluate("document.querySelector('[data-turn=\"45\"]').click()");
-    await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") > 0.5");
-    await evaluate("document.querySelector('#reset-camera').click()");
-    await until("Math.abs(" + model + ".getCameraOrbit().theta - " + initial + ") < 0.01");
-    await evaluate("document.querySelector('#toggle-still').click()");
-    await until("!document.querySelector('#fusion-still').hidden && document.querySelector('#fusion-still').naturalWidth > 0 && document.querySelector('#featured-robot').hidden");
-    await evaluate("document.querySelector('#toggle-still').click()");
-    await until("document.querySelector('#fusion-still').hidden && !document.querySelector('#featured-robot').hidden");
-    assert.ok(await evaluate("document.querySelector('#model a[download]').href.endsWith('/assembly/display.f3d')"));
-    assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"));
-    console.log(width + 'px: featured Fusion model loaded, rotated and reset');
-    const url=new URL('robot/tower.html',site).href+'?test='+width+'-'+Date.now();
+    const home=new URL('?test='+width,site).href;
+    await send('Page.navigate',{url:home});
+    await until("location.href==="+JSON.stringify(home)+" && document.querySelector('figure img')?.complete && document.querySelector('figure img').naturalWidth>0");
+    assert.match(await evaluate("document.querySelector('.status').textContent"),/^Preliminary design · (in progress|effective) · layout-\d+$/);
+    assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth + 1"),'The entry page scrolls sideways at '+width+'px');
+    assert.equal(await evaluate("document.body.textContent.includes('{{')"),false,'An entry page field was left unfilled');
+    console.log(width+'px: entry page shows the current preliminary design and its still');
+  }
+  // Every same-site link on the entry page has to resolve, so a withdrawn page cannot stay linked.
+  const links=await evaluate("[...new Set([...document.querySelectorAll('a[href]')].map(a=>a.href.split('#')[0]).filter(h=>h.startsWith(location.origin)))]");
+  assert.ok(links.length>=8,'Expected the entry page to link the review, the status page and the field pages');
+  for(const link of links)assert.equal((await fetch(link)).status,200,'Broken entry page link: '+link);
+  console.log(links.length+' same-site entry page links resolve');
+  for(const [page,ready] of [['preliminary-design/',"document.querySelector('#release')?.options.length>=1 && !!document.querySelector('iframe')?.src"],
+      ['detailed-design/',"document.body.textContent.includes('withdrawn')"]]){
+    const url=new URL(page,site).href;
     await send('Page.navigate',{url});
-    await until('location.href==='+JSON.stringify(url)+" && document.querySelector('#play')?.disabled===false && document.querySelector('#tower')?.loaded");
-    const stage="document.querySelector('#tower')", button="document.querySelector('#play')";
-    const held="document.querySelector('[data-t=\"11\"]').click()";
-    const checkHeld=async()=>{
-      await until(stage+'.paused && '+stage+".currentTime>10.99 && "+button+".textContent==='Replay climb'");
-      assert.match(await evaluate("document.querySelector('#status').textContent"),/11\.00 s/);
-      await wait(75);
-      assert.equal(errors.length,0,errors[0]);
-    };
-    await evaluate(held);await checkHeld();
-    await evaluate("document.querySelector('[data-t=\"9\"]').click()");
-    await until(stage+'.currentTime===9');
-    await evaluate(held);await checkHeld();
-    await evaluate(held);await checkHeld();
-    await evaluate(button+'.click()');
-    await until('!'+stage+'.paused && '+stage+'.currentTime>0 && '+stage+'.currentTime<10');
-    await checkHeld();
-    await evaluate(held);await checkHeld();
-    await evaluate(button+'.click()');
-    await until('!'+stage+'.paused && '+stage+'.currentTime>0 && '+stage+'.currentTime<10');
-    await evaluate(button+'.click()');
-    console.log(width+'px: direct and repeated held pose, power-off seek, timed finish and restart; zero uncaught page errors');
+    await until("location.href==="+JSON.stringify(url)+" && "+ready);
+    console.log(page+' loads');
   }
   const lab=new URL('field-lab.html#rehearsal',site).href;
   await send('Page.navigate',{url:lab});

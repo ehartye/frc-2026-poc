@@ -2207,7 +2207,7 @@
       },
       "intake belt module": {
         "purpose": "Draw a floor FUEL under its bottom pulley and lift it up the bumper face and the back plate.",
-        "rationale": "Drawn at the acquisition trial's setting: the back run stands 20 mm inside one FUEL diameter from the bumper face and the back plate, and the bottom pulley 20 mm into a floor FUEL. The trial captures at 15 mm and fails at 10 mm, so the squeeze is a layout dimension. It stays inside the 304.8 mm reach.",
+        "rationale": "Drawn at the acquisition trial's setting: the back run stands 20 mm inside one FUEL diameter from the bumper face and the back plate, and the bottom pulley 20 mm into a floor FUEL. The trial captures at 15 mm and fails at 10 mm, so the squeeze is a layout dimension. It stays inside the 304.8 mm reach. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float 6 mm inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
         "category": "mechanism",
         "material": "Belt module with internal motor",
         "name": "Intake belt module",
@@ -2216,7 +2216,7 @@
       },
       "intake top roller": {
         "purpose": "Throw the lifted FUEL aft over the top of the back plate.",
-        "rationale": "Lowered 20 mm into the path of the FUEL at the top of the climb and turning at 2 times the belt speed; the FUEL enters the hopper at 1.9 m/s, 552 mm up, above the stored FUEL.",
+        "rationale": "Lowered 20 mm into the path of the FUEL at the top of the climb and turning at 2 times the belt speed; the FUEL enters the hopper at 1.9 m/s, 552 mm up, above the stored FUEL. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float above and inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
         "category": "mechanism",
         "material": "2 in compliant wheels on hex shaft",
         "name": "Intake top roller",
@@ -2225,7 +2225,7 @@
       },
       "intake back plate": {
         "purpose": "Back the belt above the bumper, and close the front of the hopper while the intake is deployed.",
-        "rationale": "It continues the bumper face plane up to 425 mm, so a FUEL enters the hopper from above the heap: thrown in low through an open throat, the collect trial stalls with FUEL backing out. Its hopper-side face leans forward from a 45 mm foot, so a FUEL touching it stands over the driven belt. In an unjam cycle the slide nudges it 40 mm into the FUEL at the front.",
+        "rationale": "It continues the bumper face plane up to 425 mm, so a FUEL enters the hopper from above the heap: thrown in low through an open throat, the collect trial stalls with FUEL backing out. Its hopper-side face leans forward from a 45 mm foot, so a FUEL touching it stands over the driven belt. In an unjam cycle the slide nudges it 40 mm into the FUEL at the front. Unmounted allowance: its tie to the carriage plates is not drawn, so it appears to float 6 mm inside them. The hopper cheek stands between it and the plate while the intake is stowed, so the tie has to pass over or ahead of the cheek (risk carriage-cross-ties).",
         "category": "mechanism",
         "material": "Folded 1 mm aluminum wedge with a friction face; drawn solid",
         "volumeType": "envelope",
@@ -2234,7 +2234,7 @@
       },
       "intake carriage plate left": {
         "purpose": "Join the belt module, top roller and back plate to the slide, and close the sides of the chute.",
-        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys.",
+        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys. Unmounted allowance: only the fixed stage of the two-stage slide is drawn, so a deployed plate appears to float ahead of its rail. The moving stage and the cross-ties to the belt module, top roller and back plate are not drawn (risk carriage-cross-ties).",
         "category": "mechanism",
         "material": "Aluminum plate, lightened",
         "name": "Intake carriage plate left",
@@ -2243,7 +2243,7 @@
       },
       "intake carriage plate right": {
         "purpose": "Join the belt module, top roller and back plate to the slide, and close the sides of the chute.",
-        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys.",
+        "rationale": "Plates at 250-260 mm run outboard of the hopper cheeks and inboard of the slide rails, and pass over the front module motors as the carriage deploys. Unmounted allowance: only the fixed stage of the two-stage slide is drawn, so a deployed plate appears to float ahead of its rail. The moving stage and the cross-ties to the belt module, top roller and back plate are not drawn (risk carriage-cross-ties).",
         "category": "mechanism",
         "material": "Aluminum plate, lightened",
         "name": "Intake carriage plate right",
@@ -2492,6 +2492,7 @@
       "Bench test (mass-reserve): The inspection weight estimate tops out 2.20 kg under the 52.16 kg limit. Measure: Weighed inspection weight of the robot without bumpers and battery; pass 52.16, fail 52.17 kg.",
       "Bench test (hang-squaring): The robot hangs yawed or offset and a bumper misses an upright. Measure: Least clearance to the carpet and TOWER BASE through the 3 s hold, at 70.3 kg, seated at 0 and at 20 mm lateral offset each way; pass 5, fail 0 mm.",
       "Bench test (bump-clearance): The front bumper corner clears the BUMP crest by 8.7 mm in the static screen. Measure: Least clearance of any part other than wheels and bumpers over the BUMP in ten crossings each way, intake retracted; pass 5, fail 0 mm.",
+      "Bench test (carriage-cross-ties): The intake's belt module, top roller and back plate stand inside the hopper cheeks and its carriage plates outside them. The ties between them and the moving slide stage are not drawn, so the layout does not show that they clear the cheeks and the bay walls through the slide travel. Measure: Least clearance from the carriage cross-ties and the moving slide stage to the hopper cheeks and bay walls over the full slide travel, on the first assembled carriage; pass 3, fail 1 mm.",
       "Bench test (weak-battery-margin): The loaded-transit duty leaves the smallest voltage margin on a weak battery. Measure: Minimum bus voltage through a loaded transit with the flywheel spinning up, on a battery at 0.026 ohm; pass 7.5, fail 7.0 V.",
       "Bench test (carriage-nudge): The unjam cycle's carriage nudge has to push the back plate into the FUEL at the hopper front. In the recorded trials the pattern run without the nudge also feeds all 24, so the trials do not show the nudge is needed. Measure: Arches at the hopper front cleared by one 40 mm nudge, of 10 set by hand with 24 FUEL aboard; pass 10, fail 9 arches.",
       "Bench test (bump-crossing-dynamic): Driving over the BUMP at speed with stored FUEL is not evaluated. Measure: FUEL leaving the robot in ten BUMP crossings each way at 1.5 m/s with 24 aboard and the intake retracted; pass 0, fail 1 FUEL.",
@@ -2565,6 +2566,12 @@
       "intake top roller": "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums) -> intake slide rail left is a frame structure member",
       "shooter side plate left": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member",
       "shooter side plate right": "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top -> frame rail rear is a frame structure member"
-    }
+    },
+    "replays": [
+      {
+        "file": "cad/preliminary-design/releases/layout-002/replays.json.gz",
+        "sha256": "42bef5ff72f280cf56aacddf73ea7fe808b3602d43c58e376ae0f74c82913a23"
+      }
+    ]
   }
 }

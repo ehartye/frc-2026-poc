@@ -1,6 +1,6 @@
 # Can the packed robot serve 24 FUEL in 12 seconds?
 
-The indexed feeder released all 24 named FUEL in 11.953 seconds. Only three of those same IDs completed an independently witnessed score before the deadline in both time-step trials. A closed R2C hopper supported single floor pickup but delivered zero from its 24-piece stock. Keep R2C as the editable student robot while the next feeder and its loading path are compared. [Interactive replay](https://ehartye.github.io/frc-2026-poc/robot/batch.html) · [Ledger](results.json) · [R2C native Fusion and exact-download reopen](../../cad/own-zone-upper/design.md).
+The indexed feeder released all 24 named FUEL in 11.953 seconds. Only three of those same IDs completed an independently witnessed score before the deadline in both time-step trials. A closed R2C hopper supported single floor pickup but delivered zero from its 24-piece stock. Keep R2C as the editable student robot while the next feeder and its loading path are compared. [Interactive replay](https://ehartye.github.io/frc-2026-poc/detailed-design/) (page withdrawn with the rough-draft showcase) · [Ledger](results.json) · [R2C native Fusion and exact-download reopen](../../cad/own-zone-upper/design.md).
 
 ## From stock to receiver
 

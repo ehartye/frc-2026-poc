@@ -1,7 +1,7 @@
 {
   "schema": "agent-frc/preliminary-layout-result@1",
   "issue": "R3-PD3",
-  "planSha256": "b904294749d0eee38fe60aa83dcf366732cafe3771c574bbaec2dbf9df0b2ded",
+  "planSha256": "6046c5598b06a9d309e05c91f396cb31350a55e436187ef8ab95bb057613ab21",
   "design": {
     "file": "cad/preliminary-design/releases/layout-002/design.json",
     "sha256": "0faa8f043e3127e282a6c132185ea118f9cf269cfea6895f1112bde11ef1f7eb"
@@ -453,6 +453,20 @@
   "motion": {
     "file": "cad/preliminary-design/releases/layout-002/paths.json",
     "sha256": "2323711a65a7c5ddb370915f40eb8639e2d293fec163ec1cba2a94f6af122b1b"
+  },
+  "scope": {
+    "informational": true,
+    "solids": 70,
+    "fieldFixtures": 6,
+    "guideline": {
+      "solids": 80,
+      "toleranceMm": 10,
+      "source": "plugin default"
+    },
+    "finestPathToleranceMm": null,
+    "finestPathToleranceCase": null,
+    "undeclaredPathTolerance": 47,
+    "passed": []
   },
   "cycle": [
     "intake-deploy",
@@ -2042,13 +2056,13 @@
   },
   "view": {
     "file": "cad/preliminary-design/releases/layout-002/package-motion.html",
-    "sha256": "ebb530a5a4adb02fb5154711a36cb0ace0d434395200e38d7424bd9bd3d13999",
+    "sha256": "0d72a01d5760a127fc40cdf9a2beef3ba5b3946a969ee0ead3d537ae98b48838",
     "verified": true,
     "scene": {
       "file": "cad/preliminary-design/releases/layout-002/review-scene.json.gz",
-      "sha256": "5c48bc94daff0abce780502a5c92be5777d256f3b90d5612e478544c9f48c0cc",
-      "contentSha256": "45f9b84dfc55fb494ee53ddd1dfaea5f8eddbb33c8da0f8ebdf5765897411e2c",
-      "bytes": 1929082
+      "sha256": "1da5c442c558cba1f98e02e1e29c247140f5e104db2be26824bbc207bf3c491f",
+      "contentSha256": "dabfee3c762bec86cedcaeb2c11601b7500f28dc43f8f4399e20a35ba263b730",
+      "bytes": 2919373
     }
   },
   "groups": {

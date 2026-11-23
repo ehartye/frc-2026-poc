@@ -17,7 +17,7 @@ header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 -2vw;pad
 .viewer small{display:block;padding:6px 12px;background:#153150;color:#d5e3f4;font-size:12px}
 button,select,input:not([type=checkbox]):not([type=range]){font:inherit;padding:5px 9px;border-radius:4px;border:1px solid #a9bacd;background:#fff;color:inherit}button{cursor:pointer}button:hover{background:#e4eefb}button:disabled{opacity:.5;cursor:default}input{accent-color:#007f78}select{max-width:100%;min-width:0}
 .playback select{min-width:0;max-width:100%;flex:0 1 auto}.playback #play{background:#ffd365;color:#162f50;border-color:#d2a942;font-weight:650}.playback input[type=range]{flex:1;min-width:70px}.playback output{font:12px var(--mono);min-width:3.5em}
-.mission-readout{padding:12px 18px;border-left:4px solid #edbc46;background:#eff6ff;color:#15345a;display:grid;gap:6px}.mission-readout small{line-height:1.45}
+.mission-readout{padding:12px 18px;border-left:4px solid #edbc46;background:#eff6ff;color:#15345a;display:grid;gap:6px}.mission-readout small{line-height:1.45}#events{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:13px}#events button{padding:0 7px;font:12px var(--mono);min-width:26px}#events button.past{background:#dff3e6;border-color:#8cc8a2}
 #legend{background:#f3f7fb;color:var(--ink);gap:6px 12px;font-size:12px}.swatch{display:inline-block;width:12px;height:12px;margin-right:4px;border-radius:2px;border:1px solid #142b4033;vertical-align:-1px}
 button:focus-visible,select:focus-visible,canvas:focus-visible,input:focus-visible,tr:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .callout-diagram{width:100%;height:100%;display:block;overflow:hidden}.callout-diagram polyline{stroke:#c4d8ee;stroke-opacity:.82;fill:none;stroke-width:1;vector-effect:non-scaling-stroke}.callout-diagram circle{fill:#ffcf5b;stroke:#142842;stroke-width:1}.callout-diagram .tag{fill:#edf5ff;font:600 12px var(--body);paint-order:stroke;stroke:#112641;stroke-width:3;stroke-linejoin:round;pointer-events:auto;cursor:pointer}.callout-diagram .chosen polyline{stroke:#ffcf5b;stroke-width:1.7}.callout-diagram .chosen .tag{fill:#ffcf5b}
@@ -34,7 +34,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 .power-ledger details{border-top:1px solid var(--line);padding:6px 0}.power-ledger details summary{font-weight:650}.member-buttons{display:flex;flex-wrap:wrap;gap:3px;margin:6px 0}.member-buttons button{font-size:12px}
 .checks,.decision{background:white;padding:16px;margin-top:16px}.checks #required{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 12px}.role-row{padding:5px 0;border-bottom:1px solid #d9e2ea;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.role-row strong{min-width:55px;color:#247669;font:600 12px var(--mono)}.role-row.warn strong{color:#975200}
 #findings,#inventory{max-height:300px;overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px;text-align:left;border-bottom:1px solid #dbe4e3;vertical-align:top}thead{position:sticky;top:0;background:#f2f6f6}tr[data-name],tr[data-finding],tr[data-members]{cursor:pointer}tr:hover{background:#edf6f4}tr.located td{background:#fff1cc}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
-.scroll{overflow-x:auto}#evidenceTable{min-width:60rem}tr.control td{background:#fff6dd}tr.uncovered td{color:var(--steel);font-style:italic}td .actions{display:flex;flex-wrap:wrap;gap:4px}.interaction{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:6px 0}.interaction iframe{width:100%;height:min(60vh,36rem);border:1px solid var(--line);margin-top:6px}
+.scroll{overflow-x:auto}#evidenceTable{min-width:60rem}tr.control td{background:#fff6dd}tr.uncovered td{color:var(--steel);font-style:italic}tr.replay td{background:#eff6ff}td ul{margin:0;padding-left:1.1rem}td .actions{display:flex;flex-wrap:wrap;gap:4px}.interaction{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:6px 0}.interaction iframe{width:100%;height:min(60vh,36rem);border:1px solid var(--line);margin-top:6px}
 .notes{margin-top:16px;padding:16px;font-size:13px;color:var(--steel)}.notes summary,details summary{cursor:pointer}#notes{overflow-wrap:anywhere}.not-supplied{color:#975200;font-style:italic}
 .viewer:fullscreen{display:flex;flex-direction:column}.viewer:fullscreen #stage{flex:1;height:auto}[hidden]{display:none!important}
 @media(max-width:60rem){.grid{grid-template-columns:1fr}#stage{height:65vh;min-height:340px}}
@@ -54,8 +54,8 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
  <div class="bar"><b>Assembly layout</b><label><input id="labels" type="checkbox"> Labels</label><span id="labelPages" hidden><button id="labelPrev" aria-label="Previous callouts">‹</button><output id="labelPageCount"></output><button id="labelNext" aria-label="Next callouts">›</button></span><label><input id="floor" type="checkbox" checked> Floor</label><label id="cutawayToggle" hidden><input type="checkbox" id="cutaway"> <span id="cutawayLabel"></span></label><button id="reset">Fit robot</button><button id="field" aria-describedby="fieldWhy">Fit field interaction</button><button id="expand" aria-label="Expand model viewer">Expand</button></div>
  <div id="stage"><canvas id="canvas" tabindex="0" aria-label="Solid model. Drag to orbit, Shift-drag to pan. Arrow keys rotate, Shift and arrow keys pan."></canvas><div id="names"></div><div id="sceneStatus" role="status">Loading geometry…</div></div>
  <small>Drag to orbit · Shift-drag or right-drag to pan · Scroll to zoom · Arrows rotate · Home fits robot</small>
- <div class="bar playback"><select aria-label="Motion case" id="motion"></select><button id="play">Play</button><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value=".25">¼×</option></select><input id="time" aria-label="Position on path" type="range" min="0" max="24" value="0"><output id="fraction">0%</output></div>
- <div class="mission-readout"><strong id="liveMeasure"></strong><small id="basis"></small><small id="fieldWhy" class="not-supplied" hidden></small></div>
+ <div class="bar playback"><select aria-label="Motion case" id="motion"></select><button id="play">Play</button><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value=".25">¼×</option><option value="4">4×</option><option value="10">10×</option></select><input id="time" aria-label="Position on path" type="range" min="0" max="24" value="0"><output id="fraction">0%</output></div>
+ <div class="mission-readout"><strong id="liveMeasure"></strong><div id="events" hidden><span id="eventNow"></span><span id="eventJumps"></span></div><small id="basis"></small><small id="fieldWhy" class="not-supplied" hidden></small></div>
  <div id="legend"></div>
 </section>
 <aside aria-label="Component inspector and selection budget">
@@ -74,6 +74,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 <section class="checks"><details><summary>Strategic narrative review</summary><div id="narrative"></div></details><h2>Required components</h2><p id="warningText"></p><div id="required"></div></section>
 <section class="lower"><div><h2>Clearance evidence</h2><p id="validation"></p><label>Evidence set <select id="set"><option>Current motion</option><option>Parked assembly</option></select></label><label> Outcome <select id="filter"><option value="adverse">Failed or open</option><option value="all">All recorded pairs</option></select></label><p id="count"></p><div id="findings"></div><p id="witness"></p></div><div><h2>Component inventory</h2><p id="inventoryScope"></p><div id="inventory"></div></div></section>
 <section class="decision" id="motion-evidence" aria-label="Motion evidence and decision"><h2>Motion evidence and decision</h2><div class="scroll"><table id="evidenceTable"></table></div>
+ <p id="replayNote" hidden>A replay plays back a recorded trial from the files pinned in its row. It is not a clearance case: the layout check does not run it or credit it, and the decision above does not depend on it.</p>
  <p>Pinned evidence: <a id="receiptLink" href="receipt.json" target="_blank" rel="noopener">review receipt</a> <span id="receiptPin"></span></p>
  <h3>Return to an earlier phase</h3><p>Return to <strong>preliminary design</strong> when:</p><ul id="returnPreliminary"></ul><p>Return to <strong>conceptual design</strong> when:</p><ul id="returnConceptual"></ul><p>Currently triggered:</p><ul id="triggered"></ul>
  <h3>Season-owned field interactions</h3><div id="fieldInteractions"></div></section>
@@ -103,7 +104,7 @@ function inspectorFields(id,scene){
  const lines=massLinesFor(id,scene);
  const mass=lines.length?[lines,false]:b.massExcluded?[b.massExcluded,false]:scene.mass?['No mass line includes this component',true]:['Budget ledger not supplied',true];
  const loads=[...new Set(scene.power.flatMap(d=>d.lines.filter(l=>l.members.includes(id)).map(l=>l.name)))];
- const moves=scene.cases.filter(c=>c.bodies[id]?.matrices.length>1).map(c=>c.id);
+ const moves=[...scene.cases.filter(c=>c.bodies[id]?.matrices.length>1),...(scene.replays||[]).filter(r=>r.bodies[id]&&r.bodies[id].group!==null)].map(c=>c.id);
  // Mounts the plan registers against this member, ahead of the project's load-path text.
  const mounts=(b.mounts||[]).map(m=>'Mounted on '+(scene.bodies[m.on]?.name||m.on)+' at ('+m.pointMm.map(v=>fmt(v,1)).join(', ')+') mm · '+m.basis);
  return [['Category',b.category+(b.category!==b.role?' (colour of role '+b.role+')':''),false,'swatch'],['Subsystem',...val('subsystem',b.subsystem)],['Motion group',b.motionGroup,false],
@@ -125,7 +126,39 @@ function partition(lines,selected,whole){
  for(const line of lines){const n=line.members.filter(v=>selected.has(v)).length;if(whole||n&&n===line.members.length)included.push(line);else if(n)shared.push(line)}
  return {included,shared};
 }
-function frameCount(c){return Math.max(1,...Object.values(c.bodies).map(b=>b.matrices.length))}
+function frameCount(c){return c.replay?c.time.length:Math.max(1,...Object.values(c.bodies).map(b=>b.matrices.length))}
+// A replay in the shape the page gives a case: one entry of the one motion list.
+function replayMotion(r){return {...r,replay:true,kind:'replay',stage:'replay',status:'replay',removed:[],results:[]}}
+// The latest named event at or before a frame, as [count, label], or null before the first.
+function eventAt(events,t){let n=0;for(const e of events||[]){if(e.frame>t)break;n++}return n?[n,events[n-1].label]:null}
+// Triangles of a round tube along a centerline: position and normal per vertex, six numbers each.
+function tubeTriangles(points,radius,sides=8){
+ const sub=(a,b)=>a.map((x,i)=>x-b[i]),dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2],unit=a=>{const l=Math.hypot(...a)||1;return a.map(x=>x/l)},cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+ const rings=[];let side=null;
+ points.forEach((p,i)=>{
+  const along=unit(sub(points[Math.min(i+1,points.length-1)],points[Math.max(i-1,0)]));
+  // Carry the previous ring's side direction along the bend so the tube does not twist.
+  const seed=side||(Math.abs(along[2])<.9?[0,0,1]:[1,0,0]),d=dot(seed,along);
+  side=unit(seed.map((x,k)=>x-d*along[k]));const other=cross(along,side);
+  rings.push(Array.from({length:sides},(_,k)=>{const a=2*Math.PI*k/sides,n=side.map((x,j)=>Math.cos(a)*x+Math.sin(a)*other[j]);return [p.map((x,j)=>x+radius*n[j]),n]}));
+ });
+ const out=new Float32Array(Math.max(0,rings.length-1)*sides*36);let at=0;
+ for(let i=0;i+1<rings.length;i++)for(let k=0;k<sides;k++){const a=rings[i][k],b=rings[i][(k+1)%sides],c=rings[i+1][k],d=rings[i+1][(k+1)%sides];
+  for(const [point,n] of [a,b,c,b,d,c]){out.set(point,at);out.set(n,at+3);at+=6}}
+ return out;
+}
+// Triangle soup of a mesh: position and face normal per vertex, six numbers each.
+function triangleValues(m){const out=new Float32Array(m.f.length*18);let at=0;
+ for(const f of m.f){const a=m.v[f[0]],b=m.v[f[1]],c=m.v[f[2]],ux=b[0]-a[0],uy=b[1]-a[1],uz=b[2]-a[2],vx=c[0]-a[0],vy=c[1]-a[1],vz=c[2]-a[2],nx=uy*vz-uz*vy,ny=uz*vx-ux*vz,nz=ux*vy-uy*vx,l=Math.hypot(nx,ny,nz)||1;
+  for(const p of [a,b,c]){out[at]=p[0];out[at+1]=p[1];out[at+2]=p[2];out[at+3]=nx/l;out[at+4]=ny/l;out[at+5]=nz/l;at+=6}}
+ return out}
+// Where a point sits along a centerline: the segment index plus the fraction along it, at the nearest point.
+function alongCenterline(p,line){let best=1/0,at=0;for(let i=0;i+1<line.length;i++){const a=line[i],b=line[i+1],d=[b[0]-a[0],b[1]-a[1],b[2]-a[2]],w=[p[0]-a[0],p[1]-a[1],p[2]-a[2]],len=d[0]*d[0]+d[1]*d[1]+d[2]*d[2]||1,f=Math.min(1,Math.max(0,(w[0]*d[0]+w[1]*d[1]+w[2]*d[2])/len)),q=Math.hypot(w[0]-f*d[0],w[1]-f*d[1],w[2]-f*d[2]);if(q<best){best=q;at=i+f}}return at}
+// A mesh carried by a moving centerline: each vertex moves by the displacement, since the first centerline, of the nearest point on it.
+function carriedValues(base,param,rest,now,out){
+ for(let k=0;k<param.length;k++){const f=param[k],i=Math.min(Math.floor(f),rest.length-2),w=f-i,a=now[i],b=now[i+1],ra=rest[i],rb=rest[i+1];
+  for(let j=0;j<3;j++)out[6*k+j]=base[6*k+j]+(a[j]-ra[j])*(1-w)+(b[j]-rb[j])*w}
+ return out}
 function followable(href,base){try{const u=new URL(href,base);return u.protocol==='https:'||u.origin===new URL(base).origin?u:null}catch{return null}}
 // SHA-256 for contexts without crypto.subtle, such as a plain-http LAN review. FIPS 180-4.
 const SHA_K=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
@@ -168,16 +201,27 @@ const sum=(rows,key)=>rows.reduce((s,r)=>s.map((v,i)=>v+r[key][i]),[0,0]);
 const flat=(m,p)=>[0,4,8].map(k=>m[k]*p[0]+m[k+1]*p[1]+m[k+2]*p[2]+m[k+3]);
 const rgb=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16)/255);
 const short=s=>s?s.slice(0,12):'';
-let scene,entries,custom=Object.create(null),selNames=new Set(),picked=new Set(),marked=[],selected=null,isolated=null,timer,cam,gl,program,position,normal,locations={},gpu,lastProjection,paintPending=false,extent=1,locatedId=null;
-const current=()=>scene.cases[$('motion').selectedIndex];
+let scene,entries,motions,custom=Object.create(null),selNames=new Set(),picked=new Set(),marked=[],selected=null,isolated=null,timer,cam,gl,program,position,normal,locations={},gpu,lastProjection,paintPending=false,extent=1,locatedId=null;
+const current=()=>motions[$('motion').selectedIndex];
 const duty=()=>scene.power[$('duty').selectedIndex];
 const frameOf=()=>+$('time').value;
 const storageKey=()=>'agent-frc/preliminary/groups/'+scene.sources.step.sha256;
 function readGroups(){const groups=Object.create(null);try{Object.assign(groups,JSON.parse(localStorage.getItem(storageKey())||'{}'))}catch{}return groups}
 function writeGroups(){try{localStorage.setItem(storageKey(),JSON.stringify(custom))}catch{}}
-function poseAt(c,id,t){const b=c.bodies[id];const m=b.matrices[Math.min(t,b.matrices.length-1)];
+const UNMOVED=[1,0,0,0,0,1,0,0,0,0,1,0];
+// A replay body takes its group's transform for the frame; null means the group is hidden in that frame.
+function poseAt(c,id,t){const b=c.bodies[id];if(c.replay)return b.group===null?UNMOVED:c.groups[b.group][Math.min(t,c.time.length-1)];
+ const m=b.matrices[Math.min(t,b.matrices.length-1)];
  if(!scene.bodies[id].fixture||!c.positions)return m;const [x,y]=c.positions[t];return [m[0],m[1],m[2],m[3]-x,m[4],m[5],m[6],m[7]-y,m[8],m[9],m[10],m[11]]}
-function presentIds(c){return Object.keys(c.bodies).filter(id=>!c.removed.includes(id)&&!(scene.cutaway&&$('cutaway').checked&&scene.cutaway.hides.includes(id)))}
+function presentIds(c){const t=frameOf();return Object.keys(c.bodies).filter(id=>!c.removed.includes(id)&&!(scene.cutaway&&$('cutaway').checked&&scene.cutaway.hides.includes(id))&&!(c.replay&&!poseAt(c,id,t)))}
+// Where the followed group sits in the field at a frame; a case has no field position of this kind.
+function followPoint(c,t){if(!c.replay)return null;const m=c.groups[c.follow][Math.min(t,c.time.length-1)];return [m[3],m[7],m[11]]}
+function tubePoints(tube,t){return tube.points[Math.min(t,tube.points.length-1)]}
+// A tube that names a body draws that body's mesh carried along the centerline, such as chain links on a sagging chain.
+const carriedParts=new Map();
+function carriedMesh(tube,t){let c=carriedParts.get(tube);
+ if(!c){const base=triangleValues(scene.meshes[tube.mesh]),param=new Float32Array(base.length/6);for(let k=0;k<param.length;k++)param[k]=alongCenterline([base[6*k],base[6*k+1],base[6*k+2]],tube.points[0]);carriedParts.set(tube,c={base,param,out:base.slice()})}
+ return carriedValues(c.base,c.param,tube.points[0],tubePoints(tube,t),c.out)}
 
 // Region 1
 function header(){
@@ -192,9 +236,9 @@ function header(){
  decide(scene.decision.status,scene.decision.firstUnmet,'(at scene generation; awaiting the review receipt)');
  triggered(scene.decision.status==='blocked'&&scene.decision.firstUnmet?[scene.decision.firstUnmet.text]:[]);
 }
-let designStatus=null,decision='pending receipt';
+let designStatus=null,revision='',decision='pending receipt';
 const releaseId=()=>decodeURIComponent(new URL('.',location.href).pathname.split('/').filter(Boolean).at(-1)||'');
-function chip(){const s=$('state');s.textContent=(designStatus?designStatus[0].toUpperCase()+designStatus.slice(1).replace('-',' ')+' · ':'')+decision;s.className='chip '+decision}
+function chip(){const s=$('state');s.textContent=(designStatus?designStatus[0].toUpperCase()+designStatus.slice(1).replace('-',' ')+' · ':'')+revision+decision;s.className='chip '+decision}
 function decide(status,unmet,source){
  decision=status;$('decision').textContent=status;$('decision').className='chip '+status;chip();
  $('decisionSource').textContent=source;$('firstUnmet').textContent=unmet?unmet.text:'None. Every commissioned check passes.';
@@ -205,7 +249,9 @@ function triggered(list){$('triggered').replaceChildren(...(list.length?list:['N
 async function showDesignStatus(){
  const id=releaseId();
  try{const r=await fetch('../../releases.json',{cache:'no-store'});if(!r.ok)return;const index=await r.json();if(!index.releases?.includes(id))return;
-  designStatus=index.designStatus?.[id]??'in-progress';chip()}catch{}
+  designStatus=index.designStatus?.[id]??'in-progress';
+  // An in-progress release is revised in place; the index counts its revisions.
+  const edited=index.revision?.[id]?.number;revision=Number.isInteger(edited)?'revision '+edited+' · ':'';chip()}catch{}
 }
 async function bindReceipt(contentSha){
  let receipt=null;try{const r=await fetch('receipt.json',{cache:'no-store'});receipt=r.ok?await r.json():null}catch{}
@@ -229,32 +275,36 @@ function initGL(){
  gl.linkProgram(program);gl.useProgram(program);for(const k of ['camera','pose','tint'])locations[k]=gl.getUniformLocation(program,k);
  position=gl.getAttribLocation(program,'point');normal=gl.getAttribLocation(program,'normal');gl.enableVertexAttribArray(position);gl.enableVertexAttribArray(normal);gl.enable(gl.DEPTH_TEST);
  const upload=(values,mode)=>{const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(values),gl.STATIC_DRAW);return {buffer,count:values.length/6,mode}};
- const triangles=m=>{const out=[];for(const f of m.f){const [a,b,c]=f.map(i=>m.v[i]),u=b.map((x,i)=>x-a[i]),v=c.map((x,i)=>x-a[i]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],l=Math.hypot(...n)||1;for(const p of [a,b,c])out.push(...p,n[0]/l,n[1]/l,n[2]/l)}return upload(out,gl.TRIANGLES)};
+ const triangles=m=>upload(triangleValues(m),gl.TRIANGLES);
  const lines=[],c0=robotCenter(),step=niceStep(extent/8),span=Math.ceil(2.5*extent/step)*step;
  const x0=Math.round(c0[0]/step)*step,y0=Math.round(c0[1]/step)*step;
  for(let k=-span;k<=span+1e-9;k+=step){lines.push(x0+k,y0-span,0,0,0,1,x0+k,y0+span,0,0,0,1,x0-span,y0+k,0,0,0,1,x0+span,y0+k,0,0,0,1)}
  const outline=[];if(scene.cutaway?.outline){const o=scene.cutaway.outline;o.forEach((p,i)=>outline.push(...p,0,0,1,...o[(i+1)%o.length],0,0,1))}
- gpu={meshes:scene.meshes.map(triangles),grid:upload(lines,gl.LINES),gridStep:step,outline:outline.length?upload(outline,gl.LINES):null};
+ // A mesh is uploaded when a case first draws it, so field parts that only some replays show cost nothing until then.
+ gpu={meshes:[],mesh:k=>gpu.meshes[k]||(gpu.meshes[k]=triangles(scene.meshes[k])),grid:upload(lines,gl.LINES),gridStep:step,outline:outline.length?upload(outline,gl.LINES):null,tube:{buffer:gl.createBuffer(),count:0,mode:gl.TRIANGLES}};
 }
 function niceStep(x){const p=10**Math.floor(Math.log10(x)),m=x/p;return (m<1.5?1:m<3.5?2.5:m<7.5?5:10)*p}
 function robotCenter(){const c=scene.cases.find(x=>x.id===scene.openingCase)||scene.cases[0],lo=[1/0,1/0,1/0],hi=[-1/0,-1/0,-1/0];
  for(const id of Object.keys(c.bodies)){if(scene.bodies[id].fixture)continue;for(const v of scene.meshes[c.bodies[id].mesh].v){const p=flat(c.bodies[id].matrices[0],v);p.forEach((x,i)=>{lo[i]=Math.min(lo[i],x);hi[i]=Math.max(hi[i],x)})}}
  extent=Math.max(1,Math.hypot(...hi.map((v,i)=>v-lo[i])));return lo.map((v,i)=>(v+hi[i])/2)}
 const modelMatrix=m=>[m[0],m[4],m[8],0,m[1],m[5],m[9],0,m[2],m[6],m[10],0,m[3],m[7],m[11],1];
-function fit(ids){
+function fit(ids,follow=true,tubes=false){
  isolated=null;labelPage=0;const c=$('canvas'),w=c.clientWidth||1000,h=c.clientHeight||600,rail=$('labels').checked?labelRail(w):0;
  const az=-.88,el=.43,ca=Math.cos(az),sa=Math.sin(az),ce=Math.cos(el),se=Math.sin(el),u=[-sa,ca,0],v=[-se*ca,-se*sa,ce],b=[1/0,-1/0,1/0,-1/0],lo=[1/0,1/0,1/0],hi=[-1/0,-1/0,-1/0];
  const cs=current(),t=frameOf();
- for(const id of ids){const m=poseAt(cs,id,t);for(const vertex of scene.meshes[cs.bodies[id].mesh].v){const p=flat(m,vertex),x=u.reduce((s,a,i)=>s+a*p[i],0),y=v.reduce((s,a,i)=>s+a*p[i],0);b[0]=Math.min(b[0],x);b[1]=Math.max(b[1],x);b[2]=Math.min(b[2],y);b[3]=Math.max(b[3],y);p.forEach((q,i)=>{lo[i]=Math.min(lo[i],q);hi[i]=Math.max(hi[i],q)})}}
- if(!ids.length)return;
+ const grow=p=>{const x=u.reduce((s,a,i)=>s+a*p[i],0),y=v.reduce((s,a,i)=>s+a*p[i],0);b[0]=Math.min(b[0],x);b[1]=Math.max(b[1],x);b[2]=Math.min(b[2],y);b[3]=Math.max(b[3],y);p.forEach((q,i)=>{lo[i]=Math.min(lo[i],q);hi[i]=Math.max(hi[i],q)})};
+ for(const id of ids){const m=poseAt(cs,id,t);if(m)for(const vertex of scene.meshes[cs.bodies[id].mesh].v)grow(flat(m,vertex))}
+ if(tubes)for(const tube of cs.tubes||[])tubePoints(tube,t).forEach(grow);
+ if(lo[0]===1/0)return;
  const mid=lo.map((q,i)=>(q+hi[i])/2),depth=[ca*ce,sa*ce,se],along=depth.reduce((s,d,i)=>s+d*mid[i],0),midU=(b[0]+b[1])/2,midV=(b[2]+b[3])/2;
  // Centre the projected bounds; the depth component only orders surfaces.
  const center=u.map((q,i)=>midU*q+midV*v[i]+along*depth[i]),scale=.8*Math.min((w-rail-24)/Math.max(1e-6,b[1]-b[0]),h/Math.max(1e-6,b[3]-b[2]));
- cam={az,el,x:0,y:0,center,scale};draw()
+ // A replay moves the robot through the field: the robot view follows it, the field view stays put.
+ cam={az,el,x:0,y:0,center,scale,follow,anchor:followPoint(cs,t),depth:Math.max(12*extent,1.2*Math.hypot(...hi.map((q,i)=>q-lo[i])))};draw()
 }
 const robotIds=()=>presentIds(current()).filter(id=>!scene.bodies[id].fixture);
 function reset(){fit(robotIds())}
-function fieldFit(){fit(presentIds(current()))}
+function fieldFit(){fit(presentIds(current()),false,true)}
 function draw(){if(!cam||paintPending)return;paintPending=true;requestAnimationFrame(render)}
 let labelPage=0,followLabel=null;const calloutNodes=[];
 function labelRail(width){return Math.min(212,Math.max(92,width*.235))}
@@ -288,25 +338,29 @@ function render(){
  if(canvas.width!==pw||canvas.height!==ph){canvas.width=pw;canvas.height=ph;gl.viewport(0,0,pw,ph)}
  gl.clearColor(.082,.173,.282,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
  const rail=$('labels').checked?labelRail(width):0,ca=Math.cos(cam.az),sa=Math.sin(cam.az),ce=Math.cos(cam.el),se=Math.sin(cam.el),sc=cam.scale;
- const u=[-sa,ca,0].map(v=>v*2*sc/width),v=[-se*ca,-se*sa,ce].map(v=>v*2*sc/height),z=[ce*ca,ce*sa,se].map(v=>-v/(12*extent));
- const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),off=[(2*cam.x+rail)/width-dot(u,cam.center),-2*cam.y/height-dot(v,cam.center),-dot(z,cam.center)];
+ const u=[-sa,ca,0].map(v=>v*2*sc/width),v=[-se*ca,-se*sa,ce].map(v=>v*2*sc/height),z=[ce*ca,ce*sa,se].map(v=>-v/(cam.depth||12*extent));
+ const at=followPoint(cs,t),center=at&&cam.follow&&cam.anchor?cam.center.map((q,i)=>q+at[i]-cam.anchor[i]):cam.center;
+ const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),off=[(2*cam.x+rail)/width-dot(u,center),-2*cam.y/height-dot(v,center),-dot(z,center)];
  lastProjection=p=>[dot(u,p)+off[0],dot(v,p)+off[1],dot(z,p)+off[2]];
  gl.uniformMatrix4fv(locations.camera,false,[u[0],v[0],z[0],0,u[1],v[1],z[1],0,u[2],v[2],z[2],0,...off,1]);
  const paint=(item,m,col)=>{gl.bindBuffer(gl.ARRAY_BUFFER,item.buffer);gl.vertexAttribPointer(position,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(normal,3,gl.FLOAT,false,24,12);gl.uniformMatrix4fv(locations.pose,false,modelMatrix(m));gl.uniform3fv(locations.tint,col);gl.drawArrays(item.mode,0,item.count)};
  const field=cs.positions?[1,0,0,-cs.positions[t][0],0,1,0,-cs.positions[t][1],0,0,1,0]:[1,0,0,0,0,1,0,0,0,0,1,0];
- if($('floor').checked){const g=gpu.gridStep,off=cs.positions?cs.positions[t].map(x=>x-Math.round(x/g)*g):[0,0];paint(gpu.grid,[1,0,0,-off[0],0,1,0,-off[1],0,0,1,0],[.16,.25,.34])}
+ if($('floor').checked){const g=gpu.gridStep,off=at?at.map(x=>-Math.round(x/g)*g):cs.positions?cs.positions[t].map(x=>x-Math.round(x/g)*g):[0,0];paint(gpu.grid,[1,0,0,-off[0],0,1,0,-off[1],0,0,1,0],[.16,.25,.34])}
  if(gpu.outline&&$('cutaway').checked)paint(gpu.outline,field,[.36,.94,1]);
  const labels=[];
  for(const id of visibleBodies(presentIds(cs),isolated)){
   const b=scene.bodies[id],m=poseAt(cs,id,t);let col=b.tint;
   if(marked.includes(id))col=[1,.34,.14];else if(!selNames.has(id)&&!b.fixture)col=b.dim;if(id===selected)col=[1,.79,.27];
-  paint(gpu.meshes[cs.bodies[id].mesh],m,col);
+  paint(gpu.mesh(cs.bodies[id].mesh),m,col);
   if(rail&&($('labels').checked||marked.includes(id)||id===selected)){const p=lastProjection(flat(m,scene.meshes[cs.bodies[id].mesh].anchor)),x=(p[0]+1)*width/2,y=(1-p[1])*height/2;if(x>rail+17&&x<width-4&&y>4&&y<height-4)labels.push({id,name:b.name,x,y})}
  }
+ if(!isolated)for(const tube of cs.tubes||[]){const values=tube.body?carriedMesh(tube,t):tubeTriangles(tubePoints(tube,t),tube.radiusMm);gl.bindBuffer(gl.ARRAY_BUFFER,gpu.tube.buffer);gl.bufferData(gl.ARRAY_BUFFER,values,gl.DYNAMIC_DRAW);gpu.tube.count=values.length/6;paint(gpu.tube,UNMOVED,tube.body?scene.bodies[tube.body].tint:rgb(tube.color))}
  drawLeaders(labels,width,height,rail);
  const frames=frameCount(cs);$('fraction').textContent=cs.time?fmt(cs.time[t])+' s':Math.round(t/Math.max(1,frames-1)*100)+'%';
  const row=(scene.motionEvidence||[]).find(r=>r.case===cs.id);
- $('liveMeasure').textContent=cs.measure?.[t]||(row?row.kind+': '+row.result:cs.status==='pass'?'Checked path':cs.status);
+ $('liveMeasure').textContent=cs.measure?.[t]||(cs.replay?'Recorded playback':row?row.kind+': '+row.result:cs.status==='pass'?'Checked path':cs.status);
+ if(cs.events?.length){const now=eventAt(cs.events,t);$('eventNow').textContent=now?'Event '+now[0]+' of '+cs.events.length+': '+now[1]:'No event yet · '+cs.events.length+' recorded';
+  [...$('eventJumps').children].forEach((b,i)=>b.classList.toggle('past',cs.events[i].frame<=t))}
 }
 function pick(e){
  const r=$('canvas').getBoundingClientRect(),x=2*(e.clientX-r.left)/r.width-1,y=1-2*(e.clientY-r.top)/r.height,cs=current(),t=frameOf();let best=1/0,hit=null;
@@ -437,7 +491,7 @@ function inventory(){
 function evidence(){
  const parked=$('set').selectedIndex===1,cs=current(),rows=parked?[...scene.parked.positive.map(x=>({pair:x.pair,status:'overlap',witness:{volumeMm3:x.volumeMm3}})),...scene.parked.unresolved.map(p=>({pair:p,status:'open',witness:{reason:'Unresolved'}}))]:cs.results;
  const counts={};rows.forEach(r=>counts[r.status]=(counts[r.status]||0)+1);
- $('count').textContent=parked?'Installed STEP · '+scene.parked.screenedPairs+' pairs screened. '+scene.parked.positive.length+' positive-volume pairs, '+scene.parked.unresolved.length+' unresolved.':cs.id+' · '+(Object.entries(counts).map(([k,v])=>v+' '+k).join(' / ')||'no pair within broad-phase range')+(cs.allowanceMm==null?'':' · clearance allowance '+cs.allowanceMm+' mm');
+ $('count').textContent=parked?'Installed STEP · '+scene.parked.screenedPairs+' pairs screened. '+scene.parked.positive.length+' positive-volume pairs, '+scene.parked.unresolved.length+' unresolved.':cs.id+' · '+(cs.replay?'recorded playback, not a clearance case':Object.entries(counts).map(([k,v])=>v+' '+k).join(' / ')||'no pair within broad-phase range')+(cs.allowanceMm==null?'':' · clearance allowance '+cs.allowanceMm+' mm');
  const [tab,body]=table(['Pair','Result','Witness']);
  for(const f of rows){if($('filter').value==='adverse'&&!['fail','open','overlap'].includes(f.status))continue;
   const r=body.insertRow();r.dataset.finding='1';r.tabIndex=0;r.insertCell().textContent=f.pair.map(n=>scene.bodies[n]?.name??n).join(' / ');r.insertCell().textContent=f.status;const w=f.witness||{};
@@ -464,7 +518,7 @@ function motionEvidence(){
   const r=body.insertRow();r.className=row.kind==='displaced control'?'control':row.kind;
   for(const c of [row.case+(row.basis?' — '+row.basis:''),row.kind,row.start||'—',(row.groups||[]).join(', ')||'—',row.environment||'—',row.metric?row.metric+' ('+row.units+')':'—',limitText(row),row.allowanceMm==null?'—':fmt(row.allowanceMm)+' mm · '+(row.allowanceBasis||'basis missing'),row.method||row.note||'—',row.result+(row.expected?' (expected '+row.expected+')':'')])r.insertCell().textContent=c;
   const actions=document.createElement('div');actions.className='actions';r.insertCell().append(actions);
-  const index=scene.cases.findIndex(c=>c.id===row.case);
+  const index=motions.findIndex(c=>c.id===row.case);
   if(row.playable&&index>=0){
    const play=text('button','Play');play.onclick=()=>{selectCase(index);$('time').value=0;start()};actions.append(play);
    if(row.limitingPair){const jump=text('button','Jump to limiting pose');jump.disabled=row.limitingTime==null;if(jump.disabled)jump.title='Interval bound; no single limiting pose';
@@ -472,6 +526,20 @@ function motionEvidence(){
     const both=text('button','Inspect both bodies');both.onclick=()=>{selectCase(index);inspect(row.limitingPair[0],row.limitingPair)};actions.append(jump,both)}
   }else if(row.note)actions.append(text('span',row.note));
  }
+ // Replays sit in the same table and the same motion list, marked as playback of pinned trial files.
+ for(const r of scene.replays||[]){
+  const tr=body.insertRow();tr.className='replay';const fixtures=Object.keys(r.bodies).filter(id=>scene.bodies[id].fixture),cell=v=>{const td=tr.insertCell();td.append(...[v].flat());return td};
+  const list=(title,items)=>{if(!items?.length)return [];const ul=document.createElement('ul');for(const v of items)ul.append(text('li',v));return [text('b',title),ul]};
+  const pins=document.createElement('details');pins.append(text('summary','Playback of '+r.evidence.length+' pinned trial file'+(r.evidence.length>1?'s':'')));
+  const files=document.createElement('ul');for(const e of r.evidence)files.append(text('li',(e.role?e.role+': ':'')+e.file+' · '+short(e.sha256)));pins.append(files);pins.open=r.evidence.length<3;
+  cell(r.id+' — '+r.basis+(r.objective?' Mission objective: '+r.objective+'.':''));cell('replay');cell('Recorded field pose of '+r.follow);cell(Object.keys(r.groups).join(', '));
+  cell(fixtures.length||r.tubes?.length?'Field fixtures: '+[...fixtures.map(id=>scene.bodies[id].name),...(r.tubes||[]).map(x=>x.name)].join(', '):'No field fixture');
+  cell(fmt(r.time.at(-1)-r.time[0])+' s on the trial clock · '+r.time.length+' frames');cell('—');cell('—');
+  cell([pins,...list('Recorded',r.recorded),...list('Display only, no contact or load claim',r.display)]);cell('recorded playback · not a clearance case');
+  const actions=document.createElement('div');actions.className='actions';tr.insertCell().append(actions);
+  const play=text('button','Play');play.onclick=()=>{selectCase(motions.findIndex(c=>c.id===r.id));$('time').value=0;start();$('stage').scrollIntoView({block:'nearest'})};actions.append(play);
+ }
+ $('replayNote').hidden=!(scene.replays||[]).length;
  for(const [id,key] of [['returnPreliminary','preliminary'],['returnConceptual','conceptual']])$(id).replaceChildren(...(scene.returnCriteria[key]||[]).map(v=>text('li',v)));
  const fields=$('fieldInteractions');
  if(!scene.fieldInteractions.length)fields.append(text('p','No season-owned field-interaction or physics player is linked to this release (presentation.fieldInteractions).'));
@@ -493,15 +561,19 @@ function start(){
  timer=setInterval(()=>{const elapsed=offset+(performance.now()-begin)*rate/1000;let t=+$('time').value;while(t<frames-1&&times[t+1]<=elapsed)t++;$('time').value=t;draw();if(t===frames-1)stop()},16);
 }
 function selectCase(i){if($('motion').selectedIndex!==i){$('motion').selectedIndex=i;activate()}}
+let inField=false;
 function activate(opening=false){
  stop();const c=current(),frames=frameCount(c);$('time').max=frames-1;$('time').value=0;marked=[];
+ $('events').hidden=!c.events?.length;$('eventJumps').replaceChildren(...(c.events||[]).map((e,i)=>{const b=text('button',String(i+1));b.title=e.label+' · '+fmt(c.time[e.frame])+' s';b.setAttribute('aria-label','Jump to event '+(i+1)+': '+e.label);b.onclick=()=>{stop();$('time').value=e.frame;draw()};return b}));
  const link=new URL(location.href);link.searchParams.set('case',c.id);try{history.replaceState({},'',link)}catch{}
  const match=opening?-1:scene.power.findIndex(e=>e.stage===c.id&&e.batteryCondition==='weak');if(match>=0){$('duty').selectedIndex=match;budget()}
  // The cutaway hides a fixture without removing it from the case, so it does not change this control.
- const fieldFitting=fieldFitState(Object.keys(c.bodies).filter(id=>!c.removed.includes(id)),scene);$('field').disabled=!fieldFitting.enabled;$('field').title=fieldFitting.reason;
+ const fieldFitting=c.tubes?.length?{enabled:true,reason:''}:fieldFitState(Object.keys(c.bodies).filter(id=>!c.removed.includes(id)),scene);$('field').disabled=!fieldFitting.enabled;$('field').title=fieldFitting.reason;
  $('fieldWhy').textContent=fieldFitting.reason;$('fieldWhy').hidden=fieldFitting.enabled;
  $('cutaway').disabled=!scene.cutaway||!scene.cutaway.hides.some(id=>c.bodies[id]);
- $('basis').textContent=c.basis;$('witness').textContent='';evidence();draw();
+ $('basis').textContent=(c.replay?'Recorded playback, not a clearance case. ':'')+c.basis;$('witness').textContent='';evidence();
+ // A replay places the robot in the field, away from the installed pose, so the view is fitted again on entering or leaving one.
+ if(!opening&&cam&&(c.replay||inField)){isolated=null;reset()}inField=!!c.replay;draw();
 }
 
 async function loadScene(){
@@ -518,14 +590,18 @@ async function init(){
  for(const m of scene.meshes){const c=[0,1,2].map(i=>m.v.reduce((s,p)=>s+p[i],0)/m.v.length);let best=1/0;for(const p of m.v){const d=p.reduce((s,x,i)=>s+(x-c[i])**2,0);if(d<best){best=d;m.anchor=p}}}
  for(const [,b] of entries){b.tint=rgb(b.color);b.dim=b.tint.map((x,i)=>.20*x+.80*[.64,.73,.83][i])}
  header();showDesignStatus();
- $('motion').replaceChildren(...scene.cases.map(c=>new Option(c.label,c.id)));
- const deep=new URLSearchParams(location.search).get('case');$('motion').selectedIndex=Math.max(0,scene.cases.findIndex(c=>c.id===(deep||scene.openingCase)));
+ const replays=(scene.replays||[]).map(replayMotion);motions=scene.cases.concat(replays);
+ // One list for every motion: the checked mechanism cases and the trial replays, told apart by their group label.
+ const listed=(label,items)=>{const g=document.createElement('optgroup');g.label=label;g.append(...items.map(c=>new Option(c.label,c.id)));return g};
+ $('motion').replaceChildren(...(replays.length?[listed('Mechanism cases',scene.cases),listed('Trial replays',replays)]:scene.cases.map(c=>new Option(c.label,c.id))));
+ const deep=new URLSearchParams(location.search).get('case'),wanted=motions.findIndex(c=>c.id===deep);$('motion').selectedIndex=wanted>=0?wanted:Math.max(0,motions.findIndex(c=>c.id===scene.openingCase));
  $('duty').replaceChildren(...scene.power.map(e=>new Option(e.case,e.case)));$('duty').disabled=!scene.power.length;
  if(scene.power.length)$('duty').selectedIndex=scene.power.reduce((w,e,i,a)=>e.marginV<a[w].marginV?i:w,0);
  if(scene.cutaway){$('cutawayToggle').hidden=false;$('cutawayLabel').textContent=scene.cutaway.label}
  for(const [id,b] of entries)$('componentNames').append(new Option(b.name===id?id:b.name+' ('+id+')',id));
  for(const cat of new Set(entries.map(([,b])=>b.category))){const span=document.createElement('span'),i=document.createElement('i');i.className='swatch';i.style.background=entries.find(([,b])=>b.category===cat)[1].color;span.append(i,cat);$('legend').append(span)}
- const n=scene.narrativeReview;$('narrative').replaceChildren(...(n?.source?[text('p',n.source.file+' · '+short(n.source.sha256))]:[notSupplied('narrativeReview')]),...(n?.objectives||[]).map(o=>text('p',o.objective+' — '+o.disposition+'. '+o.basis)));
+ const n=scene.narrativeReview;$('narrative').replaceChildren(...(n?.source?[text('p',n.source.file+' · '+short(n.source.sha256))]:[notSupplied('narrativeReview')]),...(n?.objectives||[]).map(o=>{const p=text('p',o.objective+' — '+o.disposition+'. '+o.basis);
+  for(const r of replays.filter(r=>r.objective===o.objective)){const b=text('button','Play replay: '+r.label);b.style.marginLeft='.5rem';b.onclick=()=>{selectCase(motions.indexOf(r));start();$('stage').scrollIntoView({block:'nearest'})};p.append(b)}return p}));
  $('notes').replaceChildren(...(scene.notes?.length?scene.notes.map(v=>text('p',v)):[notSupplied('presentation.notes')]));
  validationText();motionEvidence();initGL();group();
  activate(true);reset();
