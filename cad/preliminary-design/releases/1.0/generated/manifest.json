@@ -3,7 +3,7 @@
   "design": {
     "name": "Chute-fed hood shooter 1.0",
     "source": "design.json",
-    "sourceSha256": "b4395fcd1322fcfada9c7073f898518a8c3871c28f7e62bdbbc50f743c1e33ec",
+    "sourceSha256": "38b46453f727681d28a30ba73106753bbd5b010afd3c102f8701f4167ec54923",
     "frame": "Robot datum: carpet plane at the frame centre, +X toward the intake, +Y left, millimetres"
   },
   "units": {
@@ -1207,7 +1207,7 @@
       ],
       "massKg": null,
       "massFrom": null,
-      "note": "Drawn where the acquire trial starts it: on the carpet ahead of the deployed intake (field-trials.json, acquire-nominal)."
+      "note": "Drawn where the pickup trial starts it: on the carpet ahead of the deployed intake."
     },
     {
       "name": "FUEL stored 1",
@@ -2188,9 +2188,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2215,9 +2213,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2242,9 +2238,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2269,9 +2263,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2296,9 +2288,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2323,9 +2313,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2350,9 +2338,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2377,9 +2363,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2404,9 +2388,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2431,9 +2413,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2458,9 +2438,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2485,9 +2463,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2512,9 +2488,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2539,9 +2513,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2566,9 +2538,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2593,9 +2563,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2620,9 +2588,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2647,9 +2613,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2674,9 +2638,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2701,9 +2663,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2728,9 +2688,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2755,9 +2713,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2782,9 +2738,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2809,9 +2763,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2836,9 +2788,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2863,9 +2813,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2890,9 +2838,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2917,9 +2863,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2944,9 +2888,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2971,9 +2913,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -2998,9 +2938,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3025,9 +2963,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3052,9 +2988,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3079,9 +3013,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3106,9 +3038,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3133,9 +3063,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3160,9 +3088,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3187,9 +3113,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3214,9 +3138,7 @@
       ],
       "during": [
         "intake-deploy",
-        "acquire-1",
-        "acquire-2",
-        "acquire-3",
+        "acquire",
         "hopper-1",
         "hopper-2",
         "hopper-3",
@@ -3240,10 +3162,9 @@
         "bumper front"
       ],
       "during": [
-        "acquire-1",
-        "acquire-2"
+        "acquire"
       ],
-      "note": "acquire-nominal 0.0000-0.3350 s: the trial presses the FUEL 11.2 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.6 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"
     },
     {
       "pair": [
@@ -3251,10 +3172,9 @@
         "intake back plate"
       ],
       "during": [
-        "acquire-1",
-        "acquire-2"
+        "acquire"
       ],
-      "note": "acquire-nominal 0.0000-0.3350 s: the trial presses the FUEL 0.0 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.6 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"
     },
     {
       "pair": [
@@ -3262,10 +3182,9 @@
         "intake belt module"
       ],
       "during": [
-        "acquire-1",
-        "acquire-2"
+        "acquire"
       ],
-      "note": "acquire-nominal 0.0000-0.3350 s: the trial presses the FUEL 9.8 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.6 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"
     },
     {
       "pair": [
@@ -3273,9 +3192,9 @@
         "intake top roller"
       ],
       "during": [
-        "acquire-2"
+        "acquire"
       ],
-      "note": "acquire-nominal 0.3350-0.6380 s: the trial presses the FUEL 1.7 mm into this surface (15 kN/m penalty contact, an estimate, not a measured force-deflection curve). The coarse stroke is within 39.8 mm of that path, so the pair is listed as an intended contact with the trial's indentation as its allowance and is not a clearance result"
+      "note": "pickup trial: the belt and the top roller press the FUEL against the bumper face and the back plate as it climbs"
     },
     {
       "pair": [
@@ -3466,7 +3385,7 @@
         756.257
       ]
     },
-    "acquire-1 start": {
+    "acquire start": {
       "groups": {
         "field": [
           {
@@ -3488,96 +3407,6 @@
         750.0
       ]
     },
-    "acquire-2 start": {
-      "groups": {
-        "field": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              0.0,
-              -2000.0,
-              0.0
-            ]
-          }
-        ],
-        "tracked FUEL": [
-          {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          }
-        ]
-      },
-      "robotBoundsMm": [
-        -417.5,
-        -434.5,
-        0.0,
-        584.614,
-        434.5,
-        750.0
-      ]
-    },
-    "acquire-3 start": {
-      "groups": {
-        "field": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              0.0,
-              -2000.0,
-              0.0
-            ]
-          }
-        ],
-        "tracked FUEL": [
-          {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          }
-        ]
-      },
-      "robotBoundsMm": [
-        -417.5,
-        -434.5,
-        0.0,
-        584.614,
-        434.5,
-        750.0
-      ]
-    },
     "hopper-1 start": {
       "groups": {
         "field": [
@@ -3592,45 +3421,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           }
         ]
       },
@@ -3657,45 +3486,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -3736,45 +3565,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -3823,45 +3652,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -3908,45 +3737,45 @@
       "groups": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -3993,45 +3822,45 @@
       "groups": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4092,45 +3921,45 @@
       "groups": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4192,57 +4021,57 @@
         ]
       },
       "robotBoundsMm": [
-        -3166.427,
+        -3166.411972,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1669.337
+        1669.29953
       ]
     },
     "climb-reach start": {
       "groups": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4318,12 +4147,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.237,
+        -3010.243645,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "intake-stow start": {
@@ -4362,45 +4191,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4476,12 +4305,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.237,
+        -3010.243645,
         -434.5,
         0.0,
         584.614,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "tower-lateral start": {
@@ -4530,45 +4359,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4644,12 +4473,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.237,
+        -3010.243645,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "tower-forward start": {
@@ -4708,45 +4537,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -4830,12 +4659,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3010.237,
+        -3010.243645,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "climb-seat start": {
@@ -4902,45 +4731,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -5032,12 +4861,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.52125,
+        -3406.527895,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "climb-lift start": {
@@ -5130,45 +4959,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -5260,12 +5089,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.52125,
+        -3406.527895,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1574.927
+        1574.88718
       ]
     },
     "park-lower start": {
@@ -5390,45 +5219,45 @@
         ],
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          },
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          },
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           },
           {
             "kind": "rotation",
@@ -5528,12 +5357,12 @@
         ]
       },
       "robotBoundsMm": [
-        -3406.52125,
+        -3406.527895,
         -434.5,
         0.0,
         513.0,
         434.5,
-        1504.927
+        1504.88718
       ]
     },
     "battery-cover-remove start": {
@@ -5599,64 +5428,50 @@
         ]
       }
     },
-    "acquire-1": {
-      "from": "acquire-1 start",
+    "acquire": {
+      "from": "acquire start",
       "moves": {
         "tracked FUEL": [
           {
-            "kind": "rotation",
-            "originMm": [
-              677.412725,
-              82.5,
-              427.354949
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": 40.430058
-          }
-        ]
-      }
-    },
-    "acquire-2": {
-      "from": "acquire-2 start",
-      "moves": {
-        "tracked FUEL": [
-          {
-            "kind": "rotation",
-            "originMm": [
-              86.299602,
-              82.5,
-              249.017338
-            ],
-            "axis": [
-              0.0,
-              1.0,
-              0.0
-            ],
-            "travelDeg": -62.953869
-          }
-        ]
-      }
-    },
-    "acquire-3": {
-      "from": "acquire-3 start",
-      "moves": {
-        "tracked FUEL": [
-          {
-            "kind": "translation",
-            "travelMm": [
-              -30.62,
-              0.0,
-              6.242898
+            "kind": "path",
+            "curve": "straight",
+            "throughMm": [
+              [
+                720.0,
+                82.5,
+                75.057
+              ],
+              [
+                642.0135,
+                82.5,
+                74.8226
+              ],
+              [
+                580.9642,
+                82.5,
+                53.6501
+              ],
+              [
+                487.4611,
+                82.5,
+                78.2494
+              ],
+              [
+                482.0979,
+                82.5,
+                454.6966
+              ],
+              [
+                445.8999,
+                82.5,
+                522.562
+              ],
+              [
+                339.9112,
+                82.5,
+                552.3576
+              ]
             ]
-          },
-          {
-            "kind": "gravity-drop",
-            "fallMm": 1.312898,
-            "quadraticFraction": 1.0
           }
         ]
       }
