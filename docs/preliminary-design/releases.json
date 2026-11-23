@@ -1,9 +1,18 @@
 {
   "releases": [
-    "layout-001"
+    "layout-001",
+    "layout-002"
   ],
   "designStatus": {
-    "layout-001": "in-progress"
+    "layout-001": "superseded",
+    "layout-002": "in-progress"
   },
-  "current": "layout-001"
+  "current": "layout-002",
+  "revision": {
+    "layout-002": {
+      "number": 3,
+      "date": "2026-11-23",
+      "commit": "802de698956aa922d8a8d090375bf551ea14fbe4"
+    }
+  }
 }

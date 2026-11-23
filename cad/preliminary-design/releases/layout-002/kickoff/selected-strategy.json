@@ -1,0 +1,37 @@
+{
+  "decision": "Own-zone scorer",
+  "authority": "Project coordinator acting under delegated owner authority for this prebuild POC",
+  "edition": "Kickoff release V0 with Team Update 00",
+  "frameMm": [
+    680,
+    680
+  ],
+  "startingHeightBudgetMm": 740,
+  "hopperInternalMm": [
+    478,
+    622,
+    317
+  ],
+  "packingGrid": [
+    3,
+    4,
+    2
+  ],
+  "pieceSpacingMm": 4,
+  "case": {
+    "stock": 24,
+    "seconds": 25,
+    "stockReadyAtSource": 5,
+    "loadedTravel": 5,
+    "settle": 3,
+    "periodPerDelivery": 0.5
+  },
+  "requirements": {
+    "auto": "Begin legally preloaded with at most eight; reach the own-alliance HUB sensor while active.",
+    "shift": "Acquire, transport and score 24 by end of active shift when the entire allocation is already onboard by second five.",
+    "fallback": "If the final piece is not onboard by second five or interrupted, count only remaining observed stock and active seconds. Collect and retain during the next inactive shift.",
+    "traffic": "Remain in the own zone. Preserve possession during an interrupted crossing; shed the neutral route and yield to the partner.",
+    "measurement": "Track each observed intake crossing, retained identity, gate release, complete opening crossing and downstream sensor crossing on the same timebase.",
+    "endgame": "Compare remaining expected active HUB points to 10 for an independently supported low-rung hang. Reserve route time plus nine seconds at the tower and verify all required contacts at assessment. Finish current service if its credible points are larger; reserve a second approach for the partner only with verified footprint clearance."
+  }
+}

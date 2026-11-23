@@ -12,14 +12,9 @@
       "inputs": []
     },
     {
-      "name": "Named robot motion and model identities",
-      "argv": ["node", "scripts/check-robot-motion.mjs"],
-      "inputs": ["cad/", "docs/", "experiments/", "highlights.json", "cad-showcase.json", "scripts/check-robot-motion.mjs"]
-    },
-    {
-      "name": "Batch, loading and transfer evidence",
-      "argv": ["node", "scripts/check-batch.mjs"],
-      "inputs": ["cad/", "experiments/", "docs/", "scripts/check-batch.mjs"]
+      "name": "Preliminary design still and its published review scene",
+      "argv": ["python", "scripts/preliminary-still.py", "."],
+      "inputs": []
     },
     {
       "name": "Selected kickoff strategy",
@@ -30,11 +25,6 @@
       "name": "Six-robot rehearsal evidence",
       "argv": ["node", "scripts/check-match-series.mjs"],
       "inputs": ["kickoff/", "scripts/check-match-series.mjs"]
-    },
-    {
-      "name": "Endgame model and terminal evidence",
-      "argv": ["node", "scripts/check-tower.mjs"],
-      "inputs": ["cad/", "docs/", "experiments/", "kickoff/", "scripts/check-tower.mjs"]
     }
   ]
 }

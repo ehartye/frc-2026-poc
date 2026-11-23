@@ -1,0 +1,83 @@
+{
+  "premise": "delivery-pose",
+  "phase": "conceptual-design",
+  "scenario": "Robot-centre distance from the HUB centre at delivery in the field rehearsal (2.16 m at its delivery steps)",
+  "issue": "R3-PD3",
+  "designSha256": "0faa8f043e3127e282a6c132185ea118f9cf269cfea6895f1112bde11ef1f7eb",
+  "stepSha256": "90d05920da47d56a19b4cd940eb0a77886d7096107ebd40252974974f4f6dbf8",
+  "fieldReplay": {
+    "input": "stationPosition",
+    "actor": "B2",
+    "station": "blue-hub",
+    "profile": {
+      "file": "cad/preliminary-design/releases/layout-002/rehearsal/r3-2p7m-profile.json",
+      "sha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6"
+    },
+    "result": {
+      "file": "cad/preliminary-design/releases/layout-002/rehearsal/r3-2p7m-series.json",
+      "sha256": "2c98a351d2de885339ca2fd5d1dc1ff30e76114049d8a63e76cdb196224fc1f9"
+    }
+  },
+  "resolvedSteps": [
+    {
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "Shift 1",
+      "program": "shift-depot",
+      "stepIndex": 3,
+      "label": "Attempt HUB delivery; credited",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
+        84.78,
+        201.6
+      ],
+      "standoffIn": 48.64905857259726,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.6999,
+      "bearingFromHubAxisDeg": 23.71
+    },
+    {
+      "schema": "agent-frc/rehearsal-step-pose@1",
+      "profileSha256": "6efdf28745e469ac1dab6d3864a534f953b1c1e3eb1bc6d7526e4e275093f7d6",
+      "match": "Neutral return",
+      "actor": "B2",
+      "period": "AUTO",
+      "program": "auto-2-missed",
+      "stepIndex": 1,
+      "label": "Attempt HUB delivery; missed",
+      "operation": "attempt",
+      "station": "blue-hub",
+      "stationKind": "scoring",
+      "setup": "kickoff nominal",
+      "pointIn": [
+        75.8,
+        159.01
+      ],
+      "standoffIn": 32.20039751307428,
+      "footprint": {
+        "status": "clear",
+        "obstacle": null
+      },
+      "hubCentreDistanceM": 2.7,
+      "bearingFromHubAxisDeg": 0.09
+    }
+  ],
+  "frame": "Blue field inches. The stand-off is measured to the blue-hub station centre (its chassis action datum at 108, 158.85); the HUB centre is (182.1, 158.85), so both steps stand 2.70 m from the HUB centre.",
+  "comparison": {
+    "file": "cad/preliminary-design/releases/layout-002/rehearsal/comparison.json",
+    "sha256": "1a765aa685e56509024baaa996cefe4f3240a0c0b1360a946064686e9687dbdc"
+  },
+  "outcome": "With waitCycles yield and the shared partner deconfliction (0 permanent cycles), slot 2 credits 124 FUEL in both the baseline and the 2.70 m series, so the pose costs nothing; R3L credits 124 on the depot route and 40 on the TRENCH route (0 permanent cycles when it has the corridor alone). Pre-0.84 results were understated by permanent wait cycles.",
+  "heldReceipt": {
+    "file": "cad/preliminary-design/releases/layout-002/receipt-R3-PD1-held.json",
+    "sha256": "40cb3dde2a85f2ee11bd270fded845f3405124ad926e5a3b89507f3f57d9d5b1"
+  }
+}

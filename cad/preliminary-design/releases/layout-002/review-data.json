@@ -1,0 +1,753 @@
+{
+ "schema": "frc-2026-poc/preliminary-review-data@2",
+ "release": "layout-002",
+ "note": "Project-authored inputs for the standardized preliminary review scene. Values cite their source; anything without a source is recorded as not supplied.",
+ "runningAdditions": {
+  "source": {
+   "file": "cad/preliminary-design/releases/layout-002/budgets.json",
+   "sha256": "225ad02f74dec6f07c1820c787aa006b4070a79ba5987b23497b6d1e4e9c001f"
+  },
+  "basis": "budgets.json runningPayloadBasis: 'Bumpers 6.0-7.5 kg, battery and leads 5.0-6.9 kg and 24 FUEL at 0.203-0.227 kg: all carried in the match but outside the R103 weighing'",
+  "items": [
+   {
+    "name": "bumpers",
+    "kg": [
+     6.0,
+     7.5
+    ],
+    "members": [
+     "bumper front",
+     "bumper left",
+     "bumper rear",
+     "bumper right"
+    ],
+    "basis": "R103 excludes bumpers; 6.0-7.5 kg per budgets.json"
+   },
+   {
+    "name": "battery and leads",
+    "kg": [
+     5.0,
+     6.9
+    ],
+    "members": [
+     "battery"
+    ],
+    "basis": "R103 excludes the battery and its connector half; 5.0-6.9 kg per budgets.json"
+   },
+   {
+    "name": "24 FUEL",
+    "kg": [
+     4.872,
+     5.448
+    ],
+    "members": [
+     "FUEL stored 1",
+     "FUEL tracked"
+    ],
+    "basis": "24 FUEL at 0.203-0.227 kg each (budgets.json); the 2 placed FUEL represent the carried stock"
+   }
+  ],
+  "totalKg": [
+   15.872,
+   19.848
+  ]
+ },
+ "support": {
+  "source": "layout.json mounts (one entry per separately mounted member) and the stages' transportedBy and freePath records",
+  "members": {
+   "FUEL tracked": {
+    "path": [
+     "Moved by contact transport (feeders, floor belts, intake, shooter) in 26 cases, each bound to its trial window by a pinned transport record: acquire-climb-1, acquire-climb-10, acquire-climb-2, acquire-climb-3, acquire-climb-4, acquire-climb-5, acquire-climb-6, acquire-climb-7, acquire-climb-8, acquire-climb-9, acquire-over-1, hopper-roll-1, hopper-roll-2, hopper-roll-3, hopper-roll-4, hopper-roll-5, hopper-roll-6, launch-feed-1, launch-wrap-1, launch-wrap-2, launch-wrap-3, launch-wrap-4, stage-1, stage-2, stage-3, stage-4",
+     "No mechanism moves it in 13 cases (carpet approach, flight over the back plate, the fall to the floor, free flight to the HUB, and riding with the field): acquire-approach-1, acquire-throw-1, hopper-drop-1, hopper-drop-2, hopper-drop-3, flight-1, flight-2, flight-3, flight-4, tower-lateral, tower-forward, climb-lift, park-lower. The free-path strokes pin their trial window through freePath"
+    ],
+    "supplied": true,
+    "source": "layout.json stages[].transportedBy and freePath, and paths.json case bases"
+   },
+   "battery": {
+    "path": [
+     "Group datum: battery mounts on battery retention cleat aft at (-95, 291, 150) mm: Battery end face captured between the aft and fore cleats, with the strap over its top",
+     "battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "battery strap": {
+    "path": [
+     "Group datum: battery strap mounts on battery retention cleat aft at (-95, 291, 199) mm: Strap anchored to the aft cleat and buckled to the fore cleat over the battery top",
+     "battery retention mounts on floor pan at (-95, 291, 100) mm: Cleat feet riveted to the floor pan top, which rests on the frame rails",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber hook left": {
+    "path": [
+     "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top (+1 more mount datum)",
+     "climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum)",
+     "climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums)",
+     "climber tube mount left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber hook right": {
+    "path": [
+     "Group datum: climber hooks mounts on climber inner tube left at (300, 316, 736) mm: Swing joint on the inner tube top (+1 more mount datum)",
+     "climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum)",
+     "climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums)",
+     "climber tube mount left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber inner tube left": {
+    "path": [
+     "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum)",
+     "climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums)",
+     "climber tube mount left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "climber inner tube right": {
+    "path": [
+     "Group datum: climber inner tubes mounts on climber tube left at (300, 316, 500) mm: Inner tube runs in bushings in the fixed outer tube (+1 more mount datum)",
+     "climber tubes mounts on climber tube mount left at (300, 316, 222) mm: Outer tube socket in the tube mount (+2 more mount datums)",
+     "climber tube mount left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "entry sensor": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "feeder motor left": {
+    "path": [
+     "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums)",
+     "hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums)",
+     "frame rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "feeder motor right": {
+    "path": [
+     "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums)",
+     "hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums)",
+     "frame rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "feeder roller left": {
+    "path": [
+     "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums)",
+     "hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums)",
+     "frame rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "feeder roller right": {
+    "path": [
+     "Group datum: feeders mounts on hopper liner left at (-60, 169, 250.514) mm: Left roller shaft runs in a bearing block on the channel wall of the left liner; its gearmotor hangs from the same block (+3 more mount datums)",
+     "hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums)",
+     "frame rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "floor belt front": {
+    "path": [
+     "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "floor belt main": {
+    "path": [
+     "Group datum: floor belts mounts on floor pan at (0, 0, 100) mm: Belt bed rests on the floor pan",
+     "floor pan is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel inertia ring": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel motor left": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "flywheel motor right": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "hood": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "hopper shelf left": {
+    "path": [
+     "Group datum: hopper shelf mounts on hopper liner left at (0, 169, 267) mm: Shelf panel rests on the channel wall of the left liner and on the side wall, held by two quarter-turn fasteners",
+     "hopper mounts on frame rail left at (0, 334, 120.65) mm: Side wall foot on the left rail top (+4 more mount datums)",
+     "frame rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake back plate": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake belt module": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake carriage plate left": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake carriage plate right": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "intake top roller": {
+    "path": [
+     "Group datum: intake mounts on intake slide rail left at (300, 266, 400) mm: Left carriage plate runs on the two-stage slide; the fixed stage is drawn (+5 more mount datums)",
+     "intake slide rail left is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "shooter side plate left": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   },
+   "shooter side plate right": {
+    "path": [
+     "Group datum: shooter mounts on frame rail rear at (-327, 0, 120.65) mm: Shooter side plates bolt to the rear rail top",
+     "frame rail rear is a frame structure member"
+    ],
+    "supplied": true,
+    "source": "layout.json mounts"
+   }
+  }
+ },
+ "modelNotes": [
+  "What it is: the R3-PD3 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter with a chute intake on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
+  "Changed from layout-001: the intake is a chute that lifts each FUEL up its own back plate and throws it into the hopper from above; the hopper floor is a two-lane channel under sloped shelves; a braked feeder roller per lane over a fixed deck holds and meters the FUEL; the flywheel carries an inertia ring and runs whenever FUEL is aboard; the battery has a strap under a lift-out shelf panel; the hang swings the hooks first and stows the intake between them.",
+  "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are panel blocks; belts and rollers are rigid outlines; the back plate is drawn solid; the HUB and TOWER are V0-dimension fixtures, not the official field model. The intake belt, top roller, back plate, feeder roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is declared as payload compression in its case.",
+  "Tracked FUEL motion: every one of its 35 cases is a stroke fitted within 1.50 mm (limit 1.5 mm) to the solved acquire, entry, launch and deliver trials in field-trials.json, and pins a record of its trial window with that trial's qualification. Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's; the trial window is in caseTimes.",
+  "Solved in the trials: the FUEL against every surface; the intake belt speed under its motor and current limits; the flywheel speed under the FUEL's load and its motors. Imposed: robot approach speed (0.5 m/s), floor belt speed (1.2 m/s) and feeder roller speeds (0.6 and 1.2 m/s).",
+  "Not shown as motion: the 24-FUEL hopper cycle (collect through the chute, hold through a 0.5 g stop, start and turn, feed), the hold-back, the 24-shot batch and the hang are physics trials in field-trials.json, summarised in trial-hopper-cycle.json, trial-hold.json, trial-batch.json and trial-hang.json beside this plan. Their cases here (loaded-transit, climb-lift) play prescribed strokes. The hopper cycle fed all 24 in 7.1-10.5 s over 16 arrival patterns.",
+  "Prescribed, not simulated, in the package: the intake slide, the field moving in the robot frame (transit and TOWER approach), the hook swing and the climb strokes: battery-cover-remove, battery-withdraw, climb-reach, climb-seat, intake-deploy, intake-stow, loaded-transit, park-lower, shooter-withdraw, tower-forward, tower-lateral.",
+  "Contact stiffness, damping, friction and rolling resistance are estimates, not measurements, and no FUEL force-deflection curve is available. Motor figures are a published brushless curve.",
+  "Sources and cutoff: FRC REBUILT kickoff manual V0 with Team Update 00, cutoff 2026-01-10 23:59:59 America/New_York (construction-rules.json); field dimensions from the V0 description (geometry.py field_bodies).",
+  "Risks closed by design and bench tests still to run: see openItems."
+ ],
+ "focus": {
+  "component": "FUEL tracked",
+  "basis": "The mission cases follow this FUEL from the carpet into the HUB"
+ },
+ "caseTimes": {
+  "source": {
+   "file": "cad/preliminary-design/releases/layout-002/field-trials.json",
+   "sha256": "eb27be4881bd30a8f176585efd92a1bda1fd1bffcc9875aec0d4616aada4d3b5"
+  },
+  "note": "Trial seconds are on each trial's own clock (acquire, entry, launch and deliver each start at 0). A FUEL case plays its fitted stroke uniformly.",
+  "chain": {
+   "captureS": 0.6544,
+   "stagedS": 1.437,
+   "releaseS": 0.2174,
+   "scoredS": 1.0037
+  },
+  "cases": {
+   "acquire-approach-1": {
+    "seconds": [
+     0.0,
+     0.193
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.18 mm"
+   },
+   "acquire-climb-1": {
+    "seconds": [
+     0.193,
+     0.273
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.27 mm"
+   },
+   "acquire-climb-2": {
+    "seconds": [
+     0.273,
+     0.282
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.66 mm"
+   },
+   "acquire-climb-3": {
+    "seconds": [
+     0.282,
+     0.294
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.26 mm"
+   },
+   "acquire-climb-4": {
+    "seconds": [
+     0.294,
+     0.311
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.73 mm"
+   },
+   "acquire-climb-5": {
+    "seconds": [
+     0.311,
+     0.333
+    ],
+    "trial": "acquire-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.21 mm"
+   },
+   "acquire-climb-6": {
+    "seconds": [
+     0.333,
+     0.336
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.02 mm"
+   },
+   "acquire-climb-7": {
+    "seconds": [
+     0.336,
+     0.392
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.40 mm"
+   },
+   "acquire-climb-8": {
+    "seconds": [
+     0.392,
+     0.511
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.44 mm"
+   },
+   "acquire-climb-9": {
+    "seconds": [
+     0.511,
+     0.576
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.45 mm"
+   },
+   "acquire-climb-10": {
+    "seconds": [
+     0.576,
+     0.595
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.01 mm"
+   },
+   "acquire-over-1": {
+    "seconds": [
+     0.595,
+     0.605
+    ],
+    "trial": "acquire-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.31 mm"
+   },
+   "acquire-throw-1": {
+    "seconds": [
+     0.605,
+     0.6544
+    ],
+    "trial": "acquire-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.01 mm"
+   },
+   "hopper-drop-1": {
+    "seconds": [
+     0.0,
+     0.192
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.02 mm"
+   },
+   "hopper-drop-2": {
+    "seconds": [
+     0.192,
+     0.208
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.31 mm"
+   },
+   "hopper-drop-3": {
+    "seconds": [
+     0.208,
+     0.356
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.04 mm"
+   },
+   "hopper-roll-1": {
+    "seconds": [
+     0.356,
+     0.362
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.99 mm"
+   },
+   "hopper-roll-2": {
+    "seconds": [
+     0.362,
+     0.458
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.47 mm"
+   },
+   "hopper-roll-3": {
+    "seconds": [
+     0.458,
+     0.567
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.24 mm"
+   },
+   "hopper-roll-4": {
+    "seconds": [
+     0.567,
+     0.663
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.47 mm"
+   },
+   "hopper-roll-5": {
+    "seconds": [
+     0.663,
+     0.785
+    ],
+    "trial": "entry-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.50 mm"
+   },
+   "hopper-roll-6": {
+    "seconds": [
+     0.785,
+     0.99
+    ],
+    "trial": "entry-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.00 mm"
+   },
+   "stage-1": {
+    "seconds": [
+     0.99,
+     0.993
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.01 mm"
+   },
+   "stage-2": {
+    "seconds": [
+     0.993,
+     1.134
+    ],
+    "trial": "entry-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.66 mm"
+   },
+   "stage-3": {
+    "seconds": [
+     1.134,
+     1.139
+    ],
+    "trial": "entry-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.00 mm"
+   },
+   "stage-4": {
+    "seconds": [
+     1.139,
+     1.437
+    ],
+    "trial": "entry-nominal",
+    "basis": "line stroke fitted to this window of the solved trace, within 0.48 mm"
+   },
+   "launch-feed-1": {
+    "seconds": [
+     0.1,
+     0.173
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.04 mm"
+   },
+   "launch-wrap-1": {
+    "seconds": [
+     0.173,
+     0.187
+    ],
+    "trial": "launch-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.13 mm"
+   },
+   "launch-wrap-2": {
+    "seconds": [
+     0.187,
+     0.2
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.22 mm"
+   },
+   "launch-wrap-3": {
+    "seconds": [
+     0.2,
+     0.216
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 1.29 mm"
+   },
+   "launch-wrap-4": {
+    "seconds": [
+     0.216,
+     0.2174
+    ],
+    "trial": "launch-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.00 mm"
+   },
+   "flight-1": {
+    "seconds": [
+     0.0,
+     0.652
+    ],
+    "trial": "deliver-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 1.49 mm"
+   },
+   "flight-2": {
+    "seconds": [
+     0.652,
+     0.884
+    ],
+    "trial": "deliver-nominal",
+    "basis": "drop stroke fitted to this window of the solved trace, within 0.25 mm"
+   },
+   "flight-3": {
+    "seconds": [
+     0.884,
+     0.89
+    ],
+    "trial": "deliver-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.59 mm"
+   },
+   "flight-4": {
+    "seconds": [
+     0.89,
+     1.0037
+    ],
+    "trial": "deliver-nominal",
+    "basis": "arc stroke fitted to this window of the solved trace, within 0.84 mm"
+   },
+   "climb-lift": {
+    "seconds": [
+     0.0,
+     0.4662
+    ],
+    "trial": "hang-nominal",
+    "basis": "lift stroke complete; then a 3 s brake hold to 3.4662 s"
+   },
+   "intake-deploy": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "loaded-transit": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "climb-reach": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "intake-stow": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "tower-lateral": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "tower-forward": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "climb-seat": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "park-lower": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "battery-cover-remove": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "battery-withdraw": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "shooter-withdraw": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   },
+   "package-displacement-control": {
+    "supplied": false,
+    "reason": "No trial or rehearsal times this prescribed case"
+   }
+  }
+ },
+ "trialRecords": {
+  "hold": {
+   "file": "cad/preliminary-design/releases/layout-002/trial-hold.json",
+   "sha256": "368ef87a5dc5f019fb2c28b12d0eb6acbf8a4ef343ad33ac3ce119a5286c0d3f"
+  },
+  "hopper": {
+   "file": "cad/preliminary-design/releases/layout-002/trial-hopper-cycle.json",
+   "sha256": "61a5a1d219f27a4188323bd0e17277308ee0cc6de6eb119799f000f74555f5c3"
+  },
+  "batch": {
+   "file": "cad/preliminary-design/releases/layout-002/trial-batch.json",
+   "sha256": "affe460676a377659c54074549274c73de2a3ba5b713ad54fee4aa82c07552f4"
+  },
+  "hang": {
+   "file": "cad/preliminary-design/releases/layout-002/trial-hang.json",
+   "sha256": "6357fe3e696c4def6ca81403cbdb099e4b917fa041ded1c22fd2b976fc013e4c"
+  }
+ },
+ "targetAperture": {
+  "name": "HUB opening (top)",
+  "source": {
+   "rule": "construction-rules.json hub: 'Section 5.4; front edge 72 in, 41.7 in hexagonal opening, 47 in footprint'",
+   "geometry": "geometry.py hexagon_prism: corners on +/-Y, flats facing +/-X",
+   "file": {
+    "file": "cad/preliminary-design/releases/layout-002/construction-rules.json",
+    "sha256": "f8910bcbf996861164fa0db9160b197dd38c77c031a31ff02be2df31de12813c"
+   }
+  },
+  "interpretation": "41.7 in (1059.18 mm) treated as across-corners, the smaller conservative inscribed opening (construction-rules.json)",
+  "frame": "HUB-local millimetres: origin at the HUB centre on the carpet, +X/+Y parallel to the robot datum axes",
+  "cornersMm": [
+   [
+    0.0,
+    529.59,
+    1828.8
+   ],
+   [
+    -458.64,
+    264.79,
+    1828.8
+   ],
+   [
+    -458.64,
+    -264.8,
+    1828.8
+   ],
+   [
+    -0.0,
+    -529.59,
+    1828.8
+   ],
+   [
+    458.64,
+    -264.8,
+    1828.8
+   ],
+   [
+    458.64,
+    264.8,
+    1828.8
+   ]
+  ],
+  "placement": {
+   "shotPoseHubCentreMm": [
+    -2700.0,
+    0.0
+   ],
+   "basis": "build_package.py hub_shot: HUB centre 2700 mm aft of the robot centre at the delivery pose"
+  }
+ },
+ "openItems": [
+  "Closed by design (flywheel-droop): The flywheel slows under each shot and through a batch, and the release leaves the scoring band. Flywheel a free 0.0076 kg m2 body (roller plus one inertia ring, 2.56 kg) under two motors and a speed loop, fed only inside a 1% ready band: one shot takes 17 J and drops the wheel 1.9%; 24 FUEL at 4 FUEL/s release at 6.88-6.92 m/s on a 12 V bus and 6.83-6.88 m/s on the 8.34 V weak-pack bus, inside the 6.725-7.100 m/s band (batch trials).",
+  "Closed by design (hold-back): A staged FUEL is pushed into the spinning flywheel with no feed commanded. One braked feeder roller per lane over a fixed lane deck, 14 mm squeeze, floor belt ending ahead of the staged FUEL and stopped while both lanes are staged: the hold trial keeps the FUEL 25.6 mm clear under a 90 N push at 1.5 g and fails at 120 N. In the 16 collect-hold-feed patterns the push on a staged FUEL peaks at 138 N (20 ms mean), above the steady push the hold trial passes, as FUEL land on the heap, and no pattern feeds uncommanded; the bench tests hold-back-force and uncommanded-feed-bench measure the margin.",
+  "Closed by design (intake-power): The intake belt cannot hold its speed under the acquisition load at its current limit. Belt driven in the trial by one motor at 2:1 with a 30 A supply limit: three FUEL abreast on a 9 V bus dip it to 2.13 m/s and are captured; the trial captures down to 2.5 m/s and fails at 2 m/s.",
+  "Closed by design (batch-collection): A batch of 24 cannot be collected: thrown in low through an open throat, the hopper stalls with FUEL backing out into the intake. The intake is a chute that lifts each FUEL up its own back plate to 425 mm and throws it in over the top; the back plate closes the hopper front. Collect trial: 24 in the hopper and 0 in the chute of 24; collecting 27 leaves more than four in the chute (bracket). The earlier issue's low entry fails the same trial (control).",
+  "Closed by design (batch-feed): The collected heap bridges or strands FUEL and the feed falls below 2.00 FUEL/s. Two-lane channel with the belt running to the front rail, sloped shelves, feeder rollers standing in the hopper and meeting at the centre line, one stage beam per lane, a belt reversal and a 40 mm carriage nudge in the unjam cycle: 16 of 16 collect-hold-feed patterns feed all 24 in 7.1-10.5 s (2.3-3.4 FUEL/s).",
+  "Closed by design (hang-with-fuel): The intake cannot stow with FUEL in the front of the hopper, and deployed it stands under the rung. The hang sequence swings the hooks forward first, then stows the empty intake between them, then closes on the TOWER (cases climb-reach, intake-stow, tower-forward, checked). The stow is commanded only with the chute and both stage beams clear; with FUEL aboard the robot keeps shooting and does not hang, which is the strategy's own rule.",
+  "Closed by design (battery-strap): The battery has no hold-down. A strap over the battery top between the two cleats is drawn and mounted, and the shelf panel above it covers it; the service cases remove the panel and strap, then lift the battery (checked).",
+  "Closed by design (unregistered-joints): Members carried no registered joint to the frame. Each separately mounted member has its own mount entry: both feeder rollers and motors, both carriage plates, both inner tubes, both hooks, both climber tubes, the winch, the side walls, liners, rear wall, shelf panel and strap.",
+  "Bench test (shot-calibration): The model's wheel-to-FUEL speed transfer, drag and spin lift are estimates, so the setpoint that centres the release in the band is not known. Measure: FUEL scored of 20 launched from the 2.7 m pose, with every measured release speed of a 24 FUEL batch inside the band found on the bench; pass 19, fail 18 FUEL.",
+  "Bench test (hold-back-force): The hold rests on foam friction and stiffness that are estimates (0.9 and 0.6, 15 kN/m). Measure: Steady push on a staged FUEL that the braked feeder holds without the FUEL reaching the wheel; pass 90, fail 60 N.",
+  "Bench test (acquisition-pinch): Capture depends on the belt squeeze and on cover and back plate friction, which are estimates. Measure: Floor FUEL thrown over the back plate within 1.2 s, of 20, at 17.5, 20 and 25 mm squeeze with the belt at or above 2.5 m/s; pass 20, fail 19 FUEL.",
+  "Bench test (feed-rate-bench): Heap behaviour varies from run to run and rests on FUEL-to-FUEL and wall friction estimates; the slowest pattern feeds 24 in 10.5 s against 12 s. Measure: FUEL fed to the flywheel within 12 s of the first feed command, 24 collected through the chute, in each of 5 runs; pass 22, fail 21 FUEL.",
+  "Bench test (loaded-driving): A hard stop can throw FUEL forward over the chute, which is open above the top roller. Harder stops are tested on single patterns only: at 0.75 g 1 of 1 tested patterns keep and feed all 24; at 1 g 2 of 2 tested patterns keep and feed all 24. Measure: FUEL leaving the robot across ten stops from 3 m/s and five turns at the loaded acceleration limit of 0.5 g with 24 aboard; pass 0, fail 1 FUEL.",
+  "Bench test (uncommanded-feed-bench): A FUEL reaches the flywheel while collecting or driving. Measure: Uncommanded feeds in 20 collect-and-drive cycles of 24 FUEL; pass 0, fail 1 feeds.",
+  "Bench test (mass-reserve): The inspection weight estimate tops out 2.20 kg under the 52.16 kg limit. Measure: Weighed inspection weight of the robot without bumpers and battery; pass 52.16, fail 52.17 kg.",
+  "Bench test (hang-squaring): The robot hangs yawed or offset and a bumper misses an upright. Measure: Least clearance to the carpet and TOWER BASE through the 3 s hold, at 70.3 kg, seated at 0 and at 20 mm lateral offset each way; pass 5, fail 0 mm.",
+  "Bench test (bump-clearance): The front bumper corner clears the BUMP crest by 8.7 mm in the static screen. Measure: Least clearance of any part other than wheels and bumpers over the BUMP in ten crossings each way, intake retracted; pass 5, fail 0 mm.",
+  "Bench test (carriage-cross-ties): The intake's belt module, top roller and back plate stand inside the hopper cheeks and its carriage plates outside them. The ties between them and the moving slide stage are not drawn, so the layout does not show that they clear the cheeks and the bay walls through the slide travel. Measure: Least clearance from the carriage cross-ties and the moving slide stage to the hopper cheeks and bay walls over the full slide travel, on the first assembled carriage; pass 3, fail 1 mm.",
+  "Bench test (weak-battery-margin): The loaded-transit duty leaves the smallest voltage margin on a weak battery. Measure: Minimum bus voltage through a loaded transit with the flywheel spinning up, on a battery at 0.026 ohm; pass 7.5, fail 7.0 V.",
+  "Bench test (carriage-nudge): The unjam cycle's carriage nudge has to push the back plate into the FUEL at the hopper front. In the recorded trials the pattern run without the nudge also feeds all 24, so the trials do not show the nudge is needed. Measure: Arches at the hopper front cleared by one 40 mm nudge, of 10 set by hand with 24 FUEL aboard; pass 10, fail 9 arches.",
+  "Bench test (bump-crossing-dynamic): Driving over the BUMP at speed with stored FUEL is not evaluated. Measure: FUEL leaving the robot in ten BUMP crossings each way at 1.5 m/s with 24 aboard and the intake retracted; pass 0, fail 1 FUEL.",
+  "Bench test (loaded-robot-contact): Robot-to-robot contact while carrying FUEL is not evaluated. Measure: FUEL leaving the robot in five 1 m/s bumper-to-bumper contacts on each side with 24 aboard; pass 1, fail 2 FUEL.",
+  "The loaded acceleration limit of 0.5 g is not in the field rehearsal: its cycle times were credited without it and are not re-run here.",
+  "The feeder shafts through the channel walls, the right climber cable across the front rail and the hood's thickness are not drawn.",
+  "The stowed carriage stands in the front half of the hopper, so the intake cannot stow while FUEL is forward of the stage; the hang is taken with the hopper empty."
+ ]
+}

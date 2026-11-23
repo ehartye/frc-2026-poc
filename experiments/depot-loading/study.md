@@ -1,6 +1,6 @@
 # How much real stock can the robot collect?
 
-Two neighboring FUEL from the blue DEPOT pass over its steel front tube and enter two different storage lanes. The same two IDs and the eight unspent preloads remain onboard at 8 s in both simulations. This is a 10-piece parked loading state. The [student viewer](https://ehartye.github.io/frc-2026-poc/robot/batch.html#loading) compares it with the separate component study that starts with 24 onboard. [Source register](stock-register.json) · [Per-piece ledger](results.json).
+Two neighboring FUEL from the blue DEPOT pass over its steel front tube and enter two different storage lanes. The same two IDs and the eight unspent preloads remain onboard at 8 s in both simulations. This is a 10-piece parked loading state. The [student viewer](https://ehartye.github.io/frc-2026-poc/detailed-design/) (page withdrawn with the rough-draft showcase) compares it with the separate component study that starts with 24 onboard. [Source register](stock-register.json) · [Per-piece ledger](results.json).
 
 ## Where the pieces start
 

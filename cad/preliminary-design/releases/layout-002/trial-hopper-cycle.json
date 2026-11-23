@@ -1,0 +1,120 @@
+{
+  "schema": "frc-2026-poc/trial-record@1",
+  "issue": "R3-PD3",
+  "case": "launch-feed-1",
+  "interaction": "Collect 24 FUEL through the chute, hold them through a 0.5 g stop, start and turn, and feed them all to the flywheel",
+  "fieldTrials": {
+    "file": "cad/preliminary-design/releases/layout-002/field-trials.json",
+    "sha256": "eb27be4881bd30a8f176585efd92a1bda1fd1bffcc9875aec0d4616aada4d3b5"
+  },
+  "trials": [
+    "hopper-cycle-nominal",
+    "hopper-cycle-nominal-half-step",
+    "hopper-cycle-pattern-2",
+    "hopper-cycle-pattern-3",
+    "hopper-cycle-pattern-4",
+    "hopper-cycle-pattern-5",
+    "hopper-cycle-pattern-6",
+    "hopper-cycle-pattern-7",
+    "hopper-cycle-pattern-8",
+    "hopper-cycle-pattern-9",
+    "hopper-cycle-pattern-10",
+    "hopper-cycle-pattern-11",
+    "hopper-cycle-pattern-12",
+    "hopper-cycle-pattern-13",
+    "hopper-cycle-pattern-14",
+    "hopper-cycle-pattern-15",
+    "hopper-cycle-pattern-16",
+    "hopper-collect-24-open-throat-low-entry (control: the earlier issue's fill)",
+    "hopper-cycle-superseded-flat-floor-open-throat (control)",
+    "hopper-cycle-regularized-friction-law (control for the law)",
+    "hopper-cycle-belt-runs-while-staged (cause isolation)",
+    "hopper-cycle-1g-pattern-2-no-nudge (cause isolation)",
+    "hopper-cycle-1g-pattern-2",
+    "hopper-cycle-1g-pattern-3 (adverse)",
+    "hopper-cycle-0.75g-pattern-3",
+    "hopper-cycle-full-height-divider (cause isolation)",
+    "hopper-cycle-no-unjam-reverse",
+    "hopper-cycle-belt-0.6mps",
+    "hopper-cycle-belt-0.3mps",
+    "hopper-cycle-ball-friction-0.4",
+    "hopper-cycle-ball-friction-1.0",
+    "hopper-cycle-ball-friction-1.3",
+    "hopper-cycle-wall-friction-0.6",
+    "hopper-cycle-wall-friction-0.8",
+    "hopper-cycle-period-0.5s",
+    "hopper-cycle-arrivals-8-per-s",
+    "hopper-cycle-rolled-10deg (adverse)",
+    "hopper-cycle-8-preload",
+    "hopper-collect-24-hold",
+    "hopper-collect-27-hold",
+    "hopper-collect-30-hold",
+    "hopper-feed-dropped-heap",
+    "hopper-feed-dropped-heap-pattern-2"
+  ],
+  "summary": {
+    "patterns": 16,
+    "patternsPassing": 16,
+    "seconds24Fed": [
+      7.0778,
+      10.4856
+    ],
+    "ratePerS": [
+      2.29,
+      3.39
+    ],
+    "peakPushOnStagedN": 138.2,
+    "unjamCycles": [
+      0,
+      2
+    ],
+    "collect24": {
+      "inHopper": 24,
+      "inChute": 0
+    },
+    "condition": "24 FUEL arrive through the intake, one every 0.25 s, each thrown over the lip with the capture state when the throat is clear; feed commands from 10 s; robot acceleration (-0.5, 0) g from 7 to 7.4 s; robot acceleration (0.5, 0) g from 7.8 to 8.2 s; robot acceleration (0, 0.5) g from 8.6 to 9 s; floor belt surface 1.2 m/s toward the feeders; each lane's feeder roller 0.6 m/s to the stage beam, stopped while staged, 1.2 m/s on a feed command; the belt stops while both lanes are staged and held; intake top roller 6.0 m/s; one feed per 0.25 s at most, lanes in turn; belt reversed 0.3 s after 1 s without a feed"
+  },
+  "qualification": {
+    "result": "pass",
+    "trial": "hopper-cycle-nominal",
+    "metric": {
+      "name": "FUEL fed to the flywheel in 12 s",
+      "value": 24,
+      "requirement": "at least 22 of 24 fed on command within 12 s of the first feed command, every one fed in the end, none lost and none uncommanded"
+    },
+    "control": {
+      "condition": "The earlier issue's intake: FUEL thrown in low through an open throat",
+      "trial": "hopper-collect-24-open-throat-low-entry (control: the earlier issue's fill)",
+      "rejected": true,
+      "firstUnmet": "8 FUEL in the hopper and 16 back in the intake pinch after 12 s"
+    },
+    "brackets": [
+      {
+        "input": "floor belt speed",
+        "unit": "m/s",
+        "passing": 1.2,
+        "failing": 0.6,
+        "passingTrial": "hopper-cycle-nominal",
+        "failingTrial": "hopper-cycle-belt-0.6mps",
+        "failingFirstUnmet": "21 FUEL reached the flywheel in 12 s, fewer than 22"
+      },
+      {
+        "input": "FUEL collected",
+        "unit": "FUEL",
+        "passing": 24.0,
+        "failing": 27.0,
+        "passingTrial": "hopper-collect-24-hold",
+        "failingTrial": "hopper-collect-27-hold",
+        "failingFirstUnmet": "22 FUEL in the hopper and 5 left in the chute after 12 s: more than the 4 the chute holds"
+      }
+    ],
+    "timestep": {
+      "coarseS": 0.0002,
+      "fineS": 0.0001,
+      "sameOutcome": true,
+      "fineTrial": "hopper-cycle-nominal-half-step",
+      "coarseMetric": 24,
+      "fineMetric": 24
+    }
+  }
+}

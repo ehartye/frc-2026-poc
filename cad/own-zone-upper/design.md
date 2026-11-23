@@ -1,6 +1,6 @@
 # R2C own-zone robot
 
-[Orbit and play the student model](https://ehartye.github.io/frc-2026-poc/robot/) · [Open the editable Fusion archive](own-zone-public.f3d) · [Download the STEP](own-zone-public.step) · [Read the kickoff decision](../../kickoff/selected-strategy.md)
+[Orbit and play the student model](https://ehartye.github.io/frc-2026-poc/detailed-design/) (page withdrawn with the rough-draft showcase) · [Open the editable Fusion archive](own-zone-public.f3d) · [Download the STEP](own-zone-public.step) · [Read the kickoff decision](../../kickoff/selected-strategy.md)
 
 Open the F3D in Autodesk Fusion to inspect the stowed layout. Four swerve modules sit under the 680 mm square frame. The deployed intake reaches through a 300 mm bumper opening. Two moving shelves and a front guide and rear gate carry the ball vertically to the pair of scoring wheels. The 721.71 mm stowed height clears the project's 740 mm budget. A 3 × 4 × 2 grid fits 24 nominal FUEL inside the modeled hopper. This packing calculation leaves bulk filling, indexing and sustained feeding to a separate test.
 

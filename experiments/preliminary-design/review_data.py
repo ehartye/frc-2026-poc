@@ -53,8 +53,8 @@ def support_paths(plan, motion, fixture_groups=("field",)):
             free = [c for c in moving if c not in carried]
             mech = sorted({m for _, spec in rows for m in spec.get("mechanisms", [])})
             out[n] = dict(path=[f"Moved by contact transport ({', '.join(mech)}) in {len(carried)} cases, each bound to its trial window by a pinned transport record: {', '.join(carried)}",
-                                f"No mechanism moves it in {len(free)} cases (carpet approach, free flight, rolling on stopped belts, and riding with the field): {', '.join(free)}. Those strokes carry no transportedBy and rest on the pinned field-trials.json trace named in each case basis"],
-                          supplied=bool(rows), source="layout.json stages[].transportedBy and paths.json case bases")
+                                f"No mechanism moves it in {len(free)} cases (carpet approach, flight over the back plate, the fall to the floor, free flight to the HUB, and riding with the field): {', '.join(free)}. The free-path strokes pin their trial window through freePath"],
+                          supplied=bool(rows), source="layout.json stages[].transportedBy and freePath, and paths.json case bases")
             continue
         c = chain(g)
         if c:
@@ -64,12 +64,13 @@ def support_paths(plan, motion, fixture_groups=("field",)):
     return out
 
 
-def build(release_dir, plan, trial_data, fuel_index, measured):
-    release_dir = Path(release_dir)
-    sha = lambda f: hashlib.sha256((release_dir / f).read_bytes()).hexdigest()
-    pin = lambda f: dict(file=f, sha256=sha(f))
-    motion = json.loads((release_dir / plan["motion"]["file"]).read_text(encoding="utf-8"))
-    budgets = json.loads((release_dir / plan["budgets"]["file"]).read_text(encoding="utf-8"))
+def build(release_dir, repo, plan, trial_data, fuel_index, measured, risks, records):
+    """release_dir is the release folder; every pin in plan is a path from repo, the project root."""
+    release_dir, repo = Path(release_dir), Path(repo)
+    pin = lambda f: dict(file=f, sha256=hashlib.sha256((repo / f).read_bytes()).hexdigest())
+    here = lambda name: (release_dir / name).relative_to(repo).as_posix()
+    motion = json.loads((repo / plan["motion"]["file"]).read_text(encoding="utf-8"))
+    budgets = json.loads((repo / plan["budgets"]["file"]).read_text(encoding="utf-8"))
     trials = {t["name"]: t for t in trial_data["trials"]}
     g = plan["groups"]
     circ = 1059.18 / 2
@@ -85,9 +86,14 @@ def build(release_dir, plan, trial_data, fuel_index, measured):
     fuel = [round(24 * 0.203, 3), round(24 * 0.227, 3)]
     stored = g["stored FUEL"]["members"] + g["tracked FUEL"]["members"]
     chain = trial_data["chain"]
-    lch = trials["launch-nominal"]
+    lch, acq, ent = trials["launch-nominal"], trials["acquire-nominal"], trials["entry-nominal"]
+    patterns = [t for n, t in trials.items() if n == "hopper-cycle-nominal" or n.startswith("hopper-cycle-pattern-")]
+    secs = sorted(t["feed"]["lastFedS"] for t in patterns)
+    closed = [r for r in risks if r.get("closedBy")]
+    bench = [r for r in risks if r.get("benchTest")]
+    prescribed = sorted(c for c, t in times.items() if t.get("supplied") is False and c != "package-displacement-control")
     data = dict(
-        schema="frc-2026-poc/preliminary-review-data@1", release=release_dir.name, note=NOTE,
+        schema="frc-2026-poc/preliminary-review-data@2", release=release_dir.name, note=NOTE,
         runningAdditions=dict(
             source=pin(plan["budgets"]["file"]),
             basis=f"budgets.json runningPayloadBasis: '{budgets['runningPayloadBasis']}'",
@@ -96,46 +102,39 @@ def build(release_dir, plan, trial_data, fuel_index, measured):
                    dict(name="24 FUEL", kg=fuel, members=stored,
                         basis=f"24 FUEL at 0.203-0.227 kg each (budgets.json); the {len(stored)} placed FUEL represent the carried stock")],
             totalKg=[round(v, 3) for v in payload]),
-        support=dict(source="layout.json mounts (group-level datums) and stages[].transportedBy; structure-to-frame joints beyond these datums are not registered",
+        support=dict(source="layout.json mounts (one entry per separately mounted member) and the stages' transportedBy and freePath records",
                      members=support_paths(plan, motion)),
         modelNotes=[
-            "What it is: the R3-PD2 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
-            "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are two panel blocks; belts and rollers are rigid outlines; the HUB and TOWER are V0-dimension fixtures, not the official field model. The intake belt, top roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is declared as payload compression in its case.",
-            f"Tracked FUEL motion: every one of its {len(fuel_index)} cases is a stroke fitted within {max(r['maxDeviationMm'] for r in fuel_index):.2f} mm (limit 1.5 mm) to the solved acquire, entry, launch and deliver trials in field-trials.json. Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's; the trial window is in caseTimes. Contact stiffness, damping, friction and rolling resistance are estimates, not measurements, and no FUEL force-deflection curve is available.",
-            f"Imposed in the trials: robot approach speed, intake belt speed ({trials['acquire-nominal']['params']['u']} m/s), the floor belt schedule (stopped during entry; {lch['params']['backMps']} m/s back-off, then {lch['params']['feedMps']} m/s feed) and the flywheel surface speed ({lch['params']['wheelMps']} m/s). Whether the motors sustain them under load is not solved.",
-            "Prescribed, not simulated, in the package: the intake slide, the field moving in the robot frame (transit and TOWER approach), and the climb strokes.",
-            "Unverified: verification gates G1-G7 (verification-gates.json) carry the physical tests; hopper capacity is a free-volume premise; dynamic BUMP crossing and robot-to-robot contact are not evaluated.",
+            "What it is: the R3-PD3 whole-robot preliminary blockout (tall floor-fed hooded-flywheel shooter with a chute intake on a 680 x 714 mm four-module swerve base). Solids are planning envelopes and simplified material blocks, not a Fusion robot.",
+            "Changed from layout-001: the intake is a chute that lifts each FUEL up its own back plate and throws it into the hopper from above; the hopper floor is a two-lane channel under sloped shelves; a braked feeder roller per lane over a fixed deck holds and meters the FUEL; the flywheel carries an inertia ring and runs whenever FUEL is aboard; the battery has a strap under a lift-out shelf panel; the hang swings the hooks first and stows the intake between them.",
+            "Simplified: swerve modules are body, motor and azimuth envelopes; electronics are panel blocks; belts and rollers are rigid outlines; the back plate is drawn solid; the HUB and TOWER are V0-dimension fixtures, not the official field model. The intake belt, top roller, back plate, feeder roller, flywheel and hood are drawn at the squeeze the physics trials use (dimensions.py), so the tracked FUEL overlaps them by the trial's indentation; each such pair is declared as payload compression in its case.",
+            f"Tracked FUEL motion: every one of its {len(fuel_index)} cases is a stroke fitted within {max(r['maxDeviationMm'] for r in fuel_index):.2f} mm (limit 1.5 mm) to the solved acquire, entry, launch and deliver trials in field-trials.json, and pins a record of its trial window with that trial's qualification. Each stroke is uniform in its own parameter, so playback timing inside a case is not the trial's; the trial window is in caseTimes.",
+            f"Solved in the trials: the FUEL against every surface; the intake belt speed under its motor and current limits; the flywheel speed under the FUEL's load and its motors. Imposed: robot approach speed ({acq['params']['vRobot']} m/s), floor belt speed ({ent['params']['belt']} m/s) and feeder roller speeds ({ent['params']['stageMps']} and {lch['params']['feederMps']} m/s).",
+            f"Not shown as motion: the 24-FUEL hopper cycle (collect through the chute, hold through a 0.5 g stop, start and turn, feed), the hold-back, the 24-shot batch and the hang are physics trials in field-trials.json, summarised in trial-hopper-cycle.json, trial-hold.json, trial-batch.json and trial-hang.json beside this plan. Their cases here ({', '.join(c for c in ('loaded-transit', 'climb-lift') if c in plan['stages'])}) play prescribed strokes. The hopper cycle fed all 24 in {secs[0]:.1f}-{secs[-1]:.1f} s over {len(patterns)} arrival patterns.",
+            "Prescribed, not simulated, in the package: the intake slide, the field moving in the robot frame (transit and TOWER approach), the hook swing and the climb strokes: " + ", ".join(prescribed) + ".",
+            "Contact stiffness, damping, friction and rolling resistance are estimates, not measurements, and no FUEL force-deflection curve is available. Motor figures are a published brushless curve.",
             "Sources and cutoff: FRC REBUILT kickoff manual V0 with Team Update 00, cutoff 2026-01-10 23:59:59 America/New_York (construction-rules.json); field dimensions from the V0 description (geometry.py field_bodies).",
-            "Open items: see openItems."],
+            "Risks closed by design and bench tests still to run: see openItems."],
         focus=dict(component="FUEL tracked", basis="The mission cases follow this FUEL from the carpet into the HUB"),
-        caseTimes=dict(source=pin("field-trials.json"),
+        caseTimes=dict(source=pin(here("field-trials.json")),
                        note="Trial seconds are on each trial's own clock (acquire, entry, launch and deliver each start at 0). A FUEL case plays its fitted stroke uniformly.",
-                       chain=dict(captureS=trials["acquire-nominal"]["metric"]["value"], seatS=trials["entry-nominal"]["metric"]["value"],
+                       chain=dict(captureS=trials["acquire-nominal"]["metric"]["value"], stagedS=trials["entry-nominal"]["metric"]["value"],
                                   releaseS=round(chain["release"]["t"], 4), scoredS=trials["deliver-nominal"]["metric"]["value"]),
                        cases=times),
+        trialRecords=records,
         targetAperture=dict(
             name="HUB opening (top)",
             source=dict(rule="construction-rules.json hub: 'Section 5.4; front edge 72 in, 41.7 in hexagonal opening, 47 in footprint'",
-                        geometry="geometry.py hexagon_prism: corners on +/-Y, flats facing +/-X", file=pin("construction-rules.json")),
+                        geometry="geometry.py hexagon_prism: corners on +/-Y, flats facing +/-X", file=pin(here("construction-rules.json"))),
             interpretation="41.7 in (1059.18 mm) treated as across-corners, the smaller conservative inscribed opening (construction-rules.json)",
             frame="HUB-local millimetres: origin at the HUB centre on the carpet, +X/+Y parallel to the robot datum axes",
             cornersMm=hexc,
             placement=dict(shotPoseHubCentreMm=[-2700.0, 0.0], basis="build_package.py hub_shot: HUB centre 2700 mm aft of the robot centre at the delivery pose")),
-        openItems=[
-            "No hold-back for the seated FUEL. " + next(c["reason"] for c in plan["presentation"]["uncoveredCases"] if c["id"] == "seat-retention-in-transit") + ".",
-            "Batch collection is not evaluated: the entry trial is one FUEL in an empty lane with the floor belts stopped; a running belt wedges the FUEL into the stopped pinch (entry-floor-belt-running trials).",
-            f"Feed rate: a free FUEL rolls at about a third of the belt speed in the launch trial, so the sustained 2.00 FUEL/s objective rests on gate G1, not on the belt-speed calculation.",
-            f"Launch inputs are imposed: flywheel surface speed, belt schedule and the squeeze. The wheel does {lch['wheelDemand']['energyJ']:.0f} J of work per FUEL in the trial, a {lch['wheelDemand']['speedDropPercent']:.1f}% speed drop for a free 0.006 kg m2 wheel, which the trial does not apply. Motor sizing and the FUEL's force-deflection curve are not measured.",
-            f"The seat position depends on contact damping, which is an estimate: at damping ratio 0.3 the FUEL rests against the wheel; at 0.20 and 0.10 it rebounds and rests {trials['entry-contact-damping-0.20']['seat']['clearOfFlywheelMm']:.0f} and {trials['entry-contact-damping-0.10']['seat']['clearOfFlywheelMm']:.0f} mm clear of it (still seated, and the launch from there still scores, later). Rest time is {trials['entry-nominal']['metric']['value']:.1f} s; it needed a 0.05 ms timestep to converge.",
-            f"Contact stiffness is an estimate and decides the launch: 10 and 30 kN/m score, 7.5 kN/m releases too slowly. The 8 to 16 mm squeeze bracket is a force bracket at 15 kN/m.",
-            f"Scoring band: only {chain['scoringBandMps'][0]:.2f} to {chain['scoringBandMps'][1]:.2f} m/s scores at the nominal drag and spin lift and at all four corners. 6.55 m/s misses at the high-drag, high-spin corner and 7.15 m/s at both low-drag corners. The band's ends score off the HUB top plate or cavity wall; the point-mass screen's clean band at this release is narrower (package-facts.json shot.pointMassBands in the experiment folder).",
-            f"Intake belt load: the acquisition trial's contacts dissipate up to {trials['acquire-nominal']['beltDemand']['maxFrictionPowerW']:.0f} W at the imposed 3 m/s, above the intake's 30 A supply limit; the trial fails at 2.0 m/s.",
-            "A carrier-free FUEL stroke (carpet approach, free flight, rolling on stopped belts) has no evidence slot in the layout schema; its trial window is recorded in the case basis and in caseTimes.",
-            "No registered structure-to-frame joint: hopper walls (hopper front upper wall, hopper rear wall, hopper wall left, hopper wall right).",
-            "No registered structure-to-frame joint: climber tubes and winch (climber tube left, climber tube right, climber winch) to the climber tube mounts.",
-            "Frame-internal joints are not registered: frame rails, floor pan, floor pan front tongue, front lip, climber tube mounts and intake slide rails.",
-            "Battery hold-down strap over the battery top is undesigned; the cleats capture it in X only.",
-            "Group-level mount datums: right-hand members (climber hook right, climber inner tube right, intake carriage plate right, shooter side plate right) cite the left-hand datum."])
+        openItems=[f"Closed by design ({r['id']}): {r['risk']}. {r['closedBy']}." for r in closed]
+                  + [f"Bench test ({r['id']}): {r['risk']}. Measure: {r['benchTest']['measure']}; pass {r['benchTest']['pass']}, fail {r['benchTest']['fail']} {r['benchTest'].get('unit', '')}." for r in bench]
+                  + ["The loaded acceleration limit of 0.5 g is not in the field rehearsal: its cycle times were credited without it and are not re-run here.",
+                     "The feeder shafts through the channel walls, the right climber cable across the front rail and the hood's thickness are not drawn.",
+                     "The stowed carriage stands in the front half of the hopper, so the intake cannot stow while FUEL is forward of the stage; the hang is taken with the hopper empty."])
     return data
 
 
@@ -143,9 +142,9 @@ def presentation(data):
     """The review-scene fields of layout.json presentation, taken from the review data."""
     def path(row):
         return " -> ".join(row["path"]) if row.get("supplied") else "Not supplied: " + row["reason"]
-    return dict(title="Floor-fed hooded flywheel shooter", context="R3 \u00b7 Issue R3-PD2 \u00b7 preliminary layout",
+    return dict(title="Floor-fed hooded flywheel shooter with a chute intake", context="R3 \u00b7 Issue R3-PD3 \u00b7 preliminary layout",
                 focus=f"{data['focus']['component']}: {data['focus']['basis']}.",
-                notes=data["modelNotes"] + ["Open item: " + item for item in data["openItems"]],
+                notes=data["modelNotes"] + data["openItems"],
                 runningAdditions=[dict(name=i["name"], kg=i["kg"], members=i["members"]) for i in data["runningAdditions"]["items"]],
                 runningBasis=data["runningAdditions"]["basis"],
                 loadPaths={member: path(row) for member, row in data["support"]["members"].items()})
@@ -153,6 +152,6 @@ def presentation(data):
 
 def save(release_dir, data):
     release_dir = Path(release_dir)
-    target = release_dir.parent.parent / f"review-data-{release_dir.name}.json"
+    target = release_dir / "review-data.json"
     target.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return target

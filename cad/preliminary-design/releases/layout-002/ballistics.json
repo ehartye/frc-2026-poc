@@ -1,0 +1,814 @@
+{
+ "basis": "Point-mass flight with quadratic drag (Cd 0.35-0.60) and a downward spin-lift band (CL 0-0.30) at 0.215 kg. A shot enters when it clears both rim edges by 3 mm, descends through the rim plane with the whole ball inside the inscribed opening, and is within the opening at 1.70 m. Nominal: Cd 0.47, CL 0.15. robustWindowMps is the speed band that enters under all four drag/lift corners, or null.",
+ "inscribedRadiusM": 0.4586383935902009,
+ "rimHeightM": 1.8288,
+ "rows": [
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.7,
+     6.71
+    ],
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": [
+     6.78,
+     6.83
+    ],
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.77,
+    6.93
+   ],
+   "robustWindowMps": [
+    6.86,
+    6.86
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.69,
+     6.86
+    ],
+    "cd0.35-cl0.3": [
+     6.77,
+     6.89
+    ],
+    "cd0.6-cl0.0": [
+     6.78,
+     6.99
+    ],
+    "cd0.6-cl0.3": [
+     6.86,
+     7.01
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.92,
+    7.25
+   ],
+   "robustWindowMps": [
+    7.0,
+    7.17
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.84,
+     7.17
+    ],
+    "cd0.35-cl0.3": [
+     6.89,
+     7.19
+    ],
+    "cd0.6-cl0.0": [
+     6.95,
+     7.33
+    ],
+    "cd0.6-cl0.3": [
+     7.0,
+     7.34
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.46,
+    7.91
+   ],
+   "robustWindowMps": [
+    7.56,
+    7.81
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.37,
+     7.81
+    ],
+    "cd0.35-cl0.3": [
+     7.4,
+     7.81
+    ],
+    "cd0.6-cl0.0": [
+     7.53,
+     8.02
+    ],
+    "cd0.6-cl0.3": [
+     7.56,
+     8.02
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.63,
+    6.8
+   ],
+   "robustWindowMps": [
+    6.71,
+    6.74
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.55,
+     6.74
+    ],
+    "cd0.35-cl0.3": [
+     6.63,
+     6.75
+    ],
+    "cd0.6-cl0.0": [
+     6.64,
+     6.86
+    ],
+    "cd0.6-cl0.3": [
+     6.71,
+     6.87
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.67,
+    6.97
+   ],
+   "robustWindowMps": [
+    6.75,
+    6.9
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.6,
+     6.9
+    ],
+    "cd0.35-cl0.3": [
+     6.66,
+     6.91
+    ],
+    "cd0.6-cl0.0": [
+     6.69,
+     7.04
+    ],
+    "cd0.6-cl0.3": [
+     6.75,
+     7.04
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.89,
+    7.31
+   ],
+   "robustWindowMps": [
+    6.97,
+    7.24
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.82,
+     7.24
+    ],
+    "cd0.35-cl0.3": [
+     6.85,
+     7.24
+    ],
+    "cd0.6-cl0.0": [
+     6.94,
+     7.4
+    ],
+    "cd0.6-cl0.3": [
+     6.97,
+     7.39
+    ]
+   }
+  },
+  {
+   "release": "R3 floor-fed hood (release 0.267 m)",
+   "exitHeightM": 0.267,
+   "elevationDeg": 62,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.5,
+    8.0
+   ],
+   "robustWindowMps": [
+    7.59,
+    7.89
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.42,
+     7.91
+    ],
+    "cd0.35-cl0.3": [
+     7.43,
+     7.89
+    ],
+    "cd0.6-cl0.0": [
+     7.59,
+     8.13
+    ],
+    "cd0.6-cl0.3": [
+     7.59,
+     8.1
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": [
+     6.43,
+     6.47
+    ],
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.4,
+    6.59
+   ],
+   "robustWindowMps": [
+    6.48,
+    6.53
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.33,
+     6.53
+    ],
+    "cd0.35-cl0.3": [
+     6.41,
+     6.55
+    ],
+    "cd0.6-cl0.0": [
+     6.41,
+     6.65
+    ],
+    "cd0.6-cl0.3": [
+     6.48,
+     6.66
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.46,
+    6.76
+   ],
+   "robustWindowMps": [
+    6.53,
+    6.7
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.39,
+     6.7
+    ],
+    "cd0.35-cl0.3": [
+     6.45,
+     6.71
+    ],
+    "cd0.6-cl0.0": [
+     6.48,
+     6.82
+    ],
+    "cd0.6-cl0.3": [
+     6.53,
+     6.84
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.69,
+    7.1
+   ],
+   "robustWindowMps": [
+    6.77,
+    7.03
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.62,
+     7.03
+    ],
+    "cd0.35-cl0.3": [
+     6.66,
+     7.04
+    ],
+    "cd0.6-cl0.0": [
+     6.73,
+     7.18
+    ],
+    "cd0.6-cl0.3": [
+     6.77,
+     7.18
+    ]
+   }
+  },
+  {
+   "release": "release 0.43 m",
+   "exitHeightM": 0.43,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.3,
+    7.79
+   ],
+   "robustWindowMps": [
+    7.39,
+    7.69
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.22,
+     7.69
+    ],
+    "cd0.35-cl0.3": [
+     7.24,
+     7.69
+    ],
+    "cd0.6-cl0.0": [
+     7.38,
+     7.9
+    ],
+    "cd0.6-cl0.3": [
+     7.39,
+     7.89
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": [
+    6.01,
+    6.24
+   ],
+   "robustWindowMps": [
+    6.07,
+    6.19
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.95,
+     6.19
+    ],
+    "cd0.35-cl0.3": [
+     6.01,
+     6.2
+    ],
+    "cd0.6-cl0.0": [
+     6.01,
+     6.28
+    ],
+    "cd0.6-cl0.3": [
+     6.07,
+     6.29
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    6.07,
+    6.42
+   ],
+   "robustWindowMps": [
+    6.13,
+    6.36
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.01,
+     6.36
+    ],
+    "cd0.35-cl0.3": [
+     6.06,
+     6.37
+    ],
+    "cd0.6-cl0.0": [
+     6.09,
+     6.47
+    ],
+    "cd0.6-cl0.3": [
+     6.13,
+     6.48
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.18,
+    6.6
+   ],
+   "robustWindowMps": [
+    6.24,
+    6.54
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.13,
+     6.54
+    ],
+    "cd0.35-cl0.3": [
+     6.16,
+     6.55
+    ],
+    "cd0.6-cl0.0": [
+     6.21,
+     6.66
+    ],
+    "cd0.6-cl0.3": [
+     6.24,
+     6.67
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.48,
+    6.96
+   ],
+   "robustWindowMps": [
+    6.54,
+    6.89
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.42,
+     6.89
+    ],
+    "cd0.35-cl0.3": [
+     6.44,
+     6.9
+    ],
+    "cd0.6-cl0.0": [
+     6.52,
+     7.04
+    ],
+    "cd0.6-cl0.3": [
+     6.54,
+     7.04
+    ]
+   }
+  },
+  {
+   "release": "release 0.60 m",
+   "exitHeightM": 0.6,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.15,
+    7.66
+   ],
+   "robustWindowMps": [
+    7.23,
+    7.57
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     7.07,
+     7.58
+    ],
+    "cd0.35-cl0.3": [
+     7.08,
+     7.57
+    ],
+    "cd0.6-cl0.0": [
+     7.22,
+     7.78
+    ],
+    "cd0.6-cl0.3": [
+     7.23,
+     7.76
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 1.6,
+   "nominalWindowMps": null,
+   "robustWindowMps": null,
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": null,
+    "cd0.35-cl0.3": null,
+    "cd0.6-cl0.0": null,
+    "cd0.6-cl0.3": null
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.0,
+   "nominalWindowMps": [
+    5.79,
+    6.13
+   ],
+   "robustWindowMps": [
+    5.85,
+    6.08
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.74,
+     6.08
+    ],
+    "cd0.35-cl0.3": [
+     5.78,
+     6.09
+    ],
+    "cd0.6-cl0.0": [
+     5.8,
+     6.18
+    ],
+    "cd0.6-cl0.3": [
+     5.85,
+     6.19
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.2,
+   "nominalWindowMps": [
+    5.9,
+    6.32
+   ],
+   "robustWindowMps": [
+    5.95,
+    6.27
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.85,
+     6.27
+    ],
+    "cd0.35-cl0.3": [
+     5.88,
+     6.28
+    ],
+    "cd0.6-cl0.0": [
+     5.92,
+     6.38
+    ],
+    "cd0.6-cl0.3": [
+     5.95,
+     6.38
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.4,
+   "nominalWindowMps": [
+    6.04,
+    6.51
+   ],
+   "robustWindowMps": [
+    6.09,
+    6.45
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     5.99,
+     6.45
+    ],
+    "cd0.35-cl0.3": [
+     6.01,
+     6.46
+    ],
+    "cd0.6-cl0.0": [
+     6.07,
+     6.57
+    ],
+    "cd0.6-cl0.3": [
+     6.09,
+     6.57
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 2.8,
+   "nominalWindowMps": [
+    6.36,
+    6.88
+   ],
+   "robustWindowMps": [
+    6.42,
+    6.81
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.31,
+     6.81
+    ],
+    "cd0.35-cl0.3": [
+     6.32,
+     6.81
+    ],
+    "cd0.6-cl0.0": [
+     6.41,
+     6.96
+    ],
+    "cd0.6-cl0.3": [
+     6.42,
+     6.95
+    ]
+   }
+  },
+  {
+   "release": "release 0.70 m",
+   "exitHeightM": 0.7,
+   "elevationDeg": 60,
+   "distanceM": 3.6,
+   "nominalWindowMps": [
+    7.06,
+    7.6
+   ],
+   "robustWindowMps": [
+    7.14,
+    7.5
+   ],
+   "conditionWindowsMps": {
+    "cd0.35-cl0.0": [
+     6.99,
+     7.51
+    ],
+    "cd0.35-cl0.3": [
+     7.0,
+     7.5
+    ],
+    "cd0.6-cl0.0": [
+     7.14,
+     7.71
+    ],
+    "cd0.6-cl0.3": [
+     7.14,
+     7.7
+    ]
+   }
+  }
+ ]
+}
