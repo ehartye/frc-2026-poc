@@ -1,6 +1,7 @@
 // Open the built site's entry page and field lab in Chromium and fail on a broken link or an uncaught page error.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
+import {get} from 'node:http';
 import {mkdtemp, readFile, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
@@ -71,8 +72,8 @@ try {
   // Every same-site link on the entry page has to resolve, so a withdrawn page cannot stay linked.
   const links=await evaluate("[...new Set([...document.querySelectorAll('a[href]')].map(a=>a.href.split('#')[0]).filter(h=>h.startsWith(location.origin)))]");
   assert.ok(links.length>=8,'Expected the entry page to link the review, the status page and the field pages');
-  // The test server closes each connection, which the runtime's fetch sometimes trips over: one transport retry per link.
-  const status=async link=>{try{return (await fetch(link)).status;}catch{await wait(250);return (await fetch(link)).status;}};
+  // Plain node:http, one connection per link: the runtime's fetch can abort the whole process on the test server's closed connections.
+  const status=link=>new Promise((resolve,reject)=>get(link,{agent:false},response=>{response.resume();resolve(response.statusCode);}).on('error',reject));
   for(const link of links)assert.equal(await status(link),200,'Broken entry page link: '+link);
   console.log(links.length+' same-site entry page links resolve');
   for(const [page,ready] of [['preliminary-design/',"document.querySelector('#release')?.options.length>=1 && !!document.querySelector('iframe')?.src"],
