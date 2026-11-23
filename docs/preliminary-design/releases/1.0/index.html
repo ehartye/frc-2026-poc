@@ -105,7 +105,7 @@ function interactionRows(scene){
   for(const name of t?.adjustments||[]){const a=adjustments.get(name);if(a?.kind==='mechanical')window.push(name+' '+a.range.join(' to ')+': '+(a.measured?(a.findings.length?a.findings.join('; '):'clear at both ends'):'ends not measured'));}
   return {id:row.id,stale,
    verdict:row.verdict+(row.override?' (overridden from '+row.screened+': '+row.override+')':''),reasons:row.reasons||[],
-   trial:t?t.name+(t.engine?' · '+t.engine:'')+': '+(t.result??t.state)+(stale?' · stale: '+(t.changes||[]).join('; '):''):row.noTrial?'No trial: '+row.noTrial:'No trial named',
+   trial:t?t.name+(t.engine?' · '+t.engine:'')+': '+(t.state==='not run'?'not run yet; it decides '+row.decides:t.result)+(stale?' · stale: '+(t.changes||[]).join('; '):''):row.noTrial?'No trial: '+row.noTrial:'No trial named',
    assumptions:(t?.assumptions||[]).map(a=>a.text),inputs:(t?.inputs||[]).map(i=>i.path+' = '+i.value+', '+source(i)),
    sensitivity:t?.sensitivity||[],adjustment:window};
  });
