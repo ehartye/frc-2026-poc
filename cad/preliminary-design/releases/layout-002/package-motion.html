@@ -32,7 +32,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 .weight-ruler{height:32px;position:relative;background:#e7edf4;margin:24px 0 18px}.weight-ruler:after{content:'';position:absolute;left:50%;height:100%;width:2px;background:#26394b}.weight-ruler b{position:absolute;left:50%;bottom:90%;white-space:nowrap;transform:translateX(-50%);font:600 11px var(--mono)}.weight-ruler i{position:absolute;top:12px;height:10px;background:#c9981c;border-radius:3px}
 .load-bar{display:grid;grid-template-columns:1fr auto;align-items:center;width:100%;gap:3px 7px;text-align:left;margin:4px 0;padding:6px!important;border:0!important;background:#f1f5fa!important}.load-bar>i{display:block;height:6px;background:#dbe4ee;grid-column:1/3}.load-bar>i>i{display:block;height:100%}.load-bar strong{font:600 12px var(--mono)}
 .power-ledger details{border-top:1px solid var(--line);padding:6px 0}.power-ledger details summary{font-weight:650}.member-buttons{display:flex;flex-wrap:wrap;gap:3px;margin:6px 0}.member-buttons button{font-size:12px}
-.checks,.decision{background:white;padding:16px;margin-top:16px}.checks #required{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 12px}.role-row{padding:5px 0;border-bottom:1px solid #d9e2ea;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.role-row strong{min-width:55px;color:#247669;font:600 12px var(--mono)}.role-row.warn strong{color:#975200}
+.checks,.decision{background:white;padding:16px;margin-top:16px}.checks #attachmentHeading{margin-top:16px}.checks #required,.checks #attachment{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 12px}.role-row{padding:5px 0;border-bottom:1px solid #d9e2ea;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.role-row strong{min-width:55px;color:#247669;font:600 12px var(--mono)}.role-row.warn strong{color:#975200}.role-row button{padding:1px 8px}.role-row small{color:var(--steel)}.swatch.hatched{background:repeating-linear-gradient(135deg,#8a9199 0 3px,#eef2f7 3px 6px)}
 #findings,#inventory{max-height:300px;overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px;text-align:left;border-bottom:1px solid #dbe4e3;vertical-align:top}thead{position:sticky;top:0;background:#f2f6f6}tr[data-name],tr[data-finding],tr[data-members]{cursor:pointer}tr:hover{background:#edf6f4}tr.located td{background:#fff1cc}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 .scroll{overflow-x:auto}#evidenceTable{min-width:60rem}tr.control td{background:#fff6dd}tr.uncovered td{color:var(--steel);font-style:italic}tr.replay td{background:#eff6ff}td ul{margin:0;padding-left:1.1rem}td .actions{display:flex;flex-wrap:wrap;gap:4px}.interaction{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:6px 0}.interaction iframe{width:100%;height:min(60vh,36rem);border:1px solid var(--line);margin-top:6px}
 .notes{margin-top:16px;padding:16px;font-size:13px;color:var(--steel)}.notes summary,details summary{cursor:pointer}#notes{overflow-wrap:anywhere}.not-supplied{color:#975200;font-style:italic}
@@ -44,14 +44,14 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 <main>
 <header><span>Agent FRC　/　Engineering review</span><span id="links"></span></header>
 <div class="title"><div><p id="context">Preliminary design</p><h1 id="heading">Preliminary design review</h1></div><div class="title-side"><strong id="state" class="chip" title="Design status from the release index · checked result from the review receipt">Loading geometry…</strong><p id="unmetInline" hidden></p></div></div>
-<details id="review-basis"><summary>Review basis</summary><p>Preliminary design: not the released detailed model. The review receipt gives the checked result.</p>
+<details id="review-basis"><summary>Review basis</summary><p id="basisNote">Preliminary design: not the released detailed model. The review receipt gives the checked result.</p>
 <dl id="review-summary" aria-label="Review basis">
  <div><dt>Selected architecture</dt><dd id="architecture"></dd></div><div><dt>Datum</dt><dd id="datum"></dd></div><div><dt>Units</dt><dd id="units"></dd></div><div><dt>Strategic narrative</dt><dd id="narrativeSource"></dd></div>
  <div class="wide"><dt>Current decision</dt><dd><span id="decision"></span> <span id="decisionSource"></span></dd></div><div class="wide"><dt>First unmet requirement</dt><dd id="firstUnmet"></dd></div>
 </dl></details>
 <div class="grid">
 <section class="viewer" aria-label="Model and controls">
- <div class="bar"><b>Assembly layout</b><label><input id="labels" type="checkbox"> Labels</label><span id="labelPages" hidden><button id="labelPrev" aria-label="Previous callouts">‹</button><output id="labelPageCount"></output><button id="labelNext" aria-label="Next callouts">›</button></span><label><input id="floor" type="checkbox" checked> Floor</label><label id="cutawayToggle" hidden><input type="checkbox" id="cutaway"> <span id="cutawayLabel"></span></label><button id="reset">Fit robot</button><button id="field" aria-describedby="fieldWhy">Fit field interaction</button><button id="expand" aria-label="Expand model viewer">Expand</button></div>
+ <div class="bar"><b>Assembly layout</b><label><input id="labels" type="checkbox"> Labels</label><span id="labelPages" hidden><button id="labelPrev" aria-label="Previous callouts">‹</button><output id="labelPageCount"></output><button id="labelNext" aria-label="Next callouts">›</button></span><label><input id="floor" type="checkbox" checked> Floor</label><label id="hideFieldToggle" hidden><input id="hideField" type="checkbox"> Hide field parts</label><label id="cutawayToggle" hidden><input type="checkbox" id="cutaway"> <span id="cutawayLabel"></span></label><button id="reset">Fit robot</button><button id="field" aria-describedby="fieldWhy">Fit field interaction</button><button id="expand" aria-label="Expand model viewer">Expand</button></div>
  <div id="stage"><canvas id="canvas" tabindex="0" aria-label="Solid model. Drag to orbit, Shift-drag to pan. Arrow keys rotate, Shift and arrow keys pan."></canvas><div id="names"></div><div id="sceneStatus" role="status">Loading geometry…</div></div>
  <small>Drag to orbit · Shift-drag or right-drag to pan · Scroll to zoom · Arrows rotate · Home fits robot</small>
  <div class="bar playback"><select aria-label="Motion case" id="motion"></select><button id="play">Play</button><select id="speed" aria-label="Playback speed"><option value="1">1×</option><option value=".25">¼×</option><option value="4">4×</option><option value="10">10×</option></select><input id="time" aria-label="Position on path" type="range" min="0" max="24" value="0"><output id="fraction">0%</output></div>
@@ -71,7 +71,7 @@ aside{padding:16px;align-self:start}aside label{display:block;margin-bottom:5px}
 </div>
 <section id="resources" aria-label="Weight and power budgets"></section>
 <section class="lower power-ledger"><div id="weightCard"><h2>Weight budget</h2><div id="weightBody"></div></div><div id="powerCard"><h2>Power by load</h2><p>Upper battery-current estimate by circuit group. Choose a bar to inspect the contributing parts.</p><div id="powerBars"></div><div id="loads"></div></div></section>
-<section class="checks"><details><summary>Strategic narrative review</summary><div id="narrative"></div></details><h2>Required components</h2><p id="warningText"></p><div id="required"></div></section>
+<section class="checks"><details><summary>Strategic narrative review</summary><div id="narrative"></div></details><h2>Required components</h2><p id="warningText"></p><div id="required"></div><h2 id="attachmentHeading">Attachment: nothing floats</h2><p id="attachmentText"></p><div id="attachment"></div></section>
 <section class="lower"><div><h2>Clearance evidence</h2><p id="validation"></p><label>Evidence set <select id="set"><option>Current motion</option><option>Parked assembly</option></select></label><label> Outcome <select id="filter"><option value="adverse">Failed or open</option><option value="all">All recorded pairs</option></select></label><p id="count"></p><div id="findings"></div><p id="witness"></p></div><div><h2>Component inventory</h2><p id="inventoryScope"></p><div id="inventory"></div></div></section>
 <section class="decision" id="motion-evidence" aria-label="Motion evidence and decision"><h2>Motion evidence and decision</h2><div class="scroll"><table id="evidenceTable"></table></div>
  <p id="replayNote" hidden>A replay plays back a recorded trial from the files pinned in its row. It is not a clearance case: the layout check does not run it or credit it, and the decision above does not depend on it.</p>
@@ -97,6 +97,27 @@ function massLinesFor(id,scene){
  for(const l of scene.mass?.runningAdditions||[])if(l.members.includes(id))rows.push(l.name+': '+range(l.kg,2)+' kg · running addition, excluded from inspection weight');
  return rows;
 }
+// What the layout check's attachment report says about one body, or null. Only floating and off-floor are findings.
+function attachmentNote(id,scene){
+ const a=scene.attachment;if(!a)return null;const name=n=>scene.bodies[n]?.name||n;
+ const f=(a.floating||[]).find(r=>r.solid===id);if(f)return {kind:'floating',finding:true,text:'Floating: nothing holds it within '+a.gapMm+' mm. Nearest attached solid: '+(f.nearest?name(f.nearest)+', '+fmt(f.gapMm,1)+' mm away':'not resolved')};
+ const u=(a.unmountedAllowances||[]).find(r=>r.solid===id);if(u)return {kind:'allowance',finding:false,text:'Unmounted allowance: '+u.reason};
+ if((a.onUnmountedAllowance||[]).includes(id))return {kind:'carried',finding:false,text:'Carried by an unmounted allowance'};
+ if((a.heldByMountOnly||[]).includes(id))return {kind:'mount',finding:false,text:'Held across a gap by a registered mount alone; no modelled solid touches it'};
+ const o=(a.fixturesOffFloor||[]).find(r=>r.fixture===id);if(o)return {kind:'off-floor',finding:true,text:'Off the floor: lowest point '+fmt(o.lowestAboveFloorMm,1)+' mm above it, and not labelled suspended'};
+ const h=(a.suspendedFixtures||[]).find(r=>r.fixture===id);if(h)return {kind:'suspended',finding:false,text:'Suspended: '+h.reason};
+ return null;
+}
+// The rows of the attachment list: [label, body id, detail, finding, other bodies to mark].
+function attachmentRows(scene){
+ const a=scene.attachment||{},name=n=>scene.bodies[n]?.name||n;
+ return [...(a.floating||[]).map(r=>['Floating',r.solid,r.nearest?'nearest attached solid '+name(r.nearest)+', '+fmt(r.gapMm,1)+' mm away':'nearest attached solid not resolved',true,r.nearest?[r.nearest]:[]]),
+  ...(a.fixturesOffFloor||[]).map(r=>['Off floor',r.fixture,'field fixture, lowest point '+fmt(r.lowestAboveFloorMm,1)+' mm above the floor',true,[]]),
+  ...(a.unmountedAllowances||[]).map(r=>['Allowance',r.solid,'unmounted allowance: '+r.reason+(r.reachesFrame?' (it reaches the frame, so the label can go)':''),false,[]]),
+  ...(a.onUnmountedAllowance||[]).map(n=>['Carried',n,'carried by an unmounted allowance',false,[]]),
+  ...(a.heldByMountOnly||[]).map(n=>['Mount only',n,'held across a gap by a registered mount alone',false,[]]),
+  ...(a.suspendedFixtures||[]).map(r=>['Suspended',r.fixture,'suspended field fixture: '+r.reason,false,[]])];
+}
 function inspectorFields(id,scene){
  const b=scene.bodies[id];if(!b)return [['Component',MISSING,true]];
  const miss=new Set(b.missing||[]),val=(k,v)=>miss.has(k)||v==null||v===''?[MISSING,true]:[v,false];
@@ -106,10 +127,10 @@ function inspectorFields(id,scene){
  const loads=[...new Set(scene.power.flatMap(d=>d.lines.filter(l=>l.members.includes(id)).map(l=>l.name)))];
  const moves=[...scene.cases.filter(c=>c.bodies[id]?.matrices.length>1),...(scene.replays||[]).filter(r=>r.bodies[id]&&r.bodies[id].group!==null)].map(c=>c.id);
  // Mounts the plan registers against this member, ahead of the project's load-path text.
- const mounts=(b.mounts||[]).map(m=>'Mounted on '+(scene.bodies[m.on]?.name||m.on)+' at ('+m.pointMm.map(v=>fmt(v,1)).join(', ')+') mm · '+m.basis);
- return [['Category',b.category+(b.category!==b.role?' (colour of role '+b.role+')':''),false,'swatch'],['Subsystem',...val('subsystem',b.subsystem)],['Motion group',b.motionGroup,false],
+ const note=attachmentNote(id,scene),mounts=(b.mounts||[]).map(m=>'Mounted on '+(scene.bodies[m.on]?.name||m.on)+' at ('+m.pointMm.map(v=>fmt(v,1)).join(', ')+') mm · '+m.basis);
+ return [['Category',b.category+(b.category!==b.role&&!b.fixture?' (colour of role '+b.role+')':''),false,'swatch'],['Subsystem',...val('subsystem',b.subsystem)],['Motion group',b.motionGroup,false],
   ['Material',...val('material',b.material)],['Occupied volume',...volume],['Mass line and basis',...mass],
-  ['Support and load path',...(b.fixture?['Field fixture',false]:mounts.length?[[...mounts,...(b.support?[b.support]:[])],false]:b.support?[b.support,false]:[NOT_SUPPLIED,true])],
+  ['Support and load path',...(note?[[note.text,...(b.fixture?['Field fixture']:[...mounts,...(b.support?[b.support]:[])])],note.finding]:b.fixture?['Field fixture',false]:mounts.length?[[...mounts,...(b.support?[b.support]:[])],false]:b.support?[b.support,false]:[NOT_SUPPLIED,true])],
   ['Purpose',...val('purpose',b.purpose)],['Why it is included',...val('rationale',b.rationale)],
   ['Electrical load lines',loads.length?loads:'None assigned to this component',false],['Moves in',moves.length?moves:'Stationary in every commissioned case',false]];
 }
@@ -201,7 +222,7 @@ const sum=(rows,key)=>rows.reduce((s,r)=>s.map((v,i)=>v+r[key][i]),[0,0]);
 const flat=(m,p)=>[0,4,8].map(k=>m[k]*p[0]+m[k+1]*p[1]+m[k+2]*p[2]+m[k+3]);
 const rgb=s=>[1,3,5].map(i=>parseInt(s.slice(i,i+2),16)/255);
 const short=s=>s?s.slice(0,12):'';
-let scene,entries,motions,custom=Object.create(null),selNames=new Set(),picked=new Set(),marked=[],selected=null,isolated=null,timer,cam,gl,program,position,normal,locations={},gpu,lastProjection,paintPending=false,extent=1,locatedId=null;
+let scene,entries,motions,custom=Object.create(null),selNames=new Set(),picked=new Set(),marked=[],selected=null,isolated=null,timer,cam,gl,program,position,normal,locations={},gpu,lastProjection,paintPending=false,extent=1,locatedId=null,allowanceIds=new Set();
 const current=()=>motions[$('motion').selectedIndex];
 const duty=()=>scene.power[$('duty').selectedIndex];
 const frameOf=()=>+$('time').value;
@@ -213,7 +234,7 @@ const UNMOVED=[1,0,0,0,0,1,0,0,0,0,1,0];
 function poseAt(c,id,t){const b=c.bodies[id];if(c.replay)return b.group===null?UNMOVED:c.groups[b.group][Math.min(t,c.time.length-1)];
  const m=b.matrices[Math.min(t,b.matrices.length-1)];
  if(!scene.bodies[id].fixture||!c.positions)return m;const [x,y]=c.positions[t];return [m[0],m[1],m[2],m[3]-x,m[4],m[5],m[6],m[7]-y,m[8],m[9],m[10],m[11]]}
-function presentIds(c){const t=frameOf();return Object.keys(c.bodies).filter(id=>!c.removed.includes(id)&&!(scene.cutaway&&$('cutaway').checked&&scene.cutaway.hides.includes(id))&&!(c.replay&&!poseAt(c,id,t)))}
+function presentIds(c){const t=frameOf(),noField=$('hideField').checked;return Object.keys(c.bodies).filter(id=>!c.removed.includes(id)&&!(noField&&scene.bodies[id].fixture)&&!(scene.cutaway&&$('cutaway').checked&&scene.cutaway.hides.includes(id))&&!(c.replay&&!poseAt(c,id,t)))}
 // Where the followed group sits in the field at a frame; a case has no field position of this kind.
 function followPoint(c,t){if(!c.replay)return null;const m=c.groups[c.follow][Math.min(t,c.time.length-1)];return [m[3],m[7],m[11]]}
 function tubePoints(tube,t){return tube.points[Math.min(t,tube.points.length-1)]}
@@ -228,7 +249,7 @@ function header(){
  const heading=scene.title||scene.issue;
  document.title=heading+' · Preliminary design review';
  $('heading').textContent=heading;
- $('context').textContent=[scene.context,releaseId(),'Preliminary design'].filter(Boolean).join('　/　');
+ context();
  for(const link of scene.links||[]){const url=followable(link.href,location.href);if(!url)continue;const a=text('a',link.label);a.href=url.href;a.target='_top';$('links').append(a)}
  const show=(id,value,what)=>value?($(id).textContent=value):$(id).replaceChildren(notSupplied(what));
  show('architecture',scene.architecture,'presentation.architecture');show('datum',scene.datum);$('units').textContent=scene.units;
@@ -236,22 +257,46 @@ function header(){
  decide(scene.decision.status,scene.decision.firstUnmet,'(at scene generation; awaiting the review receipt)');
  triggered(scene.decision.status==='blocked'&&scene.decision.firstUnmet?[scene.decision.firstUnmet.text]:[]);
 }
-let designStatus=null,revision='',decision='pending receipt';
+let designStatus=null,draft=0,designTitle='',phase='Preliminary design',builtOn='',decision='pending receipt';
 const releaseId=()=>decodeURIComponent(new URL('.',location.href).pathname.split('/').filter(Boolean).at(-1)||'');
-function chip(){const s=$('state');s.textContent=(designStatus?designStatus[0].toUpperCase()+designStatus.slice(1).replace('-',' ')+' · ':'')+revision+decision;s.className='chip '+decision}
+// A version reads NAME MAJOR.MINOR once the release index is read; until then, and for an earlier ID, the ID stands.
+function context(){$('context').textContent=[scene?.context,designTitle||releaseId(),phase,builtOn].filter(Boolean).join('　/　')}
+function chip(){
+ const said=[draft?'draft '+draft:'',designStatus?designStatus.replace('-',' '):''].filter(Boolean).join(' · ');
+ const s=$('state');s.textContent=(said?said[0].toUpperCase()+said.slice(1)+' · ':'')+decision;s.className='chip '+decision}
 function decide(status,unmet,source){
  decision=status;$('decision').textContent=status;$('decision').className='chip '+status;chip();
  $('decisionSource').textContent=source;$('firstUnmet').textContent=unmet?unmet.text:'None. Every commissioned check passes.';
  $('unmetInline').hidden=!unmet;$('unmetInline').textContent=unmet?'First unmet: '+unmet.text:'';
 }
 function triggered(list){$('triggered').replaceChildren(...(list.length?list:['None recorded']).map(v=>text('li',typeof v==='string'?v:v.phase+': '+v.reason+(v.affected?' ('+v.affected.join(', ')+')':''))))}
+const versionMajor=id=>/^([1-9]\d{0,3})\.(0|[1-9]\d{0,3})$/.exec(id)?.[1];
+// The same page serves a detailed design, staged under designs/ID/ beside designs.json. It reads the design's name, draft and
+// status from that index and names the preliminary design it is built on.
+async function showDetailedStatus(id){
+ const r=await fetch('../../designs.json',{cache:'no-store'});if(!r.ok)return;const index=await r.json();if(!index.designs?.includes?.(id))return;
+ phase='Detailed design';designStatus=index.designStatus?.[id]??'in-progress';
+ // This page is the one viewer of the detailed design, in progress and effective: the same checked model, motion and missions.
+ for(const e of [$('heading'),document.querySelector('title')])e.textContent=e.textContent.replace('Preliminary design review','Detailed design review');
+ $('basisNote').textContent='Detailed design: the model exported from the registered Fusion design, checked on the motion cases of the preliminary design it is built on. The review receipt gives the checked result.';
+ const edited=index.revision?.[id]?.number;draft=designStatus==='in-progress'&&Number.isInteger(edited)?edited:0;
+ const name=index.architectures?.[versionMajor(id)]?.name,link=index.preliminary?.[id];
+ if(typeof name==='string'&&name.trim()){designTitle=name+' '+id;document.title=designTitle+' · '+document.title.replace(designTitle+' · ','')}
+ if(link){
+  let basis=null;try{const p=await fetch('../../'+String(index.preliminaryIndex||''),{cache:'no-store'});basis=p.ok?await p.json():null}catch{}
+  const said=basis?.designs?.[versionMajor(link)]?.name;
+  builtOn='built on preliminary '+(said?'design '+said+' '+link:'release '+link)}
+ context();chip()}
 // The release index beside the releases says this release's design status; it is display only.
 async function showDesignStatus(){
  const id=releaseId();
- try{const r=await fetch('../../releases.json',{cache:'no-store'});if(!r.ok)return;const index=await r.json();if(!index.releases?.includes(id))return;
+ try{const r=await fetch('../../releases.json',{cache:'no-store'});if(!r.ok)return showDetailedStatus(id);const index=await r.json();if(!index.releases?.includes(id))return;
   designStatus=index.designStatus?.[id]??'in-progress';
-  // An in-progress release is revised in place; the index counts its revisions.
-  const edited=index.revision?.[id]?.number;revision=Number.isInteger(edited)?'revision '+edited+' · ':'';chip()}catch{}
+  // An in-progress release is revised in place; the index counts each publish as a draft, under revision. An accepted one shows no draft.
+  const edited=index.revision?.[id]?.number;draft=designStatus==='in-progress'&&Number.isInteger(edited)?edited:0;
+  const major=/^([1-9]\d{0,3})\.(0|[1-9]\d{0,3})$/.exec(id)?.[1],name=major&&index.designs?.[major]?.name;
+  if(typeof name==='string'&&name.trim()){designTitle=name+' '+id;context();document.title=designTitle+' · '+document.title.replace(designTitle+' · ','')}
+  chip()}catch{}
 }
 async function bindReceipt(contentSha){
  let receipt=null;try{const r=await fetch('receipt.json',{cache:'no-store'});receipt=r.ok?await r.json():null}catch{}
@@ -270,9 +315,10 @@ function initGL(){
  const c=$('canvas');gl=c.getContext('webgl',{antialias:true,alpha:false});
  if(!gl)throw Error('Enable WebGL to view the assembly.');
  const vertex='attribute vec3 point;attribute vec3 normal;uniform mat4 pose;uniform mat4 camera;uniform vec3 tint;varying vec3 shade;void main(){gl_Position=camera*pose*vec4(point,1.0);vec3 n=mat3(pose)*normal;float light=.83+.28*dot(n,vec3(.32,-.42,.84));shade=tint*light+vec3(.035);}';
- const fragment='precision mediump float;varying vec3 shade;void main(){gl_FragColor=vec4(shade,1.0);}';
+ // A hatched body is an unmounted allowance: diagonal screen-space stripes in a pale tone over its own colour.
+ const fragment='precision mediump float;varying vec3 shade;uniform float hatch;void main(){float stripe=step(.5,fract((gl_FragCoord.x+gl_FragCoord.y)/10.));gl_FragColor=vec4(mix(shade,vec3(.93,.95,.98),.6*hatch*stripe),1.0);}';
  program=gl.createProgram();for(const [type,src] of [[gl.VERTEX_SHADER,vertex],[gl.FRAGMENT_SHADER,fragment]]){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));gl.attachShader(program,s)}
- gl.linkProgram(program);gl.useProgram(program);for(const k of ['camera','pose','tint'])locations[k]=gl.getUniformLocation(program,k);
+ gl.linkProgram(program);gl.useProgram(program);for(const k of ['camera','pose','tint','hatch'])locations[k]=gl.getUniformLocation(program,k);
  position=gl.getAttribLocation(program,'point');normal=gl.getAttribLocation(program,'normal');gl.enableVertexAttribArray(position);gl.enableVertexAttribArray(normal);gl.enable(gl.DEPTH_TEST);
  const upload=(values,mode)=>{const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(values),gl.STATIC_DRAW);return {buffer,count:values.length/6,mode}};
  const triangles=m=>upload(triangleValues(m),gl.TRIANGLES);
@@ -343,7 +389,7 @@ function render(){
  const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),off=[(2*cam.x+rail)/width-dot(u,center),-2*cam.y/height-dot(v,center),-dot(z,center)];
  lastProjection=p=>[dot(u,p)+off[0],dot(v,p)+off[1],dot(z,p)+off[2]];
  gl.uniformMatrix4fv(locations.camera,false,[u[0],v[0],z[0],0,u[1],v[1],z[1],0,u[2],v[2],z[2],0,...off,1]);
- const paint=(item,m,col)=>{gl.bindBuffer(gl.ARRAY_BUFFER,item.buffer);gl.vertexAttribPointer(position,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(normal,3,gl.FLOAT,false,24,12);gl.uniformMatrix4fv(locations.pose,false,modelMatrix(m));gl.uniform3fv(locations.tint,col);gl.drawArrays(item.mode,0,item.count)};
+ const paint=(item,m,col,hatch=0)=>{gl.uniform1f(locations.hatch,hatch);gl.bindBuffer(gl.ARRAY_BUFFER,item.buffer);gl.vertexAttribPointer(position,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(normal,3,gl.FLOAT,false,24,12);gl.uniformMatrix4fv(locations.pose,false,modelMatrix(m));gl.uniform3fv(locations.tint,col);gl.drawArrays(item.mode,0,item.count)};
  const field=cs.positions?[1,0,0,-cs.positions[t][0],0,1,0,-cs.positions[t][1],0,0,1,0]:[1,0,0,0,0,1,0,0,0,0,1,0];
  if($('floor').checked){const g=gpu.gridStep,off=at?at.map(x=>-Math.round(x/g)*g):cs.positions?cs.positions[t].map(x=>x-Math.round(x/g)*g):[0,0];paint(gpu.grid,[1,0,0,-off[0],0,1,0,-off[1],0,0,1,0],[.16,.25,.34])}
  if(gpu.outline&&$('cutaway').checked)paint(gpu.outline,field,[.36,.94,1]);
@@ -351,10 +397,10 @@ function render(){
  for(const id of visibleBodies(presentIds(cs),isolated)){
   const b=scene.bodies[id],m=poseAt(cs,id,t);let col=b.tint;
   if(marked.includes(id))col=[1,.34,.14];else if(!selNames.has(id)&&!b.fixture)col=b.dim;if(id===selected)col=[1,.79,.27];
-  paint(gpu.mesh(cs.bodies[id].mesh),m,col);
+  paint(gpu.mesh(cs.bodies[id].mesh),m,col,allowanceIds.has(id)?1:0);
   if(rail&&($('labels').checked||marked.includes(id)||id===selected)){const p=lastProjection(flat(m,scene.meshes[cs.bodies[id].mesh].anchor)),x=(p[0]+1)*width/2,y=(1-p[1])*height/2;if(x>rail+17&&x<width-4&&y>4&&y<height-4)labels.push({id,name:b.name,x,y})}
  }
- if(!isolated)for(const tube of cs.tubes||[]){const values=tube.body?carriedMesh(tube,t):tubeTriangles(tubePoints(tube,t),tube.radiusMm);gl.bindBuffer(gl.ARRAY_BUFFER,gpu.tube.buffer);gl.bufferData(gl.ARRAY_BUFFER,values,gl.DYNAMIC_DRAW);gpu.tube.count=values.length/6;paint(gpu.tube,UNMOVED,tube.body?scene.bodies[tube.body].tint:rgb(tube.color))}
+ if(!isolated)for(const tube of cs.tubes||[]){if(tube.body&&$('hideField').checked)continue;const values=tube.body?carriedMesh(tube,t):tubeTriangles(tubePoints(tube,t),tube.radiusMm);gl.bindBuffer(gl.ARRAY_BUFFER,gpu.tube.buffer);gl.bufferData(gl.ARRAY_BUFFER,values,gl.DYNAMIC_DRAW);gpu.tube.count=values.length/6;paint(gpu.tube,UNMOVED,tube.body?scene.bodies[tube.body].tint:rgb(tube.color))}
  drawLeaders(labels,width,height,rail);
  const frames=frameCount(cs);$('fraction').textContent=cs.time?fmt(cs.time[t])+' s':Math.round(t/Math.max(1,frames-1)*100)+'%';
  const row=(scene.motionEvidence||[]).find(r=>r.case===cs.id);
@@ -474,6 +520,18 @@ function required(){
  const m=scene.mass,e=duty();
  $('warningText').textContent=(missing?missing+' missing required representations. ':scene.required.length?'Required component counts present. ':'')+(m&&m.inspectionKg[1]>m.limitKg?'High estimate exceeds inspection weight. ':'')+(e&&e.loadedBusV[0]<e.requiredMinV?'Selected duty falls below voltage requirement. ':'')+(scene.focus||'');
  if(!scene.focus)$('warningText').append('Focus: ',notSupplied('presentation.focus'));
+}
+// The layout check's attachment report: every floating solid and labelled exception, each selectable in the model.
+function attachmentPanel(){
+ const a=scene.attachment,root=$('attachment'),note=$('attachmentText');root.replaceChildren();
+ if(!a){note.replaceChildren(notSupplied('this scene predates the attachment report; rerun the layout check'));return}
+ if(a.skipped&&!a.floating){note.textContent=a.skipped;return}
+ const rows=attachmentRows(scene),findings=rows.filter(r=>r[3]).length;
+ note.textContent=(findings?findings+' to fix or label. ':'Nothing floats. ')+a.robotSolids+' robot solids checked at the start of '+a.case+'; touching means within '+a.gapMm+' mm. Field fixtures, game pieces and service gauges are left out. Information only: it does not change the checked result.';
+ for(const [label,id,detail,finding,also] of rows){
+  const row=document.createElement('div');row.className='role-row'+(finding?' warn':'');const b=text('button',scene.bodies[id]?.name||id);b.setAttribute('aria-label','Inspect '+label.toLowerCase()+' '+id);
+  b.onclick=()=>{if(scene.bodies[id]?.fixture&&$('hideField').checked)$('hideField').checked=false;const i=motions.findIndex(c=>c.id===a.case);if(i>=0){selectCase(i);$('time').value=0}isolated=null;inspect(id,also);$('stage').scrollIntoView({block:'nearest'})};
+  row.append(text('strong',label),b,text('small',detail));root.append(row)}
 }
 function inventory(){
  const edit=$('group').value==='Custom subsystem',[tab,body]=table([edit?'Use':'Category','Component / subsystem','Preliminary material','Volume']);
@@ -603,7 +661,10 @@ async function init(){
  const n=scene.narrativeReview;$('narrative').replaceChildren(...(n?.source?[text('p',n.source.file+' · '+short(n.source.sha256))]:[notSupplied('narrativeReview')]),...(n?.objectives||[]).map(o=>{const p=text('p',o.objective+' — '+o.disposition+'. '+o.basis);
   for(const r of replays.filter(r=>r.objective===o.objective)){const b=text('button','Play replay: '+r.label);b.style.marginLeft='.5rem';b.onclick=()=>{selectCase(motions.indexOf(r));start();$('stage').scrollIntoView({block:'nearest'})};p.append(b)}return p}));
  $('notes').replaceChildren(...(scene.notes?.length?scene.notes.map(v=>text('p',v)):[notSupplied('presentation.notes')]));
- validationText();motionEvidence();initGL();group();
+ allowanceIds=new Set((scene.attachment?.unmountedAllowances||[]).map(r=>r.solid));
+ if(allowanceIds.size){const span=document.createElement('span'),i=document.createElement('i');i.className='swatch hatched';span.append(i,'unmounted allowance');$('legend').append(span)}
+ $('hideFieldToggle').hidden=!entries.some(([,b])=>b.fixture);
+ validationText();motionEvidence();attachmentPanel();initGL();group();
  activate(true);reset();
  $('sceneStatus').textContent='Scene loaded';
  bindReceipt(loaded.contentSha).then(()=>{if($('decisionSource').textContent.startsWith('(from the review receipt'))$('sceneStatus').textContent='Scene digest verified'+(isSecureContext?'':' (plain HTTP: consistency check only)')});
@@ -611,7 +672,7 @@ async function init(){
  $('save').onclick=()=>{const name=$('subname').value.trim();if(!name||!picked.size){$('inventoryScope').textContent='Enter a subsystem name and select at least one component.';return}custom[name]=[...picked];writeGroups();group();$('subset').value=name;$('subset').onchange()};
  $('motion').onchange=()=>activate();$('time').oninput=()=>{stop();draw()};$('play').onclick=()=>timer?stop():start();$('speed').onchange=stop;
  $('labelPrev').onclick=()=>{labelPage=Math.max(0,labelPage-1);draw()};$('labelNext').onclick=()=>{labelPage+=1;draw()};
- for(const id of ['labels','floor','cutaway'])$(id).onchange=draw;
+ for(const id of ['labels','floor','cutaway','hideField'])$(id).onchange=draw;
  $('expand').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.querySelector('.viewer').requestFullscreen()}catch{}};
  document.addEventListener('fullscreenchange',()=>{$('expand').textContent=document.fullscreenElement?'Restore':'Expand';draw()});
  $('set').onchange=$('filter').onchange=evidence;$('reset').onclick=reset;$('field').onclick=fieldFit;

@@ -514,6 +514,51 @@
     "climb-lift",
     "park-lower"
   ],
+  "attachment": {
+    "informational": true,
+    "case": "intake-deploy",
+    "pose": "start of the case",
+    "gapMm": 3,
+    "floorZMm": 0,
+    "robotSolids": 68,
+    "excluded": {
+      "fieldFixtures": 6,
+      "payloads": 2,
+      "serviceAndGauges": 0
+    },
+    "frameSolids": 64,
+    "floating": [
+      {
+        "solid": "front left wheel azimuth envelope",
+        "group": "drivetrain",
+        "nearest": "front left module body",
+        "gapMm": 3.8
+      },
+      {
+        "solid": "front right wheel azimuth envelope",
+        "group": "drivetrain",
+        "nearest": "front right module body",
+        "gapMm": 3.8
+      },
+      {
+        "solid": "rear left wheel azimuth envelope",
+        "group": "drivetrain",
+        "nearest": "rear left module body",
+        "gapMm": 3.8
+      },
+      {
+        "solid": "rear right wheel azimuth envelope",
+        "group": "drivetrain",
+        "nearest": "rear right module body",
+        "gapMm": 3.8
+      }
+    ],
+    "heldByMountOnly": [],
+    "unmountedAllowances": [],
+    "onUnmountedAllowance": [],
+    "fixturesOffFloor": [],
+    "suspendedFixtures": []
+  },
   "control": {
     "case": "launch-wrap-3",
     "displaced": "hood",
@@ -2056,13 +2101,13 @@
   },
   "view": {
     "file": "cad/preliminary-design/releases/layout-002/package-motion.html",
-    "sha256": "0d72a01d5760a127fc40cdf9a2beef3ba5b3946a969ee0ead3d537ae98b48838",
+    "sha256": "0f6f45df6065bbe6db9c0ca550b8feb4196af2afad36b3c0c82ba8d75cad3fa6",
     "verified": true,
     "scene": {
       "file": "cad/preliminary-design/releases/layout-002/review-scene.json.gz",
-      "sha256": "1da5c442c558cba1f98e02e1e29c247140f5e104db2be26824bbc207bf3c491f",
-      "contentSha256": "dabfee3c762bec86cedcaeb2c11601b7500f28dc43f8f4399e20a35ba263b730",
-      "bytes": 2919373
+      "sha256": "63e4bae11871bcebe2dfff665e301b3ebaa942f3f8a199bb4a3f05f2ac034bec",
+      "contentSha256": "93b6bcdbbe9a387d45636218dffb0bd3832df93106ec3896dc0169c37d23a893",
+      "bytes": 2920208
     }
   },
   "groups": {

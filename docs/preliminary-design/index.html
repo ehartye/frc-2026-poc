@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Preliminary design releases</title>
+<title>Preliminary design</title>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="./fonts/fonts.css">
 <style>
 *{box-sizing:border-box}body{display:flex;flex-direction:column;min-height:100dvh;margin:0;color:#182e49;background:#f7faf8;font:1rem "Source Sans 3","Segoe UI",sans-serif}header{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;padding:.75rem clamp(1rem,4vw,4rem);background:#142f63;color:white;border-bottom:3px solid #ffd078}h1{margin:0 auto 0 0;font:700 1.6rem "Barlow Condensed","Arial Narrow",sans-serif}select{font:inherit}a{color:#ffd078}iframe{display:block;flex:1;width:100%;min-height:25rem;border:0}[hidden]{display:none}#message{margin:1rem}
 </style>
-<header><h1>Preliminary design</h1><label>Release <select id="release" disabled></select></label>
+<header><h1>Preliminary design</h1><label>Design <select id="release" disabled></select></label>
 <small id="revision"></small><a id="standalone" hidden>Open full view</a><a id="evidence" hidden>Review receipt</a></header>
 <p id="message" role="status">Loading releases…</p><iframe hidden title="Selected preliminary design"></iframe>
 <script type="module">
@@ -19,20 +19,30 @@ try{
  // Design status lives in the index: in-progress, effective, superseded or withdrawn. A listed release without one is in progress.
  const statusOf=id=>record.designStatus?.[id]??'in-progress',label=s=>s.replace('-',' ');
  const requested=params.has('release')?params.get('release'):record.current;
- // One entry per design. An edit of an in-progress release is a revision of the same entry, counted in the index.
- // A release superseded before it was ever accepted as effective stays in the index and is listed only when asked for by ID.
- const revision=id=>Number.isInteger(record.revision?.[id]?.number)?' · revision '+record.revision[id].number:'';
+ // A version, MAJOR.MINOR, reads with the name of its architecture, which the index holds once per major number.
+ const major=id=>/^([1-9]\d{0,3})\.(0|[1-9]\d{0,3})$/.exec(id)?.[1],name=id=>major(id)&&record.designs?.[major(id)]?.name;
+ const title=id=>name(id)?name(id)+' '+id:id;
+ // A publish of an in-progress version is a draft, counted in the index under revision. It takes no number and no entry.
+ const draft=id=>statusOf(id)==='in-progress'&&Number.isInteger(record.revision?.[id]?.number)?' · draft '+record.revision[id].number:'';
+ const entry=id=>new Option(title(id)+draft(id)+' · '+label(statusOf(id))+(id===record.current?' · current':''),id);
+ // The picker lists the effective design and the in-progress one of each architecture. Earlier baselines and withdrawn
+ // designs follow in their own group. A release superseded before it was ever accepted is listed only when asked for by ID.
+ const live=id=>['in-progress','effective'].includes(statusOf(id));
  const listed=id=>id===requested||!(statusOf(id)==='superseded'&&!record.accepted?.[id]);
- for(const id of record.releases.filter(listed))select.add(new Option(id+' · '+label(statusOf(id))+revision(id)+(id===record.current?' · current':''),id));
+ for(const id of record.releases.filter(live))select.add(entry(id));
+ const earlier=record.releases.filter(id=>!live(id)&&listed(id));
+ if(earlier.length){const group=document.createElement('optgroup');group.label='Earlier';group.append(...earlier.map(entry));select.append(group)}
  select.disabled=false;select.onchange=()=>show(select.value);
  if(!record.releases.includes(requested)){select.selectedIndex=-1;throw Error('Unknown release “'+requested+'”. Choose a release above.')}
- select.value=requested;params.delete('release');
- const edited=record.revision?.[requested];
- if(revision(requested))document.querySelector('#revision').textContent='Revision '+edited.number+(edited.date?', '+edited.date:'')+(edited.commit?', from commit '+String(edited.commit).slice(0,7):'');
+ select.value=requested;params.delete('release');document.title=title(requested)+' · Preliminary design';
+ // An in-progress version shows its draft; an accepted one shows the date it was accepted and the commit it was staged from.
+ const edited=record.revision?.[requested],accepted=record.accepted?.[requested],from=edited?.commit?', from commit '+String(edited.commit).slice(0,7):'';
+ if(draft(requested))document.querySelector('#revision').textContent='Draft '+edited.number+(edited.date?', '+edited.date:'')+from;
+ else if(accepted&&statusOf(requested)!=='withdrawn')document.querySelector('#revision').textContent='Accepted '+accepted+from;
  if(statusOf(requested)==='withdrawn'){
   // A withdrawn release keeps its reason in the index. Its files left the site; Git has them at the recorded commit.
   const commit=record.lastCommit?.[requested];
-  message.textContent='Release '+requested+' was withdrawn'+(record.reason?.[requested]?': '+record.reason[requested]:'.')+(commit?' Its files are in the repository history at commit '+commit.slice(0,12)+'.':'');
+  message.textContent=(name(requested)?title(requested):'Release '+requested)+' was withdrawn'+(record.reason?.[requested]?': '+record.reason[requested]:'.')+(commit?' Its files are in the repository history at commit '+commit.slice(0,12)+'.':'');
   throw null;
  }
  const base='./releases/'+encodeURIComponent(requested)+'/';

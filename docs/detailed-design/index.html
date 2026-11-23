@@ -28,27 +28,46 @@ a{color:inherit}
 <body>
 <main>
 <h1>Detailed designs</h1>
-<p class="lead">The effective detailed design passed the mechanical-readiness review and was accepted in a reviewed change. An in-progress design passed its automated layout and mission checks and is still changing.</p>
+<p class="lead">The effective detailed design passed the mechanical-readiness review and was accepted in a reviewed change. An in-progress design passed its automated layout and mission checks and is still changing. Each design has one viewer, its design review.</p>
 <section id="current" class="pair" aria-live="polite"><p>Loading the design index.</p></section>
 <h2 id="archive-title" hidden>Archive</h2>
 <ul id="archive"></ul>
 </main>
 <script>
 const labels={'in-progress':'In-progress detailed design',effective:'Effective detailed design',superseded:'Superseded detailed design',withdrawn:'Withdrawn detailed design'};
+const version=/^([1-9]\d{0,3})\.(0|[1-9]\d{0,3})$/;
+const titled=(index,id)=>{const name=index.architectures?.[version.exec(id)?.[1]]?.name;return name?name+' '+id:id};
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 function card(index,id,primary){
   const status=index.designStatus[id],box=el(primary===undefined?'li':'article','card '+status+(primary?' primary':''));
-  box.append(el('span','status',labels[status]),el('h3','',id));
+  // A version reads NAME MAJOR.MINOR, then its draft while in progress, then its status. An earlier ID reads as the ID.
+  const major=version.exec(id)?.[1],name=major&&index.architectures?.[major]?.name,edited=index.revision?.[id]?.number;
+  const draft=status==='in-progress'&&Number.isInteger(edited)?'draft '+edited:'';
+  box.append(el('span','status',labels[status]),el('h3','',[name?name+' '+id:id,draft,status.replace('-',' ')].filter(Boolean).join(' · ')));
   const link=index.preliminary?.[id];
-  if(status==='in-progress'){
-    const a=el('a','','Open the checked motion and mission cases');a.href='designs/'+encodeURIComponent(id)+'/';
+  // One viewer for one design: the staged design review, in progress and effective. A design recorded from its
+  // review alone has no page yet, so its link appears once the page answers.
+  if(status==='in-progress'||status==='effective'){
+    const a=el('a','','Open the design review: model, checked motion and mission cases');a.href='designs/'+encodeURIComponent(id)+'/';
     const line=el('p','note');line.append(a);box.append(line);
+    if(status==='effective'){
+      line.hidden=true;
+      const none=el('p','note','No design review is staged for this design yet.');box.append(none);
+      index.hasReview?.(id)?.then(found=>{line.hidden=!found;none.hidden=found;});
+    }
   }
-  if(status==='effective')box.append(el('p','note','Shown on the project entry page, README still and model selector.'));
-  if(link)box.append(el('p','note','Built on preliminary release '+link+'.'));
+  if(status==='effective')box.append(el('p','note','The project entry page and README still show this design and link to its review.'));
+  // The bench tests handed over by the preliminary design, from the record published beside the review.
+  if(status==='in-progress'||status==='effective'){
+    const tests=el('p','note');tests.hidden=true;box.append(tests);
+    index.benchTests?.(id)?.then(said=>{if(said){tests.textContent=said;tests.hidden=false}});
+  }
+  const built=link&&index.preliminaryTitle?index.preliminaryTitle(link):link;
+  if(link)box.append(el('p','note','Built on preliminary '+(built===link?'release ':'design ')+built+'.'));
   const linked=link&&(status==='in-progress'||status==='effective')&&index.preliminaryStatus?index.preliminaryStatus(link):'effective';
-  if(linked!=='effective')box.append(el('p','warning','Preliminary release '+link+' is now '+linked+'. This design needs re-linking to the effective preliminary release.'));
-  if(index.supersededBy?.[id])box.append(el('p','note','Superseded by '+index.supersededBy[id]+'.'));
+  if(linked!=='effective')box.append(el('p','warning','Preliminary '+(built===link?'release ':'design ')+built+' is now '+linked+'. '+(status==='in-progress'?'This design needs re-linking to the effective preliminary release.':'Work on the effective preliminary design is the next version of this design.')));
+  if(status!=='in-progress'&&index.accepted?.[id])box.append(el('p','note','Accepted '+index.accepted[id]+'.'));
+  if(index.supersededBy?.[id])box.append(el('p','note','Superseded by '+titled(index,index.supersededBy[id])+'.'));
   if(index.reason?.[id])box.append(el('p','note','Withdrawn: '+index.reason[id]+(index.lastCommit?.[id]?' Its files are in the repository history at commit '+index.lastCommit[id].slice(0,12)+'.':'')));
   return box;
 }
@@ -57,6 +76,17 @@ json('designs.json').then(async index=>{
   // The re-link warning is read live from the preliminary release index.
   const releases=await json(String(index.preliminaryIndex||'')).catch(()=>null);
   if(releases)index.preliminaryStatus=id=>releases.designStatus?.[id]??'in-progress';
+  // A version, MAJOR.MINOR, reads with its architecture's name from the preliminary index.
+  if(releases)index.preliminaryTitle=id=>{const name=releases.designs?.[version.exec(id)?.[1]]?.name;return name?name+' '+id:id};
+  index.hasReview=id=>fetch('designs/'+encodeURIComponent(id)+'/index.html',{method:'HEAD',cache:'no-store'}).then(r=>r.ok).catch(()=>false);
+  index.benchTests=id=>json('designs/'+encodeURIComponent(id)+'/bench-tests.json').then(record=>{
+    const tests=(record.tests||[]).filter(t=>t&&typeof t==='object'),of=tag=>tests.filter(t=>t.tag===tag);
+    // A numeric result is judged against the handed-over limits; otherwise the result says whether it passed.
+    const passed=t=>{const r=t.result;if(!r)return false;const n=[t.pass,t.fail,r.value].every(v=>typeof v==='number');
+      return n?(t.pass>t.fail?r.value>=t.pass:r.value<=t.pass):r.passed===true};
+    const planned=t=>[t.owner,t.plan].every(v=>typeof v==='string'&&v.trim());
+    return tests.length?'Bench tests: '+of('before-build').filter(passed).length+' of '+of('before-build').length+' before-build passed, '+
+      of('on-robot').filter(planned).length+' of '+of('on-robot').length+' on-robot with an owner and a plan.':null}).catch(()=>null);
   const current=document.getElementById('current'),archive=document.getElementById('archive');
   current.replaceChildren();
   if(index.current)current.append(card(index,index.current,true));
