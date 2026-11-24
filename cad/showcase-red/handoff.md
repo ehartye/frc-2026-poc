@@ -30,7 +30,7 @@ All twelve interfaces seat at zero nominal overlap. Four paths per side remain w
 ## Reproduce the display
 
 1. Obtain the predecessor red archive at commit `25df8858ffa118469e9fefdbc5ff392de6e3a1ae` from `cad/showcase-red/display.f3d`. Run [display_fusion.py](display_fusion.py) through Fusion with a manifest giving the repository root in `project`, the predecessor in `inputArchive`, a local `evidenceDirectory` and `mode` set to `repair-ramps`. That pass authors six extrusions and the two assemblies, closes the saved document, and reopens the F3D to export STEP and inspect the bodies. Mode `inspect-ramps` repeats only the separate native group readback.
-2. Run `python3.14 cad/showcase-red/extract_preview.py` with Python 3.14 or newer to extract the embedded Fusion PNG. Run `python cad/showcase-red/build_orbit.py` in the project CAD Python environment to compare the solids, tessellate the verified STEP and bind the public exports.
+2. Run `python cad/showcase-red/extract_preview.py` to extract the embedded Fusion PNG. Run `python cad/showcase-red/build_orbit.py` in the project CAD Python environment to compare the solids, tessellate the verified STEP and bind the public exports.
 3. From this folder, run the following geometric checks in the CAD Python environment.
 
 ```sh
